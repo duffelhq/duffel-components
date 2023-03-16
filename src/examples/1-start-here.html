@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <!-- 1. This script loads duffel-components -->
+    <script src="http://127.0.0.1:8000/index.js"></script>
+    <script>
+      window.onload = () => {
+        // 3. Create an event handler to work with order creation payload
+        async function handleCreateOrderPayload(createOrderPayload) {
+          console.log(createOrderPayload);
+        }
+
+        // 4. Listen to `onPayloadReady` event on the component
+        document
+          .getElementById("duffel-checkout")
+          .addEventListener("onPayloadReady", ({ detail }) =>
+            handleCreateOrderPayload(detail)
+          );
+      };
+    </script>
+  </head>
+
+  <body style="font-family: sans-serif">
+    <h1>Just a test</h1>
+
+    <!-- 2. Add the custome element to your markup -->
+    <duffel-checkout
+      id="duffel-checkout"
+      offer='{"id":"off_123"}'
+    ></duffel-checkout>
+
+    <div>Maybe Duffel Payments or Stripe goes here</div>
+  </body>
+</html>
