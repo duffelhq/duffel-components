@@ -3,7 +3,7 @@ import { Offer } from "./Offer";
 // TODO: define types.
 export interface CreateOrderPayload {
   selected_offers: Array<Offer["id"]>;
-  passengers: [CreateOrderPayloadPassengers];
+  passengers: Array<CreateOrderPayloadPassengers>;
   services: CreateOrderPayloadServices;
 }
 
