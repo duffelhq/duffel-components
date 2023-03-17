@@ -1,44 +1,80 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
-import { DuffelCheckoutCore } from "./DuffelCheckoutCore";
+import { createRoot, Root } from "react-dom/client";
+import { DuffelAPI } from "../types/DuffelAPI";
+import { DuffelCheckout } from "./DuffelCheckout";
 
-class DuffelCheckout extends HTMLElement {
-  mountPoint!: HTMLSpanElement;
-  name!: string;
+class DuffelCheckoutCustomElement extends HTMLElement {
+  /**
+   * The React root for displaying content inside a browser DOM element.
+   */
+  root!: Root;
 
-  // The connectedCallback() runs each time the element is added to the DOM
+  /**
+   * The callback users should react to.
+   */
+  onPayloadReady!: (data: DuffelAPI.CreateOrderPayload) => void;
+
+  /**
+   * Definition of which attributes should trigger `attributeChangedCallback`
+   */
+  static get observedAttributes() {
+    return ["offer", "passengers"];
+  }
+
+  /**
+   * `connectedCallback` is called to initialise the custom element
+   */
   connectedCallback() {
     const container = document.createElement("div");
-    const root = createRoot(container);
     this.attachShadow({ mode: "open" }).appendChild(container);
+
+    this.root = createRoot(container);
 
     const serialisedOffer = this.getAttribute("offer");
     if (serialisedOffer) {
-      // this will eventually just be an offer id and we won't need to parse it
       const offer = JSON.parse(serialisedOffer);
 
-      root.render(
-        <DuffelCheckoutCore
-          offer={offer}
-          onPayloadReady={(data) => {
-            this.dispatchEvent(
-              new CustomEvent("onPayloadReady", {
-                detail: data,
-              })
-            );
-          }}
-        />
-      );
+      this.onPayloadReady = (data) => {
+        this.dispatchEvent(
+          new CustomEvent("onPayloadReady", {
+            detail: data,
+          })
+        );
+      };
+
+      this.renderRoot(offer);
     } else {
-      console.error("You must provide an offer");
+      throw new Error("You must provide an offer");
     }
   }
 
+  /**
+   * This function will be called whenever one of the attributes given to it changes
+   * @param name One of the attribute names defined on `observedAttributes`
+   * @param oldValue The previous value for the attribute. Or null when this is called for the first time alongside `connectedCallback`
+   * @param newValue The present value defined in the
+   */
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
     console.log("attributeChangedCallback", [name, oldValue, newValue]);
+    if (name === "offer" && oldValue !== null) {
+      const offer = JSON.parse(newValue);
+      this.renderRoot(offer);
+    }
+  }
+
+  /**
+   * A call to
+   * @param withOffer The offer to be rendered inside `DuffelCheckout`
+   */
+  renderRoot(withOffer: DuffelAPI.Offer) {
+    console.log("rendering root", withOffer);
+    this.root.render(
+      <DuffelCheckout offer={withOffer} onPayloadReady={this.onPayloadReady} />
+    );
   }
 }
-export default DuffelCheckout;
+
+export default DuffelCheckoutCustomElement;
 
 window.customElements.get("duffel-checkout") ||
-  window.customElements.define("duffel-checkout", DuffelCheckout);
+  window.customElements.define("duffel-checkout", DuffelCheckoutCustomElement);
