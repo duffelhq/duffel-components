@@ -1,10 +1,8 @@
 <html>
   <head>
-    <!-- 1. This script loads duffel-components -->
     <script src="http://127.0.0.1:8000/index.js"></script>
     <script>
       window.onload = () => {
-        // 3. Create an event handler to work with order creation payload
         async function handleCreateOrderPayload(createOrderPayload) {
           alert(
             "CREATE ORDER PAYLOAD: \n" +
@@ -12,12 +10,24 @@
           );
         }
 
-        // 4. Listen to `onPayloadReady` event on the component
         document
           .getElementById("duffel-checkout")
           .addEventListener("onPayloadReady", ({ detail }) =>
             handleCreateOrderPayload(detail)
           );
+
+        // Maybe something will change about passengers or the offer or the settings
+        // the component should be able to handle it without having to unmount and mount again
+        // to allow us to persist state in the component (note the mount time display remains the same)
+        let counter = 0;
+        setInterval(() => {
+          document
+            .getElementById("duffel-checkout")
+            .setAttribute(
+              "offer",
+              `{"id":"new_offer_id_for_example_${++counter}"}`
+            );
+        }, 2000);
       };
     </script>
   </head>
@@ -25,7 +35,6 @@
   <body style="font-family: sans-serif">
     <h1>Checkout page</h1>
 
-    <!-- 2. Add the custom element to your markup -->
     <duffel-checkout
       id="duffel-checkout"
       offer='{"id":"off_123"}'
