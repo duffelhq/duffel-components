@@ -55,7 +55,6 @@ class DuffelCheckoutCustomElement extends HTMLElement {
    * @param newValue The present value defined in the
    */
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    console.log("attributeChangedCallback", [name, oldValue, newValue]);
     if (name === "offer" && oldValue !== null) {
       const offer = JSON.parse(newValue);
       this.renderRoot(offer);
@@ -67,7 +66,6 @@ class DuffelCheckoutCustomElement extends HTMLElement {
    * @param withOffer The offer to be rendered inside `DuffelCheckout`
    */
   renderRoot(withOffer: DuffelAPI.Offer) {
-    console.log("rendering root", withOffer);
     this.root.render(
       <DuffelCheckout offer={withOffer} onPayloadReady={this.onPayloadReady} />
     );
