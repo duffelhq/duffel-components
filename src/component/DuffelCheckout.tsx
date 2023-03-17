@@ -1,48 +1,79 @@
 import * as React from "react";
-import { makeMockPayloadForCreateOrder } from "../lib/makeMockPayloadForCreateOrder";
-import { DuffelAPI } from "../types/DuffelAPI";
+import { CreateOrderPayload } from "../types/CreateOrderPayload";
+import { Offer } from "../types/Offer";
+import {
+  BaggageSelection,
+  BaggageSelectionProps,
+  SetBaggageSelectionStateFunction,
+} from "./ancillaries/baggage-selection";
 import { ErrorBoundary } from "./ErrorBoundary";
 
+const isPayloadComplete = (
+  payload: Partial<CreateOrderPayload>
+): payload is CreateOrderPayload =>
+  "selected_services" in payload &&
+  "selected_offers" in payload &&
+  "passengers" in payload;
+
+interface CompileCreateOrderPayloadInput {
+  offer: DuffelCheckoutProps["offer"];
+  passengers: DuffelCheckoutProps["passengers"];
+  baggageSelectionState: BaggageSelectionProps["baggageSelectionState"];
+}
+
+const compileCreateOrderPayload = ({
+  baggageSelectionState,
+  offer,
+  passengers,
+}: CompileCreateOrderPayloadInput): Partial<CreateOrderPayload> => ({
+  passengers,
+  selected_offers: [offer.id],
+  ...(baggageSelectionState?.selected_services && {
+    selected_services: baggageSelectionState?.selected_services,
+  }),
+});
+
 export interface DuffelCheckoutProps {
-  offer: DuffelAPI.Offer;
-  onPayloadReady: (data: DuffelAPI.CreateOrderPayload) => void;
+  passengers: CreateOrderPayload["passengers"];
+  offer: Offer;
+  onPayloadReady: (data: CreateOrderPayload) => void;
 }
 
 export const DuffelCheckoutWithoutErrorBoundary: React.FC<DuffelCheckoutProps> =
-  ({ offer, onPayloadReady }) => {
-    const [mountTime] = React.useState(new Date());
-    const mockOrder = makeMockPayloadForCreateOrder(offer.id);
-    const serialisedOfferToRender = JSON.stringify(offer, null, 2);
+  ({ offer, passengers, onPayloadReady }) => {
+    const [baggageSelectionState, setBaggageSelectionState] = React.useState<
+      BaggageSelectionProps["baggageSelectionState"] | null
+    >(null);
+
+    const handleOnBaggageSelectionChange: SetBaggageSelectionStateFunction = (
+      baggageSelectionState
+    ) => {
+      setBaggageSelectionState(baggageSelectionState);
+    };
+
+    const createOrderPayload = compileCreateOrderPayload({
+      baggageSelectionState,
+      offer,
+      passengers,
+    });
+
+    React.useEffect(() => {
+      if (isPayloadComplete(createOrderPayload)) {
+        onPayloadReady(createOrderPayload);
+      } else {
+        console.log("partial payload");
+        console.log(createOrderPayload);
+      }
+    }, [createOrderPayload]);
 
     return (
-      <div>
-        <pre
-          style={{
-            padding: "12px",
-            color: "white",
-            backgroundColor: "#0A0A0A",
-          }}
-        >
-          {serialisedOfferToRender}
-        </pre>
-
-        <button onClick={() => onPayloadReady(mockOrder)}>
-          Call{" "}
-          <b>
-            <code>onPayloadReady</code>
-          </b>
-        </button>
-
-        <p>
-          Component mounted on:{" "}
-          <b>
-            {/* You can use error boundary anywhere */}
-            <ErrorBoundary>
-              <code>{mountTime.toISOString()}</code>
-            </ErrorBoundary>
-          </b>
-        </p>
-      </div>
+      <>
+        <BaggageSelection
+          offer={offer}
+          baggageSelectionState={baggageSelectionState}
+          setBaggageSelectionState={handleOnBaggageSelectionChange}
+        />
+      </>
     );
   };
 
