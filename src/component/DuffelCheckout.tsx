@@ -37,7 +37,12 @@ export const DuffelCheckoutWithoutErrorBoundary: React.FC<DuffelCheckoutProps> =
         <p>
           Component mounted on:{" "}
           <b>
-            <code>{mountTime.toISOString()}</code>
+            {/* You can use error boundary anywhere */}
+            <ErrorBoundary>
+              {/* TODO: delete this before merging to main, just here for convenience to demonstarte the bahviour on this PR */}
+              <TestSentry />
+              <code>{mountTime.toISOString()}</code>
+            </ErrorBoundary>
           </b>
         </p>
       </div>
