@@ -1,0 +1,17 @@
+.passenger-segment__title {
+  color: var(--GREY-900);
+  font-style: normal;
+  font-size: var(--FONT-SIZES-C1);
+  font-weight: 600;
+  line-height: var(--SPACING-MD-3);
+  padding: 0 0 0 var(--SPACING-LG-1);
+  margin: 0 0 var(--SPACING-SM-1);
+  display: flex;
+  align-items: center;
+}
+
+.passenger-segment__chevron {
+  /* We use important here because this margin can get overwritten by the icon one */
+  margin: 0 var(--SPACING-SM-1) !important;
+  color: var(--GREY-400);
+}

@@ -1,0 +1,13 @@
+.duffel-components {
+  --FONT-FAMILY: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --FONT-SIZES-C0: 20px;
+  --FONT-SIZES-C1: 16px;
+  --FONT-SIZES-C2: 14px;
+  --FONT-SIZES-C3: 12px;
+  --FONT-SIZES-H2: 32px;
+  --FONT-SIZES-H3: 28px;
+  --FONT-SIZES-H4: 24px;
+  --FONT-SIZES-H5: 20px;
+}

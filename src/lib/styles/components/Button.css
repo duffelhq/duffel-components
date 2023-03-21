@@ -1,0 +1,126 @@
+.duffel-button {
+  --BUTTON-BASE-COLOR: rgb(var(--ACCENT));
+  --BUTTON-HOVER-COLOR: rgba(var(--ACCENT), var(--ACCENT-LIGHT-300));
+  --BUTTON-FONT-SIZE: var(--FONT-SIZES-C1);
+  --BUTTON-ICON-SIZE: 24px;
+  --BUTTON-RADIUS: 5px;
+  --BUTTON-SPACING: 2px 40px;
+  --BUTTON-ICON-SPACING: 8px;
+  --BUTTON-ICON-MARGIN: 12px;
+  --TRANSITION-CUBIC-BEZIER: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  -webkit-appearance: none;
+  align-items: center;
+  background-color: inherit;
+  border: 2px solid var(--BUTTON-BASE-COLOR);
+  border-radius: var(--BUTTON-RADIUS);
+  box-sizing: border-box;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font-family: var(--FONT-FAMILY);
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  padding: var(--BUTTON-SPACING);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  transition: background-color 0.3s var(--TRANSITION-CUBIC-BEZIER),
+    border-color 0.3s var(--TRANSITION-CUBIC-BEZIER),
+    color 0.3s var(--TRANSITION-CUBIC-BEZIER);
+}
+
+.duffel-button.duffel-button--icon-only {
+  padding: var(--BUTTON-ICON-SPACING);
+  height: 40px;
+  width: 40px;
+}
+
+.duffel-button > svg {
+  --BUTTON-ICON-SIZE: 24px;
+  margin: 0 auto;
+}
+
+.duffel-button__text {
+  display: block;
+  font-size: var(--BUTTON-FONT-SIZE);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.duffel-button:focus {
+  outline-offset: 0.25em;
+  outline: 2px solid rgb(--ACCENT);
+}
+
+.duffel-button--primary {
+  --BUTTON-HOVER-COLOR: rgba(var(--ACCENT), var(--ACCENT-LIGHT-300));
+}
+
+.duffel-button--muted {
+  --BUTTON-BASE-COLOR: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
+  --BUTTON-HOVER-COLOR: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
+
+  border-color: transparent;
+}
+
+.duffel-button--muted.duffel-button--solid:hover,
+.duffel-button--muted.duffel-button--solid:active {
+  color: rgb(var(--WHITE));
+}
+
+.duffel-button--solid {
+  background-color: var(--BUTTON-BASE-COLOR);
+  color: rgb(var(--WHITE));
+}
+
+.duffel-button--solid:hover,
+.duffel-button--solid:active {
+  border-color: transparent;
+  background-color: var(--BUTTON-HOVER-COLOR);
+}
+
+.duffel-button--solid.duffel-button--muted {
+  color: rgb(var(--ACCENT));
+}
+
+.duffel-button--is-disabled {
+  cursor: default;
+  opacity: 0.4;
+  user-select: none;
+  pointer-events: none;
+}
+
+.duffel-button .duffel-button__icon {
+  display: block;
+  height: var(--BUTTON-ICON-SIZE);
+  width: var(--BUTTON-ICON-SIZE);
+}
+
+.duffel-button .duffel-button__icon--before {
+  margin-right: var(--BUTTON-ICON-MARGIN);
+}
+
+.duffel-button .duffel-button__icon--after {
+  margin-left: var(--BUTTON-ICON-MARGIN);
+}
+
+@media screen and (min-width: 768px) {
+  .duffel-button {
+    --BUTTON-FONT-SIZE: var(--FONT-SIZES-C1);
+    --BUTTON-ICON-SIZE: 18px;
+    --BUTTON-SPACING: 4px 16px;
+    line-height: 24px;
+  }
+
+  .duffel-button:not(.duffel-button--icon-only) {
+    height: 40px;
+  }
+
+  .duffel-button.duffel-button--icon-only {
+    padding: var(--BUTTON-ICON-SPACING);
+    height: 40px;
+    width: 40px;
+  }
+}

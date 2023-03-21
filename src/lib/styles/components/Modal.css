@@ -1,0 +1,27 @@
+.modal-overlay {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contents {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: var(--white);
+  border-radius: 8px;
+  overflow-y: scroll;
+  z-index: 30;
+  height: auto;
+  max-height: calc(100% - (2 * var(--space-40)));
+  text-align: start;
+  user-select: text;
+  cursor: auto;
+}
