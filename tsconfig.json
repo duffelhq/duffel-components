@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015",
+      "es2016",
+      "es2017",
+      "es2018",
+      "es2019",
+      "es2020",
+      "esnext"
+    ],
+    "sourceMap": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "paths": {
+      "@lib/*": ["./src/lib/*"],
+      "@components/*": ["./src/components/*"]
+    },
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "typeRoots": ["node_modules/@types", "node_modules/**/types"],
+    "incremental": true
+  },
+  "exclude": [
+    "node_modules",
+    "jest.config.ts",
+    "**/stories.tsx",
+    "storybook-static",
+    "**/**.css.js",
+    "./dist/**/*",
+    "./src/**/*.stories.tsx",
+    "./src/**/*.spec.tsx"
+  ],
+  "include": ["./src"]
+}
