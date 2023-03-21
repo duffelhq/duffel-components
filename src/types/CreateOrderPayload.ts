@@ -7,7 +7,9 @@ export interface CreateOrderPayload {
   services: CreateOrderPayloadServices;
 }
 
-export interface CreateOrderPayloadServices {
+export type CreateOrderPayloadServices = CreateOrderPayloadService[];
+
+export interface CreateOrderPayloadService {
   id: string;
   quantity: number;
 }
