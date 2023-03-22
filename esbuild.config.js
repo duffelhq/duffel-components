@@ -12,7 +12,7 @@ const EXAMPLES_FOLDER = "./src/examples";
   dotenv.config({ path: ".env.local" });
 
   const esbuildContext = await esbuild.context({
-    entryPoints: ["src/component/index.tsx"],
+    entryPoints: ["src/components/DuffelCheckoutCustomElement.tsx"],
     bundle: true,
     outdir: "dist",
     minify: true,
@@ -45,8 +45,10 @@ const EXAMPLES_FOLDER = "./src/examples";
     port: 8000,
   });
   console.log(`\n🐄 Listening on http://${host}:${port}`);
-  console.log(`  ↳ http://${host}:${port}/index.js`);
-  console.log(`  ↳ http://${host}:${port}/index.js.map\n`);
+  console.log(`  ↳ http://${host}:${port}/DuffelCheckoutCustomElement.js`);
+  console.log(
+    `  ↳ http://${host}:${port}/DuffelCheckoutCustomElement.js.map\n`
+  );
 
   console.log("Checkout the examples:");
   fs.readdirSync(EXAMPLES_FOLDER).forEach((filePath) =>

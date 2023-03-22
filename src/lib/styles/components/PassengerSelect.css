@@ -1,0 +1,82 @@
+.passenger-selection {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--FONT-FAMILY);
+  flex-grow: 1;
+}
+
+.passenger-selection__title {
+  margin: 0;
+  padding: 0 0 var(--SPACING-MD-3);
+  font-size: var(--FONT-SIZES-H2);
+  line-height: 1.2;
+  min-width: 360px;
+}
+
+.passenger-selection__segments {
+  list-style: none;
+  overflow-y: auto;
+  font-size: var(--FONT-SIZES-C1);
+  padding: var(--SPACING-XS-2);
+  margin: calc(var(--SPACING-XS-2) * -1);
+}
+
+.passenger-selection-passenger {
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--FONT-SIZES-C2);
+  font-family: var(--FONT-FAMILY);
+  margin-top: var(--SPACING-XS-2);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: var(--SPACING-SM-1) var(--SPACING-LG-1);
+  width: 100%;
+}
+
+.passenger-selection:first-child {
+  margin-top: 0;
+}
+
+.passenger-selection:hover,
+.passenger-selection:focus,
+.passenger-selection:active {
+  background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
+}
+
+.passenger-selection__identifier,
+.passenger-selection__action {
+  line-height: 1;
+}
+
+.passenger-selection__identifier {
+  flex-grow: 1;
+  margin-right: var(--SPACING-LG-1);
+  text-align: left;
+  color: var(--GREY-900);
+}
+
+.passenger-selection__action {
+  color: var(--GREY-600);
+  margin-right: var(--SPACING-XS-2);
+}
+
+.passenger-selection__seat-designator {
+  color: var(--GREY-900);
+  font-weight: 600;
+  margin-right: var(--SPACING-SM-3);
+}
+
+.passenger-selection__seat-price {
+  text-align: right;
+  display: inline-block;
+  width: 70px;
+}
+
+.passenger-selection--selected {
+  box-shadow: 4px 0px 0px 0px rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000))
+    inset;
+  background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { captureErrorInSentry } from "../lib/captureErrorInSentry";
+import { captureErrorInSentry } from "@lib/captureErrorInSentry";
 
 export class ErrorBoundary extends React.Component<{
   children: React.ReactNode;

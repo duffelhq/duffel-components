@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createRoot, Root } from "react-dom/client";
-import { DuffelAPI } from "../types/DuffelAPI";
-import { DuffelCheckout } from "./DuffelCheckout";
+import { CreateOrderPayload } from "../types/CreateOrderPayload";
+import { DuffelCheckout, DuffelCheckoutProps } from "./DuffelCheckout";
 
 class DuffelCheckoutCustomElement extends HTMLElement {
   /**
@@ -12,7 +12,7 @@ class DuffelCheckoutCustomElement extends HTMLElement {
   /**
    * The callback users should react to.
    */
-  onPayloadReady!: (data: DuffelAPI.CreateOrderPayload) => void;
+  onPayloadReady!: (data: CreateOrderPayload) => void;
 
   /**
    * Definition of which attributes should trigger `attributeChangedCallback`
@@ -29,23 +29,27 @@ class DuffelCheckoutCustomElement extends HTMLElement {
     this.attachShadow({ mode: "open" }).appendChild(container);
 
     this.root = createRoot(container);
+    let { offer, passengers } = this.getAttributes();
 
-    const serialisedOffer = this.getAttribute("offer");
-    if (serialisedOffer) {
-      const offer = JSON.parse(serialisedOffer);
+    this.onPayloadReady = (data) => {
+      this.dispatchEvent(
+        new CustomEvent("onPayloadReady", {
+          detail: data,
+        })
+      );
+    };
 
-      this.onPayloadReady = (data) => {
-        this.dispatchEvent(
-          new CustomEvent("onPayloadReady", {
-            detail: data,
-          })
-        );
-      };
+    this.renderRoot({ offer, passengers });
+  }
 
-      this.renderRoot(offer);
-    } else {
-      throw new Error("You must provide an offer");
-    }
+  getAttributes() {
+    let serialisedOffer = this.getAttribute("offer");
+    let offer = serialisedOffer && JSON.parse(serialisedOffer);
+
+    let serialisedPassengers = this.getAttribute("passengers");
+    let passengers = serialisedPassengers && JSON.parse(serialisedPassengers);
+
+    return { offer, passengers };
   }
 
   /**
@@ -55,19 +59,30 @@ class DuffelCheckoutCustomElement extends HTMLElement {
    * @param newValue The present value defined in the
    */
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    let { offer, passengers } = this.getAttributes();
+
+    // TODO: throw helpful validation errors if props are missing or don't match the schema
+
     if (name === "offer" && oldValue !== null) {
-      const offer = JSON.parse(newValue);
-      this.renderRoot(offer);
+      offer = JSON.parse(newValue);
     }
+    if (name === "passengers" && oldValue !== null) {
+      passengers = JSON.parse(newValue);
+    }
+
+    this.renderRoot({ offer, passengers });
   }
 
   /**
    * A call to
    * @param withOffer The offer to be rendered inside `DuffelCheckout`
    */
-  renderRoot(withOffer: DuffelAPI.Offer) {
-    this.root.render(
-      <DuffelCheckout offer={withOffer} onPayloadReady={this.onPayloadReady} />
+  renderRoot(withProps: {
+    offer: DuffelCheckoutProps["offer"];
+    passengers: DuffelCheckoutProps["passengers"];
+  }) {
+    this.root?.render(
+      <DuffelCheckout {...withProps} onPayloadReady={this.onPayloadReady} />
     );
   }
 }

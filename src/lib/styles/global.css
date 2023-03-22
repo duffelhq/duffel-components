@@ -1,0 +1,24 @@
+@import "./typography.css";
+@import "./spacing.css";
+@import "./colors.css";
+@import "./transitions.css";
+
+@import "./components/AdditionalBaggage.css";
+@import "./components/AdditionalBaggageSelect.css";
+@import "./components/BaggageDisplay.css";
+@import "./components/Button.css";
+@import "./components/Counter.css";
+@import "./components/PassengerSelect.css";
+@import "./components/PassengersLayout.css";
+@import "./components/Segment.css";
+@import "./components/SelectionSegment.css";
+@import "./components/Summary.css";
+
+.duffel-components {
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--FONT-FAMILY);
+  overflow: hidden;
+  height: 100%;
+}

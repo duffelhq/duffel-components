@@ -1,0 +1,18 @@
+.duffel-components {
+  --SPACING-XL-3: 128px;
+  --SPACING-XL-2: 64px;
+  --SPACING-XL-1: 56px;
+  --SPACING-LG-3: 48px;
+  --SPACING-LG-2: 40px;
+  --SPACING-LG-1: 32px;
+  --SPACING-MD-3: 24px;
+  --SPACING-MD-2: 20px;
+  --SPACING-MD-1: 18px;
+  --SPACING-SM-3: 16px;
+  --SPACING-SM-2: 12px;
+  --SPACING-SM-1: 8px;
+  --SPACING-XS-3: 6px;
+  --SPACING-XS-2: 4px;
+  --SPACING-XS-1: 2px;
+  --SPACING-NONE: 0;
+}

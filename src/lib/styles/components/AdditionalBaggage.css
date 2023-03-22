@@ -1,0 +1,38 @@
+.baggage-selection__control-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--SPACING-SM-1);
+}
+
+.baggage-selection__control-container:last-child {
+  margin-bottom: 0;
+}
+
+.baggage-selection__control-price {
+  margin-right: var(--SPACING-SM-3);
+  line-height: var(--SPACING-MD-3);
+}
+
+.baggage-selection__control {
+  display: flex;
+  align-items: center;
+}
+
+.baggage-selection__no-bag {
+  display: flex;
+  align-items: center;
+  color: var(--GREY-900);
+}
+
+.baggage-selection__no-bag-circle {
+  background-color: rgb(var(--ACCENT));
+  color: white;
+  margin-right: var(--SPACING-SM-1);
+  border-radius: 50%;
+  width: var(--SPACING-LG-2);
+  height: var(--SPACING-LG-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

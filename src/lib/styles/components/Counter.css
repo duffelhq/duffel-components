@@ -1,0 +1,18 @@
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.counter__count-label {
+  font-size: var(--FONT-SIZES-C2);
+  text-align: center;
+  align-self: center;
+  color: var(--GREY-900);
+  width: var(--SPACING-LG-2);
+}
+
+@media screen and (min-width: 768px) {
+  .counter__count-label {
+    width: var(--SPACING-LG-1);
+  }
+}
