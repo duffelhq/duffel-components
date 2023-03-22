@@ -4,17 +4,19 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn esbuild src/component/index.tsx --bundle --outdir=dist --minify --tree-shaking=true",
-    "dev": "yarn build --watch --serve",
-    "start": "yarn build --serve"
+    "dev": "node esbuild.config.js"
   },
   "dependencies": {
+    "@sentry/browser": "^7.43.0",
+    "@sentry/tracing": "^7.43.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@sentry/esbuild-plugin": "^0.4.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "dotenv": "^16.0.3",
     "esbuild": "0.17.11",
     "typescript": "4.9.5"
   }
