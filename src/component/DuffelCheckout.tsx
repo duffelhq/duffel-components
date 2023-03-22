@@ -2,7 +2,6 @@ import * as React from "react";
 import { makeMockPayloadForCreateOrder } from "../lib/makeMockPayloadForCreateOrder";
 import { DuffelAPI } from "../types/DuffelAPI";
 import { ErrorBoundary } from "./ErrorBoundary";
-import { TestSentry } from "./TestSentry";
 
 export interface DuffelCheckoutProps {
   offer: DuffelAPI.Offer;
@@ -39,8 +38,6 @@ export const DuffelCheckoutWithoutErrorBoundary: React.FC<DuffelCheckoutProps> =
           <b>
             {/* You can use error boundary anywhere */}
             <ErrorBoundary>
-              {/* TODO: delete this before merging to main, just here for convenience to demonstarte the bahviour on this PR */}
-              <TestSentry />
               <code>{mountTime.toISOString()}</code>
             </ErrorBoundary>
           </b>
