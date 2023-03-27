@@ -5,6 +5,7 @@ import {
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { AdditionalBaggageSelection } from "./AdditionalBaggageSelection";
+import { Card } from "./Card";
 import { Modal } from "./Modal";
 
 export type SetBaggageSelectionStateFunction = (
@@ -24,21 +25,18 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
   selectedServices,
   setSelectedServices,
 }) => {
-  // const passengersSliceIndex = offer.slices.map(
-  //   ({segments}) =>  segments.map(({passengers})=>
-  //   passengers.map((passenger) => passenger.)
-  //   )
-  //   []
-  // );
-
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <>
-      <div>
-        <pre>{JSON.stringify(passengers, null, 2)}</pre>
-        <button onClick={() => setIsOpen(!isOpen)}>Change</button>
-      </div>
+      <Card
+        title="Extra baggage"
+        icon="checked_bag"
+        statusTag="not-added"
+        onClick={() => setIsOpen(true)}
+      >
+        {"5 seats selected for £120"}
+      </Card>
       {isOpen && (
         <Modal>
           <AdditionalBaggageSelection
