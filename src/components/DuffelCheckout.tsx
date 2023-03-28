@@ -94,7 +94,7 @@ export const DuffelCheckoutWithoutErrorBoundary: React.FC<DuffelCheckoutProps> =
     }, [createOrderPayload]);
 
     return (
-      <>
+      <div className="duffel-components">
         <link rel="stylesheet" href="../lib/styles/global.css"></link>
         <BaggageSelection
           offer={offer}
@@ -102,7 +102,7 @@ export const DuffelCheckoutWithoutErrorBoundary: React.FC<DuffelCheckoutProps> =
           selectedServices={baggageSelectedServices}
           setSelectedServices={handleOnBaggageSetSelectedServices}
         />
-      </>
+      </div>
     );
   };
 

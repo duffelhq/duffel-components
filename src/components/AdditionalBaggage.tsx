@@ -76,7 +76,7 @@ export const AdditionalBaggage: React.FC<AdditionalBaggageProps> = ({
   }
 
   return (
-    <div className="duffel-components">
+    <div>
       {baggageServices.map(
         ({
           metadata,

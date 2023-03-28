@@ -61,7 +61,7 @@ export const PassengersLayout: React.FC<
   } = passengersContext;
 
   return (
-    <div className="duffel-components">
+    <div>
       <section className="layout">
         <div className="layout__container">
           {!isMobileOrTablet(width) && (

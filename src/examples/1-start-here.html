@@ -6,7 +6,7 @@
       window.onload = () => {
         // 3. Create an event handler to work with order creation payload
         async function handleCreateOrderPayload(createOrderPayload) {
-          alert(
+          console.log(
             "CREATE ORDER PAYLOAD: \n" +
               JSON.stringify(createOrderPayload, null, 2)
           );
