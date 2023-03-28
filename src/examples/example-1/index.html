@@ -42,8 +42,13 @@
           "onPayloadReady",
           function ({ detail: createOrderPayload }) {
             // 5. Create an event handler to work with order creation payload
-            console.info("CREATE ORDER PAYLOAD");
-            console.table(createOrderPayload);
+            fetch("/book", {
+              method: "POST",
+              body: JSON.stringify(createOrderPayload),
+            })
+              .then((response) => response.json())
+              .then(({ data }) => console.log("Order created", data))
+              .catch((error) => console.error("Order creation failed", error));
           }
         );
     };

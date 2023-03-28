@@ -1,6 +1,6 @@
-import http from "http";
 import dotenv from "dotenv";
-import { readFile, readFileSync, writeFileSync } from "fs";
+import { readFileSync, ReadStream, writeFileSync } from "fs";
+import http, { IncomingMessage, ServerResponse } from "http";
 /**
  * nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue
  */
@@ -91,21 +91,30 @@ const getOffersFromDuffel = async (offerRequestId) => {
   return getOffersFromDuffelResult;
 };
 
-const createOrderOnDuffel = async (payload) => {
-  const response = await fetch(process.env.DUFFEL_API_URL + "/air/order", {
-    method: "POST",
-    body: JSON.stringify(payload),
-    headers: duffelHeaders,
-  });
+/**
+ *
+ * @param {IncomingMessage} request
+ * @param {ServerResponse} response
+ * @returns
+ */
+const createOrderOnDuffel = async (request, response) => {
+  const createOrderOnDuffelResponse = await fetch(
+    process.env.DUFFEL_API_URL + "/air/orders",
+    {
+      method: "POST",
+      headers: duffelHeaders,
+      body: request,
+      duplex: "half",
+    }
+  );
 
-  return response;
+  response.writeHead(createOrderOnDuffelResponse.status);
+  createOrderOnDuffelResponse.body.pipeTo(response);
+  // .pipeTo(new WritableStream({ write: response.write }))
+  // .then(() => response.end());
 };
 
 const ROUTES = {
-  /**
-   * @param {http.IncomingMessage} request
-   * @param {http.ServerResponse} response
-   */
   "/": async function index(request, response) {
     const offerRequest = await searchRoundTripOnDuffel("JFK", "MIA");
     const [offer] = await getOffersFromDuffel(offerRequest.id);
@@ -153,23 +162,14 @@ const ROUTES = {
     response.writeHead(200);
     response.end(withPassengers);
   },
-
-  /**
-   * @param {http.IncomingMessage} request
-   * @param {http.ServerResponse} response
-   */
   "/book": async function book(request, response) {
     if (request.method != "POST") {
       response.writeHead(404);
       response.end(http.STATUS_CODES[404]);
+      return;
     }
 
-    /**
-     * @param {Response} createOrderResponse
-     */
-    const createOrderResponse = await createOrderOnDuffel(request.body);
-    response.writeHead(createOrderResponse.status);
-    response.pipe(createOrderResponse.body);
+    await createOrderOnDuffel(request, response);
   },
 };
 
