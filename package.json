@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "node esbuild.config.js",
-    "check-types": "tsc --noEmit --project tsconfig.json"
+    "check-types": "tsc --noEmit --project tsconfig.json",
+    "run-example-1": "node src/examples/example-1/server.mjs",
+    "example-1": "concurrently \"yarn dev\" \"yarn run-example-1\""
   },
   "dependencies": {
     "@sentry/browser": "^7.43.0",
@@ -15,9 +17,11 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@duffel/api": "^1.26.0",
     "@sentry/esbuild-plugin": "^0.4.0",
     "@types/react": "18.0.30",
     "@types/react-dom": "18.0.11",
+    "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "esbuild": "0.17.14",
     "tsc": "^2.0.4",

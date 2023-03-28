@@ -1,113 +1,120 @@
-import { makeMockOfferPassenger } from "@lib/mocks/make-mock-offer-passenger";
+import { captureErrorInSentry } from "@lib/captureErrorInSentry";
+import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import * as React from "react";
-import { makeMockOffer } from "@lib/mocks/make-mock-offer";
-import {
-  CreateOrderPayload,
-  CreateOrderPayloadServices,
-} from "src/types/CreateOrderPayload";
 import { Offer } from "src//types/Offer";
-import {
-  BaggageSelection,
-  BaggageSelectionProps,
-  SetBaggageSelectionStateFunction,
-} from "./BaggageSelection";
+import { CreateOrderPayload } from "src/types/CreateOrderPayload";
+import { BaggageSelection, BaggageSelectionProps } from "./BaggageSelection";
 import { ErrorBoundary } from "./ErrorBoundary";
 
-const MOCK_PASSENGERS = [makeMockOfferPassenger()];
-const MOCK_OFFER = makeMockOffer();
+// TODO: move to env variables
+const COMPONENT_CDN = "http://localhost:8000/";
+const DUFFEL_API_URL = "https://localhost:4000";
 
 const isPayloadComplete = (
   payload: Partial<CreateOrderPayload>
 ): payload is CreateOrderPayload =>
-  "services" in payload &&
   "selected_offers" in payload &&
-  "passengers" in payload;
-
-interface CompileCreateOrderPayloadInput {
-  offer: DuffelCheckoutProps["offer"];
-  passengers: DuffelCheckoutProps["passengers"];
-  baggageSelectedServices: BaggageSelectionProps["selectedServices"];
-}
-
-const compileCreateOrderPayload = ({
-  baggageSelectedServices,
-  offer,
-  passengers,
-}: CompileCreateOrderPayloadInput): Partial<CreateOrderPayload> => ({
-  passengers,
-  selected_offers: [offer.id],
-  // have more services, add them below:
-  services: [
-    ...addBaggageServicesToCreateOrderPayload(baggageSelectedServices),
-  ],
-});
-
-const addBaggageServicesToCreateOrderPayload = (
-  baggageSelectedServices: CreateOrderPayloadServices
-): CreateOrderPayloadServices => {
-  if (!Array.isArray(baggageSelectedServices)) return [];
-  return baggageSelectedServices.filter(({ quantity }) => quantity > 0);
-};
+  "passengers" in payload &&
+  "services" in payload &&
+  "payments" in payload &&
+  "type" in payload &&
+  "metadata" in payload;
 
 export interface DuffelCheckoutProps {
+  offer_id: Offer["id"];
+  client_key: Offer["client_key"];
   passengers: CreateOrderPayload["passengers"];
-  offer: Offer;
   onPayloadReady: (data: CreateOrderPayload) => void;
 }
 
-export const DuffelCheckoutWithoutErrorBoundary: React.FC<DuffelCheckoutProps> =
-  ({ offer, passengers, onPayloadReady }) => {
-    // mock offer
-    const shouldUseMockOffer = location.hash.includes("use-mock-offer=true");
-    if (shouldUseMockOffer) {
-      offer = MOCK_OFFER;
-    }
+export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
+  offer_id,
+  client_key,
+  passengers,
+  onPayloadReady,
+}) => {
+  const [offer, setOffer] = React.useState<Offer>();
+  const [error, setError] = React.useState<null | string>(null);
 
-    // mock passengers
-    const shouldUseMockPassengers = location.hash.includes(
-      "use-mock-passengers=true"
-    );
-    if (shouldUseMockPassengers) {
-      passengers = MOCK_PASSENGERS;
-    }
+  const [baggageSelectedServices, setBaggageSelectionState] = React.useState<
+    BaggageSelectionProps["selectedServices"]
+  >([]);
 
-    // TODO we could load this state from somewhere in the future too
-    const [baggageSelectedServices, setBaggageSelectionState] = React.useState<
-      BaggageSelectionProps["selectedServices"]
-    >([]);
+  React.useEffect(() => {
+    if (!offer_id || !client_key) return;
 
-    const handleOnBaggageSetSelectedServices: SetBaggageSelectionStateFunction =
-      (baggageSelectionState) => {
-        setBaggageSelectionState(baggageSelectionState);
-      };
+    // TODO replace with env variable
+    fetch(
+      `${DUFFEL_API_URL}/ancillaries-component/offers/${offer_id}?return_available_services=true`,
+      {
+        headers: {
+          "Duffel-Version": "v1",
+          Authorization: `Bearer ${client_key}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then(({ data }) => setOffer(data))
+      .catch((error) => {
+        // TODO: improve error reporting here
+        setError("Failed to get offer");
+        captureErrorInSentry(error, { offer_id });
+      });
+  }, [offer_id, client_key]);
 
+  React.useEffect(() => {
     const createOrderPayload = compileCreateOrderPayload({
       baggageSelectedServices,
       offer,
       passengers,
     });
+    if (isPayloadComplete(createOrderPayload)) {
+      onPayloadReady(createOrderPayload);
+    }
+  }, [baggageSelectedServices]);
 
-    React.useEffect(() => {
-      if (isPayloadComplete(createOrderPayload)) {
-        onPayloadReady(createOrderPayload);
-      }
-    }, [createOrderPayload]);
-
-    return (
+  return (
+    <ErrorBoundary>
+      <link rel="stylesheet" href={COMPONENT_CDN + "styles/global.css"}></link>
       <div className="duffel-components">
-        <link rel="stylesheet" href="../lib/styles/global.css"></link>
-        <BaggageSelection
-          offer={offer}
-          passengers={passengers}
-          selectedServices={baggageSelectedServices}
-          setSelectedServices={handleOnBaggageSetSelectedServices}
-        />
-      </div>
-    );
-  };
+        <pre
+          style={{
+            border: "solid 1px black",
+            padding: "12px",
+            overflowX: "scroll",
+          }}
+        >
+          <>
+            <b>{"Attributes:\n"}</b>
+            {`${offer_id ? "✓" : "x"} offer_id: ${offer_id}\n`}
+            {`${client_key ? "✓" : "x"} client_key: ${client_key}\n\n`}
 
-export const DuffelCheckout: React.FC<DuffelCheckoutProps> = (props) => (
-  <ErrorBoundary>
-    <DuffelCheckoutWithoutErrorBoundary {...props} />
-  </ErrorBoundary>
-);
+            <b>{"Init data:\n"}</b>
+            {`${passengers ? "✓" : "x"} passengers: ${JSON.stringify(
+              passengers
+            )}\n\n`}
+
+            <b>{"Internal state:\n"}</b>
+            {`${offer ? "✓" : "x"} offer: ${
+              JSON.stringify(offer) || "Loading..."
+            }\n`}
+            {`${
+              baggageSelectedServices ? "✓" : "x"
+            } baggageSelectedServices: ${JSON.stringify(
+              baggageSelectedServices
+            )}\n\n`}
+          </>
+        </pre>
+
+        {offer && passengers && (
+          <BaggageSelection
+            offer={offer}
+            passengers={passengers}
+            selectedServices={baggageSelectedServices}
+            setSelectedServices={setBaggageSelectionState}
+          />
+        )}
+      </div>
+    </ErrorBoundary>
+  );
+};

@@ -305,6 +305,9 @@ export interface Offer {
      */
     refund_before_departure: OfferCondition | null;
   };
+
+  /* A client key to be used with https://github.com/duffelhq/duffel-checkout */
+  client_key: string;
 }
 
 export interface OfferPassenger {

@@ -3,3 +3,5 @@
 .DS_Store
 .env.local
 tsconfig.tsbuildinfo
+__generated__*
+yarn-error.log
