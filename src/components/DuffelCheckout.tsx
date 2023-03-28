@@ -30,19 +30,15 @@ export interface DuffelCheckoutProps {
 export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
   offer_id,
   client_key,
-  passengers: passengersProp,
+  passengers,
   onPayloadReady,
 }) => {
   const [offer, setOffer] = React.useState<Offer>();
   const [error, setError] = React.useState<null | string>(null);
 
-  const [passengers, setPassengers] = React.useState(passengersProp);
-
   const [baggageSelectedServices, setBaggageSelectionState] = React.useState<
     BaggageSelectionProps["selectedServices"]
   >([]);
-
-  React.useEffect(() => setPassengers(passengersProp), [passengersProp]);
 
   React.useEffect(() => {
     if (!offer_id || !client_key) return;
