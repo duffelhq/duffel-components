@@ -54,7 +54,7 @@ class DuffelCheckoutCustomElement extends HTMLElement {
     this.onPayloadReady = (data) => {
       this.dispatchEvent(
         new CustomEvent("onPayloadReady", {
-          detail: data,
+          detail: { data },
         })
       );
     };
