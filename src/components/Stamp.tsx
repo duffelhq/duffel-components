@@ -16,6 +16,10 @@ export const Stamp: React.FC<StampProps> = ({
       padding: "2px 8px",
       whiteSpace: "nowrap",
       borderRadius: "4px",
+      fontWeight: "600",
+      fontSize: "14px",
+      lineHeight: "20px",
+      textAlign: "center",
     }}
   >
     {children}
