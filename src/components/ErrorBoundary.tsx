@@ -2,7 +2,7 @@ import React from "react";
 import { captureErrorInSentry } from "@lib/captureErrorInSentry";
 
 export class ErrorBoundary extends React.Component<{
-  children: React.ReactNode;
+  children: React.ReactNode | React.ReactNode[];
 }> {
   state = { hasError: false };
 
