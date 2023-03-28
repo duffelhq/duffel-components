@@ -1,13 +1,22 @@
 import * as React from "react";
 import { createRoot, Root } from "react-dom/client";
-import { CreateOrderPayload } from "../types/CreateOrderPayload";
+import {
+  CreateOrderPayload,
+  CreateOrderPayloadPassengers,
+} from "../types/CreateOrderPayload";
 import { DuffelCheckout, DuffelCheckoutProps } from "./DuffelCheckout";
+
+interface DuffelCheckoutCustomElementInitData {
+  passengers: CreateOrderPayloadPassengers;
+}
 
 class DuffelCheckoutCustomElement extends HTMLElement {
   /**
    * The React root for displaying content inside a browser DOM element.
    */
   root!: Root;
+
+  passengers!: CreateOrderPayloadPassengers | null;
 
   /**
    * The callback users should react to.
@@ -18,18 +27,29 @@ class DuffelCheckoutCustomElement extends HTMLElement {
    * Definition of which attributes should trigger `attributeChangedCallback`
    */
   static get observedAttributes() {
-    return ["offer", "passengers"];
+    return ["offer_id", "client_key"];
+  }
+
+  getAttributes() {
+    const offer_id = this.getAttribute("offer_id") || "";
+    const client_key = this.getAttribute("client_key") || "";
+
+    return { offer_id, client_key };
+  }
+
+  storeData({ passengers }: DuffelCheckoutCustomElementInitData) {
+    this.passengers = passengers;
   }
 
   /**
    * `connectedCallback` is called to initialise the custom element
    */
   connectedCallback() {
+    let { offer_id, client_key } = this.getAttributes();
     const container = document.createElement("div");
     this.attachShadow({ mode: "open" }).appendChild(container);
 
     this.root = createRoot(container);
-    let { offer, passengers } = this.getAttributes();
 
     this.onPayloadReady = (data) => {
       this.dispatchEvent(
@@ -39,17 +59,25 @@ class DuffelCheckoutCustomElement extends HTMLElement {
       );
     };
 
-    this.renderRoot({ offer, passengers });
+    setTimeout(() => this.dispatchConnectedCallback(offer_id, client_key), 100);
   }
 
-  getAttributes() {
-    let serialisedOffer = this.getAttribute("offer");
-    let offer = serialisedOffer && JSON.parse(serialisedOffer);
+  dispatchConnectedCallback(offer_id: string, client_key: string) {
+    this.dispatchEvent(
+      new CustomEvent("connectedCallback", {
+        detail: (data: DuffelCheckoutCustomElementInitData) => {
+          this.storeData(data);
 
-    let serialisedPassengers = this.getAttribute("passengers");
-    let passengers = serialisedPassengers && JSON.parse(serialisedPassengers);
-
-    return { offer, passengers };
+          // TODO: find better way to handle missing passenger
+          if (!this.passengers) return;
+          this.renderRoot({
+            offer_id,
+            client_key,
+            passengers: this.passengers,
+          });
+        },
+      })
+    );
   }
 
   /**
@@ -59,26 +87,26 @@ class DuffelCheckoutCustomElement extends HTMLElement {
    * @param newValue The present value defined in the
    */
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    let { offer, passengers } = this.getAttributes();
+    let { offer_id, client_key } = this.getAttributes();
 
     // TODO: throw helpful validation errors if props are missing or don't match the schema
 
-    if (name === "offer" && oldValue !== null) {
-      offer = JSON.parse(newValue);
+    if (name === "offer_id" && oldValue !== null) {
+      offer_id = newValue;
     }
-    if (name === "passengers" && oldValue !== null) {
-      passengers = JSON.parse(newValue);
+    if (name === "client_key" && oldValue !== null) {
+      client_key = newValue;
     }
 
-    this.renderRoot({ offer, passengers });
+    // TODO: find better way to handle missing passenger
+    if (!this.passengers) return;
+
+    this.renderRoot({ offer_id, client_key, passengers: this.passengers });
   }
 
-  /**
-   * A call to
-   * @param withOffer The offer to be rendered inside `DuffelCheckout`
-   */
   renderRoot(withProps: {
-    offer: DuffelCheckoutProps["offer"];
+    offer_id: DuffelCheckoutProps["offer_id"];
+    client_key: DuffelCheckoutProps["client_key"];
     passengers: DuffelCheckoutProps["passengers"];
   }) {
     this.root?.render(
