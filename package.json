@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@sentry/esbuild-plugin": "^0.4.0",
-    "@types/react": "18.0.28",
+    "@types/react": "18.0.30",
     "@types/react-dom": "18.0.11",
     "dotenv": "^16.0.3",
     "esbuild": "0.17.14",
