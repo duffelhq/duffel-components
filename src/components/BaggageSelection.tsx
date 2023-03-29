@@ -9,6 +9,8 @@ import { Card } from "./Card";
 import { Modal } from "./Modal";
 import { moneyStringFormatter } from "../lib/formatConvertedCurrency";
 import { withPlural } from "@lib/withPlural";
+import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
+import { getTotalQuantity } from "@lib/getTotalQuantity";
 
 export type SetBaggageSelectionStateFunction = (
   selectedServices: CreateOrderPayloadServices
@@ -28,28 +30,13 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
   setSelectedServices,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const totalQuantity = selectedServices.reduce(
-    (total, { quantity }) => total + quantity,
-    0
-  );
+
+  const totalQuantity = getTotalQuantity(selectedServices);
   const includesServices = totalQuantity > 0;
 
-  console.log(offer.available_services);
-
-  const totalAmount = selectedServices.reduce(
-    (total, { quantity, id }) =>
-      total +
-      quantity *
-        +(
-          offer.available_services.find((offer) => offer.id === id)!
-            .total_amount || 0
-        ),
-    0
-  );
-
-  const totalAmountFormatted = moneyStringFormatter(offer.total_currency)(
-    totalAmount
-  );
+  const totalAmount = getTotalAmountForServices(offer, selectedServices);
+  const toMoney = moneyStringFormatter(offer.total_currency);
+  const totalAmountFormatted = toMoney(totalAmount);
 
   return (
     <>
