@@ -1,0 +1,37 @@
+@keyframes loading-dots {
+  25% {
+    /* stylelint-disable-line */
+    content: "";
+  }
+
+  50% {
+    /* stylelint-disable-line */
+    content: ".";
+  }
+
+  75% {
+    /* stylelint-disable-line */
+    content: "..";
+  }
+
+  100% {
+    /* stylelint-disable-line */
+    content: "...";
+  }
+}
+
+.textual-loading-indicator::after {
+  display: inline-block;
+  text-align: start;
+  animation: loading-dots 1s infinite 1s;
+  animation-fill-mode: forwards;
+  /* stylelint-disable-line */
+  content: "...";
+
+  /* 
+  we want to define a width here so we can preserve 
+  the space when the text is centered so it doesn't 
+  move back and forth 
+  */
+  width: 18px;
+}
