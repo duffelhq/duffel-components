@@ -1,24 +1,16 @@
-import { captureErrorInSentry } from "@lib/captureErrorInSentry";
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
+import { isPayloadComplete } from "@lib/isPayloadComplete";
+import { retrieveOffer } from "@lib/retrieveOffer";
 import * as React from "react";
 import { Offer } from "src//types/Offer";
 import { CreateOrderPayload } from "src/types/CreateOrderPayload";
 import { BaggageSelection, BaggageSelectionProps } from "./BaggageSelection";
 import { ErrorBoundary } from "./ErrorBoundary";
+import { Inspect } from "./Inspect";
+import { Loader } from "./Loader";
 
 // TODO: move to env variables
 const COMPONENT_CDN = "http://localhost:8000/";
-const DUFFEL_API_URL = "https://localhost:4000";
-
-const isPayloadComplete = (
-  payload: Partial<CreateOrderPayload>
-): payload is CreateOrderPayload =>
-  "selected_offers" in payload &&
-  "passengers" in payload &&
-  "services" in payload &&
-  "payments" in payload &&
-  "type" in payload &&
-  "metadata" in payload;
 
 export interface DuffelCheckoutProps {
   offer_id: Offer["id"];
@@ -35,6 +27,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
 }) => {
   const [offer, setOffer] = React.useState<Offer>();
   const [error, setError] = React.useState<null | string>(null);
+  const isLoading = !offer && !error;
 
   const [baggageSelectedServices, setBaggageSelectionState] = React.useState<
     BaggageSelectionProps["selectedServices"]
@@ -42,24 +35,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
 
   React.useEffect(() => {
     if (!offer_id || !client_key) return;
-
-    // TODO replace with env variable
-    fetch(
-      `${DUFFEL_API_URL}/ancillaries-component/offers/${offer_id}?return_available_services=true`,
-      {
-        headers: {
-          "Duffel-Version": "v1",
-          Authorization: `Bearer ${client_key}`,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then(({ data }) => setOffer(data))
-      .catch((error) => {
-        // TODO: improve error reporting here
-        setError("Failed to get offer");
-        captureErrorInSentry(error, { offer_id });
-      });
+    retrieveOffer(offer_id, client_key, setOffer, setError);
   }, [offer_id, client_key]);
 
   React.useEffect(() => {
@@ -77,34 +53,20 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
     <ErrorBoundary>
       <link rel="stylesheet" href={COMPONENT_CDN + "styles/global.css"}></link>
       <div className="duffel-components">
-        <pre
-          style={{
-            border: "solid 1px black",
-            padding: "12px",
-            overflowX: "scroll",
-          }}
-        >
-          <>
-            <b>{"Attributes:\n"}</b>
-            {`${offer_id ? "✓" : "x"} offer_id: ${offer_id}\n`}
-            {`${client_key ? "✓" : "x"} client_key: ${client_key}\n\n`}
+        {location.hash.includes("inspect-duffel-checkout") && (
+          <Inspect
+            data={{
+              offer_id,
+              client_key,
+              passengers,
+              baggageSelectedServices,
+              offer,
+              error,
+            }}
+          />
+        )}
 
-            <b>{"Init data:\n"}</b>
-            {`${passengers ? "✓" : "x"} passengers: ${JSON.stringify(
-              passengers
-            )}\n\n`}
-
-            <b>{"Internal state:\n"}</b>
-            {`${offer ? "✓" : "x"} offer: ${
-              JSON.stringify(offer) || "Loading..."
-            }\n`}
-            {`${
-              baggageSelectedServices ? "✓" : "x"
-            } baggageSelectedServices: ${JSON.stringify(
-              baggageSelectedServices
-            )}\n\n`}
-          </>
-        </pre>
+        {isLoading && <Loader />}
 
         {offer && passengers && (
           <BaggageSelection
