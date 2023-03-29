@@ -1,7 +1,6 @@
 import { Offer } from "src/types/Offer";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 
-const COMPONENT_CDN = "http://localhost:8000/";
 const DUFFEL_API_URL = "https://localhost:4000";
 
 export async function retrieveOffer(
