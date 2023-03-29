@@ -7,6 +7,8 @@ import { Offer } from "src/types/Offer";
 import { AdditionalBaggageSelection } from "./AdditionalBaggageSelection";
 import { Card } from "./Card";
 import { Modal } from "./Modal";
+import { moneyStringFormatter } from "../lib/formatConvertedCurrency";
+import { withPlural } from "@lib/withPlural";
 
 export type SetBaggageSelectionStateFunction = (
   selectedServices: CreateOrderPayloadServices
@@ -26,16 +28,44 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
   setSelectedServices,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const totalQuantity = selectedServices.reduce(
+    (total, { quantity }) => total + quantity,
+    0
+  );
+  const includesServices = totalQuantity > 0;
+
+  console.log(offer.available_services);
+
+  const totalAmount = selectedServices.reduce(
+    (total, { quantity, id }) =>
+      total +
+      quantity *
+        +(
+          offer.available_services.find((offer) => offer.id === id)!
+            .total_amount || 0
+        ),
+    0
+  );
+
+  const totalAmountFormatted = moneyStringFormatter(offer.total_currency)(
+    totalAmount
+  );
 
   return (
     <>
       <Card
         title="Extra baggage"
         icon="checked_bag"
-        statusTag="not-added"
+        statusTag={includesServices ? "added" : "not-added"}
         onClick={() => setIsOpen(true)}
       >
-        {"5 seats selected for £120"}
+        {!includesServices && "No extra bags added"}
+        {includesServices &&
+          `${withPlural(
+            totalQuantity,
+            "bag",
+            "bags"
+          )} added for ${totalAmountFormatted}`}
       </Card>
       {isOpen && (
         <Modal>
