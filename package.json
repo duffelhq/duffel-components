@@ -21,7 +21,7 @@
     "@sentry/esbuild-plugin": "^0.4.0",
     "@types/react": "18.0.30",
     "@types/react-dom": "18.0.11",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.0.0",
     "dotenv": "^16.0.3",
     "esbuild": "0.17.14",
     "tsc": "^2.0.4",
