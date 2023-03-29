@@ -8,6 +8,7 @@
 @import "./components/BaggageDisplay.css";
 @import "./components/Button.css";
 @import "./components/Counter.css";
+@import "./components/Loader.css";
 @import "./components/PassengerSelect.css";
 @import "./components/PassengersLayout.css";
 @import "./components/Segment.css";

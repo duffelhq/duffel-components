@@ -61,7 +61,7 @@ export const PassengersLayout: React.FC<
   } = passengersContext;
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <section className="layout">
         <div className="layout__container">
           {!isMobileOrTablet(width) && (
