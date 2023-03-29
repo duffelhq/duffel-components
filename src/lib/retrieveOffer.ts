@@ -23,10 +23,7 @@ export async function retrieveOffer(
     const { data } = await getOfferResponse.json();
     onOfferReady(data);
   } catch (error) {
-    const messages: Record<any, string> = {
-      "": "",
-    };
     captureErrorInSentry(error as Error, { offer_id });
-    onError(messages[(error as Error).message] || "Failed to get offer");
+    onError((error as Error).message || "Failed to get offer");
   }
 }
