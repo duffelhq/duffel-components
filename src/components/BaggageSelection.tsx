@@ -32,7 +32,7 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
   const [isOpen, setIsOpen] = React.useState(false);
 
   const totalQuantity = getTotalQuantity(selectedServices);
-  const includesServices = totalQuantity > 0;
+  const isBaggageAdded = totalQuantity > 0;
 
   const totalAmount = getTotalAmountForServices(offer, selectedServices);
   const toMoney = moneyStringFormatter(offer.total_currency);
@@ -43,11 +43,11 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
       <Card
         title="Extra baggage"
         icon="checked_bag"
-        statusTag={includesServices ? "added" : "not-added"}
+        statusTag={isBaggageAdded ? "added" : "not-added"}
         onClick={() => setIsOpen(true)}
       >
-        {!includesServices && "No extra bags added"}
-        {includesServices &&
+        {!isBaggageAdded && "No extra bags added"}
+        {isBaggageAdded &&
           `${withPlural(
             totalQuantity,
             "bag",
