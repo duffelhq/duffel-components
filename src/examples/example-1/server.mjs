@@ -182,9 +182,9 @@ http
     response.writeHead(404);
     response.end(http.STATUS_CODES[404]);
   })
-  .listen(8080);
+  .listen(6262);
 
-console.log(`\n🐄 Serving example on http://localhost:8080`);
+console.log(`\n🐄 Serving example on http://localhost:6262`);
 console.log(
   `  ↳ To inspect component data include hash: '#inspect-duffel-checkout'`
 );
