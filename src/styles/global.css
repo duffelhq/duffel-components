@@ -16,6 +16,7 @@
 @import "./components/Summary.css";
 
 .duffel-components {
+  --BUTTON-RADIUS: 5px;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
