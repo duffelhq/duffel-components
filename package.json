@@ -29,6 +29,6 @@
     "dotenv": "^16.0.3",
     "esbuild": "0.17.14",
     "tsc": "^2.0.4",
-    "typescript": "5.0.2"
+    "typescript": "5.0.3"
   }
 }
