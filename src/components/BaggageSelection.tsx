@@ -58,7 +58,7 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
         onClick={() => setIsOpen(true)}
       >
         {!containsBaggageService &&
-          "Extra baggage is not avaiable for this journey"}
+          "Extra baggage is not available for this journey"}
         {containsBaggageService && !isBaggageAdded && "No extra bags added"}
         {containsBaggageService &&
           isBaggageAdded &&
