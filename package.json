@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "lts/hydrogen"
+  },
   "scripts": {
     "dev": "node esbuild.config.js",
     "check-types": "tsc --noEmit --project tsconfig.json",
