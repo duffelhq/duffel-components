@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": "lts/hydrogen"
+    "node": "18.15.0"
   },
   "scripts": {
     "dev": "node esbuild.config.js",
