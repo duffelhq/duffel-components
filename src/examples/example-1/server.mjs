@@ -185,4 +185,6 @@ http
   .listen(6262);
 
 console.log(`\n🐄 Serving example on http://localhost:6262`);
-console.log(`  ↳ ok`);
+console.log(
+  `  ↳ To inspect component data include hash: '#inspect-duffel-checkout'`
+);
