@@ -6,7 +6,6 @@ const getDefaultObject = (() => {
     ({
       id: `pas_${(++seedId).toString().padStart(5, "0")}`,
       type: "adult",
-      // TODO come back and fix this type
     } as any);
 })();
 

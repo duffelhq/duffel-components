@@ -1,6 +1,5 @@
 import { Offer } from "./Offer";
 
-// TODO: define types.
 export interface CreateOrderPayload {
   selected_offers: Array<Offer["id"]>;
   passengers: CreateOrderPayloadPassengers;
@@ -23,8 +22,10 @@ export interface CreateOrderPayloadPassenger {
 
 export type CreateOrderPayloadPassengers = Array<CreateOrderPayloadPassenger>;
 
+export type CreateOrderPayloadPaymentType = "balance";
+
 export interface CreateOrderPayloadPayment {
-  type: "balance"; // TODO: could be configurable through the component later
+  type: CreateOrderPayloadPaymentType;
   amount: string;
   currency: string;
 }

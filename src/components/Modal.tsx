@@ -19,6 +19,7 @@ export const Modal: React.FC<{ children: React.ReactNode }> = ({
         width: "100vw",
         height: "100vh",
         background: "#00000059",
+        zIndex: "999",
       }}
       tabIndex={0}
     >

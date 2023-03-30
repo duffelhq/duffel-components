@@ -5,6 +5,7 @@ import {
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
+import { getTotalAmountForServices } from "./getTotalAmountForServices";
 
 interface CompileCreateOrderPayloadInput {
   offer?: Offer;
@@ -26,7 +27,10 @@ export const compileCreateOrderPayload = ({
     payments: [
       {
         type: "balance",
-        amount: offer.total_amount, // TODO: calculate based on services
+        amount: `${
+          +offer.total_amount +
+          getTotalAmountForServices(offer, baggageSelectedServices)
+        }`,
         currency: offer.total_currency,
       },
     ],

@@ -24,7 +24,6 @@ const getDefaultObject = (() => {
       duration: null,
       fare_brand_name: null,
       segments: [makeMockOfferSliceSegmentFromOriginDestination("LHR", "JFK")],
-      // TODO come back and fix this type
     } as any);
 })();
 
@@ -58,6 +57,5 @@ export const makeMockOfferSliceFromOriginDestination = (
     origin: makeMockOfferSlicePlace({ iata_code: originIataCode }),
     destination: makeMockOfferSlicePlace({ iata_code: destinationIataCode }),
     segments,
-    // TODO come back and fix this type
   } as any);
 };

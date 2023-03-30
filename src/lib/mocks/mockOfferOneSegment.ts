@@ -321,5 +321,4 @@ export const mockOfferOneSegment: Mock = {
       name: "Amelia Earhart",
     },
   ],
-  // TODO come back and fix this type
 } as any;

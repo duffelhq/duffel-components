@@ -1,12 +1,12 @@
 import dotenv from "dotenv";
 import { readFileSync, ReadStream, writeFileSync } from "fs";
 import http, { IncomingMessage, ServerResponse } from "http";
-/**
- * nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue
- */
+
+/* https://nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue */
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 dotenv.config({ path: ".env.local" });
+
 if (process.env.DUFFEL_API_URL === undefined) {
   throw new Error("process.env.DUFFEL_API_URL is required but missing");
 }
@@ -91,12 +91,6 @@ const getOffersFromDuffel = async (offerRequestId) => {
   return getOffersFromDuffelResult;
 };
 
-/**
- *
- * @param {IncomingMessage} request
- * @param {ServerResponse} response
- * @returns
- */
 const createOrderOnDuffel = async (request, response) => {
   const createOrderOnDuffelResponse = await fetch(
     process.env.DUFFEL_API_URL + "/air/orders",
@@ -108,10 +102,11 @@ const createOrderOnDuffel = async (request, response) => {
     }
   );
 
-  response.writeHead(createOrderOnDuffelResponse.status);
-  createOrderOnDuffelResponse.body.pipeTo(response);
-  // .pipeTo(new WritableStream({ write: response.write }))
-  // .then(() => response.end());
+  response.writeHead(createOrderOnDuffelResponse.status, {
+    "Content-type": "application/json",
+  });
+  response.write(await createOrderOnDuffelResponse.text());
+  response.end();
 };
 
 const ROUTES = {
@@ -137,13 +132,6 @@ const ROUTES = {
         phone_number: "+16177562626",
       },
     ];
-
-    // for convenience
-    // TODO: nice to have later, be able to load from these files for local dev
-    writeFileSync(
-      `./__generated__${offer.id}.json`,
-      JSON.stringify(offer, null, 2)
-    );
 
     const template = readFileSync("src/examples/example-1/index.html", {
       encoding: "utf-8",

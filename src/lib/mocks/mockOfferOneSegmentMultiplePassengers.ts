@@ -449,5 +449,4 @@ export const mockOfferOneSegmentMultiplePassengers: Mock = {
       name: "Henry Golding",
     },
   ],
-  // TODO come back and fix this type
 } as any;
