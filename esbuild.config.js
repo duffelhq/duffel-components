@@ -50,11 +50,13 @@ const EXAMPLES_FOLDER = "./src/examples";
   if (host == "0.0.0.0") {
     host = "localhost";
   }
-  console.log(`\n🐄 Serving component on http://${host}:${port}`);
-  console.log(`  ↳ http://${host}:${port}/DuffelCheckoutCustomElement.js`);
-  console.log(
-    `  ↳ http://${host}:${port}/DuffelCheckoutCustomElement.js.map\n`
-  );
+  const prefix = `http://${host}:${port}`;
+
+  console.log(`\n🐄 Serving component on ${prefix}`);
+  console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js`);
+  console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js.map`);
+  console.log(`  ↳ ${prefix}/styles/global.css`);
+  console.log(`  ↳ ${prefix}/styles/global.css.map\n`);
 
   await esbuildContext.watch();
 })();

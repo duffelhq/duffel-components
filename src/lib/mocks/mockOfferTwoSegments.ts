@@ -353,5 +353,4 @@ export const mockOfferTwoSegments: Mock = {
       name: "July Lockheed",
     },
   ],
-  // TODO come back and fix this type
 } as any;

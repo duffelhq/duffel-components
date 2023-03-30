@@ -9,8 +9,8 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import { Inspect } from "./Inspect";
 import { Loader } from "./Loader";
 
-// TODO: move to env variables
 const COMPONENT_CDN = "http://localhost:8000/";
+const hrefToComponentStyles = COMPONENT_CDN + "styles/global.css";
 
 export interface DuffelCheckoutProps {
   offer_id: Offer["id"];
@@ -51,7 +51,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
 
   return (
     <ErrorBoundary>
-      <link rel="stylesheet" href={COMPONENT_CDN + "styles/global.css"}></link>
+      <link rel="stylesheet" href={hrefToComponentStyles}></link>
       <div className="duffel-components">
         {location.hash.includes("inspect-duffel-checkout") && (
           <Inspect

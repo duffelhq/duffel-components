@@ -17,7 +17,6 @@ const getDefaultObject = (() => {
       type: "airport",
       city_name: "London",
       city: makeMockCity(),
-      // TODO come back and fix this type
     } as any);
 })();
 

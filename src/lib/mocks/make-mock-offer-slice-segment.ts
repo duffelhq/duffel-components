@@ -23,7 +23,6 @@ const getDefaultObject = (() => {
       operating_carrier: makeMockAirline(),
       operating_carrier_flight_number: "AA 101",
       passengers: [makeMockOfferSliceSegmentPassenger()],
-      // TODO come back and fix this type
     } as any);
 })();
 

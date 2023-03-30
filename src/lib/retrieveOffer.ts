@@ -9,7 +9,6 @@ export async function retrieveOffer(
   onOfferReady: (offer: Offer) => void,
   onError: (error: string) => void
 ) {
-  console.log({ client_key });
   try {
     const getOfferResponse = await fetch(
       `${DUFFEL_API_URL}/ancillaries-component/offers/${offer_id}?return_available_services=true`,

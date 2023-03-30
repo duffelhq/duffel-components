@@ -48,7 +48,6 @@ const getDefaultObject = (() => {
       total_amount: "500.00",
       total_emissions_kg: "670",
       total_currency: "GBP",
-      // TODO come back and fix this type
     } as any;
   };
 })();
