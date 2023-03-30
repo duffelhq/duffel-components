@@ -6,9 +6,10 @@ import {
 } from "../types/CreateOrderPayload";
 import { DuffelCheckout, DuffelCheckoutProps } from "./DuffelCheckout";
 
-interface DuffelCheckoutCustomElementInitData {
-  passengers: CreateOrderPayloadPassengers;
-}
+type DuffelCheckoutCustomElementInitData = Pick<
+  DuffelCheckoutProps,
+  "passengers" | "styles"
+>;
 
 class DuffelCheckoutCustomElement extends HTMLElement {
   /**
@@ -17,6 +18,7 @@ class DuffelCheckoutCustomElement extends HTMLElement {
   root!: Root;
 
   passengers!: CreateOrderPayloadPassengers | null;
+  styles: DuffelCheckoutProps["styles"];
 
   /**
    * The callback users should react to.
@@ -37,8 +39,9 @@ class DuffelCheckoutCustomElement extends HTMLElement {
     return { offer_id, client_key };
   }
 
-  storeData({ passengers }: DuffelCheckoutCustomElementInitData) {
+  storeData({ passengers, styles }: DuffelCheckoutCustomElementInitData) {
     this.passengers = passengers;
+    this.styles = styles;
   }
 
   /**
@@ -74,6 +77,7 @@ class DuffelCheckoutCustomElement extends HTMLElement {
             offer_id,
             client_key,
             passengers: this.passengers,
+            styles: this.styles,
           });
         },
       })
@@ -101,14 +105,20 @@ class DuffelCheckoutCustomElement extends HTMLElement {
     // TODO: find better way to handle missing passenger
     if (!this.passengers) return;
 
-    this.renderRoot({ offer_id, client_key, passengers: this.passengers });
+    this.renderRoot({
+      offer_id,
+      client_key,
+      passengers: this.passengers,
+      styles: this.styles,
+    });
   }
 
-  renderRoot(withProps: {
-    offer_id: DuffelCheckoutProps["offer_id"];
-    client_key: DuffelCheckoutProps["client_key"];
-    passengers: DuffelCheckoutProps["passengers"];
-  }) {
+  renderRoot(
+    withProps: Pick<
+      DuffelCheckoutProps,
+      "offer_id" | "client_key" | "passengers" | "styles"
+    >
+  ) {
     this.root?.render(
       <DuffelCheckout {...withProps} onPayloadReady={this.onPayloadReady} />
     );

@@ -47,9 +47,13 @@ document
 
 ## connectedCallback handler arguments
 
-| Name       | **Possible values**                                             | **Example**                       |
-| ---------- | --------------------------------------------------------------- | --------------------------------- |
-| passengers | [CreateOrderPayloadPassengers](src/types/CreateOrderPayload.ts) | `passengers: getValuesFromForm()` |
+| Name                      | **Possible values**                                             | **Example**                       |
+| ------------------------- | --------------------------------------------------------------- | --------------------------------- |
+| passengers                | [CreateOrderPayloadPassengers](src/types/CreateOrderPayload.ts) | `passengers: getValuesFromForm()` |
+| styles                    | An object to customise the UI                                   |                                   |
+| styles.primaryColor       | A comma separated list of the RGB values                        | `primaryColor: '34, 139, 34'`     |
+| styles.buttonCornerRadius | A string with the button corner radius                          | `buttonCornerRadius: '8px'`       |
+| styles.fontFamily         | A string with the name of the font family                       | `fontFamily: 'Menlo'`             |
 
 ## How to set up secrets
 
