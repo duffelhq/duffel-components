@@ -5,7 +5,7 @@ import {
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { AdditionalBaggageSelection } from "./AdditionalBaggageSelection";
-import { Card } from "./Card";
+import { Card, CardProps } from "./Card";
 import { Modal } from "./Modal";
 import { moneyStringFormatter } from "../lib/formatConvertedCurrency";
 import { withPlural } from "@lib/withPlural";
@@ -31,6 +31,10 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
+  const containsBaggageService = offer.available_services.some(
+    (service) => service.type === "baggage" && service.maximum_quantity > 0
+  );
+
   const totalQuantity = getTotalQuantity(selectedServices);
   const isBaggageAdded = totalQuantity > 0;
 
@@ -38,16 +42,26 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
   const toMoney = moneyStringFormatter(offer.total_currency);
   const totalAmountFormatted = toMoney(totalAmount);
 
+  let statusTag: CardProps["statusTag"] = "not-added";
+  if (!containsBaggageService) {
+    statusTag = "not-available";
+  } else if (isBaggageAdded) {
+    statusTag = "added";
+  }
+
   return (
     <>
       <Card
         title="Extra baggage"
         icon="checked_bag"
-        statusTag={isBaggageAdded ? "added" : "not-added"}
+        statusTag={statusTag}
         onClick={() => setIsOpen(true)}
       >
-        {!isBaggageAdded && "No extra bags added"}
-        {isBaggageAdded &&
+        {!containsBaggageService &&
+          "Extra baggage is not available for this journey"}
+        {containsBaggageService && !isBaggageAdded && "No extra bags added"}
+        {containsBaggageService &&
+          isBaggageAdded &&
           `${withPlural(
             totalQuantity,
             "bag",

@@ -2,10 +2,10 @@ import { Button } from "./Button";
 import { Icon, IconName } from "./Icon";
 import { Stamp } from "./Stamp";
 
-interface CardProps {
+export interface CardProps {
   title: string;
   icon: IconName;
-  statusTag: "added" | "not-added";
+  statusTag: "added" | "not-added" | "not-available";
   onClick: () => void;
   children: React.ReactNode;
 }
@@ -52,6 +52,11 @@ export const Card: React.FC<CardProps> = ({
         Not added
       </Stamp>
     )}
+    {statusTag === "not-available" && (
+      <Stamp backgroundColor="#F6F5F9" color="#4B4B55">
+        Not available
+      </Stamp>
+    )}
     <div />
     <div
       style={{
@@ -60,13 +65,17 @@ export const Card: React.FC<CardProps> = ({
         fontSize: "16px",
         lineHeight: "24px",
         color: "#696972",
-        // TODO: how does styling work?
       }}
     >
       {children}
     </div>
     <div style={{ display: "flex", justifyContent: "end" }}>
-      <Button text="Add" intent="PRIMARY" onClick={onClick} />
+      <Button
+        text="Add"
+        intent="PRIMARY"
+        onClick={onClick}
+        disabled={statusTag === "not-available"}
+      />
     </div>
   </div>
 );
