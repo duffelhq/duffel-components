@@ -12,11 +12,18 @@ import { Loader } from "./Loader";
 const COMPONENT_CDN = "http://localhost:8000/";
 const hrefToComponentStyles = COMPONENT_CDN + "styles/global.css";
 
+interface DuffelCheckoutStyles {
+  accentColor: string;
+  buttonCornerRadius: string;
+  fontFamily: string;
+}
+
 export interface DuffelCheckoutProps {
   offer_id: Offer["id"];
   client_key: Offer["client_key"];
   passengers: CreateOrderPayload["passengers"];
   onPayloadReady: (data: CreateOrderPayload) => void;
+  styles?: DuffelCheckoutStyles;
 }
 
 export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
@@ -24,6 +31,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
   client_key,
   passengers,
   onPayloadReady,
+  styles,
 }) => {
   const [offer, setOffer] = React.useState<Offer>();
   const [error, setError] = React.useState<null | string>(null);
@@ -52,7 +60,21 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
   return (
     <ErrorBoundary>
       <link rel="stylesheet" href={hrefToComponentStyles}></link>
-      <div className="duffel-components">
+
+      <div
+        className="duffel-components"
+        style={
+          {
+            ...(styles?.accentColor && { "--ACCENT": styles.accentColor }),
+            ...(styles?.fontFamily && { "--FONT-FAMILY": styles.fontFamily }),
+            ...(styles?.buttonCornerRadius && {
+              "--BUTTON-RADIUS": styles.buttonCornerRadius,
+            }),
+            // `as any` is needed here is needed because we want to set css variables
+            // that are not part of the css properties type
+          } as any
+        }
+      >
         {location.hash.includes("inspect-duffel-checkout") && (
           <Inspect
             data={{
