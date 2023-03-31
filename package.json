@@ -8,9 +8,22 @@
     "dev": "node esbuild.config.js",
     "example-1": "concurrently \"yarn dev\" \"yarn run-example-1\"",
     "lint": "eslint . --ext .ts,.tsx,.mjs,.js",
+    "pre-commit-check": "yarn lint-staged && yarn check-types",
+    "prepare": "husky install",
     "prettier": "prettier --write --loglevel=warn .",
     "prettier-check": "prettier --check .",
     "run-example-1": "node src/examples/example-1/server.mjs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn pre-commit-check"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,mjs,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@sentry/browser": "^7.43.0",
@@ -35,6 +48,8 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "tsc": "^2.0.4",
     "typescript": "5.0.3"
