@@ -7,8 +7,8 @@
     "check-types": "tsc --noEmit --project tsconfig.json",
     "dev": "node esbuild.config.js",
     "example-1": "concurrently \"yarn dev\" \"yarn run-example-1\"",
-    "lint": "eslint . --ext .ts,.tsx,.mjs,.js",
-    "pre-commit-check": "yarn lint-staged && yarn check-types",
+    "lint": "eslint . --ext .ts,.tsx,.mjs,.js --max-warnings=0",
+    "pre-commit-check": "yarn lint-staged",
     "prepare": "husky install",
     "prettier": "prettier --write --loglevel=warn .",
     "prettier-check": "prettier --check .",
@@ -28,7 +28,6 @@
   "dependencies": {
     "@sentry/browser": "^7.43.0",
     "@sentry/tracing": "^7.43.0",
-    "@typescript-eslint/parser": "^5.57.0",
     "classnames": "^2.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -39,6 +38,7 @@
     "@types/react": "18.0.32",
     "@types/react-dom": "18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.57.0",
     "concurrently": "^8.0.0",
     "dotenv": "^16.0.3",
     "esbuild": "0.17.15",
