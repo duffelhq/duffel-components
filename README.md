@@ -60,7 +60,7 @@ document
 Our example has a server that will reach out to the Duffel API to search and retrieve an offer. To talk to the API we'll define some enviroment variables. Please add the following to `.env.local`:
 
 ```sh
-# ./.env.local
+# .env.local
 
 # Used to authenticate our
 # example server to talk to Duffel
@@ -70,18 +70,6 @@ DUFFEL_API_TOKEN=test_duffel_dev_rw
 # to talk. Remember to update the key
 # if this value changes.
 DUFFEL_API_URL=https://localhost:4000;
-
-# This value will be used to tell
-# our example which version of the
-# component to load.
-COMPONENT_CDN=https://localhost:8000
-
-# The auth token is so we send data
-# to sentry during the build.
-# This is helpful when CI is
-# building releases, locally not as much.
-SENTRY_AUTH_TOKEN=
-
 ```
 
 ## How to see the example running
@@ -97,3 +85,20 @@ Please use `yarn example-1`. This command will:
 - Make sure the org your are using has the flags enabled:
   - `ancillaries_component_enable_client_key`
   - `ancillaries_component_enable_client_key_endpoints`
+
+## How to upload new changes to our CDN
+
+1. Make sure you have an up-to-date version of `.env.build`. It should include some of the same variables from `.env.local`:
+
+```sh
+# .env.build
+
+# The auth token is so we send data
+# to sentry during the build.
+# This is helpful when CI is
+# building releases, locally not as much.
+# You can get it here: https://duffel.sentry.io/settings/account/api/auth-tokens
+SENTRY_AUTH_TOKEN=
+```
+
+Then, run `yarn gcloud-storage-cp`. This command will upload a folder for the version to [assets.duffel.com](<https://console.cloud.google.com/storage/browser/duffel-assets/ancillaries-component;tab=objects?project=duffel-prod-fda1bc52&pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false>).

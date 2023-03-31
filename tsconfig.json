@@ -24,8 +24,10 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "paths": {
-      "@lib/*": ["./src/lib/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@types/*": ["./src/types/*"],
+      "@lib/*": ["./src/lib/*"]
     },
     "jsx": "react-jsx",
     "esModuleInterop": true,
@@ -35,15 +37,6 @@
     "typeRoots": ["node_modules/@types", "node_modules/**/types"],
     "incremental": true
   },
-  "exclude": [
-    "node_modules",
-    "jest.config.ts",
-    "**/stories.tsx",
-    "storybook-static",
-    "**/**.css.js",
-    "./dist/**/*",
-    "./src/**/*.stories.tsx",
-    "./src/**/*.spec.tsx"
-  ],
+  "exclude": ["node_modules", "**/**.css.js", "./dist/**/*"],
   "include": ["./src"]
 }

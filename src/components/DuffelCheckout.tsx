@@ -9,8 +9,11 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import { Inspect } from "./Inspect";
 import { Loader } from "./Loader";
 
-const COMPONENT_CDN = "http://localhost:8000/";
-const hrefToComponentStyles = COMPONENT_CDN + "styles/global.css";
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
+const version = require("../../package.json").version;
+
+const COMPONENT_CDN = `https://storage.googleapis.com/duffel-assets/ancillaries-component/${version}`;
+const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 
 interface DuffelCheckoutStyles {
   accentColor: string;
@@ -65,7 +68,9 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
         className="duffel-components"
         style={
           {
-            ...(styles?.accentColor && { "--ACCENT": styles.accentColor }),
+            ...(styles?.accentColor && {
+              "--ACCENT": styles.accentColor,
+            }),
             ...(styles?.fontFamily && { "--FONT-FAMILY": styles.fontFamily }),
             ...(styles?.buttonCornerRadius && {
               "--BUTTON-RADIUS": styles.buttonCornerRadius,
