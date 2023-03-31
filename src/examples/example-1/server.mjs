@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
-import { readFileSync, ReadStream, writeFileSync } from "fs";
-import http, { IncomingMessage, ServerResponse } from "http";
+import { readFileSync } from "fs";
+import http from "http";
 
 /* https://nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue */
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;

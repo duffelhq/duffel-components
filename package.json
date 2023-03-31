@@ -1,21 +1,21 @@
 {
   "name": "duffel-checkout",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
-  "engines": {
-    "node": "~18.*"
-  },
+  "main": "index.js",
   "scripts": {
-    "dev": "node esbuild.config.js",
     "check-types": "tsc --noEmit --project tsconfig.json",
-    "run-example-1": "node src/examples/example-1/server.mjs",
+    "dev": "node esbuild.config.js",
     "example-1": "concurrently \"yarn dev\" \"yarn run-example-1\"",
-    "lint": "echo lint lint lint"
+    "lint": "eslint . --ext .ts,.tsx,.mjs,.js",
+    "prettier": "prettier --write --loglevel=warn .",
+    "prettier-check": "prettier --check .",
+    "run-example-1": "node src/examples/example-1/server.mjs"
   },
   "dependencies": {
     "@sentry/browser": "^7.43.0",
     "@sentry/tracing": "^7.43.0",
+    "@typescript-eslint/parser": "^5.57.0",
     "classnames": "^2.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -25,10 +25,21 @@
     "@sentry/esbuild-plugin": "^0.4.0",
     "@types/react": "18.0.32",
     "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
     "concurrently": "^8.0.0",
     "dotenv": "^16.0.3",
     "esbuild": "0.17.15",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.7",
     "tsc": "^2.0.4",
     "typescript": "5.0.3"
+  },
+  "engines": {
+    "node": "~18.*"
   }
 }

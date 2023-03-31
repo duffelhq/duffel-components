@@ -21,7 +21,6 @@ export const Modal: React.FC<{ children: React.ReactNode }> = ({
         background: "#00000059",
         zIndex: "999",
       }}
-      tabIndex={0}
     >
       <div
         role="presentation"

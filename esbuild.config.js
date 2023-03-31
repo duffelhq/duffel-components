@@ -1,10 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const { sentryEsbuildPlugin } = require("@sentry/esbuild-plugin");
 const esbuild = require("esbuild");
 const dotenv = require("dotenv");
-const fs = require("fs");
-const path = require("path");
-
-const EXAMPLES_FOLDER = "./src/examples";
 
 (async function () {
   // The most recent version of this file is here:

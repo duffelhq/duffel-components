@@ -48,7 +48,7 @@ class DuffelCheckoutCustomElement extends HTMLElement {
    * `connectedCallback` is called to initialise the custom element
    */
   connectedCallback() {
-    let { offer_id, client_key } = this.getAttributes();
+    const { offer_id, client_key } = this.getAttributes();
     const container = document.createElement("div");
     this.attachShadow({ mode: "open" }).appendChild(container);
 

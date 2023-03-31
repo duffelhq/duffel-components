@@ -45,8 +45,8 @@ export interface AdditionalBaggageSelectionOfferProps
   offer: Offer;
 }
 
-export interface AdditionalBaggageSelectionServicesProps
-  extends AdditionalBaggageSelectionCommonProps {}
+export type AdditionalBaggageSelectionServicesProps =
+  AdditionalBaggageSelectionCommonProps;
 
 // TODO: figure out how this fits
 type Baggage = any;
@@ -250,20 +250,21 @@ interface AdditionalBaggageSelectionProps {
   currencyConversion?: CurrencyConversion;
 }
 
-export const AdditionalBaggageSelection: React.FC<AdditionalBaggageSelectionProps> =
-  (props) => {
-    if (!props.offer) {
-      throw new Error(
-        "Not possible to render AdditionalBaggageSelection, the offer is missing."
-      );
-    }
-    let segments: any = props.offer.slices.map((s) => s.segments).flat();
-
-    return (
-      <ErrorBoundary>
-        <PassengersProvider passengers={props.passengers} segments={segments}>
-          <AdditionalBaggageSelect {...props} />
-        </PassengersProvider>
-      </ErrorBoundary>
+export const AdditionalBaggageSelection: React.FC<
+  AdditionalBaggageSelectionProps
+> = (props) => {
+  if (!props.offer) {
+    throw new Error(
+      "Not possible to render AdditionalBaggageSelection, the offer is missing."
     );
-  };
+  }
+  const segments: any = props.offer.slices.map((s) => s.segments).flat();
+
+  return (
+    <ErrorBoundary>
+      <PassengersProvider passengers={props.passengers} segments={segments}>
+        <AdditionalBaggageSelect {...props} />
+      </PassengersProvider>
+    </ErrorBoundary>
+  );
+};
