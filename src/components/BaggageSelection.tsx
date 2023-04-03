@@ -1,3 +1,5 @@
+import { getTotalQuantity } from "@lib/getTotalQuantity";
+import { withPlural } from "@lib/withPlural";
 import React from "react";
 import {
   CreateOrderPayload,
@@ -5,13 +7,9 @@ import {
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { AdditionalBaggageSelection } from "./AdditionalBaggageSelection";
+import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
 import { Card, CardProps } from "./Card";
 import { Modal } from "./Modal";
-import { moneyStringFormatter } from "../lib/formatConvertedCurrency";
-import { withPlural } from "@lib/withPlural";
-import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
-import { getTotalQuantity } from "@lib/getTotalQuantity";
-import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
 import { Stamp } from "./Stamp";
 
 const commonCardProps: Pick<CardProps, "title" | "icon" | "ctaLabel"> = {
