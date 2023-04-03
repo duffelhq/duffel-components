@@ -6,13 +6,22 @@ import { Offer } from "src//types/Offer";
 import { CreateOrderPayload } from "src/types/CreateOrderPayload";
 import { BaggageSelection, BaggageSelectionProps } from "./BaggageSelection";
 import { ErrorBoundary } from "./ErrorBoundary";
+import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
-import { Loader } from "./Loader";
+
+const baggage = "baggage" as const;
+
+// this can be a setting we expose to the user later, right now we only have one feature anyway.
+type Features = typeof baggage;
+const selectedFeatures = new Set<Features>([baggage]);
 
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const version = require("../../package.json").version;
 
-const COMPONENT_CDN = `https://storage.googleapis.com/duffel-assets/ancillaries-component/${version}`;
+const COMPONENT_CDN = location.href.match("http://localhost:6262/")
+  ? "http://localhost:8000/styles/"
+  : `https://storage.googleapis.com/duffel-assets/ancillaries-component/${version}`;
+
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 
 interface DuffelCheckoutStyles {
@@ -60,6 +69,11 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
     }
   }, [baggageSelectedServices]);
 
+  const nonIdealStateHeight = `${
+    // 72 (card height) + 32 gap between cards
+    72 * selectedFeatures.size + 32 * (selectedFeatures.size - 1)
+  }px`;
+
   return (
     <ErrorBoundary>
       <link rel="stylesheet" href={hrefToComponentStyles}></link>
@@ -93,10 +107,11 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
           />
         )}
 
-        {isLoading && <Loader />}
+        {error && <FetchOfferErrorState height={nonIdealStateHeight} />}
 
-        {offer && passengers && (
+        {selectedFeatures.has("baggage") && (
           <BaggageSelection
+            isLoading={isLoading}
             offer={offer}
             passengers={passengers}
             selectedServices={baggageSelectedServices}
