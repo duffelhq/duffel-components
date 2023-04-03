@@ -74,51 +74,50 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
     72 * selectedFeatures.size + 32 * (selectedFeatures.size - 1)
   }px`;
 
+  const duffelComponentsStyle = {
+    ...(styles?.accentColor && {
+      "--ACCENT": styles.accentColor,
+    }),
+    ...(styles?.fontFamily && { "--FONT-FAMILY": styles.fontFamily }),
+    ...(styles?.buttonCornerRadius && {
+      "--BUTTON-RADIUS": styles.buttonCornerRadius,
+    }),
+    // `as any` is needed here is needed because we want to set css variables
+    // that are not part of the css properties type
+  } as any;
+
   return (
-    <ErrorBoundary>
+    <>
       <link rel="stylesheet" href={hrefToComponentStyles}></link>
 
-      <div
-        className="duffel-components"
-        style={
-          {
-            ...(styles?.accentColor && {
-              "--ACCENT": styles.accentColor,
-            }),
-            ...(styles?.fontFamily && { "--FONT-FAMILY": styles.fontFamily }),
-            ...(styles?.buttonCornerRadius && {
-              "--BUTTON-RADIUS": styles.buttonCornerRadius,
-            }),
-            // `as any` is needed here is needed because we want to set css variables
-            // that are not part of the css properties type
-          } as any
-        }
-      >
-        {location.hash.includes("inspect-duffel-checkout") && (
-          <Inspect
-            data={{
-              offer_id,
-              client_key,
-              passengers,
-              baggageSelectedServices,
-              offer,
-              error,
-            }}
-          />
-        )}
+      <div className="duffel-components" style={duffelComponentsStyle}>
+        <ErrorBoundary>
+          {location.hash.includes("inspect-duffel-checkout") && (
+            <Inspect
+              data={{
+                offer_id,
+                client_key,
+                passengers,
+                baggageSelectedServices,
+                offer,
+                error,
+              }}
+            />
+          )}
 
-        {error && <FetchOfferErrorState height={nonIdealStateHeight} />}
+          {error && <FetchOfferErrorState height={nonIdealStateHeight} />}
 
-        {selectedFeatures.has("baggage") && (
-          <BaggageSelection
-            isLoading={isLoading}
-            offer={offer}
-            passengers={passengers}
-            selectedServices={baggageSelectedServices}
-            setSelectedServices={setBaggageSelectionState}
-          />
-        )}
+          {selectedFeatures.has("baggage") && (
+            <BaggageSelection
+              isLoading={isLoading}
+              offer={offer}
+              passengers={passengers}
+              selectedServices={baggageSelectedServices}
+              setSelectedServices={setBaggageSelectionState}
+            />
+          )}
+        </ErrorBoundary>
       </div>
-    </ErrorBoundary>
+    </>
   );
 };
