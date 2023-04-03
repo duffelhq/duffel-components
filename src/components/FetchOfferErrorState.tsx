@@ -17,8 +17,8 @@ export const FetchOfferErrorState: React.FC<{ height: string }> = ({
         textAlign: "center",
       }}
     >
-      Please try reloading. If the problem persists you can try again later or
-      add seats and bags after you’ve made the booking.
+      Please try reloading. If the problem persists reach out to our support
+      team.
     </p>
     <div>
       <Button
