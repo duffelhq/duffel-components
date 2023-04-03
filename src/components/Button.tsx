@@ -31,7 +31,7 @@ export interface BaseButtonProps {
   /**
    * What is the intent of the button? This will change the colour of the button.
    */
-  intent?: "PRIMARY" | "MUTED";
+  intent?: "PRIMARY" | "MUTED" | "INVISIBLE";
 
   /**
    * Should this button use outlined styles.
@@ -88,6 +88,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const cn = classNames("duffel-button", "duffel-button--solid", className, {
       "duffel-button--primary": intent === "PRIMARY",
       "duffel-button--muted": intent === "MUTED",
+      "duffel-button--invisible": intent === "INVISIBLE",
       "duffel-button--icon-only": iconOnly,
       "duffel-button--is-disabled": disabled,
     });
