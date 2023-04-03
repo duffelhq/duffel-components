@@ -46,6 +46,7 @@ jobs:
     steps:
       - setup
       - run: yarn lint
+      - run: yarn prettier-check
 
 workflows:
   build_and_test:

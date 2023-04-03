@@ -70,7 +70,7 @@ export const Summary: React.FC<SummaryProps> = ({
     </div>
   );
 
-  const amountOnly = Number(formattedAmount.replace(/[^0-9\.-]+/g, ""));
+  const amountOnly = Number(formattedAmount.replace(/[^0-9.-]+/g, ""));
 
   const summaryDescription =
     amountOnly !== 0 ? `${title} for ${formattedAmount}` : `${title}`;

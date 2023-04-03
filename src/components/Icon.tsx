@@ -1,6 +1,6 @@
 import * as React from "react";
 
-/* eslint-disable spellcheck/spell-checker */
+/* eslint-disable react/no-unknown-property */
 /* eslint sort-keys: "error" */
 export const ICON_MAP = {
   add: (
@@ -123,9 +123,9 @@ export const Icon: React.FunctionComponent<IconProps> = ({
     aria-label={name}
     data-testid={name}
     style={{
-      marginLeft: "initial",
       display: "block",
       fill: "currentColor",
+      marginLeft: "initial",
     }}
   >
     {getIconPath(name)}
