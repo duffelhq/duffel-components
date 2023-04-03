@@ -66,10 +66,6 @@ const BaggageSelectionInternal: React.FC<BaggageSelectionPropsWithOffer> = ({
   const totalQuantity = getTotalQuantity(selectedServices);
   const isBaggageAdded = totalQuantity > 0;
 
-  const totalAmount = getTotalAmountForServices(offer, selectedServices);
-  const toMoney = moneyStringFormatter(offer.total_currency);
-  const totalAmountFormatted = toMoney(totalAmount);
-
   return (
     <>
       <Card
@@ -82,14 +78,13 @@ const BaggageSelectionInternal: React.FC<BaggageSelectionPropsWithOffer> = ({
           </Stamp>
         )}
         {containsBaggageService && !isBaggageAdded && (
-          <Stamp color="" backgroundColor="">
-            No extra bags added
+          <Stamp color="var(--GREY-700)" backgroundColor="var(--GREY-100)">
+            Not added
           </Stamp>
         )}
         {containsBaggageService && isBaggageAdded && (
-          <Stamp color="" backgroundColor="">
-            `${withPlural(totalQuantity, "bag", "bags")} added for $
-            {totalAmountFormatted}`
+          <Stamp color="var(--GREEN-300)" backgroundColor="var(--GREEN-100)">
+            {withPlural(totalQuantity, "bag", "bags")} added
           </Stamp>
         )}
       </Card>
