@@ -84,6 +84,20 @@
   color: rgb(var(--ACCENT));
 }
 
+.duffel-button--invisible {
+  background-color: transparent;
+  color: var(--BUTTON-BASE-COLOR);
+  border: none;
+}
+
+.duffel-button--invisible:hover {
+  background-color: var(--GREY-200);
+}
+
+.duffel-button--invisible:active {
+  background-color: var(--GREY-100);
+}
+
 .duffel-button--is-disabled {
   cursor: default;
   opacity: 0.4;
