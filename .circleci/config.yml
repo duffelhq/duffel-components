@@ -36,15 +36,16 @@ commands:
     description: Set up common system expectations
     steps:
       - checkout
-      # - restore_deps_cache #disabled for now because this step alone took more than half the pipeline time
+      - restore_deps_cache 
       - run: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-      - save_deps_cache
+      - save_deps_cache 
 
 jobs:
   lint:
     executor: node-executor
     steps:
       - setup
+      - run: yarn check-types
       - run: yarn lint
       - run: yarn prettier-check
 
