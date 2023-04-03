@@ -5,3 +5,4 @@
 tsconfig.tsbuildinfo
 __generated__*
 yarn-error.log
+.env.build

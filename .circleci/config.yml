@@ -45,6 +45,7 @@ jobs:
     executor: node-executor
     steps:
       - setup
+      - run: yarn check-types
       - run: yarn lint
       - run: yarn prettier-check
 
