@@ -57,6 +57,13 @@
   margin-block: 0;
 }
 
+.ancillary-card__expand-icon {
+  color: var(--GREY-400);
+  transition: color 0.3s var(--TRANSITION-CUBIC-BEZIER),
+    transform 0.5s var(--TRANSITION-CUBIC-BEZIER);
+  transform: scale(1);
+}
+
 .ancillary-card__copy {
   color: var(--GREY-600);
   margin-left: 34px;
@@ -87,6 +94,7 @@
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible
   .ancillary-card__expand-icon {
   color: rgb(var(--ACCENT)) !important;
+  transform: scale(1.09);
 }
 
 .ancillary-card__selected-icon {
