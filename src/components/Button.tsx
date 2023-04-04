@@ -59,6 +59,11 @@ export interface ButtonProps extends BaseButtonProps {
    * Element ID
    */
   id?: string;
+
+  /**
+   * The button size
+   */
+  size?: "small" | "regular";
 }
 
 /**
@@ -76,17 +81,22 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       text,
       type = "button",
       id,
+      size,
       ...props
     },
     ref
   ) => {
-    const cn = classNames("duffel-button", "duffel-button--solid", className, {
-      "duffel-button--primary": intent === "PRIMARY",
-      "duffel-button--muted": intent === "MUTED",
-      "duffel-button--invisible": intent === "INVISIBLE",
-      "duffel-button--icon-only": iconOnly,
-      "duffel-button--is-disabled": disabled,
-    });
+    const cn = classNames(
+      "duffel-button",
+      "duffel-button--solid",
+      className,
+      intent === "PRIMARY" && "duffel-button--primary",
+      intent === "MUTED" && "duffel-button--muted",
+      intent === "INVISIBLE" && "duffel-button--invisible",
+      size === "small" && "duffel-button--small",
+      iconOnly && "duffel-button--icon-only",
+      disabled && "duffel-button--is-disabled"
+    );
 
     return (
       <button
