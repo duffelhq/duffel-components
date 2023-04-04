@@ -7,16 +7,14 @@ import {
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { AdditionalBaggageSelection } from "./AdditionalBaggageSelection";
-import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
-import { Card, CardProps } from "./Card";
+import { Card } from "./Card";
 import { Modal } from "./Modal";
 import { Stamp } from "./Stamp";
+import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
+import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
+import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 
-const commonCardProps: Pick<CardProps, "title" | "icon" | "ctaLabel"> = {
-  title: "Extra baggage",
-  icon: "checked_bag",
-  ctaLabel: "Add extra baggage",
-};
+const defaultCopy = "Add any extra baggage you need for your trip";
 
 export type SetBaggageSelectionStateFunction = (
   selectedServices: CreateOrderPayloadServices
@@ -30,26 +28,8 @@ export interface BaggageSelectionProps {
   setSelectedServices: SetBaggageSelectionStateFunction;
 }
 
-type BaggageSelectionPropsWithOffer = Exclude<
-  BaggageSelectionProps,
-  "offer"
-> & {
-  offer: Offer;
-};
-
-export const BaggageSelection: React.FC<BaggageSelectionProps> = (props) => {
-  if (props.isLoading) {
-    return <BaggageSelectionLoading />;
-  } else {
-    return (
-      <BaggageSelectionInternal
-        {...(props as BaggageSelectionPropsWithOffer)}
-      />
-    );
-  }
-};
-
-const BaggageSelectionInternal: React.FC<BaggageSelectionPropsWithOffer> = ({
+export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
+  isLoading,
   offer,
   passengers,
   selectedServices,
@@ -57,37 +37,52 @@ const BaggageSelectionInternal: React.FC<BaggageSelectionPropsWithOffer> = ({
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const containsBaggageService = offer.available_services.some(
+  const containsBaggageService = offer?.available_services.some(
     (service) => service.type === "baggage" && service.maximum_quantity > 0
   );
 
   const totalQuantity = getTotalQuantity(selectedServices);
   const isBaggageAdded = totalQuantity > 0;
 
+  const totalAmount = getTotalAmountForServices(offer!, selectedServices);
+  const totalAmountFormatted = offer
+    ? moneyStringFormatter(offer?.base_currency)(totalAmount)
+    : "0";
+
+  const copy =
+    containsBaggageService && isBaggageAdded
+      ? `${withPlural(
+          totalQuantity,
+          "bag",
+          "bags"
+        )} added for ${totalAmountFormatted}`
+      : defaultCopy;
+
   return (
     <>
       <Card
-        {...commonCardProps}
+        title="Extra baggage"
+        copy={copy}
+        icon={"cabin_bag"}
         onClick={containsBaggageService ? () => setIsOpen(true) : null}
+        isLoading={isLoading}
+        disabled={!isLoading && !containsBaggageService}
+        isSelected={isBaggageAdded}
       >
-        {!containsBaggageService && (
-          <Stamp color="var(--GREY-700)" backgroundColor="var(--GREY-100)">
+        {isLoading && (
+          <Stamp color="var(--GREY-900)" backgroundColor="var(--GREY-100)">
+            Loading
+            <AnimatedLoaderEllipsis />
+          </Stamp>
+        )}
+        {!isLoading && !containsBaggageService && (
+          <Stamp color="var(--GREY-700)" backgroundColor="var(--GREY-200)">
             Not available
-          </Stamp>
-        )}
-        {containsBaggageService && !isBaggageAdded && (
-          <Stamp color="var(--GREY-700)" backgroundColor="var(--GREY-100)">
-            Not added
-          </Stamp>
-        )}
-        {containsBaggageService && isBaggageAdded && (
-          <Stamp color="var(--GREEN-300)" backgroundColor="var(--GREEN-100)">
-            {withPlural(totalQuantity, "bag", "bags")} added
           </Stamp>
         )}
       </Card>
 
-      {isOpen && (
+      {isOpen && offer && (
         <Modal>
           <AdditionalBaggageSelection
             offer={offer}
@@ -103,12 +98,3 @@ const BaggageSelectionInternal: React.FC<BaggageSelectionPropsWithOffer> = ({
     </>
   );
 };
-
-const BaggageSelectionLoading: React.FC = () => (
-  <Card {...commonCardProps}>
-    <div style={{ paddingBlock: "16px" }}>
-      Loading
-      <AnimatedLoaderEllipsis />
-    </div>
-  </Card>
-);
