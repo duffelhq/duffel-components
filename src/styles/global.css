@@ -8,8 +8,10 @@
 @import "./components/AdditionalBaggageSelect.css";
 @import "./components/BaggageDisplay.css";
 @import "./components/Button.css";
+@import "./components/Card.css";
 @import "./components/Counter.css";
 @import "./components/Loader.css";
+@import "./components/Modal.css";
 @import "./components/PassengerSelect.css";
 @import "./components/PassengersLayout.css";
 @import "./components/Segment.css";
@@ -18,6 +20,8 @@
 
 .duffel-components {
   --BUTTON-RADIUS: 5px;
+  --TRANSITION-CUBIC-BEZIER: cubic-bezier(0.25, 0.8, 0.25, 1);
+
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;

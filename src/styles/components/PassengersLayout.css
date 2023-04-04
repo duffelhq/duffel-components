@@ -81,7 +81,7 @@
     position: sticky;
     top: 0;
     flex: 1 0 auto;
-    min-width: 415px;
+    min-width: 315px;
   }
 
   .layout__main-content {

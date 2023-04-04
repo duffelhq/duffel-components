@@ -6,7 +6,6 @@
   --BUTTON-SPACING: 2px 40px;
   --BUTTON-ICON-SPACING: 8px;
   --BUTTON-ICON-MARGIN: 12px;
-  --TRANSITION-CUBIC-BEZIER: cubic-bezier(0.25, 0.8, 0.25, 1);
 
   -webkit-appearance: none;
   align-items: center;

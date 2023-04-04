@@ -34,11 +34,6 @@ export interface BaseButtonProps {
   intent?: "PRIMARY" | "MUTED" | "INVISIBLE";
 
   /**
-   * Should this button use outlined styles.
-   */
-  outlined?: boolean;
-
-  /**
    * The text to be displayed in the button. If `iconOnly` is set, this text will be used as an `aria-label`.
    */
   text: string;
