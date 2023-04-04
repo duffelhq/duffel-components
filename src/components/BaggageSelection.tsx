@@ -83,7 +83,7 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
       </Card>
 
       {isOpen && offer && (
-        <Modal>
+        <Modal onClose={() => setIsOpen(false)}>
           <AdditionalBaggageSelection
             offer={offer}
             passengers={passengers}
