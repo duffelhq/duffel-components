@@ -21,13 +21,18 @@
 
 /* tablet or greater  */
 @media (min-width: 768px) {
-  .modal--content {
-    width: calc(100% - 120px);
-    height: calc(100% - 120px);
-    margin: 60px;
-    max-width: 720px;
-    margin-inline: auto;
+  .modal {
+    padding: 24px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+  .modal--content {
+    max-width: 720px;
+    margin: 0;
+  }
+
   .modal--content .layout {
     border-radius: 12px;
   }
