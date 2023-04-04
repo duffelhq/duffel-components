@@ -64,10 +64,6 @@
     margin-bottom: var(--SPACING-XS-2);
   }
 
-  .summary__actions--previous.duffel-button--icon-only {
-    padding: 0;
-  }
-
   .summary__confirmation-btn:last-child {
     margin-left: var(--SPACING-SM-1);
   }
