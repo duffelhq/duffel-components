@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Button } from "./Button";
 
 export const Modal: React.FC<{
   children: React.ReactNode;
@@ -14,8 +15,14 @@ export const Modal: React.FC<{
   return (
     <div className="modal">
       <div role="presentation" className="modal--content">
-        <button onClick={onClose}>Close</button>
         {children}
+        <Button
+          intent="INVISIBLE"
+          className="modal--close-button"
+          onClick={onClose}
+          text="Close"
+          size="small"
+        />
       </div>
     </div>
   );
