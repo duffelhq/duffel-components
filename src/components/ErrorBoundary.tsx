@@ -1,5 +1,7 @@
-import React from "react";
 import { captureErrorInSentry } from "@lib/captureErrorInSentry";
+import React from "react";
+import { Button } from "./Button";
+import { NonIdealState } from "./NonIdealState";
 
 export class ErrorBoundary extends React.Component<{
   children: React.ReactNode | React.ReactNode[];
@@ -18,23 +20,34 @@ export class ErrorBoundary extends React.Component<{
 
   render() {
     if (this.state.hasError) {
-      return <NonIdealState>Failed to render</NonIdealState>;
+      return (
+        <NonIdealState>
+          <p style={{ marginBlock: "0" }} className="p1--semibold">
+            We ran into an error
+          </p>
+          <p
+            className="p1--regular"
+            style={{
+              color: "var(--GREY-600)",
+              marginBlock: "12px",
+              textAlign: "center",
+            }}
+          >
+            Please try reloading. If the problem persists reach out to our
+            support team.
+          </p>
+          <div>
+            <Button
+              text="Try again"
+              intent="INVISIBLE"
+              onClick={() => location.reload()}
+              iconBefore="autorenew"
+            />
+          </div>
+        </NonIdealState>
+      );
     }
 
     return this.props.children;
   }
 }
-
-const NonIdealState: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
-  <div
-    style={{
-      boxShadow: "inset 0 0 0 1px red",
-      padding: "16px",
-      borderRadius: "4px",
-    }}
-  >
-    {children}
-  </div>
-);

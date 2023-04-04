@@ -1,6 +1,7 @@
 .duffel-components {
   --GREY-100: #f7f5f9;
   --GREY-200: #e2e2e8;
+  --GREY-300: #e2e8f0;
   --GREY-400: #ababb4;
   --GREY-500: #86868e;
   --GREY-600: #696972;
@@ -14,4 +15,6 @@
   --ACCENT-LIGHT-200: 0.24;
   --ACCENT-LIGHT-300: 0.48;
   --ACCENT-LIGHT-1000: 1;
+  --GREEN-100: #f6ffed;
+  --GREEN-300: #092b00;
 }

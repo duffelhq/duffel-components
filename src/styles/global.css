@@ -2,6 +2,7 @@
 @import "./spacing.css";
 @import "./colors.css";
 @import "./transitions.css";
+@import "./font-families.css";
 
 @import "./components/AdditionalBaggage.css";
 @import "./components/AdditionalBaggageSelect.css";

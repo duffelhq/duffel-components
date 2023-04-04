@@ -1,3 +1,5 @@
+import { getTotalQuantity } from "@lib/getTotalQuantity";
+import { withPlural } from "@lib/withPlural";
 import React from "react";
 import {
   CreateOrderPayload,
@@ -5,25 +7,49 @@ import {
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { AdditionalBaggageSelection } from "./AdditionalBaggageSelection";
+import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
 import { Card, CardProps } from "./Card";
 import { Modal } from "./Modal";
-import { moneyStringFormatter } from "../lib/formatConvertedCurrency";
-import { withPlural } from "@lib/withPlural";
-import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
-import { getTotalQuantity } from "@lib/getTotalQuantity";
+import { Stamp } from "./Stamp";
+
+const commonCardProps: Pick<CardProps, "title" | "icon" | "ctaLabel"> = {
+  title: "Extra baggage",
+  icon: "checked_bag",
+  ctaLabel: "Add extra baggage",
+};
 
 export type SetBaggageSelectionStateFunction = (
   selectedServices: CreateOrderPayloadServices
 ) => void;
 
 export interface BaggageSelectionProps {
-  offer: Offer;
+  isLoading: boolean;
+  offer?: Offer;
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
   setSelectedServices: SetBaggageSelectionStateFunction;
 }
 
-export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
+type BaggageSelectionPropsWithOffer = Exclude<
+  BaggageSelectionProps,
+  "offer"
+> & {
+  offer: Offer;
+};
+
+export const BaggageSelection: React.FC<BaggageSelectionProps> = (props) => {
+  if (props.isLoading) {
+    return <BaggageSelectionLoading />;
+  } else {
+    return (
+      <BaggageSelectionInternal
+        {...(props as BaggageSelectionPropsWithOffer)}
+      />
+    );
+  }
+};
+
+const BaggageSelectionInternal: React.FC<BaggageSelectionPropsWithOffer> = ({
   offer,
   passengers,
   selectedServices,
@@ -38,36 +64,29 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
   const totalQuantity = getTotalQuantity(selectedServices);
   const isBaggageAdded = totalQuantity > 0;
 
-  const totalAmount = getTotalAmountForServices(offer, selectedServices);
-  const toMoney = moneyStringFormatter(offer.total_currency);
-  const totalAmountFormatted = toMoney(totalAmount);
-
-  let statusTag: CardProps["statusTag"] = "not-added";
-  if (!containsBaggageService) {
-    statusTag = "not-available";
-  } else if (isBaggageAdded) {
-    statusTag = "added";
-  }
-
   return (
     <>
       <Card
-        title="Extra baggage"
-        icon="checked_bag"
-        statusTag={statusTag}
-        onClick={() => setIsOpen(true)}
+        {...commonCardProps}
+        onClick={containsBaggageService ? () => setIsOpen(true) : null}
       >
-        {!containsBaggageService &&
-          "Extra baggage is not available for this journey"}
-        {containsBaggageService && !isBaggageAdded && "No extra bags added"}
-        {containsBaggageService &&
-          isBaggageAdded &&
-          `${withPlural(
-            totalQuantity,
-            "bag",
-            "bags"
-          )} added for ${totalAmountFormatted}`}
+        {!containsBaggageService && (
+          <Stamp color="var(--GREY-700)" backgroundColor="var(--GREY-100)">
+            Not available
+          </Stamp>
+        )}
+        {containsBaggageService && !isBaggageAdded && (
+          <Stamp color="var(--GREY-700)" backgroundColor="var(--GREY-100)">
+            Not added
+          </Stamp>
+        )}
+        {containsBaggageService && isBaggageAdded && (
+          <Stamp color="var(--GREEN-300)" backgroundColor="var(--GREEN-100)">
+            {withPlural(totalQuantity, "bag", "bags")} added
+          </Stamp>
+        )}
       </Card>
+
       {isOpen && (
         <Modal>
           <AdditionalBaggageSelection
@@ -84,3 +103,12 @@ export const BaggageSelection: React.FC<BaggageSelectionProps> = ({
     </>
   );
 };
+
+const BaggageSelectionLoading: React.FC = () => (
+  <Card {...commonCardProps}>
+    <div style={{ paddingBlock: "16px" }}>
+      Loading
+      <AnimatedLoaderEllipsis />
+    </div>
+  </Card>
+);
