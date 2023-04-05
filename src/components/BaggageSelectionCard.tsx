@@ -79,9 +79,8 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
         <BaggageSelectionModal
           offer={offer}
           passengers={passengers}
-          onClose={() => setIsOpen(false)}
-          onSubmit={(selectedServices) => {
-            setSelectedServices(selectedServices);
+          onClose={(newSelectedServices) => {
+            setSelectedServices(newSelectedServices);
             setIsOpen(false);
           }}
           selectedServices={selectedServices}
