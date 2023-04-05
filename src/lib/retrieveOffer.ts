@@ -27,9 +27,6 @@ to test different states.
 */
 const MOCK_OFFER_ID = "test_offer_1";
 async function retrieveOfferFromMock() {
-  const offer = makeMockOffer();
-  console.log(offer);
-  return offer;
   return makeMockOffer();
 }
 
