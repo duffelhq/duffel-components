@@ -19,6 +19,20 @@
   letter-spacing: 0em;
 }
 
+.p2--semibold {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+.p3--regular {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+}
+
 .h3--semibold {
   font-size: 20px;
   font-weight: 600;
