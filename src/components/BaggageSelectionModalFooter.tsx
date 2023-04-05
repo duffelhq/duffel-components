@@ -8,4 +8,4 @@ export interface BaggageSelectionModalFooterProps {
 
 export const BaggageSelectionModalFooter: React.FC<
   BaggageSelectionModalFooterProps
-> = () => <div>BaggageSelectionModalFooter</div>;
+> = () => <div style={{ padding: "24px" }}>BaggageSelectionModalFooter</div>;
