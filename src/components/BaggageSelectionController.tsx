@@ -8,7 +8,7 @@ interface BaggageSelectionControllerProps {
   passengerId: string;
   availableService: OfferAvailableServiceBaggage;
   quantity: number;
-  onQuantityChanged: (quanity: number) => void;
+  onQuantityChanged: (quantity: number) => void;
 }
 
 export const BaggageSelectionController: React.FC<
