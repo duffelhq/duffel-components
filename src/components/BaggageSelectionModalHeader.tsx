@@ -1,3 +1,4 @@
+import { formatDateString } from "@lib/formatDate";
 import React from "react";
 import { OfferSliceSegment } from "src/types/Offer";
 
@@ -40,7 +41,7 @@ export const BaggageSelectionModalHeader: React.FC<
           marginLeft: "8px",
         }}
       >
-        {new Date(currentSegment.departing_at).toLocaleDateString()}
+        {formatDateString(currentSegment.departing_at)}
       </span>
     </h2>
   </div>
