@@ -26,6 +26,7 @@ export interface ChromelessButtonProps {
    * Element ID
    */
   id?: string;
+  style?: React.CSSProperties;
 }
 
 /**

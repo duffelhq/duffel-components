@@ -4,7 +4,8 @@ import { retrieveOffer } from "@lib/retrieveOffer";
 import * as React from "react";
 import { Offer } from "src//types/Offer";
 import { CreateOrderPayload } from "src/types/CreateOrderPayload";
-import { BaggageSelection, BaggageSelectionProps } from "./BaggageSelection";
+import { BaggageSelectionProps } from "./BaggageSelection";
+import { BaggageSelectionCard } from "./BaggageSelectionCard";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
@@ -108,7 +109,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
           {error && <FetchOfferErrorState height={nonIdealStateHeight} />}
 
           {selectedFeatures.has("baggage") && (
-            <BaggageSelection
+            <BaggageSelectionCard
               isLoading={isLoading}
               offer={offer}
               passengers={passengers}
