@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="https://duffel.com/images/favicon/favicon-96x96.png"
+    />
+    <title>Checkout page example (Client side)</title>
+    <!-- 1. This script loads duffel-components -->
+    <script src="http://localhost:8000/components/DuffelCheckoutCustomElement.js"></script>
+    <!-- uncomment below for the script in production -->
+    <!-- <script src="https://assets.duffel.com/ancillaries-component/latest/DuffelCheckoutCustomElement.js"></script> -->
+  </head>
+
+  <body style="font-family: sans-serif">
+    <h1>Checkout page (client side)</h1>
+
+    <!-- 2. Add the custom element to your markup -->
+    <duffel-checkout
+      offer_id="test_offer_1"
+      client_key="__CLIENT_KEY__"
+    ></duffel-checkout>
+  </body>
+
+  <script>
+    window.onload = () => {
+      // 3. Initialise component with data and customisation
+      const passengers = [];
+      document
+        .querySelector("duffel-checkout")
+        .addEventListener(
+          "connectedCallback",
+          function ({ detail: initialiseWith }) {
+            initialiseWith({ passengers });
+          }
+        );
+
+      // 4. Listen to 'onPayloadReady' event on the component
+      document
+        .querySelector("duffel-checkout")
+        .addEventListener(
+          "onPayloadReady",
+          function ({ detail: createOrderPayload }) {
+            // 5. Create an event handler to work with order creation payload
+            fetch("/book", {
+              method: "POST",
+              body: JSON.stringify(createOrderPayload),
+            })
+              .then((response) => response.json())
+              .then(({ data }) => console.log("Order created", data))
+              .catch((error) => console.error("Order creation failed", error));
+          }
+        );
+    };
+  </script>
+</html>

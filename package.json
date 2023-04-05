@@ -10,6 +10,7 @@
     "check-types": "tsc --noEmit --project tsconfig.json",
     "dev": "node config/esbuild.dev.config.js",
     "example-1": "concurrently \"yarn dev\" \"yarn run-example-1\"",
+    "client-side-example": "concurrently \"yarn dev\" \"yarn run-client-side-example\"",
     "gcloud-storage-cp": "bash ./scripts/gcloud-storage-cp.sh",
     "lint": "eslint . --ext .ts,.tsx,.mjs,.js --max-warnings=0",
     "pre-commit-check": "concurrently --raw  \"yarn check-types\" \"yarn lint-staged\"",
@@ -17,6 +18,7 @@
     "prettier": "prettier --write --loglevel=warn .",
     "prettier-check": "prettier --check .",
     "run-example-1": "node src/examples/example-1/server.mjs",
+    "run-client-side-example": "node src/examples/client-side-example/server.mjs",
     "upload-current-version": "bash ./scripts/upload-current-version.sh",
     "upload-latest": "bash ./scripts/upload-latest.sh"
   },
