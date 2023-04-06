@@ -6,6 +6,7 @@
   height: 100vh;
   background: #00000059;
   z-index: 999;
+  box-sizing: border-box;
 }
 
 .modal--content {
@@ -36,11 +37,8 @@
   }
 
   .modal--content {
-    max-width: 720px;
-    margin: 0;
-  }
-
-  .modal--content .layout {
     border-radius: 12px;
+    max-width: 640px;
+    margin: 0;
   }
 }
