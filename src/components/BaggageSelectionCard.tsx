@@ -56,7 +56,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
       <Card
         title="Extra baggage"
         copy={copy}
-        icon={"cabin_bag"}
+        icon="cabin_bag"
         onClick={containsBaggageService ? () => setIsOpen(true) : null}
         isLoading={isLoading}
         disabled={!isLoading && !containsBaggageService}
