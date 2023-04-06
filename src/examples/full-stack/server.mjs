@@ -133,7 +133,7 @@ const ROUTES = {
       },
     ];
 
-    const template = readFileSync("src/examples/example-1/index.html", {
+    const template = readFileSync("src/examples/full-stack/index.html", {
       encoding: "utf-8",
     });
 

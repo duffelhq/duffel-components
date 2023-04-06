@@ -74,10 +74,23 @@ DUFFEL_API_URL=https://localhost:4000;
 
 ## How to see the example running
 
-Please use `yarn example-1`. This command will:
+We have two ways to run the example.
+
+### 1. Full stack
+
+This is a 'real life' example, where it uses a real offer ID and client key retrieved from the Duffel API. To run this, use `yarn run-example:full-stack`. This command will:
 
 1. Serve the Duffel component bundle and watch for changes to rebuild on port `8000`. This can also be done with `yarn dev`
-2. Run the example-1 server using node. The example page will be ready on port `6262`. This can be done with `yarn run-example-1`
+2. Run the full stack server using node. The example page will be ready on port `6262`. This can be done with `yarn run-full-stack-server`
+
+### 2. Only client side
+
+For a more basic example that doesn't rely on the Duffel API, use `yarn run-example:client-side`. This uses a hard-coded mocked offer to negate the need for the API.
+
+This command will:
+
+1. Serve the Duffel component bundle and watch for changes to rebuild on port `8000`. This can also be done with `yarn dev`
+2. Host a basic `index.html` with `http-server`. The example page will be ready on port `6262`. This can be done with `yarn run-client-side-server`
 
 ## Working with platform locally
 
