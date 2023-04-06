@@ -10,11 +10,11 @@ import {
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
-import { BaggageSelectionModal } from "./BaggageSelectionModal";
 import { Card } from "./Card";
+import { SeatSelectionModal } from "./SeatSelectionModal";
 import { Stamp } from "./Stamp";
 
-export interface BaggageSelectionCardProps {
+export interface SeatSelectionCardProps {
   isLoading: boolean;
   offer?: Offer;
   passengers: CreateOrderPayload["passengers"];
@@ -22,7 +22,7 @@ export interface BaggageSelectionCardProps {
   setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
 }
 
-export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
+export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
   isLoading,
   offer,
   passengers,
@@ -31,9 +31,9 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const containsBaggageService = hasService(offer, "baggage");
+  const containsSeatService = hasService(offer, "seats");
   const totalQuantity = getTotalQuantity(selectedServices);
-  const isBaggageAdded = totalQuantity > 0;
+  const areSeatsAdded = totalQuantity > 0;
 
   const totalAmount = getTotalAmountForServices(offer!, selectedServices);
   const totalAmountFormatted = offer
@@ -41,24 +41,24 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
     : "0";
 
   const copy =
-    containsBaggageService && isBaggageAdded
+    containsSeatService && areSeatsAdded
       ? `${withPlural(
           totalQuantity,
-          "bag",
-          "bags"
-        )} added for ${totalAmountFormatted}`
-      : "Add any extra baggage you need for your trip";
+          "seat",
+          "seats"
+        )} selected for ${totalAmountFormatted}`
+      : "Specify where on the plane you’d like to sit";
 
   return (
     <>
       <Card
-        title="Extra baggage"
+        title="Seat selection"
         copy={copy}
-        icon="cabin_bag"
-        onClick={containsBaggageService ? () => setIsOpen(true) : null}
+        icon="flight_class"
+        onClick={containsSeatService ? () => setIsOpen(true) : null}
         isLoading={isLoading}
-        disabled={!isLoading && !containsBaggageService}
-        isSelected={isBaggageAdded}
+        disabled={!isLoading && !containsSeatService}
+        isSelected={areSeatsAdded}
       >
         {isLoading && (
           <Stamp color="var(--GREY-900)" backgroundColor="var(--GREY-100)">
@@ -66,7 +66,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
             <AnimatedLoaderEllipsis />
           </Stamp>
         )}
-        {!isLoading && !containsBaggageService && (
+        {!isLoading && !containsSeatService && (
           <Stamp color="var(--GREY-700)" backgroundColor="var(--GREY-200)">
             Not available
           </Stamp>
@@ -74,7 +74,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
       </Card>
 
       {isOpen && offer && (
-        <BaggageSelectionModal
+        <SeatSelectionModal
           offer={offer}
           passengers={passengers}
           onClose={(newSelectedServices) => {

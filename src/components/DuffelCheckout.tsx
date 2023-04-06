@@ -4,17 +4,21 @@ import { retrieveOffer } from "@lib/retrieveOffer";
 import * as React from "react";
 import { Offer } from "src//types/Offer";
 import { CreateOrderPayload } from "src/types/CreateOrderPayload";
-import { BaggageSelectionProps } from "./BaggageSelection";
-import { BaggageSelectionCard } from "./BaggageSelectionCard";
+import {
+  BaggageSelectionCard,
+  BaggageSelectionCardProps,
+} from "./BaggageSelectionCard";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
+import { SeatSelectionCard } from "./SeatSelectionCard";
 
 const baggage = "baggage" as const;
+const seats = "seats" as const;
 
 // this can be a setting we expose to the user later, right now we only have one feature anyway.
-type Features = typeof baggage;
-const selectedFeatures = new Set<Features>([baggage]);
+type Features = typeof baggage | typeof seats;
+const selectedFeatures = new Set<Features>([baggage, seats]);
 
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const version = require("../../package.json").version;
@@ -51,7 +55,10 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
   const isLoading = !offer && !error;
 
   const [baggageSelectedServices, setBaggageSelectionState] = React.useState<
-    BaggageSelectionProps["selectedServices"]
+    BaggageSelectionCardProps["selectedServices"]
+  >([]);
+  const [seatSelectedServices, setSeatSelectionState] = React.useState<
+    BaggageSelectionCardProps["selectedServices"]
   >([]);
 
   React.useEffect(() => {
@@ -60,15 +67,19 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
   }, [offer_id, client_key]);
 
   React.useEffect(() => {
+    if (!offer) return;
+
     const createOrderPayload = compileCreateOrderPayload({
       baggageSelectedServices,
+      seatSelectedServices,
       offer,
       passengers,
     });
+
     if (isPayloadComplete(createOrderPayload)) {
       onPayloadReady(createOrderPayload);
     }
-  }, [baggageSelectedServices]);
+  }, [baggageSelectedServices, seatSelectedServices]);
 
   const nonIdealStateHeight = `${
     // 72 (card height) + 32 gap between cards
@@ -115,6 +126,16 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
               passengers={passengers}
               selectedServices={baggageSelectedServices}
               setSelectedServices={setBaggageSelectionState}
+            />
+          )}
+
+          {selectedFeatures.has("seats") && (
+            <SeatSelectionCard
+              isLoading={isLoading}
+              offer={offer}
+              passengers={passengers}
+              selectedServices={seatSelectedServices}
+              setSelectedServices={setSeatSelectionState}
             />
           )}
         </ErrorBoundary>

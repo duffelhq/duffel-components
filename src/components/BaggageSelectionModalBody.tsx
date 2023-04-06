@@ -3,7 +3,11 @@ import {
   CreateOrderPayloadPassenger,
   CreateOrderPayloadServices,
 } from "../types/CreateOrderPayload";
-import { Offer, OfferSliceSegment } from "../types/Offer";
+import {
+  Offer,
+  OfferAvailableServiceBaggage,
+  OfferSliceSegment,
+} from "../types/Offer";
 import { BaggageSelectionModalBodyPassenger } from "./BaggageSelectionModalBodyPassenger";
 import { getPassengerName } from "@lib/getPassengerName";
 
@@ -45,12 +49,14 @@ export const BaggageSelectionModalBody: React.FC<
           index + 1
         )}
         includedBaggage={baggages}
-        passengerServicesForSegment={offer.available_services.filter(
-          ({ type, passenger_ids, segment_ids }) =>
-            type === "baggage" &&
-            passenger_ids.includes(passenger_id) &&
-            segment_ids.includes(segment.id)
-        )}
+        passengerServicesForSegment={
+          offer.available_services.filter(
+            ({ type, passenger_ids, segment_ids }) =>
+              type === "baggage" &&
+              passenger_ids.includes(passenger_id) &&
+              segment_ids.includes(segment.id)
+          ) as OfferAvailableServiceBaggage[]
+        }
         selectedServices={selectedServices}
         setSelectedServices={setSelectedServices}
       />

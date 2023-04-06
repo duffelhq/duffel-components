@@ -1,6 +1,6 @@
 import { Offer } from "../../types/Offer";
 import { makeMockAirline } from "./make-mock-airline";
-import { makeMockOfferAvailableService } from "./make-mock-offer-available-service";
+import { makeMockOfferAvailableBaggageService } from "./make-mock-offer-available-baggage-service";
 import { makeMockOfferPassenger } from "./make-mock-offer-passenger";
 import { makeMockOfferSliceFromOriginDestination } from "./make-mock-offer-slice";
 
@@ -27,7 +27,7 @@ const getDefaultObject = (() => {
         requires_instant_payment: false,
       },
       available_services: [
-        makeMockOfferAvailableService({
+        makeMockOfferAvailableBaggageService({
           segment_ids: [firstSlice.segments[0].id],
         }),
       ],
