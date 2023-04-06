@@ -19,6 +19,10 @@
     background-color 0.3s var(--TRANSITION-CUBIC-BEZIER);
 }
 
+.ancillary-card + .ancillary-card {
+  margin-top: 12px;
+}
+
 .ancillary-card:disabled {
   color: inherit;
   cursor: not-allowed;
