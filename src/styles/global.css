@@ -6,8 +6,6 @@
 @import "./transitions.css";
 @import "./typography.css";
 
-@import "./components/AdditionalBaggage.css";
-@import "./components/AdditionalBaggageSelect.css";
 @import "./components/BaggageDisplay.css";
 @import "./components/Button.css";
 @import "./components/Card.css";
@@ -15,7 +13,6 @@
 @import "./components/Loader.css";
 @import "./components/Modal.css";
 @import "./components/PassengerSelect.css";
-@import "./components/PassengersLayout.css";
 @import "./components/Segment.css";
 @import "./components/SelectionSegment.css";
 @import "./components/Summary.css";
