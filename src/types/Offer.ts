@@ -723,15 +723,28 @@ export interface LayoutSelectionPassenger {
   name?: string | null;
 }
 
-export interface OfferAvailableServiceMetadataMap {
-  baggage: OfferAvailableServiceBaggageMetadata;
+export interface OfferAvailableServiceSeatMetadata {
+  /**
+   * The designator used to uniquely identify the seat, usually made up of a row number and a column letter
+   */
+  designator: string;
+
+  /**
+   * Each disclosure is text, in English, provided by the airline that describes the terms and conditions of this seat. We recommend showing this in your user interface to make sure that customers understand any restrictions and limitations.
+   */
+  disclosures: string[];
+
+  /**
+   * A name which describes the type of seat, which you can display in your user interface to help customers to understand its features
+   */
+  name: string;
 }
 
-export type OfferAvailableServiceType = keyof OfferAvailableServiceMetadataMap;
+export type OfferAvailableService =
+  | OfferAvailableBaggageService
+  | OfferAvailableSeatService;
 
-export interface OfferAvailableService<
-  T_ServiceType extends OfferAvailableServiceType = "baggage"
-> {
+interface OfferAvailableServiceBase {
   /**
    * Duffel's unique identifier for the service
    */
@@ -741,11 +754,6 @@ export interface OfferAvailableService<
    * The maximum quantity of this service that can be booked with an order
    */
   maximum_quantity: number;
-
-  /**
-   * An object containing metadata about the service, like the maximum weight and dimensions of the baggage.
-   */
-  metadata: OfferAvailableServiceMetadataMap[T_ServiceType];
 
   /**
    * The list of passenger `id`s the service applies to.
@@ -771,11 +779,39 @@ export interface OfferAvailableService<
    * The currency of the `total_amount`, as an ISO 4217 currency code
    */
   total_currency: string;
+}
+
+export interface OfferAvailableBaggageService
+  extends OfferAvailableServiceBase {
+  /**
+   * An object containing metadata about the service, like the maximum weight and dimensions of the baggage.
+   */
+  metadata: OfferAvailableServiceBaggageMetadata;
 
   /**
    * The type of the service.
    * For now we only return services of type baggage but we will return other types in the future.
    * We won't consider adding new service types a break change.
    */
-  type: T_ServiceType;
+  type: "baggage";
 }
+
+export interface OfferAvailableSeatService extends OfferAvailableServiceBase {
+  /**
+   * An object containing metadata about the service, like the maximum weight and dimensions of the baggage.
+   */
+  metadata: OfferAvailableServiceSeatMetadata;
+
+  /**
+   * The type of the service.
+   * For now we only return services of type baggage but we will return other types in the future.
+   * We won't consider adding new service types a break change.
+   */
+  type: "seats";
+}
+
+export type OfferAvailableServiceType = OfferAvailableService["type"];
+
+export type OfferAvailableServiceMetadata =
+  | OfferAvailableServiceBaggageMetadata
+  | OfferAvailableServiceSeatMetadata;

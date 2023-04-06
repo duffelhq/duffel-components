@@ -1,9 +1,10 @@
 import {
-  OfferAvailableServiceMetadataMap,
-  OfferAvailableServiceType,
+  OfferAvailableServiceBaggageMetadata,
+  OfferAvailableServiceMetadata,
 } from "src/types/Offer";
 
-const defaultObject: OfferAvailableServiceMetadataMap["baggage"] = {
+// TODO: fix type
+const defaultObject: OfferAvailableServiceBaggageMetadata = {
   maximum_weight_kg: null,
   maximum_height_cm: null,
   maximum_length_cm: null,
@@ -11,9 +12,7 @@ const defaultObject: OfferAvailableServiceMetadataMap["baggage"] = {
   type: "checked",
 };
 
-export const makeMockOfferAvailableServiceMetadata = <
-  T_ServiceType extends OfferAvailableServiceType = "baggage"
->(
-  extendDefault?: Partial<OfferAvailableServiceMetadataMap[T_ServiceType]>
-): OfferAvailableServiceMetadataMap[T_ServiceType] =>
+export const makeMockOfferAvailableServiceMetadata = (
+  extendDefault?: Partial<OfferAvailableServiceMetadata>
+): OfferAvailableServiceMetadata =>
   Object.assign({}, defaultObject, extendDefault || {});
