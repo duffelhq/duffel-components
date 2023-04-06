@@ -60,6 +60,7 @@ const InactiveSegment: React.FC<{
       padding: "0",
       borderRadius: "4px",
       backgroundColor: "rgba(var(--ACCENT), var(--ACCENT-LIGHT-200))",
+      transition: "background-color 0.3s var(--TRANSITION-CUBIC-BEZIER)",
       ...style,
     }}
   />
