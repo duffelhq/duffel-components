@@ -1,6 +1,7 @@
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
+import { hasService } from "@lib/hasService";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
 import {
@@ -9,9 +10,9 @@ import {
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
+import { BaggageSelectionModal } from "./BaggageSelectionModal";
 import { Card } from "./Card";
 import { Stamp } from "./Stamp";
-import { BaggageSelectionModal } from "./BaggageSelectionModal";
 
 export interface BaggageSelectionCardProps {
   isLoading: boolean;
@@ -30,10 +31,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const containsBaggageService = offer?.available_services.some(
-    (service) => service.type === "baggage" && service.maximum_quantity > 0
-  );
-
+  const containsBaggageService = hasService(offer, "baggage");
   const totalQuantity = getTotalQuantity(selectedServices);
   const isBaggageAdded = totalQuantity > 0;
 
