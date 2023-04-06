@@ -4,8 +4,10 @@ import { retrieveOffer } from "@lib/retrieveOffer";
 import * as React from "react";
 import { Offer } from "src//types/Offer";
 import { CreateOrderPayload } from "src/types/CreateOrderPayload";
-import { BaggageSelectionProps } from "./BaggageSelection";
-import { BaggageSelectionCard } from "./BaggageSelectionCard";
+import {
+  BaggageSelectionCard,
+  BaggageSelectionCardProps,
+} from "./BaggageSelectionCard";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
@@ -53,10 +55,10 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
   const isLoading = !offer && !error;
 
   const [baggageSelectedServices, setBaggageSelectionState] = React.useState<
-    BaggageSelectionProps["selectedServices"]
+    BaggageSelectionCardProps["selectedServices"]
   >([]);
   const [seatSelectedServices, setSeatSelectionState] = React.useState<
-    BaggageSelectionProps["selectedServices"]
+    BaggageSelectionCardProps["selectedServices"]
   >([]);
 
   React.useEffect(() => {
