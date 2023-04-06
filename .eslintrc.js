@@ -1,6 +1,8 @@
 module.exports = {
   settings: {
-    react: { version: "detect" },
+    react: {
+      version: "detect",
+    },
   },
   env: {
     browser: true,
@@ -17,6 +19,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "prettier",
+    "plugin:storybook/recommended",
   ],
   overrides: [],
   plugins: ["@typescript-eslint", "jsx-a11y", "import"],

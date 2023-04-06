@@ -22,7 +22,9 @@
     "preupload-current-version": "yarn build",
     "upload-current-version": "bash ./scripts/upload-current-version.sh",
     "preupload-latest": "yarn build",
-    "upload-latest": "bash ./scripts/upload-latest.sh"
+    "upload-latest": "bash ./scripts/upload-latest.sh",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "husky": {
     "hooks": {
@@ -43,8 +45,18 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.4",
     "@duffel/api": "^1.26.0",
     "@sentry/esbuild-plugin": "^0.6.0",
+    "@storybook/addon-essentials": "^7.0.2",
+    "@storybook/addon-interactions": "^7.0.2",
+    "@storybook/addon-links": "^7.0.2",
+    "@storybook/blocks": "^7.0.2",
+    "@storybook/react": "^7.0.2",
+    "@storybook/react-webpack5": "^7.0.2",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.32",
     "@types/react-dom": "^18.0.11",
@@ -52,7 +64,7 @@
     "@typescript-eslint/parser": "^5.57.0",
     "concurrently": "^8.0.0",
     "dotenv": "^16.0.3",
-    "esbuild": "0.17.16",
+    "esbuild": "0.17.15",
     "esbuild-copy-static-files": "^0.1.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.8.0",
@@ -60,11 +72,15 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.11",
     "http-server": "^14.1.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.2",
     "tsc": "^2.0.4",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "5.0.4"
   },
   "engines": {
