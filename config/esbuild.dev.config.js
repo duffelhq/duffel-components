@@ -3,6 +3,7 @@
 const { sentryEsbuildPlugin } = require("@sentry/esbuild-plugin");
 const esbuild = require("esbuild");
 const dotenv = require("dotenv");
+const copyStaticFiles = require("esbuild-copy-static-files");
 
 (async function () {
   // The most recent version of this file is here:
@@ -38,6 +39,12 @@ const dotenv = require("dotenv");
             }),
           ]
         : []),
+      copyStaticFiles({
+        src: "src/lib/mocks/saved",
+        dest: "dist/mocks",
+        dereference: true,
+        recursive: true,
+      }),
     ],
   });
 
