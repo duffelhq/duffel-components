@@ -61,7 +61,7 @@ const copyStaticFiles = require("esbuild-copy-static-files");
   console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js`);
   console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js.map`);
   console.log(`  ↳ ${prefix}/styles/global.css`);
-  console.log(`  ↳ ${prefix}/styles/global.css.map\n`);
+  console.log(`  ↳ ${prefix}/mocks\n`);
 
   await esbuildContext.watch();
 })();
