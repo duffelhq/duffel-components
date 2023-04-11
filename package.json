@@ -62,7 +62,7 @@
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "tsc": "^2.0.4",
-    "typescript": "5.0.3"
+    "typescript": "5.0.4"
   },
   "engines": {
     "node": "~18.*"
