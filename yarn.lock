@@ -1038,6 +1038,11 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
+esbuild-copy-static-files@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/esbuild-copy-static-files/-/esbuild-copy-static-files-0.1.0.tgz#4bb4987b5b554d2fc122a45f077d74663b4dbcf0"
+  integrity sha512-KlpmYqANA1t2nZavEdItfcOjJC6wbHA21v35HJWN32DddGTWKNNGDKljUzbCPojmpD+wAw8/DXr5abJ4jFCE0w==
+
 esbuild@0.17.16:
   version "0.17.16"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.17.16.tgz#5efec24a8ff29e0c157359f27e1b5532a728b720"
