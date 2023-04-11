@@ -1,9 +1,15 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
+import { isMockOfferId } from "@lib/isMockOfferId";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
+import { retrieveSeatMap } from "@lib/retrieveSeatMap";
 import * as React from "react";
 import { Offer } from "src//types/Offer";
-import { CreateOrderPayload } from "src/types/CreateOrderPayload";
+import {
+  CreateOrderPayload,
+  CreateOrderPayloadPassengers,
+} from "src/types/CreateOrderPayload";
+import { SeatMap } from "src/types/SeatMap";
 import {
   BaggageSelectionCard,
   BaggageSelectionCardProps,
@@ -46,13 +52,53 @@ export interface DuffelCheckoutProps {
 export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
   offer_id,
   client_key,
-  passengers,
+  passengers: passengersProp,
   onPayloadReady,
   styles,
 }) => {
   const [offer, setOffer] = React.useState<Offer>();
+  const [isOfferLoading, setIsOfferLoading] = React.useState(true);
+  const onOfferReady = (offer: Offer) => {
+    setOffer(offer);
+
+    if (passengersProp.length !== offer.passengers.length) {
+      throw new Error("Passenger count mismatch between offer and attribute");
+    }
+
+    const offerPassengerIds = new Set(offer.passengers.map(({ id }) => id));
+    const hasPassengerWithMismatchingId = passengers.some(
+      ({ id }) => !offerPassengerIds.has(id)
+    );
+
+    if (hasPassengerWithMismatchingId && isMockOfferId(offer.id)) {
+      console.warn(
+        "Passenger ID mismatch between offer and attribute, but this is a mock offer so we're ignoring it"
+      );
+
+      const newPassengers = passengersProp.map((passenger, index) => ({
+        ...passenger,
+        id: offer.passengers[index].id,
+      }));
+      setPassengers(newPassengers);
+    } else if (hasPassengerWithMismatchingId && !isMockOfferId(offer.id)) {
+      const mismatch = passengersProp.find(
+        ({ id }) => !offerPassengerIds.has(id)
+      );
+      throw new Error(
+        `Passenger ID mismatch between offer and attribute ('${mismatch?.id}')`
+      );
+    } else {
+      setPassengers(passengersProp);
+    }
+  };
+
+  const [seatMap, setSeatMap] = React.useState<SeatMap>();
+  const [isSeatMapLoading, setIsSeatMapLoading] = React.useState(true);
+
+  const [passengers, setPassengers] =
+    React.useState<CreateOrderPayloadPassengers>(passengersProp);
+
   const [error, setError] = React.useState<null | string>(null);
-  const isLoading = !offer && !error;
 
   const [baggageSelectedServices, setBaggageSelectionState] = React.useState<
     BaggageSelectionCardProps["selectedServices"]
@@ -63,7 +109,22 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
 
   React.useEffect(() => {
     if (!offer_id || !client_key) return;
-    retrieveOffer(offer_id, client_key, setOffer, setError);
+
+    retrieveOffer(
+      offer_id,
+      client_key,
+      onOfferReady,
+      setError,
+      setIsOfferLoading
+    );
+
+    retrieveSeatMap(
+      offer_id,
+      client_key,
+      setSeatMap,
+      setError,
+      setIsSeatMapLoading
+    );
   }, [offer_id, client_key]);
 
   React.useEffect(() => {
@@ -113,15 +174,16 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
                 baggageSelectedServices,
                 offer,
                 error,
+                seatMap,
               }}
             />
           )}
 
           {error && <FetchOfferErrorState height={nonIdealStateHeight} />}
 
-          {selectedFeatures.has("baggage") && (
+          {!error && selectedFeatures.has("baggage") && (
             <BaggageSelectionCard
-              isLoading={isLoading}
+              isLoading={isOfferLoading}
               offer={offer}
               passengers={passengers}
               selectedServices={baggageSelectedServices}
@@ -129,9 +191,9 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
             />
           )}
 
-          {selectedFeatures.has("seats") && (
+          {!error && selectedFeatures.has("seats") && (
             <SeatSelectionCard
-              isLoading={isLoading}
+              isLoading={isOfferLoading || isSeatMapLoading}
               offer={offer}
               passengers={passengers}
               selectedServices={seatSelectedServices}

@@ -2,6 +2,7 @@
 const { sentryEsbuildPlugin } = require("@sentry/esbuild-plugin");
 const esbuild = require("esbuild");
 const dotenv = require("dotenv");
+const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
 
 (async function () {
   dotenv.config({ path: ".env.build" });
@@ -28,6 +29,12 @@ const dotenv = require("dotenv");
         include: "./dist",
         authToken: process.env.SENTRY_AUTH_TOKEN,
         logLevel: "info",
+      }),
+      esbuildCopyStaticFiles({
+        src: "src/lib/mocks/saved",
+        dest: "dist/mocks",
+        dereference: true,
+        recursive: true,
       }),
     ],
   });

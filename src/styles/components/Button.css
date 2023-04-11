@@ -45,6 +45,7 @@
   font-size: var(--BUTTON-FONT-SIZE);
   font-weight: 600;
   line-height: 1.5;
+  margin-inline: auto;
 }
 
 .duffel-button:focus {

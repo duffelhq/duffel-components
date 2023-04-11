@@ -3,6 +3,7 @@
 const { sentryEsbuildPlugin } = require("@sentry/esbuild-plugin");
 const esbuild = require("esbuild");
 const dotenv = require("dotenv");
+const copyStaticFiles = require("esbuild-copy-static-files");
 
 (async function () {
   // The most recent version of this file is here:
@@ -38,6 +39,12 @@ const dotenv = require("dotenv");
             }),
           ]
         : []),
+      copyStaticFiles({
+        src: "src/lib/mocks/saved",
+        dest: "dist/mocks",
+        dereference: true,
+        recursive: true,
+      }),
     ],
   });
 
@@ -54,7 +61,7 @@ const dotenv = require("dotenv");
   console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js`);
   console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js.map`);
   console.log(`  ↳ ${prefix}/styles/global.css`);
-  console.log(`  ↳ ${prefix}/styles/global.css.map\n`);
+  console.log(`  ↳ ${prefix}/mocks\n`);
 
   await esbuildContext.watch();
 })();

@@ -20,7 +20,7 @@
 
     <!-- 2. Add the custom element to your markup -->
     <duffel-checkout
-      offer_id="test_offer_1"
+      offer_id="off_mock_1A_RT_LHR_JFK"
       client_key="__CLIENT_KEY__"
     ></duffel-checkout>
   </body>
@@ -28,13 +28,24 @@
   <script>
     window.onload = () => {
       // 3. Initialise component with data and customisation
-      const passengers = [];
       document
         .querySelector("duffel-checkout")
         .addEventListener(
           "connectedCallback",
           function ({ detail: initialiseWith }) {
-            initialiseWith({ passengers });
+            initialiseWith({
+              passengers: [
+                {
+                  given_name: "Mae",
+                  family_name: "Jemison",
+                  gender: "F",
+                  title: "dr",
+                  born_on: "1956-10-17",
+                  email: "m.jemison@nasa.gov",
+                  phone_number: "+16177562626",
+                },
+              ],
+            });
           }
         );
 
@@ -45,13 +56,7 @@
           "onPayloadReady",
           function ({ detail: createOrderPayload }) {
             // 5. Create an event handler to work with order creation payload
-            fetch("/book", {
-              method: "POST",
-              body: JSON.stringify(createOrderPayload),
-            })
-              .then((response) => response.json())
-              .then(({ data }) => console.log("Order created", data))
-              .catch((error) => console.error("Order creation failed", error));
+            console.log("Will create order with", createOrderPayload);
           }
         );
     };
