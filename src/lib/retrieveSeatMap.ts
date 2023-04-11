@@ -1,8 +1,8 @@
 import { SeatMap } from "src/types/SeatMap";
 import { captureErrorInSentry } from "./captureErrorInSentry";
-import { hasEntryOnMockSeatMaps } from "./mocks/entries/has-entry-on-mock-maps";
-import { retrieveSeatMapFromDuffelAPI } from "./retrieveSeatMapFromDuffelAPI";
 import { fetchFromMockSeatMaps } from "./fetchFromMocks";
+import { isMockOfferId } from "./is-mock-offer-id";
+import { retrieveSeatMapFromDuffelAPI } from "./retrieveSeatMapFromDuffelAPI";
 
 export async function retrieveSeatMap(
   offer_id: string,
@@ -13,11 +13,17 @@ export async function retrieveSeatMap(
 ) {
   setIsLoading(true);
 
-  if (hasEntryOnMockSeatMaps(offer_id)) {
-    fetchFromMockSeatMaps(offer_id).then((seatMap) => {
-      setIsLoading(false);
-      onSeatMapReady(seatMap);
-    });
+  if (isMockOfferId(offer_id)) {
+    fetchFromMockSeatMaps(offer_id)
+      .then((seatMap) => {
+        setIsLoading(false);
+        onSeatMapReady(seatMap);
+      })
+      .catch(() => {
+        throw new Error(
+          `The mock seat map for offer id '${offer_id}' could not be found.`
+        );
+      });
     return;
   }
 

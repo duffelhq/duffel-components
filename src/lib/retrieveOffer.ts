@@ -1,7 +1,7 @@
 import { Offer } from "src/types/Offer";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 import { fetchFromMockOffers } from "./fetchFromMocks";
-import { hasEntryOnMockOffers } from "./mocks/entries/has-entry-on-mock-maps";
+import { isMockOfferId } from "./is-mock-offer-id";
 import { retrieveOfferFromDuffelAPI } from "./retrieveOfferFromDuffelAPI";
 
 export async function retrieveOffer(
@@ -13,11 +13,17 @@ export async function retrieveOffer(
 ) {
   setIsLoading(true);
 
-  if (hasEntryOnMockOffers(offer_id)) {
-    fetchFromMockOffers(offer_id).then((offer) => {
-      setIsLoading(false);
-      onOfferReady(offer);
-    });
+  if (isMockOfferId(offer_id)) {
+    fetchFromMockOffers(offer_id)
+      .then((offer) => {
+        setIsLoading(false);
+        onOfferReady(offer);
+      })
+      .catch(() => {
+        throw new Error(
+          `The mock offer with id '${offer_id}' could not be found.`
+        );
+      });
     return;
   }
 
