@@ -1,29 +1,29 @@
-import { Offer } from "src/types/Offer";
+import { SeatMap } from "src/types/SeatMap";
 import { captureErrorInSentry } from "./captureErrorInSentry";
-import { fetchFromMockOffers } from "./fetchFromMocks";
-import { hasEntryOnMockOffers } from "./mocks/entries/has-entry-on-mock-maps";
-import { retrieveOfferFromDuffelAPI } from "./retrieveOfferFromDuffelAPI";
+import { hasEntryOnMockSeatMaps } from "./mocks/entries/has-entry-on-mock-maps";
+import { retrieveSeatMapFromDuffelAPI } from "./retrieveSeatMapFromDuffelAPI";
+import { fetchFromMockSeatMaps } from "./fetchFromMocks";
 
-export async function retrieveOffer(
+export async function retrieveSeatMap(
   offer_id: string,
   client_key: string,
-  onOfferReady: (offer: Offer) => void,
+  onSeatMapReady: (seatMap: SeatMap) => void,
   onError: (error: string) => void,
   setIsLoading: (isLoading: boolean) => void
 ) {
   setIsLoading(true);
 
-  if (hasEntryOnMockOffers(offer_id)) {
-    fetchFromMockOffers(offer_id).then((offer) => {
+  if (hasEntryOnMockSeatMaps(offer_id)) {
+    fetchFromMockSeatMaps(offer_id).then((seatMap) => {
       setIsLoading(false);
-      onOfferReady(offer);
+      onSeatMapReady(seatMap);
     });
     return;
   }
 
   try {
-    const data = await retrieveOfferFromDuffelAPI(offer_id, client_key);
-    return onOfferReady(data);
+    const data = await retrieveSeatMapFromDuffelAPI(offer_id, client_key);
+    onSeatMapReady(data);
   } catch (error) {
     let message = "An unknown error occurred while retrieving the offer.";
     if (error instanceof Error) {
