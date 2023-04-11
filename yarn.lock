@@ -227,10 +227,10 @@
     "@sentry/utils" "7.47.0"
     tslib "^1.9.3"
 
-"@sentry/bundler-plugin-core@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@sentry/bundler-plugin-core/-/bundler-plugin-core-0.5.1.tgz#7b32e02c28bda2a6c89222658d29a9312875ce2f"
-  integrity sha512-cQQBtKUf3mpIXrxA+2+GBkqtiRdVjpH/ktALizu2I4Y5bg5T4RPvnxV8JlqZ3u9coPlWhKmZiYH5u5PRuRak+A==
+"@sentry/bundler-plugin-core@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@sentry/bundler-plugin-core/-/bundler-plugin-core-0.6.0.tgz#70ad3740b2f90cdca1aff5fdbcd7306566a2f51e"
+  integrity sha512-gDPBkFxiOkc525U9pxnGMI5B2DAG0+UCsNuiNgl9+AieDcPSYTwdzfGHytxDZrQgPMvIHEnTAp1VlNB+6UxUGQ==
   dependencies:
     "@sentry/cli" "^2.17.0"
     "@sentry/node" "^7.19.0"
@@ -239,6 +239,7 @@
     glob "9.3.2"
     magic-string "0.27.0"
     unplugin "1.0.1"
+    webpack-sources "3.2.3"
 
 "@sentry/cli@^2.17.0":
   version "2.17.0"
@@ -269,12 +270,12 @@
     "@sentry/utils" "7.47.0"
     tslib "^1.9.3"
 
-"@sentry/esbuild-plugin@^0.5.0":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@sentry/esbuild-plugin/-/esbuild-plugin-0.5.1.tgz#dc7bd2140bfe0d6e259562a0455ee8171f40e399"
-  integrity sha512-SLiKbaNyjAz/sKbYrlFbW+zw9Tw5JQw2rIidip4u/IBJWkyvw8gyeTtGCgD8f4LRevu1VGBjWYP8F4o9cwn5fQ==
+"@sentry/esbuild-plugin@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@sentry/esbuild-plugin/-/esbuild-plugin-0.6.0.tgz#f3e8fe46fbbe0629d119a1f8938f76a84168c5ff"
+  integrity sha512-G0vGqvf43WXgtPRqfgXUPla1auGKz4IUhf4z5JvVKnbvHIjOe0zfxjlHISIYrNMAAkV/gskO476Gq/E9kZKDBA==
   dependencies:
-    "@sentry/bundler-plugin-core" "0.5.1"
+    "@sentry/bundler-plugin-core" "0.6.0"
 
 "@sentry/node@^7.19.0":
   version "7.44.2"
@@ -2840,7 +2841,7 @@ webidl-conversions@^3.0.0:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
   integrity sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==
 
-webpack-sources@^3.2.3:
+webpack-sources@3.2.3, webpack-sources@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
