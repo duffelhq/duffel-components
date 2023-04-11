@@ -1,7 +1,7 @@
 import { SeatMap } from "src/types/SeatMap";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 import { fetchFromMockSeatMaps } from "./fetchFromMocks";
-import { isMockOfferId } from "./is-mock-offer-id";
+import { isMockOfferId } from "./isMockOfferId";
 import { retrieveSeatMapFromDuffelAPI } from "./retrieveSeatMapFromDuffelAPI";
 
 export async function retrieveSeatMap(

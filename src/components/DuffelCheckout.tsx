@@ -1,4 +1,5 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
+import { isMockOfferId } from "@lib/isMockOfferId";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMap } from "@lib/retrieveSeatMap";
@@ -17,7 +18,6 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
 import { SeatSelectionCard } from "./SeatSelectionCard";
-import { isMockOfferId } from "@lib/is-mock-offer-id";
 
 const baggage = "baggage" as const;
 const seats = "seats" as const;

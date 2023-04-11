@@ -1,7 +1,7 @@
 import { Offer } from "src/types/Offer";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 import { fetchFromMockOffers } from "./fetchFromMocks";
-import { isMockOfferId } from "./is-mock-offer-id";
+import { isMockOfferId } from "./isMockOfferId";
 import { retrieveOfferFromDuffelAPI } from "./retrieveOfferFromDuffelAPI";
 
 export async function retrieveOffer(
