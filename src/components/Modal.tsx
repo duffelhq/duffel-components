@@ -1,10 +1,19 @@
 import * as React from "react";
 import { Button } from "./Button";
 
-export const Modal: React.FC<{
+interface ModalProps {
   children: React.ReactNode;
   onClose: () => void;
-}> = ({ children, onClose }) => {
+  modalContentStyle?: React.CSSProperties;
+  modalOverlayStyle?: React.CSSProperties;
+}
+
+export const Modal: React.FC<ModalProps> = ({
+  children,
+  onClose,
+  modalContentStyle,
+  modalOverlayStyle,
+}) => {
   React.useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -13,8 +22,12 @@ export const Modal: React.FC<{
   }, []);
 
   return (
-    <div className="modal">
-      <div role="presentation" className="modal--content">
+    <div className="modal" style={modalOverlayStyle}>
+      <div
+        role="presentation"
+        className="modal--content"
+        style={modalContentStyle}
+      >
         {children}
         <Button
           intent="INVISIBLE"

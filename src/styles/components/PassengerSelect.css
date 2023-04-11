@@ -80,3 +80,14 @@
     inset;
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
 }
+
+.passenger-selection-segment {
+  margin: var(--SPACING-LG-1) 0 0;
+  padding: 0 0 var(--SPACING-LG-1);
+  border-bottom: 1px solid var(--GREY-200);
+  font-family: var(--FONT-FAMILY);
+}
+
+.passenger-selection-segment:first-child {
+  margin-top: 0;
+}

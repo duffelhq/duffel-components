@@ -2,12 +2,12 @@ import { SeatMap } from "src/types/SeatMap";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 import { fetchFromMockSeatMaps } from "./fetchFromMocks";
 import { isMockOfferId } from "./isMockOfferId";
-import { retrieveSeatMapFromDuffelAPI } from "./retrieveSeatMapFromDuffelAPI";
+import { retrieveSeatMapsFromDuffelAPI } from "./retrieveSeatMapsFromDuffelAPI";
 
-export async function retrieveSeatMap(
+export async function retrieveSeatMaps(
   offer_id: string,
   client_key: string,
-  onSeatMapReady: (seatMap: SeatMap) => void,
+  onSeatMapReady: (seatMaps: SeatMap[]) => void,
   onError: (error: string) => void,
   setIsLoading: (isLoading: boolean) => void
 ) {
@@ -28,7 +28,7 @@ export async function retrieveSeatMap(
   }
 
   try {
-    const data = await retrieveSeatMapFromDuffelAPI(offer_id, client_key);
+    const data = await retrieveSeatMapsFromDuffelAPI(offer_id, client_key);
     onSeatMapReady(data);
   } catch (error) {
     let message = "An unknown error occurred while retrieving the offer.";

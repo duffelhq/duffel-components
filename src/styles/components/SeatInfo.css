@@ -1,0 +1,34 @@
+.seat-info {
+  background-color: rgb(var(--WHITE));
+  padding: var(--SPACING-SM-3);
+  padding-bottom: var(--SPACING-SM-3);
+}
+
+.seat-info__details {
+  font-size: var(--FONT-SIZES-C1);
+  color: var(--GREY-900);
+  font-weight: normal;
+  text-transform: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.seat-info__details > span {
+  flex-grow: 1;
+  margin: 0 var(--SPACING-SM-1);
+}
+
+.seat-info__disclosure {
+  font-size: var(--FONT-SIZES-C3);
+  color: var(--GREY-600);
+  line-height: 150%;
+  text-transform: none;
+  font-weight: normal;
+  margin-top: var(--SPACING-SM-1);
+}
+
+.seat-info__details + .seat-info__disclosure {
+  padding-top: var(--SPACING-SM-3);
+  border-top: 1px solid var(--GREY-200);
+  margin-top: var(--SPACING-SM-3);
+}
