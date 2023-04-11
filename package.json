@@ -19,7 +19,9 @@
     "run-example:full-stack": "concurrently \"yarn dev\" \"yarn run-full-stack-server\"",
     "run-full-stack-server": "node src/examples/full-stack/server.mjs",
     "run-client-side-server": "http-server src/examples/client-side --port=6262",
+    "preupload-current-version": "yarn build",
     "upload-current-version": "bash ./scripts/upload-current-version.sh",
+    "preupload-latest": "yarn build",
     "upload-latest": "bash ./scripts/upload-latest.sh"
   },
   "husky": {
