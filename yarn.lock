@@ -2781,6 +2781,14 @@
   resolved "https://registry.yarnpkg.com/@types/pretty-hrtime/-/pretty-hrtime-1.0.1.tgz#72a26101dc567b0d68fd956cf42314556e42d601"
   integrity sha512-VjID5MJb1eGKthz2qUerWT8+R4b9N+CHvGCzg9fn4kWZgaF9AhdYikQio3R7wV8YY1NsQKPaCwKz1Yff+aHNUQ==
 
+"@types/prompts@^2.4.4":
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/@types/prompts/-/prompts-2.4.4.tgz#dd5a1d41cb1bcd0fc4464bf44a0c8354f36ea735"
+  integrity sha512-p5N9uoTH76lLvSAaYSZtBCdEXzpOOufsRjnhjVSrZGXikVGHX9+cc9ERtHRV4hvBKHyZb1bg4K+56Bd2TqUn4A==
+  dependencies:
+    "@types/node" "*"
+    kleur "^3.0.3"
+
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
@@ -7639,7 +7647,7 @@ progress@^2.0.1, progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-prompts@^2.0.1, prompts@^2.4.0:
+prompts@^2.0.1, prompts@^2.4.0, prompts@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/prompts/-/prompts-2.4.2.tgz#7b57e73b3a48029ad10ebd44f74b01722a4cb069"
   integrity sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==
