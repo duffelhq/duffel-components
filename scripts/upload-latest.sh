@@ -13,5 +13,5 @@ gcloud storage cp dist/components/DuffelCheckoutCustomElement.js.map "gs://duffe
 gcloud storage cp dist/styles/global.css "gs://duffel-assets/ancillaries-component/latest/global.css"
 gcloud storage cp dist/styles/global.css.map "gs://duffel-assets/ancillaries-component/latest/global.css.map"
 
-# mock data
-gcloud storage cp -r dist/mocks "gs://duffel-assets/ancillaries-component/latest/mocks"
+# fixture data
+gcloud storage cp -r dist/fixtures "gs://duffel-assets/ancillaries-component/latest/fixtures"
