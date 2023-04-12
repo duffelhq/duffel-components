@@ -31,8 +31,8 @@ const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
         logLevel: "info",
       }),
       esbuildCopyStaticFiles({
-        src: "src/lib/mocks/saved",
-        dest: "dist/mocks",
+        src: "src/fixtures",
+        dest: "dist/fixtures",
         dereference: true,
         recursive: true,
       }),
