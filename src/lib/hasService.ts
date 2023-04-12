@@ -17,8 +17,10 @@ export const hasService = (
   const checkFunction = checkFunctionsMap[type];
 
   return (
-    offer?.available_services.some(
+    offer &&
+    Array.isArray(offer.available_services) &&
+    offer.available_services.some(
       (service) => checkFunction(service) && service.maximum_quantity > 0
-    ) || false
+    )
   );
 };
