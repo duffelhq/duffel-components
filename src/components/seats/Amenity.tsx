@@ -2,7 +2,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { SeatMapCabinRowSectionElementAmenity } from "src/types/SeatMap";
 import { useViewportWidth } from "@lib/useViewPortWidth";
-import { Icon, IconName } from "./Icon";
+import { Icon, IconName } from "../Icon";
 import { isMobileOrTablet } from "@lib/isMobileOrTablet";
 
 const amenitiesWithoutWrapper = ["bassinet", "exit_row"];

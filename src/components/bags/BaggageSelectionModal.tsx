@@ -10,7 +10,7 @@ import { Offer } from "src/types/Offer";
 import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
-import { Modal } from "./Modal";
+import { Modal } from "../Modal";
 
 export interface BaggageSelectionModalProps {
   offer: Offer;

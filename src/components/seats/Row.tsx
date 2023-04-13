@@ -6,8 +6,9 @@ import {
   SeatMapCabinRow,
   SeatMapCabinRowSectionElement,
 } from "src/types/SeatMap";
-import { Icon } from "./Icon";
+import { Icon } from "../Icon";
 import { getRowNumber } from "@lib/get-row-number";
+
 export interface RowProps {
   /**
    * The row contents.

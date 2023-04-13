@@ -12,11 +12,11 @@ import { SeatMap } from "src/types/SeatMap";
 import {
   BaggageSelectionCard,
   BaggageSelectionCardProps,
-} from "./BaggageSelectionCard";
+} from "./bags/BaggageSelectionCard";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
-import { SeatSelectionCard } from "./SeatSelectionCard";
+import { SeatSelectionCard } from "./seats/SeatSelectionCard";
 import { isFixtureOfferId } from "@lib/isFixtureOfferId";
 
 const baggage = "baggage" as const;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Icon } from "./Icon";
+import { Icon } from "../Icon";
 
 const LOADING_MESSAGE = "Loading seat map";
 

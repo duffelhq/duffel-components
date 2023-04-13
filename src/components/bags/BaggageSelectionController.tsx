@@ -1,8 +1,8 @@
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
 import React from "react";
-import { OfferAvailableServiceBaggage } from "../types/Offer";
-import { Counter } from "./Counter";
+import { OfferAvailableServiceBaggage } from "../../types/Offer";
+import { Counter } from "../Counter";
 
 interface BaggageSelectionControllerProps {
   passengerId: string;

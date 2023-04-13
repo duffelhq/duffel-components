@@ -1,5 +1,5 @@
 import { ErrorBoundary } from "@components/ErrorBoundary";
-import { PassengersLayout } from "@components/PassengersLayout";
+import { PassengersLayout } from "./PassengersLayout";
 import { convertDurationToString } from "@lib/convert-duration-to-string";
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getSeatServices } from "@lib/getSeatServices";

@@ -1,4 +1,4 @@
-import { Segment } from "@components/Segment";
+import { Segment } from "./Segment";
 import classNames from "classnames";
 import * as React from "react";
 import { OfferSliceSegment } from "src/types/Offer";
