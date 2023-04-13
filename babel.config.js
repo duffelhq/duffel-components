@@ -1,6 +1,5 @@
 /**
- * This file is only used by Storybook.
- * It was auto-generated when Storybook was added to the project.
+ * This file is used by Storybook and Jest.
  */
 module.exports = {
   sourceType: "unambiguous",
@@ -10,6 +9,7 @@ module.exports = {
       {
         targets: {
           chrome: 100,
+          node: "current",
         },
       },
     ],
