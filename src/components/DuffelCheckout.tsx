@@ -119,6 +119,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
       seatSelectedServices,
       offer,
       passengers,
+      seatMaps,
     });
 
     if (isPayloadComplete(createOrderPayload)) {

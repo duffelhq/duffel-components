@@ -37,7 +37,11 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
   const totalQuantity = getTotalQuantity(selectedServices);
   const areSeatsAdded = totalQuantity > 0;
 
-  const totalAmount = getTotalAmountForServices(offer!, selectedServices);
+  const totalAmount = getTotalAmountForServices(
+    offer!,
+    selectedServices,
+    seatMaps
+  );
   const totalAmountFormatted = offer
     ? moneyStringFormatter(offer?.base_currency)(totalAmount)
     : "0";
@@ -80,11 +84,11 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
           seatMaps={seatMaps}
           offer={offer}
           passengers={passengers}
+          selectedServices={selectedServices}
           onClose={(newSelectedServices) => {
             setSelectedServices(newSelectedServices);
             setIsOpen(false);
           }}
-          selectedServices={selectedServices}
         />
       )}
     </>

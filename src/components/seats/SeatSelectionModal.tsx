@@ -7,6 +7,7 @@ import { Offer } from "src/types/Offer";
 import { SeatMap } from "src/types/SeatMap";
 import { Modal } from "../Modal";
 import { SeatSelection } from "./SeatSelect";
+import { getServicesfromSeatSelectionContextInterface } from "@lib/getServicesfromSeatSelectionContextInterface";
 
 export interface SeatSelectionModalProps {
   offer: Offer;
@@ -24,7 +25,7 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
   seatMaps,
 }) => (
   <Modal
-    onClose={() => onClose([])}
+    onClose={() => onClose(selectedServices)}
     modalOverlayStyle={{
       padding: 0,
       alignItems: "flex-end",
@@ -39,11 +40,13 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
       passengers={passengers}
       seatMaps={seatMaps}
       selectedServices={selectedServices}
-      onClose={(data) => {
-        // TODO: come back here to implement transformation
-        console.log(data);
-        onClose(data);
-      }}
+      onClose={(seatSelectionInternalstate) =>
+        onClose(
+          getServicesfromSeatSelectionContextInterface(
+            seatSelectionInternalstate
+          )
+        )
+      }
     />
   </Modal>
 );
