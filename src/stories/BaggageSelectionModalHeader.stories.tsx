@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
+import { BaggageSelectionModalHeader } from "../components/BaggageSelectionModalHeader";
 import { makeMockOfferSliceSegment } from "@lib/mocks/make-mock-offer-slice-segment";
 
 export default {
