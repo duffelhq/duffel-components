@@ -29,7 +29,8 @@ export const makeMockDateInTheFuture = (daysAhead) => {
 
 const createOfferRequest = async (
   sliceInput: [string, string][],
-  adults: number
+  adults: number,
+  requestedSources?: string[]
 ) => {
   const data = {
     slices: sliceInput.map(([origin, destination], index) => ({
@@ -40,7 +41,7 @@ const createOfferRequest = async (
         .split("T")[0],
     })),
     passengers: Array(adults).fill({ type: "adult" }),
-    requested_sources: ["american_airlines"],
+    ...(requestedSources && { requested_sources: requestedSources }),
   };
 
   const response = await fetch(
@@ -81,6 +82,7 @@ const main = async () => {
       type: "number",
       name: "sliceCount",
       message: "How many slices do you want?",
+      initial: 2,
     });
 
     // for each slice, prompt for origin and destination
@@ -111,12 +113,23 @@ const main = async () => {
       type: "number",
       name: "adultCount",
       message: "How many adults traveling?",
+      initial: 1,
+    });
+
+    // ask for requested sources
+    console.log(`\n`);
+    const { requestedSources } = await prompts({
+      type: "text",
+      name: "requestedSources",
+      message: "What sources do you want to request?",
+      initial: "duffel_airways",
     });
 
     // run search
     const { data: offerRequest } = await createOfferRequest(
       sliceInput,
-      adultCount
+      adultCount,
+      requestedSources ? requestedSources.split(",") : undefined
     );
     if (VERBOSE) {
       const airlines = new Set(
