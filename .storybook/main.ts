@@ -16,8 +16,8 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
 
-  // Ensure that Storybook can handle aliased imports like '@lib'
   webpackFinal: (config) => {
+    // Ensure that Storybook can handle aliased imports like '@lib'
     config.resolve = {
       ...config.resolve,
       plugins: [
