@@ -48,8 +48,20 @@ jobs:
       - run: yarn check-types
       - run: yarn lint
       - run: yarn prettier-check
+  build-storybook:
+    executor: node-executor
+    steps:
+      - setup
+      - run: yarn build-storybook
+  test:
+    executor: node-executor
+    steps:
+      - setup
+      - run: yarn test
 
 workflows:
   build_and_test:
     jobs:
       - lint
+      - test
+      - build-storybook
