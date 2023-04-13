@@ -14,7 +14,6 @@ export const getTotalAmountForServices = (
 ): number => {
   if (!offer || selectedServices.length === 0) return 0;
   const servicePriceMap = getServicePriceMapById(offer.available_services);
-
   return getTotalAmountForServicesWithPriceMap(
     servicePriceMap,
     selectedServices,
@@ -31,7 +30,7 @@ export const getTotalAmountForServicesWithPriceMap = (
     (total, { quantity, id }) => {
       let newTotal = total;
 
-      if ("id" in servicePriceMap) {
+      if (id in servicePriceMap) {
         newTotal += quantity * +servicePriceMap[id].total_amount;
       } else if (seatMaps) {
         newTotal += quantity * getTotalAmountFromSeatMaps(id, seatMaps);
