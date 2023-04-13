@@ -6,16 +6,26 @@
 @import "./transitions.css";
 @import "./typography.css";
 
+@import "./components/Amenity.css";
 @import "./components/BaggageDisplay.css";
 @import "./components/Button.css";
 @import "./components/Card.css";
 @import "./components/Counter.css";
+@import "./components/Legend.css";
 @import "./components/Loader.css";
+@import "./components/LoadingState.css";
 @import "./components/Modal.css";
 @import "./components/PassengerSelect.css";
+@import "./components/PassengersLayout.css";
+@import "./components/Row.css";
+@import "./components/Seat.css";
+@import "./components/SeatInfo.css";
+@import "./components/SeatMap.css";
+@import "./components/SeatSelect.css";
 @import "./components/Segment.css";
 @import "./components/SelectionSegment.css";
 @import "./components/Summary.css";
+@import "./components/Tabs.css";
 
 .duffel-components {
   --BUTTON-RADIUS: 5px;

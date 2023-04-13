@@ -1,0 +1,49 @@
+.seat-map__tab-select {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  text-align: center;
+  min-height: var(--SPACING-LG-1);
+  margin-bottom: var(--SPACING-MD-3);
+  border: 2px solid var(--GREY-200);
+  border-radius: 3px;
+  background-color: var(--GREY-200);
+}
+
+.seat-map__tab-select-option {
+  appearance: none;
+  outline: none;
+  margin: 0;
+  border: none;
+  padding: var(--SPACING-XS-2) var(--SPACING-SM-3);
+  font-weight: 600;
+  font-size: var(--FONT-SIZES-C2);
+  width: 100%;
+  color: var(--GREY-900);
+  background-color: var(--GREY-200);
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.seat-map__tab-select-option:hover,
+.seat-map__tab-select-option:focus,
+.seat-map__tab-select-option:active {
+  color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
+  background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-200));
+  transition: var(--TRANSITIONS-CUBIC-BEZIER);
+}
+
+.seat-map__tab-select-option--selected {
+  color: var(--GREY-900);
+  background-color: rgba(var(--WHITE), 1);
+  box-shadow: 0px 0px 0px 1px rgba(var(--BLACK), 0.05),
+    0px 2px 12px rgba(var(--BLACK), 0.08);
+}
+
+.seat-map__tab-select-option:first-child {
+  margin-right: 1px;
+}
+
+.seat-map__tab-select-option:last-child {
+  margin-left: 1px;
+}

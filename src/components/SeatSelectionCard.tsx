@@ -1,7 +1,6 @@
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
-import { hasService } from "@lib/hasService";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
 import {
@@ -9,6 +8,7 @@ import {
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
+import { SeatMap } from "src/types/SeatMap";
 import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
 import { Card } from "./Card";
 import { SeatSelectionModal } from "./SeatSelectionModal";
@@ -17,6 +17,7 @@ import { Stamp } from "./Stamp";
 export interface SeatSelectionCardProps {
   isLoading: boolean;
   offer?: Offer;
+  seatMaps?: SeatMap[];
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
   setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
@@ -25,13 +26,14 @@ export interface SeatSelectionCardProps {
 export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
   isLoading,
   offer,
+  seatMaps,
   passengers,
   selectedServices,
   setSelectedServices,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const containsSeatService = hasService(offer, "seats");
+  const containsSeatService = Array.isArray(seatMaps) && seatMaps.length > 0;
   const totalQuantity = getTotalQuantity(selectedServices);
   const areSeatsAdded = totalQuantity > 0;
 
@@ -73,8 +75,9 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
         )}
       </Card>
 
-      {isOpen && offer && (
+      {isOpen && offer && seatMaps && (
         <SeatSelectionModal
+          seatMaps={seatMaps}
           offer={offer}
           passengers={passengers}
           onClose={(newSelectedServices) => {

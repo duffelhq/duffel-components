@@ -2,7 +2,7 @@ import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import { isMockOfferId } from "@lib/isMockOfferId";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
-import { retrieveSeatMap } from "@lib/retrieveSeatMap";
+import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
 import * as React from "react";
 import { Offer } from "src//types/Offer";
 import {
@@ -92,7 +92,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
     }
   };
 
-  const [seatMap, setSeatMap] = React.useState<SeatMap>();
+  const [seatMaps, setSeatMaps] = React.useState<SeatMap[]>();
   const [isSeatMapLoading, setIsSeatMapLoading] = React.useState(true);
 
   const [passengers, setPassengers] =
@@ -118,10 +118,10 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
       setIsOfferLoading
     );
 
-    retrieveSeatMap(
+    retrieveSeatMaps(
       offer_id,
       client_key,
-      setSeatMap,
+      setSeatMaps,
       setError,
       setIsSeatMapLoading
     );
@@ -174,7 +174,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
                 baggageSelectedServices,
                 offer,
                 error,
-                seatMap,
+                seatMaps,
               }}
             />
           )}
@@ -194,6 +194,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
           {!error && selectedFeatures.has("seats") && (
             <SeatSelectionCard
               isLoading={isOfferLoading || isSeatMapLoading}
+              seatMaps={seatMaps}
               offer={offer}
               passengers={passengers}
               selectedServices={seatSelectedServices}

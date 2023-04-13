@@ -1,0 +1,23 @@
+.map-element--amenity {
+  width: 100%;
+  height: var(--SPACING-LG-1);
+  color: var(--GREY-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--SPACING-SM-1);
+}
+
+@media only screen and (min-width: 768px) {
+  .map-element--amenity {
+    width: 100%;
+    height: var(--SPACING-LG-3);
+    font-size: var(--FONT-SIZES-C2);
+  }
+}
+
+.map-element--wrapped {
+  background-color: var(--GREY-100);
+  border-radius: 8px;
+  border: 2px solid var(--GREY-200);
+}

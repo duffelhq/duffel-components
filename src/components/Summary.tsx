@@ -1,8 +1,8 @@
 import * as React from "react";
-import { usePassengersContext } from "@lib/usePassengersContext";
+import { Segment } from "@components/Segment";
 import { IconName } from "@components/Icon";
 import { Button } from "@components/Button";
-import { Segment } from "@components/Segment";
+import { usePassengersContext } from "@lib/usePassengersContext";
 
 export interface SummaryProps {
   title: string;

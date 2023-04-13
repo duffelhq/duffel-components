@@ -1,0 +1,92 @@
+.seat-selection {
+  --SEAT-SELECTION-BOX-SHADOW: 0px 0px 0px 1px rgba(var(--BLACK), 0.05),
+    0px 4px 24px rgba(var(--BLACK), 0.08);
+  background-color: rgb(var(--WHITE));
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  position: relative;
+}
+
+.seat-selection__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  border-bottom: 1px solid rgba(59, 64, 86, 0.1);
+  height: calc(100% - 177px);
+  overflow: auto;
+}
+
+.seat-selection__content-child--passengers {
+  display: none;
+  padding-top: var(--SPACING-LG-1);
+}
+
+.seat-selection__content-child--map {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.seat-selection__mobile-seat-info {
+  align-self: center;
+  position: absolute;
+  bottom: 187px;
+  width: calc(100% - 20px);
+  padding: var(--SPACING-XS-3);
+  margin-bottom: var(--SPACING-SM-2);
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  z-index: 100;
+  box-shadow: var(--SEAT-SELECTION-BOX-SHADOW);
+}
+
+.seat-selection__confirmation {
+  padding: var(--SPACING-MD-3);
+  box-shadow: var(--SEAT-SELECTION-BOX-SHADOW);
+  position: sticky;
+  bottom: 0;
+  background-color: rgb(var(--WHITE));
+}
+
+@media screen and (min-width: 768px) {
+  .seat-selection__content {
+    height: auto;
+    padding: 0;
+    flex-direction: row;
+    align-items: initial;
+    max-height: calc(100vh - 115px);
+  }
+
+  .seat-selection__confirmation {
+    padding: var(--SPACING-LG-1);
+    box-shadow: none;
+  }
+
+  .seat-selection__content-child--passengers {
+    overflow: auto;
+    border-right: 1px solid var(--GREY-200);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    flex: 1 0 auto;
+    min-width: 415px;
+  }
+
+  .seat-selection__content-child--passengers > div:not(.passenger-selection) {
+    margin-left: var(--SPACING-LG-1);
+  }
+
+  .seat-selection__content-child--map {
+    height: auto;
+    align-items: center;
+    overflow: auto;
+  }
+}

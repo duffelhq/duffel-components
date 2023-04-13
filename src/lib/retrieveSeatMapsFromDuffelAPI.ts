@@ -1,6 +1,6 @@
 import { fetchFromDuffelAPI } from "./fetchFromDuffelAPI";
 
-export async function retrieveSeatMapFromDuffelAPI(
+export async function retrieveSeatMapsFromDuffelAPI(
   offer_id: string,
   client_key: string
 ) {

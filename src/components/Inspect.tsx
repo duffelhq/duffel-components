@@ -10,7 +10,7 @@ export const Inspect: React.FC<InspectProps> = ({
     baggageSelectedServices,
     offer,
     error,
-    seatMap,
+    seatMaps,
   },
 }) => (
   <pre
@@ -34,8 +34,8 @@ export const Inspect: React.FC<InspectProps> = ({
       {`${offer ? "✓" : "x"} offer: ${
         JSON.stringify(offer) || (error ? "Failed" : "Loading...")
       }\n`}
-      {`${seatMap ? "✓" : "x"} seatMap: ${
-        JSON.stringify(seatMap) || (error ? "Failed" : "Loading...")
+      {`${seatMaps ? "✓" : "x"} seatMaps: ${
+        JSON.stringify(seatMaps) || (error ? "Failed" : "Loading...")
       }\n`}
       {`${
         baggageSelectedServices ? "✓" : "x"
