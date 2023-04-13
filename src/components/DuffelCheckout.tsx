@@ -7,6 +7,7 @@ import { Offer } from "src//types/Offer";
 import {
   CreateOrderPayload,
   CreateOrderPayloadPassengers,
+  CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { SeatMap } from "src/types/SeatMap";
 import {
@@ -41,11 +42,19 @@ interface DuffelCheckoutStyles {
   fontFamily: string;
 }
 
+interface OnPayloadReadyMetada {
+  baggageServices: CreateOrderPayloadServices;
+  seatServices: CreateOrderPayloadServices;
+}
+
 export interface DuffelCheckoutProps {
   offer_id: Offer["id"];
   client_key: Offer["client_key"];
   passengers: CreateOrderPayload["passengers"];
-  onPayloadReady: (data: CreateOrderPayload) => void;
+  onPayloadReady: (
+    data: CreateOrderPayload,
+    metadata: OnPayloadReadyMetada
+  ) => void;
   styles?: DuffelCheckoutStyles;
 }
 
@@ -123,7 +132,10 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
     });
 
     if (isPayloadComplete(createOrderPayload)) {
-      onPayloadReady(createOrderPayload);
+      onPayloadReady(createOrderPayload, {
+        baggageServices: baggageSelectedServices,
+        seatServices: seatSelectedServices,
+      });
     }
   }, [baggageSelectedServices, seatSelectedServices]);
 
