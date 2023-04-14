@@ -3,13 +3,15 @@ const { sentryEsbuildPlugin } = require("@sentry/esbuild-plugin");
 const esbuild = require("esbuild");
 const dotenv = require("dotenv");
 const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
+const VERSION = require("../package.json").version;
 
 (async function () {
   dotenv.config({ path: ".env.build" });
 
+  const DUFFEL_API_URL = process.env.DUFFEL_API_URL;
   let COMPONENT_CDN = process.env.COMPONENT_CDN;
   if (!process.env.COMPONENT_CDN.startsWith("http://localhost:")) {
-    COMPONENT_CDN += "/" + require("../package.json").version;
+    COMPONENT_CDN += "/" + VERSION;
   }
 
   if (process.env.SENTRY_AUTH_TOKEN === undefined) {
@@ -28,6 +30,9 @@ const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
     sourcemap: true,
     define: {
       "process.env.COMPONENT_CDN": `"${COMPONENT_CDN}"`,
+      "process.env.DUFFEL_API_URL": `"${DUFFEL_API_URL}"`,
+      "process.env.COMPONENT_VERSION": `"${VERSION}"`,
+      DUFFEL_API_URL,
     },
     plugins: [
       sentryEsbuildPlugin({
