@@ -447,12 +447,8 @@
       "type": "baggage",
       "total_currency": "GBP",
       "total_amount": "20.00",
-      "segment_ids": [
-        "seg_0000AUde3KwTztSRK1cznF"
-      ],
-      "passenger_ids": [
-        "pas_0000AUde3KY1SptM6ABSfT"
-      ],
+      "segment_ids": ["seg_0000AUde3KwTztSRK1cznF"],
+      "passenger_ids": ["pas_0000AUde3KY1SptM6ABSfT"],
       "metadata": {
         "type": "checked",
         "maximum_weight_kg": 23,
@@ -467,12 +463,8 @@
       "type": "baggage",
       "total_currency": "GBP",
       "total_amount": "20.00",
-      "segment_ids": [
-        "seg_0000AUde3KwTztSRK1cznF"
-      ],
-      "passenger_ids": [
-        "pas_0000AUde3KY1SptM6ABSfU"
-      ],
+      "segment_ids": ["seg_0000AUde3KwTztSRK1cznF"],
+      "passenger_ids": ["pas_0000AUde3KY1SptM6ABSfU"],
       "metadata": {
         "type": "checked",
         "maximum_weight_kg": 23,
@@ -487,9 +479,7 @@
       "type": "cancel_for_any_reason",
       "total_currency": "GBP",
       "total_amount": "97.45",
-      "segment_ids": [
-        "seg_0000AUde3KwTztSRK1cznF"
-      ],
+      "segment_ids": ["seg_0000AUde3KwTztSRK1cznF"],
       "passenger_ids": [
         "pas_0000AUde3KY1SptM6ABSfT",
         "pas_0000AUde3KY1SptM6ABSfU"
