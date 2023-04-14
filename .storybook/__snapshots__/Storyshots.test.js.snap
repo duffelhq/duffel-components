@@ -53,7 +53,7 @@ exports[`Storyshots BaggageSelectionModalHeader First Story 1`] = `
     }
   >
     Flight to 
-    JFK
+    LAX
     <span
       className="p2--regular"
       style={
@@ -62,7 +62,9 @@ exports[`Storyshots BaggageSelectionModalHeader First Story 1`] = `
           "marginLeft": "8px",
         }
       }
-    />
+    >
+      Apr 21, 2023
+    </span>
   </h2>
 </div>
 `;
