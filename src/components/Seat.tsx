@@ -134,7 +134,7 @@ export const Seat: React.FC<SeatProps> = ({ seat }) => {
 
             if (isMobileOrTablet(width) && !selectedByOther) {
               // We need all the ? here since we actually get `seat=false` as prop somehow and we haven't got time to look into that yet.
-              // Also we ultimately should use `seat.id` to compare but we don't have the capacity to update the types + mocks
+              // Also we ultimately should use `seat.id` to compare but we don't have the capacity to update the types + fixtures
               // to be up-to-date yet, so we will need to use the designator for now.
               currentSeat?.seat?.designator === seat?.designator
                 ? setCurrentSeat({ seat: null, service: undefined })

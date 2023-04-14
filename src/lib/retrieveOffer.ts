@@ -1,8 +1,8 @@
 import { Offer } from "src/types/Offer";
 import { captureErrorInSentry } from "./captureErrorInSentry";
-import { fetchFromMockOffers } from "./fetchFromMocks";
-import { isMockOfferId } from "./isMockOfferId";
+import { importFromOfferFixtures } from "./fetchFromFixtures";
 import { retrieveOfferFromDuffelAPI } from "./retrieveOfferFromDuffelAPI";
+import { isFixtureOfferId } from "./isFixtureOfferId";
 
 export async function retrieveOffer(
   offer_id: string,
@@ -12,19 +12,14 @@ export async function retrieveOffer(
   setIsLoading: (isLoading: boolean) => void
 ) {
   setIsLoading(true);
+  const useFixture = isFixtureOfferId(offer_id);
+  offer_id = useFixture ? offer_id.replace("fixture_", "") : offer_id;
 
-  if (isMockOfferId(offer_id)) {
-    fetchFromMockOffers(offer_id)
-      .then((offer) => {
-        setIsLoading(false);
-        onOfferReady(offer);
-      })
-      .catch(() => {
-        throw new Error(
-          `The mock offer with id '${offer_id}' could not be found.`
-        );
-      });
-    return;
+  if (useFixture) {
+    return importFromOfferFixtures(offer_id).then((offer) => {
+      setIsLoading(false);
+      onOfferReady(offer);
+    });
   }
 
   try {

@@ -1,5 +1,4 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
-import { isMockOfferId } from "@lib/isMockOfferId";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
@@ -18,6 +17,7 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
 import { SeatSelectionCard } from "./SeatSelectionCard";
+import { isFixtureOfferId } from "@lib/isFixtureOfferId";
 
 const baggage = "baggage" as const;
 const seats = "seats" as const;
@@ -61,34 +61,18 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
   const onOfferReady = (offer: Offer) => {
     setOffer(offer);
 
-    if (passengersProp.length !== offer.passengers.length) {
-      throw new Error("Passenger count mismatch between offer and attribute");
+    if (offer.passengers.length !== passengersProp.length) {
+      throw new Error(
+        "The number of passengers in the offer does not match the number of passengers for the payload."
+      );
     }
 
-    const offerPassengerIds = new Set(offer.passengers.map(({ id }) => id));
-    const hasPassengerWithMismatchingId = passengers.some(
-      ({ id }) => !offerPassengerIds.has(id)
-    );
-
-    if (hasPassengerWithMismatchingId && isMockOfferId(offer.id)) {
-      console.warn(
-        "Passenger ID mismatch between offer and attribute, but this is a mock offer so we're ignoring it"
-      );
-
-      const newPassengers = passengersProp.map((passenger, index) => ({
+    if (isFixtureOfferId(offer_id)) {
+      const passengers = passengersProp.map((passenger, index) => ({
         ...passenger,
         id: offer.passengers[index].id,
       }));
-      setPassengers(newPassengers);
-    } else if (hasPassengerWithMismatchingId && !isMockOfferId(offer.id)) {
-      const mismatch = passengersProp.find(
-        ({ id }) => !offerPassengerIds.has(id)
-      );
-      throw new Error(
-        `Passenger ID mismatch between offer and attribute ('${mismatch?.id}')`
-      );
-    } else {
-      setPassengers(passengersProp);
+      setPassengers(passengers);
     }
   };
 

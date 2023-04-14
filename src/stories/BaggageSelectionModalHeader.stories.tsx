@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { BaggageSelectionModalHeader } from "../components/BaggageSelectionModalHeader";
-import { makeMockOfferSliceSegment } from "@lib/mocks/make-mock-offer-slice-segment";
+import { offer } from "../fixtures/offers/off_0000AUa6E3NVYZR1Jx1hop";
+import { OfferSliceSegment } from "src/types/Offer";
 
 export default {
   title: "BaggageSelectionModalHeader",
@@ -13,7 +14,7 @@ export const FirstStory: Story = {
   args: {
     segmentCount: 2,
     currentSegmentIndex: 0,
-    currentSegment: makeMockOfferSliceSegment(),
+    currentSegment: offer.slices[0].segments[0] as OfferSliceSegment,
     setCurrentSegmentIndex: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
   },
 };

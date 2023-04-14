@@ -1,7 +1,7 @@
 import { SeatMap } from "src/types/SeatMap";
 import { captureErrorInSentry } from "./captureErrorInSentry";
-import { fetchFromMockSeatMaps } from "./fetchFromMocks";
-import { isMockOfferId } from "./isMockOfferId";
+import { importFromSeatMapsFixtures } from "./fetchFromFixtures";
+import { isFixtureOfferId } from "./isFixtureOfferId";
 import { retrieveSeatMapsFromDuffelAPI } from "./retrieveSeatMapsFromDuffelAPI";
 
 export async function retrieveSeatMaps(
@@ -13,18 +13,14 @@ export async function retrieveSeatMaps(
 ) {
   setIsLoading(true);
 
-  if (isMockOfferId(offer_id)) {
-    fetchFromMockSeatMaps(offer_id)
-      .then((seatMap) => {
-        setIsLoading(false);
-        onSeatMapReady(seatMap);
-      })
-      .catch(() => {
-        throw new Error(
-          `The mock seat map for offer id '${offer_id}' could not be found.`
-        );
-      });
-    return;
+  const useFixture = isFixtureOfferId(offer_id);
+  offer_id = useFixture ? offer_id.replace("fixture_", "") : offer_id;
+
+  if (useFixture) {
+    return importFromSeatMapsFixtures(offer_id).then((seatMaps) => {
+      setIsLoading(false);
+      onSeatMapReady(seatMaps);
+    });
   }
 
   try {

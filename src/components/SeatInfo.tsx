@@ -25,7 +25,20 @@ export const SeatInfo: React.FC<SeatInfoProps> = ({ seat, service }) => {
     : "";
 
   return (
-    <div className="seat-info">
+    <div
+      className="seat-info"
+      style={{
+        width: "220px",
+        padding: "var(--SPACING-SM-1)",
+        border: "1px solid rgba(59, 64, 86, 0.1)",
+        borderRadius: "8px",
+        background: "white",
+        zIndex: "999",
+        boxShadow: "0px 1px 4px rgba(59, 64, 86, 0.3)",
+        position: "absolute",
+        top: "-50px",
+      }}
+    >
       <div className="seat-info__details">
         <strong>{seat?.designator}</strong>
         <span>{seat?.name || "Seat"} </span>

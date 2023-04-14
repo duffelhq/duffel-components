@@ -574,7 +574,7 @@ export interface OfferSliceSegment {
   /**
    * The distance of the segment in kilometres
    */
-  distance: number | null;
+  distance: string | null;
 
   /**
    * The duration of the segment, represented as a ISO 8601 duration

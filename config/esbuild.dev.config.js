@@ -40,8 +40,8 @@ const copyStaticFiles = require("esbuild-copy-static-files");
           ]
         : []),
       copyStaticFiles({
-        src: "src/lib/mocks/saved",
-        dest: "dist/mocks",
+        src: "src/fixtures",
+        dest: "dist/fixtures",
         dereference: true,
         recursive: true,
       }),
@@ -61,7 +61,7 @@ const copyStaticFiles = require("esbuild-copy-static-files");
   console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js`);
   console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js.map`);
   console.log(`  ↳ ${prefix}/styles/global.css`);
-  console.log(`  ↳ ${prefix}/mocks\n`);
+  console.log(`  ↳ ${prefix}/fixtures\n`);
 
   await esbuildContext.watch();
 })();
