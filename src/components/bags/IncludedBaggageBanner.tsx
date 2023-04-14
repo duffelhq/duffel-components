@@ -1,5 +1,5 @@
 import React from "react";
-import { OfferSliceSegmentPassengerBaggage } from "../types/Offer";
+import { OfferSliceSegmentPassengerBaggage } from "../../types/Offer";
 import { withPlural } from "@lib/withPlural";
 
 interface IncludedBaggageBannerProps {

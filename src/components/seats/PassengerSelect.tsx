@@ -2,11 +2,6 @@ import * as React from "react";
 import { PassengerSelectionSegment } from "./SelectionSegment";
 import { usePassengersContext } from "@lib/usePassengersContext";
 
-export interface Passenger {
-  id: string;
-  name?: string | null;
-}
-
 export interface PassengerSelectionProps {
   renderPassengerSelectionDetails: (
     passengerId: string,
@@ -15,7 +10,7 @@ export interface PassengerSelectionProps {
 }
 
 /**
- * The passenger selection component for seat selection and additional baggage
+ * The passenger selection component for seat selection
  */
 export const PassengerSelection: React.FC<PassengerSelectionProps> = ({
   renderPassengerSelectionDetails,

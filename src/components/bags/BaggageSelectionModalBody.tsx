@@ -2,12 +2,12 @@ import React from "react";
 import {
   CreateOrderPayloadPassenger,
   CreateOrderPayloadServices,
-} from "../types/CreateOrderPayload";
+} from "../../types/CreateOrderPayload";
 import {
   Offer,
   OfferAvailableServiceBaggage,
   OfferSliceSegment,
-} from "../types/Offer";
+} from "../../types/Offer";
 import { BaggageSelectionModalBodyPassenger } from "./BaggageSelectionModalBodyPassenger";
 import { getPassengerName } from "@lib/getPassengerName";
 

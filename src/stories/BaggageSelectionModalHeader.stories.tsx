@@ -1,7 +1,8 @@
+import { BaggageSelectionModalHeader } from "@components/bags/BaggageSelectionModalHeader";
 import type { Meta, StoryObj } from "@storybook/react";
-import { BaggageSelectionModalHeader } from "../components/BaggageSelectionModalHeader";
-import { offer } from "../fixtures/offers/off_0000AUa6E3NVYZR1Jx1hop";
 import { OfferSliceSegment } from "src/types/Offer";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const offer = require("../fixtures/offers/off_0000AUde3KwTztSRK1cznH.json");
 
 export default {
   title: "BaggageSelectionModalHeader",

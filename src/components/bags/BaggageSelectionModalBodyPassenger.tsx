@@ -1,9 +1,9 @@
 import React from "react";
-import { CreateOrderPayloadServices } from "../types/CreateOrderPayload";
+import { CreateOrderPayloadServices } from "../../types/CreateOrderPayload";
 import {
   OfferAvailableServiceBaggage,
   OfferSliceSegmentPassengerBaggage,
-} from "../types/Offer";
+} from "../../types/Offer";
 import { BaggageSelectionController } from "./BaggageSelectionController";
 import { IncludedBaggageBanner } from "./IncludedBaggageBanner";
 

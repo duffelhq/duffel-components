@@ -7,16 +7,17 @@ import { Offer } from "src//types/Offer";
 import {
   CreateOrderPayload,
   CreateOrderPayloadPassengers,
+  CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { SeatMap } from "src/types/SeatMap";
 import {
   BaggageSelectionCard,
   BaggageSelectionCardProps,
-} from "./BaggageSelectionCard";
+} from "./bags/BaggageSelectionCard";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
-import { SeatSelectionCard } from "./SeatSelectionCard";
+import { SeatSelectionCard } from "./seats/SeatSelectionCard";
 import { isFixtureOfferId } from "@lib/isFixtureOfferId";
 
 const baggage = "baggage" as const;
@@ -27,13 +28,10 @@ type Features = typeof baggage | typeof seats;
 const selectedFeatures = new Set<Features>([baggage, seats]);
 
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
-const version = require("../../package.json").version;
-
-const COMPONENT_CDN = location.href.match("http://localhost:6262/")
-  ? "http://localhost:8000/styles/"
-  : `https://storage.googleapis.com/duffel-assets/ancillaries-component/${version}`;
-
-const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
+const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
+const hrefToComponentStyles =
+  COMPONENT_CDN +
+  `${COMPONENT_CDN.startsWith("http://localhost") ? "/styles" : ""}/global.css`;
 
 interface DuffelCheckoutStyles {
   accentColor: string;
@@ -41,11 +39,19 @@ interface DuffelCheckoutStyles {
   fontFamily: string;
 }
 
+export interface OnPayloadReadyMetada {
+  baggageServices: CreateOrderPayloadServices;
+  seatServices: CreateOrderPayloadServices;
+}
+
 export interface DuffelCheckoutProps {
   offer_id: Offer["id"];
   client_key: Offer["client_key"];
   passengers: CreateOrderPayload["passengers"];
-  onPayloadReady: (data: CreateOrderPayload) => void;
+  onPayloadReady: (
+    data: CreateOrderPayload,
+    metadata: OnPayloadReadyMetada
+  ) => void;
   styles?: DuffelCheckoutStyles;
 }
 
@@ -119,10 +125,14 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
       seatSelectedServices,
       offer,
       passengers,
+      seatMaps,
     });
 
     if (isPayloadComplete(createOrderPayload)) {
-      onPayloadReady(createOrderPayload);
+      onPayloadReady(createOrderPayload, {
+        baggageServices: baggageSelectedServices,
+        seatServices: seatSelectedServices,
+      });
     }
   }, [baggageSelectedServices, seatSelectedServices]);
 

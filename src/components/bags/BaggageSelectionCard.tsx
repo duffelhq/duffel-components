@@ -1,6 +1,7 @@
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
+import { hasService } from "@lib/hasService";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
 import {
@@ -8,34 +9,31 @@ import {
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
-import { SeatMap } from "src/types/SeatMap";
-import { AnimatedLoaderEllipsis } from "./AnimatedLoaderEllipsis";
-import { Card } from "./Card";
-import { SeatSelectionModal } from "./SeatSelectionModal";
-import { Stamp } from "./Stamp";
+import { AnimatedLoaderEllipsis } from "../AnimatedLoaderEllipsis";
+import { BaggageSelectionModal } from "./BaggageSelectionModal";
+import { Card } from "../Card";
+import { Stamp } from "../Stamp";
 
-export interface SeatSelectionCardProps {
+export interface BaggageSelectionCardProps {
   isLoading: boolean;
   offer?: Offer;
-  seatMaps?: SeatMap[];
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
   setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
 }
 
-export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
+export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
   isLoading,
   offer,
-  seatMaps,
   passengers,
   selectedServices,
   setSelectedServices,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const containsSeatService = Array.isArray(seatMaps) && seatMaps.length > 0;
+  const containsBaggageService = hasService(offer, "baggage");
   const totalQuantity = getTotalQuantity(selectedServices);
-  const areSeatsAdded = totalQuantity > 0;
+  const isBaggageAdded = totalQuantity > 0;
 
   const totalAmount = getTotalAmountForServices(offer!, selectedServices);
   const totalAmountFormatted = offer
@@ -43,24 +41,24 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
     : "0";
 
   const copy =
-    containsSeatService && areSeatsAdded
+    containsBaggageService && isBaggageAdded
       ? `${withPlural(
           totalQuantity,
-          "seat",
-          "seats"
-        )} selected for ${totalAmountFormatted}`
-      : "Specify where on the plane you’d like to sit";
+          "bag",
+          "bags"
+        )} added for ${totalAmountFormatted}`
+      : "Add any extra baggage you need for your trip";
 
   return (
     <>
       <Card
-        title="Seat selection"
+        title="Extra baggage"
         copy={copy}
-        icon="flight_class"
-        onClick={containsSeatService ? () => setIsOpen(true) : null}
+        icon="cabin_bag"
+        onClick={containsBaggageService ? () => setIsOpen(true) : null}
         isLoading={isLoading}
-        disabled={!isLoading && !containsSeatService}
-        isSelected={areSeatsAdded}
+        disabled={!isLoading && !containsBaggageService}
+        isSelected={isBaggageAdded}
       >
         {isLoading && (
           <Stamp color="var(--GREY-900)" backgroundColor="var(--GREY-100)">
@@ -68,16 +66,15 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
             <AnimatedLoaderEllipsis />
           </Stamp>
         )}
-        {!isLoading && !containsSeatService && (
+        {!isLoading && !containsBaggageService && (
           <Stamp color="var(--GREY-700)" backgroundColor="var(--GREY-200)">
             Not available
           </Stamp>
         )}
       </Card>
 
-      {isOpen && offer && seatMaps && (
-        <SeatSelectionModal
-          seatMaps={seatMaps}
+      {isOpen && offer && (
+        <BaggageSelectionModal
           offer={offer}
           passengers={passengers}
           onClose={(newSelectedServices) => {

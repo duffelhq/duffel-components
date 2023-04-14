@@ -4,7 +4,11 @@ import {
   CreateOrderPayload,
   CreateOrderPayloadPassengers,
 } from "../types/CreateOrderPayload";
-import { DuffelCheckout, DuffelCheckoutProps } from "./DuffelCheckout";
+import {
+  DuffelCheckout,
+  DuffelCheckoutProps,
+  OnPayloadReadyMetada,
+} from "./DuffelCheckout";
 
 type DuffelCheckoutCustomElementInitData = Pick<
   DuffelCheckoutProps,
@@ -23,7 +27,10 @@ class DuffelCheckoutCustomElement extends HTMLElement {
   /**
    * The callback users should react to.
    */
-  onPayloadReady!: (data: CreateOrderPayload) => void;
+  onPayloadReady!: (
+    data: CreateOrderPayload,
+    metadata: OnPayloadReadyMetada
+  ) => void;
 
   /**
    * Definition of which attributes should trigger `attributeChangedCallback`
@@ -54,10 +61,10 @@ class DuffelCheckoutCustomElement extends HTMLElement {
 
     this.root = createRoot(container);
 
-    this.onPayloadReady = (data) => {
+    this.onPayloadReady = (data, metadata) => {
       this.dispatchEvent(
         new CustomEvent("onPayloadReady", {
-          detail: { data },
+          detail: { data, metadata },
         })
       );
     };

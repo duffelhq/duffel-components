@@ -7,6 +7,11 @@ const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
 (async function () {
   dotenv.config({ path: ".env.build" });
 
+  let COMPONENT_CDN = process.env.COMPONENT_CDN;
+  if (!process.env.COMPONENT_CDN.startsWith("http://localhost:")) {
+    COMPONENT_CDN += "/" + require("../package.json").version;
+  }
+
   if (process.env.SENTRY_AUTH_TOKEN === undefined) {
     throw new Error("process.env.SENTRY_AUTH_TOKEN is required but missing");
   }
@@ -21,6 +26,9 @@ const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
     minify: true,
     treeShaking: true,
     sourcemap: true,
+    define: {
+      "process.env.COMPONENT_CDN": `"${COMPONENT_CDN}"`,
+    },
     plugins: [
       sentryEsbuildPlugin({
         org: "duffel",

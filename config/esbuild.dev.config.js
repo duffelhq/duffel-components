@@ -10,6 +10,11 @@ const copyStaticFiles = require("esbuild-copy-static-files");
   // https://start.1password.com/open/i?a=CVTLLVSJJJC4RG7PJTMOY5VCXE&h=duffel.1password.com&i=gd6refyn462lhbfktupebggn6e&v=kmjm74mssgamftm75gcbdhw66q
   dotenv.config({ path: ".env.local" });
 
+  let COMPONENT_CDN = process.env.COMPONENT_CDN;
+  if (!process.env.COMPONENT_CDN.startsWith("http://localhost:")) {
+    COMPONENT_CDN += "/" + require("../package.json").version;
+  }
+
   const esbuildContext = await esbuild.context({
     entryPoints: [
       "src/components/DuffelCheckoutCustomElement.tsx",
@@ -20,7 +25,9 @@ const copyStaticFiles = require("esbuild-copy-static-files");
     minify: true,
     treeShaking: true,
     sourcemap: true,
-    // target: ["chrome58", "firefox57", "safari11", "edge16"],
+    define: {
+      "process.env.COMPONENT_CDN": `"${COMPONENT_CDN}"`,
+    },
     plugins: [
       ...(process.env.SENTRY_AUTH_TOKEN
         ? [

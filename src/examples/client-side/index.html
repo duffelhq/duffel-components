@@ -20,7 +20,7 @@
 
     <!-- 2. Add the custom element to your markup -->
     <duffel-checkout
-      offer_id="fixture_off_0000AUa6E3NVYZR1Jx1hop"
+      offer_id="fixture_off_0000AUde3KwTztSRK1cznH"
       client_key="__CLIENT_KEY__"
     ></duffel-checkout>
   </body>
@@ -61,9 +61,10 @@
         .querySelector("duffel-checkout")
         .addEventListener(
           "onPayloadReady",
-          function ({ detail: createOrderPayload }) {
+          function ({ detail: { data: createOrderPayload, metadata } }) {
             // 5. Create an event handler to work with order creation payload
             console.log("Will create order with", createOrderPayload);
+            console.log("Includes metadata", metadata);
           }
         );
     };

@@ -1,5 +1,4 @@
 import { ErrorBoundary } from "@components/ErrorBoundary";
-import { PassengersLayout } from "@components/PassengersLayout";
 import { convertDurationToString } from "@lib/convert-duration-to-string";
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getSeatServices } from "@lib/getSeatServices";
@@ -26,15 +25,17 @@ import {
   SeatMapCabinRowSectionAvailableService,
 } from "src/types/SeatMap";
 import { LoadingState } from "./LoadingState";
+import { PassengersLayout } from "./PassengersLayout";
 import { SeatInfo } from "./SeatInfo";
 import { SeatMap as SeatMapComponent } from "./SeatMap";
+import { getSeatSelectionContextInterfaceFromServices } from "@lib/getSeatSelectionContextInterfaceFromServices";
 
 export interface SeatSelectionProps {
   offer: Offer;
   seatMaps: SeatMap[];
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
-  onClose: (selectedServices: CreateOrderPayloadServices) => void;
+  onClose: (selectedServices: SeatSelectionContextInterface) => void;
 }
 
 export const SeatSelection: React.FC<SeatSelectionProps> = (props) => (
@@ -59,13 +60,15 @@ export const SeatSelection: React.FC<SeatSelectionProps> = (props) => (
 const SeatSelect: React.FC<Omit<SeatSelectionProps, "passengers">> = ({
   seatMaps,
   offer,
-  // selectedServices,
   onClose,
+  selectedServices,
 }) => {
   const passengersContext = usePassengersContext();
 
   const [seatSelection, setSeatSelection] =
-    React.useState<SeatSelectionContextInterface>({});
+    React.useState<SeatSelectionContextInterface>(
+      getSeatSelectionContextInterfaceFromServices(selectedServices, seatMaps)
+    );
   const [size, setSize] = React.useState<Size>("default");
   const [currentSeatSelected, setCurrentSeatSelected] =
     React.useState<CurrentSeat>({ seat: null, service: undefined });
@@ -288,8 +291,7 @@ const SeatSelect: React.FC<Omit<SeatSelectionProps, "passengers">> = ({
           numberOfSeats > 1 ? "s" : ""
         } selected`}
         formattedTotalAmount={formattedAmount}
-        // TODO: close with selected service instead
-        onSubmit={() => onClose(seatSelection as any)}
+        onSubmit={() => onClose(seatSelection)}
       >
         {renderSeatMap(isLoading)}
       </PassengersLayout>

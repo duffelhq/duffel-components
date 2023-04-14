@@ -4,8 +4,8 @@ import { getTotalAmountForServicesWithPriceMap } from "@lib/getTotalAmountForSer
 import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
-import { CreateOrderPayloadServices } from "../types/CreateOrderPayload";
-import { Button } from "./Button";
+import { CreateOrderPayloadServices } from "../../types/CreateOrderPayload";
+import { Button } from "../Button";
 
 export interface BaggageSelectionModalFooterProps {
   currency: string;

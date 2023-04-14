@@ -4,6 +4,7 @@ import {
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
+import { SeatMap } from "src/types/SeatMap";
 import { getTotalAmountForServices } from "./getTotalAmountForServices";
 
 interface CompileCreateOrderPayloadInput {
@@ -11,12 +12,14 @@ interface CompileCreateOrderPayloadInput {
   passengers: DuffelCheckoutProps["passengers"];
   baggageSelectedServices: CreateOrderPayloadServices;
   seatSelectedServices: CreateOrderPayloadServices;
+  seatMaps?: SeatMap[];
 }
 
 export const compileCreateOrderPayload = ({
   baggageSelectedServices,
   seatSelectedServices,
   offer,
+  seatMaps,
   passengers,
 }: CompileCreateOrderPayloadInput): Partial<CreateOrderPayload> => {
   const services = [
@@ -25,7 +28,7 @@ export const compileCreateOrderPayload = ({
   ];
 
   const totalAmountWithServices =
-    +offer.total_amount + getTotalAmountForServices(offer, services);
+    +offer.total_amount + getTotalAmountForServices(offer, services, seatMaps);
 
   return {
     ...(offer && { selected_offers: [offer.id] }),

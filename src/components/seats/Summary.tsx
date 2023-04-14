@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Segment } from "@components/Segment";
+import { Segment } from "./Segment";
 import { IconName } from "@components/Icon";
 import { Button } from "@components/Button";
 import { usePassengersContext } from "@lib/usePassengersContext";

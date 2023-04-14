@@ -12,7 +12,7 @@ import { usePassengersContext } from "@lib/usePassengersContext";
 import { getServiceInformation } from "@lib/get-service-information";
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { isMobileOrTablet } from "@lib/isMobileOrTablet";
-import { Icon } from "./Icon";
+import { Icon } from "../Icon";
 
 export interface SeatProps {
   /**

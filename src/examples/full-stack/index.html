@@ -43,7 +43,7 @@
         .querySelector("duffel-checkout")
         .addEventListener(
           "onPayloadReady",
-          function ({ detail: createOrderPayload }) {
+          function ({ detail: { data: createOrderPayload } }) {
             // 5. Create an event handler to work with order creation payload
             fetch("/book", {
               method: "POST",
