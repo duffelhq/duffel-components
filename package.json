@@ -1,6 +1,6 @@
 {
   "name": "duffel-checkout",
-  "version": "beta",
+  "version": "0.0.1",
   "private": true,
   "license": "MIT",
   "main": "index.js",
@@ -55,6 +55,7 @@
     "@storybook/addon-essentials": "^7.0.2",
     "@storybook/addon-interactions": "^7.0.2",
     "@storybook/addon-links": "^7.0.2",
+    "@storybook/addon-storyshots": "^7.0.4",
     "@storybook/blocks": "^7.0.2",
     "@storybook/react": "^7.0.2",
     "@storybook/react-webpack5": "^7.0.2",
@@ -80,6 +81,7 @@
     "http-server": "^14.1.1",
     "husky": "^8.0.3",
     "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "prop-types": "^15.8.1",

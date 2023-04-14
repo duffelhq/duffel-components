@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots BaggageSelectionModalHeader First Story 1`] = `
+<div
+  style={
+    {
+      "padding": "24px 24px 16px",
+    }
+  }
+>
+  <div
+    style={
+      {
+        "columnGap": "4px",
+        "display": "flex",
+      }
+    }
+  >
+    <button
+      style={
+        {
+          "backgroundColor": "rgb(var(--ACCENT))",
+          "border": "none",
+          "borderRadius": "4px",
+          "height": "4px",
+          "padding": "0",
+          "transition": "background-color 0.3s var(--TRANSITION-CUBIC-BEZIER)",
+          "width": "4px",
+        }
+      }
+    />
+    <button
+      onClick={[Function]}
+      style={
+        {
+          "backgroundColor": "rgba(var(--ACCENT), var(--ACCENT-LIGHT-200))",
+          "border": "none",
+          "borderRadius": "4px",
+          "height": "4px",
+          "padding": "0",
+          "transition": "background-color 0.3s var(--TRANSITION-CUBIC-BEZIER)",
+          "width": "4px",
+        }
+      }
+    />
+  </div>
+  <h2
+    className="h3--semibold"
+    style={
+      {
+        "marginTop": "12px",
+      }
+    }
+  >
+    Flight to 
+    JFK
+    <span
+      className="p2--regular"
+      style={
+        {
+          "color": "var(--GREY-600)",
+          "marginLeft": "8px",
+        }
+      }
+    />
+  </h2>
+</div>
+`;
