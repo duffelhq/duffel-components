@@ -1600,10 +1600,10 @@
     "@sentry/utils" "7.48.0"
     tslib "^1.9.3"
 
-"@sentry/bundler-plugin-core@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@sentry/bundler-plugin-core/-/bundler-plugin-core-0.6.0.tgz#70ad3740b2f90cdca1aff5fdbcd7306566a2f51e"
-  integrity sha512-gDPBkFxiOkc525U9pxnGMI5B2DAG0+UCsNuiNgl9+AieDcPSYTwdzfGHytxDZrQgPMvIHEnTAp1VlNB+6UxUGQ==
+"@sentry/bundler-plugin-core@0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@sentry/bundler-plugin-core/-/bundler-plugin-core-0.7.2.tgz#6fdbdd9173c0a5ef6650d8df8379f69a54fac588"
+  integrity sha512-9d1MxEgRkPCTewQ26Bs+J/GxvnNVIRuQPZrHs70qRLotMiedH4KlHauh2MhbgH5rdgm0DUeOcafhxoBSK7ji3w==
   dependencies:
     "@sentry/cli" "^2.17.0"
     "@sentry/node" "^7.19.0"
@@ -1643,12 +1643,12 @@
     "@sentry/utils" "7.48.0"
     tslib "^1.9.3"
 
-"@sentry/esbuild-plugin@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@sentry/esbuild-plugin/-/esbuild-plugin-0.6.0.tgz#f3e8fe46fbbe0629d119a1f8938f76a84168c5ff"
-  integrity sha512-G0vGqvf43WXgtPRqfgXUPla1auGKz4IUhf4z5JvVKnbvHIjOe0zfxjlHISIYrNMAAkV/gskO476Gq/E9kZKDBA==
+"@sentry/esbuild-plugin@^0.7.0":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@sentry/esbuild-plugin/-/esbuild-plugin-0.7.2.tgz#d835b22ee45b2006d727273e8c0fb6ace20c29f6"
+  integrity sha512-R9ea5EzbOmA25QasvhTsdEMwv6CS/0Wq/JtxZWRXGk+U+uWYpQWu0AxKKhkW6eM5eEDL3yQj2h/EOH5nMhAnRw==
   dependencies:
-    "@sentry/bundler-plugin-core" "0.6.0"
+    "@sentry/bundler-plugin-core" "0.7.2"
 
 "@sentry/node@^7.19.0":
   version "7.47.0"
