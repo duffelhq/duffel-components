@@ -1,97 +1,47 @@
-import classNames from "classnames";
-import * as React from "react";
-import { Amenity } from "./Amenity";
-import { Seat } from "./Seat";
-import {
-  SeatMapCabinRow,
-  SeatMapCabinRowSectionElement,
-} from "src/types/SeatMap";
-import { Icon } from "../Icon";
 import { getRowNumber } from "@lib/get-row-number";
+import * as React from "react";
+import { CreateOrderPayloadService } from "src/types/CreateOrderPayload";
+import { SeatMapCabinRow } from "src/types/SeatMap";
+import { RowSection } from "./RowSection";
 
 export interface RowProps {
-  /**
-   * The row contents.
-   */
   row: SeatMapCabinRow;
-  /**
-   * Does the row sit above wings?
-   */
   hasWings: boolean;
+  selectedServicesMap: Record<string, CreateOrderPayloadService>;
+  onSeatToggled: (seatService: CreateOrderPayloadService) => void;
+  currentPassengerId: string;
+  currentPassengerName: string;
+  currentSegmentId: string;
 }
 
-const elementComponentMap = (
-  element: SeatMapCabinRowSectionElement,
-  elementIndex: number,
-  sectionIndex: number
-) => (
-  <>
-    {element.type === "seat" ? (
-      <Seat key={elementIndex} seat={element} />
-    ) : element.type === "empty" ? (
-      <div key={elementIndex} className="map-element map-element--empty" />
-    ) : element.type === "exit_row" ? (
-      <div
-        key={elementIndex}
-        className={classNames("map-element map-element--exit", {
-          "map-element--exit--right": sectionIndex > 0,
-        })}
-      >
-        {sectionIndex === 0 ? (
-          <Icon name="exit_row" />
-        ) : (
-          <Icon name="exit_row_right" />
-        )}
-      </div>
-    ) : (
-      <Amenity key={elementIndex} type={element.type} />
-    )}
-  </>
-);
-
-/**
- * The row component for the seat map.
- */
-export const Row: React.FC<RowProps> = ({ row, hasWings }) => {
+export const Row: React.FC<RowProps> = ({
+  row,
+  hasWings,
+  onSeatToggled,
+  selectedServicesMap,
+  currentPassengerId,
+  currentPassengerName,
+  currentSegmentId,
+}) => {
   const rowNumber = getRowNumber(row);
-  const rowSections = row.sections;
 
   return (
     <>
-      {Object.values(rowSections).map((section, sectionIndex) => {
-        const rowLength = Object.keys(row.sections).length;
-        const isOneSectionRow = rowLength === 1;
-
-        return (
-          <React.Fragment key={sectionIndex}>
-            <div
-              className={classNames("map-section", {
-                "map-section--left": sectionIndex === 0,
-                "map-section--right": !isOneSectionRow
-                  ? sectionIndex === rowLength - 1
-                  : false,
-                "map-section--wing": hasWings,
-              })}
-              data-testid={`row-section-${sectionIndex}`}
-            >
-              {section.elements.length > 0
-                ? section.elements.map((element, elementIndex) => (
-                    <React.Fragment key={elementIndex}>
-                      {elementComponentMap(element, elementIndex, sectionIndex)}
-                    </React.Fragment>
-                  ))
-                : elementComponentMap({ type: "empty" }, -1, sectionIndex)}
-            </div>
-            {(sectionIndex < rowLength - 1 ||
-              (isOneSectionRow && sectionIndex < rowLength)) && (
-              <span className="map-section__aisle">{rowNumber}</span>
-            )}
-            {isOneSectionRow &&
-              sectionIndex === row.sections.length - 1 &&
-              elementComponentMap({ type: "empty" }, -1, sectionIndex)}
-          </React.Fragment>
-        );
-      })}
+      {row.sections.map((section, sectionIndex) => (
+        <RowSection
+          key={sectionIndex}
+          row={row}
+          rowNumber={rowNumber}
+          hasWings={hasWings}
+          section={section}
+          sectionIndex={sectionIndex}
+          selectedServicesMap={selectedServicesMap}
+          onSeatToggled={onSeatToggled}
+          currentPassengerId={currentPassengerId}
+          currentPassengerName={currentPassengerName}
+          currentSegmentId={currentSegmentId}
+        />
+      ))}
     </>
   );
 };

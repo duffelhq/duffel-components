@@ -6,19 +6,10 @@ import {
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 
 export interface SeatInfoProps {
-  /**
-   * The seat information.
-   */
   seat: SeatMapCabinRowSectionElementSeat | null;
-  /**
-   * The service information.
-   */
   service: SeatMapCabinRowSectionAvailableService | undefined;
 }
 
-/**
- * Contents of the seat info panel with seat information
- */
 export const SeatInfo: React.FC<SeatInfoProps> = ({ seat, service }) => {
   const price = service
     ? moneyStringFormatter(service.total_currency)(+service.total_amount)
@@ -28,15 +19,18 @@ export const SeatInfo: React.FC<SeatInfoProps> = ({ seat, service }) => {
     <div
       className="seat-info"
       style={{
-        width: "220px",
+        minWidth: "220px",
         padding: "var(--SPACING-SM-1)",
         border: "1px solid rgba(59, 64, 86, 0.1)",
         borderRadius: "8px",
         background: "white",
         zIndex: "999",
         boxShadow: "0px 1px 4px rgba(59, 64, 86, 0.3)",
-        position: "absolute",
-        top: "-50px",
+        position: "fixed",
+        bottom: "140px",
+        width: "calc(100% - 48px)",
+        left: "24px",
+        boxSizing: "border-box",
       }}
     >
       <div className="seat-info__details">
