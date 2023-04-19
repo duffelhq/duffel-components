@@ -15,7 +15,7 @@ if (process.env.DUFFEL_API_TOKEN === undefined) {
   throw new Error("process.env.DUFFEL_API_TOKEN is required but missing");
 }
 
-export const makeMockDateInTheFuture = (daysAhead) => {
+const makeMockDateInTheFuture = (daysAhead) => {
   const now = new Date(Date.now());
   now.setDate(now.getDate() + daysAhead);
   return now;

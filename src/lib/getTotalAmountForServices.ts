@@ -48,10 +48,7 @@ export const getTotalAmountForServicesWithPriceMap = (
     0
   );
 
-export const getTotalAmountFromSeatMaps = (
-  serviceId: string,
-  seatMaps: SeatMap[]
-) => {
+const getTotalAmountFromSeatMaps = (serviceId: string, seatMaps: SeatMap[]) => {
   for (const seatMap of seatMaps) {
     for (const cabin of seatMap.cabins) {
       for (const row of cabin.rows) {

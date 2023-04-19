@@ -5,23 +5,14 @@ import { withPlural } from "@lib/withPlural";
 import React from "react";
 import {
   CreateOrderPayload,
-  CreateOrderPayloadService,
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { SeatMap } from "src/types/SeatMap";
 import { AnimatedLoaderEllipsis } from "../AnimatedLoaderEllipsis";
 import { Card } from "../Card";
-import { SeatSelectionModal } from "./SeatSelectionModal";
 import { Stamp } from "../Stamp";
-
-export type SeatSelectedServicesByPassengerMap = Record<
-  CreateOrderPayloadService["id"],
-  {
-    id: string;
-    name: string;
-  }
->;
+import { SeatSelectionModal } from "./SeatSelectionModal";
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;
