@@ -1,4 +1,4 @@
-export const getPassengerInitials = (passengerName: string) =>
+export const getPassengerInitials = (passengerName = "") =>
   passengerName
     .split(" ")
     .map((partOfTheName) => partOfTheName[0])

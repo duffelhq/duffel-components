@@ -34,6 +34,11 @@ export const Card: React.FC<CardProps> = ({
         "ancillary-card",
         isLoading && "ancillary-card--loading"
       )}
+      // We are using inline styles here because
+      // we don't want the cards to appear unstyled
+      // before the CSS stylesheet loads.
+      // This is important for this component since it
+      // be on visible on the page when it loads.
       style={{
         background: "transparent",
         border: "solid 1px rgba(226, 226, 232, 1)",

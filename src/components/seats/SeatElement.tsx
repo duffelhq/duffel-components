@@ -32,14 +32,16 @@ export const SeatElement: React.FC<SeatElementProps> = ({
 
   const selectedServiceFromMap = Object.values(selectedServicesMap).find(
     (service) =>
-      service._metadata?.designator === element.designator &&
-      service._metadata?.segmentId === currentSegmentId
+      service._internalMetadata?.designator === element.designator &&
+      service._internalMetadata?.segmentId === currentSegmentId
   );
 
   const isSeatSelected = selectedServiceFromMap != undefined;
 
   const seatLabel = isSeatSelected
-    ? getPassengerInitials(selectedServiceFromMap._metadata?.passengerName)
+    ? getPassengerInitials(
+        selectedServiceFromMap._internalMetadata?.passengerName
+      )
     : element.designator.charAt(element.designator.length - 1);
 
   const isFeePayable =
@@ -53,8 +55,10 @@ export const SeatElement: React.FC<SeatElementProps> = ({
   const isActionable =
     !isSeatSelected ||
     (isSeatSelected &&
-      currentSegmentId === selectedServiceFromMap._metadata?.segmentId &&
-      currentPassengerId === selectedServiceFromMap._metadata?.passengerId);
+      currentSegmentId ===
+        selectedServiceFromMap._internalMetadata?.segmentId &&
+      currentPassengerId ===
+        selectedServiceFromMap._internalMetadata?.passengerId);
 
   const seatClassName = classNames("map-element", "map-element__seat", {
     "map-element--available": isSeatSelectionAvaiable,
@@ -68,8 +72,9 @@ export const SeatElement: React.FC<SeatElementProps> = ({
 
   const isSeatInfoDisplayed =
     isSeatSelected &&
-    currentSegmentId === selectedServiceFromMap._metadata?.segmentId &&
-    currentPassengerId === selectedServiceFromMap._metadata?.passengerId;
+    currentSegmentId === selectedServiceFromMap._internalMetadata?.segmentId &&
+    currentPassengerId ===
+      selectedServiceFromMap._internalMetadata?.passengerId;
 
   return (
     <>
@@ -82,7 +87,7 @@ export const SeatElement: React.FC<SeatElementProps> = ({
           onSeatToggled({
             quantity: isSeatSelected ? 0 : 1,
             id: seatServiceFromElement.id,
-            _metadata: {
+            _internalMetadata: {
               segmentId: currentSegmentId,
               passengerId: currentPassengerId,
               passengerName: currentPassengerName,

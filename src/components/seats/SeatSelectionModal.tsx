@@ -72,8 +72,10 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
         seatServiceToToggle.quantity === 0;
 
       const isSelectedServiceFromStateForTheSameSegmentAndPassengerPermutation =
-        selectedServiceFromState._metadata?.segmentId === currentSegmentId &&
-        selectedServiceFromState._metadata?.passengerId === currentPassengerId;
+        selectedServiceFromState._internalMetadata?.segmentId ===
+          currentSegmentId &&
+        selectedServiceFromState._internalMetadata?.passengerId ===
+          currentPassengerId;
 
       if (
         !hasClickedSeatToToggleOff &&
