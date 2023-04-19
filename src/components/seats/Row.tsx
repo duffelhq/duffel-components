@@ -1,4 +1,4 @@
-import { getRowNumber } from "@lib/get-row-number";
+import { getRowNumber } from "@lib/getRowNumber";
 import * as React from "react";
 import { CreateOrderPayloadService } from "src/types/CreateOrderPayload";
 import { SeatMapCabinRow } from "src/types/SeatMap";
