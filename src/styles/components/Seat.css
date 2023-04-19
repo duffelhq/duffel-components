@@ -20,14 +20,6 @@
   position: relative;
 }
 
-@media only screen and (min-width: 768px) {
-  .map-element__seat {
-    width: var(--SPACING-LG-3);
-    height: var(--SPACING-LG-3);
-    font-size: var(--FONT-SIZES-C2);
-  }
-}
-
 .map-element--available {
   border: 2px solid rgba(var(--ACCENT), var(--ACCENT-LIGHT-200));
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));

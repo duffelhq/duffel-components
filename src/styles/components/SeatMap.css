@@ -5,13 +5,8 @@
   flex-direction: column;
   align-items: center;
   width: fit-content;
+  padding-bottom: 60px;
   min-height: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  .seat-map {
-    padding: var(--SPACING-LG-1) var(--SPACING-SM-3) var(--SPACING-SM-3);
-  }
 }
 
 .seat-map__legend-container {
@@ -26,15 +21,4 @@
   align-items: center;
   width: min-content;
   margin: 0 var(--SPACING-SM-2);
-}
-
-@media only screen and (min-width: 768px) {
-  .seat-map__map-container {
-    grid-template-columns:
-      repeat(var(--CABIN-AISLES), auto var(--SPACING-LG-2))
-      auto;
-    grid-column-gap: var(--SPACING-SM-2);
-    margin: 0;
-    padding-bottom: var(--SPACING-LG-1);
-  }
 }
