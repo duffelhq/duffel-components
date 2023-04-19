@@ -52,5 +52,7 @@ const filterServicesForPayload = (
   selectedServices: CreateOrderPayloadServices
 ): CreateOrderPayloadServices => {
   if (!Array.isArray(selectedServices)) return [];
-  return selectedServices.filter(({ quantity }) => quantity > 0);
+  return selectedServices
+    .filter(({ quantity }) => quantity > 0)
+    .map(({ id, quantity }) => ({ id, quantity }));
 };
