@@ -35,4 +35,11 @@ export type CreateOrderPayloadServices = CreateOrderPayloadService[];
 export interface CreateOrderPayloadService {
   id: string;
   quantity: number;
+
+  /** _metadata is meant for internal use within the Duffel Checkout component.
+   * It is convenient so we can augument services with data about it.
+   * It is not meant to be used by the client and it is deleted
+   * before the payload is sent to the onPayloadReady callback.
+   */
+  _metadata?: Record<string, any>;
 }
