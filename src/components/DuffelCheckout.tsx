@@ -1,4 +1,5 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
+import { isFixtureOfferId } from "@lib/isFixtureOfferId";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
@@ -10,15 +11,14 @@ import {
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { SeatMap } from "src/types/SeatMap";
+import { ErrorBoundary } from "./ErrorBoundary";
+import { FetchOfferErrorState } from "./FetchOfferErrorState";
+import { Inspect } from "./Inspect";
 import {
   BaggageSelectionCard,
   BaggageSelectionCardProps,
 } from "./bags/BaggageSelectionCard";
-import { ErrorBoundary } from "./ErrorBoundary";
-import { FetchOfferErrorState } from "./FetchOfferErrorState";
-import { Inspect } from "./Inspect";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
-import { isFixtureOfferId } from "@lib/isFixtureOfferId";
 
 const baggage = "baggage" as const;
 const seats = "seats" as const;
@@ -90,10 +90,10 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
 
   const [error, setError] = React.useState<null | string>(null);
 
-  const [baggageSelectedServices, setBaggageSelectionState] = React.useState<
+  const [baggageSelectedServices, setBaggageSelectedServices] = React.useState<
     BaggageSelectionCardProps["selectedServices"]
   >([]);
-  const [seatSelectedServices, setSeatSelectionState] = React.useState<
+  const [seatSelectedServices, setSeatSelectedServices] = React.useState<
     BaggageSelectionCardProps["selectedServices"]
   >([]);
 
@@ -181,7 +181,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
               offer={offer}
               passengers={passengers}
               selectedServices={baggageSelectedServices}
-              setSelectedServices={setBaggageSelectionState}
+              setSelectedServices={setBaggageSelectedServices}
             />
           )}
 
@@ -192,7 +192,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
               offer={offer}
               passengers={passengers}
               selectedServices={seatSelectedServices}
-              setSelectedServices={setSeatSelectionState}
+              setSelectedServices={setSeatSelectedServices}
             />
           )}
         </ErrorBoundary>
