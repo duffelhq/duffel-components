@@ -63,7 +63,7 @@ export const BaggageSelectionModalFooter: React.FC<
           onClick={() => onPreviousSegmentButtonClicked()}
         />
         <Button
-          text={isLastSegment ? "Done" : "Next"}
+          text={isLastSegment ? "Confirm" : "Next"}
           intent="PRIMARY"
           onClick={() =>
             isLastSegment ? onClose() : onNextSegmentButtonClicked()
