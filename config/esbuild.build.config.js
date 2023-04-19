@@ -32,7 +32,6 @@ const VERSION = require("../package.json").version;
       "process.env.COMPONENT_CDN": `"${COMPONENT_CDN}"`,
       "process.env.DUFFEL_API_URL": `"${DUFFEL_API_URL}"`,
       "process.env.COMPONENT_VERSION": `"${VERSION}"`,
-      DUFFEL_API_URL,
     },
     plugins: [
       sentryEsbuildPlugin({

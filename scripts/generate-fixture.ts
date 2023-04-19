@@ -163,9 +163,7 @@ const main = async () => {
         "passenger",
         "passengers"
       )} and ` +
-      `${withPlural(sliceCount, "slice", "slices")}: ${sliceInput.join(
-        " ⇢ "
-      )}\n\n`;
+      `${withPlural(sliceCount, "slice", "slices")}: ${sliceInput.join(" ⇢ ")}`;
     fs.writeFileSync(
       `src/fixtures/offers/${firstOffer.id}.json`,
       JSON.stringify({ _description, ...firstOffer }, null, 2)
