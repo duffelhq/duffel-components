@@ -6,7 +6,7 @@ export async function retrieveSeatMapsFromDuffelAPI(
 ) {
   const getSeatMapResponse = await fetchFromDuffelAPI(
     client_key,
-    `seat-maps/${offer_id}`
+    `seat_maps/?offer_id=${offer_id}`
   );
 
   return getSeatMapResponse.data;
