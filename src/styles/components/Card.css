@@ -1,5 +1,8 @@
-.ancillary-card + .ancillary-card {
-  margin-top: 12px;
+.ancillaries-cards-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  row-gap: 12px;
 }
 
 .ancillary-card:disabled {
