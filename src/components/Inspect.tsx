@@ -8,6 +8,7 @@ export const Inspect: React.FC<InspectProps> = ({
     client_key,
     passengers,
     baggageSelectedServices,
+    seatSelectedServices,
     offer,
     error,
     seatMaps,
@@ -39,9 +40,10 @@ export const Inspect: React.FC<InspectProps> = ({
       }\n`}
       {`${
         baggageSelectedServices ? "✓" : "x"
-      } baggageSelectedServices: ${JSON.stringify(
-        baggageSelectedServices
-      )}\n\n`}
+      } baggageSelectedServices: ${JSON.stringify(baggageSelectedServices)}\n`}
+      {`${
+        seatSelectedServices ? "✓" : "x"
+      } seatSelectedServices: ${JSON.stringify(seatSelectedServices)}\n\n`}
       <b>{"Error:\n"}</b>
       {`${error ? "✓" : "x"} error: ${error}\n`}
     </>

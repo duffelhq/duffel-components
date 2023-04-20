@@ -169,6 +169,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
                 client_key,
                 passengers,
                 baggageSelectedServices,
+                seatSelectedServices,
                 offer,
                 error,
                 seatMaps,
