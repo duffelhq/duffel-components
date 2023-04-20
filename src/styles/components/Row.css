@@ -23,20 +23,11 @@
   }
 }
 
-.map-element + .map-element {
-  margin-left: var(--SPACING-XS-2);
-}
-
-@media only screen and (min-width: 768px) {
-  .map-element + .map-element {
-    margin-left: var(--SPACING-SM-1);
-  }
-}
-
 .map-section {
   display: flex;
   justify-content: center;
   padding: var(--SPACING-XS-1) 0;
+  column-gap: 6px;
 }
 
 @media only screen and (min-width: 768px) {

@@ -11,8 +11,8 @@ import { Offer } from "src/types/Offer";
 import { SeatMap } from "src/types/SeatMap";
 import { AnimatedLoaderEllipsis } from "../AnimatedLoaderEllipsis";
 import { Card } from "../Card";
-import { SeatSelectionModal } from "./SeatSelectionModal";
 import { Stamp } from "../Stamp";
+import { SeatSelectionModal } from "./SeatSelectionModal";
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;
@@ -85,8 +85,8 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
           offer={offer}
           passengers={passengers}
           selectedServices={selectedServices}
-          onClose={(newSelectedServices) => {
-            setSelectedServices(newSelectedServices);
+          onClose={(services) => {
+            setSelectedServices(services);
             setIsOpen(false);
           }}
         />

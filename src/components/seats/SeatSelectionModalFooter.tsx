@@ -6,8 +6,9 @@ import { withPlural } from "@lib/withPlural";
 import React from "react";
 import { CreateOrderPayloadServices } from "../../types/CreateOrderPayload";
 import { Button } from "../Button";
+import { SeatMap } from "src/types/SeatMap";
 
-export interface BaggageSelectionModalFooterProps {
+export interface SeatSelectionModalFooterProps {
   currency: string;
   selectedServices: CreateOrderPayloadServices;
   servicePrices: ServicePriceMapById;
@@ -18,10 +19,11 @@ export interface BaggageSelectionModalFooterProps {
   onNextSegmentButtonClicked: () => void;
   onPreviousSegmentButtonClicked: () => void;
   onClose: () => void;
+  seatMaps: SeatMap[];
 }
 
-export const BaggageSelectionModalFooter: React.FC<
-  BaggageSelectionModalFooterProps
+export const SeatSelectionModalFooter: React.FC<
+  SeatSelectionModalFooterProps
 > = ({
   selectedServices,
   servicePrices,
@@ -31,20 +33,20 @@ export const BaggageSelectionModalFooter: React.FC<
   onNextSegmentButtonClicked,
   onPreviousSegmentButtonClicked,
   onClose,
+  seatMaps,
 }) => {
   const totalQuantity = getTotalQuantity(selectedServices);
   const totalAmount = getTotalAmountForServicesWithPriceMap(
     servicePrices,
-    selectedServices
+    selectedServices,
+    seatMaps
   );
   const totalAmountLabel = moneyStringFormatter(currency)(totalAmount);
 
   return (
     <div style={{ padding: "16px 24px 24px" }}>
       <div className="flex--space-between">
-        <div>
-          Price for {withPlural(totalQuantity, "extra bag", "extra bags")}
-        </div>
+        <div>Price for {withPlural(totalQuantity, "seat", "seats")}</div>
         <div className="h3--semibold">+ {totalAmountLabel}</div>
       </div>
 

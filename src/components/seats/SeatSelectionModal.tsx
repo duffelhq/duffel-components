@@ -1,13 +1,20 @@
+import { getPassengerBySegmentList } from "@lib/getPassengerBySegmentList";
+import { getPassengerMapById } from "@lib/getPassengerMapById";
+import { getPassengerName } from "@lib/getPassengerName";
+import { getSegmentList } from "@lib/getSegmentList";
+import { getServicePriceMapById } from "@lib/getServicePriceMapById";
 import React from "react";
 import {
   CreateOrderPayload,
+  CreateOrderPayloadService,
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { SeatMap } from "src/types/SeatMap";
 import { Modal } from "../Modal";
-import { SeatSelection } from "./SeatSelect";
-import { getServicesfromSeatSelectionContextInterface } from "@lib/getServicesfromSeatSelectionContextInterface";
+import { SeatSelectionModalBody } from "./SeatSelectionModalBody";
+import { SeatSelectionModalFooter } from "./SeatSelectionModalFooter";
+import { SeatSelectionModalHeader } from "./SeatSelectionModalHeader";
 
 export interface SeatSelectionModalProps {
   offer: Offer;
@@ -20,33 +27,109 @@ export interface SeatSelectionModalProps {
 export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
   offer,
   passengers,
-  onClose,
-  selectedServices,
   seatMaps,
-}) => (
-  <Modal
-    onClose={() => onClose(selectedServices)}
-    modalOverlayStyle={{
-      padding: 0,
-      alignItems: "flex-end",
-    }}
-    modalContentStyle={{
-      maxWidth: "100%",
-      height: "calc(100vh - 40px)",
-    }}
-  >
-    <SeatSelection
-      offer={offer}
-      passengers={passengers}
-      seatMaps={seatMaps}
-      selectedServices={selectedServices}
-      onClose={(seatSelectionInternalstate) =>
-        onClose(
-          getServicesfromSeatSelectionContextInterface(
-            seatSelectionInternalstate
-          )
-        )
+  selectedServices,
+  onClose,
+}) => {
+  const [currentPermutationIndex, setCurrentPermutationIndex] =
+    React.useState(0);
+
+  const [selectedServicesState, setSelectedServicesState] =
+    React.useState<CreateOrderPayloadServices>(selectedServices);
+  const selectedServicesStateMap = selectedServicesState.reduce(
+    (all, service) => ({ ...all, [service.id]: service }),
+    {} as Record<string, CreateOrderPayloadService>
+  );
+
+  const segments = getSegmentList(offer);
+  const passengerMapById = getPassengerMapById(passengers);
+  const servicePricesMap = getServicePriceMapById(offer.available_services);
+  const segmentAndPassengerPermutations = getPassengerBySegmentList(segments);
+  const {
+    passenger: { passenger_id: currentPassengerId },
+    passengerIndex: currentPassengerIndex,
+    segment: { id: currentSegmentId },
+  } = segmentAndPassengerPermutations[currentPermutationIndex];
+
+  const currentSegment = segments.find(({ id }) => id === currentSegmentId)!;
+  const currentPassenger = passengerMapById[currentPassengerId];
+  const currentSeatMap = seatMaps.find(
+    (seatMap) => seatMap.segment_id === currentSegmentId
+  )!;
+
+  const currentPassengerName = getPassengerName(
+    currentPassenger,
+    offer.passengers[currentPassengerIndex],
+    currentPassengerIndex
+  );
+
+  const onSeatToggle = (seatServiceToToggle: CreateOrderPayloadService) => {
+    let newSeatServices = new Array<CreateOrderPayloadService>();
+
+    for (const selectedServiceFromState of selectedServicesState) {
+      const hasClickedSeatToToggleOff =
+        selectedServiceFromState.id === seatServiceToToggle.id &&
+        seatServiceToToggle.quantity === 0;
+
+      const isSelectedServiceFromStateForTheSameSegmentAndPassengerPermutation =
+        selectedServiceFromState._internalMetadata?.segmentId ===
+          currentSegmentId &&
+        selectedServiceFromState._internalMetadata?.passengerId ===
+          currentPassengerId;
+
+      if (
+        !hasClickedSeatToToggleOff &&
+        !isSelectedServiceFromStateForTheSameSegmentAndPassengerPermutation
+      ) {
+        newSeatServices = [...newSeatServices, selectedServiceFromState];
       }
-    />
-  </Modal>
-);
+    }
+
+    if (seatServiceToToggle.quantity > 0) {
+      newSeatServices = [...newSeatServices, seatServiceToToggle];
+    }
+
+    setSelectedServicesState(newSeatServices);
+  };
+
+  return (
+    <Modal onClose={() => onClose(selectedServicesState)}>
+      <SeatSelectionModalHeader
+        segmentAndPassengerPermutationsCount={
+          segmentAndPassengerPermutations.length
+        }
+        currentSegment={currentSegment}
+        currentPassengerName={currentPassengerName}
+        currentSegmentAndPassengerPermutationsIndex={currentPermutationIndex}
+        setCurrentSegmentAndPassengerPermutationsIndex={
+          setCurrentPermutationIndex
+        }
+      />
+      <SeatSelectionModalBody
+        selectedServicesMap={selectedServicesStateMap}
+        seatMap={currentSeatMap}
+        onSeatToggled={onSeatToggle}
+        currentPassengerId={currentPassengerId}
+        currentPassengerName={currentPassengerName}
+        currentSegmentId={currentSegmentId}
+      />
+      <SeatSelectionModalFooter
+        seatMaps={seatMaps}
+        currency={offer.total_currency}
+        selectedServices={selectedServicesState}
+        servicePrices={servicePricesMap}
+        isFirstSegment={currentPermutationIndex === 0}
+        isLastSegment={
+          currentPermutationIndex + 1 === segmentAndPassengerPermutations.length
+        }
+        onNextSegmentButtonClicked={() => {
+          setCurrentPermutationIndex(currentPermutationIndex + 1);
+        }}
+        onPreviousSegmentButtonClicked={() => {
+          setCurrentPermutationIndex(currentPermutationIndex - 1);
+        }}
+        onClose={() => onClose(selectedServicesState)}
+      />
+    </Modal>
+  );
+};
