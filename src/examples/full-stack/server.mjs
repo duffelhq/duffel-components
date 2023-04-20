@@ -29,10 +29,10 @@ const duffelHeaders = {
   Authorization: `Bearer ${process.env.DUFFEL_API_TOKEN}`,
 };
 
-let searchRoundTripOnDuffelResult = null;
+let searchRoundTripOnDuffelResultCache = null;
 const searchRoundTripOnDuffel = async (origin, destination) => {
-  if (searchRoundTripOnDuffelResult !== null) {
-    return searchRoundTripOnDuffelResult;
+  if (searchRoundTripOnDuffelResultCache !== null) {
+    return searchRoundTripOnDuffelResultCache;
   }
 
   const payload = {
@@ -68,27 +68,9 @@ const searchRoundTripOnDuffel = async (origin, destination) => {
       }
     )
   ).json();
-  searchRoundTripOnDuffelResult = offerRequest;
-  return searchRoundTripOnDuffelResult;
-};
 
-let getOffersFromDuffelResult = null;
-const getOffersFromDuffel = async (offerRequestId) => {
-  if (getOffersFromDuffelResult !== null) {
-    return getOffersFromDuffelResult;
-  }
-
-  const { data: offers } = await (
-    await fetch(
-      process.env.DUFFEL_API_URL +
-        `/air/offers?offer_request_id=${offerRequestId}`,
-      {
-        headers: duffelHeaders,
-      }
-    )
-  ).json();
-  getOffersFromDuffelResult = offers;
-  return getOffersFromDuffelResult;
+  searchRoundTripOnDuffelResultCache = offerRequest;
+  return searchRoundTripOnDuffelResultCache;
 };
 
 const createOrderOnDuffel = async (request, response) => {
@@ -112,7 +94,7 @@ const createOrderOnDuffel = async (request, response) => {
 const ROUTES = {
   "/": async function index(request, response) {
     const offerRequest = await searchRoundTripOnDuffel("JFK", "MIA");
-    const [offer] = await getOffersFromDuffel(offerRequest.id);
+    const offer = offerRequest.offers[0];
 
     if (!offer) {
       response.writeHead(404);
@@ -140,7 +122,7 @@ const ROUTES = {
     const withOfferId = template.replace("__OFFER_ID__", offer.id);
     const withclientKey = withOfferId.replace(
       "__CLIENT_KEY__",
-      offer.client_key
+      offerRequest.client_key
     );
     const withPassengers = withclientKey.replace(
       "const passengers = [];",

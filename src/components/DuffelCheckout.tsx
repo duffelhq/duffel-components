@@ -157,7 +157,10 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
     <>
       <link rel="stylesheet" href={hrefToComponentStyles}></link>
 
-      <div className="duffel-components" style={duffelComponentsStyle}>
+      <div
+        className="duffel-components ancillaries-cards-container"
+        style={duffelComponentsStyle}
+      >
         <ErrorBoundary>
           {location.hash.includes("inspect-duffel-checkout") && (
             <Inspect
@@ -166,6 +169,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
                 client_key,
                 passengers,
                 baggageSelectedServices,
+                seatSelectedServices,
                 offer,
                 error,
                 seatMaps,
