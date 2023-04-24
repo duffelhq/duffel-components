@@ -2,36 +2,11 @@
 
 const { sentryEsbuildPlugin } = require("@sentry/esbuild-plugin");
 const esbuild = require("esbuild");
-const dotenv = require("dotenv");
 const copyStaticFiles = require("esbuild-copy-static-files");
-const VERSION = require("../package.json").version;
 
 (async function () {
-  // The most recent version of this file is here:
-  // https://start.1password.com/open/i?a=CVTLLVSJJJC4RG7PJTMOY5VCXE&h=duffel.1password.com&i=gd6refyn462lhbfktupebggn6e&v=kmjm74mssgamftm75gcbdhw66q
-  dotenv.config({ path: ".env.local" });
-
-  const DUFFEL_API_URL = process.env.DUFFEL_API_URL;
-  let COMPONENT_CDN = process.env.COMPONENT_CDN;
-  if (!process.env.COMPONENT_CDN.startsWith("http://localhost:")) {
-    COMPONENT_CDN += "/" + VERSION;
-  }
-
   const esbuildContext = await esbuild.context({
-    entryPoints: [
-      "src/components/DuffelCheckoutCustomElement.tsx",
-      "src/styles/global.css",
-    ],
-    bundle: true,
-    outdir: "dist",
-    minify: true,
-    treeShaking: true,
-    sourcemap: true,
-    define: {
-      "process.env.COMPONENT_CDN": `"${COMPONENT_CDN}"`,
-      "process.env.DUFFEL_API_URL": `"${DUFFEL_API_URL}"`,
-      "process.env.COMPONENT_VERSION": `"${VERSION}"`,
-    },
+    ...require("./esbuild.base.config"),
     plugins: [
       ...(process.env.SENTRY_AUTH_TOKEN
         ? [
@@ -69,9 +44,10 @@ const VERSION = require("../package.json").version;
   const prefix = `http://${host}:${port}`;
 
   console.log(`\n🐄 Serving component on ${prefix}`);
-  console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js`);
-  console.log(`  ↳ ${prefix}/components/DuffelCheckoutCustomElement.js.map`);
-  console.log(`  ↳ ${prefix}/styles/global.css`);
+  console.log(`  ↳ ${prefix}/ancillaries-components/index.js`);
+  console.log(`  ↳ ${prefix}/ancillaries-components/index.map`);
+  console.log(`  ↳ ${prefix}/ancillaries-components/styles/global.css`);
+  console.log(`  ↳ ${prefix}/ancillaries-components/styles/global.css.map`);
   console.log(`  ↳ ${prefix}/fixtures\n`);
 
   await esbuildContext.watch();
