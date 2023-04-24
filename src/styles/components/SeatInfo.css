@@ -1,30 +1,36 @@
 .seat-info {
+  --INFO-CARD-MARGIN: 10px;
   background-color: rgb(var(--WHITE));
-  padding: var(--SPACING-SM-3);
-  padding-bottom: var(--SPACING-SM-3);
+  padding: 24px;
+  padding-bottom: 24px;
   min-width: 220px;
-  padding: var(--SPACING-SM-1);
   border: 1px solid rgba(59, 64, 86, 0.1);
   border-radius: 8px;
   background: white;
   z-index: 999;
   box-shadow: 0px 1px 4px rgba(59, 64, 86, 0.3);
   position: fixed;
-  bottom: 140px;
-  width: calc(100% - 48px);
-  left: 24px;
+  width: calc(100% - 2 * var(--INFO-CARD-MARGIN));
+  left: var(--INFO-CARD-MARGIN);
   box-sizing: border-box;
+
+  /* 116px because that's the footer height */
+  bottom: calc(116px + var(--INFO-CARD-MARGIN));
 }
 
 /* tablet or greater  */
 @media (min-width: 768px) {
   .seat-info {
-    width: calc(592px);
-    bottom: 210px;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
+
+    /* 198px because that's the footer height + the white space below it */
+    bottom: calc(198px + var(--INFO-CARD-MARGIN));
+
+    /* 640px because that's the max width of the modal */
+    width: calc(640px - 2 * var(--INFO-CARD-MARGIN));
   }
 }
 

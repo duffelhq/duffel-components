@@ -31,7 +31,7 @@ export interface BaseButtonProps {
   /**
    * What is the intent of the button? This will change the colour of the button.
    */
-  intent?: "PRIMARY" | "MUTED" | "INVISIBLE";
+  intent?: "PRIMARY" | "MUTED" | "INVISIBLE" | "OUTLINED";
 
   /**
    * The text to be displayed in the button. If `iconOnly` is set, this text will be used as an `aria-label`.
@@ -93,6 +93,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       intent === "PRIMARY" && "duffel-button--primary",
       intent === "MUTED" && "duffel-button--muted",
       intent === "INVISIBLE" && "duffel-button--invisible",
+      intent === "OUTLINED" && "duffel-button--outlined",
       size === "small" && "duffel-button--small",
       iconOnly && "duffel-button--icon-only",
       disabled && "duffel-button--is-disabled"
