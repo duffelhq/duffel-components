@@ -1,5 +1,5 @@
 {
-  "name": "duffel-checkout",
+  "name": "duffel-components",
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
@@ -24,10 +24,8 @@
     "run-full-stack-server": "node src/examples/full-stack/server.mjs",
     "storybook": "storybook dev -p 6006",
     "test": "yarn jest",
-    "preupload-current-version": "yarn build",
-    "upload-current-version": "bash ./scripts/upload-current-version.sh",
-    "preupload-latest": "yarn build",
-    "upload-latest": "bash ./scripts/upload-latest.sh"
+    "preupload-to-cdn": "yarn build",
+    "upload-to-cdn": "bash ./scripts/upload-to-cdn.sh"
   },
   "husky": {
     "hooks": {
