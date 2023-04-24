@@ -5,24 +5,24 @@ import {
   CreateOrderPayloadPassengers,
 } from "../types/CreateOrderPayload";
 import {
-  DuffelCheckout,
-  DuffelCheckoutProps,
+  DuffelAncillaries,
+  DuffelAncillariesProps,
   OnPayloadReadyMetada,
-} from "./DuffelCheckout";
+} from "./DuffelAncillaries";
 
-type DuffelCheckoutCustomElementInitData = Pick<
-  DuffelCheckoutProps,
+type DuffelAncillariesCustomElementInitData = Pick<
+  DuffelAncillariesProps,
   "passengers" | "styles"
 >;
 
-class DuffelCheckoutCustomElement extends HTMLElement {
+class DuffelAncillariesCustomElement extends HTMLElement {
   /**
    * The React root for displaying content inside a browser DOM element.
    */
   root!: Root;
 
   passengers!: CreateOrderPayloadPassengers | null;
-  styles: DuffelCheckoutProps["styles"];
+  styles: DuffelAncillariesProps["styles"];
 
   /**
    * The callback users should react to.
@@ -46,7 +46,7 @@ class DuffelCheckoutCustomElement extends HTMLElement {
     return { offer_id, client_key };
   }
 
-  storeData({ passengers, styles }: DuffelCheckoutCustomElementInitData) {
+  storeData({ passengers, styles }: DuffelAncillariesCustomElementInitData) {
     this.passengers = passengers;
     this.styles = styles;
   }
@@ -75,7 +75,7 @@ class DuffelCheckoutCustomElement extends HTMLElement {
   dispatchConnectedCallback(offer_id: string, client_key: string) {
     this.dispatchEvent(
       new CustomEvent("connectedCallback", {
-        detail: (data: DuffelCheckoutCustomElementInitData) => {
+        detail: (data: DuffelAncillariesCustomElementInitData) => {
           this.storeData(data);
 
           // TODO: find better way to handle missing passenger
@@ -122,17 +122,20 @@ class DuffelCheckoutCustomElement extends HTMLElement {
 
   renderRoot(
     withProps: Pick<
-      DuffelCheckoutProps,
+      DuffelAncillariesProps,
       "offer_id" | "client_key" | "passengers" | "styles"
     >
   ) {
     this.root?.render(
-      <DuffelCheckout {...withProps} onPayloadReady={this.onPayloadReady} />
+      <DuffelAncillaries {...withProps} onPayloadReady={this.onPayloadReady} />
     );
   }
 }
 
-export default DuffelCheckoutCustomElement;
+export default DuffelAncillariesCustomElement;
 
-window.customElements.get("duffel-checkout") ||
-  window.customElements.define("duffel-checkout", DuffelCheckoutCustomElement);
+window.customElements.get("duffel-ancillaries") ||
+  window.customElements.define(
+    "duffel-ancillaries",
+    DuffelAncillariesCustomElement
+  );

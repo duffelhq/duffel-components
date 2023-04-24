@@ -33,7 +33,7 @@ const hrefToComponentStyles =
   COMPONENT_CDN +
   `${COMPONENT_CDN.startsWith("http://localhost") ? "/styles" : ""}/global.css`;
 
-interface DuffelCheckoutStyles {
+export interface CustomStyles {
   accentColor: string;
   buttonCornerRadius: string;
   fontFamily: string;
@@ -44,7 +44,7 @@ export interface OnPayloadReadyMetada {
   seatServices: CreateOrderPayloadServices;
 }
 
-export interface DuffelCheckoutProps {
+export interface DuffelAncillariesProps {
   offer_id: Offer["id"];
   client_key: Offer["client_key"];
   passengers: CreateOrderPayload["passengers"];
@@ -52,10 +52,10 @@ export interface DuffelCheckoutProps {
     data: CreateOrderPayload,
     metadata: OnPayloadReadyMetada
   ) => void;
-  styles?: DuffelCheckoutStyles;
+  styles?: CustomStyles;
 }
 
-export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
+export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = ({
   offer_id,
   client_key,
   passengers: passengersProp,
@@ -162,7 +162,7 @@ export const DuffelCheckout: React.FC<DuffelCheckoutProps> = ({
         style={duffelComponentsStyle}
       >
         <ErrorBoundary>
-          {location.hash.includes("inspect-duffel-checkout") && (
+          {location.hash.includes("inspect-duffel-ancillaries") && (
             <Inspect
               data={{
                 offer_id,

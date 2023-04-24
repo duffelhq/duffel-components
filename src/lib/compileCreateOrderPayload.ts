@@ -1,4 +1,3 @@
-import { DuffelCheckoutProps } from "@components/DuffelCheckout";
 import {
   CreateOrderPayload,
   CreateOrderPayloadServices,
@@ -6,10 +5,11 @@ import {
 import { Offer } from "src/types/Offer";
 import { SeatMap } from "src/types/SeatMap";
 import { getTotalAmountForServices } from "./getTotalAmountForServices";
+import { DuffelAncillariesProps } from "@components/DuffelAncillaries";
 
 interface CompileCreateOrderPayloadInput {
   offer: Offer;
-  passengers: DuffelCheckoutProps["passengers"];
+  passengers: DuffelAncillariesProps["passengers"];
   baggageSelectedServices: CreateOrderPayloadServices;
   seatSelectedServices: CreateOrderPayloadServices;
   seatMaps?: SeatMap[];
@@ -44,7 +44,7 @@ export const compileCreateOrderPayload = ({
       ],
     }),
     type: "instant",
-    metadata: { source: "duffel-checkout@v1.0" },
+    metadata: { source: `duffel-ancillaries@${process.env.COMPONENT_VERSION}` },
   };
 };
 

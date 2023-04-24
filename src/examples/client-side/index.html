@@ -8,28 +8,25 @@
       sizes="96x96"
       href="https://duffel.com/images/favicon/favicon-96x96.png"
     />
-    <title>Checkout page example (Client side)</title>
+    <title>Checkout page example</title>
     <!-- 1. This script loads duffel-components -->
-    <script src="http://localhost:8000/components/DuffelCheckoutCustomElement.js"></script>
+    <script src="http://localhost:8000/components/DuffelAncillariesCustomElement.js"></script>
     <!-- uncomment below for the script in production -->
-    <!-- <script src="https://assets.duffel.com/ancillaries-component/latest/DuffelCheckoutCustomElement.js"></script> -->
+    <!-- <script src="https://assets.duffel.com/components/ancillaries/latest/index.js"></script> -->
   </head>
 
   <body style="font-family: sans-serif">
-    <h1>Checkout page (client side)</h1>
+    <h1>Checkout page</h1>
 
     <!-- 2. Add the custom element to your markup -->
-    <duffel-checkout
-      offer_id="fixture_off_1"
-      client_key="__CLIENT_KEY__"
-    ></duffel-checkout>
+    <duffel-ancillaries></duffel-ancillaries>
   </body>
 
   <script>
     window.onload = () => {
       // 3. Initialise component with data and customisation
       document
-        .querySelector("duffel-checkout")
+        .querySelector("duffel-ancillaries")
         .addEventListener(
           "connectedCallback",
           function ({ detail: initialiseWith }) {
@@ -58,7 +55,7 @@
 
       // 4. Listen to 'onPayloadReady' event on the component
       document
-        .querySelector("duffel-checkout")
+        .querySelector("duffel-ancillaries")
         .addEventListener(
           "onPayloadReady",
           function ({ detail: { data: createOrderPayload, metadata } }) {

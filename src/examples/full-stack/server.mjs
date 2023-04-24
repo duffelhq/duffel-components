@@ -156,5 +156,5 @@ http
 
 console.log(`\n🐄 Serving example on http://localhost:6262`);
 console.log(
-  `  ↳ To inspect component data include hash: '#inspect-duffel-checkout'`
+  `  ↳ To inspect component data include hash: '#inspect-duffel-ancillaries'`
 );
