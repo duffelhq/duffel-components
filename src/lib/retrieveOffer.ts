@@ -6,10 +6,10 @@ import { isFixtureOfferId } from "./isFixtureOfferId";
 
 export async function retrieveOffer(
   offer_id: string,
-  client_key: string,
-  onOfferReady: (offer: Offer) => void,
+  client_key: string | null,
   onError: (error: string) => void,
-  setIsLoading: (isLoading: boolean) => void
+  setIsLoading: (isLoading: boolean) => void,
+  onOfferReady: (offer: Offer) => void
 ) {
   setIsLoading(true);
   const useFixture = isFixtureOfferId(offer_id);
@@ -20,6 +20,12 @@ export async function retrieveOffer(
       setIsLoading(false);
       onOfferReady(offer);
     });
+  }
+
+  if (!client_key) {
+    throw new Error(
+      "Attemptted to retrieve seat maps but the client key is missing"
+    );
   }
 
   try {

@@ -125,8 +125,8 @@ const ROUTES = {
       offerRequest.client_key
     );
     const withPassengers = withclientKey.replace(
-      "const passengers = [];",
-      `const passengers = ${JSON.stringify(passengers)};\n`
+      `"__PASSANGERS__"`,
+      `${JSON.stringify(passengers)}`
     );
 
     response.writeHead(200);
@@ -156,5 +156,5 @@ http
 
 console.log(`\n🐄 Serving example on http://localhost:6262`);
 console.log(
-  `  ↳ To inspect component data include hash: '#inspect-duffel-checkout'`
+  `  ↳ To inspect component data include hash: '#inspect-duffel-ancillaries'`
 );

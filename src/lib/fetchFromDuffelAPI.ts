@@ -15,7 +15,7 @@ export async function fetchFromDuffelAPI(
       headers: {
         "Duffel-Version": "v1",
         Authorization: `Bearer ${withClientKey}`,
-        "User-Agent": `Duffel/ancillaries-component/${COMPONENT_VERSION}`,
+        "User-Agent": `Duffel/ancillaries-component@${COMPONENT_VERSION}`,
       },
     }
   );

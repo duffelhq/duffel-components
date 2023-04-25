@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Checkout page example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="icon"
@@ -8,52 +9,38 @@
       sizes="96x96"
       href="https://duffel.com/images/favicon/favicon-96x96.png"
     />
-    <title>Checkout page example</title>
+
     <!-- 1. This script loads duffel-components -->
-    <script src="http://localhost:8000/components/DuffelCheckoutCustomElement.js"></script>
-    <!-- uncomment below for the script in production -->
-    <!-- <script src="https://assets.duffel.com/ancillaries-component/latest/DuffelCheckoutCustomElement.js"></script> -->
+    <script src="http://localhost:8000/ancillaries/index.js"></script>
   </head>
 
   <body style="font-family: sans-serif">
     <h1>Checkout page</h1>
 
-    <!-- 2. Add the custom element to your markup -->
-    <duffel-checkout
-      offer_id="__OFFER_ID__"
-      client_key="__CLIENT_KEY__"
-    ></duffel-checkout>
+    <!-- 2. Add the custom element to your markup where you want to render the ancillaries card -->
+    <duffel-ancillaries></duffel-ancillaries>
   </body>
-
   <script>
-    window.onload = () => {
-      // 3. Initialise component with data and customisation
-      const passengers = [];
-      document
-        .querySelector("duffel-checkout")
-        .addEventListener(
-          "connectedCallback",
-          function ({ detail: initialiseWith }) {
-            initialiseWith({ passengers });
-          }
-        );
+    const duffelAncillariesElement =
+      document.querySelector("duffel-ancillaries");
 
-      // 4. Listen to 'onPayloadReady' event on the component
-      document
-        .querySelector("duffel-checkout")
-        .addEventListener(
-          "onPayloadReady",
-          function ({ detail: { data: createOrderPayload } }) {
-            // 5. Create an event handler to work with order creation payload
-            fetch("/book", {
-              method: "POST",
-              body: JSON.stringify(createOrderPayload),
-            })
-              .then((response) => response.json())
-              .then(({ data }) => console.log("Order created", data))
-              .catch((error) => console.error("Order creation failed", error));
-          }
-        );
-    };
+    // 3. Render the component with the required data, you can safely call this function as many times as you want. E.g. when your passenger data changes.
+    duffelAncillariesElement.render({
+      offer_id: "__OFFER_ID__",
+      client_key: "__CLIENT_KEY__",
+      passengers: "__PASSANGERS__",
+    });
+
+    // 4. Listen to 'onPayloadReady' event on the component. `event.detail.data` contains the payload you need to send to Duffel's API to create an order.
+    duffelAncillariesElement.addEventListener("onPayloadReady", (event) => {
+      console.log("onPayloadReady\n", event.detail);
+      const body = JSON.stringify({ data: event.detail.data });
+
+      // 5. Send the order creation payload to your server to create an order with the Duffel API.
+      fetch("/book", { method: "POST", body })
+        .then((response) => response.json())
+        .then(({ data }) => console.log("Order created", data))
+        .catch((error) => console.error("Order creation failed", error));
+    });
   </script>
 </html>
