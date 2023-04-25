@@ -42,6 +42,7 @@ export const BaggageSelectionModalBody: React.FC<
     {segment.passengers.map(({ passenger_id, baggages }, index) => (
       <BaggageSelectionModalBodyPassenger
         key={passenger_id}
+        segmentId={segment.id}
         passengerId={passenger_id}
         passengerName={getPassengerName(
           passengersById[passenger_id],

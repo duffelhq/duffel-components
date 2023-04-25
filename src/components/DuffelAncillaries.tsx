@@ -158,8 +158,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
     if (isPayloadComplete(createOrderPayload)) {
       props.onPayloadReady(createOrderPayload, {
-        baggageServices: baggageSelectedServices,
-        seatServices: seatSelectedServices,
+        offer_total_amount: offer.total_amount,
+        offer_total_currency: offer.total_currency,
+        offer_tax_amount: offer.tax_amount,
+        offer_tax_currency: offer.tax_currency,
+        baggage_services: baggageSelectedServices,
+        seat_services: seatSelectedServices,
       });
     }
   }, [baggageSelectedServices, seatSelectedServices]);

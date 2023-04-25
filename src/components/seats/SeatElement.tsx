@@ -1,7 +1,10 @@
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import classNames from "classnames";
 import * as React from "react";
-import { CreateOrderPayloadService } from "src/types/CreateOrderPayload";
+import {
+  CreateOrderPayloadService,
+  CreateOrderPayloadServiceInformationForSeats,
+} from "src/types/CreateOrderPayload";
 import { SeatMapCabinRowSectionElementSeat } from "src/types/SeatMap";
 import { Icon } from "../Icon";
 import { SeatInfo } from "./SeatInfo";
@@ -32,15 +35,17 @@ export const SeatElement: React.FC<SeatElementProps> = ({
 
   const selectedServiceFromMap = Object.values(selectedServicesMap).find(
     (service) =>
-      service._internalMetadata?.designator === element.designator &&
-      service._internalMetadata?.segmentId === currentSegmentId
+      (
+        service.serviceInformation as CreateOrderPayloadServiceInformationForSeats
+      ).designator === element.designator &&
+      service.serviceInformation?.segmentId === currentSegmentId
   );
 
   const isSeatSelected = selectedServiceFromMap != undefined;
 
   const seatLabel = isSeatSelected
     ? getPassengerInitials(
-        selectedServiceFromMap._internalMetadata?.passengerName
+        selectedServiceFromMap.serviceInformation?.passengerName
       )
     : element.designator.charAt(element.designator.length - 1);
 
@@ -56,9 +61,9 @@ export const SeatElement: React.FC<SeatElementProps> = ({
     !isSeatSelected ||
     (isSeatSelected &&
       currentSegmentId ===
-        selectedServiceFromMap._internalMetadata?.segmentId &&
+        selectedServiceFromMap.serviceInformation?.segmentId &&
       currentPassengerId ===
-        selectedServiceFromMap._internalMetadata?.passengerId);
+        selectedServiceFromMap.serviceInformation?.passengerId);
 
   const seatClassName = classNames("map-element", "map-element__seat", {
     "map-element--available": isSeatSelectionAvaiable,
@@ -72,9 +77,9 @@ export const SeatElement: React.FC<SeatElementProps> = ({
 
   const isSeatInfoDisplayed =
     isSeatSelected &&
-    currentSegmentId === selectedServiceFromMap._internalMetadata?.segmentId &&
+    currentSegmentId === selectedServiceFromMap.serviceInformation?.segmentId &&
     currentPassengerId ===
-      selectedServiceFromMap._internalMetadata?.passengerId;
+      selectedServiceFromMap.serviceInformation?.passengerId;
 
   return (
     <>
@@ -87,11 +92,14 @@ export const SeatElement: React.FC<SeatElementProps> = ({
           onSeatToggled({
             quantity: isSeatSelected ? 0 : 1,
             id: seatServiceFromElement.id,
-            _internalMetadata: {
+            serviceInformation: {
               segmentId: currentSegmentId,
               passengerId: currentPassengerId,
               passengerName: currentPassengerName,
               designator: element.designator,
+              disclosures: element.disclosures,
+              total_amount: seatServiceFromElement.total_amount,
+              total_currency: seatServiceFromElement.total_currency,
             },
           });
         }}

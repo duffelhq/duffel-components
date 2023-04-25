@@ -1,5 +1,6 @@
 import {
   CreateOrderPayload,
+  CreateOrderPayloadService,
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
@@ -22,18 +23,19 @@ export const compileCreateOrderPayload = ({
   seatMaps,
   passengers,
 }: CompileCreateOrderPayloadInput): Partial<CreateOrderPayload> => {
-  const services = [
-    ...filterServicesForPayload(baggageSelectedServices),
-    ...filterServicesForPayload(seatSelectedServices),
+  const selectedServicesWithInformation = [
+    ...baggageSelectedServices,
+    ...seatSelectedServices,
   ];
 
   const totalAmountWithServices =
-    +offer.total_amount + getTotalAmountForServices(offer, services, seatMaps);
+    +offer.total_amount +
+    getTotalAmountForServices(offer, selectedServicesWithInformation, seatMaps);
 
   return {
     ...(offer && { selected_offers: [offer.id] }),
     passengers,
-    services,
+    services: filterServicesForPayload(selectedServicesWithInformation),
     ...(offer && {
       payments: [
         {
@@ -50,7 +52,7 @@ export const compileCreateOrderPayload = ({
 
 const filterServicesForPayload = (
   selectedServices: CreateOrderPayloadServices
-): CreateOrderPayloadServices => {
+): Pick<CreateOrderPayloadService, "id" | "quantity">[] => {
   if (!Array.isArray(selectedServices)) return [];
   return selectedServices
     .filter(({ quantity }) => quantity > 0)
