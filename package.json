@@ -1,6 +1,6 @@
 {
   "name": "duffel-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "license": "MIT",
   "main": "index.js",
