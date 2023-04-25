@@ -125,8 +125,8 @@ const ROUTES = {
       offerRequest.client_key
     );
     const withPassengers = withclientKey.replace(
-      "const passengers = [];",
-      `const passengers = ${JSON.stringify(passengers)};\n`
+      `"__PASSANGERS__"`,
+      `${JSON.stringify(passengers)}`
     );
 
     response.writeHead(200);
