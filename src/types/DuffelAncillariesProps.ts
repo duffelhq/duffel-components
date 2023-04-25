@@ -48,10 +48,15 @@ export interface CustomStyles {
 
 export type OnPayloadReady = (
   data: CreateOrderPayload,
-  metadata: OnPayloadReadyMetada
+  metadata: OnPayloadReadyMetadata
 ) => void;
 
-export interface OnPayloadReadyMetada {
+export interface OnPayloadReadyMetadata {
+  offer_total_amount: Offer["total_amount"];
+  offer_total_currency: Offer["total_currency"];
+  offer_tax_amount: Offer["tax_amount"];
+  offer_tax_currency: Offer["tax_currency"];
+
   baggageServices: CreateOrderPayloadServices;
   seatServices: CreateOrderPayloadServices;
 }

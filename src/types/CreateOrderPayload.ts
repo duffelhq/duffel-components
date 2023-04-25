@@ -1,4 +1,4 @@
-import { Offer } from "./Offer";
+import { Offer, OfferAvailableServiceBaggageMetadata } from "./Offer";
 
 export interface CreateOrderPayload {
   selected_offers: Array<Offer["id"]>;
@@ -36,18 +36,33 @@ export interface CreateOrderPayloadService {
   id: string;
   quantity: number;
 
-  /** _INTERNAL_metadata is meant for internal use within the Duffel Ancillaries component.
-   * It is convenient so we can augument services with data about it.
-   * It is not meant to be used by the client and it is deleted
-   * before the payload is sent to the onPayloadReady callback.
-   * This is not to be confused with `OnPayloadReadyMetada` which is meant for the client.
+  /** `serviceInformation` is meant for:
+   * 1. internal use within the Duffel Ancillaries component, so it is convenient to augument selected services with data about it.
+   * 2. When `onPayloadReady` is ready, we'll return selected bags and seat services along with the `serviceInformation` to allow consumer to enrich their price breakdown.
+   *
+   * Note: `serviceInformation` is not known by the Duffel API.
    */
-  _internalMetadata?: CreateOrderPayloadServiceInternalMetadata;
+  serviceInformation?: CreateOrderPayloadServiceInformation;
 }
 
-interface CreateOrderPayloadServiceInternalMetadata {
-  segmentId?: string;
-  passengerId?: string;
-  passengerName?: string;
-  designator?: string;
+type CreateOrderPayloadServiceInformation =
+  | CreateOrderPayloadServiceInformationForSeats
+  | CreateOrderPayloadServiceInformationForBags;
+
+interface CreateOrderPayloadCommonServiceInformation {
+  segmentId: string;
+  passengerId: string;
+  passengerName: string;
+  total_amount: string;
+  total_currency: string;
 }
+
+export interface CreateOrderPayloadServiceInformationForSeats
+  extends CreateOrderPayloadCommonServiceInformation {
+  designator: string;
+  disclosures: string[];
+}
+
+export type CreateOrderPayloadServiceInformationForBags =
+  CreateOrderPayloadCommonServiceInformation &
+    OfferAvailableServiceBaggageMetadata;

@@ -8,6 +8,7 @@ import { BaggageSelectionController } from "./BaggageSelectionController";
 import { IncludedBaggageBanner } from "./IncludedBaggageBanner";
 
 export interface BaggageSelectionModalBodyPassengerProps {
+  segmentId: string;
   passengerId: string;
   passengerName: string;
   includedBaggage: OfferSliceSegmentPassengerBaggage[];
@@ -19,6 +20,7 @@ export interface BaggageSelectionModalBodyPassengerProps {
 export const BaggageSelectionModalBodyPassenger: React.FC<
   BaggageSelectionModalBodyPassengerProps
 > = ({
+  segmentId,
   passengerId,
   passengerName,
   includedBaggage,
@@ -58,6 +60,14 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
               newSelectedServices.push({
                 id: availableService.id,
                 quantity: newQuantity,
+                serviceInformation: {
+                  segmentId,
+                  passengerId,
+                  passengerName,
+                  total_amount: availableService.total_amount,
+                  total_currency: availableService.total_currency,
+                  ...availableService.metadata,
+                },
               });
             } else {
               newSelectedServices[changedServiceIndex].quantity = newQuantity;
