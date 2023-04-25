@@ -1,141 +1,54 @@
-import * as React from "react";
 import { createRoot, Root } from "react-dom/client";
-import {
-  CreateOrderPayload,
-  CreateOrderPayloadPassengers,
-} from "../types/CreateOrderPayload";
-import {
-  DuffelAncillaries,
-  DuffelAncillariesProps,
-  OnPayloadReadyMetada,
-} from "./DuffelAncillaries";
+import { DuffelAncillaries } from "./DuffelAncillaries";
+import { DuffelAncillariesProps } from "src/types/DuffelAncillariesProps";
 
-type DuffelAncillariesCustomElementInitData = Pick<
-  DuffelAncillariesProps,
-  "passengers" | "styles"
->;
+const CUSTOM_ELEMENT_TAG = "duffel-ancillaries";
 
 class DuffelAncillariesCustomElement extends HTMLElement {
   /**
    * The React root for displaying content inside a browser DOM element.
    */
-  root!: Root;
-
-  passengers!: CreateOrderPayloadPassengers | null;
-  styles: DuffelAncillariesProps["styles"];
-
-  /**
-   * The callback users should react to.
-   */
-  onPayloadReady!: (
-    data: CreateOrderPayload,
-    metadata: OnPayloadReadyMetada
-  ) => void;
-
-  /**
-   * Definition of which attributes should trigger `attributeChangedCallback`
-   */
-  static get observedAttributes() {
-    return ["offer_id", "client_key"];
-  }
-
-  getAttributes() {
-    const offer_id = this.getAttribute("offer_id") || "";
-    const client_key = this.getAttribute("client_key") || "";
-
-    return { offer_id, client_key };
-  }
-
-  storeData({ passengers, styles }: DuffelAncillariesCustomElementInitData) {
-    this.passengers = passengers;
-    this.styles = styles;
-  }
+  private root!: Root;
 
   /**
    * `connectedCallback` is called to initialise the custom element
    */
   connectedCallback() {
-    const { offer_id, client_key } = this.getAttributes();
     const container = document.createElement("div");
     this.attachShadow({ mode: "open" }).appendChild(container);
 
     this.root = createRoot(container);
-
-    this.onPayloadReady = (data, metadata) => {
-      this.dispatchEvent(
-        new CustomEvent("onPayloadReady", {
-          detail: { data, metadata },
-        })
-      );
-    };
-
-    setTimeout(() => this.dispatchConnectedCallback(offer_id, client_key), 100);
-  }
-
-  dispatchConnectedCallback(offer_id: string, client_key: string) {
-    this.dispatchEvent(
-      new CustomEvent("connectedCallback", {
-        detail: (data: DuffelAncillariesCustomElementInitData) => {
-          this.storeData(data);
-
-          // TODO: find better way to handle missing passenger
-          if (!this.passengers) return;
-          this.renderRoot({
-            offer_id,
-            client_key,
-            passengers: this.passengers,
-            styles: this.styles,
-          });
-        },
-      })
-    );
   }
 
   /**
-   * This function will be called whenever one of the attributes given to it changes
-   * @param name One of the attribute names defined on `observedAttributes`
-   * @param oldValue The previous value for the attribute. Or null when this is called for the first time alongside `connectedCallback`
-   * @param newValue The present value defined in the
+   * When this function is called, it will render/re-render
+   * the `DuffelAncillaries` component with the given props.
    */
-  attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    let { offer_id, client_key } = this.getAttributes();
-
-    // TODO: throw helpful validation errors if props are missing or don't match the schema
-
-    if (name === "offer_id" && oldValue !== null) {
-      offer_id = newValue;
-    }
-    if (name === "client_key" && oldValue !== null) {
-      client_key = newValue;
+  public render(withProps: DuffelAncillariesProps) {
+    if (!this.root) {
+      throw "It was not possible to render `duffel-ancillaries` because `this.root` is missing.";
     }
 
-    // TODO: find better way to handle missing passenger
-    if (!this.passengers) return;
-
-    this.renderRoot({
-      offer_id,
-      client_key,
-      passengers: this.passengers,
-      styles: this.styles,
-    });
-  }
-
-  renderRoot(
-    withProps: Pick<
-      DuffelAncillariesProps,
-      "offer_id" | "client_key" | "passengers" | "styles"
-    >
-  ) {
     this.root?.render(
-      <DuffelAncillaries {...withProps} onPayloadReady={this.onPayloadReady} />
+      <DuffelAncillaries
+        {...withProps}
+        onPayloadReady={(data, metadata) =>
+          this.dispatchEvent(
+            new CustomEvent("onPayloadReady", {
+              detail: { data, metadata },
+              composed: true,
+            })
+          )
+        }
+      />
     );
   }
 }
 
 export default DuffelAncillariesCustomElement;
 
-window.customElements.get("duffel-ancillaries") ||
+window.customElements.get(CUSTOM_ELEMENT_TAG) ||
   window.customElements.define(
-    "duffel-ancillaries",
+    CUSTOM_ELEMENT_TAG,
     DuffelAncillariesCustomElement
   );

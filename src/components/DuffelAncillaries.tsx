@@ -1,15 +1,20 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
-import { isFixtureOfferId } from "@lib/isFixtureOfferId";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
+import {
+  areDuffelAncillariesPropsValid,
+  isDuffelAncillariesPropsWithClientKeyAndOfferId,
+  isDuffelAncillariesPropsWithOfferAndClientKey,
+  isDuffelAncillariesPropsWithOfferAndSeatMaps,
+} from "@lib/validateProps";
 import * as React from "react";
 import { Offer } from "src//types/Offer";
+import { CreateOrderPayloadPassengers } from "src/types/CreateOrderPayload";
 import {
-  CreateOrderPayload,
-  CreateOrderPayloadPassengers,
-  CreateOrderPayloadServices,
-} from "src/types/CreateOrderPayload";
+  Ancillaries,
+  DuffelAncillariesProps,
+} from "src/types/DuffelAncillariesProps";
 import { SeatMap } from "src/types/SeatMap";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
@@ -20,73 +25,57 @@ import {
 } from "./bags/BaggageSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
 
-const baggage = "baggage" as const;
-const seats = "seats" as const;
+// We can turn this into a prop if we want to allow the user to select which ancillaries to show in the future
+const ancillariesToShow = new Set<Ancillaries>(["bags", "seats"]);
 
-// this can be a setting we expose to the user later, right now we only have one feature anyway.
-type Features = typeof baggage | typeof seats;
-const selectedFeatures = new Set<Features>([baggage, seats]);
-
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles =
   COMPONENT_CDN +
   `${COMPONENT_CDN.startsWith("http://localhost") ? "/styles" : ""}/global.css`;
 
-export interface CustomStyles {
-  accentColor: string;
-  buttonCornerRadius: string;
-  fontFamily: string;
-}
+export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
+  if (!areDuffelAncillariesPropsValid(props)) {
+    throw new Error(
+      "The props passed to DuffelAncillaries are invalid. " +
+        "`onPayloadReady` and `passengers` are always required. " +
+        "Then, depending on your use case you may have one of the following combinations of required props: " +
+        "`offer_id` and `client_key`, `offer` and `seatMaps` or `offer` and `client_key`." +
+        "Please refer to the documentation for more information and working examples: " +
+        "https://duffel.com/docs/_preview/ancillaries-component"
+    );
+  }
 
-export interface OnPayloadReadyMetada {
-  baggageServices: CreateOrderPayloadServices;
-  seatServices: CreateOrderPayloadServices;
-}
+  const isDuffelAncillariesPropsWithOfferIdForFixture =
+    isDuffelAncillariesPropsWithClientKeyAndOfferId(props);
 
-export interface DuffelAncillariesProps {
-  offer_id: Offer["id"];
-  client_key: Offer["client_key"];
-  passengers: CreateOrderPayload["passengers"];
-  onPayloadReady: (
-    data: CreateOrderPayload,
-    metadata: OnPayloadReadyMetada
-  ) => void;
-  styles?: CustomStyles;
-}
+  const isPropsWithClientKeyAndOfferId =
+    isDuffelAncillariesPropsWithClientKeyAndOfferId(props);
 
-export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = ({
-  offer_id,
-  client_key,
-  passengers: passengersProp,
-  onPayloadReady,
-  styles,
-}) => {
-  const [offer, setOffer] = React.useState<Offer>();
-  const [isOfferLoading, setIsOfferLoading] = React.useState(true);
-  const onOfferReady = (offer: Offer) => {
-    setOffer(offer);
+  const isPropsWithOfferAndSeatMaps =
+    isDuffelAncillariesPropsWithOfferAndSeatMaps(props);
 
-    if (offer.passengers.length !== passengersProp.length) {
-      throw new Error(
-        "The number of passengers in the offer does not match the number of passengers for the payload."
-      );
-    }
-
-    if (isFixtureOfferId(offer_id)) {
-      const passengers = passengersProp.map((passenger, index) => ({
-        ...passenger,
-        id: offer.passengers[index].id,
-      }));
-      setPassengers(passengers);
-    }
-  };
-
-  const [seatMaps, setSeatMaps] = React.useState<SeatMap[]>();
-  const [isSeatMapLoading, setIsSeatMapLoading] = React.useState(true);
+  const isPropsWithOfferAndClientKey =
+    isDuffelAncillariesPropsWithOfferAndClientKey(props);
 
   const [passengers, setPassengers] =
-    React.useState<CreateOrderPayloadPassengers>(passengersProp);
+    React.useState<CreateOrderPayloadPassengers>(props.passengers);
+
+  const [offer, setOffer] = React.useState<Offer | undefined>(
+    isPropsWithOfferAndSeatMaps && isPropsWithOfferAndClientKey
+      ? props.offer
+      : undefined
+  );
+
+  const [isOfferLoading, setIsOfferLoading] = React.useState(
+    isPropsWithClientKeyAndOfferId
+  );
+
+  const [seatMaps, setSeatMaps] = React.useState<SeatMap[] | undefined>(
+    isPropsWithOfferAndSeatMaps ? props.seatMaps : undefined
+  );
+  const [isSeatMapLoading, setIsSeatMapLoading] = React.useState(
+    !isPropsWithOfferAndSeatMaps
+  );
 
   const [error, setError] = React.useState<null | string>(null);
 
@@ -98,24 +87,65 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = ({
   >([]);
 
   React.useEffect(() => {
-    if (!offer_id || !client_key) return;
+    if (
+      isPropsWithClientKeyAndOfferId ||
+      isDuffelAncillariesPropsWithOfferIdForFixture
+      // Do we also want to check wether the offer is undefined?
+    ) {
+      retrieveOffer(
+        props.offer_id,
+        props.client_key,
+        setError,
+        setIsOfferLoading,
+        (offer) => {
+          setOffer(offer);
 
-    retrieveOffer(
-      offer_id,
-      client_key,
-      onOfferReady,
-      setError,
-      setIsOfferLoading
-    );
+          if (offer.passengers.length !== passengers.length) {
+            throw new Error(
+              `The number of passengers given to \`duffel-ancillaries\` (${props.passengers.length}) doesn't match ` +
+                `the number of passengers on the given offer (${offer.passengers.length}).`
+            );
+          }
 
-    retrieveSeatMaps(
-      offer_id,
-      client_key,
-      setSeatMaps,
-      setError,
-      setIsSeatMapLoading
-    );
-  }, [offer_id, client_key]);
+          if (isDuffelAncillariesPropsWithOfferIdForFixture) {
+            // There's no way the component users will know the passenger IDs for the fixture offer
+            // so we'll need to add them here
+            setPassengers(
+              props.passengers.map((passenger, index) => ({
+                ...passenger,
+                id: offer.passengers[index].id,
+              }))
+            );
+          }
+        }
+      );
+    }
+
+    if (
+      isDuffelAncillariesPropsWithOfferIdForFixture ||
+      isPropsWithClientKeyAndOfferId ||
+      isPropsWithOfferAndClientKey
+      // Do we also want to check wether the seat maps is undefined?
+    ) {
+      retrieveSeatMaps(
+        isPropsWithClientKeyAndOfferId ? props.offer_id : props.offer.id,
+        props.client_key,
+        setError,
+        setIsSeatMapLoading,
+        setSeatMaps
+      );
+    }
+  }, [
+    // `as any` is needed here because the list
+    // of dependencies is different for each combination of props.
+    // To satisfy typescript, we'd need to conditionally assign
+    // the dependencies to the hook after checking its type,
+    // however that is not possible in a react hook.
+    (props as any).offer_id,
+    (props as any).client_key,
+    (props as any).offer?.id,
+    (props as any).seatMaps?.[0]?.id,
+  ]);
 
   React.useEffect(() => {
     if (!offer) return;
@@ -129,25 +159,31 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = ({
     });
 
     if (isPayloadComplete(createOrderPayload)) {
-      onPayloadReady(createOrderPayload, {
+      props.onPayloadReady(createOrderPayload, {
         baggageServices: baggageSelectedServices,
         seatServices: seatSelectedServices,
       });
     }
   }, [baggageSelectedServices, seatSelectedServices]);
 
+  if (!areDuffelAncillariesPropsValid(props)) {
+    return null;
+  }
+
   const nonIdealStateHeight = `${
     // 72 (card height) + 32 gap between cards
-    72 * selectedFeatures.size + 32 * (selectedFeatures.size - 1)
+    72 * ancillariesToShow.size + 32 * (ancillariesToShow.size - 1)
   }px`;
 
   const duffelComponentsStyle = {
-    ...(styles?.accentColor && {
-      "--ACCENT": styles.accentColor,
+    ...(props.styles?.accentColor && {
+      "--ACCENT": props.styles.accentColor,
     }),
-    ...(styles?.fontFamily && { "--FONT-FAMILY": styles.fontFamily }),
-    ...(styles?.buttonCornerRadius && {
-      "--BUTTON-RADIUS": styles.buttonCornerRadius,
+    ...(props.styles?.fontFamily && {
+      "--FONT-FAMILY": props.styles.fontFamily,
+    }),
+    ...(props.styles?.buttonCornerRadius && {
+      "--BUTTON-RADIUS": props.styles.buttonCornerRadius,
     }),
     // `as any` is needed here is needed because we want to set css variables
     // that are not part of the css properties type
@@ -164,22 +200,22 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = ({
         <ErrorBoundary>
           {location.hash.includes("inspect-duffel-ancillaries") && (
             <Inspect
-              data={{
-                offer_id,
-                client_key,
-                passengers,
+              props={props}
+              state={{
+                isOfferLoading,
+                isSeatMapLoading,
                 baggageSelectedServices,
                 seatSelectedServices,
                 offer,
-                error,
                 seatMaps,
+                error,
               }}
             />
           )}
 
           {error && <FetchOfferErrorState height={nonIdealStateHeight} />}
 
-          {!error && selectedFeatures.has("baggage") && (
+          {!error && ancillariesToShow.has("bags") && (
             <BaggageSelectionCard
               isLoading={isOfferLoading}
               offer={offer}
@@ -189,7 +225,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = ({
             />
           )}
 
-          {!error && selectedFeatures.has("seats") && (
+          {!error && ancillariesToShow.has("seats") && (
             <SeatSelectionCard
               isLoading={isOfferLoading || isSeatMapLoading}
               seatMaps={seatMaps}
