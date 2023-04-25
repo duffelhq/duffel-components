@@ -59,7 +59,7 @@ This command will:
 
 ### Setup `gcloud`
 
-Our CDN is [hosted on Google Cloud Platform](<https://console.cloud.google.com/storage/browser/duffel-assets/ancillaries-component?project=duffel-prod-fda1bc52&pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false>). To upload new changes you'll need to have `gcloud` intalled and authenticate with GCP. You can do this by running `gcloud auth login` and following the instructions.
+Our CDN is [hosted on Google Cloud Platform](<https://console.cloud.google.com/storage/browser/duffel-assets/components/ancillaries?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&project=duffel-prod-fda1bc52&prefix=&forceOnObjectsSortingFiltering=false>). To upload new changes you'll need to have `gcloud` intalled and authenticate with GCP. You can do this by running `gcloud auth login` and following the instructions.
 
 ### Setup env variables under `.env.local`:
 
@@ -76,7 +76,7 @@ DUFFEL_API_URL=https://api.duffel.com
 # This is needed so the component knows the url base to use for its stylesheet
 # This variable is here so we can release component versions that may point to local environments or bypass the cache.
 # If no value is provided, the default `https://assets.duffel.com/ancillaries-component` will be used.
-COMPONENT_CDN=https://assets.duffel.com/ancillaries-component
+COMPONENT_CDN=https://assets.duffel.com/components/ancillaries
 
 # The auth token is so we send data
 # to sentry during the build.
@@ -101,7 +101,7 @@ This command will:
 2. Upload the build to the version folder on GCP storage.
 
    - The build version is defined in [`package.json`](/package.json) under the `version` attribute.
-   - [You can find uploaded versions here](<https://console.cloud.google.com/storage/browser/duffel-assets/ancillaries-component;tab=objects?project=duffel-prod-fda1bc52&pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false>)
+   - [You can find uploaded versions here](<https://console.cloud.google.com/storage/browser/duffel-assets/components/ancillaries?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&project=duffel-prod-fda1bc52&prefix=&forceOnObjectsSortingFiltering=false>)
    - A version folder will be created if it doesn't exist.
    - The version folder will be overwritten if it already exists.
 

@@ -28,20 +28,12 @@ if gsutil -q stat "$GCP_PREFIX/$VERSION/index.js"; then
     exit 1
   fi
 fi
-
-# Uploads javascript and stylesheet
-gcloud storage cp dist/components/DuffelAncillariesCustomElement.js "$GCP_PREFIX/$VERSION/index.js"
-gcloud storage cp dist/styles/global.css "$GCP_PREFIX/$VERSION/global.css"
-
-# Uploads sourcemaps
-gcloud storage cp dist/components/DuffelAncillariesCustomElement.js.map "$GCP_PREFIX/$VERSION/index.js.map"
-gcloud storage cp dist/styles/global.css.map "$GCP_PREFIX/$VERSION/global.css.map"
-
+ 
 # Uploads fixtures
-gcloud storage cp -r dist/fixtures "$GCP_PREFIX/$VERSION/fixtures"
+gcloud storage cp -r dist/ancillaries "$GCP_PREFIX/$VERSION"
 
 # Check if --latest argument is provided
 if [ "$1" == "--latest" ]; then
   # Copies the current version into the latest folder 
-  gsutil -m cp -r "$GCP_PREFIX/$VERSION" "$GCP_PREFIX/latest"
+  gcloud storage cp -r "$GCP_PREFIX/$VERSION" "$GCP_PREFIX/latest"
 fi

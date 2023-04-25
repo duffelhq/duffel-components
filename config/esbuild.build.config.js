@@ -24,7 +24,7 @@ const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
       }),
       esbuildCopyStaticFiles({
         src: "src/fixtures",
-        dest: "dist/fixtures",
+        dest: "dist/ancillaries/fixtures",
         dereference: true,
         recursive: true,
       }),

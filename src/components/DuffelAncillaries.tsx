@@ -30,9 +30,7 @@ import { SeatSelectionCard } from "./seats/SeatSelectionCard";
 const ancillariesToShow = new Set<Ancillaries>(["bags", "seats"]);
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
-const hrefToComponentStyles =
-  COMPONENT_CDN +
-  `${COMPONENT_CDN.startsWith("http://localhost") ? "/styles" : ""}/global.css`;
+const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   if (!areDuffelAncillariesPropsValid(props)) {
@@ -88,11 +86,6 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   >([]);
 
   React.useEffect(() => {
-    console.log("in use effect");
-    console.log({
-      isPropsWithClientKeyAndOfferId,
-      isPropsWithOfferIdForFixture,
-    });
     if (isPropsWithClientKeyAndOfferId || isPropsWithOfferIdForFixture) {
       retrieveOffer(
         props.offer_id,
@@ -179,6 +172,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   }px`;
 
   const duffelComponentsStyle = {
+    // Adding inline styles here to avoid the cards jumping down
+    // before the css is loaded duet to the missing "row gap".
+    display: "flex",
+    width: "100%",
+    flexDirection: "column",
+    rowGap: "12px",
     ...(props.styles?.accentColor && {
       "--ACCENT": props.styles.accentColor,
     }),
@@ -196,10 +195,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     <>
       <link rel="stylesheet" href={hrefToComponentStyles}></link>
 
-      <div
-        className="duffel-components ancillaries-cards-container"
-        style={duffelComponentsStyle}
-      >
+      <div className="duffel-components" style={duffelComponentsStyle}>
         <ErrorBoundary>
           {location.hash.includes("inspect-duffel-ancillaries") && (
             <Inspect

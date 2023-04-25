@@ -27,7 +27,7 @@ const copyStaticFiles = require("esbuild-copy-static-files");
         : []),
       copyStaticFiles({
         src: "src/fixtures",
-        dest: "dist/fixtures",
+        dest: "dist/ancillaries/fixtures",
         dereference: true,
         recursive: true,
       }),
@@ -44,11 +44,6 @@ const copyStaticFiles = require("esbuild-copy-static-files");
   const prefix = `http://${host}:${port}`;
 
   console.log(`\n🐄 Serving component on ${prefix}`);
-  console.log(`  ↳ ${prefix}/ancillaries-components/index.js`);
-  console.log(`  ↳ ${prefix}/ancillaries-components/index.map`);
-  console.log(`  ↳ ${prefix}/ancillaries-components/styles/global.css`);
-  console.log(`  ↳ ${prefix}/ancillaries-components/styles/global.css.map`);
-  console.log(`  ↳ ${prefix}/fixtures\n`);
 
   await esbuildContext.watch();
 })();

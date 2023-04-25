@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { join } = require("path");
 const dotenv = require("dotenv");
 dotenv.config({ path: ".env.local" });
 
@@ -8,7 +7,7 @@ const VERSION = require("../package.json").version;
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
   ? process.env.COMPONENT_CDN
-  : join(process.env.COMPONENT_CDN, VERSION);
+  : `${process.env.COMPONENT_CDN}/${VERSION}`;
 
 module.exports = {
   define: {
@@ -17,11 +16,14 @@ module.exports = {
     "process.env.COMPONENT_VERSION": `"${VERSION}"`,
   },
   entryPoints: [
-    "src/components/DuffelAncillariesCustomElement.tsx",
-    "src/styles/global.css",
+    {
+      out: "index",
+      in: "src/components/DuffelAncillariesCustomElement.tsx",
+    },
+    { out: "global", in: "src/styles/global.css" },
   ],
   bundle: true,
-  outdir: "dist",
+  outdir: "dist/ancillaries",
   minify: true,
   treeShaking: true,
   sourcemap: true,
