@@ -28,16 +28,9 @@
 
 .map-element--fee-payable {
   position: absolute;
-  top: 22px;
-  left: 22px;
+  bottom: -2px;
+  right: -2px;
   color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-300));
-}
-
-@media only screen and (min-width: 768px) {
-  .map-element--fee-payable {
-    top: 26px;
-    left: 26px;
-  }
 }
 
 @media (hover: hover) and (pointer: fine) {

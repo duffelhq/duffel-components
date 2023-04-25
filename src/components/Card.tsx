@@ -40,6 +40,7 @@ export const Card: React.FC<CardProps> = ({
       // This is important for this component since it
       // be on visible on the page when it loads.
       style={{
+        cursor: "pointer",
         background: "transparent",
         border: "solid 1px rgba(226, 226, 232, 1)",
         display: "flex",
@@ -55,7 +56,6 @@ export const Card: React.FC<CardProps> = ({
         fontWeight: "400",
         lineHeight: "24px",
         letterSpacing: "0em",
-        cursor: "pointer",
         transition:
           "border-color 0.3s var(--TRANSITION-CUBIC-BEZIER) background-color 0.3s var(--TRANSITION-CUBIC-BEZIER)",
       }}

@@ -39,15 +39,15 @@
 
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):hover,
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible {
-  border-color: rgba(var(--ACCENT));
+  /* important is needed here to override the inline border style from Card.tsx */
+  border-color: rgb(var(--ACCENT)) !important;
 }
 
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):hover
   .ancillary-card__expand-icon,
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible
   .ancillary-card__expand-icon {
-  color: rgb(var(--ACCENT)) !important;
-  transform: scale(1.09);
+  color: rgb(var(--ACCENT));
 }
 
 .ancillary-card__selected-icon {

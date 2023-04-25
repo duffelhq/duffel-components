@@ -24,6 +24,7 @@ export const Counter: React.FC<CounterProps> = ({
         onClick={() => onChange(Math.max(value - 1, min))}
         iconOnly="minus"
         text="Minus"
+        intent="OUTLINED"
         id={`${id}-minus`}
       />
       <div className="counter__count-label">{value}</div>
@@ -33,6 +34,7 @@ export const Counter: React.FC<CounterProps> = ({
         type="button"
         disabled={value >= max}
         onClick={() => onChange(Math.min(value + 1, max))}
+        intent="OUTLINED"
         id={`${id}-plus`}
       />
     </div>

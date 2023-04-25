@@ -7,6 +7,7 @@
   --BUTTON-ICON-SPACING: 8px;
   --BUTTON-ICON-MARGIN: 12px;
 
+  appearance: none;
   -webkit-appearance: none;
   align-items: center;
   background-color: inherit;
@@ -25,7 +26,7 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   user-select: none;
   transition: background-color 0.3s var(--TRANSITION-CUBIC-BEZIER),
-    border-color 0.3s var(--TRANSITION-CUBIC-BEZIER),
+    border 0.3s var(--TRANSITION-CUBIC-BEZIER),
     color 0.3s var(--TRANSITION-CUBIC-BEZIER);
 }
 
@@ -95,6 +96,22 @@
 }
 
 .duffel-button--invisible:active {
+  background-color: var(--GREY-100);
+}
+
+.duffel-button--outlined {
+  background-color: transparent;
+  color: var(--BUTTON-BASE-COLOR);
+  border: 2px solid var(--GREY-300);
+}
+
+.duffel-button--outlined:hover {
+  background-color: transparent;
+  box-shadow: 0px 2px 4px 1px #00000026;
+  border: 2px solid var(--GREY-400);
+}
+
+.duffel-button--outlined:active {
   background-color: var(--GREY-100);
 }
 
