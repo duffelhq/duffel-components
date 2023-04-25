@@ -8,7 +8,8 @@ import {
 
 export const areDuffelAncillariesPropsValid = (props: DuffelAncillariesProps) =>
   hasCommonRequiredProps(props) &&
-  (isDuffelAncillariesPropsWithClientKeyAndOfferId(props) ||
+  (isDuffelAncillariesPropsWithOfferIdForFixture(props) ||
+    isDuffelAncillariesPropsWithClientKeyAndOfferId(props) ||
     isDuffelAncillariesPropsWithOfferAndSeatMaps(props) ||
     isDuffelAncillariesPropsWithOfferAndClientKey(props));
 

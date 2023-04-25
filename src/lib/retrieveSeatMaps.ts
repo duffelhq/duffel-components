@@ -6,7 +6,7 @@ import { retrieveSeatMapsFromDuffelAPI } from "./retrieveSeatMapsFromDuffelAPI";
 
 export async function retrieveSeatMaps(
   offer_id: string,
-  client_key: string,
+  client_key: string | null,
   onError: (error: string) => void,
   setIsLoading: (isLoading: boolean) => void,
   onSeatMapReady: (seatMaps: SeatMap[]) => void
@@ -21,6 +21,12 @@ export async function retrieveSeatMaps(
       setIsLoading(false);
       onSeatMapReady(seatMaps);
     });
+  }
+
+  if (!client_key) {
+    throw new Error(
+      "Attemptted to retrieve seat maps but the client key is missing"
+    );
   }
 
   try {

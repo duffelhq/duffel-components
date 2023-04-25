@@ -7,6 +7,7 @@ import {
   isDuffelAncillariesPropsWithClientKeyAndOfferId,
   isDuffelAncillariesPropsWithOfferAndClientKey,
   isDuffelAncillariesPropsWithOfferAndSeatMaps,
+  isDuffelAncillariesPropsWithOfferIdForFixture,
 } from "@lib/validateProps";
 import * as React from "react";
 import { Offer } from "src//types/Offer";
@@ -45,8 +46,8 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     );
   }
 
-  const isDuffelAncillariesPropsWithOfferIdForFixture =
-    isDuffelAncillariesPropsWithClientKeyAndOfferId(props);
+  const isPropsWithOfferIdForFixture =
+    isDuffelAncillariesPropsWithOfferIdForFixture(props);
 
   const isPropsWithClientKeyAndOfferId =
     isDuffelAncillariesPropsWithClientKeyAndOfferId(props);
@@ -87,14 +88,15 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   >([]);
 
   React.useEffect(() => {
-    if (
-      isPropsWithClientKeyAndOfferId ||
-      isDuffelAncillariesPropsWithOfferIdForFixture
-      // Do we also want to check wether the offer is undefined?
-    ) {
+    console.log("in use effect");
+    console.log({
+      isPropsWithClientKeyAndOfferId,
+      isPropsWithOfferIdForFixture,
+    });
+    if (isPropsWithClientKeyAndOfferId || isPropsWithOfferIdForFixture) {
       retrieveOffer(
         props.offer_id,
-        props.client_key,
+        !isPropsWithOfferIdForFixture ? props.client_key : null,
         setError,
         setIsOfferLoading,
         (offer) => {
@@ -107,7 +109,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
             );
           }
 
-          if (isDuffelAncillariesPropsWithOfferIdForFixture) {
+          if (isPropsWithOfferIdForFixture) {
             // There's no way the component users will know the passenger IDs for the fixture offer
             // so we'll need to add them here
             setPassengers(
@@ -122,14 +124,15 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     }
 
     if (
-      isDuffelAncillariesPropsWithOfferIdForFixture ||
+      isPropsWithOfferIdForFixture ||
       isPropsWithClientKeyAndOfferId ||
       isPropsWithOfferAndClientKey
-      // Do we also want to check wether the seat maps is undefined?
     ) {
       retrieveSeatMaps(
-        isPropsWithClientKeyAndOfferId ? props.offer_id : props.offer.id,
-        props.client_key,
+        isPropsWithClientKeyAndOfferId || isPropsWithOfferIdForFixture
+          ? props.offer_id
+          : props.offer.id,
+        !isPropsWithOfferIdForFixture ? props.client_key : null,
         setError,
         setIsSeatMapLoading,
         setSeatMaps

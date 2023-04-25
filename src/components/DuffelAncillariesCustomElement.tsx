@@ -29,7 +29,7 @@ class DuffelAncillariesCustomElement extends HTMLElement {
       throw "It was not possible to render `duffel-ancillaries` because `this.root` is missing.";
     }
 
-    this.root?.render(
+    this.root.render(
       <DuffelAncillaries
         {...withProps}
         onPayloadReady={(data, metadata) =>
