@@ -29,7 +29,7 @@ export const isDuffelAncillariesPropsWithClientKeyAndOfferId = (
 export const isDuffelAncillariesPropsWithOfferAndSeatMaps = (
   props: DuffelAncillariesProps
 ): props is DuffelAncillariesPropsWithOffersAndSeatMaps =>
-  "offer" in props && "seatMaps" in props;
+  "offer" in props && "seat_maps" in props;
 
 export const isDuffelAncillariesPropsWithOfferAndClientKey = (
   props: DuffelAncillariesProps

@@ -31,7 +31,7 @@ export interface DuffelAncillariesPropWithOfferAndClientKey
 export interface DuffelAncillariesPropsWithOffersAndSeatMaps
   extends DuffelAncillariesCommonProps {
   offer: Offer;
-  seatMaps: SeatMap[];
+  seat_maps: SeatMap[];
 }
 
 export interface DuffelAncillariesCommonProps {

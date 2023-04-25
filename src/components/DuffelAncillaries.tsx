@@ -35,10 +35,12 @@ const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   if (!areDuffelAncillariesPropsValid(props)) {
     throw new Error(
-      "The props passed to DuffelAncillaries are invalid. " +
+      `The props (${Object.keys(
+        props
+      )}) passed to DuffelAncillaries are invalid. ` +
         "`onPayloadReady` and `passengers` are always required. " +
         "Then, depending on your use case you may have one of the following combinations of required props: " +
-        "`offer_id` and `client_key`, `offer` and `seatMaps` or `offer` and `client_key`." +
+        "`offer_id` and `client_key`, `offer` and `seat_maps` or `offer` and `client_key`." +
         "Please refer to the documentation for more information and working examples: " +
         "https://duffel.com/docs/_preview/ancillaries-component"
     );
@@ -70,7 +72,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   );
 
   const [seatMaps, setSeatMaps] = React.useState<SeatMap[] | undefined>(
-    isPropsWithOfferAndSeatMaps ? props.seatMaps : undefined
+    isPropsWithOfferAndSeatMaps ? props.seat_maps : undefined
   );
   const [isSeatMapLoading, setIsSeatMapLoading] = React.useState(
     !isPropsWithOfferAndSeatMaps
@@ -140,7 +142,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     (props as any).offer_id,
     (props as any).client_key,
     (props as any).offer?.id,
-    (props as any).seatMaps?.[0]?.id,
+    (props as any).seat_maps?.[0]?.id,
   ]);
 
   React.useEffect(() => {
