@@ -7,9 +7,9 @@ import { isFixtureOfferId } from "./isFixtureOfferId";
 export async function retrieveOffer(
   offer_id: string,
   client_key: string,
-  onOfferReady: (offer: Offer) => void,
   onError: (error: string) => void,
-  setIsLoading: (isLoading: boolean) => void
+  setIsLoading: (isLoading: boolean) => void,
+  onOfferReady: (offer: Offer) => void
 ) {
   setIsLoading(true);
   const useFixture = isFixtureOfferId(offer_id);

@@ -7,9 +7,9 @@ import { retrieveSeatMapsFromDuffelAPI } from "./retrieveSeatMapsFromDuffelAPI";
 export async function retrieveSeatMaps(
   offer_id: string,
   client_key: string,
-  onSeatMapReady: (seatMaps: SeatMap[]) => void,
   onError: (error: string) => void,
-  setIsLoading: (isLoading: boolean) => void
+  setIsLoading: (isLoading: boolean) => void,
+  onSeatMapReady: (seatMaps: SeatMap[]) => void
 ) {
   setIsLoading(true);
 

@@ -5,7 +5,7 @@ import {
 import { Offer } from "src/types/Offer";
 import { SeatMap } from "src/types/SeatMap";
 import { getTotalAmountForServices } from "./getTotalAmountForServices";
-import { DuffelAncillariesProps } from "@components/DuffelAncillaries";
+import { DuffelAncillariesProps } from "src/types/DuffelAncillariesProps";
 
 interface CompileCreateOrderPayloadInput {
   offer: Offer;
