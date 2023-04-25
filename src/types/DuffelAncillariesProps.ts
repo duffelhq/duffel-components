@@ -57,8 +57,8 @@ export interface OnPayloadReadyMetadata {
   offer_tax_amount: Offer["tax_amount"];
   offer_tax_currency: Offer["tax_currency"];
 
-  baggageServices: CreateOrderPayloadServices;
-  seatServices: CreateOrderPayloadServices;
+  baggage_services: CreateOrderPayloadServices;
+  seat_services: CreateOrderPayloadServices;
 }
 
 // This can be a setting we expose to the user later
