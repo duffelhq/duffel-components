@@ -62,9 +62,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     React.useState<CreateOrderPayloadPassengers>(props.passengers);
 
   const [offer, setOffer] = React.useState<Offer | undefined>(
-    isPropsWithOfferAndSeatMaps && isPropsWithOfferAndClientKey
-      ? props.offer
-      : undefined
+    (props as any).offer
   );
 
   const [isOfferLoading, setIsOfferLoading] = React.useState(
@@ -132,6 +130,15 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         setIsSeatMapLoading,
         setSeatMaps
       );
+    }
+
+    if (isPropsWithOfferAndClientKey) {
+      setOffer(props.offer);
+    }
+
+    if (isPropsWithOfferAndSeatMaps) {
+      setOffer(props.offer);
+      setSeatMaps(props.seat_maps);
     }
   }, [
     // `as any` is needed here because the list
