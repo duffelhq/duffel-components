@@ -32,6 +32,10 @@ const ancillariesToShow = new Set<Ancillaries>(["bags", "seats"]);
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 
+const offerIsExpired = (offer: Offer) => {
+  return offer.expires_at && new Date(offer.expires_at) < new Date();
+};
+
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   if (!areDuffelAncillariesPropsValid(props)) {
     throw new Error(
@@ -85,6 +89,13 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     BaggageSelectionCardProps["selectedServices"]
   >([]);
 
+  const updateOffer = (offer: Offer) => {
+    setOffer(offer);
+    if (offerIsExpired(offer)) {
+      setError("This offer has expired.");
+    }
+  };
+
   React.useEffect(() => {
     if (isPropsWithClientKeyAndOfferId || isPropsWithOfferIdForFixture) {
       retrieveOffer(
@@ -93,7 +104,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         setError,
         setIsOfferLoading,
         (offer) => {
-          setOffer(offer);
+          updateOffer(offer);
 
           if (offer.passengers.length !== passengers.length) {
             throw new Error(
@@ -133,11 +144,11 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     }
 
     if (isPropsWithOfferAndClientKey) {
-      setOffer(props.offer);
+      updateOffer(props.offer);
     }
 
     if (isPropsWithOfferAndSeatMaps) {
-      setOffer(props.offer);
+      updateOffer(props.offer);
       setSeatMaps(props.seat_maps);
     }
   }, [
@@ -225,7 +236,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
             />
           )}
 
-          {error && <FetchOfferErrorState height={nonIdealStateHeight} />}
+          {error && (
+            <FetchOfferErrorState
+              height={nonIdealStateHeight}
+              message={error}
+            />
+          )}
 
           {!error && ancillariesToShow.has("bags") && (
             <BaggageSelectionCard

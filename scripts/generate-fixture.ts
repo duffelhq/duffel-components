@@ -164,9 +164,14 @@ const main = async () => {
         "passengers"
       )} and ` +
       `${withPlural(sliceCount, "slice", "slices")}: ${sliceInput.join(" ⇢ ")}`;
+
+    // Set offer to expire in 10 years so that this fixture won't trigger the
+    // "expired" error in the future.
+    const expires_at = makeMockDateInTheFuture(365 * 10).toISOString();
+
     fs.writeFileSync(
       `src/fixtures/offers/${firstOffer.id}.json`,
-      JSON.stringify({ _description, ...firstOffer }, null, 2)
+      JSON.stringify({ _description, ...firstOffer, expires_at }, null, 2)
     );
 
     // get seat maps
