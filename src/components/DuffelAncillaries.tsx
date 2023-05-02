@@ -2,6 +2,7 @@ import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
+import { offerIsExpired } from "@lib/offerIsExpired";
 import {
   areDuffelAncillariesPropsValid,
   isDuffelAncillariesPropsWithClientKeyAndOfferId,
@@ -10,7 +11,7 @@ import {
   isDuffelAncillariesPropsWithOfferIdForFixture,
 } from "@lib/validateProps";
 import * as React from "react";
-import { Offer } from "src//types/Offer";
+import { Offer } from "src/types/Offer";
 import { CreateOrderPayloadPassengers } from "src/types/CreateOrderPayload";
 import {
   Ancillaries,
@@ -31,10 +32,6 @@ const ancillariesToShow = new Set<Ancillaries>(["bags", "seats"]);
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
-
-const offerIsExpired = (offer: Offer) => {
-  return offer.expires_at && new Date(offer.expires_at) < new Date();
-};
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   if (!areDuffelAncillariesPropsValid(props)) {
