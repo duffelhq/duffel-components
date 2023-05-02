@@ -88,8 +88,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
   const updateOffer = (offer: Offer) => {
     setOffer(offer);
+    const expiryErrorMessage = "This offer has expired.";
     if (offerIsExpired(offer)) {
-      setError("This offer has expired.");
+      setError(expiryErrorMessage);
+    } else {
+      const msUntilExpiry = new Date(offer.expires_at).getTime() - Date.now();
+      setTimeout(() => setError(expiryErrorMessage), msUntilExpiry);
     }
   };
 
