@@ -11,16 +11,6 @@ export const FetchOfferErrorState: React.FC<{
       Failed to load extras
     </p>
     <p
-      className="p1--regular"
-      style={{
-        color: "var(--GREY-600)",
-        marginBlock: "12px",
-        textAlign: "center",
-      }}
-    >
-      {message}
-    </p>
-    <p
       className="p2--regular"
       style={{
         color: "var(--GREY-600)",
@@ -28,8 +18,9 @@ export const FetchOfferErrorState: React.FC<{
         textAlign: "center",
       }}
     >
-      Please try reloading. If the problem persists reach out to our support
-      team.
+      {message
+        ? message
+        : "Please try reloading. If the problem persists reach out to our support team."}
     </p>
     <div>
       <Button
