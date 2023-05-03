@@ -93,7 +93,14 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
       setError(expiryErrorMessage);
     } else {
       const msUntilExpiry = new Date(offer.expires_at).getTime() - Date.now();
-      setTimeout(() => setError(expiryErrorMessage), msUntilExpiry);
+
+      // Only show the expiry error message if the offer expires in less than a day,
+      // to prevent buffer overflows when showing offers for fixtures, which expire in
+      // years.
+      const milisecondsInOneDay = 1000 * 60 * 60 * 24;
+      if (msUntilExpiry < milisecondsInOneDay) {
+        setTimeout(() => setError(expiryErrorMessage), msUntilExpiry);
+      }
     }
   };
 
