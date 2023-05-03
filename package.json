@@ -23,7 +23,7 @@
     "run-example:full-stack": "concurrently \"yarn dev\" \"yarn run-full-stack-server\"",
     "run-full-stack-server": "node src/examples/full-stack/server.mjs",
     "storybook": "storybook dev -p 6006",
-    "test": "TZ=UTC yarn jest",
+    "test": "LANG='en_US' TZ=UTC yarn jest",
     "preupload-to-cdn": "yarn build",
     "upload-to-cdn": "bash ./scripts/upload-to-cdn.sh"
   },
