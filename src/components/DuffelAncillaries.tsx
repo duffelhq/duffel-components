@@ -2,6 +2,7 @@ import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
+import { offerIsExpired } from "@lib/offerIsExpired";
 import {
   areDuffelAncillariesPropsValid,
   isDuffelAncillariesPropsWithClientKeyAndOfferId,
@@ -10,7 +11,7 @@ import {
   isDuffelAncillariesPropsWithOfferIdForFixture,
 } from "@lib/validateProps";
 import * as React from "react";
-import { Offer } from "src//types/Offer";
+import { Offer } from "src/types/Offer";
 import { CreateOrderPayloadPassengers } from "src/types/CreateOrderPayload";
 import {
   Ancillaries,
@@ -85,6 +86,17 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     BaggageSelectionCardProps["selectedServices"]
   >([]);
 
+  const updateOffer = (offer: Offer) => {
+    setOffer(offer);
+    const expiryErrorMessage = "This offer has expired.";
+    if (offerIsExpired(offer)) {
+      setError(expiryErrorMessage);
+    } else {
+      const msUntilExpiry = new Date(offer.expires_at).getTime() - Date.now();
+      setTimeout(() => setError(expiryErrorMessage), msUntilExpiry);
+    }
+  };
+
   React.useEffect(() => {
     if (isPropsWithClientKeyAndOfferId || isPropsWithOfferIdForFixture) {
       retrieveOffer(
@@ -93,7 +105,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         setError,
         setIsOfferLoading,
         (offer) => {
-          setOffer(offer);
+          updateOffer(offer);
 
           if (offer.passengers.length !== passengers.length) {
             throw new Error(
@@ -133,11 +145,11 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     }
 
     if (isPropsWithOfferAndClientKey) {
-      setOffer(props.offer);
+      updateOffer(props.offer);
     }
 
     if (isPropsWithOfferAndSeatMaps) {
-      setOffer(props.offer);
+      updateOffer(props.offer);
       setSeatMaps(props.seat_maps);
     }
   }, [
@@ -225,7 +237,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
             />
           )}
 
-          {error && <FetchOfferErrorState height={nonIdealStateHeight} />}
+          {error && (
+            <FetchOfferErrorState
+              height={nonIdealStateHeight}
+              message={error}
+            />
+          )}
 
           {!error && ancillariesToShow.has("bags") && (
             <BaggageSelectionCard
