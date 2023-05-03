@@ -14,7 +14,7 @@ export const areDuffelAncillariesPropsValid = (props: DuffelAncillariesProps) =>
     isDuffelAncillariesPropsWithOfferAndClientKey(props));
 
 export const hasCommonRequiredProps = (props: DuffelAncillariesProps) =>
-  "onPayloadReady" in props && "passengers" in props;
+  "onPayloadReady" in props && "passengers" in props && "services" in props;
 
 export const isDuffelAncillariesPropsWithOfferIdForFixture = (
   props: DuffelAncillariesProps
