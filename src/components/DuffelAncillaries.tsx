@@ -69,6 +69,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   const isPropsWithOfferAndClientKey =
     isDuffelAncillariesPropsWithOfferAndClientKey(props);
 
+  const shouldRetrieveSeatMaps =
+    (isPropsWithOfferIdForFixture ||
+      isPropsWithClientKeyAndOfferId ||
+      isPropsWithOfferAndClientKey) &&
+    ancillariesToShow.has("seats");
+
   const [passengers, setPassengers] =
     React.useState<CreateOrderPayloadPassengers>(props.passengers);
 
@@ -144,12 +150,6 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         }
       );
     }
-
-    const shouldRetrieveSeatMaps =
-      (isPropsWithOfferIdForFixture ||
-        isPropsWithClientKeyAndOfferId ||
-        isPropsWithOfferAndClientKey) &&
-      ancillariesToShow.has("seats");
 
     if (shouldRetrieveSeatMaps) {
       retrieveSeatMaps(
