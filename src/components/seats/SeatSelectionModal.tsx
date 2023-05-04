@@ -60,7 +60,7 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
   const currentPassengerName = getPassengerName(
     currentPassenger,
     offer.passengers[currentPassengerIndex],
-    currentPassengerIndex
+    currentPassengerIndex + 1
   );
 
   const onSeatToggle = (seatServiceToToggle: CreateOrderPayloadService) => {
