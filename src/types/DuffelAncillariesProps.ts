@@ -38,6 +38,7 @@ export interface DuffelAncillariesCommonProps {
   styles?: CustomStyles;
   onPayloadReady: OnPayloadReady;
   passengers: CreateOrderPayload["passengers"];
+  services: Ancillaries[];
 }
 
 export interface CustomStyles {
@@ -61,7 +62,6 @@ export interface OnPayloadReadyMetadata {
   seat_services: CreateOrderPayloadServices;
 }
 
-// This can be a setting we expose to the user later
 const bags = "bags" as const;
 const seats = "seats" as const;
 export type Ancillaries = typeof bags | typeof seats;

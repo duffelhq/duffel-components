@@ -27,9 +27,6 @@ import {
 } from "./bags/BaggageSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
 
-// We can turn this into a prop if we want to allow the user to select which ancillaries to show in the future
-const ancillariesToShow = new Set<Ancillaries>(["bags", "seats"]);
-
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 
@@ -39,12 +36,25 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
       `The props (${Object.keys(
         props
       )}) passed to DuffelAncillaries are invalid. ` +
-        "`onPayloadReady` and `passengers` are always required. " +
+        "`onPayloadReady`, `passengers` and `services` are always required. " +
         "Then, depending on your use case you may have one of the following combinations of required props: " +
         "`offer_id` and `client_key`, `offer` and `seat_maps` or `offer` and `client_key`." +
         "Please refer to the documentation for more information and working examples: " +
-        "https://duffel.com/docs/_preview/ancillaries-component"
+        "https://duffel.com/docs/guides/ancillaries-component"
     );
+  }
+  if (props.services.length === 0) {
+    throw new Error(
+      `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats"]`
+    );
+  }
+
+  const ancillariesToShow = new Set<Ancillaries>([]);
+  if (props.services.includes("bags")) {
+    ancillariesToShow.add("bags");
+  }
+  if (props.services.includes("seats")) {
+    ancillariesToShow.add("seats");
   }
 
   const isPropsWithOfferIdForFixture =
@@ -58,6 +68,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
   const isPropsWithOfferAndClientKey =
     isDuffelAncillariesPropsWithOfferAndClientKey(props);
+
+  const shouldRetrieveSeatMaps =
+    (isPropsWithOfferIdForFixture ||
+      isPropsWithClientKeyAndOfferId ||
+      isPropsWithOfferAndClientKey) &&
+    ancillariesToShow.has("seats");
 
   const [passengers, setPassengers] =
     React.useState<CreateOrderPayloadPassengers>(props.passengers);
@@ -135,11 +151,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
       );
     }
 
-    if (
-      isPropsWithOfferIdForFixture ||
-      isPropsWithClientKeyAndOfferId ||
-      isPropsWithOfferAndClientKey
-    ) {
+    if (shouldRetrieveSeatMaps) {
       retrieveSeatMaps(
         isPropsWithClientKeyAndOfferId || isPropsWithOfferIdForFixture
           ? props.offer_id
