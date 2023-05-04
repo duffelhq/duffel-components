@@ -69,7 +69,347 @@ exports[`Storyshots BaggageSelectionModalHeader First Story 1`] = `
 </div>
 `;
 
+exports[`Storyshots DuffelAncillaries Bags And Seats 1`] = `
+[
+  <link
+    href="/global.css"
+    rel="stylesheet"
+  />,
+  <div
+    className="duffel-components"
+    style={
+      {
+        "display": "flex",
+        "flexDirection": "column",
+        "rowGap": "12px",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        {
+          "alignItems": "center",
+          "border": "dashed 1px var(--GREY-300)",
+          "borderRadius": "4px",
+          "display": "flex",
+          "justifyContent": "center",
+          "paddingBlock": "32px",
+        }
+      }
+    >
+      <div
+        style={
+          {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "maxWidth": "470px",
+          }
+        }
+      >
+        <p
+          className="p1--semibold"
+          style={
+            {
+              "marginBlock": "0",
+            }
+          }
+        >
+          We ran into an error
+        </p>
+        <p
+          className="p1--regular"
+          style={
+            {
+              "color": "var(--GREY-600)",
+              "marginBlock": "12px",
+              "textAlign": "center",
+            }
+          }
+        >
+          Please try reloading. If the problem persists reach out to our support team.
+        </p>
+        <div>
+          <button
+            aria-label="Try again"
+            className="duffel-button duffel-button--solid duffel-button--invisible"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              aria-label="autorenew"
+              className="duffel-button__icon duffel-button__icon--before"
+              data-testid="autorenew"
+              height={24}
+              style={
+                {
+                  "display": "block",
+                  "fill": "currentColor",
+                  "marginLeft": "initial",
+                }
+              }
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M5.69728 14.4104C5.49326 13.9833 5.32604 13.5257 5.19562 13.0374C5.06521 12.5492 5 12.0367 5 11.5C5 9.56481 5.69083 7.91679 7.07249 6.55591C8.45416 5.19504 10.147 4.53946 12.1511 4.58918H12.7613L11.0742 2.92359L12.0097 2L15.2869 5.23549L12.0097 8.47099L11.0742 7.54739L12.7613 5.88181H12.1511C10.5021 5.84866 9.11624 6.38632 7.99347 7.49479C6.87069 8.60326 6.30931 9.93833 6.30931 11.5C6.30931 11.8455 6.33804 12.1824 6.3955 12.5106C6.45296 12.8389 6.53915 13.1573 6.65407 13.4658L5.69728 14.4104ZM11.9903 21L8.71309 17.7645L11.9903 14.529L12.9258 15.4526L11.2387 17.1182H11.8489C13.4979 17.1513 14.8838 16.6137 16.0065 15.5052C17.1293 14.3967 17.6907 13.0617 17.6907 11.5C17.6907 11.1545 17.662 10.8176 17.6045 10.4894C17.547 10.1611 17.4609 9.84273 17.3459 9.53421L18.3027 8.58959C18.5067 9.01665 18.674 9.47431 18.8044 9.96256C18.9348 10.4508 19 10.9633 19 11.5C19 13.4186 18.3092 15.0625 16.9275 16.4317C15.5458 17.8008 13.853 18.4605 11.8489 18.4108H11.2387L12.9258 20.0764L11.9903 21Z"
+              />
+            </svg>
+            <span
+              className="duffel-button__text"
+            >
+              Try again
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Storyshots DuffelAncillaries Expired Offer 1`] = `
+[
+  <link
+    href="/global.css"
+    rel="stylesheet"
+  />,
+  <div
+    className="duffel-components"
+    style={
+      {
+        "display": "flex",
+        "flexDirection": "column",
+        "rowGap": "12px",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        {
+          "alignItems": "center",
+          "border": "dashed 1px var(--GREY-300)",
+          "borderRadius": "4px",
+          "display": "flex",
+          "justifyContent": "center",
+          "paddingBlock": "32px",
+        }
+      }
+    >
+      <div
+        style={
+          {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "maxWidth": "470px",
+          }
+        }
+      >
+        <p
+          className="p1--semibold"
+          style={
+            {
+              "marginBlock": "0",
+            }
+          }
+        >
+          We ran into an error
+        </p>
+        <p
+          className="p1--regular"
+          style={
+            {
+              "color": "var(--GREY-600)",
+              "marginBlock": "12px",
+              "textAlign": "center",
+            }
+          }
+        >
+          Please try reloading. If the problem persists reach out to our support team.
+        </p>
+        <div>
+          <button
+            aria-label="Try again"
+            className="duffel-button duffel-button--solid duffel-button--invisible"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              aria-label="autorenew"
+              className="duffel-button__icon duffel-button__icon--before"
+              data-testid="autorenew"
+              height={24}
+              style={
+                {
+                  "display": "block",
+                  "fill": "currentColor",
+                  "marginLeft": "initial",
+                }
+              }
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M5.69728 14.4104C5.49326 13.9833 5.32604 13.5257 5.19562 13.0374C5.06521 12.5492 5 12.0367 5 11.5C5 9.56481 5.69083 7.91679 7.07249 6.55591C8.45416 5.19504 10.147 4.53946 12.1511 4.58918H12.7613L11.0742 2.92359L12.0097 2L15.2869 5.23549L12.0097 8.47099L11.0742 7.54739L12.7613 5.88181H12.1511C10.5021 5.84866 9.11624 6.38632 7.99347 7.49479C6.87069 8.60326 6.30931 9.93833 6.30931 11.5C6.30931 11.8455 6.33804 12.1824 6.3955 12.5106C6.45296 12.8389 6.53915 13.1573 6.65407 13.4658L5.69728 14.4104ZM11.9903 21L8.71309 17.7645L11.9903 14.529L12.9258 15.4526L11.2387 17.1182H11.8489C13.4979 17.1513 14.8838 16.6137 16.0065 15.5052C17.1293 14.3967 17.6907 13.0617 17.6907 11.5C17.6907 11.1545 17.662 10.8176 17.6045 10.4894C17.547 10.1611 17.4609 9.84273 17.3459 9.53421L18.3027 8.58959C18.5067 9.01665 18.674 9.47431 18.8044 9.96256C18.9348 10.4508 19 10.9633 19 11.5C19 13.4186 18.3092 15.0625 16.9275 16.4317C15.5458 17.8008 13.853 18.4605 11.8489 18.4108H11.2387L12.9258 20.0764L11.9903 21Z"
+              />
+            </svg>
+            <span
+              className="duffel-button__text"
+            >
+              Try again
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots DuffelAncillaries Just Bags 1`] = `
+[
+  <link
+    href="/global.css"
+    rel="stylesheet"
+  />,
+  <div
+    className="duffel-components"
+    style={
+      {
+        "display": "flex",
+        "flexDirection": "column",
+        "rowGap": "12px",
+        "width": "100%",
+      }
+    }
+  >
+    <button
+      className="ancillary-card"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        {
+          "background": "transparent",
+          "border": "solid 1px rgba(226, 226, 232, 1)",
+          "borderRadius": "8px",
+          "boxSizing": "border-box",
+          "cursor": "pointer",
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "wrap",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "justifyContent": "space-between",
+          "letterSpacing": "0em",
+          "lineHeight": "24px",
+          "padding": "20px",
+          "rowGap": "4px",
+          "transition": "border-color 0.3s var(--TRANSITION-CUBIC-BEZIER) background-color 0.3s var(--TRANSITION-CUBIC-BEZIER)",
+          "width": "100%",
+        }
+      }
+      title="Select extra baggage"
+    >
+      <div
+        style={
+          {
+            "alignItems": "flex-start",
+            "columnGap": "12px",
+            "display": "flex",
+            "marginBlock": "0",
+            "marginTop": "2px",
+            "textAlign": "start",
+            "width": "100%",
+          }
+        }
+      >
+        <svg
+          aria-label="cabin_bag"
+          data-testid="cabin_bag"
+          height={24}
+          style={
+            {
+              "display": "block",
+              "fill": "currentColor",
+              "marginLeft": "initial",
+            }
+          }
+          viewBox="0 0 24 24"
+          width={24}
+        >
+          <path
+            d="M16.8993 6.11988H14.9393V3.18053C14.9387 2.92099 14.8353 2.67229 14.6517 2.48877C14.4682 2.30525 14.2195 2.20185 13.96 2.20117H10.04C9.78045 2.20185 9.53174 2.30525 9.34822 2.48877C9.16471 2.67229 9.06131 2.92099 9.06063 3.18053V6.11988H7.10062C6.58132 6.12158 6.08378 6.32863 5.71657 6.69583C5.34937 7.06303 5.14233 7.56058 5.14062 8.07988V18.8592C5.14369 19.3775 5.35137 19.8736 5.71847 20.2395C6.08556 20.6054 6.58233 20.8114 7.10062 20.8128C7.09585 20.9445 7.11766 21.0758 7.16475 21.1988C7.21185 21.3219 7.28327 21.4342 7.37474 21.5291C7.46621 21.6239 7.57587 21.6994 7.69715 21.7509C7.81843 21.8024 7.94885 21.829 8.08062 21.829C8.2124 21.829 8.34282 21.8024 8.4641 21.7509C8.58538 21.6994 8.69504 21.6239 8.78651 21.5291C8.87798 21.4342 8.9494 21.3219 8.9965 21.1988C9.04359 21.0758 9.0654 20.9445 9.06063 20.8128H14.9393C14.9346 20.9445 14.9564 21.0758 15.0035 21.1988C15.0506 21.3219 15.122 21.4342 15.2135 21.5291C15.3049 21.6239 15.4146 21.6994 15.5359 21.7509C15.6571 21.8024 15.7876 21.829 15.9193 21.829C16.0511 21.829 16.1815 21.8024 16.3028 21.7509C16.4241 21.6994 16.5337 21.6239 16.6252 21.5291C16.7167 21.4342 16.7881 21.3219 16.8352 21.1988C16.8823 21.0758 16.9041 20.9445 16.8993 20.8128C17.4185 20.8114 17.9161 20.6047 18.2833 20.2377C18.6505 19.8707 18.8576 19.3733 18.8593 18.8541V8.07988C18.858 7.56048 18.651 7.06273 18.2838 6.69545C17.9165 6.32818 17.4187 6.12124 16.8993 6.11988V6.11988ZM9.59611 17.8786H8.03095V9.06053H9.59611V17.8786ZM10.5303 3.67085H13.4697V6.12246H10.5303V3.67085ZM15.9677 17.8786H14.3974V9.06053H15.9677V17.8786Z"
+          />
+        </svg>
+        <div
+          style={
+            {
+              "alignItems": "start",
+              "display": "flex",
+              "justifyContent": "space-between",
+              "width": "100%",
+            }
+          }
+        >
+          <p
+            className="p1--semibold"
+            style={
+              {
+                "marginBlock": "0",
+              }
+            }
+          >
+            Extra baggage
+          </p>
+          <div
+            className="ancillary-card__children"
+          >
+            <svg
+              aria-label="expand_content"
+              className="ancillary-card__expand-icon"
+              data-testid="expand_content"
+              height={24}
+              style={
+                {
+                  "display": "block",
+                  "fill": "currentColor",
+                  "marginLeft": "initial",
+                }
+              }
+              viewBox="0 0 24 24"
+              width={24}
+            >
+              <path
+                d="M5 19V13H7V17H11V19H5ZM17 11V7H13V5H19V11H17Z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <p
+        className="p1--regular"
+        style={
+          {
+            "color": "var(--GREY-600)",
+            "marginBlock": "0",
+            "marginLeft": "34px",
+            "textAlign": "start",
+          }
+        }
+      >
+        Add any extra baggage you need for your trip
+      </p>
+    </button>
+  </div>,
+]
+`;
+
+exports[`Storyshots DuffelAncillaries Just Seats 1`] = `
 [
   <link
     href="/global.css"
