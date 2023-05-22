@@ -49,13 +49,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     );
   }
 
-  const ancillariesToShow = new Set<Ancillaries>([]);
-  if (props.services.includes("bags")) {
-    ancillariesToShow.add("bags");
-  }
-  if (props.services.includes("seats")) {
-    ancillariesToShow.add("seats");
-  }
+  const ancillariesToShow = new Set<Ancillaries>(props.services);
 
   const isPropsWithOfferIdForFixture =
     isDuffelAncillariesPropsWithOfferIdForFixture(props);
