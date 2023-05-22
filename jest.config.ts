@@ -1,6 +1,7 @@
 import type { Config } from "jest";
 
 const config: Config = {
+  silent: true,
   testEnvironment: "jsdom",
   roots: ["<rootDir>/src/tests"],
   moduleNameMapper: {
