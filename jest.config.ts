@@ -1,6 +1,8 @@
-const config = {
-  verbose: true,
+import type { Config } from "jest";
+
+const config: Config = {
   testEnvironment: "jsdom",
+  roots: ["<rootDir>/src/tests"],
   moduleNameMapper: {
     "\\.css$": "<rootDir>/__mocks__/styleMock.js",
     "@lib/(.*)$": "<rootDir>/src/lib/$1",
@@ -8,4 +10,4 @@ const config = {
   },
 };
 
-module.exports = config;
+export default config;
