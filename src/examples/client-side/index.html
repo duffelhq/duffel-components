@@ -26,6 +26,19 @@
 
     // 3. Render the component with the required data, you can safely call this function as many times as you want. E.g. when your passenger data changes.
     duffelAncillariesElement.render({
+      styles: {
+        accentColor: "0,136,204",
+        // accentColor: "235,235,235",
+      },
+      // priceRenderers: (originalPrice, currency) => {
+      //   // 20
+      //   const isCustomerAGoldMember = await someAsyncFunctionOnMyServer();
+      //   if (isCustomerAGoldMember) {
+      //     return "it's free"
+      //   }
+      //   return `${originalPrice * 100} Igor points`
+      //   return `${originalPrice * 1.1}`
+      // },
       offer_id: "fixture_off_1",
       services: ["bags", "seats", "cancel_for_any_reason"],
       passengers: [

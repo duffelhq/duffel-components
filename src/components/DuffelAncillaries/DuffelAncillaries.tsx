@@ -4,6 +4,7 @@ import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import { createPriceFormatters } from "@lib/createPriceFormatters";
 import { formatAvailableServices } from "@lib/formatAvailableServices";
 import { formatSeatMaps } from "@lib/formatSeatMaps";
+import { getContrastingColor } from "@lib/getContrastingColor";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { initializeLogger, logGroup } from "@lib/logging";
 import { offerIsExpired } from "@lib/offerIsExpired";
@@ -262,6 +263,9 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     rowGap: "12px",
     ...(props.styles?.accentColor && {
       "--ACCENT": props.styles.accentColor,
+      "--ACCENT-CONTRASTING-COLOR": getContrastingColor(
+        props.styles.accentColor
+      ),
     }),
     ...(props.styles?.fontFamily && {
       "--FONT-FAMILY": props.styles.fontFamily,
