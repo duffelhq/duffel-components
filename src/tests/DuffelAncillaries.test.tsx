@@ -1,5 +1,4 @@
 import { DuffelAncillaries } from "@components/DuffelAncillaries";
-import { describe, expect, test } from "@jest/globals";
 import { fireEvent, render } from "@testing-library/react";
 import { SeatMap } from "src/types/SeatMap";
 import { Offer } from "../types/Offer";
