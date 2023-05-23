@@ -46,27 +46,15 @@
           born_on: "1942-10-17",
         },
       ],
-      labels: {
-        bags: {
-          price: (service) => {
-            /*
-              This is an example of how you can customise the price of a service.
-              We're adding a 25% markup to the price of the service.
-            */
-            const amount = parseFloat(service.total_amount);
-            const markup = 1.25;
-            const totalPrice = amount * markup;
-
-            const currencyFormatter = new Intl.NumberFormat(
-              navigator.language,
-              {
-                style: "currency",
-                currency: service.total_currency,
-              }
-            );
-
-            return currencyFormatter.format(totalPrice);
-          },
+      priceFormatters: {
+        bags: (amount, currency) => {
+          const amountFloat = Number.parseFloat(amount);
+          const markup = 3.14159;
+          const total = amountFloat * markup;
+          return {
+            amount: total.toFixed(2),
+            currency: "Shaun points",
+          };
         },
       },
     });

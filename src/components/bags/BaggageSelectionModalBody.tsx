@@ -8,7 +8,6 @@ import {
   OfferAvailableServiceBaggage,
   OfferSliceSegment,
 } from "../../types/Offer";
-import { DuffelAncillariesBagsLabels } from "../../types/DuffelAncillariesProps";
 import { BaggageSelectionModalBodyPassenger } from "./BaggageSelectionModalBodyPassenger";
 import { getPassengerName } from "@lib/getPassengerName";
 
@@ -21,7 +20,6 @@ export interface BaggageSelectionModalBodyProps {
   >;
   selectedServices: CreateOrderPayloadServices;
   setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
-  labels?: DuffelAncillariesBagsLabels;
 }
 
 export const BaggageSelectionModalBody: React.FC<
@@ -32,7 +30,6 @@ export const BaggageSelectionModalBody: React.FC<
   passengersById,
   selectedServices,
   setSelectedServices,
-  labels,
 }) => (
   <div
     style={{
@@ -63,7 +60,6 @@ export const BaggageSelectionModalBody: React.FC<
         }
         selectedServices={selectedServices}
         setSelectedServices={setSelectedServices}
-        labels={labels}
       />
     ))}
   </div>

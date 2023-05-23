@@ -3,6 +3,7 @@ import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { hasService } from "@lib/hasService";
 import { withPlural } from "@lib/withPlural";
+import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import React from "react";
 import {
   CreateOrderPayload,
@@ -13,7 +14,6 @@ import { AnimatedLoaderEllipsis } from "../AnimatedLoaderEllipsis";
 import { BaggageSelectionModal } from "./BaggageSelectionModal";
 import { Card } from "../Card";
 import { Stamp } from "../Stamp";
-import { DuffelAncillariesBagsLabels } from "src/types/DuffelAncillariesProps";
 
 export interface BaggageSelectionCardProps {
   isLoading: boolean;
@@ -21,7 +21,6 @@ export interface BaggageSelectionCardProps {
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
   setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
-  labels?: DuffelAncillariesBagsLabels;
 }
 
 export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
@@ -30,7 +29,6 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
   passengers,
   selectedServices,
   setSelectedServices,
-  labels,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -39,8 +37,14 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
   const isBaggageAdded = totalQuantity > 0;
 
   const totalAmount = getTotalAmountForServices(offer!, selectedServices);
+
+  let currencyToUse = offer?.base_currency || "";
+  if (containsBaggageService) {
+    currencyToUse = getCurrencyForServices(offer!, "baggage");
+  }
+
   const totalAmountFormatted = offer
-    ? moneyStringFormatter(offer?.base_currency)(totalAmount)
+    ? moneyStringFormatter(currencyToUse)(totalAmount)
     : "0";
 
   const copy =
@@ -86,7 +90,6 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
             setIsOpen(false);
           }}
           selectedServices={selectedServices}
-          labels={labels}
         />
       )}
     </>

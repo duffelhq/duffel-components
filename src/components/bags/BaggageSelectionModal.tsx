@@ -7,18 +7,18 @@ import {
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
-import { DuffelAncillariesBagsLabels } from "src/types/DuffelAncillariesProps";
 import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
 import { Modal } from "../Modal";
+import { hasService } from "@lib/hasService";
+import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 
 export interface BaggageSelectionModalProps {
   offer: Offer;
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
   onClose: (selectedServices: CreateOrderPayloadServices) => void;
-  labels?: DuffelAncillariesBagsLabels;
 }
 
 export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
@@ -26,7 +26,6 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
   passengers,
   onClose,
   selectedServices,
-  labels,
 }) => {
   const [currentSegmentIndex, setCurrentSegmentIndex] = useState(0);
 
@@ -38,6 +37,11 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
 
   const passengerMapById = getPassengerMapById(passengers);
   const servicePricesMap = getServicePriceMapById(offer.available_services);
+
+  let currencyToUse = offer.base_currency;
+  if (hasService(offer, "baggage")) {
+    currencyToUse = getCurrencyForServices(offer, "baggage");
+  }
 
   return (
     <Modal onClose={() => onClose(selectedServicesState)}>
@@ -53,10 +57,9 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
         passengersById={passengerMapById}
         segment={currentSegment}
         setSelectedServices={setSelectedServicesState}
-        labels={labels}
       />
       <BaggageSelectionModalFooter
-        currency={offer.total_currency}
+        currency={currencyToUse}
         selectedServices={selectedServicesState}
         servicePrices={servicePricesMap}
         isFirstSegment={currentSegmentIndex === 0}

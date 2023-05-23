@@ -34,12 +34,12 @@ export interface DuffelAncillariesPropsWithOffersAndSeatMaps
   seat_maps: SeatMap[];
 }
 
-export interface DuffelAncillariesBagsLabels {
-  price?: (service: OfferAvailableServiceBaggage) => string;
-}
-
-export interface DuffelAncillariesLabels {
-  bags?: DuffelAncillariesBagsLabels;
+export interface DuffelAncillariesPriceFormatters {
+  bags?: (
+    amount: string,
+    currency: string,
+    service: OfferAvailableServiceBaggage
+  ) => { amount: string; currency: string };
 }
 
 export interface DuffelAncillariesCommonProps {
@@ -47,7 +47,7 @@ export interface DuffelAncillariesCommonProps {
   onPayloadReady: OnPayloadReady;
   passengers: CreateOrderPayload["passengers"];
   services: Ancillaries[];
-  labels?: DuffelAncillariesLabels;
+  priceFormatters?: DuffelAncillariesPriceFormatters;
 }
 
 export interface CustomStyles {

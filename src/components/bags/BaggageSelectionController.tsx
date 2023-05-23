@@ -2,7 +2,6 @@ import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
 import React from "react";
 import { OfferAvailableServiceBaggage } from "../../types/Offer";
-import { DuffelAncillariesBagsLabels } from "../../types/DuffelAncillariesProps";
 import { Counter } from "../Counter";
 
 interface BaggageSelectionControllerProps {
@@ -10,34 +9,17 @@ interface BaggageSelectionControllerProps {
   availableService: OfferAvailableServiceBaggage;
   quantity: number;
   onQuantityChanged: (quantity: number) => void;
-  labels?: DuffelAncillariesBagsLabels;
 }
-
-const getServicePrice = (
-  availableService: OfferAvailableServiceBaggage,
-  labelFunc?: DuffelAncillariesBagsLabels["price"]
-) => {
-  if (labelFunc) {
-    return labelFunc(availableService);
-  }
-  return moneyStringFormatter(availableService.total_currency)(
-    +availableService.total_amount
-  );
-};
 
 export const BaggageSelectionController: React.FC<
   BaggageSelectionControllerProps
-> = ({
-  passengerId,
-  availableService,
-  quantity,
-  onQuantityChanged,
-  labels,
-}) => {
+> = ({ passengerId, availableService, quantity, onQuantityChanged }) => {
   const serviceName =
     availableService.metadata.type === "carry_on" ? "Cabin bag" : "Checked bag";
 
-  const servicePrice = getServicePrice(availableService, labels?.price);
+  const servicePrice = moneyStringFormatter(availableService.total_currency)(
+    +availableService.total_amount
+  );
   const serviceDescription = getBaggageServiceDescription(
     availableService.metadata
   );
@@ -61,7 +43,12 @@ export const BaggageSelectionController: React.FC<
           >
             •
           </span>
-          <span className="p2--semibold">{servicePrice}</span>
+          <span
+            className="p2--semibold"
+            data-testid={`price-label--${availableService.id}--${passengerId}`}
+          >
+            {servicePrice}
+          </span>
         </p>
         <p
           style={{ margin: 0, color: "var(--GREY-600)" }}

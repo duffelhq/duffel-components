@@ -41,21 +41,27 @@ export const moneyStringFormatter = (
   locale = "en-GB",
   options: { [option: string]: string } = {}
 ) => {
-  const formatter = new Intl.NumberFormat(locale, {
-    style: "currency",
-    currency,
-    ...options,
-  });
   return (value: number) => {
-    const numberFormatted = formatter.format(value);
-    const signFormatted =
-      options &&
-      options["signDisplay"] &&
-      (options["signDisplay"] === "always" ||
-        (options["signDisplay"] === "exceptZero" && value !== 0))
-        ? numberFormatted.replace(/^([+-])/, "$1 ")
-        : numberFormatted;
+    try {
+      const formatter = new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency,
+        ...options,
+      });
+      const numberFormatted = formatter.format(value);
+      const signFormatted =
+        options &&
+        options["signDisplay"] &&
+        (options["signDisplay"] === "always" ||
+          (options["signDisplay"] === "exceptZero" && value !== 0))
+          ? numberFormatted.replace(/^([+-])/, "$1 ")
+          : numberFormatted;
 
-    return signFormatted;
+      return signFormatted;
+    } catch (error) {
+      // If the currency is not supported by the browser, we return the value with the currency code.
+      // This allows us to support made-up currencies, like "1000 Duffel Points"
+      return `${value} ${currency}`;
+    }
   };
 };

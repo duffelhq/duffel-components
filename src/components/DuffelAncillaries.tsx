@@ -11,10 +11,11 @@ import {
   isDuffelAncillariesPropsWithOfferIdForFixture,
 } from "@lib/validateProps";
 import * as React from "react";
-import { Offer } from "src/types/Offer";
+import { Offer, OfferAvailableService } from "src/types/Offer";
 import { CreateOrderPayloadPassengers } from "src/types/CreateOrderPayload";
 import {
   Ancillaries,
+  DuffelAncillariesPriceFormatters,
   DuffelAncillariesProps,
 } from "src/types/DuffelAncillariesProps";
 import { SeatMap } from "src/types/SeatMap";
@@ -29,6 +30,32 @@ import { SeatSelectionCard } from "./seats/SeatSelectionCard";
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
+
+const formatAvailableServices = (
+  offer: Offer,
+  priceFormatters?: DuffelAncillariesPriceFormatters
+) => {
+  const formattedServices: OfferAvailableService[] = [];
+
+  // TODO validate the function passed in.
+
+  if (priceFormatters?.bags) {
+    offer.available_services.forEach((service) => {
+      if (service.type === "baggage") {
+        const { amount, currency } = priceFormatters.bags!(
+          service.total_amount,
+          service.total_currency,
+          service
+        );
+
+        service.total_amount = amount;
+        service.total_currency = currency;
+      }
+      formattedServices.push(service);
+    });
+  }
+  return { ...offer, available_services: formattedServices };
+};
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   if (!areDuffelAncillariesPropsValid(props)) {
@@ -98,12 +125,20 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   >([]);
 
   const updateOffer = (offer: Offer) => {
-    setOffer(offer);
+    const offerWithFormattedServices = formatAvailableServices(
+      offer,
+      props.priceFormatters
+    );
+
+    console.info(offerWithFormattedServices);
+
+    setOffer(offerWithFormattedServices);
     const expiryErrorMessage = "This offer has expired.";
-    if (offerIsExpired(offer)) {
+    if (offerIsExpired(offerWithFormattedServices)) {
       setError(expiryErrorMessage);
     } else {
-      const msUntilExpiry = new Date(offer.expires_at).getTime() - Date.now();
+      const msUntilExpiry =
+        new Date(offerWithFormattedServices.expires_at).getTime() - Date.now();
 
       // Only show the expiry error message if the offer expires in less than a day,
       // to prevent buffer overflows when showing offers for fixtures, which expire in
@@ -265,7 +300,6 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
               passengers={passengers}
               selectedServices={baggageSelectedServices}
               setSelectedServices={setBaggageSelectedServices}
-              labels={props.labels?.bags}
             />
           )}
 

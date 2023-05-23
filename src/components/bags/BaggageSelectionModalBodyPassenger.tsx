@@ -4,7 +4,6 @@ import {
   OfferAvailableServiceBaggage,
   OfferSliceSegmentPassengerBaggage,
 } from "../../types/Offer";
-import { DuffelAncillariesBagsLabels } from "../../types/DuffelAncillariesProps";
 import { BaggageSelectionController } from "./BaggageSelectionController";
 import { IncludedBaggageBanner } from "./IncludedBaggageBanner";
 
@@ -16,7 +15,6 @@ export interface BaggageSelectionModalBodyPassengerProps {
   passengerServicesForSegment: OfferAvailableServiceBaggage[];
   selectedServices: CreateOrderPayloadServices;
   setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
-  labels?: DuffelAncillariesBagsLabels;
 }
 
 export const BaggageSelectionModalBodyPassenger: React.FC<
@@ -29,7 +27,6 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
   passengerServicesForSegment,
   selectedServices,
   setSelectedServices,
-  labels,
 }) => {
   const hasIncludedBaggage = includedBaggage.reduce(
     (sum, bag) => sum + bag.quantity,
@@ -53,7 +50,6 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
             selectedServices.find(({ id }) => id == availableService.id)
               ?.quantity || 0
           }
-          labels={labels}
           onQuantityChanged={(newQuantity) => {
             const changedServiceIndex = selectedServices.findIndex(
               ({ id }) => availableService.id === id
