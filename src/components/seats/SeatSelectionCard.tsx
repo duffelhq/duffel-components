@@ -58,12 +58,13 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
   return (
     <>
       <Card
+        buttonTitle="Select seats"
         title="Seat selection"
         copy={copy}
         icon="flight_class"
         onClick={containsSeatService ? () => setIsOpen(true) : null}
         isLoading={isLoading}
-        disabled={!isLoading && !containsSeatService}
+        disabled={isLoading && !containsSeatService}
         isSelected={areSeatsAdded}
       >
         {isLoading && (

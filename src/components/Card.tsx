@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { Icon, IconName } from "./Icon";
 
 export interface CardProps {
+  buttonTitle: string;
   title: string;
   icon: IconName;
   onClick?: (() => void) | null;
@@ -14,6 +15,7 @@ export interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({
+  buttonTitle,
   title,
   icon,
   copy,
@@ -27,7 +29,7 @@ export const Card: React.FC<CardProps> = ({
 
   return (
     <button
-      title="Select extra baggage"
+      title={buttonTitle}
       {...(onClick && { onClick })}
       disabled={disabled}
       className={classNames(
