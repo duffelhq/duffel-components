@@ -265,6 +265,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
               passengers={passengers}
               selectedServices={baggageSelectedServices}
               setSelectedServices={setBaggageSelectedServices}
+              labels={props.labels?.bags}
             />
           )}
 

@@ -7,6 +7,7 @@ import {
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
+import { DuffelAncillariesBagsLabels } from "src/types/DuffelAncillariesProps";
 import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
@@ -17,6 +18,7 @@ export interface BaggageSelectionModalProps {
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
   onClose: (selectedServices: CreateOrderPayloadServices) => void;
+  labels?: DuffelAncillariesBagsLabels;
 }
 
 export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
@@ -24,6 +26,7 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
   passengers,
   onClose,
   selectedServices,
+  labels,
 }) => {
   const [currentSegmentIndex, setCurrentSegmentIndex] = useState(0);
 
@@ -50,6 +53,7 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
         passengersById={passengerMapById}
         segment={currentSegment}
         setSelectedServices={setSelectedServicesState}
+        labels={labels}
       />
       <BaggageSelectionModalFooter
         currency={offer.total_currency}

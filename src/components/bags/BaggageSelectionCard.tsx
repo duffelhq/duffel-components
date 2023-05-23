@@ -13,6 +13,7 @@ import { AnimatedLoaderEllipsis } from "../AnimatedLoaderEllipsis";
 import { BaggageSelectionModal } from "./BaggageSelectionModal";
 import { Card } from "../Card";
 import { Stamp } from "../Stamp";
+import { DuffelAncillariesBagsLabels } from "src/types/DuffelAncillariesProps";
 
 export interface BaggageSelectionCardProps {
   isLoading: boolean;
@@ -20,6 +21,7 @@ export interface BaggageSelectionCardProps {
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
   setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
+  labels?: DuffelAncillariesBagsLabels;
 }
 
 export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
@@ -28,6 +30,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
   passengers,
   selectedServices,
   setSelectedServices,
+  labels,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -83,6 +86,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
             setIsOpen(false);
           }}
           selectedServices={selectedServices}
+          labels={labels}
         />
       )}
     </>
