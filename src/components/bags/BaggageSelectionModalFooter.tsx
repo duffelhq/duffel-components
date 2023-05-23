@@ -63,6 +63,7 @@ export const BaggageSelectionModalFooter: React.FC<
           onClick={() => onPreviousSegmentButtonClicked()}
         />
         <Button
+          data-testid="confirm-selection"
           text={isLastSegment ? "Confirm" : "Next"}
           intent="PRIMARY"
           onClick={() =>
