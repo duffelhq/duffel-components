@@ -35,12 +35,12 @@ const formatAvailableServices = (
   offer: Offer,
   priceFormatters?: DuffelAncillariesPriceFormatters
 ) => {
-  const formattedServices: OfferAvailableService[] = [];
-
   // TODO validate the function passed in.
 
+  const availableServices = offer.available_services;
+
   if (priceFormatters?.bags) {
-    offer.available_services.forEach((service) => {
+    availableServices.forEach((service) => {
       if (service.type === "baggage") {
         const { amount, currency } = priceFormatters.bags!(
           service.total_amount,
@@ -51,10 +51,9 @@ const formatAvailableServices = (
         service.total_amount = amount;
         service.total_currency = currency;
       }
-      formattedServices.push(service);
     });
   }
-  return { ...offer, available_services: formattedServices };
+  return { ...offer, available_services: availableServices };
 };
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
@@ -129,9 +128,6 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
       offer,
       props.priceFormatters
     );
-
-    console.info(offerWithFormattedServices);
-
     setOffer(offerWithFormattedServices);
     const expiryErrorMessage = "This offer has expired.";
     if (offerIsExpired(offerWithFormattedServices)) {
