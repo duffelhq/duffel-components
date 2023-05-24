@@ -87,7 +87,7 @@ const onBaggageQuantityChanged = (
   selectedServices: CreateOrderPayloadServices,
   setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void
 ) => {
-  // check if the service wjich had its quantity changed is already in the list
+  // check if the service which had its quantity changed is already in the list
   const changedServiceIndex = selectedServices.findIndex(
     ({ id }) => availableService.id === id
   );
