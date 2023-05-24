@@ -1,19 +1,30 @@
 import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
+import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
 import React from "react";
+import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
 import { OfferAvailableServiceBaggage } from "../../types/Offer";
 import { Counter } from "../Counter";
 
 interface BaggageSelectionControllerProps {
+  segmentId: string;
   passengerId: string;
   availableService: OfferAvailableServiceBaggage;
+  selectedServices: CreateOrderPayloadServices;
   quantity: number;
   onQuantityChanged: (quantity: number) => void;
 }
 
 export const BaggageSelectionController: React.FC<
   BaggageSelectionControllerProps
-> = ({ passengerId, availableService, quantity, onQuantityChanged }) => {
+> = ({
+  segmentId,
+  passengerId,
+  availableService,
+  quantity,
+  onQuantityChanged,
+  selectedServices,
+}) => {
   const serviceName =
     availableService.metadata.type === "carry_on" ? "Cabin bag" : "Checked bag";
   const servicePrice = moneyStringFormatter(availableService.total_currency)(
@@ -22,6 +33,14 @@ export const BaggageSelectionController: React.FC<
   const serviceDescription = getBaggageServiceDescription(
     availableService.metadata
   );
+
+  const shouldDisableController =
+    hasServiceOfSameMetadataTypeAlreadyBeenSelected(
+      selectedServices,
+      segmentId,
+      passengerId,
+      availableService
+    );
 
   return (
     <div
@@ -54,9 +73,9 @@ export const BaggageSelectionController: React.FC<
       <Counter
         id={`counter--${availableService.id}--${passengerId}`}
         min={0}
-        max={availableService.maximum_quantity}
         value={quantity}
         onChange={onQuantityChanged}
+        max={shouldDisableController ? 0 : availableService.maximum_quantity}
       />
     </div>
   );

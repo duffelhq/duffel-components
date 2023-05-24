@@ -41,44 +41,50 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
       {hasIncludedBaggage && (
         <IncludedBaggageBanner includedBaggage={includedBaggage} />
       )}
-      {passengerServicesForSegment.map((availableService) => (
-        <BaggageSelectionController
-          key={availableService.id}
-          passengerId={passengerId}
-          availableService={availableService}
-          quantity={
-            selectedServices.find(({ id }) => id == availableService.id)
-              ?.quantity || 0
-          }
-          onQuantityChanged={(newQuantity) => {
-            const changedServiceIndex = selectedServices.findIndex(
-              ({ id }) => availableService.id === id
-            );
 
-            const newSelectedServices = Array.from(selectedServices);
-            if (changedServiceIndex < 0) {
-              newSelectedServices.push({
-                id: availableService.id,
-                quantity: newQuantity,
-                serviceInformation: {
-                  segmentId,
-                  passengerId,
-                  passengerName,
-                  total_amount: availableService.total_amount,
-                  total_currency: availableService.total_currency,
-                  ...availableService.metadata,
-                },
-              });
-            } else {
-              newSelectedServices[changedServiceIndex].quantity = newQuantity;
+      <div style={{ display: "flex", rowGap: "8px", flexDirection: "column" }}>
+        {passengerServicesForSegment.map((availableService) => (
+          <BaggageSelectionController
+            key={availableService.id}
+            passengerId={passengerId}
+            segmentId={segmentId}
+            availableService={availableService}
+            selectedServices={selectedServices}
+            quantity={
+              selectedServices.find(({ id }) => id == availableService.id)
+                ?.quantity || 0
             }
+            onQuantityChanged={(newQuantity) => {
+              const changedServiceIndex = selectedServices.findIndex(
+                ({ id }) => availableService.id === id
+              );
 
-            setSelectedServices(
-              newSelectedServices.filter(({ quantity }) => quantity !== 0)
-            );
-          }}
-        />
-      ))}
+              const newSelectedServices = Array.from(selectedServices);
+              if (changedServiceIndex < 0) {
+                newSelectedServices.push({
+                  id: availableService.id,
+                  quantity: newQuantity,
+                  serviceInformation: {
+                    segmentId,
+                    passengerId,
+                    passengerName,
+                    total_amount: availableService.total_amount,
+                    total_currency: availableService.total_currency,
+                    ...availableService.metadata,
+                  },
+                });
+              } else {
+                newSelectedServices[changedServiceIndex].quantity = newQuantity;
+              }
+
+              setSelectedServices(
+                newSelectedServices.filter(({ quantity }) => quantity !== 0)
+              );
+            }}
+          />
+        ))}
+      </div>
+
       {passengerServicesForSegment.length === 0 && (
         <p style={{ color: `var(--GREY-700)`, margin: 0 }}>
           Extra baggage is not available for this passenger on this flight
