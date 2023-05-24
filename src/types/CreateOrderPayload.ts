@@ -59,6 +59,7 @@ interface CreateOrderPayloadCommonServiceInformation {
 
 export interface CreateOrderPayloadServiceInformationForSeats
   extends CreateOrderPayloadCommonServiceInformation {
+  type: "seat";
   designator: string;
   disclosures: string[];
 }

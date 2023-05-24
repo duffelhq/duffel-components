@@ -94,6 +94,7 @@ export const SeatElement: React.FC<SeatElementProps> = ({
             quantity: isSeatSelected ? 0 : 1,
             id: seatServiceFromElement.id,
             serviceInformation: {
+              type: "seat",
               segmentId: currentSegmentId,
               passengerId: currentPassengerId,
               passengerName: currentPassengerName,
