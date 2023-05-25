@@ -1,4 +1,5 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
+import { formatAvailableServices } from "@lib/formatAvailableServices";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
@@ -11,11 +12,10 @@ import {
   isDuffelAncillariesPropsWithOfferIdForFixture,
 } from "@lib/validateProps";
 import * as React from "react";
-import { Offer, OfferAvailableService } from "src/types/Offer";
+import { Offer } from "src/types/Offer";
 import { CreateOrderPayloadPassengers } from "src/types/CreateOrderPayload";
 import {
   Ancillaries,
-  DuffelAncillariesPriceFormatters,
   DuffelAncillariesProps,
 } from "src/types/DuffelAncillariesProps";
 import { SeatMap } from "src/types/SeatMap";
@@ -27,34 +27,10 @@ import {
   BaggageSelectionCardProps,
 } from "./bags/BaggageSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
+import { formatSeatMaps } from "@lib/formatSeatMaps";
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
-
-const formatAvailableServices = (
-  offer: Offer,
-  priceFormatters?: DuffelAncillariesPriceFormatters
-) => {
-  // TODO validate the function passed in.
-
-  const availableServices = offer.available_services;
-
-  if (priceFormatters?.bags) {
-    availableServices.forEach((service) => {
-      if (service.type === "baggage") {
-        const { amount, currency } = priceFormatters.bags!(
-          service.total_amount,
-          service.total_currency,
-          service
-        );
-
-        service.total_amount = amount;
-        service.total_currency = currency;
-      }
-    });
-  }
-  return { ...offer, available_services: availableServices };
-};
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   if (!areDuffelAncillariesPropsValid(props)) {
@@ -146,6 +122,14 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     }
   };
 
+  const updateSeatMaps = (seatMaps: SeatMap[]) => {
+    const formattedSeatMaps = formatSeatMaps(
+      seatMaps,
+      props.priceFormatters?.seats
+    );
+    setSeatMaps(formattedSeatMaps);
+  };
+
   React.useEffect(() => {
     if (isPropsWithClientKeyAndOfferId || isPropsWithOfferIdForFixture) {
       retrieveOffer(
@@ -185,7 +169,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         !isPropsWithOfferIdForFixture ? props.client_key : null,
         setError,
         setIsSeatMapLoading,
-        setSeatMaps
+        updateSeatMaps
       );
     }
 
@@ -195,7 +179,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
     if (isPropsWithOfferAndSeatMaps) {
       updateOffer(props.offer);
-      setSeatMaps(props.seat_maps);
+      updateSeatMaps(props.seat_maps);
     }
   }, [
     // `as any` is needed here because the list

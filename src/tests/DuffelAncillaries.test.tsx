@@ -1,5 +1,5 @@
 import { DuffelAncillaries } from "@components/DuffelAncillaries";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { SeatMap } from "src/types/SeatMap";
 import { Offer } from "../types/Offer";
 import { CreateOrderPayload } from "../types/CreateOrderPayload";

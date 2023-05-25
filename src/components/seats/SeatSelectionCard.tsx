@@ -13,6 +13,7 @@ import { AnimatedLoaderEllipsis } from "../AnimatedLoaderEllipsis";
 import { Card } from "../Card";
 import { Stamp } from "../Stamp";
 import { SeatSelectionModal } from "./SeatSelectionModal";
+import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;
@@ -42,8 +43,13 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
     selectedServices,
     seatMaps
   );
+  let currencyToUse = offer?.base_currency ?? "";
+  if (seatMaps) {
+    currencyToUse = getCurrencyForSeatMaps(seatMaps) ?? currencyToUse;
+  }
+
   const totalAmountFormatted = offer
-    ? moneyStringFormatter(offer?.base_currency)(totalAmount)
+    ? moneyStringFormatter(currencyToUse)(totalAmount)
     : "0";
 
   const copy =
