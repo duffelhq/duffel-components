@@ -52,12 +52,30 @@ export const ExpiredOffer: Story = {
   },
 };
 
+export const Markup: Story = {
+  args: {
+    markup: {
+      bags: {
+        rate: 1.5,
+        amount: 10,
+      },
+      seats: {
+        rate: 1.5,
+        amount: 10,
+      },
+    },
+    services: ["bags", "seats"],
+    offer: offer,
+    ...defaultProps,
+  },
+};
+
 const fiftyPercentMarkup = (amount: number, currency: string) => ({
   amount: amount * 1.5,
   currency,
 });
 
-export const SimpleMarkup: Story = {
+export const MarkupUsingPriceFormatters: Story = {
   args: {
     priceFormatters: {
       bags: fiftyPercentMarkup,
@@ -74,7 +92,7 @@ const customCurrencyMarkup = () => ({
   currency: "Duffel points",
 });
 
-export const MarkupWithCustomCurrency: Story = {
+export const MarkupUsingPriceFormattersWithCustomCurrency: Story = {
   args: {
     priceFormatters: {
       bags: customCurrencyMarkup,

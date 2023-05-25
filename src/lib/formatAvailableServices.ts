@@ -19,10 +19,11 @@ const multipleCurrenciesErrorMessage = (currencies: Set<string>) => {
  */
 const formatAvailableServices = (
   offer: Offer,
+  markup?: DuffelAncillariesPriceFormatters,
   priceFormatters?: DuffelAncillariesPriceFormatters
 ) => {
-  // If no custom formatters were passed in, don't do anything.
-  if (!priceFormatters) {
+  // If no markup or custom formatters were passed in, don't do anything.
+  if (!markup && !priceFormatters) {
     return offer;
   }
 

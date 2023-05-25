@@ -34,6 +34,16 @@ export interface DuffelAncillariesPropsWithOffersAndSeatMaps
   seat_maps: SeatMap[];
 }
 
+export type DuffelAncillariesMarkupDefinition = {
+  rate: number;
+  amount: number;
+};
+
+export interface DuffelAncillariesMarkup {
+  bags?: DuffelAncillariesMarkupDefinition;
+  seats?: DuffelAncillariesMarkupDefinition;
+}
+
 export type DuffelAncillariesPriceFormatterBags = (
   amount: number,
   currency: string,
@@ -56,6 +66,7 @@ export interface DuffelAncillariesCommonProps {
   onPayloadReady: OnPayloadReady;
   passengers: CreateOrderPayload["passengers"];
   services: Ancillaries[];
+  markup?: DuffelAncillariesMarkup;
   priceFormatters?: DuffelAncillariesPriceFormatters;
 }
 

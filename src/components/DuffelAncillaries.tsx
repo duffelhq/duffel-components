@@ -102,6 +102,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   const updateOffer = (offer: Offer) => {
     const offerWithFormattedServices = formatAvailableServices(
       offer,
+      props.markup,
       props.priceFormatters
     );
     setOffer(offerWithFormattedServices);
