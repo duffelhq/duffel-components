@@ -59,11 +59,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
   return (
     <>
       <Card
-        buttonTitle={
-          !isLoading && containsBaggageService
-            ? "Select extra baggage"
-            : "Loading"
-        }
+        buttonTitle="Select extra baggage"
         title="Extra baggage"
         copy={copy}
         icon="cabin_bag"

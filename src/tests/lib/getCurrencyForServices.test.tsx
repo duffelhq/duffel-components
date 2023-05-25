@@ -2,7 +2,7 @@ import { Offer } from "src/types/Offer";
 import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 
 describe("getCurrencyForServices", () => {
-  it("should return GBP when all services have that currency", () => {
+  it("should return GBP when the first service has that currency", () => {
     const offer = {
       available_services: [
         {
@@ -11,27 +11,11 @@ describe("getCurrencyForServices", () => {
         },
         {
           type: "baggage",
-          total_currency: "GBP",
+          total_currency: "USD",
         },
       ],
     };
     expect(getCurrencyForServices(offer as Offer, "baggage")).toEqual("GBP");
-  });
-
-  it("should throw when currencies don't match", () => {
-    const offer = {
-      available_services: [
-        {
-          type: "baggage",
-          total_currency: "GBP",
-        },
-        {
-          type: "baggage",
-          total_currency: "EUR",
-        },
-      ],
-    };
-    expect(() => getCurrencyForServices(offer as Offer, "baggage")).toThrow();
   });
 
   it("should throw when there are no available services", () => {

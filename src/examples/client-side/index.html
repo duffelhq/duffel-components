@@ -46,23 +46,6 @@
           born_on: "1942-10-17",
         },
       ],
-      priceFormatters: {
-        bags: (amount, currency) => {
-          const amountFloat = Number.parseFloat(amount);
-          const markup = 3.14159;
-          const total = amountFloat * markup;
-          return {
-            amount: total.toFixed(2),
-            currency: "Shaun points",
-          };
-        },
-        seats: (amount, currency) => {
-          return {
-            amount: "100",
-            currency: "Shaun points",
-          };
-        },
-      },
     });
 
     // 4. Listen to 'onPayloadReady' event on the component. `event.detail.data` contains the payload you need to send to Duffel's API to create an order.
