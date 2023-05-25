@@ -89,8 +89,8 @@ describe("DuffelAncillaries", () => {
       />
     );
 
-    const baggageCard = getByTitle("Select seats");
-    fireEvent.click(baggageCard);
+    const seatCard = getByTitle("Select seats");
+    fireEvent.click(seatCard);
 
     fireEvent.click(getByTestId("seat-28E"));
     fireEvent.click(getByTestId("confirm-selection"));
@@ -134,9 +134,19 @@ describe("DuffelAncillaries", () => {
               currency: "Duffel house points",
             };
           },
+          seats: (amount) => {
+            return {
+              amount: amount / 2,
+              currency: "Duffel house points",
+            };
+          },
         }}
       />
     );
+
+    /**
+     * First, select bags.
+     */
 
     fireEvent.click(getByTitle("Select extra baggage"));
 
@@ -166,8 +176,29 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(getByTestId("confirm-selection"));
     expect(getByText(/2 bags added for 160 Duffel house points/i));
 
+    /**
+     * Now, select seats.
+     */
+
+    const seatCard = getByTitle("Select seats");
+    fireEvent.click(seatCard);
+
+    fireEvent.click(getByTestId("seat-28E"));
+    fireEvent.click(getByTestId("confirm-selection"));
+
+    fireEvent.click(getByTestId("seat-28F"));
+    fireEvent.click(getByTestId("confirm-selection"));
+
+    fireEvent.click(getByTestId("seat-28E"));
+    fireEvent.click(getByTestId("confirm-selection"));
+
+    fireEvent.click(getByTestId("seat-28F"));
+    fireEvent.click(getByTestId("confirm-selection"));
+
+    expect(getByText(/4 seats selected for 40 Duffel house points/i));
+
     // The component is always called at least once
     // when the state is set with an offer.
-    expect(onPayloadReady).toBeCalledTimes(2);
+    expect(onPayloadReady).toBeCalledTimes(3);
   });
 });
