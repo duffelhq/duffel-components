@@ -41,7 +41,7 @@ const formatAvailableServices = (
     }
     if (service.type in formatters && formatters[service.type]) {
       const { amount, currency } = formatters[service.type]!(
-        service.total_amount,
+        +service.total_amount,
         service.total_currency,
         service
       );
@@ -52,7 +52,7 @@ const formatAvailableServices = (
         throw new Error(multipleCurrenciesErrorMessage(foundCurrencies));
       }
 
-      service.total_amount = amount;
+      service.total_amount = amount.toString();
       service.total_currency = currency;
     }
   });

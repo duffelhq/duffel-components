@@ -17,7 +17,7 @@ const formatElement = (
   if (element.type === "seat" && element.available_services.length > 0) {
     element.available_services = element.available_services.map((service) => {
       const { amount, currency } = priceFormatter(
-        service.total_amount,
+        +service.total_amount,
         service.total_currency,
         service
       );
@@ -28,7 +28,7 @@ const formatElement = (
         throw new Error(multipleCurrenciesErrorMessage(foundCurrencies));
       }
 
-      service.total_amount = amount;
+      service.total_amount = amount.toString();
       service.total_currency = currency;
       return service;
     });

@@ -35,16 +35,16 @@ export interface DuffelAncillariesPropsWithOffersAndSeatMaps
 }
 
 export type DuffelAncillariesPriceFormatterBags = (
-  amount: string,
+  amount: number,
   currency: string,
   service: OfferAvailableServiceBaggage
-) => { amount: string; currency: string };
+) => { amount: number; currency: string };
 
 export type DuffelAncillariesPriceFormatterSeats = (
-  amount: string,
+  amount: number,
   currency: string,
   service: SeatMapCabinRowSectionAvailableService
-) => { amount: string; currency: string };
+) => { amount: number; currency: string };
 
 export interface DuffelAncillariesPriceFormatters {
   bags?: DuffelAncillariesPriceFormatterBags;

@@ -129,10 +129,8 @@ describe("DuffelAncillaries", () => {
         client_key="client_key"
         priceFormatters={{
           bags: (amount) => {
-            const markup = 2;
-            const total = Number.parseFloat(amount) * markup;
             return {
-              amount: total.toFixed(2),
+              amount: amount * 2,
               currency: "Duffel house points",
             };
           },

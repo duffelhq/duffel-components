@@ -52,8 +52,8 @@ export const ExpiredOffer: Story = {
   },
 };
 
-const fiftyPercentMarkup = (amount: string, currency: string) => ({
-  amount: (Number.parseFloat(amount) * 1.5).toFixed(2),
+const fiftyPercentMarkup = (amount: number, currency: string) => ({
+  amount: amount * 1.5,
   currency,
 });
 
@@ -70,7 +70,7 @@ export const SimpleMarkup: Story = {
 };
 
 const customCurrencyMarkup = () => ({
-  amount: "100",
+  amount: 100,
   currency: "Duffel points",
 });
 
