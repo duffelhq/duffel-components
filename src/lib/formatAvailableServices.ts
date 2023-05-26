@@ -1,3 +1,4 @@
+import { memoize } from "lodash";
 import { Offer } from "src/types/Offer";
 import { DuffelAncillariesPriceFormatters } from "src/types/DuffelAncillariesProps";
 
@@ -28,8 +29,9 @@ const formatAvailableServices = (
 
   const availableServices = offer.available_services;
 
+  // We memoize the price formatters to avoid calling them more than neeeded.
   const formatters = {
-    baggage: priceFormatters?.bags,
+    baggage: priceFormatters?.bags ? memoize(priceFormatters.bags) : undefined,
   };
 
   const foundCurrencies = new Set<string>();
