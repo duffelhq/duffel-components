@@ -50,7 +50,7 @@ export interface PaymentRequirements {
    * @example
    * "2020-01-17T10:42:14"
    */
-  priceguarantee_expires_at?: string | null;
+  price_guarantee_expires_at?: string | null;
 
   /**
    * When payment is required at the time of booking this will be `true` and
