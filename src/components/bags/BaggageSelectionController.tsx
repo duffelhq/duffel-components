@@ -1,4 +1,4 @@
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
 import React from "react";
 import { OfferAvailableServiceBaggage } from "../../types/Offer";

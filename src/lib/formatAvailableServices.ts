@@ -1,8 +1,11 @@
 import { Offer } from "src/types/Offer";
 import { DuffelAncillariesPriceFormatters } from "src/types/DuffelAncillariesProps";
 
-const multipleCurrenciesErrorMessage = (currencies: Set<string>) => {
-  return `Bags must all have the same currency, but they have ${
+const multipleCurrenciesErrorMessage = (
+  label: string,
+  currencies: Set<string>
+) => {
+  return `${label} must all have the same currency, but they have ${
     currencies.size
   } different currencies (${[...currencies].join(
     ", "
@@ -35,10 +38,6 @@ const formatAvailableServices = (
   const foundCurrencies = new Set<string>();
 
   availableServices.forEach((service) => {
-    // Seats are formatted separately.
-    if (service.type === "seats") {
-      return;
-    }
     if (service.type in formatters && formatters[service.type]) {
       const { amount, currency } = formatters[service.type]!(
         +service.total_amount,
@@ -49,7 +48,9 @@ const formatAvailableServices = (
       // Guard against different currencies being passed in for different seats.
       foundCurrencies.add(currency);
       if (foundCurrencies.size > 1) {
-        throw new Error(multipleCurrenciesErrorMessage(foundCurrencies));
+        throw new Error(
+          multipleCurrenciesErrorMessage(service.type, foundCurrencies)
+        );
       }
 
       service.total_amount = amount.toString();

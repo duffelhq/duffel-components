@@ -1,10 +1,11 @@
 import { DuffelAncillaries } from "@components/DuffelAncillaries";
 import type { Meta, StoryObj } from "@storybook/react";
+import mockPassengers from "../fixtures/passengers/mock_passengers";
+
 // Use a require because the fixture is not a module.
 /* eslint-disable @typescript-eslint/no-var-requires */
 const offer = require("../fixtures/offers/off_1.json");
 const seatMaps = require("../fixtures/seat-maps/off_1.json");
-const passengers = require("../fixtures/passengers/mock_passengers.json");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 export default {
@@ -16,7 +17,7 @@ type Story = StoryObj<typeof DuffelAncillaries>;
 
 const defaultProps = {
   onPayloadReady: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
-  passengers: passengers,
+  passengers: mockPassengers,
   seat_maps: seatMaps,
 };
 

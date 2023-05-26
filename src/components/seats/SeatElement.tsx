@@ -1,4 +1,4 @@
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
 import * as React from "react";
 import {

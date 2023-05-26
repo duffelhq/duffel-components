@@ -740,9 +740,7 @@ export interface OfferAvailableServiceSeatMetadata {
   name: string;
 }
 
-export type OfferAvailableService =
-  | OfferAvailableBaggageService
-  | OfferAvailableSeatService;
+export type OfferAvailableService = OfferAvailableBaggageService;
 
 interface OfferAvailableServiceBase {
   /**

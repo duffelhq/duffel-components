@@ -1,13 +1,11 @@
 import { Offer, OfferAvailableServiceType } from "../types/Offer";
 import { isBaggageService } from "./isBaggageService";
-import { isSeatService } from "./isSeatService";
 
 const checkFunctionsMap: Record<
   OfferAvailableServiceType,
-  typeof isBaggageService | typeof isSeatService
+  typeof isBaggageService
 > = {
   baggage: isBaggageService,
-  seats: isSeatService,
 };
 
 export const hasService = (

@@ -2,13 +2,12 @@ import { DuffelAncillaries } from "@components/DuffelAncillaries";
 import { fireEvent, render } from "@testing-library/react";
 import { SeatMap } from "src/types/SeatMap";
 import { Offer } from "../types/Offer";
-import { CreateOrderPayload } from "../types/CreateOrderPayload";
 import { OnPayloadReady } from "src/types/DuffelAncillariesProps";
+import mockPassengers from "../fixtures/passengers/mock_passengers";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const MOCK_OFFER: Offer = require("../fixtures/offers/off_1.json");
 const MOCK_SEAT_MAPS: SeatMap[] = require("../fixtures/seat-maps/off_1.json");
-const MOCK_PASSENGERS: CreateOrderPayload["passengers"] = require("../fixtures/passengers/mock_passengers.json");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 describe("DuffelAncillaries", () => {
@@ -41,7 +40,7 @@ describe("DuffelAncillaries", () => {
         onPayloadReady={onPayloadReady}
         offer={MOCK_OFFER}
         seat_maps={MOCK_SEAT_MAPS}
-        passengers={MOCK_PASSENGERS}
+        passengers={mockPassengers}
         services={["bags", "seats"]}
         client_key="client_key"
       />
@@ -83,7 +82,7 @@ describe("DuffelAncillaries", () => {
         onPayloadReady={onPayloadReady}
         offer={MOCK_OFFER}
         seat_maps={MOCK_SEAT_MAPS}
-        passengers={MOCK_PASSENGERS}
+        passengers={mockPassengers}
         services={["bags", "seats"]}
         client_key="client_key"
       />
@@ -124,7 +123,7 @@ describe("DuffelAncillaries", () => {
         onPayloadReady={onPayloadReady}
         offer={MOCK_OFFER}
         seat_maps={MOCK_SEAT_MAPS}
-        passengers={MOCK_PASSENGERS}
+        passengers={mockPassengers}
         services={["bags", "seats"]}
         client_key="client_key"
         priceFormatters={{

@@ -1,23 +1,5 @@
-import { SeatMap } from "src/types/SeatMap";
-
-const getFirstAvailableService = (seatMaps: SeatMap[]) => {
-  for (const seatMap of seatMaps) {
-    for (const cabin of seatMap.cabins) {
-      for (const row of cabin.rows) {
-        for (const section of row.sections) {
-          for (const element of section.elements) {
-            if (
-              element.type === "seat" &&
-              element.available_services.length > 0
-            ) {
-              return element.available_services[0];
-            }
-          }
-        }
-      }
-    }
-  }
-};
+import { SeatMap, SeatMapCabinRowSectionElementSeat } from "src/types/SeatMap";
+import { getFirstSeatElementMatchingCriteria } from "./getFirstSeatElementMatchingCriteria";
 
 /**
  *
@@ -27,8 +9,14 @@ const getFirstAvailableService = (seatMaps: SeatMap[]) => {
  * @returns A string representing the currency of the seat maps in the offer.
  */
 const getCurrencyForSeatMaps = (seatMaps: SeatMap[]): string | undefined => {
-  const firstService = getFirstAvailableService(seatMaps);
-  return firstService?.total_currency;
+  const firstElementWithServices:
+    | SeatMapCabinRowSectionElementSeat
+    | undefined = getFirstSeatElementMatchingCriteria(
+    seatMaps,
+    (element) =>
+      element.type === "seat" && element.available_services.length > 0
+  ) as SeatMapCabinRowSectionElementSeat;
+  return firstElementWithServices?.available_services[0]?.total_currency;
 };
 
 export { getCurrencyForSeatMaps };

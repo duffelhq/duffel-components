@@ -1,4 +1,4 @@
-import { DuffelAncillariesPriceFormatterSeats } from "src/types/DuffelAncillariesProps";
+import { DuffelAncillariesPriceFormatterForSeats } from "src/types/DuffelAncillariesProps";
 import { SeatMap, SeatMapCabinRowSectionElement } from "src/types/SeatMap";
 
 const multipleCurrenciesErrorMessage = (currencies: Set<string>) => {
@@ -11,7 +11,7 @@ const multipleCurrenciesErrorMessage = (currencies: Set<string>) => {
 
 const formatElement = (
   element: SeatMapCabinRowSectionElement,
-  priceFormatter: DuffelAncillariesPriceFormatterSeats,
+  priceFormatter: DuffelAncillariesPriceFormatterForSeats,
   foundCurrencies: Set<string>
 ) => {
   if (element.type === "seat" && element.available_services.length > 0) {
@@ -38,7 +38,7 @@ const formatElement = (
 
 const formatSeatMaps = (
   seatMaps: SeatMap[],
-  priceFormatter?: DuffelAncillariesPriceFormatterSeats
+  priceFormatter?: DuffelAncillariesPriceFormatterForSeats
 ): SeatMap[] => {
   // If a custom formatter wasn't passed in, don't do anything.
   if (!priceFormatter) {

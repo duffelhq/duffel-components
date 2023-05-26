@@ -100,17 +100,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   >([]);
 
   const updateOffer = (offer: Offer) => {
-    const offerWithFormattedServices = formatAvailableServices(
-      offer,
-      props.priceFormatters
-    );
-    setOffer(offerWithFormattedServices);
     const expiryErrorMessage = "This offer has expired.";
-    if (offerIsExpired(offerWithFormattedServices)) {
+    if (offerIsExpired(offer)) {
       setError(expiryErrorMessage);
+      return;
     } else {
-      const msUntilExpiry =
-        new Date(offerWithFormattedServices.expires_at).getTime() - Date.now();
+      const msUntilExpiry = new Date(offer.expires_at).getTime() - Date.now();
 
       // Only show the expiry error message if the offer expires in less than a day,
       // to prevent buffer overflows when showing offers for fixtures, which expire in
@@ -120,6 +115,12 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         setTimeout(() => setError(expiryErrorMessage), msUntilExpiry);
       }
     }
+
+    const offerWithFormattedServices = formatAvailableServices(
+      offer,
+      props.priceFormatters
+    );
+    setOffer(offerWithFormattedServices);
   };
 
   const updateSeatMaps = (seatMaps: SeatMap[]) => {

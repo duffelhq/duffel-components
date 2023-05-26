@@ -35,7 +35,7 @@ describe("getCurrencyForServices", () => {
         },
         {
           type: "seat",
-          total_currency: "EUR",
+          total_currency: "GBP",
         },
       ],
     };
