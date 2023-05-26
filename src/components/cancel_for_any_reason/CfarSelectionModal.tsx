@@ -3,7 +3,7 @@ import {
   CreateOrderPayloadServiceInformationForCancelForAnyReason,
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
-import { OfferAvailableCancelForAnyReasonService } from "src/types/Offer";
+import { OfferAvailableServiceCancelForAnyReason } from "src/types/Offer";
 import { Modal } from "../Modal";
 import { CfarSelectionModalHeader } from "./CfarSelectionModalHeader";
 import { CfarSelectionModalBody } from "./CfarSelectionModalBody";
@@ -11,7 +11,7 @@ import { CfarSelectionModalFooter } from "./CfarSelectionModalFooter";
 
 export interface CfarSelectionModalProps {
   isOpen: boolean;
-  service: OfferAvailableCancelForAnyReasonService;
+  service: OfferAvailableServiceCancelForAnyReason;
   selectedServices: CreateOrderPayloadServices;
   onClose: (selectedServices: CreateOrderPayloadServices) => void;
 }

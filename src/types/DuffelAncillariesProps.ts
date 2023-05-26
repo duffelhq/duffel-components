@@ -2,7 +2,11 @@ import {
   CreateOrderPayload,
   CreateOrderPayloadServices,
 } from "./CreateOrderPayload";
-import { Offer, OfferAvailableServiceBaggage } from "./Offer";
+import {
+  Offer,
+  OfferAvailableServiceBaggage,
+  OfferAvailableServiceCancelForAnyReason,
+} from "./Offer";
 import { SeatMap, SeatMapCabinRowSectionAvailableService } from "./SeatMap";
 
 export type DuffelAncillariesProps =
@@ -46,9 +50,18 @@ export type DuffelAncillariesPriceFormatterForSeats = (
   service: SeatMapCabinRowSectionAvailableService
 ) => { amount: number; currency: string };
 
+export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
+  amount: number,
+  currency: string,
+  service: OfferAvailableServiceCancelForAnyReason
+) => { amount: number; currency: string };
+
 export interface DuffelAncillariesPriceFormatters {
   bags?: DuffelAncillariesPriceFormatterForBags;
   seats?: DuffelAncillariesPriceFormatterForSeats;
+
+  // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
+  // cancel_for_any_reason?: DuffelAncillariesPriceFormatterForCancelForAnyReason;
 }
 
 export interface DuffelAncillariesCommonProps {

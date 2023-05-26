@@ -1,11 +1,11 @@
 import { Icon } from "@components/Icon";
-import React, { ReactNode } from "react";
-import { OfferAvailableCancelForAnyReasonService } from "../../types/Offer";
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { ModalBody } from "@components/Modal";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import React, { ReactNode } from "react";
+import { OfferAvailableServiceCancelForAnyReason } from "../../types/Offer";
 
 export interface CfarSelectionModalBodyProps {
-  service: OfferAvailableCancelForAnyReasonService;
+  service: OfferAvailableServiceCancelForAnyReason;
 }
 
 export const CfarSelectionModalBody: React.FC<CfarSelectionModalBodyProps> = ({

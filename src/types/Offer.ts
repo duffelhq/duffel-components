@@ -185,7 +185,7 @@ export interface Offer {
    * When there are no services available, or we don't support services for the airline, this list will be empty.
    */
   available_services: Array<
-    OfferAvailableBaggageService | OfferAvailableCancelForAnyReasonService
+    OfferAvailableBaggageService | OfferAvailableServiceCancelForAnyReason
   >;
 
   /**
@@ -744,7 +744,7 @@ export interface OfferAvailableServiceSeatMetadata {
 
 export type OfferAvailableService =
   | OfferAvailableBaggageService
-  | OfferAvailableCancelForAnyReasonService;
+  | OfferAvailableServiceCancelForAnyReason;
 
 interface OfferAvailableServiceBase {
   /**
@@ -798,7 +798,7 @@ export interface OfferAvailableBaggageService
   type: "baggage";
 }
 
-export interface OfferAvailableCancelForAnyReasonService
+export interface OfferAvailableServiceCancelForAnyReason
   extends OfferAvailableServiceBase {
   /**
    * An object containing metadata about the service, like the refund amount when cancelling.

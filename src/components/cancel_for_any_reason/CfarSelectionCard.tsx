@@ -1,15 +1,15 @@
 import { AnimatedLoaderEllipsis } from "@components/AnimatedLoaderEllipsis";
 import { Stamp } from "@components/Stamp";
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { hasService } from "@lib/hasService";
 import { isCancelForAnyReasonService } from "@lib/isCancelForAnyReasonService";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
 import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
 import {
   Offer,
-  OfferAvailableCancelForAnyReasonService,
+  OfferAvailableServiceCancelForAnyReason,
 } from "src/types/Offer";
 import { Card } from "../Card";
 import { CfarSelectionModal } from "./CfarSelectionModal";
@@ -74,7 +74,7 @@ export const CfarSelectionCard: React.FC<CfarSelectionCardProps> = ({
 
       <CfarSelectionModal
         isOpen={Boolean(isOpen && offer && cfarService)}
-        service={cfarService as OfferAvailableCancelForAnyReasonService}
+        service={cfarService as OfferAvailableServiceCancelForAnyReason}
         onClose={(newSelectedServices) => {
           setIsOpen(false);
           setSelectedServices(newSelectedServices);

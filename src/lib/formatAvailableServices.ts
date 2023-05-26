@@ -1,5 +1,7 @@
 import { Offer } from "src/types/Offer";
 import { DuffelAncillariesPriceFormatters } from "src/types/DuffelAncillariesProps";
+import { isCancelForAnyReasonService } from "./isCancelForAnyReasonService";
+import { isBaggageService } from "./isBaggageService";
 
 const multipleCurrenciesErrorMessage = (
   label: string,
@@ -33,28 +35,51 @@ const formatAvailableServices = (
 
   const formatters = {
     baggage: priceFormatters?.bags,
+
+    // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
+    cancel_for_any_reason: undefined,
   };
 
   const foundCurrencies = new Set<string>();
 
   availableServices.forEach((service) => {
     if (service.type in formatters && formatters[service.type]) {
-      const { amount, currency } = formatters[service.type]!(
-        +service.total_amount,
-        service.total_currency,
-        service
-      );
+      let total_amount = service.total_amount;
+      let total_currency = service.total_currency;
+
+      if (isBaggageService(service)) {
+        const { amount, currency } = formatters[service.type]!(
+          +service.total_amount,
+          service.total_currency,
+          service
+        );
+
+        total_amount = amount.toString();
+        total_currency = currency;
+      }
+
+      // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
+      // if (isCancelForAnyReasonService(service)) {
+      //   const { amount, currency } = formatters[service.type]!(
+      //     +service.total_amount,
+      //     service.total_currency,
+      //     service
+      //   );
+
+      //   total_amount = amount.toString();
+      //   total_currency = currency;
+      // }
 
       // Guard against different currencies being passed in for different seats.
-      foundCurrencies.add(currency);
+      foundCurrencies.add(total_currency);
       if (foundCurrencies.size > 1) {
         throw new Error(
           multipleCurrenciesErrorMessage(service.type, foundCurrencies)
         );
       }
 
-      service.total_amount = amount.toString();
-      service.total_currency = currency;
+      service.total_amount = total_amount;
+      service.total_currency = total_currency;
     }
   });
   return { ...offer, available_services: availableServices };

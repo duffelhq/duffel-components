@@ -1,12 +1,12 @@
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
+import { Icon } from "@components/Icon";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
 import { CreateOrderPayloadServices } from "../../types/CreateOrderPayload";
-import { OfferAvailableCancelForAnyReasonService } from "../../types/Offer";
+import { OfferAvailableServiceCancelForAnyReason } from "../../types/Offer";
 import { Button } from "../Button";
-import { Icon } from "@components/Icon";
 
 export interface CfarSelectionModalFooterProps {
-  service: OfferAvailableCancelForAnyReasonService;
+  service: OfferAvailableServiceCancelForAnyReason;
   selectedServices: CreateOrderPayloadServices;
   onAddCfarService: () => void;
   onRemoveCfarService: () => void;

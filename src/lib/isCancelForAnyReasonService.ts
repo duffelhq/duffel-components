@@ -1,9 +1,9 @@
 import {
   OfferAvailableService,
-  OfferAvailableCancelForAnyReasonService,
+  OfferAvailableServiceCancelForAnyReason,
 } from "src/types/Offer";
 
 export const isCancelForAnyReasonService = (
   service: OfferAvailableService
-): service is OfferAvailableCancelForAnyReasonService =>
+): service is OfferAvailableServiceCancelForAnyReason =>
   service.type === "cancel_for_any_reason";
