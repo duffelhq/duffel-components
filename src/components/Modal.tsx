@@ -1,8 +1,7 @@
-import { disableBodyScroll } from "@lib/disableBodyScroll";
-import { enableBodyScroll } from "@lib/enableBodyScroll";
 import classNames from "classnames";
 import * as React from "react";
 import { IconButton } from "./IconButton";
+import { setBodyScrollability } from "@lib/setBodyScrollability";
 
 interface ModalProps {
   onClose: () => void;
@@ -12,13 +11,8 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = ({ children, onClose, isOpen }) => {
   React.useEffect(() => {
-    if (isOpen) {
-      disableBodyScroll();
-    } else {
-      enableBodyScroll();
-    }
-
-    return enableBodyScroll;
+    setBodyScrollability(!isOpen);
+    return () => setBodyScrollability(true);
   }, [isOpen]);
 
   return (
@@ -31,14 +25,6 @@ export const Modal: React.FC<ModalProps> = ({ children, onClose, isOpen }) => {
           title="Close modal"
           icon="close"
         />
-        {/* 
-        next version coming soon, when new button is ready
-        <IconButton
-          icon="close"
-          onClick={onClose}
-          title="Close modal"
-          className="modal--close-button"
-        /> */}
       </div>
     </div>
   );
