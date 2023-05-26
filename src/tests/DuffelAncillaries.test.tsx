@@ -125,7 +125,7 @@ describe("DuffelAncillaries", () => {
 
     fireEvent.click(getByTitle("Add cancel for any reason"));
 
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-cfar"));
     expect(getByText(/Added for/i));
 
     // The component is always called at least once

@@ -37,7 +37,10 @@ export const CfarSelectionModalFooter: React.FC<
       </Button>
 
       {!serviceIncluded && (
-        <Button data-testid="confirm-selection" onClick={onAddCfarService}>
+        <Button
+          data-testid="confirm-selection-for-cfar"
+          onClick={onAddCfarService}
+        >
           Add protection for {formattedPrice}
         </Button>
       )}
