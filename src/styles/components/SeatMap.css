@@ -5,8 +5,8 @@
   flex-direction: column;
   align-items: center;
   width: fit-content;
-  padding-bottom: 60px;
   min-height: 100%;
+  margin-inline: auto;
 }
 
 .seat-map__legend-container {
