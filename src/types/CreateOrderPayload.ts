@@ -86,8 +86,14 @@ export type CreateOrderPayloadServiceInformationForBags =
   CreateOrderPayloadCommonServiceInformation &
     OfferAvailableServiceBaggageMetadata;
 
-type CreateOrderPayloadServiceInformationForCancelForAnyReason =
-  OfferAvailableCancelForAnyReasonServiceMetadata &
-    CreateOrderPayloadCommonServiceInformation & {
-      type: "cancel_for_any_reason";
-    };
+export type CreateOrderPayloadServiceInformationForCancelForAnyReason = {
+  type: "cancel_for_any_reason";
+} & Pick<
+  CreateOrderPayloadCommonServiceInformation,
+  /**
+   * only using `total_amount` and `total_currency` from `CreateOrderPayloadCommonServiceInformation`
+   * because the cancel for any reason service applies to the whole order, not a specific segment or passenger
+   */
+  "total_amount" | "total_currency"
+> &
+  OfferAvailableCancelForAnyReasonServiceMetadata;

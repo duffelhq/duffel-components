@@ -1,5 +1,8 @@
 import React from "react";
-import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
+import {
+  CreateOrderPayloadServiceInformationForCancelForAnyReason,
+  CreateOrderPayloadServices,
+} from "src/types/CreateOrderPayload";
 import { OfferAvailableCancelForAnyReasonService } from "src/types/Offer";
 import { Modal } from "../Modal";
 import { CfarSelectionModalHeader } from "./CfarSelectionModalHeader";
@@ -31,7 +34,12 @@ export const CfarSelectionModal: React.FC<CfarSelectionModalProps> = ({
             {
               id: service.id,
               quantity: 1,
-              serviceInformation: service.metadata,
+              serviceInformation: {
+                type: "cancel_for_any_reason",
+                total_amount: service.total_amount,
+                total_currency: service.total_currency,
+                ...service.metadata,
+              } as CreateOrderPayloadServiceInformationForCancelForAnyReason,
             },
           ])
         }
