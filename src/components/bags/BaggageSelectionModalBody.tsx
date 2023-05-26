@@ -10,6 +10,7 @@ import {
 } from "../../types/Offer";
 import { BaggageSelectionModalBodyPassenger } from "./BaggageSelectionModalBodyPassenger";
 import { getPassengerName } from "@lib/getPassengerName";
+import { ModalBody } from "@components/Modal";
 
 export interface BaggageSelectionModalBodyProps {
   offer: Offer;
@@ -31,14 +32,7 @@ export const BaggageSelectionModalBody: React.FC<
   selectedServices,
   setSelectedServices,
 }) => (
-  <div
-    style={{
-      height: "100%",
-      padding: "0px 24px 24px",
-      overflow: "scroll",
-      borderBlock: `solid 1px var(--GREY-200)`,
-    }}
-  >
+  <ModalBody>
     {segment.passengers.map(({ passenger_id, baggages }, index) => (
       <BaggageSelectionModalBodyPassenger
         key={passenger_id}
@@ -62,5 +56,5 @@ export const BaggageSelectionModalBody: React.FC<
         setSelectedServices={setSelectedServices}
       />
     ))}
-  </div>
+  </ModalBody>
 );
