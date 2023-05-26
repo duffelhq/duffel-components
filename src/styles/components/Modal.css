@@ -81,11 +81,3 @@
     margin: auto;
   }
 }
-
-/* Handle reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .modal,
-  .modal--content {
-    transition: none;
-  }
-}
