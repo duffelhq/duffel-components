@@ -53,7 +53,9 @@ const formatAvailableServices = (
         );
 
         total_amount = amount.toString();
-        total_currency = currency;
+        if (currency) {
+          total_currency = currency;
+        }
       }
 
       // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
@@ -68,12 +70,14 @@ const formatAvailableServices = (
       //   total_currency = currency;
       // }
 
-      // Guard against different currencies being passed in for different seats.
-      foundCurrencies.add(total_currency);
-      if (foundCurrencies.size > 1) {
-        throw new Error(
-          multipleCurrenciesErrorMessage(service.type, foundCurrencies)
-        );
+      if (total_currency) {
+        // Guard against different currencies being passed in for different services.
+        foundCurrencies.add(total_currency);
+        if (foundCurrencies.size > 1) {
+          throw new Error(
+            multipleCurrenciesErrorMessage(service.type, foundCurrencies)
+          );
+        }
       }
 
       service.total_amount = total_amount;

@@ -42,13 +42,13 @@ export type DuffelAncillariesPriceFormatterForBags = (
   amount: number,
   currency: string,
   service: OfferAvailableServiceBaggage
-) => { amount: number; currency: string };
+) => { amount: number; currency?: string };
 
 export type DuffelAncillariesPriceFormatterForSeats = (
   amount: number,
   currency: string,
   service: SeatMapCabinRowSectionAvailableService
-) => { amount: number; currency: string };
+) => { amount: number; currency?: string };
 
 export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
   amount: number,

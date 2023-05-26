@@ -22,14 +22,17 @@ const formatElement = (
         service
       );
 
+      service.total_amount = amount.toString();
+
       // Guard against different currencies being passed in for different seats.
-      foundCurrencies.add(currency);
-      if (foundCurrencies.size > 1) {
-        throw new Error(multipleCurrenciesErrorMessage(foundCurrencies));
+      if (currency) {
+        service.total_currency = currency;
+        foundCurrencies.add(currency);
+        if (foundCurrencies.size > 1) {
+          throw new Error(multipleCurrenciesErrorMessage(foundCurrencies));
+        }
       }
 
-      service.total_amount = amount.toString();
-      service.total_currency = currency;
       return service;
     });
   }
