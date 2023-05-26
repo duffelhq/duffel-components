@@ -60,9 +60,9 @@ export interface DuffelAncillariesCommonProps {
 }
 
 export interface CustomStyles {
-  accentColor: string;
-  buttonCornerRadius: string;
-  fontFamily: string;
+  accentColor?: string;
+  buttonCornerRadius?: string;
+  fontFamily?: string;
 }
 
 export type OnPayloadReady = (
@@ -78,8 +78,7 @@ export interface OnPayloadReadyMetadata {
 
   baggage_services: CreateOrderPayloadServices;
   seat_services: CreateOrderPayloadServices;
+  cancel_for_any_reason_services: CreateOrderPayloadServices;
 }
 
-const bags = "bags" as const;
-const seats = "seats" as const;
-export type Ancillaries = typeof bags | typeof seats;
+export type Ancillaries = "bags" | "seats" | "cancel_for_any_reason";

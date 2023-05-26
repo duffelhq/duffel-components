@@ -1,4 +1,8 @@
-import { Offer, OfferAvailableServiceBaggageMetadata } from "./Offer";
+import {
+  Offer,
+  OfferAvailableCancelForAnyReasonServiceMetadata,
+  OfferAvailableServiceBaggageMetadata,
+} from "./Offer";
 
 export interface CreateOrderPayload {
   selected_offers: Array<Offer["id"]>;
@@ -60,7 +64,8 @@ export interface CreateOrderPayloadSeatService {
 
 type CreateOrderPayloadServiceInformation =
   | CreateOrderPayloadServiceInformationForSeats
-  | CreateOrderPayloadServiceInformationForBags;
+  | CreateOrderPayloadServiceInformationForBags
+  | CreateOrderPayloadServiceInformationForCancelForAnyReason;
 
 interface CreateOrderPayloadCommonServiceInformation {
   segmentId: string;
@@ -80,3 +85,6 @@ export interface CreateOrderPayloadServiceInformationForSeats
 export type CreateOrderPayloadServiceInformationForBags =
   CreateOrderPayloadCommonServiceInformation &
     OfferAvailableServiceBaggageMetadata;
+
+type CreateOrderPayloadServiceInformationForCancelForAnyReason =
+  OfferAvailableCancelForAnyReasonServiceMetadata;
