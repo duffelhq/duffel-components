@@ -6,7 +6,7 @@ import "../src/styles/global.css";
 // so that we can use the duffel-components styles in our stories.
 const decorators: [Decorator] = [
   (Story) => (
-    <div className="duffel-components">
+    <div className="duffel-components" style={{ padding: "24px", margin: 0 }}>
       <Story />
     </div>
   ),

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button } from "./Button";
+import { IconButton } from "./IconButton";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -29,12 +29,11 @@ export const Modal: React.FC<ModalProps> = ({
         style={modalContentStyle}
       >
         {children}
-        <Button
-          intent="INVISIBLE"
+        <IconButton
           className="modal--close-button"
           onClick={onClose}
-          text="Close"
-          size="small"
+          title="Close modal"
+          icon="close"
         />
       </div>
     </div>

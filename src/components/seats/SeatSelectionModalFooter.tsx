@@ -59,19 +59,21 @@ export const SeatSelectionModalFooter: React.FC<
         }}
       >
         <Button
-          text="Back"
           disabled={isFirstSegment}
-          intent="MUTED"
+          variant="outlined"
           onClick={() => onPreviousSegmentButtonClicked()}
-        />
+        >
+          Back
+        </Button>
+
         <Button
           data-testid="confirm-selection"
-          text={isLastSegment ? "Confirm" : "Next"}
-          intent="PRIMARY"
           onClick={() =>
             isLastSegment ? onClose() : onNextSegmentButtonClicked()
           }
-        />
+        >
+          {isLastSegment ? "Confirm" : "Next"}
+        </Button>
       </div>
     </div>
   );

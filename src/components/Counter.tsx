@@ -1,5 +1,5 @@
-import { Button } from "./Button";
 import * as React from "react";
+import { IconButton } from "./IconButton";
 
 interface CounterProps {
   id: string;
@@ -15,28 +15,26 @@ export const Counter: React.FC<CounterProps> = ({
   max,
   value,
   onChange,
-}) => {
-  return (
-    <div className="counter" id={id}>
-      <Button
-        type="button"
-        disabled={value <= min}
-        onClick={() => onChange(Math.max(value - 1, min))}
-        iconOnly="minus"
-        text="Minus"
-        intent="OUTLINED"
-        id={`${id}-minus`}
-      />
-      <div className="counter__count-label">{value}</div>
-      <Button
-        text="Plus"
-        iconOnly="add"
-        type="button"
-        disabled={value >= max}
-        onClick={() => onChange(Math.min(value + 1, max))}
-        intent="OUTLINED"
-        id={`${id}-plus`}
-      />
-    </div>
-  );
-};
+}) => (
+  <div className="counter" id={id}>
+    <IconButton
+      icon="minus"
+      title="Remove one"
+      id={`${id}-minus`}
+      data-testid={`${id}-minus`}
+      variant="outlined"
+      disabled={value <= min}
+      onClick={() => onChange(Math.max(value - 1, min))}
+    />
+    <div className="counter__count-label">{value}</div>
+    <IconButton
+      icon="add"
+      title="Add one"
+      id={`${id}-plus`}
+      data-testid={`${id}-plus`}
+      variant="outlined"
+      disabled={value >= max}
+      onClick={() => onChange(Math.min(value + 1, max))}
+    />
+  </div>
+);

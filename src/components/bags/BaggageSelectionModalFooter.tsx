@@ -59,19 +59,20 @@ export const BaggageSelectionModalFooter: React.FC<
         }}
       >
         <Button
-          text="Back"
+          variant="outlined"
           disabled={isFirstSegment}
-          intent="MUTED"
           onClick={() => onPreviousSegmentButtonClicked()}
-        />
+        >
+          Back
+        </Button>
         <Button
           data-testid="confirm-selection"
-          text={isLastSegment ? "Confirm" : "Next"}
-          intent="PRIMARY"
           onClick={() =>
             isLastSegment ? onClose() : onNextSegmentButtonClicked()
           }
-        />
+        >
+          {isLastSegment ? "Confirm" : "Next"}
+        </Button>
       </div>
     </div>
   );
