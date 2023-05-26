@@ -1,0 +1,17 @@
+.cfar-modal-footer {
+  margin-top: 16px;
+  padding: 16px 24px 24px;
+  display: grid;
+  column-gap: 12px;
+  row-gap: 12px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+/* tablet or greater  */
+@media (min-width: 768px) {
+  .cfar-modal-footer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+  }
+}
