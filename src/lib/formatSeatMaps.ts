@@ -1,4 +1,3 @@
-import { memoize } from "lodash";
 import { DuffelAncillariesPriceFormatterSeats } from "src/types/DuffelAncillariesProps";
 import { SeatMap, SeatMapCabinRowSectionElement } from "src/types/SeatMap";
 
@@ -48,20 +47,12 @@ const formatSeatMaps = (
 
   const foundCurrencies = new Set<string>();
 
-  // The nested for loop (aka pyramid of doom) is not very efficient,
-  // so we memoize the price formatter to avoid calling it more than neeeded.
-  const memoizedPriceFormatter = memoize(priceFormatter);
-
   const formattedSeatMaps: SeatMap[] = seatMaps.map((seatMap) => {
     const formattedCabins = seatMap.cabins.map((cabin) => {
       const formattedRows = cabin.rows.map((row) => {
         const formattedSections = row.sections.map((section) => {
           const formattedElements = section.elements.map((element) => {
-            return formatElement(
-              element,
-              memoizedPriceFormatter,
-              foundCurrencies
-            );
+            return formatElement(element, priceFormatter, foundCurrencies);
           });
           return { ...section, elements: formattedElements };
         });
