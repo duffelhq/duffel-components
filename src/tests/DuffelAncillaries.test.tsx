@@ -49,7 +49,7 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(getByTitle("Select extra baggage"));
 
     // There are no services for the first segment of the offer.
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-baggage"));
 
     for (const available_service of MOCK_OFFER.available_services) {
       if (available_service.type !== "baggage") continue;
@@ -61,7 +61,7 @@ describe("DuffelAncillaries", () => {
       }
     }
 
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-baggage"));
     expect(getByText(/2 bags added/i));
 
     // The component is always called at least once
@@ -92,16 +92,16 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(seatCard);
 
     fireEvent.click(getByTestId("seat-28E"));
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     fireEvent.click(getByTestId("seat-28F"));
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     fireEvent.click(getByTestId("seat-28E"));
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     fireEvent.click(getByTestId("seat-28F"));
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     expect(getByText(/4 seats selected/i));
 
@@ -150,7 +150,7 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(getByTitle("Select extra baggage"));
 
     // There are no services for the first segment of the offer.
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-baggage"));
 
     const totalPriceLabel = getByTestId("baggage-total-amount-label");
     expect(totalPriceLabel.textContent).toBe("+ 0 Duffel house points");
@@ -172,7 +172,7 @@ describe("DuffelAncillaries", () => {
     // Price should now have been updated.
     expect(totalPriceLabel.textContent).toBe("+ 160 Duffel house points");
 
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-baggage"));
     expect(getByText(/2 bags added for 160 Duffel house points/i));
 
     /**
@@ -183,16 +183,16 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(seatCard);
 
     fireEvent.click(getByTestId("seat-28E"));
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     fireEvent.click(getByTestId("seat-28F"));
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     fireEvent.click(getByTestId("seat-28E"));
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     fireEvent.click(getByTestId("seat-28F"));
-    fireEvent.click(getByTestId("confirm-selection"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     expect(getByText(/4 seats selected for 40 Duffel house points/i));
 
