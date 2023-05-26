@@ -11,6 +11,8 @@ import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
 import { Modal } from "../Modal";
+import { hasService } from "@lib/hasService";
+import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 
 export interface BaggageSelectionModalProps {
   offer: Offer;
@@ -36,6 +38,11 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
   const passengerMapById = getPassengerMapById(passengers);
   const servicePricesMap = getServicePriceMapById(offer.available_services);
 
+  let currencyToUse = offer.base_currency;
+  if (hasService(offer, "baggage")) {
+    currencyToUse = getCurrencyForServices(offer, "baggage");
+  }
+
   return (
     <Modal onClose={() => onClose(selectedServicesState)}>
       <BaggageSelectionModalHeader
@@ -52,7 +59,7 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
         setSelectedServices={setSelectedServicesState}
       />
       <BaggageSelectionModalFooter
-        currency={offer.total_currency}
+        currency={currencyToUse}
         selectedServices={selectedServicesState}
         servicePrices={servicePricesMap}
         isFirstSegment={currentSegmentIndex === 0}

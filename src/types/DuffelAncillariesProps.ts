@@ -2,8 +2,8 @@ import {
   CreateOrderPayload,
   CreateOrderPayloadServices,
 } from "./CreateOrderPayload";
-import { Offer } from "./Offer";
-import { SeatMap } from "./SeatMap";
+import { Offer, OfferAvailableServiceBaggage } from "./Offer";
+import { SeatMap, SeatMapCabinRowSectionAvailableService } from "./SeatMap";
 
 export type DuffelAncillariesProps =
   | DuffelAncillariesPropsWithOfferIdForFixture
@@ -34,11 +34,29 @@ export interface DuffelAncillariesPropsWithOffersAndSeatMaps
   seat_maps: SeatMap[];
 }
 
+export type DuffelAncillariesPriceFormatterForBags = (
+  amount: number,
+  currency: string,
+  service: OfferAvailableServiceBaggage
+) => { amount: number; currency: string };
+
+export type DuffelAncillariesPriceFormatterForSeats = (
+  amount: number,
+  currency: string,
+  service: SeatMapCabinRowSectionAvailableService
+) => { amount: number; currency: string };
+
+export interface DuffelAncillariesPriceFormatters {
+  bags?: DuffelAncillariesPriceFormatterForBags;
+  seats?: DuffelAncillariesPriceFormatterForSeats;
+}
+
 export interface DuffelAncillariesCommonProps {
   styles?: CustomStyles;
   onPayloadReady: OnPayloadReady;
   passengers: CreateOrderPayload["passengers"];
   services: Ancillaries[];
+  priceFormatters?: DuffelAncillariesPriceFormatters;
 }
 
 export interface CustomStyles {

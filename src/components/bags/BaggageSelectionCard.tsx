@@ -1,8 +1,9 @@
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { hasService } from "@lib/hasService";
 import { withPlural } from "@lib/withPlural";
+import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import React from "react";
 import {
   CreateOrderPayload,
@@ -36,8 +37,14 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
   const isBaggageAdded = totalQuantity > 0;
 
   const totalAmount = getTotalAmountForServices(offer!, selectedServices);
+
+  let currencyToUse = offer?.base_currency || "";
+  if (containsBaggageService) {
+    currencyToUse = getCurrencyForServices(offer!, "baggage");
+  }
+
   const totalAmountFormatted = offer
-    ? moneyStringFormatter(offer?.base_currency)(totalAmount)
+    ? moneyStringFormatter(currencyToUse)(totalAmount)
     : "0";
 
   const copy =

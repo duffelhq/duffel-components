@@ -1,3 +1,4 @@
+import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
 import { getPassengerBySegmentList } from "@lib/getPassengerBySegmentList";
 import { getPassengerMapById } from "@lib/getPassengerMapById";
 import { getPassengerName } from "@lib/getPassengerName";
@@ -92,6 +93,9 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     setSelectedServicesState(newSeatServices);
   };
 
+  const currencyToUse =
+    getCurrencyForSeatMaps(seatMaps) ?? offer.total_currency;
+
   return (
     <Modal onClose={() => onClose(selectedServicesState)}>
       <SeatSelectionModalHeader
@@ -115,7 +119,7 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
       />
       <SeatSelectionModalFooter
         seatMaps={seatMaps}
-        currency={offer.total_currency}
+        currency={currencyToUse}
         selectedServices={selectedServicesState}
         servicePrices={servicePricesMap}
         isFirstSegment={currentPermutationIndex === 0}

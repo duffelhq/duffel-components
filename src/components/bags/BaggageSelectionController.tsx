@@ -1,4 +1,4 @@
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
 import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
 import React from "react";
@@ -27,6 +27,7 @@ export const BaggageSelectionController: React.FC<
 }) => {
   const serviceName =
     availableService.metadata.type === "carry_on" ? "Cabin bag" : "Checked bag";
+
   const servicePrice = moneyStringFormatter(availableService.total_currency)(
     +availableService.total_amount
   );
@@ -61,7 +62,12 @@ export const BaggageSelectionController: React.FC<
           >
             •
           </span>
-          <span className="p2--semibold">{servicePrice}</span>
+          <span
+            className="p2--semibold"
+            data-testid={`price-label--${availableService.id}--${passengerId}`}
+          >
+            {servicePrice}
+          </span>
         </p>
         <p
           style={{ margin: 0, color: "var(--GREY-600)" }}

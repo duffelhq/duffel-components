@@ -3,7 +3,7 @@ import {
   SeatMapCabinRowSectionAvailableService,
   SeatMapCabinRowSectionElementSeat,
 } from "src/types/SeatMap";
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 
 export interface SeatInfoProps {
   seat: SeatMapCabinRowSectionElementSeat | null;

@@ -1,4 +1,4 @@
-import { moneyStringFormatter } from "@lib/formatConvertedCurrency";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { ServicePriceMapById } from "@lib/getServicePriceMapById";
 import { getTotalAmountForServicesWithPriceMap } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
@@ -45,7 +45,9 @@ export const BaggageSelectionModalFooter: React.FC<
         <div>
           Price for {withPlural(totalQuantity, "extra bag", "extra bags")}
         </div>
-        <div className="h3--semibold">+ {totalAmountLabel}</div>
+        <div className="h3--semibold" data-testid="baggage-total-amount-label">
+          + {totalAmountLabel}
+        </div>
       </div>
 
       <div

@@ -1,4 +1,5 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
+import { formatAvailableServices } from "@lib/formatAvailableServices";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
@@ -26,6 +27,7 @@ import {
   BaggageSelectionCardProps,
 } from "./bags/BaggageSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
+import { formatSeatMaps } from "@lib/formatSeatMaps";
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
@@ -98,10 +100,10 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   >([]);
 
   const updateOffer = (offer: Offer) => {
-    setOffer(offer);
     const expiryErrorMessage = "This offer has expired.";
     if (offerIsExpired(offer)) {
       setError(expiryErrorMessage);
+      return;
     } else {
       const msUntilExpiry = new Date(offer.expires_at).getTime() - Date.now();
 
@@ -113,6 +115,20 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         setTimeout(() => setError(expiryErrorMessage), msUntilExpiry);
       }
     }
+
+    const offerWithFormattedServices = formatAvailableServices(
+      offer,
+      props.priceFormatters
+    );
+    setOffer(offerWithFormattedServices);
+  };
+
+  const updateSeatMaps = (seatMaps: SeatMap[]) => {
+    const formattedSeatMaps = formatSeatMaps(
+      seatMaps,
+      props.priceFormatters?.seats
+    );
+    setSeatMaps(formattedSeatMaps);
   };
 
   React.useEffect(() => {
@@ -154,7 +170,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         !isPropsWithOfferIdForFixture ? props.client_key : null,
         setError,
         setIsSeatMapLoading,
-        setSeatMaps
+        updateSeatMaps
       );
     }
 
@@ -164,7 +180,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
     if (isPropsWithOfferAndSeatMaps) {
       updateOffer(props.offer);
-      setSeatMaps(props.seat_maps);
+      updateSeatMaps(props.seat_maps);
     }
   }, [
     // `as any` is needed here because the list

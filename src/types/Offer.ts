@@ -177,7 +177,7 @@ export interface Offer {
    * The types of identity documents that may be provided for the passengers when creating an order based on this offer.
    * Currently, the only supported type is `passport`. If this is `[]`, then you must not provide identity documents.
    */
-  allowed_passenger_dentity_documen_types: PassengerIdentityDocumentType[];
+  allowed_passenger_identity_document_types: PassengerIdentityDocumentType[];
 
   /**
    * The services that can be booked along with the offer but are not included by default, for example an additional checked bag.
@@ -740,9 +740,7 @@ export interface OfferAvailableServiceSeatMetadata {
   name: string;
 }
 
-export type OfferAvailableService =
-  | OfferAvailableBaggageService
-  | OfferAvailableSeatService;
+export type OfferAvailableService = OfferAvailableBaggageService;
 
 interface OfferAvailableServiceBase {
   /**
