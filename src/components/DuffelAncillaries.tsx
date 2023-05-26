@@ -1,9 +1,9 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import { formatAvailableServices } from "@lib/formatAvailableServices";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
+import { offerIsExpired } from "@lib/offerIsExpired";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
-import { offerIsExpired } from "@lib/offerIsExpired";
 import {
   areDuffelAncillariesPropsValid,
   isDuffelAncillariesPropsWithClientKeyAndOfferId,
@@ -12,20 +12,18 @@ import {
   isDuffelAncillariesPropsWithOfferIdForFixture,
 } from "@lib/validateProps";
 import * as React from "react";
-import { Offer } from "src/types/Offer";
-import { CreateOrderPayloadPassengers } from "src/types/CreateOrderPayload";
 import {
-  Ancillaries,
-  DuffelAncillariesProps,
-} from "src/types/DuffelAncillariesProps";
+  CreateOrderPayloadPassengers,
+  CreateOrderPayloadService,
+} from "src/types/CreateOrderPayload";
+import { DuffelAncillariesProps } from "src/types/DuffelAncillariesProps";
+import { Offer } from "src/types/Offer";
 import { SeatMap } from "src/types/SeatMap";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
-import {
-  BaggageSelectionCard,
-  BaggageSelectionCardProps,
-} from "./bags/BaggageSelectionCard";
+import { BaggageSelectionCard } from "./bags/BaggageSelectionCard";
+import { CfarSelectionCard } from "./cancel_for_any_reason/CfarSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
 import { formatSeatMaps } from "@lib/formatSeatMaps";
 
@@ -51,8 +49,6 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     );
   }
 
-  const ancillariesToShow = new Set<Ancillaries>(props.services);
-
   const isPropsWithOfferIdForFixture =
     isDuffelAncillariesPropsWithOfferIdForFixture(props);
 
@@ -66,7 +62,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     isDuffelAncillariesPropsWithOfferAndClientKey(props);
 
   const shouldRetrieveSeatMaps =
-    ancillariesToShow.has("seats") &&
+    props.services.includes("seats") &&
     !("seat_maps" in props) &&
     (isPropsWithOfferIdForFixture ||
       isPropsWithClientKeyAndOfferId ||
@@ -92,12 +88,15 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
   const [error, setError] = React.useState<null | string>(null);
 
-  const [baggageSelectedServices, setBaggageSelectedServices] = React.useState<
-    BaggageSelectionCardProps["selectedServices"]
-  >([]);
-  const [seatSelectedServices, setSeatSelectedServices] = React.useState<
-    BaggageSelectionCardProps["selectedServices"]
-  >([]);
+  const [baggageSelectedServices, setBaggageSelectedServices] = React.useState(
+    new Array<CreateOrderPayloadService>()
+  );
+  const [seatSelectedServices, setSeatSelectedServices] = React.useState(
+    new Array<CreateOrderPayloadService>()
+  );
+  const [cfarSelectedServices, setCfarSelectedServices] = React.useState(
+    new Array<CreateOrderPayloadService>()
+  );
 
   const updateOffer = (offer: Offer) => {
     const expiryErrorMessage = "This offer has expired.";
@@ -200,6 +199,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     const createOrderPayload = compileCreateOrderPayload({
       baggageSelectedServices,
       seatSelectedServices,
+      cfarSelectedServices,
       offer,
       passengers,
       seatMaps,
@@ -213,9 +213,10 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         offer_tax_currency: offer.tax_currency,
         baggage_services: baggageSelectedServices,
         seat_services: seatSelectedServices,
+        cancel_for_any_reason_services: cfarSelectedServices,
       });
     }
-  }, [baggageSelectedServices, seatSelectedServices]);
+  }, [baggageSelectedServices, seatSelectedServices, cfarSelectedServices]);
 
   if (!areDuffelAncillariesPropsValid(props)) {
     return null;
@@ -223,7 +224,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
   const nonIdealStateHeight = `${
     // 72 (card height) + 32 gap between cards
-    72 * ancillariesToShow.size + 32 * (ancillariesToShow.size - 1)
+    72 * props.services.length + 32 * (props.services.length - 1)
   }px`;
 
   const duffelComponentsStyle = {
@@ -260,6 +261,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
                 isSeatMapLoading,
                 baggageSelectedServices,
                 seatSelectedServices,
+                cfarSelectedServices,
                 offer,
                 seatMaps,
                 error,
@@ -274,26 +276,44 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
             />
           )}
 
-          {!error && ancillariesToShow.has("bags") && (
-            <BaggageSelectionCard
-              isLoading={isOfferLoading}
-              offer={offer}
-              passengers={passengers}
-              selectedServices={baggageSelectedServices}
-              setSelectedServices={setBaggageSelectedServices}
-            />
-          )}
+          {!error &&
+            props.services.map((ancillaryName) => {
+              if (ancillaryName === "bags")
+                return (
+                  <BaggageSelectionCard
+                    key="bags"
+                    isLoading={isOfferLoading}
+                    offer={offer}
+                    passengers={passengers}
+                    selectedServices={baggageSelectedServices}
+                    setSelectedServices={setBaggageSelectedServices}
+                  />
+                );
 
-          {!error && ancillariesToShow.has("seats") && (
-            <SeatSelectionCard
-              isLoading={isOfferLoading || isSeatMapLoading}
-              seatMaps={seatMaps}
-              offer={offer}
-              passengers={passengers}
-              selectedServices={seatSelectedServices}
-              setSelectedServices={setSeatSelectedServices}
-            />
-          )}
+              if (ancillaryName === "seats")
+                return (
+                  <SeatSelectionCard
+                    key="seats"
+                    isLoading={isOfferLoading || isSeatMapLoading}
+                    seatMaps={seatMaps}
+                    offer={offer}
+                    passengers={passengers}
+                    selectedServices={seatSelectedServices}
+                    setSelectedServices={setSeatSelectedServices}
+                  />
+                );
+
+              if (ancillaryName === "cancel_for_any_reason")
+                return (
+                  <CfarSelectionCard
+                    key="cancel_for_any_reason"
+                    isLoading={isOfferLoading}
+                    offer={offer}
+                    selectedServices={cfarSelectedServices}
+                    setSelectedServices={setCfarSelectedServices}
+                  />
+                );
+            })}
         </ErrorBoundary>
       </div>
     </>
