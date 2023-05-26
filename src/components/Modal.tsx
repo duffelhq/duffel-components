@@ -20,10 +20,10 @@ export const Modal: React.FC<ModalProps> = ({ children, onClose, isOpen }) => {
       <div role="presentation" className={"modal--content"}>
         {children}
         <IconButton
-          className="modal--close-button"
+          icon="close"
           onClick={onClose}
           title="Close modal"
-          icon="close"
+          className="modal--close-button"
         />
       </div>
     </div>
