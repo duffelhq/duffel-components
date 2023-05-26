@@ -1,14 +1,27 @@
 import { DuffelAncillaries } from "@components/DuffelAncillaries";
 import { fireEvent, render } from "@testing-library/react";
+import mockPassengers from "src/fixtures/passengers/mock_passengers";
+import {
+  DuffelAncillariesPropsWithOffersAndSeatMaps,
+  OnPayloadReady,
+} from "src/types/DuffelAncillariesProps";
 import { SeatMap } from "src/types/SeatMap";
 import { Offer } from "../types/Offer";
-import { OnPayloadReady } from "src/types/DuffelAncillariesProps";
-import mockPassengers from "../fixtures/passengers/mock_passengers";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const MOCK_OFFER: Offer = require("../fixtures/offers/off_1.json");
 const MOCK_SEAT_MAPS: SeatMap[] = require("../fixtures/seat-maps/off_1.json");
 /* eslint-enable @typescript-eslint/no-var-requires */
+
+const defaultProps: Omit<
+  DuffelAncillariesPropsWithOffersAndSeatMaps,
+  "onPayloadReady"
+> = {
+  offer: MOCK_OFFER,
+  seat_maps: MOCK_SEAT_MAPS,
+  passengers: mockPassengers,
+  services: ["bags", "seats", "cancel_for_any_reason"],
+};
 
 describe("DuffelAncillaries", () => {
   test("should throw an error when services is empty", () => {
@@ -36,14 +49,7 @@ describe("DuffelAncillaries", () => {
       }
     });
     const { getByText, getByTestId, getByTitle } = render(
-      <DuffelAncillaries
-        onPayloadReady={onPayloadReady}
-        offer={MOCK_OFFER}
-        seat_maps={MOCK_SEAT_MAPS}
-        passengers={mockPassengers}
-        services={["bags", "seats"]}
-        client_key="client_key"
-      />
+      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />
     );
 
     fireEvent.click(getByTitle("Select extra baggage"));
@@ -78,14 +84,7 @@ describe("DuffelAncillaries", () => {
       }
     });
     const { getByText, getByTestId, getByTitle } = render(
-      <DuffelAncillaries
-        onPayloadReady={onPayloadReady}
-        offer={MOCK_OFFER}
-        seat_maps={MOCK_SEAT_MAPS}
-        passengers={mockPassengers}
-        services={["bags", "seats"]}
-        client_key="client_key"
-      />
+      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />
     );
 
     const seatCard = getByTitle("Select seats");
@@ -110,6 +109,30 @@ describe("DuffelAncillaries", () => {
     expect(onPayloadReady).toBeCalledTimes(2);
   });
 
+  test("should select CFAR service", () => {
+    let onPayloadReadyCallCount = 0;
+    const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
+      console.log({ data, metadata });
+      if (++onPayloadReadyCallCount === 2) {
+        expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
+        expect(metadata.cancel_for_any_reason_services.length).toBe(1);
+        expect(data.services.length).toBe(1);
+      }
+    });
+    const { getByText, getByTestId, getByTitle } = render(
+      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />
+    );
+
+    fireEvent.click(getByTitle("Add cancel for any reason"));
+
+    fireEvent.click(getByTestId("confirm-selection"));
+    expect(getByText(/Added for/i));
+
+    // The component is always called at least once
+    // when the state is set with an offer.
+    expect(onPayloadReady).toBeCalledTimes(2);
+  });
+
   test("should work with custom markup and currency", () => {
     let onPayloadReadyCallCount = 0;
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
@@ -120,12 +143,8 @@ describe("DuffelAncillaries", () => {
     });
     const { getByText, getByTestId, getByTitle } = render(
       <DuffelAncillaries
+        {...defaultProps}
         onPayloadReady={onPayloadReady}
-        offer={MOCK_OFFER}
-        seat_maps={MOCK_SEAT_MAPS}
-        passengers={mockPassengers}
-        services={["bags", "seats"]}
-        client_key="client_key"
         priceFormatters={{
           bags: (amount) => {
             return {

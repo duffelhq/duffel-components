@@ -1,11 +1,14 @@
 import { DuffelAncillaries } from "@components/DuffelAncillaries";
 import type { Meta, StoryObj } from "@storybook/react";
+import { DuffelAncillariesPropsWithOffersAndSeatMaps } from "src/types/DuffelAncillariesProps";
+import { Offer } from "src/types/Offer";
+import { SeatMap } from "src/types/SeatMap";
 import mockPassengers from "../fixtures/passengers/mock_passengers";
 
 // Use a require because the fixture is not a module.
 /* eslint-disable @typescript-eslint/no-var-requires */
-const offer = require("../fixtures/offers/off_1.json");
-const seatMaps = require("../fixtures/seat-maps/off_1.json");
+const offer: Offer = require("../fixtures/offers/off_1.json");
+const seat_maps: SeatMap[] = require("../fixtures/seat-maps/off_1.json");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 export default {
@@ -13,43 +16,57 @@ export default {
   component: DuffelAncillaries,
 } as Meta;
 
-type Story = StoryObj<typeof DuffelAncillaries>;
+type DuffelAncillariesStory = StoryObj<typeof DuffelAncillaries>;
 
-const defaultProps = {
+const defaultProps: Pick<
+  DuffelAncillariesPropsWithOffersAndSeatMaps,
+  "onPayloadReady" | "passengers" | "offer" | "seat_maps" | "services"
+> = {
   onPayloadReady: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
+  offer,
+  seat_maps,
   passengers: mockPassengers,
-  seat_maps: seatMaps,
+  services: ["bags", "seats", "cancel_for_any_reason"],
 };
 
-export const BagsAndSeats: Story = {
+export const AllServices: DuffelAncillariesStory = {
+  args: defaultProps,
+};
+
+export const JustBags: DuffelAncillariesStory = {
   args: {
-    services: ["bags", "seats"],
-    offer: offer,
     ...defaultProps,
-  },
-};
-
-export const JustBags: Story = {
-  args: {
     services: ["bags"],
-    offer: offer,
-    ...defaultProps,
   },
 };
 
-export const JustSeats: Story = {
+export const JustSeats: DuffelAncillariesStory = {
   args: {
+    ...defaultProps,
     services: ["seats"],
-    offer: offer,
-    ...defaultProps,
   },
 };
 
-export const ExpiredOffer: Story = {
+export const JustCFAR: DuffelAncillariesStory = {
   args: {
-    services: ["bags", "seats"],
-    offer: { ...offer, expires_at: "2023-04-19T00:00:00Z" },
     ...defaultProps,
+    services: ["cancel_for_any_reason"],
+  },
+};
+
+export const ExpiredOffer: DuffelAncillariesStory = {
+  args: {
+    ...defaultProps,
+    offer: { ...offer, expires_at: "2023-04-19T00:00:00Z" },
+  },
+};
+
+export const WithCustomStyles: DuffelAncillariesStory = {
+  args: {
+    ...defaultProps,
+    styles: {
+      accentColor: "29, 78, 216",
+    },
   },
 };
 
@@ -58,15 +75,13 @@ const fiftyPercentMarkup = (amount: number, currency: string) => ({
   currency,
 });
 
-export const SimpleMarkup: Story = {
+export const SimpleMarkup: DuffelAncillariesStory = {
   args: {
+    ...defaultProps,
     priceFormatters: {
       bags: fiftyPercentMarkup,
       seats: fiftyPercentMarkup,
     },
-    services: ["bags", "seats"],
-    offer: offer,
-    ...defaultProps,
   },
 };
 
@@ -75,14 +90,12 @@ const customCurrencyMarkup = () => ({
   currency: "Duffel points",
 });
 
-export const MarkupWithCustomCurrency: Story = {
+export const MarkupWithCustomCurrency: DuffelAncillariesStory = {
   args: {
+    ...defaultProps,
     priceFormatters: {
       bags: customCurrencyMarkup,
       seats: customCurrencyMarkup,
     },
-    services: ["bags", "seats"],
-    offer: offer,
-    ...defaultProps,
   },
 };
