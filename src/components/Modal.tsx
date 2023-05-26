@@ -19,6 +19,7 @@ export const Modal: React.FC<ModalProps> = ({ children, onClose, isOpen }) => {
     <div className={classNames("modal", isOpen && "modal--open")}>
       <div role="presentation" className={"modal--content"}>
         {children}
+
         <IconButton
           icon="close"
           onClick={onClose}
