@@ -1,23 +1,20 @@
+import { getPassengerInitials } from "@lib/getPassengerInitials";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
 import * as React from "react";
-import {
-  CreateOrderPayloadService,
-  CreateOrderPayloadServiceInformationForSeats,
-} from "src/types/CreateOrderPayload";
+import { CreateOrderPayloadSeatService } from "src/types/CreateOrderPayload";
 import { SeatMapCabinRowSectionElementSeat } from "src/types/SeatMap";
 import { Icon } from "../Icon";
 import { SeatInfo } from "./SeatInfo";
 import { SeatUnavailable } from "./SeatUnavailable";
-import { getPassengerInitials } from "@lib/getPassengerInitials";
 
 interface SeatElementProps {
   element: SeatMapCabinRowSectionElementSeat;
   currentSegmentId: string;
   currentPassengerId: string;
   currentPassengerName: string;
-  onSeatToggled: (seatService: CreateOrderPayloadService) => void;
-  selectedServicesMap: Record<string, CreateOrderPayloadService>;
+  onSeatToggled: (seatService: CreateOrderPayloadSeatService) => void;
+  selectedServicesMap: Record<string, CreateOrderPayloadSeatService>;
 }
 
 export const SeatElement: React.FC<SeatElementProps> = ({
@@ -35,9 +32,7 @@ export const SeatElement: React.FC<SeatElementProps> = ({
 
   const selectedServiceFromMap = Object.values(selectedServicesMap).find(
     (service) =>
-      (
-        service.serviceInformation as CreateOrderPayloadServiceInformationForSeats
-      ).designator === element.designator &&
+      service.serviceInformation?.designator === element.designator &&
       service.serviceInformation?.segmentId === currentSegmentId
   );
 
@@ -86,7 +81,6 @@ export const SeatElement: React.FC<SeatElementProps> = ({
       <button
         data-testid={`seat-${element.designator}`}
         id={element.designator}
-        type="button"
         className={seatClassName}
         onClick={() => {
           if (!isActionable) return;

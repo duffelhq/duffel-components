@@ -7,8 +7,7 @@ import { getServicePriceMapById } from "@lib/getServicePriceMapById";
 import React from "react";
 import {
   CreateOrderPayload,
-  CreateOrderPayloadService,
-  CreateOrderPayloadServices,
+  CreateOrderPayloadSeatService,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
 import { SeatMap } from "src/types/SeatMap";
@@ -18,14 +17,16 @@ import { SeatSelectionModalFooter } from "./SeatSelectionModalFooter";
 import { SeatSelectionModalHeader } from "./SeatSelectionModalHeader";
 
 export interface SeatSelectionModalProps {
-  offer: Offer;
+  isOpen: boolean;
+  offer?: Offer;
+  seatMaps?: SeatMap[];
+  selectedServices: CreateOrderPayloadSeatService[];
   passengers: CreateOrderPayload["passengers"];
-  seatMaps: SeatMap[];
-  selectedServices: CreateOrderPayloadServices;
-  onClose: (selectedServices: CreateOrderPayloadServices) => void;
+  onClose: (selectedServices: CreateOrderPayloadSeatService[]) => void;
 }
 
 export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
+  isOpen,
   offer,
   passengers,
   seatMaps,
@@ -36,11 +37,13 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     React.useState(0);
 
   const [selectedServicesState, setSelectedServicesState] =
-    React.useState<CreateOrderPayloadServices>(selectedServices);
+    React.useState<CreateOrderPayloadSeatService[]>(selectedServices);
   const selectedServicesStateMap = selectedServicesState.reduce(
     (all, service) => ({ ...all, [service.id]: service }),
-    {} as Record<string, CreateOrderPayloadService>
+    {} as Record<string, CreateOrderPayloadSeatService>
   );
+
+  if (!offer || !seatMaps) return null;
 
   const segments = getSegmentList(offer);
   const passengerMapById = getPassengerMapById(passengers);
@@ -64,8 +67,8 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     currentPassengerIndex + 1
   );
 
-  const onSeatToggle = (seatServiceToToggle: CreateOrderPayloadService) => {
-    let newSeatServices = new Array<CreateOrderPayloadService>();
+  const onSeatToggle = (seatServiceToToggle: CreateOrderPayloadSeatService) => {
+    let newSeatServices = new Array<CreateOrderPayloadSeatService>();
 
     for (const selectedServiceFromState of selectedServicesState) {
       const hasClickedSeatToToggleOff =
@@ -97,7 +100,7 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     getCurrencyForSeatMaps(seatMaps) ?? offer.total_currency;
 
   return (
-    <Modal onClose={() => onClose(selectedServicesState)}>
+    <Modal isOpen={isOpen} onClose={() => onClose(selectedServicesState)}>
       <SeatSelectionModalHeader
         segmentAndPassengerPermutationsCount={
           segmentAndPassengerPermutations.length

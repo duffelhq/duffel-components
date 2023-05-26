@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import { CreateOrderPayloadService } from "src/types/CreateOrderPayload";
+import { CreateOrderPayloadSeatService } from "src/types/CreateOrderPayload";
 import { SeatMapCabinRow, SeatMapCabinRowSection } from "src/types/SeatMap";
 import { Element } from "./Element";
 import { EmptyElement } from "./EmptyElement";
@@ -11,8 +11,8 @@ interface RowSectionProps {
   hasWings: boolean;
   section: SeatMapCabinRowSection;
   sectionIndex: number;
-  selectedServicesMap: Record<string, CreateOrderPayloadService>;
-  onSeatToggled: (seatService: CreateOrderPayloadService) => void;
+  selectedServicesMap: Record<string, CreateOrderPayloadSeatService>;
+  onSeatToggled: (seatService: CreateOrderPayloadSeatService) => void;
   currentPassengerId: string;
   currentPassengerName: string;
   currentSegmentId: string;

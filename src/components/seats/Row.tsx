@@ -1,14 +1,14 @@
 import { getRowNumber } from "@lib/getRowNumber";
 import * as React from "react";
-import { CreateOrderPayloadService } from "src/types/CreateOrderPayload";
+import { CreateOrderPayloadSeatService } from "src/types/CreateOrderPayload";
 import { SeatMapCabinRow } from "src/types/SeatMap";
 import { RowSection } from "./RowSection";
 
 export interface RowProps {
   row: SeatMapCabinRow;
   hasWings: boolean;
-  selectedServicesMap: Record<string, CreateOrderPayloadService>;
-  onSeatToggled: (seatService: CreateOrderPayloadService) => void;
+  selectedServicesMap: Record<string, CreateOrderPayloadSeatService>;
+  onSeatToggled: (seatService: CreateOrderPayloadSeatService) => void;
   currentPassengerId: string;
   currentPassengerName: string;
   currentSegmentId: string;

@@ -45,6 +45,19 @@ export interface CreateOrderPayloadService {
   serviceInformation?: CreateOrderPayloadServiceInformation;
 }
 
+export interface CreateOrderPayloadSeatService {
+  id: string;
+  quantity: number;
+
+  /** `serviceInformation` is meant for:
+   * 1. internal use within the Duffel Ancillaries component, so it is convenient to augument selected services with data about it.
+   * 2. When `onPayloadReady` is ready, we'll return selected bags and seat services along with the `serviceInformation` to allow consumer to enrich their price breakdown.
+   *
+   * Note: `serviceInformation` is not known by the Duffel API.
+   */
+  serviceInformation?: CreateOrderPayloadServiceInformationForSeats;
+}
+
 type CreateOrderPayloadServiceInformation =
   | CreateOrderPayloadServiceInformationForSeats
   | CreateOrderPayloadServiceInformationForBags;

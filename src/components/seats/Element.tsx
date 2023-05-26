@@ -1,18 +1,18 @@
+import { isSeatElement } from "@lib/isSeatElement";
 import * as React from "react";
+import { CreateOrderPayloadSeatService } from "src/types/CreateOrderPayload";
 import { SeatMapCabinRowSectionElement } from "src/types/SeatMap";
 import { Amenity } from "./Amenity";
 import { EmptyElement } from "./EmptyElement";
 import { ExitElement } from "./ExitElement";
 import { SeatElement } from "./SeatElement";
-import { CreateOrderPayloadService } from "src/types/CreateOrderPayload";
-import { isSeatElement } from "@lib/isSeatElement";
 
 interface ElementProps {
   sectionIndex: number;
   elementIndex: number;
   element: SeatMapCabinRowSectionElement;
-  selectedServicesMap: Record<string, CreateOrderPayloadService>;
-  onSeatToggled: (seatService: CreateOrderPayloadService) => void;
+  selectedServicesMap: Record<string, CreateOrderPayloadSeatService>;
+  onSeatToggled: (seatService: CreateOrderPayloadSeatService) => void;
   currentPassengerId: string;
   currentSegmentId: string;
   currentPassengerName: string;
