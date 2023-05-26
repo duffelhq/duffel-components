@@ -87,4 +87,7 @@ export type CreateOrderPayloadServiceInformationForBags =
     OfferAvailableServiceBaggageMetadata;
 
 type CreateOrderPayloadServiceInformationForCancelForAnyReason =
-  OfferAvailableCancelForAnyReasonServiceMetadata;
+  OfferAvailableCancelForAnyReasonServiceMetadata &
+    CreateOrderPayloadCommonServiceInformation & {
+      type: "cancel_for_any_reason";
+    };
