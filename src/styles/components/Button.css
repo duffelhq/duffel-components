@@ -1,168 +1,136 @@
-.duffel-button {
-  --BUTTON-BASE-COLOR: rgb(var(--ACCENT));
-  --BUTTON-HOVER-COLOR: rgba(var(--ACCENT), var(--ACCENT-LIGHT-300));
-  --BUTTON-FONT-SIZE: var(--FONT-SIZES-C1);
-  --BUTTON-ICON-SIZE: 24px;
-  --BUTTON-SPACING: 2px 40px;
-  --BUTTON-ICON-SPACING: 8px;
-  --BUTTON-ICON-MARGIN: 12px;
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
 
-  appearance: none;
-  -webkit-appearance: none;
-  align-items: center;
-  background-color: inherit;
-  border: 2px solid var(--BUTTON-BASE-COLOR);
-  border-radius: var(--BUTTON-RADIUS);
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: button;
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.button {
+  --button-color: white;
+
   box-sizing: border-box;
-  color: inherit;
+  padding: 6px 16px;
+  border-radius: 6px;
   cursor: pointer;
-  display: flex;
-  font-family: var(--FONT-FAMILY);
-  font-size: inherit;
-  font-weight: normal;
-  line-height: 1;
-  margin: 0;
-  padding: var(--BUTTON-SPACING);
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  user-select: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
+  color: var(--button-color);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25), 0px 0px 0px #e9e9eb;
+
+  border: 1px solid rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
   transition: background-color 0.3s var(--TRANSITION-CUBIC-BEZIER),
-    border 0.3s var(--TRANSITION-CUBIC-BEZIER),
+    box-shadow 0.3s var(--TRANSITION-CUBIC-BEZIER),
     color 0.3s var(--TRANSITION-CUBIC-BEZIER);
 }
 
-.duffel-button.duffel-button--icon-only {
-  padding: var(--BUTTON-ICON-SPACING);
-  height: 40px;
-  width: 40px;
+.button svg {
+  /* Using important to take precedence over inline styles on icon */
+  display: inline !important;
+  height: 20px;
+  margin-right: 4px;
+  vertical-align: bottom;
 }
 
-.duffel-button > svg {
-  --BUTTON-ICON-SIZE: 24px;
-  margin: 0 auto;
+.button:not(:disabled):hover {
+  box-shadow: 0px 0px 0px 2px #e9e9eb, 0px 2px 4px 1px #00000026;
 }
 
-.duffel-button__text {
-  display: block;
-  font-size: var(--BUTTON-FONT-SIZE);
-  font-weight: 600;
-  line-height: 1.5;
-  margin-inline: auto;
+.button:disabled {
+  cursor: not-allowed;
 }
 
-.duffel-button:focus {
-  outline-offset: 0.25em;
-  outline: 2px solid rgb(--ACCENT);
+.button--primary:not(:disabled):hover {
+  background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-800));
+  border-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-800));
+  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.15), 0px 0px 0px 2px #e9e9eb;
 }
 
-.duffel-button--primary {
-  --BUTTON-HOVER-COLOR: rgba(var(--ACCENT), var(--ACCENT-LIGHT-300));
+.button--primary:not(:disabled):active {
+  background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
+  border-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25), 0px 0px 0px 1px #dcdcde;
 }
 
-.duffel-button--muted {
-  --BUTTON-BASE-COLOR: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
-  --BUTTON-HOVER-COLOR: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
-
-  border-color: transparent;
+.button--destructive,
+.button--outlined {
+  border: 1px solid #ccccd4;
+  color: var(--GREY-900);
+  background-color: rgb(var(--WHITE));
 }
 
-.duffel-button--muted.duffel-button--solid:hover,
-.duffel-button--muted.duffel-button--solid:active {
-  color: rgb(var(--WHITE));
+.button--outlined:not(:disabled):hover,
+.button--destructive:not(:disabled):hover {
+  border: 1px solid #ababb4;
+  background-color: #fbfbfd;
 }
 
-.duffel-button--solid {
-  background-color: var(--BUTTON-BASE-COLOR);
-  color: rgb(var(--WHITE));
-}
-
-.duffel-button--solid:hover,
-.duffel-button--solid:active {
-  border-color: transparent;
-  background-color: var(--BUTTON-HOVER-COLOR);
-}
-
-.duffel-button--solid.duffel-button--muted {
-  color: rgb(var(--ACCENT));
-}
-
-.duffel-button--invisible {
-  background-color: transparent;
-  color: var(--BUTTON-BASE-COLOR);
-  border: none;
-}
-
-.duffel-button--invisible:hover {
-  background-color: var(--GREY-200);
-}
-
-.duffel-button--invisible:active {
+.button--outlined:not(:disabled):active,
+.button--destructive:not(:disabled):active {
   background-color: var(--GREY-100);
 }
 
-.duffel-button--outlined {
-  background-color: transparent;
-  color: var(--BUTTON-BASE-COLOR);
-  border: 2px solid var(--GREY-300);
-}
-
-.duffel-button--outlined:hover {
-  background-color: transparent;
-  box-shadow: 0px 2px 4px 1px #00000026;
-  border: 2px solid var(--GREY-400);
-}
-
-.duffel-button--outlined:active {
-  background-color: var(--GREY-100);
-}
-
-.duffel-button--is-disabled {
-  cursor: default;
-  opacity: 0.4;
-  user-select: none;
-  pointer-events: none;
-}
-
-.duffel-button .duffel-button__icon {
-  display: block;
-  height: var(--BUTTON-ICON-SIZE);
-  width: var(--BUTTON-ICON-SIZE);
-}
-
-.duffel-button .duffel-button__icon--before {
-  margin-right: var(--BUTTON-ICON-MARGIN);
-}
-
-.duffel-button .duffel-button__icon--after {
-  margin-left: var(--BUTTON-ICON-MARGIN);
-}
-
-.duffel-button.duffel-button--small {
-  height: unset;
-  --BUTTON-FONT-SIZE: var(--FONT-SIZES-C2);
-  --BUTTON-SPACING: 4px 8px;
-}
-
-@media screen and (min-width: 768px) {
-  .duffel-button {
-    --BUTTON-FONT-SIZE: var(--FONT-SIZES-C1);
-    --BUTTON-ICON-SIZE: 18px;
-    --BUTTON-SPACING: 4px 16px;
-    line-height: 24px;
-  }
-
-  .duffel-button:not(.duffel-button--icon-only) {
-    height: 40px;
-  }
-
-  .duffel-button.duffel-button--small {
-    height: unset;
-    --BUTTON-FONT-SIZE: var(--FONT-SIZES-C2);
-    --BUTTON-SPACING: 4px 8px;
-  }
-
-  .duffel-button.duffel-button--icon-only {
-    padding: var(--BUTTON-ICON-SPACING);
-    height: 40px;
-    width: 40px;
-  }
+.button--destructive {
+  color: var(--RED);
 }

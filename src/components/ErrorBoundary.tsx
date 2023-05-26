@@ -38,11 +38,12 @@ export class ErrorBoundary extends React.Component<{
           </p>
           <div>
             <Button
-              text="Try again"
-              intent="INVISIBLE"
-              onClick={() => location.reload()}
+              variant="outlined"
               iconBefore="autorenew"
-            />
+              onClick={() => location.reload()}
+            >
+              Try again
+            </Button>
           </div>
         </NonIdealState>
       );

@@ -24,11 +24,12 @@ export const FetchOfferErrorState: React.FC<{
     </p>
     <div>
       <Button
-        text="Try again"
-        intent="INVISIBLE"
+        variant="outlined"
         onClick={() => location.reload()}
         iconBefore="autorenew"
-      />
+      >
+        Try again
+      </Button>
     </div>
   </NonIdealState>
 );
