@@ -112,7 +112,6 @@ describe("DuffelAncillaries", () => {
   test("should select CFAR service", () => {
     let onPayloadReadyCallCount = 0;
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
-      console.log({ data, metadata });
       if (++onPayloadReadyCallCount === 2) {
         expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
         expect(metadata.cancel_for_any_reason_services.length).toBe(1);
@@ -126,7 +125,7 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(getByTitle("Add cancel for any reason"));
 
     fireEvent.click(getByTestId("confirm-selection-for-cfar"));
-    expect(getByText(/Added for/i));
+    expect(getByText(/Added for £97.45/i));
 
     // The component is always called at least once
     // when the state is set with an offer.
@@ -141,7 +140,8 @@ describe("DuffelAncillaries", () => {
         expect(metadata.baggage_services.length).toBe(2);
       }
     });
-    const { getByText, getByTestId, getByTitle } = render(
+    const currency = "Duffel house points";
+    const { getByText, getByTestId, getByTitle, debug } = render(
       <DuffelAncillaries
         {...defaultProps}
         onPayloadReady={onPayloadReady}
@@ -149,15 +149,15 @@ describe("DuffelAncillaries", () => {
           bags: (amount) => {
             return {
               amount: amount * 2,
-              currency: "Duffel house points",
+              currency,
             };
           },
           seats: (amount) => {
             return {
               amount: amount / 2,
-              currency: "Duffel house points",
+              currency,
             };
-          },
+          }
         }}
       />
     );
@@ -180,7 +180,7 @@ describe("DuffelAncillaries", () => {
       for (const passengerId of available_service.passenger_ids) {
         const priceLabelTestId = `price-label--${available_service.id}--${passengerId}`;
         const priceLabel = getByTestId(priceLabelTestId);
-        expect(priceLabel.textContent).toBe("80 Duffel house points");
+        expect(priceLabel.textContent).toBe("40 Duffel house points");
 
         const addButtonTestId = `counter--${available_service.id}--${passengerId}-plus`;
         const addBaggageButton = getByTestId(addButtonTestId);
@@ -189,10 +189,10 @@ describe("DuffelAncillaries", () => {
     }
 
     // Price should now have been updated.
-    expect(totalPriceLabel.textContent).toBe("+ 160 Duffel house points");
+    expect(totalPriceLabel.textContent).toBe("+ 80 Duffel house points");
 
     fireEvent.click(getByTestId("confirm-selection-for-baggage"));
-    expect(getByText(/2 bags added for 160 Duffel house points/i));
+    expect(getByText(/2 bags added for 80 Duffel house points/i));
 
     /**
      * Now, select seats.
@@ -214,7 +214,7 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     expect(getByText(/4 seats selected for 40 Duffel house points/i));
-
+ 
     // The component is always called at least once
     // when the state is set with an offer.
     expect(onPayloadReady).toBeCalledTimes(3);
