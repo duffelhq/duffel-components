@@ -1,8 +1,9 @@
 import { Icon } from "@components/Icon";
 import { ModalBody } from "@components/Modal";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
-import React, { ReactNode } from "react";
+import React from "react";
 import { OfferAvailableServiceCancelForAnyReason } from "../../types/Offer";
+import { CfarSelectionModalBodyListItem } from "./CfarSelectionModalBodyListItem";
 
 export interface CfarSelectionModalBodyProps {
   service: OfferAvailableServiceCancelForAnyReason;
@@ -13,14 +14,20 @@ export const CfarSelectionModalBody: React.FC<CfarSelectionModalBodyProps> = ({
 }) => (
   <ModalBody>
     <ul style={{ padding: 0 }}>
-      <ListItem>Cancel your trip for any reason</ListItem>
-      <ListItem>
+      <CfarSelectionModalBodyListItem>
+        Cancel your trip for any reason
+      </CfarSelectionModalBodyListItem>
+
+      <CfarSelectionModalBodyListItem>
         Guaranteed refund of{" "}
         {moneyStringFormatter(service.total_currency)(
           +service.metadata.refund_amount
         )}
-      </ListItem>
-      <ListItem>Redeemable up to 24hrs before first flight departure</ListItem>
+      </CfarSelectionModalBodyListItem>
+
+      <CfarSelectionModalBodyListItem>
+        Redeemable up to 24 hours before first flight departure
+      </CfarSelectionModalBodyListItem>
     </ul>
     <a
       href={service.metadata.terms_and_conditions_url}
@@ -32,28 +39,15 @@ export const CfarSelectionModalBody: React.FC<CfarSelectionModalBodyProps> = ({
       }}
     >
       Terms and conditions
+      <Icon
+        name="north_east"
+        size={16}
+        style={{
+          display: "inline",
+          verticalAlign: "middle",
+          marginLeft: "4px",
+        }}
+      />
     </a>
   </ModalBody>
-);
-
-const ListItem: React.FC<{ children: ReactNode }> = ({ children }) => (
-  <li
-    style={{
-      margin: 0,
-      padding: 0,
-      display: "flex",
-      alignItems: "center",
-      columnGap: "8px",
-    }}
-  >
-    <Icon name="check" style={{ fill: "rgb(var(--ACCENT))" }} />
-    <p
-      style={{
-        margin: 0,
-        padding: 0,
-      }}
-    >
-      {children}
-    </p>
-  </li>
 );

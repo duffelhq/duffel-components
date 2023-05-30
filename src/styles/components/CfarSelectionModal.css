@@ -8,6 +8,23 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
+.cfar-modal-list-item {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.cfar-modal-list-item > svg {
+  color: rgb(var(--ACCENT));
+}
+
+.cfar-modal-list-item > p {
+  margin: 0;
+  padding: 0;
+}
+
 /* tablet or greater  */
 @media (min-width: 768px) {
   .cfar-modal-footer {

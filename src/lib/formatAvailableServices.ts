@@ -43,8 +43,7 @@ const formatAvailableServices = (
 
   availableServices.forEach((service) => {
     if (service.type in formatters && formatters[service.type]) {
-      let total_amount = service.total_amount;
-      let total_currency = service.total_currency;
+      let { total_amount, total_currency } = service;
 
       if (isBaggageService(service)) {
         const { amount, currency } = formatters[service.type]!(
