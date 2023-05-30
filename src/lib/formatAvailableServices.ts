@@ -1,6 +1,13 @@
 import { DuffelAncillariesPriceFormatters } from "src/types/DuffelAncillariesProps";
 import { Offer } from "src/types/Offer";
 import { isBaggageService } from "./isBaggageService";
+import { Offer } from "src/types/Offer";
+import {
+  DuffelAncillariesMarkup,
+  DuffelAncillariesMarkupDefinition,
+  DuffelAncillariesPriceFormatterForBags,
+  DuffelAncillariesPriceFormatters,
+} from "src/types/DuffelAncillariesProps";
 
 const multipleCurrenciesErrorMessage = (
   label: string,
@@ -13,6 +20,38 @@ const multipleCurrenciesErrorMessage = (
   )}). Check the price formatters passed into the component's render function.`;
 };
 
+const convertMarkupIntoPriceFormatter = (
+  markup: DuffelAncillariesMarkupDefinition
+) => {
+  return (amount: number, currency: string) => {
+    const { rate, amount: markupAmount } = markup;
+    const newAmount = amount * (1 + rate) + markupAmount;
+    return { amount: newAmount, currency };
+  };
+};
+
+const setUpPriceFormatters = (
+  markup?: DuffelAncillariesMarkup,
+  priceFormatters?: DuffelAncillariesPriceFormatters
+) => {
+  const formatters: {
+    baggage?: DuffelAncillariesPriceFormatterForBags;
+  } = {
+    baggage: undefined,
+  };
+
+  // Markup takes precedence over priceFormatters.
+  if (priceFormatters) {
+    formatters.baggage = priceFormatters.bags;
+  }
+  if (markup) {
+    formatters.baggage = markup.bags
+      ? convertMarkupIntoPriceFormatter(markup.bags)
+      : undefined;
+  }
+  return formatters;
+};
+
 /**
  * Formats the prices of the available services of an offer according to the
  * priceFormatters passed in.
@@ -23,10 +62,11 @@ const multipleCurrenciesErrorMessage = (
  */
 const formatAvailableServices = (
   offer: Offer,
+  markup?: DuffelAncillariesMarkup,
   priceFormatters?: DuffelAncillariesPriceFormatters
 ) => {
   // If no custom formatters were passed in, don't do anything.
-  if (!priceFormatters) {
+  if (!markup && !priceFormatters) {
     return offer;
   }
 

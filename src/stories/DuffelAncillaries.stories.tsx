@@ -70,6 +70,24 @@ export const WithCustomStyles: DuffelAncillariesStory = {
   },
 };
 
+export const Markup: Story = {
+  args: {
+    markup: {
+      bags: {
+        rate: 1.5,
+        amount: 10,
+      },
+      seats: {
+        rate: 1.5,
+        amount: 10,
+      },
+    },
+    services: ["bags", "seats"],
+    offer: offer,
+    ...defaultProps,
+  },
+};
+
 const fiftyPercentMarkup = (amount: number) => ({
   amount: amount * 1.5,
 });
