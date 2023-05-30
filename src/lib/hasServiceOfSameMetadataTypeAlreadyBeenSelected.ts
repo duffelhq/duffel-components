@@ -12,6 +12,11 @@ export const hasServiceOfSameMetadataTypeAlreadyBeenSelected = (
       // if the selected service is the one on the counter, don't disable it
       // the max quantity will be availableService.maximum_quantity
       return false;
+    } else if (
+      selectedService.serviceInformation?.type !== "carry_on" &&
+      selectedService.serviceInformation?.type !== "checked"
+    ) {
+      return false;
     } else if (selectedService.serviceInformation?.segmentId !== segmentId) {
       // if the selected service doesn't belong to the same segment, don't disable it
       return false;

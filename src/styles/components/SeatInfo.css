@@ -9,13 +9,13 @@
   background: white;
   z-index: 999;
   box-shadow: 0px 1px 4px rgba(59, 64, 86, 0.3);
-  position: fixed;
+  position: absolute;
   width: calc(100% - 2 * var(--INFO-CARD-MARGIN));
   left: var(--INFO-CARD-MARGIN);
   box-sizing: border-box;
 
-  /* 116px because that's the footer height */
-  bottom: calc(116px + var(--INFO-CARD-MARGIN));
+  /* 124px because that's the footer height */
+  bottom: calc(124px + var(--INFO-CARD-MARGIN));
 }
 
 /* tablet or greater  */
@@ -25,9 +25,6 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-
-    /* 198px because that's the footer height + the white space below it */
-    bottom: calc(198px + var(--INFO-CARD-MARGIN));
 
     /* 640px because that's the max width of the modal */
     width: calc(640px - 2 * var(--INFO-CARD-MARGIN));

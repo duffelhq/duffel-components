@@ -1,4 +1,8 @@
-import { Offer, OfferAvailableServiceBaggageMetadata } from "./Offer";
+import {
+  Offer,
+  OfferAvailableCancelForAnyReasonServiceMetadata,
+  OfferAvailableServiceBaggageMetadata,
+} from "./Offer";
 
 export interface CreateOrderPayload {
   selected_offers: Array<Offer["id"]>;
@@ -60,7 +64,8 @@ export interface CreateOrderPayloadSeatService {
 
 type CreateOrderPayloadServiceInformation =
   | CreateOrderPayloadServiceInformationForSeats
-  | CreateOrderPayloadServiceInformationForBags;
+  | CreateOrderPayloadServiceInformationForBags
+  | CreateOrderPayloadServiceInformationForCancelForAnyReason;
 
 interface CreateOrderPayloadCommonServiceInformation {
   segmentId: string;
@@ -80,3 +85,15 @@ export interface CreateOrderPayloadServiceInformationForSeats
 export type CreateOrderPayloadServiceInformationForBags =
   CreateOrderPayloadCommonServiceInformation &
     OfferAvailableServiceBaggageMetadata;
+
+export type CreateOrderPayloadServiceInformationForCancelForAnyReason = {
+  type: "cancel_for_any_reason";
+} & Pick<
+  CreateOrderPayloadCommonServiceInformation,
+  /**
+   * only using `total_amount` and `total_currency` from `CreateOrderPayloadCommonServiceInformation`
+   * because the cancel for any reason service applies to the whole order, not a specific segment or passenger
+   */
+  "total_amount" | "total_currency"
+> &
+  OfferAvailableCancelForAnyReasonServiceMetadata;

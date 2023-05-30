@@ -44,7 +44,7 @@
 }
 
 .ancillary-card__selected-icon {
-  background-color: var(--GREEN-200);
+  background-color: rgb(var(--ACCENT));
   border-radius: 20px;
   color: rgb(var(--WHITE));
 }

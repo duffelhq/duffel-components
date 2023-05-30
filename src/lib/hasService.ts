@@ -1,11 +1,10 @@
 import { Offer, OfferAvailableServiceType } from "../types/Offer";
 import { isBaggageService } from "./isBaggageService";
+import { isCancelForAnyReasonService } from "./isCancelForAnyReasonService";
 
-const checkFunctionsMap: Record<
-  OfferAvailableServiceType,
-  typeof isBaggageService
-> = {
+const checkFunctionsMap = {
   baggage: isBaggageService,
+  cancel_for_any_reason: isCancelForAnyReasonService,
 };
 
 export const hasService = (
@@ -13,6 +12,7 @@ export const hasService = (
   type: OfferAvailableServiceType
 ) => {
   const checkFunction = checkFunctionsMap[type];
+  if (!checkFunction) throw new Error(`Unknown service type: ${type}`);
 
   return (
     offer &&

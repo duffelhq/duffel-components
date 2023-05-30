@@ -2,7 +2,11 @@ import {
   CreateOrderPayload,
   CreateOrderPayloadServices,
 } from "./CreateOrderPayload";
-import { Offer, OfferAvailableServiceBaggage } from "./Offer";
+import {
+  Offer,
+  OfferAvailableServiceBaggage,
+  OfferAvailableServiceCancelForAnyReason,
+} from "./Offer";
 import { SeatMap, SeatMapCabinRowSectionAvailableService } from "./SeatMap";
 
 export type DuffelAncillariesProps =
@@ -46,9 +50,18 @@ export type DuffelAncillariesPriceFormatterForSeats = (
   service: SeatMapCabinRowSectionAvailableService
 ) => { amount: number; currency: string };
 
+export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
+  amount: number,
+  currency: string,
+  service: OfferAvailableServiceCancelForAnyReason
+) => { amount: number; currency: string };
+
 export interface DuffelAncillariesPriceFormatters {
   bags?: DuffelAncillariesPriceFormatterForBags;
   seats?: DuffelAncillariesPriceFormatterForSeats;
+
+  // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
+  // cancel_for_any_reason?: DuffelAncillariesPriceFormatterForCancelForAnyReason;
 }
 
 export interface DuffelAncillariesCommonProps {
@@ -60,9 +73,9 @@ export interface DuffelAncillariesCommonProps {
 }
 
 export interface CustomStyles {
-  accentColor: string;
-  buttonCornerRadius: string;
-  fontFamily: string;
+  accentColor?: string;
+  buttonCornerRadius?: string;
+  fontFamily?: string;
 }
 
 export type OnPayloadReady = (
@@ -78,8 +91,7 @@ export interface OnPayloadReadyMetadata {
 
   baggage_services: CreateOrderPayloadServices;
   seat_services: CreateOrderPayloadServices;
+  cancel_for_any_reason_services: CreateOrderPayloadServices;
 }
 
-const bags = "bags" as const;
-const seats = "seats" as const;
-export type Ancillaries = typeof bags | typeof seats;
+export type Ancillaries = "bags" | "seats" | "cancel_for_any_reason";

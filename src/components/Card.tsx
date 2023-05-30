@@ -44,6 +44,7 @@ export const Card: React.FC<CardProps> = ({
       style={{
         cursor: "pointer",
         background: "transparent",
+        color: "var(--GREY-900)",
         border: "solid 1px rgba(226, 226, 232, 1)",
         display: "flex",
         rowGap: "4px",

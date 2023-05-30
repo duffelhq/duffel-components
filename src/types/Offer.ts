@@ -184,7 +184,9 @@ export interface Offer {
    * This field is only returned in the Get single offer endpoint.
    * When there are no services available, or we don't support services for the airline, this list will be empty.
    */
-  available_services: OfferAvailableService[];
+  available_services: Array<
+    OfferAvailableBaggageService | OfferAvailableServiceCancelForAnyReason
+  >;
 
   /**
    * The base price of the offer for all passengers, excluding taxes.
@@ -740,7 +742,9 @@ export interface OfferAvailableServiceSeatMetadata {
   name: string;
 }
 
-export type OfferAvailableService = OfferAvailableBaggageService;
+export type OfferAvailableService =
+  | OfferAvailableBaggageService
+  | OfferAvailableServiceCancelForAnyReason;
 
 interface OfferAvailableServiceBase {
   /**
@@ -794,6 +798,21 @@ export interface OfferAvailableBaggageService
   type: "baggage";
 }
 
+export interface OfferAvailableServiceCancelForAnyReason
+  extends OfferAvailableServiceBase {
+  /**
+   * An object containing metadata about the service, like the refund amount when cancelling.
+   */
+  metadata: OfferAvailableCancelForAnyReasonServiceMetadata;
+
+  /**
+   * The type of the service.
+   * For now we only return services of type baggage but we will return other types in the future.
+   * We won't consider adding new service types a break change.
+   */
+  type: "cancel_for_any_reason";
+}
+
 export interface OfferAvailableSeatService extends OfferAvailableServiceBase {
   /**
    * An object containing metadata about the service, like the maximum weight and dimensions of the baggage.
@@ -806,6 +825,23 @@ export interface OfferAvailableSeatService extends OfferAvailableServiceBase {
    * We won't consider adding new service types a break change.
    */
   type: "seats";
+}
+
+export interface OfferAvailableCancelForAnyReasonServiceMetadata {
+  /**
+   * The URL where you can find the terms and conditions for this CFAR service
+   */
+  terms_and_conditions_url: string;
+
+  /**
+   * The amount of money that will be returned
+   */
+  refund_amount: string;
+
+  /**
+   * Details of what this CFAR service entails and how it can be used
+   */
+  merchant_copy: string;
 }
 
 export type OfferAvailableServiceType = OfferAvailableService["type"];

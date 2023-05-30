@@ -13,12 +13,14 @@ interface CompileCreateOrderPayloadInput {
   passengers: DuffelAncillariesProps["passengers"];
   baggageSelectedServices: CreateOrderPayloadServices;
   seatSelectedServices: CreateOrderPayloadServices;
+  cfarSelectedServices: CreateOrderPayloadServices;
   seatMaps?: SeatMap[];
 }
 
 export const compileCreateOrderPayload = ({
   baggageSelectedServices,
   seatSelectedServices,
+  cfarSelectedServices,
   offer,
   seatMaps,
   passengers,
@@ -26,6 +28,7 @@ export const compileCreateOrderPayload = ({
   const selectedServicesWithInformation = [
     ...baggageSelectedServices,
     ...seatSelectedServices,
+    ...cfarSelectedServices,
   ];
 
   const totalAmountWithServices =
