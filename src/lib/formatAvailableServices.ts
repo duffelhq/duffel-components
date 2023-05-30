@@ -1,6 +1,5 @@
-import { Offer } from "src/types/Offer";
 import { DuffelAncillariesPriceFormatters } from "src/types/DuffelAncillariesProps";
-import { isCancelForAnyReasonService } from "./isCancelForAnyReasonService";
+import { Offer } from "src/types/Offer";
 import { isBaggageService } from "./isBaggageService";
 
 const multipleCurrenciesErrorMessage = (

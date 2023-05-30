@@ -141,7 +141,7 @@ describe("DuffelAncillaries", () => {
       }
     });
     const currency = "Duffel house points";
-    const { getByText, getByTestId, getByTitle, debug } = render(
+    const { getByText, getByTestId, getByTitle } = render(
       <DuffelAncillaries
         {...defaultProps}
         onPayloadReady={onPayloadReady}
@@ -157,7 +157,7 @@ describe("DuffelAncillaries", () => {
               amount: amount / 2,
               currency,
             };
-          }
+          },
         }}
       />
     );
@@ -214,7 +214,7 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(getByTestId("confirm-selection-for-seats"));
 
     expect(getByText(/4 seats selected for 40 Duffel house points/i));
- 
+
     // The component is always called at least once
     // when the state is set with an offer.
     expect(onPayloadReady).toBeCalledTimes(3);
