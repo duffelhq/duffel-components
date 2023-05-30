@@ -3,7 +3,7 @@ import { getSymbols } from "@lib/getSymbols";
 import { hasWings } from "@lib/hasWings";
 import classNames from "classnames";
 import * as React from "react";
-import { CreateOrderPayloadService } from "src/types/CreateOrderPayload";
+import { CreateOrderPayloadSeatService } from "src/types/CreateOrderPayload";
 import { SeatMap as SeatMapType } from "src/types/SeatMap";
 import { DeckSelect } from "./DeckSelect";
 import { Legend } from "./Legend";
@@ -12,8 +12,8 @@ import { SeatMapUnavailable } from "./SeatMapUnavailable";
 
 export interface SeatMapProps {
   seatMap: SeatMapType;
-  selectedServicesMap: Record<string, CreateOrderPayloadService>;
-  onSeatToggled: (seatService: CreateOrderPayloadService) => void;
+  selectedServicesMap: Record<string, CreateOrderPayloadSeatService>;
+  onSeatToggled: (seatService: CreateOrderPayloadSeatService) => void;
   currentPassengerId: string;
   currentPassengerName: string;
   currentSegmentId: string;

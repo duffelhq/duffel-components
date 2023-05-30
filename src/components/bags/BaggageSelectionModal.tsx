@@ -15,13 +15,15 @@ import { hasService } from "@lib/hasService";
 import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 
 export interface BaggageSelectionModalProps {
-  offer: Offer;
+  isOpen: boolean;
+  offer?: Offer;
   passengers: CreateOrderPayload["passengers"];
   selectedServices: CreateOrderPayloadServices;
   onClose: (selectedServices: CreateOrderPayloadServices) => void;
 }
 
 export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
+  isOpen,
   offer,
   passengers,
   onClose,
@@ -31,6 +33,8 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
 
   const [selectedServicesState, setSelectedServicesState] =
     React.useState(selectedServices);
+
+  if (!offer) return null;
 
   const segments = getSegmentList(offer);
   const currentSegment = segments[currentSegmentIndex];
@@ -44,7 +48,7 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
   }
 
   return (
-    <Modal onClose={() => onClose(selectedServicesState)}>
+    <Modal isOpen={isOpen} onClose={() => onClose(selectedServicesState)}>
       <BaggageSelectionModalHeader
         segmentCount={segments.length}
         currentSegment={currentSegment}

@@ -1,33 +1,23 @@
+import classNames from "classnames";
 import * as React from "react";
 import { IconButton } from "./IconButton";
+import { setBodyScrollability } from "@lib/setBodyScrollability";
 
 interface ModalProps {
-  children: React.ReactNode;
   onClose: () => void;
-  modalContentStyle?: React.CSSProperties;
-  modalOverlayStyle?: React.CSSProperties;
+  isOpen: boolean;
+  children: React.ReactNode;
 }
 
-export const Modal: React.FC<ModalProps> = ({
-  children,
-  onClose,
-  modalContentStyle,
-  modalOverlayStyle,
-}) => {
+export const Modal: React.FC<ModalProps> = ({ children, onClose, isOpen }) => {
   React.useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, []);
+    setBodyScrollability(!isOpen);
+    return () => setBodyScrollability(true);
+  }, [isOpen]);
 
   return (
-    <div className="modal" style={modalOverlayStyle}>
-      <div
-        role="presentation"
-        className="modal--content"
-        style={modalContentStyle}
-      >
+    <div className={classNames("modal", isOpen && "modal--open")}>
+      <div role="presentation" className={"modal--content"}>
         {children}
         <IconButton
           className="modal--close-button"
@@ -39,3 +29,7 @@ export const Modal: React.FC<ModalProps> = ({
     </div>
   );
 };
+
+export const ModalBody: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => <div className={"modal-body"}>{children}</div>;

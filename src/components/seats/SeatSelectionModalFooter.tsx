@@ -67,7 +67,7 @@ export const SeatSelectionModalFooter: React.FC<
         </Button>
 
         <Button
-          data-testid="confirm-selection"
+          data-testid="confirm-selection-for-seats"
           onClick={() =>
             isLastSegment ? onClose() : onNextSegmentButtonClicked()
           }

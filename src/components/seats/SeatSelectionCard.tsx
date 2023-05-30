@@ -5,6 +5,7 @@ import { withPlural } from "@lib/withPlural";
 import React from "react";
 import {
   CreateOrderPayload,
+  CreateOrderPayloadSeatService,
   CreateOrderPayloadServices,
 } from "src/types/CreateOrderPayload";
 import { Offer } from "src/types/Offer";
@@ -86,18 +87,17 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
         )}
       </Card>
 
-      {isOpen && offer && seatMaps && (
-        <SeatSelectionModal
-          seatMaps={seatMaps}
-          offer={offer}
-          passengers={passengers}
-          selectedServices={selectedServices}
-          onClose={(services) => {
-            setSelectedServices(services);
-            setIsOpen(false);
-          }}
-        />
-      )}
+      <SeatSelectionModal
+        isOpen={Boolean(offer && seatMaps && isOpen)}
+        seatMaps={seatMaps}
+        offer={offer}
+        passengers={passengers}
+        selectedServices={selectedServices as CreateOrderPayloadSeatService[]}
+        onClose={(services) => {
+          setSelectedServices(services);
+          setIsOpen(false);
+        }}
+      />
     </>
   );
 };
