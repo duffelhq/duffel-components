@@ -26,6 +26,7 @@ import { BaggageSelectionCard } from "./bags/BaggageSelectionCard";
 import { CfarSelectionCard } from "./cancel_for_any_reason/CfarSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
 import { formatSeatMaps } from "@lib/formatSeatMaps";
+import { createPriceFormatters } from "@lib/createPriceFormatters";
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
@@ -117,7 +118,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
     const offerWithFormattedServices = formatAvailableServices(
       offer,
-      props.priceFormatters
+      createPriceFormatters(props.markup, props.priceFormatters)
     );
     setOffer(offerWithFormattedServices);
   };
