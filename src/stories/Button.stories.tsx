@@ -39,6 +39,14 @@ export const WithDestructiveVariant: ButtonStory = {
   },
 };
 
+export const WithSize32: ButtonStory = {
+  args: { ...defaultProps, size: 32, iconBefore: "autorenew" },
+};
+
+export const WithSize48: ButtonStory = {
+  args: { ...defaultProps, size: 48, iconBefore: "autorenew" },
+};
+
 export const WithAccentColorSet: StoryFn<ButtonProps> = () => (
   <div
     style={

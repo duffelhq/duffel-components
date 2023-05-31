@@ -30,6 +30,7 @@ export const CfarSelectionModalFooter: React.FC<
   return (
     <div className="cfar-modal-footer">
       <Button
+        size={48}
         variant={serviceIncluded ? "destructive" : "outlined"}
         onClick={serviceIncluded ? onRemoveCfarService : onClose}
       >
@@ -38,6 +39,7 @@ export const CfarSelectionModalFooter: React.FC<
 
       {!serviceIncluded && (
         <Button
+          size={48}
           data-testid="confirm-selection-for-cfar"
           onClick={onAddCfarService}
         >

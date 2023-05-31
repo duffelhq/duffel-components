@@ -59,6 +59,7 @@ export const SeatSelectionModalFooter: React.FC<
         }}
       >
         <Button
+          size={48}
           disabled={isFirstSegment}
           variant="outlined"
           onClick={() => onPreviousSegmentButtonClicked()}
@@ -67,6 +68,7 @@ export const SeatSelectionModalFooter: React.FC<
         </Button>
 
         <Button
+          size={48}
           data-testid="confirm-selection-for-seats"
           onClick={() =>
             isLastSegment ? onClose() : onNextSegmentButtonClicked()
