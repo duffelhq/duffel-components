@@ -99,6 +99,11 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     new Array<CreateOrderPayloadService>()
   );
 
+  const priceFormatters = createPriceFormatters(
+    props.markup,
+    props.priceFormatters
+  );
+
   const updateOffer = (offer: Offer) => {
     const expiryErrorMessage = "This offer has expired.";
     if (offerIsExpired(offer)) {
@@ -118,16 +123,13 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
     const offerWithFormattedServices = formatAvailableServices(
       offer,
-      createPriceFormatters(props.markup, props.priceFormatters)
+      priceFormatters
     );
     setOffer(offerWithFormattedServices);
   };
 
   const updateSeatMaps = (seatMaps: SeatMap[]) => {
-    const formattedSeatMaps = formatSeatMaps(
-      seatMaps,
-      props.priceFormatters?.seats
-    );
+    const formattedSeatMaps = formatSeatMaps(seatMaps, priceFormatters.seats);
     setSeatMaps(formattedSeatMaps);
   };
 

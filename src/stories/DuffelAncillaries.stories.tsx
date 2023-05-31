@@ -66,24 +66,24 @@ export const WithCustomStyles: DuffelAncillariesStory = {
     ...defaultProps,
     styles: {
       accentColor: "29, 78, 216",
+      fontFamily: "monospace",
+      buttonCornerRadius: "50%",
     },
   },
 };
 
-export const Markup: Story = {
+export const Markup: DuffelAncillariesStory = {
   args: {
     markup: {
       bags: {
-        rate: 1.5,
-        amount: 10,
+        rate: 0.1,
+        amount: 1,
       },
       seats: {
-        rate: 1.5,
-        amount: 10,
+        rate: 0.1,
+        amount: 1,
       },
     },
-    services: ["bags", "seats"],
-    offer: offer,
     ...defaultProps,
   },
 };

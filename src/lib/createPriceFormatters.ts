@@ -30,12 +30,23 @@ const createPriceFormatters = (
 ): DuffelAncillariesPriceFormatters => {
   const formatters: DuffelAncillariesPriceFormatters = {};
 
-  // Markup takes precedence over priceFormatters.
-  if (priceFormatters && priceFormatters.bags) {
-    formatters.bags = priceFormatters.bags;
+  if (priceFormatters) {
+    if (priceFormatters.bags) {
+      formatters.bags = priceFormatters.bags;
+    }
+    if (priceFormatters.seats) {
+      formatters.seats = priceFormatters.seats;
+    }
   }
-  if (markup && markup.bags) {
-    formatters.bags = convertMarkupIntoPriceFormatter(markup.bags);
+
+  // Markup takes precedence over priceFormatters.
+  if (markup) {
+    if (markup.bags) {
+      formatters.bags = convertMarkupIntoPriceFormatter(markup.bags);
+    }
+    if (markup.seats) {
+      formatters.seats = convertMarkupIntoPriceFormatter(markup.seats);
+    }
   }
   return formatters;
 };
