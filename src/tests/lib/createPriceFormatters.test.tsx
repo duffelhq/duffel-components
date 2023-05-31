@@ -26,6 +26,12 @@ describe("createPriceFormatters", () => {
     // We know this is safe because we created the function right above this.
     const formattedPrice = formatters.bags!(100, "GBP", {} as any);
 
+    /**
+     * Note: This test is also confirming that we apply the rate, followed by
+     * the amount, rather than the other way around.
+     * For example, if we applied the amount first, the result would be 220.
+     */
+
     expect(formattedPrice).toEqual({ amount: 210, currency: "GBP" });
     expect(formatters.seats).toBeUndefined();
   });

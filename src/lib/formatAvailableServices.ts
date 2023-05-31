@@ -24,7 +24,7 @@ const multipleCurrenciesErrorMessage = (
 const formatAvailableServices = (
   offer: Offer,
   priceFormatters?: DuffelAncillariesPriceFormatters
-) => {
+): Offer => {
   // If no custom formatters were passed in, don't do anything.
   if (!priceFormatters) {
     return offer;
@@ -41,7 +41,9 @@ const formatAvailableServices = (
     cancel_for_any_reason: undefined,
   };
 
-  availableServices.forEach((service) => {
+  const servicesWithFormattedPrices = availableServices.map((service) => {
+    const serviceWithFormattedPrices = { ...service };
+
     if (service.type in formatters && formatters[service.type]) {
       let { total_amount, total_currency } = service;
 
@@ -80,11 +82,12 @@ const formatAvailableServices = (
         }
       }
 
-      service.total_amount = total_amount;
-      service.total_currency = total_currency;
+      serviceWithFormattedPrices.total_amount = total_amount;
+      serviceWithFormattedPrices.total_currency = total_currency;
     }
+    return serviceWithFormattedPrices;
   });
-  return { ...offer, available_services: availableServices };
+  return { ...offer, available_services: servicesWithFormattedPrices };
 };
 
 export { formatAvailableServices };

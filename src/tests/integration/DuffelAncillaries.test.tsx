@@ -1,16 +1,16 @@
 import { DuffelAncillaries } from "@components/DuffelAncillaries";
 import { fireEvent, render } from "@testing-library/react";
 import { SeatMap } from "src/types/SeatMap";
-import mockPassengers from "../fixtures/passengers/mock_passengers";
+import mockPassengers from "../../fixtures/passengers/mock_passengers";
 import {
   DuffelAncillariesPropsWithOffersAndSeatMaps,
   OnPayloadReady,
-} from "../types/DuffelAncillariesProps";
-import { Offer } from "../types/Offer";
+} from "../../types/DuffelAncillariesProps";
+import { Offer } from "../../types/Offer";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-const MOCK_OFFER: Offer = require("../fixtures/offers/off_1.json");
-const MOCK_SEAT_MAPS: SeatMap[] = require("../fixtures/seat-maps/off_1.json");
+const MOCK_OFFER: Offer = require("../../fixtures/offers/off_1.json");
+const MOCK_SEAT_MAPS: SeatMap[] = require("../../fixtures/seat-maps/off_1.json");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 const defaultProps: Omit<
@@ -132,7 +132,84 @@ describe("DuffelAncillaries", () => {
     expect(onPayloadReady).toBeCalledTimes(2);
   });
 
-  test("should work with custom markup and currency", () => {
+  test("should work with markup", () => {
+    let onPayloadReadyCallCount = 0;
+    const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
+      if (++onPayloadReadyCallCount === 2) {
+        expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
+        expect(metadata.baggage_services.length).toBe(2);
+      }
+    });
+    const { getByText, getByTestId, getByTitle } = render(
+      <DuffelAncillaries
+        {...defaultProps}
+        onPayloadReady={onPayloadReady}
+        markup={{
+          bags: { amount: 1, rate: 0.1 },
+          seats: { amount: 2, rate: 0.2 },
+        }}
+      />
+    );
+
+    /**
+     * First, select bags.
+     */
+
+    fireEvent.click(getByTitle("Select extra baggage"));
+
+    // There are no services for the first segment of the offer.
+    fireEvent.click(getByTestId("confirm-selection-for-baggage"));
+
+    const totalPriceLabel = getByTestId("baggage-total-amount-label");
+    expect(totalPriceLabel.textContent).toBe("+ £0.00");
+
+    for (const available_service of MOCK_OFFER.available_services) {
+      if (available_service.type !== "baggage") continue;
+
+      for (const passengerId of available_service.passenger_ids) {
+        const priceLabelTestId = `price-label--${available_service.id}--${passengerId}`;
+        const priceLabel = getByTestId(priceLabelTestId);
+        expect(priceLabel.textContent).toBe("£23.00");
+
+        const addButtonTestId = `counter--${available_service.id}--${passengerId}-plus`;
+        const addBaggageButton = getByTestId(addButtonTestId);
+        fireEvent.click(addBaggageButton);
+      }
+    }
+
+    // Price should now have been updated.
+    expect(totalPriceLabel.textContent).toBe("+ £46.00");
+
+    fireEvent.click(getByTestId("confirm-selection-for-baggage"));
+    expect(getByText(/2 bags added for £46.00/i));
+
+    /**
+     * Now, select seats.
+     */
+
+    const seatCard = getByTitle("Select seats");
+    fireEvent.click(seatCard);
+
+    fireEvent.click(getByTestId("seat-28E"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
+
+    fireEvent.click(getByTestId("seat-28F"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
+
+    fireEvent.click(getByTestId("seat-28E"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
+
+    fireEvent.click(getByTestId("seat-28F"));
+    fireEvent.click(getByTestId("confirm-selection-for-seats"));
+
+    expect(getByText(/4 seats selected for £104.00/i));
+
+    // The component is always called at least once
+    // when the state is set with an offer.
+    expect(onPayloadReady).toBeCalledTimes(3);
+  });
+
+  test("should work with priceFormatters", () => {
     let onPayloadReadyCallCount = 0;
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
       if (++onPayloadReadyCallCount === 2) {
