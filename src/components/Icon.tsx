@@ -143,7 +143,6 @@ export const Icon: React.FunctionComponent<IconProps> = ({
     style={{
       display: "block",
       fill: "currentColor",
-      marginLeft: "initial",
       ...style,
     }}
   >

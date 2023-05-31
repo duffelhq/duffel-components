@@ -59,6 +59,7 @@ export const BaggageSelectionModalFooter: React.FC<
         }}
       >
         <Button
+          size={48}
           variant="outlined"
           disabled={isFirstSegment}
           onClick={() => onPreviousSegmentButtonClicked()}
@@ -66,6 +67,7 @@ export const BaggageSelectionModalFooter: React.FC<
           Back
         </Button>
         <Button
+          size={48}
           data-testid="confirm-selection-for-baggage"
           onClick={() =>
             isLastSegment ? onClose() : onNextSegmentButtonClicked()

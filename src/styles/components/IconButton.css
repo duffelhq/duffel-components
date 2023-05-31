@@ -34,6 +34,7 @@
 
 .icon-button:disabled {
   cursor: not-allowed;
+  opacity: 0.4;
 }
 
 .icon-button--primary:not(:disabled):hover {
@@ -59,9 +60,4 @@
 
 .icon-button--outlined:not(:disabled):active {
   background-color: var(--GREY-100);
-}
-
-.icon-button--outlined:disabled {
-  color: var(--GREY-500);
-  border-color: var(--GREY-300);
 }

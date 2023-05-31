@@ -7,8 +7,15 @@ const BUTTON_VARIANTS = {
   outlined: "button--outlined",
   destructive: "button--destructive",
 };
-
 type ButtonVariants = keyof typeof BUTTON_VARIANTS;
+
+const BUTTON_SIZES = {
+  32: "button--32",
+  40: "button--40",
+  48: "button--48",
+};
+
+type ButtonSizes = keyof typeof BUTTON_SIZES;
 
 type NativeButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -23,18 +30,25 @@ export interface ButtonProps
   "data-testid"?: string;
   iconBefore?: IconName;
   variant?: ButtonVariants;
+  size?: ButtonSizes;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   iconBefore,
   variant = "primary",
+  size = 40,
   children,
   className,
   ...nativeButtonProps
 }) => (
   <button
     type="button"
-    className={classNames("button", BUTTON_VARIANTS[variant], className)}
+    className={classNames(
+      "button",
+      BUTTON_VARIANTS[variant],
+      BUTTON_SIZES[size],
+      className
+    )}
     {...nativeButtonProps}
   >
     {iconBefore && (

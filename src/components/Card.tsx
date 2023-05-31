@@ -74,11 +74,14 @@ export const Card: React.FC<CardProps> = ({
           width: "100%",
         }}
       >
-        {isSelected ? (
-          <Icon name="check" className="ancillary-card__selected-icon" />
-        ) : (
-          <Icon name={icon} />
-        )}
+        <div>
+          {isSelected ? (
+            <Icon name="check" className="ancillary-card__selected-icon" />
+          ) : (
+            <Icon name={icon} />
+          )}
+        </div>
+
         <div
           style={{
             display: "flex",

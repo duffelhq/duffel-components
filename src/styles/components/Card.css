@@ -47,4 +47,6 @@
   background-color: rgb(var(--ACCENT));
   border-radius: 20px;
   color: rgb(var(--WHITE));
+  height: 24px;
+  width: 24px;
 }
