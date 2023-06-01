@@ -1,6 +1,6 @@
-import { DuffelAncillariesPriceFormatters } from "src/types/DuffelAncillariesProps";
-import { Offer } from "src/types/Offer";
 import { isBaggageService } from "./isBaggageService";
+import { Offer } from "src/types/Offer";
+import { DuffelAncillariesPriceFormatters } from "src/types/DuffelAncillariesProps";
 
 const multipleCurrenciesErrorMessage = (
   label: string,
@@ -24,13 +24,15 @@ const multipleCurrenciesErrorMessage = (
 const formatAvailableServices = (
   offer: Offer,
   priceFormatters?: DuffelAncillariesPriceFormatters
-) => {
+): Offer => {
   // If no custom formatters were passed in, don't do anything.
   if (!priceFormatters) {
     return offer;
   }
 
   const availableServices = offer.available_services;
+
+  const foundCurrencies = new Set<string>();
 
   const formatters = {
     baggage: priceFormatters?.bags,
@@ -39,9 +41,9 @@ const formatAvailableServices = (
     cancel_for_any_reason: undefined,
   };
 
-  const foundCurrencies = new Set<string>();
+  const servicesWithFormattedPrices = availableServices.map((service) => {
+    const serviceWithFormattedPrices = { ...service };
 
-  availableServices.forEach((service) => {
     if (service.type in formatters && formatters[service.type]) {
       let { total_amount, total_currency } = service;
 
@@ -53,7 +55,9 @@ const formatAvailableServices = (
         );
 
         total_amount = amount.toString();
-        total_currency = currency;
+        if (currency) {
+          total_currency = currency;
+        }
       }
 
       // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
@@ -68,19 +72,22 @@ const formatAvailableServices = (
       //   total_currency = currency;
       // }
 
-      // Guard against different currencies being passed in for different seats.
-      foundCurrencies.add(total_currency);
-      if (foundCurrencies.size > 1) {
-        throw new Error(
-          multipleCurrenciesErrorMessage(service.type, foundCurrencies)
-        );
+      if (total_currency) {
+        // Guard against different currencies being passed in for different services.
+        foundCurrencies.add(total_currency);
+        if (foundCurrencies.size > 1) {
+          throw new Error(
+            multipleCurrenciesErrorMessage(service.type, foundCurrencies)
+          );
+        }
       }
 
-      service.total_amount = total_amount;
-      service.total_currency = total_currency;
+      serviceWithFormattedPrices.total_amount = total_amount;
+      serviceWithFormattedPrices.total_currency = total_currency;
     }
+    return serviceWithFormattedPrices;
   });
-  return { ...offer, available_services: availableServices };
+  return { ...offer, available_services: servicesWithFormattedPrices };
 };
 
 export { formatAvailableServices };

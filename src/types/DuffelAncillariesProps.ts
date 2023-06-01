@@ -38,17 +38,27 @@ export interface DuffelAncillariesPropsWithOffersAndSeatMaps
   seat_maps: SeatMap[];
 }
 
+export type DuffelAncillariesMarkupDefinition = {
+  rate: number;
+  amount: number;
+};
+
+export interface DuffelAncillariesMarkup {
+  bags?: DuffelAncillariesMarkupDefinition;
+  seats?: DuffelAncillariesMarkupDefinition;
+}
+
 export type DuffelAncillariesPriceFormatterForBags = (
   amount: number,
   currency: string,
   service: OfferAvailableServiceBaggage
-) => { amount: number; currency: string };
+) => { amount: number; currency?: string };
 
 export type DuffelAncillariesPriceFormatterForSeats = (
   amount: number,
   currency: string,
   service: SeatMapCabinRowSectionAvailableService
-) => { amount: number; currency: string };
+) => { amount: number; currency?: string };
 
 export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
   amount: number,
@@ -69,6 +79,7 @@ export interface DuffelAncillariesCommonProps {
   onPayloadReady: OnPayloadReady;
   passengers: CreateOrderPayload["passengers"];
   services: Ancillaries[];
+  markup?: DuffelAncillariesMarkup;
   priceFormatters?: DuffelAncillariesPriceFormatters;
 }
 

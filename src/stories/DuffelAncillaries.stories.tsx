@@ -66,16 +66,33 @@ export const WithCustomStyles: DuffelAncillariesStory = {
     ...defaultProps,
     styles: {
       accentColor: "29, 78, 216",
+      fontFamily: "monospace",
+      buttonCornerRadius: "50%",
     },
   },
 };
 
-const fiftyPercentMarkup = (amount: number, currency: string) => ({
+export const Markup: DuffelAncillariesStory = {
+  args: {
+    markup: {
+      bags: {
+        rate: 0.1,
+        amount: 1,
+      },
+      seats: {
+        rate: 0.1,
+        amount: 1,
+      },
+    },
+    ...defaultProps,
+  },
+};
+
+const fiftyPercentMarkup = (amount: number) => ({
   amount: amount * 1.5,
-  currency,
 });
 
-export const SimpleMarkup: DuffelAncillariesStory = {
+export const MarkupUsingPriceFormatters: DuffelAncillariesStory = {
   args: {
     ...defaultProps,
     priceFormatters: {
@@ -90,12 +107,13 @@ const customCurrencyMarkup = () => ({
   currency: "Duffel points",
 });
 
-export const MarkupWithCustomCurrency: DuffelAncillariesStory = {
-  args: {
-    ...defaultProps,
-    priceFormatters: {
-      bags: customCurrencyMarkup,
-      seats: customCurrencyMarkup,
+export const MarkupUsingPriceFormattersWithCustomCurrency: DuffelAncillariesStory =
+  {
+    args: {
+      ...defaultProps,
+      priceFormatters: {
+        bags: customCurrencyMarkup,
+        seats: customCurrencyMarkup,
+      },
     },
-  },
-};
+  };

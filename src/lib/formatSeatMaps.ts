@@ -1,5 +1,6 @@
 import { DuffelAncillariesPriceFormatterForSeats } from "src/types/DuffelAncillariesProps";
 import { SeatMap, SeatMapCabinRowSectionElement } from "src/types/SeatMap";
+import { isSeatElement } from "./isSeatElement";
 
 const multipleCurrenciesErrorMessage = (currencies: Set<string>) => {
   return `Seats must all have the same currency, but they have ${
@@ -14,26 +15,37 @@ const formatElement = (
   priceFormatter: DuffelAncillariesPriceFormatterForSeats,
   foundCurrencies: Set<string>
 ) => {
-  if (element.type === "seat" && element.available_services.length > 0) {
-    element.available_services = element.available_services.map((service) => {
-      const { amount, currency } = priceFormatter(
-        +service.total_amount,
-        service.total_currency,
-        service
-      );
+  const formattedElement = { ...element };
+  if (
+    isSeatElement(formattedElement) &&
+    formattedElement.available_services.length > 0
+  ) {
+    const formattedServices = formattedElement.available_services.map(
+      (service) => {
+        const formattedService = { ...service };
+        const { amount, currency } = priceFormatter(
+          +service.total_amount,
+          service.total_currency,
+          service
+        );
 
-      // Guard against different currencies being passed in for different seats.
-      foundCurrencies.add(currency);
-      if (foundCurrencies.size > 1) {
-        throw new Error(multipleCurrenciesErrorMessage(foundCurrencies));
+        formattedService.total_amount = amount.toString();
+
+        // Guard against different currencies being passed in for different seats.
+        if (currency) {
+          formattedService.total_currency = currency;
+          foundCurrencies.add(currency);
+          if (foundCurrencies.size > 1) {
+            throw new Error(multipleCurrenciesErrorMessage(foundCurrencies));
+          }
+        }
+
+        return formattedService;
       }
-
-      service.total_amount = amount.toString();
-      service.total_currency = currency;
-      return service;
-    });
+    );
+    formattedElement.available_services = formattedServices;
   }
-  return element;
+  return formattedElement;
 };
 
 const formatSeatMaps = (
