@@ -12,15 +12,12 @@ describe("createPriceFormatters", () => {
   });
 
   it("should convert the markup into a price formatter for bags", () => {
-    const formatters = createPriceFormatters(
-      {
-        bags: {
-          rate: 0.1,
-          amount: 100,
-        },
-      },
-      {}
-    );
+    const markup = {
+      rate: 0.1,
+      amount: 100,
+    };
+
+    const formatters = createPriceFormatters({ bags: markup }, {});
 
     // Force unwrap the price formatter and use 'any' to avoid type errors.
     // We know this is safe because we created the function right above this.
@@ -32,26 +29,38 @@ describe("createPriceFormatters", () => {
      * For example, if we applied the amount first, the result would be 220.
      */
 
-    expect(formattedPrice).toEqual({ amount: 210, currency: "GBP" });
+    const originalPrice = 100;
+    const expectedFormattedPrice =
+      originalPrice * (1 + markup.rate) + markup.amount;
+
+    expect(formattedPrice).toEqual({
+      amount: expectedFormattedPrice,
+      currency: "GBP",
+    });
+
     expect(formatters.seats).toBeUndefined();
   });
 
   it("should convert the markup into a price formatter for seats", () => {
-    const formatters = createPriceFormatters(
-      {
-        seats: {
-          rate: 0.1,
-          amount: 100,
-        },
-      },
-      {}
-    );
+    const markup = {
+      rate: 0.1,
+      amount: 100,
+    };
+
+    const formatters = createPriceFormatters({ seats: markup }, {});
 
     // Force unwrap the price formatter and use 'any' to avoid type errors.
     // We know this is safe because we created the function right above this.
     const formattedPrice = formatters.seats!(100, "GBP", {} as any);
 
-    expect(formattedPrice).toEqual({ amount: 210, currency: "GBP" });
+    const originalPrice = 100;
+    const expectedFormattedPrice =
+      originalPrice * (1 + markup.rate) + markup.amount;
+
+    expect(formattedPrice).toEqual({
+      amount: expectedFormattedPrice,
+      currency: "GBP",
+    });
     expect(formatters.bags).toBeUndefined();
   });
 
@@ -97,35 +106,47 @@ describe("createPriceFormatters", () => {
     );
   });
 
-  it("should allow markup to take precedence when both are supplied", () => {
-    const priceFormatters = {
-      bags: () => ({ amount: 100 }),
-      seats: () => ({ amount: 100 }),
+  it("should allow markup and priceFormatters to be mixed if they're for different services", () => {
+    const markup = {
+      bags: {
+        rate: 0.1,
+        amount: 100,
+      },
     };
 
-    const formatters = createPriceFormatters(
-      {
-        bags: {
-          rate: 0.1,
-          amount: 100,
-        },
-        seats: {
-          rate: 0.2,
-          amount: 100,
-        },
-      },
-      priceFormatters
-    );
+    const priceFormatters = {
+      seats: (amount: number) => ({ amount: amount + 100 }),
+    };
 
-    // Run the formatters. If the markup is taking precedence, the amount
-    // should be 210 for bags and 220 for seats, rather than 100.
+    const formatters = createPriceFormatters(markup, priceFormatters);
+
     expect(formatters.bags!(100, "GBP", {} as any)).toEqual({
       amount: 210,
       currency: "GBP",
     });
-    expect(formatters.seats!(100, "GBP", {} as any)).toEqual({
-      amount: 220,
-      currency: "GBP",
-    });
+    expect(formatters.seats!(100, "GBP", {} as any)).toEqual(
+      priceFormatters.seats(100)
+    );
+  });
+
+  it("should throw when both markup and priceFormatters are supplied", () => {
+    expect(() => {
+      createPriceFormatters(
+        {
+          bags: {
+            rate: 0.1,
+            amount: 100,
+          },
+          seats: {
+            rate: 0.2,
+            amount: 100,
+          },
+        },
+        {
+          bags: () => ({ amount: 100 }),
+          seats: () => ({ amount: 100 }),
+        }
+      );
+    }).toThrowError();
   });
 });

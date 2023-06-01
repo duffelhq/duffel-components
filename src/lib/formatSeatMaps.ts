@@ -1,5 +1,6 @@
 import { DuffelAncillariesPriceFormatterForSeats } from "src/types/DuffelAncillariesProps";
 import { SeatMap, SeatMapCabinRowSectionElement } from "src/types/SeatMap";
+import { isSeatElement } from "./isSeatElement";
 
 const multipleCurrenciesErrorMessage = (currencies: Set<string>) => {
   return `Seats must all have the same currency, but they have ${
@@ -16,7 +17,7 @@ const formatElement = (
 ) => {
   const formattedElement = { ...element };
   if (
-    formattedElement.type === "seat" &&
+    isSeatElement(formattedElement) &&
     formattedElement.available_services.length > 0
   ) {
     const formattedServices = formattedElement.available_services.map(

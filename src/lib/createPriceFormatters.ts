@@ -14,10 +14,12 @@ const convertMarkupIntoPriceFormatter = (
   };
 };
 
+const errorMessage =
+  "You cannot supply both markup and priceFormatters for the same service.";
+
 /**
  * Creates price formatters from the markup and priceFormatters passed in.
- * Markup takes precedence over priceFormatters, so if both are supplied,
- * the priceFormatters will be ignored.
+ * Throws an error if both are supplied.
  * If neither are supplied, the priceFormatters will be undefined.
  *
  * @param markup The markup to be applied to the prices of the available services of an offer.
@@ -42,9 +44,15 @@ const createPriceFormatters = (
   // Markup takes precedence over priceFormatters.
   if (markup) {
     if (markup.bags) {
+      if (priceFormatters && priceFormatters.bags) {
+        throw new Error(errorMessage);
+      }
       formatters.bags = convertMarkupIntoPriceFormatter(markup.bags);
     }
     if (markup.seats) {
+      if (priceFormatters && priceFormatters.seats) {
+        throw new Error(errorMessage);
+      }
       formatters.seats = convertMarkupIntoPriceFormatter(markup.seats);
     }
   }
