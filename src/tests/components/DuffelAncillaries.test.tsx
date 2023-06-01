@@ -138,6 +138,11 @@ describe("DuffelAncillaries", () => {
       if (++onPayloadReadyCallCount === 2) {
         expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
         expect(metadata.baggage_services.length).toBe(2);
+
+        // Confirm that the markup is applied.
+        expect(
+          metadata.baggage_services[0].serviceInformation?.total_amount
+        ).toBe("23");
       }
     });
     const { getByText, getByTestId, getByTitle } = render(
@@ -215,6 +220,14 @@ describe("DuffelAncillaries", () => {
       if (++onPayloadReadyCallCount === 2) {
         expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
         expect(metadata.baggage_services.length).toBe(2);
+
+        // Confirm that the markup is applied.
+        expect(
+          metadata.baggage_services[0].serviceInformation?.total_amount
+        ).toBe("40");
+        expect(
+          metadata.baggage_services[0].serviceInformation?.total_currency
+        ).toBe("Duffel house points");
       }
     });
     const currency = "Duffel house points";
