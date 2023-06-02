@@ -67,7 +67,7 @@ export const WithCustomStyles: DuffelAncillariesStory = {
     styles: {
       accentColor: "29, 78, 216",
       fontFamily: "monospace",
-      buttonCornerRadius: "50%",
+      buttonCornerRadius: "15px",
     },
   },
 };

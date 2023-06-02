@@ -65,7 +65,7 @@ button:-moz-focusring,
   --button-color: white;
 
   box-sizing: border-box;
-  border-radius: 6px; /* TODO make it dynamic */
+  border-radius: var(--BUTTON-RADIUS, 6px);
   cursor: pointer;
   border: none;
 
