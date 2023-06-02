@@ -7,10 +7,7 @@ import { isCancelForAnyReasonService } from "@lib/isCancelForAnyReasonService";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
 import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
-import {
-  Offer,
-  OfferAvailableServiceCancelForAnyReason,
-} from "src/types/Offer";
+import { Offer } from "src/types/Offer";
 import { Card } from "../Card";
 import { CfarSelectionModal } from "./CfarSelectionModal";
 
@@ -74,7 +71,7 @@ export const CfarSelectionCard: React.FC<CfarSelectionCardProps> = ({
 
       <CfarSelectionModal
         isOpen={Boolean(isOpen && offer && cfarService)}
-        service={cfarService as OfferAvailableServiceCancelForAnyReason}
+        service={cfarService}
         onClose={(newSelectedServices) => {
           setIsOpen(false);
           setSelectedServices(newSelectedServices);
