@@ -20,8 +20,8 @@ export interface CreateOrderPayloadPassenger {
   gender: string;
   title: string;
   born_on: string;
-  email: string;
-  phone_number: string;
+  email?: string;
+  phone_number?: string;
 }
 
 export type CreateOrderPayloadPassengers = Array<CreateOrderPayloadPassenger>;
