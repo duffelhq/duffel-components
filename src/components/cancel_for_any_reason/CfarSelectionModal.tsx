@@ -2,12 +2,12 @@ import React from "react";
 import {
   CreateOrderPayloadServiceInformationForCancelForAnyReason,
   CreateOrderPayloadServices,
-} from "src/types/CreateOrderPayload";
-import { OfferAvailableServiceCancelForAnyReason } from "src/types/Offer";
+} from "../../types/CreateOrderPayload";
+import { OfferAvailableServiceCancelForAnyReason } from "../../types/Offer";
 import { Modal } from "../Modal";
-import { CfarSelectionModalHeader } from "./CfarSelectionModalHeader";
 import { CfarSelectionModalBody } from "./CfarSelectionModalBody";
 import { CfarSelectionModalFooter } from "./CfarSelectionModalFooter";
+import { CfarSelectionModalHeader } from "./CfarSelectionModalHeader";
 
 export interface CfarSelectionModalProps {
   isOpen: boolean;

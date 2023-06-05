@@ -1,4 +1,4 @@
-import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
+import { CreateOrderPayloadServices } from "../types/CreateOrderPayload";
 
 export const getTotalQuantity = (
   fromSelectedServices: CreateOrderPayloadServices

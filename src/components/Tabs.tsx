@@ -1,41 +1,36 @@
 import classNames from "classnames";
+import React from "react";
 
-export interface TabsProps<T_Options extends string> {
+export interface TabsProps {
   /**
    * The currently selected tab option
    */
-  value: T_Options;
+  value: string;
 
   /**
    * Callback for when a new tab option is selected
    */
-  onChange: (value: T_Options) => void;
+  onChange: (value: string) => void;
 
   /**
    * The options you want to render on the tabs
    */
-  options: T_Options[];
+  options: string[];
 }
 
-export function Tabs<T extends string>({
-  value,
-  onChange,
-  options,
-}: TabsProps<T>) {
-  return (
-    <div className="seat-map__tab-select">
-      {options.map((option) => (
-        <button
-          key={option}
-          type="button"
-          className={classNames("seat-map__tab-select-option", {
-            "seat-map__tab-select-option--selected": option === value,
-          })}
-          onClick={() => value !== option && onChange(option)}
-        >
-          {option}
-        </button>
-      ))}
-    </div>
-  );
-}
+export const Tabs: React.FC<TabsProps> = ({ value, onChange, options }) => (
+  <div className="seat-map__tab-select">
+    {options.map((option) => (
+      <button
+        key={option}
+        type="button"
+        className={classNames("seat-map__tab-select-option", {
+          "seat-map__tab-select-option--selected": option === value,
+        })}
+        onClick={() => value !== option && onChange(option)}
+      >
+        {option}
+      </button>
+    ))}
+  </div>
+);

@@ -1,7 +1,7 @@
 import { getRowNumber } from "@lib/getRowNumber";
 import * as React from "react";
-import { CreateOrderPayloadSeatService } from "src/types/CreateOrderPayload";
-import { SeatMapCabinRow } from "src/types/SeatMap";
+import { CreateOrderPayloadSeatService } from "../../types/CreateOrderPayload";
+import { SeatMapCabinRow } from "../../types/SeatMap";
 import { RowSection } from "./RowSection";
 
 export interface RowProps {

@@ -1,6 +1,6 @@
 import { formatDateString } from "@lib/formatDate";
 import React from "react";
-import { OfferSliceSegment } from "src/types/Offer";
+import { OfferSliceSegment } from "../../types/Offer";
 
 export interface BaggageSelectionModalHeaderProps {
   segmentCount: number;

@@ -1,5 +1,5 @@
-import { DuffelAncillariesPriceFormatterForSeats } from "src/types/DuffelAncillariesProps";
-import { SeatMap, SeatMapCabinRowSectionElement } from "src/types/SeatMap";
+import { DuffelAncillariesPriceFormatterForSeats } from "../types/DuffelAncillariesProps";
+import { SeatMap, SeatMapCabinRowSectionElement } from "../types/SeatMap";
 import { isSeatElement } from "./isSeatElement";
 
 const multipleCurrenciesErrorMessage = (currencies: Set<string>) => {

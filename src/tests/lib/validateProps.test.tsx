@@ -5,7 +5,7 @@
  */
 
 import { hasCommonRequiredProps } from "@lib/validateProps";
-import { Ancillaries } from "src/types/DuffelAncillariesProps";
+import { Ancillaries } from "../../types/DuffelAncillariesProps";
 
 describe("hasCommonRequiredProps", () => {
   it("should pass when all required props are provided", () => {

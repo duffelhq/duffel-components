@@ -1,3 +1,5 @@
+import React from "react";
+
 interface InspectProps {
   props: Record<string, any>;
   state: Record<string, any>;

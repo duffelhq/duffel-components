@@ -2,11 +2,11 @@ import {
   CreateOrderPayload,
   CreateOrderPayloadService,
   CreateOrderPayloadServices,
-} from "src/types/CreateOrderPayload";
-import { Offer } from "src/types/Offer";
-import { SeatMap } from "src/types/SeatMap";
+} from "../types/CreateOrderPayload";
+import { DuffelAncillariesProps } from "../types/DuffelAncillariesProps";
+import { Offer } from "../types/Offer";
+import { SeatMap } from "../types/SeatMap";
 import { getTotalAmountForServices } from "./getTotalAmountForServices";
-import { DuffelAncillariesProps } from "src/types/DuffelAncillariesProps";
 
 interface CompileCreateOrderPayloadInput {
   offer: Offer;

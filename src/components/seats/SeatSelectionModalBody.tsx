@@ -1,6 +1,6 @@
+import { ModalBody } from "@components/Modal";
 import React from "react";
 import { SeatMap, SeatMapProps } from "./SeatMap";
-import { ModalBody } from "@components/Modal";
 
 export type SeatSelectionModalBodyProps = SeatMapProps;
 

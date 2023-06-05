@@ -1,4 +1,4 @@
-import { SeatMap, SeatMapCabinRowSectionElement } from "src/types/SeatMap";
+import { SeatMap, SeatMapCabinRowSectionElement } from "../types/SeatMap";
 
 const getFirstSeatElementMatchingCriteria = (
   seatMaps: SeatMap[],

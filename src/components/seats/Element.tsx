@@ -1,7 +1,7 @@
 import { isSeatElement } from "@lib/isSeatElement";
 import * as React from "react";
-import { CreateOrderPayloadSeatService } from "src/types/CreateOrderPayload";
-import { SeatMapCabinRowSectionElement } from "src/types/SeatMap";
+import { CreateOrderPayloadSeatService } from "../../types/CreateOrderPayload";
+import { SeatMapCabinRowSectionElement } from "../../types/SeatMap";
 import { Amenity } from "./Amenity";
 import { EmptyElement } from "./EmptyElement";
 import { ExitElement } from "./ExitElement";

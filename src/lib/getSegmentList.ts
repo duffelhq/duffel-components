@@ -1,4 +1,4 @@
-import { Offer, OfferSliceSegment } from "src/types/Offer";
+import { Offer, OfferSliceSegment } from "../types/Offer";
 
 export const getSegmentList = (offer: Offer) =>
   offer.slices.reduce(

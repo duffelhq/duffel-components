@@ -1,6 +1,6 @@
 import { createRoot, Root } from "react-dom/client";
+import { DuffelAncillariesProps } from "../types/DuffelAncillariesProps";
 import { DuffelAncillaries } from "./DuffelAncillaries";
-import { DuffelAncillariesProps } from "src/types/DuffelAncillariesProps";
 
 const CUSTOM_ELEMENT_TAG = "duffel-ancillaries";
 

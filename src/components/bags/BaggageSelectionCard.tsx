@@ -1,19 +1,19 @@
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { hasService } from "@lib/hasService";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
-import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import React from "react";
 import {
   CreateOrderPayload,
   CreateOrderPayloadServices,
-} from "src/types/CreateOrderPayload";
-import { Offer } from "src/types/Offer";
+} from "../../types/CreateOrderPayload";
+import { Offer } from "../../types/Offer";
 import { AnimatedLoaderEllipsis } from "../AnimatedLoaderEllipsis";
-import { BaggageSelectionModal } from "./BaggageSelectionModal";
 import { Card } from "../Card";
 import { Stamp } from "../Stamp";
+import { BaggageSelectionModal } from "./BaggageSelectionModal";
 
 export interface BaggageSelectionCardProps {
   isLoading: boolean;

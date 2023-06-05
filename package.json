@@ -86,6 +86,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
+    "prettier-plugin-organize-imports": "^3.2.2",
     "prompts": "^2.4.2",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.2",

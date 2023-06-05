@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface StampProps {
   backgroundColor: React.CSSProperties["backgroundColor"];
   color: React.CSSProperties["color"];

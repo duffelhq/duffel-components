@@ -6,8 +6,8 @@ import { hasService } from "@lib/hasService";
 import { isCancelForAnyReasonService } from "@lib/isCancelForAnyReasonService";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
-import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
-import { Offer } from "src/types/Offer";
+import { CreateOrderPayloadServices } from "../../types/CreateOrderPayload";
+import { Offer } from "../../types/Offer";
 import { Card } from "../Card";
 import { CfarSelectionModal } from "./CfarSelectionModal";
 

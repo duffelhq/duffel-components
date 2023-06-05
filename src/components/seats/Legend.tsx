@@ -1,6 +1,6 @@
-import * as React from "react";
 import { Icon, IconName } from "@components/Icon";
-import { SeatMapCabinRowSectionElementAmenity } from "src/types/SeatMap";
+import * as React from "react";
+import { SeatMapCabinRowSectionElementAmenity } from "../../types/SeatMap";
 
 export interface LegendProps {
   /**

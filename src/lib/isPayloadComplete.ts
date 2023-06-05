@@ -1,4 +1,4 @@
-import { CreateOrderPayload } from "src/types/CreateOrderPayload";
+import { CreateOrderPayload } from "../types/CreateOrderPayload";
 
 export const isPayloadComplete = (
   payload: Partial<CreateOrderPayload>

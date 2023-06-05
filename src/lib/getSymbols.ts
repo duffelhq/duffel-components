@@ -1,7 +1,7 @@
 import {
   SeatMapCabin,
   SeatMapCabinRowSectionElementAmenity,
-} from "src/types/SeatMap";
+} from "../types/SeatMap";
 
 export const getSymbols = (
   cabins: SeatMapCabin[]

@@ -1,4 +1,4 @@
-import { Offer } from "src/types/Offer";
+import { Offer } from "../types/Offer";
 
 /**
  *

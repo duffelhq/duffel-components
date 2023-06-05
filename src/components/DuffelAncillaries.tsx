@@ -1,5 +1,7 @@
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
+import { createPriceFormatters } from "@lib/createPriceFormatters";
 import { formatAvailableServices } from "@lib/formatAvailableServices";
+import { formatSeatMaps } from "@lib/formatSeatMaps";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { offerIsExpired } from "@lib/offerIsExpired";
 import { retrieveOffer } from "@lib/retrieveOffer";
@@ -15,18 +17,16 @@ import * as React from "react";
 import {
   CreateOrderPayloadPassengers,
   CreateOrderPayloadService,
-} from "src/types/CreateOrderPayload";
-import { DuffelAncillariesProps } from "src/types/DuffelAncillariesProps";
-import { Offer } from "src/types/Offer";
-import { SeatMap } from "src/types/SeatMap";
+} from "../types/CreateOrderPayload";
+import { DuffelAncillariesProps } from "../types/DuffelAncillariesProps";
+import { Offer } from "../types/Offer";
+import { SeatMap } from "../types/SeatMap";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
 import { Inspect } from "./Inspect";
 import { BaggageSelectionCard } from "./bags/BaggageSelectionCard";
 import { CfarSelectionCard } from "./cancel_for_any_reason/CfarSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
-import { formatSeatMaps } from "@lib/formatSeatMaps";
-import { createPriceFormatters } from "@lib/createPriceFormatters";
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;

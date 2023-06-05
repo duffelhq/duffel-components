@@ -1,7 +1,7 @@
 import {
   OfferAvailableService,
   OfferAvailableServiceCancelForAnyReason,
-} from "src/types/Offer";
+} from "../types/Offer";
 
 export const isCancelForAnyReasonService = (
   service: OfferAvailableService

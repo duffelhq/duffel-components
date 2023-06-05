@@ -1,12 +1,12 @@
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { ServicePriceMapById } from "@lib/getServicePriceMapById";
 import { getTotalAmountForServicesWithPriceMap } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
 import { CreateOrderPayloadServices } from "../../types/CreateOrderPayload";
+import { SeatMap } from "../../types/SeatMap";
 import { Button } from "../Button";
-import { SeatMap } from "src/types/SeatMap";
 
 export interface SeatSelectionModalFooterProps {
   currency: string;

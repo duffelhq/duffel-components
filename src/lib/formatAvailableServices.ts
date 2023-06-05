@@ -1,6 +1,6 @@
+import { DuffelAncillariesPriceFormatters } from "../types/DuffelAncillariesProps";
+import { Offer } from "../types/Offer";
 import { isBaggageService } from "./isBaggageService";
-import { Offer } from "src/types/Offer";
-import { DuffelAncillariesPriceFormatters } from "src/types/DuffelAncillariesProps";
 
 const multipleCurrenciesErrorMessage = (
   label: string,

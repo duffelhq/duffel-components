@@ -1,6 +1,6 @@
+import { Aircraft } from "./Aircraft";
 import { Airline } from "./Airline";
 import { Airport } from "./Airport";
-import { Aircraft } from "./Aircraft";
 import { City } from "./City";
 
 export const CabinClassMap = {

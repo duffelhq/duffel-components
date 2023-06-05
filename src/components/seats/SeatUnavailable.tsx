@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SeatMapCabinRowSectionElementSeat } from "src/types/SeatMap";
+import { SeatMapCabinRowSectionElementSeat } from "../../types/SeatMap";
 import { Icon } from "../Icon";
 
 export const SeatUnavailable: React.FC<{
