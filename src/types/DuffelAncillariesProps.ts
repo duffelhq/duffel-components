@@ -46,6 +46,7 @@ export type DuffelAncillariesMarkupDefinition = {
 export interface DuffelAncillariesMarkup {
   bags?: DuffelAncillariesMarkupDefinition;
   seats?: DuffelAncillariesMarkupDefinition;
+  cancel_for_any_reason?: DuffelAncillariesMarkupDefinition;
 }
 
 export type DuffelAncillariesPriceFormatterForBags = (
@@ -69,9 +70,7 @@ export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
 export interface DuffelAncillariesPriceFormatters {
   bags?: DuffelAncillariesPriceFormatterForBags;
   seats?: DuffelAncillariesPriceFormatterForSeats;
-
-  // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
-  // cancel_for_any_reason?: DuffelAncillariesPriceFormatterForCancelForAnyReason;
+  cancel_for_any_reason?: DuffelAncillariesPriceFormatterForCancelForAnyReason;
 }
 
 export interface DuffelAncillariesCommonProps {

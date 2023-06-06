@@ -152,6 +152,7 @@ describe("DuffelAncillaries", () => {
         markup={{
           bags: { amount: 1, rate: 0.1 },
           seats: { amount: 2, rate: 0.2 },
+          cancel_for_any_reason: { amount: 3, rate: 0.3 },
         }}
       />
     );
@@ -209,9 +210,20 @@ describe("DuffelAncillaries", () => {
 
     expect(getByText(/4 seats selected for £104.00/i));
 
+    /**
+     * Now, select CFAR.
+     */
+
+    const cfarCard = getByTitle("Add cancel for any reason");
+    fireEvent.click(cfarCard);
+
+    fireEvent.click(getByTestId("confirm-selection-for-cfar"));
+
+    expect(getByText(/Added for £129.69/i));
+
     // The component is always called at least once
     // when the state is set with an offer.
-    expect(onPayloadReady).toBeCalledTimes(3);
+    expect(onPayloadReady).toBeCalledTimes(4);
   });
 
   test("should work with priceFormatters", () => {
@@ -245,6 +257,12 @@ describe("DuffelAncillaries", () => {
           seats: (amount) => {
             return {
               amount: amount / 2,
+              currency,
+            };
+          },
+          cancel_for_any_reason: () => {
+            return {
+              amount: 100,
               currency,
             };
           },
@@ -305,8 +323,19 @@ describe("DuffelAncillaries", () => {
 
     expect(getByText(/4 seats selected for 40 Duffel house points/i));
 
+    /**
+     * Now, select CFAR.
+     */
+
+    const cfarCard = getByTitle("Add cancel for any reason");
+    fireEvent.click(cfarCard);
+
+    fireEvent.click(getByTestId("confirm-selection-for-cfar"));
+
+    expect(getByText(/Added for 100 Duffel house points/i));
+
     // The component is always called at least once
     // when the state is set with an offer.
-    expect(onPayloadReady).toBeCalledTimes(3);
+    expect(onPayloadReady).toBeCalledTimes(4);
   });
 });

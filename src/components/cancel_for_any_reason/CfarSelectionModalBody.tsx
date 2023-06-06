@@ -2,14 +2,19 @@ import { Icon } from "@components/Icon";
 import { ModalBody } from "@components/Modal";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
-import { OfferAvailableServiceCancelForAnyReason } from "../../types/Offer";
+import {
+  Offer,
+  OfferAvailableServiceCancelForAnyReason,
+} from "../../types/Offer";
 import { CfarSelectionModalBodyListItem } from "./CfarSelectionModalBodyListItem";
 
 export interface CfarSelectionModalBodyProps {
+  offerCurrency: Offer["base_currency"];
   service: OfferAvailableServiceCancelForAnyReason;
 }
 
 export const CfarSelectionModalBody: React.FC<CfarSelectionModalBodyProps> = ({
+  offerCurrency,
   service,
 }) => (
   <ModalBody>
@@ -20,9 +25,7 @@ export const CfarSelectionModalBody: React.FC<CfarSelectionModalBodyProps> = ({
 
       <CfarSelectionModalBodyListItem>
         Guaranteed refund of{" "}
-        {moneyStringFormatter(service.total_currency)(
-          +service.metadata.refund_amount
-        )}
+        {moneyStringFormatter(offerCurrency)(+service.metadata.refund_amount)}
       </CfarSelectionModalBodyListItem>
 
       <CfarSelectionModalBodyListItem>

@@ -1,6 +1,7 @@
 import { DuffelAncillariesPriceFormatters } from "../types/DuffelAncillariesProps";
 import { Offer } from "../types/Offer";
 import { isBaggageService } from "./isBaggageService";
+import { isCancelForAnyReasonService } from "./isCancelForAnyReasonService";
 
 const multipleCurrenciesErrorMessage = (
   label: string,
@@ -36,9 +37,7 @@ const formatAvailableServices = (
 
   const formatters = {
     baggage: priceFormatters?.bags,
-
-    // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
-    cancel_for_any_reason: undefined,
+    cancel_for_any_reason: priceFormatters?.cancel_for_any_reason,
   };
 
   const servicesWithFormattedPrices = availableServices.map((service) => {
@@ -60,26 +59,25 @@ const formatAvailableServices = (
         }
       }
 
-      // TODO: coming soon with https://duffel.atlassian.net/browse/LAND-355
-      // if (isCancelForAnyReasonService(service)) {
-      //   const { amount, currency } = formatters[service.type]!(
-      //     +service.total_amount,
-      //     service.total_currency,
-      //     service
-      //   );
+      if (isCancelForAnyReasonService(service)) {
+        const { amount, currency } = formatters[service.type]!(
+          +service.total_amount,
+          service.total_currency,
+          service
+        );
 
-      //   total_amount = amount.toString();
-      //   total_currency = currency;
-      // }
-
-      if (total_currency) {
-        // Guard against different currencies being passed in for different services.
-        foundCurrencies.add(total_currency);
-        if (foundCurrencies.size > 1) {
-          throw new Error(
-            multipleCurrenciesErrorMessage(service.type, foundCurrencies)
-          );
+        total_amount = amount.toString();
+        if (currency) {
+          total_currency = currency;
         }
+      }
+
+      // Guard against different currencies being passed in for different services.
+      foundCurrencies.add(total_currency);
+      if (foundCurrencies.size > 1) {
+        throw new Error(
+          multipleCurrenciesErrorMessage(service.type, foundCurrencies)
+        );
       }
 
       serviceWithFormattedPrices.total_amount = total_amount;

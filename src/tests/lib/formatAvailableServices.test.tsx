@@ -19,9 +19,13 @@ describe("formatAvailableServices", () => {
   it("should transform the price and currency of available services correctly", () => {
     const result = formatAvailableServices(offer, {
       bags: () => ({ amount: 100, currency: "Duffel points" }),
+      cancel_for_any_reason: () => ({ amount: 200, currency: "Duffel points" }),
     });
     expect(result.available_services[0].total_amount).toBe("100");
     expect(result.available_services[0].total_currency).toBe("Duffel points");
+
+    expect(result.available_services[2].total_amount).toBe("200");
+    expect(result.available_services[2].total_currency).toBe("Duffel points");
   });
 
   it("should throw if more than one currency is used", () => {
