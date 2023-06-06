@@ -1,8 +1,37 @@
 import { createRoot, Root } from "react-dom/client";
-import { DuffelAncillariesProps } from "../types/DuffelAncillariesProps";
+import { CreateOrderPayload } from "../types/CreateOrderPayload";
+import {
+  DuffelAncillariesPropsWithClientKeyAndOfferId,
+  DuffelAncillariesPropsWithOfferIdForFixture,
+  DuffelAncillariesPropsWithOffersAndSeatMaps,
+  DuffelAncillariesPropWithOfferAndClientKey,
+  OnPayloadReady,
+  OnPayloadReadyMetadata,
+} from "../types/DuffelAncillariesProps";
 import { DuffelAncillaries } from "./DuffelAncillaries";
 
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      "duffel-ancillaries": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}
+
 const CUSTOM_ELEMENT_TAG = "duffel-ancillaries";
+
+// A bit reptitive but typescript is not clever enough
+// to infer the correct type if we just use
+// `Omit<DuffelAncillariesProps, 'onPayloadReady'>`
+type DuffelAncillariesCustomElementRenderArguments =
+  | Omit<DuffelAncillariesPropsWithOfferIdForFixture, "onPayloadReady">
+  | Omit<DuffelAncillariesPropsWithClientKeyAndOfferId, "onPayloadReady">
+  | Omit<DuffelAncillariesPropWithOfferAndClientKey, "onPayloadReady">
+  | Omit<DuffelAncillariesPropsWithOffersAndSeatMaps, "onPayloadReady">;
 
 class DuffelAncillariesCustomElement extends HTMLElement {
   /**
@@ -24,7 +53,7 @@ class DuffelAncillariesCustomElement extends HTMLElement {
    * When this function is called, it will render/re-render
    * the `DuffelAncillaries` component with the given props.
    */
-  public render(withProps: DuffelAncillariesProps) {
+  public render(withProps: DuffelAncillariesCustomElementRenderArguments) {
     if (!this.root) {
       throw "It was not possible to render `duffel-ancillaries` because `this.root` is missing.";
     }
@@ -32,23 +61,56 @@ class DuffelAncillariesCustomElement extends HTMLElement {
     this.root.render(
       <DuffelAncillaries
         {...withProps}
-        onPayloadReady={(data, metadata) =>
+        onPayloadReady={(data, metadata) => {
           this.dispatchEvent(
             new CustomEvent("onPayloadReady", {
               detail: { data, metadata },
               composed: true,
             })
-          )
-        }
+          );
+        }}
       />
     );
   }
 }
-
-export default DuffelAncillariesCustomElement;
 
 window.customElements.get(CUSTOM_ELEMENT_TAG) ||
   window.customElements.define(
     CUSTOM_ELEMENT_TAG,
     DuffelAncillariesCustomElement
   );
+
+function maybeGetDuffelAncillariesCustomElement(): DuffelAncillariesCustomElement {
+  const element =
+    document.querySelector<DuffelAncillariesCustomElement>(CUSTOM_ELEMENT_TAG);
+  if (!element) {
+    throw new Error("Could not find duffel-ancillaries element in the DOM");
+  }
+  return element;
+}
+
+export function renderDuffelAncillariesCustomElement(
+  props: DuffelAncillariesCustomElementRenderArguments
+) {
+  const element = maybeGetDuffelAncillariesCustomElement();
+  element.render(props);
+}
+
+type OnPayloadReadyCustomEvent = CustomEvent<{
+  data: CreateOrderPayload;
+  metadata: OnPayloadReadyMetadata;
+}>;
+
+export function addOnPayloadReadyListenerToDuffelAncillariesCustomElement(
+  onPayloadReady: OnPayloadReady
+) {
+  const element = maybeGetDuffelAncillariesCustomElement();
+  const eventListener = (event: OnPayloadReadyCustomEvent) => {
+    onPayloadReady(event.detail.data, event.detail.metadata);
+  };
+
+  // using `as EventListener` here because typescript doesn't know the event type for `onPayloadReady`
+  // There's a few different suggestions to resolve this seemed good enough
+  // You can learn more here: https://github.com/microsoft/TypeScript/issues/28357
+  element.addEventListener("onPayloadReady", eventListener as EventListener);
+}
