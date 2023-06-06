@@ -1,0 +1,16 @@
+{
+  "name": "just-typescript",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --outfile=dist/index.js"
+  },
+  "dependencies": {
+    "@types/node": "20.2.5",
+    "typescript": "5.0.4",
+    "duffel-components": "../../../../duffel-components/react-dist"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.19"
+  }
+}
