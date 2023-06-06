@@ -1,5 +1,5 @@
 import {
-  addOnPayloadReadyListenerToDuffelAncillariesCustomElement,
+  onDuffelAncillariesPayloadReady,
   renderDuffelAncillariesCustomElement,
 } from "duffel-components";
 
@@ -28,10 +28,8 @@ window.onload = () => {
       },
     ],
   });
-  addOnPayloadReadyListenerToDuffelAncillariesCustomElement(
-    (data, metadata) => {
-      console.table(data);
-      console.table(metadata);
-    }
-  );
+  onDuffelAncillariesPayloadReady((data, metadata) => {
+    console.table(data);
+    console.table(metadata);
+  });
 };

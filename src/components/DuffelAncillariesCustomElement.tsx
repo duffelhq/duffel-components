@@ -101,7 +101,7 @@ type OnPayloadReadyCustomEvent = CustomEvent<{
   metadata: OnPayloadReadyMetadata;
 }>;
 
-export function addOnPayloadReadyListenerToDuffelAncillariesCustomElement(
+export function onDuffelAncillariesPayloadReady(
   onPayloadReady: OnPayloadReady
 ) {
   const element = maybeGetDuffelAncillariesCustomElement();
