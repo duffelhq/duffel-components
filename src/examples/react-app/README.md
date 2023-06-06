@@ -34,4 +34,4 @@ Once the package is built, you can cd into this directory and run `yarn` to inst
 
 ## Run example
 
-Finally, run `yarn dev` to build `src/examples/react-app/src/index.tsx`. This will produce `src/examples/react-app/dist` folder that is referenced by `src/examples/react-app/src/index.html`. You can then open `src/examples/react-app/src/index.html` on your bnrowser to see the example up and running.
+Finally, run `yarn dev` to build `src/examples/react-app/src/index.tsx`. This will produce `src/examples/react-app/dist` folder that is referenced by `src/examples/react-app/src/index.html`. You can then open `src/examples/react-app/src/index.html` on your browser to see the example up and running.

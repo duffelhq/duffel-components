@@ -109,7 +109,7 @@ This command will:
 
 ### Build component
 
-#### Build react component
+#### Build html custom element
 
 ```sh
 yarn build # Build will output to ./dist
@@ -120,7 +120,7 @@ You can see this build referenced on:
 - `src/examples/client-side`
 - `src/examples/full-stack`
 
-#### Build html custom element
+#### Build react component
 
 ```sh
 yarn react-build # Build will output to ./react-dist
