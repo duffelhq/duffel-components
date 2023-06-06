@@ -1,5 +1,6 @@
 import { AnimatedLoaderEllipsis } from "@components/AnimatedLoaderEllipsis";
 import { Stamp } from "@components/Stamp";
+import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { hasService } from "@lib/hasService";
@@ -30,9 +31,14 @@ export const CfarSelectionCard: React.FC<CfarSelectionCardProps> = ({
   const totalQuantity = getTotalQuantity(selectedServices);
   const isCfarAdded = totalQuantity > 0;
 
+  let currencyToUse = offer?.base_currency || "";
+  if (containsCfarService) {
+    currencyToUse = getCurrencyForServices(offer!, "cancel_for_any_reason");
+  }
+
   const totalAmount = getTotalAmountForServices(offer!, selectedServices);
   const totalAmountFormatted = offer
-    ? moneyStringFormatter(offer?.base_currency)(totalAmount)
+    ? moneyStringFormatter(currencyToUse)(totalAmount)
     : "0";
 
   const cfarService = offer?.available_services.find(
@@ -71,6 +77,7 @@ export const CfarSelectionCard: React.FC<CfarSelectionCardProps> = ({
 
       <CfarSelectionModal
         isOpen={Boolean(isOpen && offer && cfarService)}
+        offerCurrency={offer?.base_currency}
         service={cfarService}
         onClose={(newSelectedServices) => {
           setIsOpen(false);

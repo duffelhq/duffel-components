@@ -80,8 +80,12 @@ export const Markup: DuffelAncillariesStory = {
         amount: 1,
       },
       seats: {
-        rate: 0.1,
-        amount: 1,
+        rate: 0.2,
+        amount: 2,
+      },
+      cancel_for_any_reason: {
+        rate: 0.3,
+        amount: 3,
       },
     },
     ...defaultProps,
@@ -98,6 +102,7 @@ export const MarkupUsingPriceFormatters: DuffelAncillariesStory = {
     priceFormatters: {
       bags: fiftyPercentMarkup,
       seats: fiftyPercentMarkup,
+      cancel_for_any_reason: fiftyPercentMarkup,
     },
   },
 };
@@ -114,6 +119,7 @@ export const MarkupUsingPriceFormattersWithCustomCurrency: DuffelAncillariesStor
       priceFormatters: {
         bags: customCurrencyMarkup,
         seats: customCurrencyMarkup,
+        cancel_for_any_reason: customCurrencyMarkup,
       },
     },
   };

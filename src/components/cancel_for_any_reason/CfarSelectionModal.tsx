@@ -3,7 +3,10 @@ import {
   CreateOrderPayloadServiceInformationForCancelForAnyReason,
   CreateOrderPayloadServices,
 } from "../../types/CreateOrderPayload";
-import { OfferAvailableServiceCancelForAnyReason } from "../../types/Offer";
+import {
+  Offer,
+  OfferAvailableServiceCancelForAnyReason,
+} from "../../types/Offer";
 import { Modal } from "../Modal";
 import { CfarSelectionModalBody } from "./CfarSelectionModalBody";
 import { CfarSelectionModalFooter } from "./CfarSelectionModalFooter";
@@ -11,6 +14,7 @@ import { CfarSelectionModalHeader } from "./CfarSelectionModalHeader";
 
 export interface CfarSelectionModalProps {
   isOpen: boolean;
+  offerCurrency?: Offer["base_currency"];
   service?: OfferAvailableServiceCancelForAnyReason;
   selectedServices: CreateOrderPayloadServices;
   onClose: (selectedServices: CreateOrderPayloadServices) => void;
@@ -18,6 +22,7 @@ export interface CfarSelectionModalProps {
 
 export const CfarSelectionModal: React.FC<CfarSelectionModalProps> = ({
   isOpen,
+  offerCurrency,
   service,
   onClose,
   selectedServices,
@@ -25,9 +30,12 @@ export const CfarSelectionModal: React.FC<CfarSelectionModalProps> = ({
   return (
     <Modal isOpen={isOpen} onClose={() => onClose(selectedServices)}>
       <CfarSelectionModalHeader />
-      {service && (
+      {service && offerCurrency && (
         <>
-          <CfarSelectionModalBody service={service} />
+          <CfarSelectionModalBody
+            service={service}
+            offerCurrency={offerCurrency}
+          />
           <CfarSelectionModalFooter
             service={service}
             selectedServices={selectedServices}

@@ -39,6 +39,9 @@ const createPriceFormatters = (
     if (priceFormatters.seats) {
       formatters.seats = priceFormatters.seats;
     }
+    if (priceFormatters.cancel_for_any_reason) {
+      formatters.cancel_for_any_reason = priceFormatters.cancel_for_any_reason;
+    }
   }
 
   // Markup takes precedence over priceFormatters.
@@ -54,6 +57,14 @@ const createPriceFormatters = (
         throw new Error(errorMessage);
       }
       formatters.seats = convertMarkupIntoPriceFormatter(markup.seats);
+    }
+    if (markup.cancel_for_any_reason) {
+      if (priceFormatters && priceFormatters.cancel_for_any_reason) {
+        throw new Error(errorMessage);
+      }
+      formatters.cancel_for_any_reason = convertMarkupIntoPriceFormatter(
+        markup.cancel_for_any_reason
+      );
     }
   }
   return formatters;
