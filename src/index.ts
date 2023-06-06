@@ -4,3 +4,5 @@
  * they must be exported here.
  */
 export * from "./components/DuffelAncillaries";
+export * from "./components/DuffelAncillariesCustomElement";
+export * from "./types";
