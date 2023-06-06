@@ -1,5 +1,5 @@
 import { formatAvailableServices } from "@lib/formatAvailableServices";
-import { OfferAvailableServiceBaggage } from "src/types/Offer";
+import { OfferAvailableServiceBaggage } from "../../types/Offer";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const offer = require("../../fixtures/offers/off_1.json");

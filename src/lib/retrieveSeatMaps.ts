@@ -1,4 +1,4 @@
-import { SeatMap } from "src/types/SeatMap";
+import { SeatMap } from "../types/SeatMap";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 import { importFromSeatMapsFixtures } from "./fetchFromFixtures";
 import { isFixtureOfferId } from "./isFixtureOfferId";

@@ -1,7 +1,7 @@
 import {
   SeatMapCabinRowSectionElement,
   SeatMapCabinRowSectionElementSeat,
-} from "src/types/SeatMap";
+} from "../types/SeatMap";
 
 export function isSeatElement(
   element: SeatMapCabinRowSectionElement

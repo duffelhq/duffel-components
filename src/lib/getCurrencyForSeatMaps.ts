@@ -1,4 +1,4 @@
-import { SeatMap, SeatMapCabinRowSectionElementSeat } from "src/types/SeatMap";
+import { SeatMap, SeatMapCabinRowSectionElementSeat } from "../types/SeatMap";
 import { getFirstSeatElementMatchingCriteria } from "./getFirstSeatElementMatchingCriteria";
 
 /**

@@ -1,5 +1,5 @@
-import { Offer } from "src/types/Offer";
-import { SeatMap } from "src/types/SeatMap";
+import { Offer } from "../types/Offer";
+import { SeatMap } from "../types/SeatMap";
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN;
 

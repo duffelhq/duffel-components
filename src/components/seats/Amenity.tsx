@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
-import { SeatMapCabinRowSectionElementAmenity } from "src/types/SeatMap";
+import { SeatMapCabinRowSectionElementAmenity } from "../../types/SeatMap";
 import { Icon, IconName } from "../Icon";
 
 const amenitiesWithoutWrapper = ["bassinet", "exit_row"];

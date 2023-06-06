@@ -1,18 +1,18 @@
+import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import { getPassengerMapById } from "@lib/getPassengerMapById";
 import { getSegmentList } from "@lib/getSegmentList";
 import { getServicePriceMapById } from "@lib/getServicePriceMapById";
+import { hasService } from "@lib/hasService";
 import React, { useState } from "react";
 import {
   CreateOrderPayload,
   CreateOrderPayloadServices,
-} from "src/types/CreateOrderPayload";
-import { Offer } from "src/types/Offer";
+} from "../../types/CreateOrderPayload";
+import { Offer } from "../../types/Offer";
+import { Modal } from "../Modal";
 import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
-import { Modal } from "../Modal";
-import { hasService } from "@lib/hasService";
-import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 
 export interface BaggageSelectionModalProps {
   isOpen: boolean;

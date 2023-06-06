@@ -1,5 +1,5 @@
-import { CreateOrderPayloadPassenger } from "src/types/CreateOrderPayload";
-import { OfferPassenger } from "src/types/Offer";
+import { CreateOrderPayloadPassenger } from "../types/CreateOrderPayload";
+import { OfferPassenger } from "../types/Offer";
 
 export const getPassengerName = (
   createOrderPayloadPassenger: CreateOrderPayloadPassenger,

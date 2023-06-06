@@ -8,9 +8,9 @@ import React from "react";
 import {
   CreateOrderPayload,
   CreateOrderPayloadSeatService,
-} from "src/types/CreateOrderPayload";
-import { Offer } from "src/types/Offer";
-import { SeatMap } from "src/types/SeatMap";
+} from "../../types/CreateOrderPayload";
+import { Offer } from "../../types/Offer";
+import { SeatMap } from "../../types/SeatMap";
 import { Modal } from "../Modal";
 import { SeatSelectionModalBody } from "./SeatSelectionModalBody";
 import { SeatSelectionModalFooter } from "./SeatSelectionModalFooter";

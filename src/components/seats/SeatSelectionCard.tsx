@@ -1,20 +1,20 @@
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
 import {
   CreateOrderPayload,
   CreateOrderPayloadSeatService,
   CreateOrderPayloadServices,
-} from "src/types/CreateOrderPayload";
-import { Offer } from "src/types/Offer";
-import { SeatMap } from "src/types/SeatMap";
+} from "../../types/CreateOrderPayload";
+import { Offer } from "../../types/Offer";
+import { SeatMap } from "../../types/SeatMap";
 import { AnimatedLoaderEllipsis } from "../AnimatedLoaderEllipsis";
 import { Card } from "../Card";
 import { Stamp } from "../Stamp";
 import { SeatSelectionModal } from "./SeatSelectionModal";
-import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;

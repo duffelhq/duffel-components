@@ -1,7 +1,7 @@
 import {
   SeatMapCabinRow,
   SeatMapCabinRowSectionElementSeat,
-} from "src/types/SeatMap";
+} from "../types/SeatMap";
 
 export const getRowNumber = (row: SeatMapCabinRow): string | null => {
   const seats = Object.values(row.sections)

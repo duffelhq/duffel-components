@@ -1,4 +1,4 @@
-import { SeatMapCabin } from "src/types/SeatMap";
+import { SeatMapCabin } from "../types/SeatMap";
 
 export const hasWings = (cabin: SeatMapCabin, rowIndex: number) =>
   Boolean(

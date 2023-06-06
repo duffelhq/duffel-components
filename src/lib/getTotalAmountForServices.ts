@@ -1,11 +1,11 @@
-import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
-import { Offer } from "src/types/Offer";
+import { CreateOrderPayloadServices } from "../types/CreateOrderPayload";
+import { Offer } from "../types/Offer";
+import { SeatMap } from "../types/SeatMap";
+import { captureErrorInSentry } from "./captureErrorInSentry";
 import {
   ServicePriceMapById,
   getServicePriceMapById,
 } from "./getServicePriceMapById";
-import { SeatMap } from "src/types/SeatMap";
-import { captureErrorInSentry } from "./captureErrorInSentry";
 
 export const getTotalAmountForServices = (
   offer: Offer,

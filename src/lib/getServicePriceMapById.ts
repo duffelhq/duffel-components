@@ -1,4 +1,4 @@
-import { OfferAvailableService } from "src/types/Offer";
+import { OfferAvailableService } from "../types/Offer";
 
 export type ServicePriceMapById = Record<
   OfferAvailableService["id"],

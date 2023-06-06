@@ -1,12 +1,12 @@
 import { DuffelAncillaries } from "@components/DuffelAncillaries";
 import { fireEvent, render } from "@testing-library/react";
-import { SeatMap } from "src/types/SeatMap";
 import mockPassengers from "../../fixtures/passengers/mock_passengers";
 import {
   DuffelAncillariesPropsWithOffersAndSeatMaps,
   OnPayloadReady,
 } from "../../types/DuffelAncillariesProps";
 import { Offer } from "../../types/Offer";
+import { SeatMap } from "../../types/SeatMap";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const MOCK_OFFER: Offer = require("../../fixtures/offers/off_1.json");

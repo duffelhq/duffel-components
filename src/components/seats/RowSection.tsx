@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import * as React from "react";
-import { CreateOrderPayloadSeatService } from "src/types/CreateOrderPayload";
-import { SeatMapCabinRow, SeatMapCabinRowSection } from "src/types/SeatMap";
+import { CreateOrderPayloadSeatService } from "../../types/CreateOrderPayload";
+import { SeatMapCabinRow, SeatMapCabinRowSection } from "../../types/SeatMap";
 import { Element } from "./Element";
 import { EmptyElement } from "./EmptyElement";
 

@@ -1,7 +1,7 @@
+import { setBodyScrollability } from "@lib/setBodyScrollability";
 import classNames from "classnames";
 import * as React from "react";
 import { IconButton } from "./IconButton";
-import { setBodyScrollability } from "@lib/setBodyScrollability";
 
 interface ModalProps {
   onClose: () => void;

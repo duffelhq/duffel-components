@@ -1,7 +1,7 @@
 import {
-  OfferAvailableService,
   OfferAvailableBaggageService,
-} from "src/types/Offer";
+  OfferAvailableService,
+} from "../types/Offer";
 
 export const isBaggageService = (
   service: OfferAvailableService

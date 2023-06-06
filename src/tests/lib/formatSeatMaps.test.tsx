@@ -1,6 +1,6 @@
 import { formatSeatMaps } from "@lib/formatSeatMaps";
 import { getFirstSeatElementMatchingCriteria } from "@lib/getFirstSeatElementMatchingCriteria";
-import { SeatMapCabinRowSectionElementSeat } from "src/types/SeatMap";
+import { SeatMapCabinRowSectionElementSeat } from "../../types/SeatMap";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const seatMaps = require("../../fixtures/seat-maps/off_1.json");

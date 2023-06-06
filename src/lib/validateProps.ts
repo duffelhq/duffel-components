@@ -4,7 +4,7 @@ import {
   DuffelAncillariesPropsWithOfferIdForFixture,
   DuffelAncillariesPropsWithOffersAndSeatMaps,
   DuffelAncillariesPropWithOfferAndClientKey,
-} from "src/types/DuffelAncillariesProps";
+} from "../types/DuffelAncillariesProps";
 
 export const areDuffelAncillariesPropsValid = (props: DuffelAncillariesProps) =>
   hasCommonRequiredProps(props) &&

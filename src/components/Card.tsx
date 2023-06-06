@@ -1,5 +1,5 @@
-import * as React from "react";
 import classNames from "classnames";
+import * as React from "react";
 import { Icon, IconName } from "./Icon";
 
 export interface CardProps {

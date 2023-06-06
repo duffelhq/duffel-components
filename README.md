@@ -8,7 +8,7 @@ The ancillaries component is a JavaScript component you can use to allow your cu
 
 ## How do I integrate this into my website?
 
-1. Please start by reading our integration guide on https://duffel.com/docs/_preview/ancillaries-component
+1. Please start by reading our integration guide on https://duffel.com/docs/guides/ancillaries-component
 2. You can also find examples code in the `example` folder (see below).
 
 ## Integration examples
@@ -107,10 +107,25 @@ This command will:
 
 3. Upload the sourcemaps for that version to Sentry
 
-### Upload as latest
+### Build component
 
-You can also upload the current version (Following [`package.json`](./package.json) definition) to the `latest` folder with:
+#### Build html custom element
 
 ```sh
-yarn upload-to-cdn --latest
+yarn build # Build will output to ./dist
 ```
+
+You can see this build referenced on:
+
+- `src/examples/client-side`
+- `src/examples/full-stack`
+
+#### Build react component
+
+```sh
+yarn react-build # Build will output to ./react-dist
+```
+
+You can see this build referenced on:
+
+- `src/examples/react-app`

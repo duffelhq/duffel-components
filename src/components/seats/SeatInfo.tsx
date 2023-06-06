@@ -1,9 +1,9 @@
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import * as React from "react";
 import {
   SeatMapCabinRowSectionAvailableService,
   SeatMapCabinRowSectionElementSeat,
-} from "src/types/SeatMap";
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+} from "../../types/SeatMap";
 
 export interface SeatInfoProps {
   seat: SeatMapCabinRowSectionElementSeat | null;

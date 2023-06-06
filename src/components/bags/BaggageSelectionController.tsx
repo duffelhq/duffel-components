@@ -1,8 +1,8 @@
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
 import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
-import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
+import { CreateOrderPayloadServices } from "../../types/CreateOrderPayload";
 import { OfferAvailableServiceBaggage } from "../../types/Offer";
 import { Counter } from "../Counter";
 

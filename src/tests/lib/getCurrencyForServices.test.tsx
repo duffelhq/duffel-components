@@ -1,5 +1,5 @@
-import { Offer } from "src/types/Offer";
 import { getCurrencyForServices } from "@lib/getCurrencyForServices";
+import { Offer } from "../../types/Offer";
 
 describe("getCurrencyForServices", () => {
   it("should return GBP when the first service has that currency", () => {

@@ -1,4 +1,4 @@
-import { OfferSliceSegment } from "src/types/Offer";
+import { OfferSliceSegment } from "../types/Offer";
 
 export const getPassengerBySegmentList = (segments: OfferSliceSegment[]) =>
   segments.flatMap((segment) =>

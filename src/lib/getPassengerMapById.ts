@@ -1,6 +1,6 @@
 import {
-  CreateOrderPayloadPassengers,
   CreateOrderPayloadPassenger,
+  CreateOrderPayloadPassengers,
 } from "../types/CreateOrderPayload";
 
 export type PassengerMapById = Record<

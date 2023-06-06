@@ -1,5 +1,5 @@
-import { CreateOrderPayloadServices } from "src/types/CreateOrderPayload";
-import { OfferAvailableServiceBaggage } from "src/types/Offer";
+import { CreateOrderPayloadServices } from "../types/CreateOrderPayload";
+import { OfferAvailableServiceBaggage } from "../types/Offer";
 
 export const hasServiceOfSameMetadataTypeAlreadyBeenSelected = (
   selectedServices: CreateOrderPayloadServices,

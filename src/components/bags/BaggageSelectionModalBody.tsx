@@ -1,3 +1,5 @@
+import { ModalBody } from "@components/Modal";
+import { getPassengerName } from "@lib/getPassengerName";
 import React from "react";
 import {
   CreateOrderPayloadPassenger,
@@ -9,8 +11,6 @@ import {
   OfferSliceSegment,
 } from "../../types/Offer";
 import { BaggageSelectionModalBodyPassenger } from "./BaggageSelectionModalBodyPassenger";
-import { getPassengerName } from "@lib/getPassengerName";
-import { ModalBody } from "@components/Modal";
 
 export interface BaggageSelectionModalBodyProps {
   offer: Offer;

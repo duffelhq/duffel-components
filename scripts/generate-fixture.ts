@@ -1,8 +1,8 @@
 import { config } from "dotenv";
-import { Offer } from "../src/types/Offer";
-import prompts from "prompts";
 import fs from "fs";
+import prompts from "prompts";
 import { withPlural } from "../src/lib/withPlural";
+import { Offer } from "../src/types/Offer";
 
 config({ path: ".env.local" });
 

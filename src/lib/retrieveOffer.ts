@@ -1,8 +1,8 @@
-import { Offer } from "src/types/Offer";
+import { Offer } from "../types/Offer";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 import { importFromOfferFixtures } from "./fetchFromFixtures";
-import { retrieveOfferFromDuffelAPI } from "./retrieveOfferFromDuffelAPI";
 import { isFixtureOfferId } from "./isFixtureOfferId";
+import { retrieveOfferFromDuffelAPI } from "./retrieveOfferFromDuffelAPI";
 
 export async function retrieveOffer(
   offer_id: string,
