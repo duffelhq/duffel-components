@@ -80,11 +80,15 @@ window.customElements.get(CUSTOM_ELEMENT_TAG) ||
     DuffelAncillariesCustomElement
   );
 
-function maybeGetDuffelAncillariesCustomElement(): DuffelAncillariesCustomElement {
+function tryToGetDuffelAncillariesCustomElement(
+  caller: string
+): DuffelAncillariesCustomElement {
   const element =
     document.querySelector<DuffelAncillariesCustomElement>(CUSTOM_ELEMENT_TAG);
   if (!element) {
-    throw new Error("Could not find duffel-ancillaries element in the DOM");
+    throw new Error(
+      `Could not find duffel-ancillaries element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+    );
   }
   return element;
 }
@@ -92,7 +96,9 @@ function maybeGetDuffelAncillariesCustomElement(): DuffelAncillariesCustomElemen
 export function renderDuffelAncillariesCustomElement(
   props: DuffelAncillariesCustomElementRenderArguments
 ) {
-  const element = maybeGetDuffelAncillariesCustomElement();
+  const element = tryToGetDuffelAncillariesCustomElement(
+    "renderDuffelAncillariesCustomElement"
+  );
   element.render(props);
 }
 
@@ -104,7 +110,9 @@ type OnPayloadReadyCustomEvent = CustomEvent<{
 export function onDuffelAncillariesPayloadReady(
   onPayloadReady: OnPayloadReady
 ) {
-  const element = maybeGetDuffelAncillariesCustomElement();
+  const element = tryToGetDuffelAncillariesCustomElement(
+    "onDuffelAncillariesPayloadReady"
+  );
   const eventListener = (event: OnPayloadReadyCustomEvent) => {
     onPayloadReady(event.detail.data, event.detail.metadata);
   };
