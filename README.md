@@ -31,7 +31,7 @@ DUFFEL_API_TOKEN=test_duffel_dev_rw
 # The Duffel API environment we want
 # to talk. Remember to update the key
 # if this value changes.
-DUFFEL_API_URL=https://localhost:4000;
+DUFFEL_API_URL=https://localhost:4000
 ```
 
 This is a 'real life' example, where it uses a real offer ID and client key retrieved from the Duffel API. To run this, use `yarn run-example:full-stack`. This command will:
