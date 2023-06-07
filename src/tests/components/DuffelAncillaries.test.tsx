@@ -1,5 +1,6 @@
-import { DuffelAncillaries } from "@components/DuffelAncillaries";
 import { fireEvent, render } from "@testing-library/react";
+import React from "react";
+import { DuffelAncillaries } from "../../components/DuffelAncillaries";
 import mockPassengers from "../../fixtures/passengers/mock_passengers";
 import {
   DuffelAncillariesPropsWithOffersAndSeatMaps,
@@ -23,19 +24,19 @@ const defaultProps: Omit<
   services: ["bags", "seats", "cancel_for_any_reason"],
 };
 
+const ExampleWithoutServices: React.FC = () => (
+  <DuffelAncillaries
+    onPayloadReady={jest.fn()}
+    passengers={[]}
+    services={[]}
+    offer_id="offer_id"
+    client_key="client_key"
+  />
+);
+
 describe("DuffelAncillaries", () => {
   test("should throw an error when services is empty", () => {
-    expect(() =>
-      render(
-        <DuffelAncillaries
-          onPayloadReady={jest.fn()}
-          passengers={[]}
-          services={[]}
-          offer_id="offer_id"
-          client_key="client_key"
-        />
-      )
-    ).toThrow(
+    expect(() => render(<ExampleWithoutServices />)).toThrow(
       'You must provide at least one service in the "services" prop. Valid services: ["bags", "seats"]'
     );
   });
@@ -125,7 +126,7 @@ describe("DuffelAncillaries", () => {
     fireEvent.click(getByTitle("Add cancel for any reason"));
 
     fireEvent.click(getByTestId("confirm-selection-for-cfar"));
-    expect(getByText(/Added for £97.45/i));
+    expect(getByText(/Your trip is protected for £97.45/i));
 
     // The component is always called at least once
     // when the state is set with an offer.
@@ -219,7 +220,7 @@ describe("DuffelAncillaries", () => {
 
     fireEvent.click(getByTestId("confirm-selection-for-cfar"));
 
-    expect(getByText(/Added for £129.69/i));
+    expect(getByText(/Your trip is protected for £129.69/i));
 
     // The component is always called at least once
     // when the state is set with an offer.
@@ -332,7 +333,7 @@ describe("DuffelAncillaries", () => {
 
     fireEvent.click(getByTestId("confirm-selection-for-cfar"));
 
-    expect(getByText(/Added for 100 Duffel house points/i));
+    expect(getByText(/Your trip is protected for 100 Duffel house points/i));
 
     // The component is always called at least once
     // when the state is set with an offer.

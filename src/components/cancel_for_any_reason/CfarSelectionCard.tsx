@@ -47,7 +47,7 @@ export const CfarSelectionCard: React.FC<CfarSelectionCardProps> = ({
 
   const copy =
     containsCfarService && isCfarAdded
-      ? `Added for ${totalAmountFormatted}`
+      ? `Your trip is protected for ${totalAmountFormatted}`
       : `Protect your purchase if you decide to cancel`;
 
   return (
