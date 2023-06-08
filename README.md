@@ -61,7 +61,7 @@ The component takes a `debug` boolean prop. When enabled, debug output is logged
 
 Debug mode is enabled by default in all of this repository's local environments (e.g. Storybook).
 
-Debug mode makes use a logger, which selectively outputs to the console based on whether or not debug mode is enabled. When it makes sense, make use of the logger to output useful information. See `@lib/logging` for how to use it.
+Debug mode makes use of a logger, which selectively outputs to the console based on whether or not debug mode is enabled. When it makes sense, make use of the logger to output useful information. See `@lib/logging` for how to use it.
 
 ## How to upload new changes to our CDN
 
