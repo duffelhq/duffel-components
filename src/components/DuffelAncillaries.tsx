@@ -24,7 +24,6 @@ import { Offer } from "../types/Offer";
 import { SeatMap } from "../types/SeatMap";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { FetchOfferErrorState } from "./FetchOfferErrorState";
-import { Inspect } from "./Inspect";
 import { BaggageSelectionCard } from "./bags/BaggageSelectionCard";
 import { CfarSelectionCard } from "./cancel_for_any_reason/CfarSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
@@ -33,9 +32,9 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
-  const log = initializeLogger(props.debug || false);
+  const logger = initializeLogger(props.debug || false);
 
-  // TODO print props here, would be cool if it did it with the collapsing group thing.
+  logger.logGroup("Properties passed into the component:", props);
 
   if (!areDuffelAncillariesPropsValid(props)) {
     throw new Error(
@@ -214,7 +213,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     });
 
     if (isPayloadComplete(createOrderPayload)) {
-      props.onPayloadReady(createOrderPayload, {
+      const metadata = {
         offer_total_amount: offer.total_amount,
         offer_total_currency: offer.total_currency,
         offer_tax_amount: offer.tax_amount,
@@ -222,7 +221,14 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         baggage_services: baggageSelectedServices,
         seat_services: seatSelectedServices,
         cancel_for_any_reason_services: cfarSelectedServices,
+      };
+
+      logger.logGroup("Payload ready", {
+        "Order creation payload": createOrderPayload,
+        metadata,
       });
+
+      props.onPayloadReady(createOrderPayload, metadata);
     }
   }, [baggageSelectedServices, seatSelectedServices, cfarSelectedServices]);
 
@@ -255,29 +261,26 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     // that are not part of the css properties type
   } as any;
 
+  const state = {
+    isOfferLoading,
+    isSeatMapLoading,
+    baggageSelectedServices,
+    seatSelectedServices,
+    cfarSelectedServices,
+    offer,
+    seatMaps,
+    error,
+  };
+
+  logger.logGroup("Component's internal state:", state);
+
   return (
     <>
       <link rel="stylesheet" href={hrefToComponentStyles}></link>
 
-      <LogContext.Provider value={log}>
+      <LogContext.Provider value={logger}>
         <div className="duffel-components" style={duffelComponentsStyle}>
           <ErrorBoundary>
-            {location.hash.includes("inspect-duffel-ancillaries") && (
-              <Inspect
-                props={props}
-                state={{
-                  isOfferLoading,
-                  isSeatMapLoading,
-                  baggageSelectedServices,
-                  seatSelectedServices,
-                  cfarSelectedServices,
-                  offer,
-                  seatMaps,
-                  error,
-                }}
-              />
-            )}
-
             {error && (
               <FetchOfferErrorState
                 height={nonIdealStateHeight}
