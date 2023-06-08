@@ -20,13 +20,14 @@ type DuffelAncillariesStory = StoryObj<typeof DuffelAncillaries>;
 
 const defaultProps: Pick<
   DuffelAncillariesPropsWithOffersAndSeatMaps,
-  "onPayloadReady" | "passengers" | "offer" | "seat_maps" | "services"
+  "onPayloadReady" | "passengers" | "offer" | "seat_maps" | "services" | "debug"
 > = {
   onPayloadReady: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
   offer,
   seat_maps,
   passengers: mockPassengers,
   services: ["bags", "seats", "cancel_for_any_reason"],
+  debug: true,
 };
 
 export const AllServices: DuffelAncillariesStory = {

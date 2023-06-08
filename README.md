@@ -55,6 +55,14 @@ This command will:
 1. Serve the Duffel component bundle and watch for changes to rebuild on port `8000`. This can also be done with `yarn dev`
 2. Host a basic `index.html` with `http-server`. The example page will be ready on port `6262`. This can be done with `yarn run-client-side-server`
 
+## Debug mode
+
+The component takes a `debug` boolean prop. When enabled, debug output is logged to the console, with useful info like the props that were passed in. This is intended both for our internal use and for users integrating it.
+
+Debug mode is enabled by default in all of this repository's local environments (e.g. Storybook).
+
+Debug mode makes use of a logger, which selectively outputs to the console based on whether or not debug mode is enabled. When it makes sense, make use of the logger to output useful information. See `@lib/logging` for how to use it.
+
 ## How to upload new changes to our CDN
 
 ### Setup `gcloud`

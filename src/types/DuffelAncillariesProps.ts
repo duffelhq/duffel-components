@@ -15,6 +15,16 @@ export type DuffelAncillariesProps =
   | DuffelAncillariesPropWithOfferAndClientKey
   | DuffelAncillariesPropsWithOffersAndSeatMaps;
 
+export interface DuffelAncillariesCommonProps {
+  styles?: CustomStyles;
+  onPayloadReady: OnPayloadReady;
+  passengers: CreateOrderPayload["passengers"];
+  services: Ancillaries[];
+  markup?: DuffelAncillariesMarkup;
+  priceFormatters?: DuffelAncillariesPriceFormatters;
+  debug?: boolean;
+}
+
 export interface DuffelAncillariesPropsWithOfferIdForFixture
   extends DuffelAncillariesCommonProps {
   offer_id: `fixture_${string}`;
@@ -71,15 +81,6 @@ export interface DuffelAncillariesPriceFormatters {
   bags?: DuffelAncillariesPriceFormatterForBags;
   seats?: DuffelAncillariesPriceFormatterForSeats;
   cancel_for_any_reason?: DuffelAncillariesPriceFormatterForCancelForAnyReason;
-}
-
-export interface DuffelAncillariesCommonProps {
-  styles?: CustomStyles;
-  onPayloadReady: OnPayloadReady;
-  passengers: CreateOrderPayload["passengers"];
-  services: Ancillaries[];
-  markup?: DuffelAncillariesMarkup;
-  priceFormatters?: DuffelAncillariesPriceFormatters;
 }
 
 export interface CustomStyles {
