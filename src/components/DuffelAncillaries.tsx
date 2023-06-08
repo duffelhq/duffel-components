@@ -14,6 +14,7 @@ import {
   isDuffelAncillariesPropsWithOfferAndSeatMaps,
   isDuffelAncillariesPropsWithOfferIdForFixture,
 } from "@lib/validateProps";
+import * as Sentry from "@sentry/browser";
 import * as React from "react";
 import {
   CreateOrderPayloadPassengers,
@@ -50,7 +51,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   }
   if (props.services.length === 0) {
     throw new Error(
-      `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats"]`
+      `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats", "cancel_for_any_reason"]`
     );
   }
 
@@ -138,6 +139,17 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   };
 
   React.useEffect(() => {
+    // whenever the props change, we'll set the sentry context to thse values
+    // so that we can see them in the sentry logs and better support the users of the component library
+    Sentry.setContext("props", {
+      "props.services": props.services,
+      "props.passengers.length": (props as any).passengers.length,
+      "props.offer_id": (props as any).offer_id,
+      "props.client_key": (props as any).client_key,
+      "props.offer?.id": (props as any).offer?.id,
+      "props.seat_maps?.[0]?.id": (props as any).seat_maps?.[0]?.id,
+    });
+
     if (isPropsWithClientKeyAndOfferId || isPropsWithOfferIdForFixture) {
       retrieveOffer(
         props.offer_id,
