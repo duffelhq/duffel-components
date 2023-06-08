@@ -2538,7 +2538,7 @@
     "@sentry/types" "7.54.0"
     "@sentry/utils" "7.54.0"
 
-"@sentry/tracing@^7.19.0", "@sentry/tracing@^7.43.0":
+"@sentry/tracing@^7.19.0":
   version "7.54.0"
   resolved "https://registry.yarnpkg.com/@sentry/tracing/-/tracing-7.54.0.tgz#8364cec20aadc16d8ffcfd4ed9e437e1d317fa87"
   integrity sha512-IyflAAqOiKuNvhWXrJsXN8yfl8DbHRpfgtCEPo5TBvdkpcyxUyfE8W2a2MQ8MXDzgfJT1IixXEwleO+qPIi3Gg==

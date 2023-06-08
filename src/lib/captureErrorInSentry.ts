@@ -1,5 +1,4 @@
 import * as Sentry from "@sentry/browser";
-import { BrowserTracing } from "@sentry/tracing";
 
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const PACKAGE_DOT_JSON = require("../../package.json");
@@ -21,7 +20,7 @@ function initiateSentry() {
      * Accepts either a list of integrations or a function that receives
      * default integrations and returns a new, updated list.
      */
-    integrations: [new BrowserTracing()],
+    integrations: [new Sentry.BrowserTracing()],
 
     /**
      * Sample rate to determine trace sampling.
