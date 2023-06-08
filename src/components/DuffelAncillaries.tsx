@@ -225,7 +225,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
       logger.logGroup("Payload ready", {
         "Order creation payload": createOrderPayload,
-        metadata,
+        "Services metadata": metadata,
       });
 
       props.onPayloadReady(createOrderPayload, metadata);
