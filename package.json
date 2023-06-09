@@ -1,6 +1,6 @@
 {
   "name": "@duffel/components",
-  "version": "3.0.0-canary",
+  "version": "2.7.20",
   "private": true,
   "license": "MIT",
   "main": "index.js",
