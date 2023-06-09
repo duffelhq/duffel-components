@@ -37,7 +37,7 @@ const ExampleWithoutServices: React.FC = () => (
 describe("DuffelAncillaries", () => {
   test("should throw an error when services is empty", () => {
     expect(() => render(<ExampleWithoutServices />)).toThrow(
-      'You must provide at least one service in the "services" prop. Valid services: ["bags", "seats"]'
+      `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats", "cancel_for_any_reason"]`
     );
   });
 
