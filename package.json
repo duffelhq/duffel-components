@@ -1,27 +1,38 @@
 {
   "name": "@duffel/components",
-  "version": "2.7.20",
-  "private": true,
+  "version": "3.0.7-canary",
+  "private": false,
   "license": "MIT",
-  "main": "index.js",
+  "main": "react-dist/index.js",
+  "exports": {
+    ".": "./react-dist/index.js",
+    "./custom-elements": "./react-dist/custom-elements.js"
+  },
+  "maintainers": [
+    {
+      "name": "Duffel",
+      "email": "hello@duffel.com",
+      "url": "https://duffel.com"
+    }
+  ],
   "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "node config/esbuild.build.config.js",
+    "precdn-build": "rm -rf ./cdn-dist",
+    "cdn-build": "node config/esbuild.cdn.config.js",
     "build-storybook": "storybook build",
     "check-types": "tsc --project tsconfig.json --noEmit --emitDeclarationOnly false",
     "dev": "node config/esbuild.dev.config.js",
-    "gcloud-storage-cp": "bash ./scripts/gcloud-storage-cp.sh",
     "generate-fixture": "esbuild ./scripts/generate-fixture.ts --outfile=dist/scripts/generate-fixture.cjs --format=cjs --platform=node --bundle --tsconfig=scripts.tsconfig.json",
     "postgenerate-fixture": "node dist/scripts/generate-fixture.cjs",
     "generate-type-declarations": "tsc --project tsconfig.json",
     "commit": "cz",
     "lint": "eslint . --ext .ts,.tsx,.mjs,.js --max-warnings=0",
     "pre-commit-check": "concurrently --raw \"yarn check-types\" \"yarn lint-staged\"",
+    "post-commit-check": "yarn commitlint --from main",
     "prepare": "husky install",
     "prettier": "prettier --write --loglevel=warn .",
     "prettier-check": "prettier --check .",
     "prereact-build": "rm -rf ./react-dist",
-    "react-build": "node config/react-esbuild.config.js",
+    "react-build": "node config/esbuild.react.config.js",
     "postreact-build": "yarn generate-type-declarations",
     "run-client-side-server": "http-server src/examples/client-side --port=6262",
     "run-example:client-side": "concurrently \"yarn dev\" \"yarn run-client-side-server\"",
@@ -29,11 +40,11 @@
     "run-full-stack-server": "node src/examples/full-stack/server.mjs",
     "storybook": "storybook dev -p 6006",
     "test": "LANG='en_US' TZ=UTC yarn jest",
-    "preupload-to-cdn": "yarn build",
+    "preupload-to-cdn": "yarn cdn-build",
     "upload-to-cdn": "bash ./scripts/upload-to-cdn.sh",
+    "prerelease": "yarn react-build",
     "release": "yarn semantic-release",
-    "get-version": "cat package.json | jq '.version'",
-    "post-commit-check": "yarn commitlint --from main"
+    "get-version": "cat package.json | jq '.version'"
   },
   "husky": {
     "hooks": {
@@ -129,5 +140,22 @@
     "branches": [
       "main"
     ]
-  }
+  },
+  "description": "Component library to build your travel product with Duffel.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duffelhq/duffel-checkout.git"
+  },
+  "keywords": [
+    "Duffel",
+    "ancillaries",
+    "seats",
+    "seat maps",
+    "baggage",
+    "travel"
+  ],
+  "bugs": {
+    "url": "https://github.com/duffelhq/duffel-checkout/issues"
+  },
+  "homepage": "https://github.com/duffelhq/duffel-checkout#readme"
 }
