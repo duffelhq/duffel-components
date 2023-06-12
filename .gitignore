@@ -1,5 +1,6 @@
 dist
-/react-dist
+cdn-dist
+react-dist
 node_modules
 /storybook-static
 .DS_Store

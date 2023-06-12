@@ -20,11 +20,11 @@ const envVariablesToDefine = {
 esbuild
   .build({
     define: envVariablesToDefine,
-    entryPoints: ["src/index.ts"],
+    entryPoints: ["src/index.ts", "src/custom-elements.ts"],
     bundle: true,
     minify: true,
     sourcemap: true,
-    outfile: `react-dist/index.js`,
+    outdir: "react-dist",
     format: "cjs",
     external: ["react", "react-dom"],
     plugins: [
