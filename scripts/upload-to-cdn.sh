@@ -4,7 +4,7 @@
 set -e
 
 # Define where to upload files too
-GCP_PREFIX=gs://duffel-assets/components/ancillaries
+GCP_PREFIX=gs://duffel-assets/components
 
 # Gets current version from package.json 
 VERSION=$(jq '.version' package.json -r)
@@ -30,10 +30,5 @@ if gsutil -q stat "$GCP_PREFIX/$VERSION/index.js"; then
 fi
  
 # Uploads fixtures
-gcloud storage cp -r dist/ancillaries "$GCP_PREFIX/$VERSION"
-
-# Check if --latest argument is provided
-if [ "$1" == "--latest" ]; then
-  # Copies the current version into the latest folder 
-  gcloud storage cp -r "$GCP_PREFIX/$VERSION" "$GCP_PREFIX/latest"
-fi
+gcloud storage cp -r cdn-dist "$GCP_PREFIX/$VERSION"
+ 
