@@ -34,14 +34,14 @@ esbuild
         org: "duffel",
         project: "ancillaries-component",
         // Specify the directory containing build artifacts
-        include: "./dist",
+        include: "./cdn-dist",
         authToken: process.env.SENTRY_AUTH_TOKEN,
         logLevel: "info",
-        release: `element-${VERSION}`,
+        release: `cdn-${VERSION}`,
       }),
       esbuildCopyStaticFiles({
         src: "src/fixtures",
-        dest: "dist/ancillaries/fixtures",
+        dest: "cdn-dist/fixtures",
         dereference: true,
         recursive: true,
       }),

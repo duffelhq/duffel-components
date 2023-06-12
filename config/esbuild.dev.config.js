@@ -27,7 +27,7 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
       // the component will attempt to fetch it from the hosted folder.
       require("esbuild-copy-static-files")({
         src: "src/fixtures",
-        dest: "dist/ancillaries/fixtures",
+        dest: "cdn-dist/fixtures",
         dereference: true,
         recursive: true,
       }),
@@ -36,7 +36,7 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
 
   let { host, port } = await esbuildContext.serve({
     host: "localhost",
-    servedir: "dist",
+    servedir: "cdn-dist",
     port: 8000,
   });
 

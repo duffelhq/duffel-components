@@ -9,7 +9,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ["**/dist/**", "react-dist/**", "__generated__**"],
+  ignorePatterns: ["**/cdn-dist/**", "react-dist/**", "__generated__**"],
   parser: "@typescript-eslint/parser",
   extends: [
     "eslint:recommended",
