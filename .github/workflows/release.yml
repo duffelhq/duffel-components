@@ -62,7 +62,7 @@ jobs:
         if: steps.initversion.outputs.version != steps.extractver.outputs.extractver
         uses: peter-evans/create-pull-request@v3.10.0
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT }} # You can fin this on https://duffel.1password.com/vaults/all/allitems/m3heg3y3ijclli4tmmp4bsyxna
           commit-message: "chore(release): ${{ steps.extractver.outputs.extractver }}"
           committer: duffel-bot <duffel-bot-read-write@duffel.com>
           author: duffel-bot <duffel-bot-read-write@duffel.com>
