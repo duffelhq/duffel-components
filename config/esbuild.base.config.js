@@ -10,5 +10,5 @@ module.exports = {
   minify: true,
   sourcemap: true,
   treeShaking: true,
-  outdir: "dist/ancillaries",
+  outdir: "cdn-dist",
 };

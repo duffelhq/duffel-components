@@ -1,8 +1,6 @@
 /**
- * This file is the entry point for the library.
- * If you'd like to expose other components,
- * they must be exported here.
+ * This file is the main entry point for the library -- `@duffel/components`.
+ * If you'd like to expose other react components, please add them here.
  */
 export * from "./components/DuffelAncillaries";
-export * from "./components/DuffelAncillariesCustomElement";
 export * from "./types";

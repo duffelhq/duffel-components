@@ -1,17 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { sentryEsbuildPlugin } = require("@sentry/esbuild-plugin");
 const esbuild = require("esbuild");
 const dotenv = require("dotenv");
-const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
+const { sentryEsbuildPlugin } = require("@sentry/esbuild-plugin");
 
 dotenv.config({ path: ".env.build" });
-if (process.env.SENTRY_AUTH_TOKEN === undefined) {
-  console.error(
-    "'process.env.SENTRY_AUTH_TOKEN' is required but missing." +
-      "Make sure it's included in your .env.build file."
-  );
-  process.exit(1);
-}
 
 const VERSION = require("../package.json").version;
 const envVariablesToDefine = {
@@ -24,26 +16,26 @@ const envVariablesToDefine = {
   }"`,
 };
 
+// Builds for react environment
 esbuild
   .build({
-    ...require("./esbuild.base.config"),
     define: envVariablesToDefine,
+    entryPoints: ["src/index.ts", "src/custom-elements.ts"],
+    bundle: true,
+    minify: true,
+    sourcemap: true,
+    outdir: "react-dist",
+    format: "cjs",
+    external: ["react", "react-dom"],
     plugins: [
       // Learn more on https://www.npmjs.com/package/@sentry/esbuild-plugin
       sentryEsbuildPlugin({
         org: "duffel",
         project: "ancillaries-component",
-        // Specify the directory containing build artifacts
-        include: "./dist",
+        include: `./react-dist`,
         authToken: process.env.SENTRY_AUTH_TOKEN,
         logLevel: "info",
-        release: `element-${VERSION}`,
-      }),
-      esbuildCopyStaticFiles({
-        src: "src/fixtures",
-        dest: "dist/ancillaries/fixtures",
-        dereference: true,
-        recursive: true,
+        release: `react-${VERSION}`,
       }),
     ],
   })

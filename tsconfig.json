@@ -42,7 +42,7 @@
   "exclude": [
     "node_modules",
     "**/**.css.js",
-    "./dist/**/*",
+    "./cdn-dist/**/*",
     "./react-dist/**/*",
     "./src/examples/**/*",
     "./src/stories/**/*",
