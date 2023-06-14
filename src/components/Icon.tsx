@@ -1,3 +1,4 @@
+import { log } from "@lib/logging";
 import * as React from "react";
 
 /* eslint-disable react/no-unknown-property */
@@ -109,7 +110,7 @@ export type IconName = keyof typeof ICON_MAP;
 
 const getIconPath = (name: IconName) => {
   if (!(name in ICON_MAP)) {
-    console.warn(`The icon "${name}" is missing from ICON_MAP`);
+    log(`The icon "${name}" is missing from ICON_MAP`);
     return null;
   }
   return ICON_MAP[name];

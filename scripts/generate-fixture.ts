@@ -10,6 +10,9 @@ const DUFFEL_API_TOKEN = process.env.DUFFEL_API_TOKEN || "";
 const DUFFEL_API_URL = process.env.DUFFEL_API_URL || "";
 const VERBOSE = process.env.VERBOSE === "true";
 
+// eslint-disable-next-line
+const log = console.log;
+
 if (DUFFEL_API_URL.includes("localhost"))
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
@@ -89,7 +92,8 @@ const main = async () => {
     const sliceInput = new Array<[string, string]>(sliceCount);
     for (let i = 0; i < sliceCount; i++) {
       let origin = sliceInput[i - 1]?.[0];
-      console.log(`\nSlice #${i + 1}`);
+
+      log(`\nSlice #${i + 1}`);
       const { value } = await prompts({
         type: "text",
         name: "value",
@@ -108,7 +112,7 @@ const main = async () => {
     }
 
     // ask how many adults
-    console.log(`\n`);
+    log(`\n`);
     const { adultCount } = await prompts({
       type: "number",
       name: "adultCount",
@@ -117,7 +121,7 @@ const main = async () => {
     });
 
     // ask for requested sources
-    console.log(`\n`);
+    log(`\n`);
     const { requestedSources } = await prompts({
       type: "text",
       name: "requestedSources",
@@ -135,7 +139,7 @@ const main = async () => {
       const airlines = new Set(
         offerRequest.offers.map((offer) => offer.owner.iata_code)
       );
-      console.log(
+      log(
         `Received ${withPlural(
           offerRequest.offers.length,
           "offer",
@@ -147,7 +151,7 @@ const main = async () => {
             "airlines"
           )}(${Array.from(airlines.values()).join(",")})`
       );
-      console.log(
+      log(
         `Search completed, offer request ID: ${offerRequest.id}.\nUsing first offer to get services: ${offerRequest.offers[0].id}\n`
       );
     }
@@ -183,10 +187,11 @@ const main = async () => {
       JSON.stringify(seatMaps, null, 2)
     );
 
-    console.log(`\n🐄 Fixtures saved for ${firstOffer.id}`);
-    console.log(`  ↳ /src/fixtures/offer/${firstOffer.id}.json`);
-    console.log(`  ↳ /src/fixtures/seat-maps/${firstOffer.id}.json\n`);
+    log(`\n🐄 Fixtures saved for ${firstOffer.id}`);
+    log(`  ↳ /src/fixtures/offer/${firstOffer.id}.json`);
+    log(`  ↳ /src/fixtures/seat-maps/${firstOffer.id}.json\n`);
   } catch (err) {
+    // eslint-disable-next-line
     console.error(err);
     process.exit(1);
   }

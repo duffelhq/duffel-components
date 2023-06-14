@@ -29,6 +29,7 @@ window.onload = () => {
     ],
   });
   onDuffelAncillariesPayloadReady((data, metadata) => {
+    /* eslint-disable */
     console.table(data);
     console.table(metadata);
   });

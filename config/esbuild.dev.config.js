@@ -39,7 +39,8 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
     servedir: "cdn-dist",
     port: 8000,
   });
-
-  console.log(`\n🐄 Serving component on http://${host}:${port}`);
   await esbuildContext.watch();
+
+  // eslint-disable-next-line
+  console.log(`\n🐄 Serving component on http://${host}:${port}`);
 })();
