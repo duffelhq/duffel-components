@@ -6,7 +6,7 @@ const consoleSpies = {
   groupEnd: jest.spyOn(console, "groupEnd"),
 };
 
-describe("initializeLogger", () => {
+describe("logging", () => {
   it("should return functions that do nothing when debugMode is false", () => {
     initializeLogger(false);
     log("This should not be logged");
@@ -17,16 +17,16 @@ describe("initializeLogger", () => {
     initializeLogger(true);
     log("This should be logged");
 
-    // Twice because initializeLogger logs a message when it's called,
-    // and then the message we're testing.
-    expect(consoleSpies.log).toHaveBeenCalledTimes(2);
+    // Once because initializeLogger was initialised on the test above
+    // And so, the initialisation message would not show up twice.
+    expect(consoleSpies.log).toHaveBeenCalledTimes(1);
 
     logGroup("This should be logged", ["one", "two"]);
     expect(consoleSpies.groupCollapsed).toHaveBeenCalledTimes(1);
     expect(consoleSpies.groupEnd).toHaveBeenCalledTimes(1);
 
-    // Four times: once for the initializeLogger message, once for the
-    // earlier message, and twice for the array passed to logGroup.
-    expect(consoleSpies.log).toHaveBeenCalledTimes(4);
+    // once for the call to `log` above and then
+    // twice for the array passed to logGroup
+    expect(consoleSpies.log).toHaveBeenCalledTimes(3);
   });
 });
