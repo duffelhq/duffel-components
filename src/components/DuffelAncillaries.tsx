@@ -186,7 +186,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
           ? props.offer_id
           : props.offer.id,
         !isPropsWithOfferIdForFixture ? props.client_key : null,
-        setError,
+        () => updateSeatMaps([]),
         setIsSeatMapLoading,
         updateSeatMaps
       );
