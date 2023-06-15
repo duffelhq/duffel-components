@@ -37,7 +37,7 @@ export const getTotalAmountForServicesWithPriceMap = (
       } else {
         captureErrorInSentry(
           new Error(
-            `The service id provided could not be found in neither the offer nor the seat maps. Service id: ${id}`
+            `The service id (${id}) provided could not be found in neither the offer nor the seat maps.`
           )
         );
       }

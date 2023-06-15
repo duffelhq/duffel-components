@@ -1,8 +1,5 @@
 import * as Sentry from "@sentry/browser";
 
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
-const PACKAGE_DOT_JSON = require("../../package.json");
-
 let hasSentryInitiated = false;
 function initiateSentry() {
   Sentry.init({
@@ -13,7 +10,7 @@ function initiateSentry() {
      * this value to allow Sentry to resolve the correct source maps when
      * processing events.
      */
-    release: `${PACKAGE_DOT_JSON.name}@${PACKAGE_DOT_JSON.version}`,
+    release: process.env.COMPONENT_VERSION,
 
     /**
      * List of integrations that should be installed after SDK was initialized.
@@ -36,25 +33,10 @@ function initiateSentry() {
   hasSentryInitiated = true;
 }
 
-export const captureErrorInSentry = (
-  error: Error,
-  context?: Record<string, any>
-) => {
+export const captureErrorInSentry = (error: Error) => {
   if (!hasSentryInitiated) {
     initiateSentry();
   }
-
-  Sentry.configureScope((scope) => {
-    if (error.message) {
-      scope.setFingerprint([error.message]);
-    }
-
-    if (context) {
-      Object.entries(context).forEach(([key, value]) =>
-        scope.setExtra(key, value)
-      );
-    }
-  });
 
   return Sentry.captureException(error);
 };
