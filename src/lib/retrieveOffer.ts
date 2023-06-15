@@ -1,5 +1,6 @@
 import { Offer } from "../types/Offer";
 import { captureErrorInSentry } from "./captureErrorInSentry";
+import { isErrorResponse } from "./fetchFromDuffelAPI";
 import { importFromOfferFixtures } from "./fetchFromFixtures";
 import { isFixtureOfferId } from "./isFixtureOfferId";
 import { retrieveOfferFromDuffelAPI } from "./retrieveOfferFromDuffelAPI";
@@ -24,24 +25,28 @@ export async function retrieveOffer(
 
   if (!client_key) {
     throw new Error(
-      "Attemptted to retrieve seat maps but the client key is missing"
+      "Attemptted to retrieve seat maps but the client key is missing."
     );
   }
 
   try {
     const data = await retrieveOfferFromDuffelAPI(offer_id, client_key);
-    return onOfferReady(data);
+    onOfferReady(data);
   } catch (error) {
     let message = "An unknown error occurred while retrieving the offer.";
     if (error instanceof Error) {
       message = error.message;
-      if (error.message.includes("ECONNREFUSED")) {
+      if (error.message.includes("Load failed")) {
         message = "The Duffel API is not available. Please try again later.";
       }
-      captureErrorInSentry(error, { offer_id });
-    } else {
-      captureErrorInSentry(new Error(message), { offer_id });
+    } else if (isErrorResponse(error)) {
+      if (error.status === 404) {
+        message =
+          "The offer you are looking for does not exist or has expired.";
+      }
     }
+
+    captureErrorInSentry(new Error(message));
     onError(message);
   } finally {
     setIsLoading(false);
