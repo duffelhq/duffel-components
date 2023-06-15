@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { DuffelAncillaries } from "../../components/DuffelAncillaries";
+import { DuffelAncillaries } from "../../components/DuffelAncillaries/DuffelAncillaries";
 import mockPassengers from "../../fixtures/passengers/mock_passengers";
 import {
   DuffelAncillariesPropsWithOffersAndSeatMaps,

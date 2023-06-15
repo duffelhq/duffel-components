@@ -1,5 +1,5 @@
-import { DuffelAncillaries } from "@components/DuffelAncillaries";
 import type { Meta, StoryObj } from "@storybook/react";
+import { DuffelAncillaries } from "../components/DuffelAncillaries/DuffelAncillaries";
 import mockPassengers from "../fixtures/passengers/mock_passengers";
 import { DuffelAncillariesPropsWithOffersAndSeatMaps } from "../types/DuffelAncillariesProps";
 import { Offer } from "../types/Offer";
