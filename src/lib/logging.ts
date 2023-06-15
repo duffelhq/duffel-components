@@ -35,7 +35,7 @@ const shouldLog = () => localStorage.getItem(LOCAL_STORAGE_KEY) === "true";
  * log('This is a log message')
  * logGroup('These messages will be grouped together', ['This is a log message', 'This is another log message'])
  */
-export const initializeLogger = (debugMode: boolean): void => {
+const initializeLogger = (debugMode: boolean): void => {
   storeLoggerState(debugMode);
   if (debugMode && !LOG_INITIALISED) {
     // eslint-disable-next-line
@@ -56,7 +56,7 @@ export const initializeLogger = (debugMode: boolean): void => {
  * Log a message to the console. Messages will be prefixed with "[Duffel Ancillaries]".
  * @param message The message to print to the console.
  */
-export const log = (message: any) => {
+const log = (message: any) => {
   if (shouldLog()) {
     // eslint-disable-next-line
     console.info(MESSAGE_PREFIX, message);
@@ -73,21 +73,18 @@ export const log = (message: any) => {
  * @param groupName The name of the group of messages. This will be prefixed with "[Duffel Ancillaries]".
  * @param messages An array of messages to print to the console, inside the group.
  */
-export function logGroup(groupName: string, messages: any[]): void;
+function logGroup(groupName: string, messages: any[]): void;
 
 /**
  * Log a series of messages to the console inside a collapsible group.
  * @param groupName The name of the group of messages. This will be prefixed with "[Duffel Ancillaries]".
  * @param object An object to print to the console, inside the group.
  */
-export function logGroup(
-  groupName: string,
-  object: { [key: string]: any }
-): void;
+function logGroup(groupName: string, object: { [key: string]: any }): void;
 
 // Overloaded function implementation.
 // https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads
-export function logGroup(
+function logGroup(
   groupName: string,
   messagesOrObject: any[] | { [key: string]: any }
 ): void {
@@ -119,3 +116,5 @@ export function logGroup(
     });
   }
 }
+
+export { initializeLogger, logGroup, log };
