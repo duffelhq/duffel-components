@@ -35,7 +35,7 @@ esbuild
         include: `./react-dist`,
         authToken: process.env.SENTRY_AUTH_TOKEN,
         logLevel: "info",
-        release: `react-${VERSION}`,
+        release: VERSION,
       }),
     ],
   })

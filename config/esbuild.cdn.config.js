@@ -38,7 +38,7 @@ esbuild
         include: "./cdn-dist",
         authToken: process.env.SENTRY_AUTH_TOKEN,
         logLevel: "info",
-        release: `cdn-${VERSION}`,
+        release: VERSION,
       }),
       esbuildCopyStaticFiles({
         src: "src/fixtures",
