@@ -1,4 +1,4 @@
-import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
+import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "../../lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
 import { CreateOrderPayloadService } from "../../types/CreateOrderPayload";
 import { OfferAvailableBaggageService } from "../../types/Offer";
 

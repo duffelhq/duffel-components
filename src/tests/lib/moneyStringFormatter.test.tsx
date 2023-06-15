@@ -1,4 +1,4 @@
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import { moneyStringFormatter } from "../../lib/moneyStringFormatter";
 
 describe("moneyStringFormatter", () => {
   it("should format known currencies correctly", () => {

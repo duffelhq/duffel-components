@@ -1,4 +1,4 @@
-import { formatAvailableServices } from "@lib/formatAvailableServices";
+import { formatAvailableServices } from "../../lib/formatAvailableServices";
 import { OfferAvailableServiceBaggage } from "../../types/Offer";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
