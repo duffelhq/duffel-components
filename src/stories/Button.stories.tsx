@@ -1,5 +1,6 @@
-import { Button, ButtonProps } from "@components/Button";
 import type { Meta, StoryFn, StoryObj } from "@storybook/react";
+import React from "react";
+import { Button, ButtonProps } from "../components/shared/Button";
 
 export default {
   title: "Button",
@@ -47,7 +48,9 @@ export const WithSize48: ButtonStory = {
   args: { ...defaultProps, size: 48, iconBefore: "autorenew" },
 };
 
-export const WithAccentColorSet: StoryFn<ButtonProps> = () => (
+const AccentColorWrapper: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
   <div
     style={
       {
@@ -55,6 +58,12 @@ export const WithAccentColorSet: StoryFn<ButtonProps> = () => (
       } as any
     }
   >
-    <Button {...defaultProps} />
+    {children}
   </div>
+);
+
+export const WithAccentColorSet: StoryFn<ButtonProps> = () => (
+  <AccentColorWrapper>
+    <Button {...defaultProps} />
+  </AccentColorWrapper>
 );

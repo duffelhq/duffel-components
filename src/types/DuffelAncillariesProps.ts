@@ -75,7 +75,7 @@ export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
   amount: number,
   currency: string,
   service: OfferAvailableServiceCancelForAnyReason
-) => { amount: number; currency: string };
+) => { amount: number; currency?: string };
 
 export interface DuffelAncillariesPriceFormatters {
   bags?: DuffelAncillariesPriceFormatterForBags;
