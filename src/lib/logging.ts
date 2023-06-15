@@ -2,9 +2,11 @@ import * as Sentry from "@sentry/browser";
 
 const MESSAGE_PREFIX = "[Duffel Ancillaries] ";
 const LOCAL_STORAGE_KEY = "duffel-ancillaries-logger-state";
+let LOG_INITIALISED = false;
 
-const storeLoggerState = (shouldLog: boolean) =>
+const storeLoggerState = (shouldLog: boolean) => {
   localStorage.setItem(LOCAL_STORAGE_KEY, shouldLog.toString());
+};
 
 const shouldLog = () => localStorage.getItem(LOCAL_STORAGE_KEY) === "true";
 
@@ -35,11 +37,19 @@ const shouldLog = () => localStorage.getItem(LOCAL_STORAGE_KEY) === "true";
  */
 export const initializeLogger = (debugMode: boolean): void => {
   storeLoggerState(debugMode);
-  if (debugMode) {
-    log(
-      `\n\nDebug mode is enabled. Information about your setup will be printed to the console.\n\nIf you do not want to enable debug mode (for example in a production environment), pass "debug: false" when initializing this component.\n\nLearn more about the Ancillaries component:\nhttp://duffel.com/docs/guides/ancillaries-component`
+  if (debugMode && !LOG_INITIALISED) {
+    // eslint-disable-next-line
+    console.info(
+      MESSAGE_PREFIX,
+      `\n\nDebug mode is enabled. Information about your setup will be printed to the console.
+    
+    If you do not want to enable debug mode (for example in a production environment), pass "debug: false" when initializing this component.
+    
+    Learn more about the Ancillaries component:
+    http://duffel.com/docs/guides/ancillaries-component`
     );
   }
+  LOG_INITIALISED = true;
 };
 
 /**
@@ -52,8 +62,7 @@ export const log = (message: any) => {
     console.info(MESSAGE_PREFIX, message);
   } else {
     Sentry.addBreadcrumb({
-      category: "Log message",
-      level: "info",
+      category: "log",
       message,
     });
   }
@@ -104,9 +113,9 @@ export function logGroup(
     console.groupEnd();
   } else {
     Sentry.addBreadcrumb({
-      category: `Log grouop: ${groupName}`,
-      level: "info",
-      data: transformedMessagesOrObject,
+      category: "log.group",
+      message: groupName,
+      data: messagesOrObject,
     });
   }
 }
