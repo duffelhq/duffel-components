@@ -16,7 +16,11 @@ export const Modal: React.FC<ModalProps> = ({ children, onClose, isOpen }) => {
   }, [isOpen]);
 
   return (
-    <div className={classNames("modal", isOpen && "modal--open")}>
+    <div
+      className={classNames("modal", isOpen && "modal--open")}
+      // setting inline style to avoid modal content to flash unstyled before stylesheet is loaded
+      style={{ opacity: 0 }}
+    >
       <div role="presentation" className={"modal--content"}>
         {children}
 
