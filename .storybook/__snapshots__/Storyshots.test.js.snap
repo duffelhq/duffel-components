@@ -47175,6 +47175,86 @@ exports[`Storyshots DuffelAncillaries With Custom Styles 1`] = `
 ]
 `;
 
+exports[`Storyshots DuffelPayments Default 1`] = `
+[
+  <link
+    href="/global.css"
+    rel="stylesheet"
+  />,
+  <div
+    className="duffel-components"
+    style={{}}
+  >
+    <div
+      className="card-payment__container"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="card-details"
+        />
+        <div
+          className="card-payment__container--invalid"
+          role="alert"
+        />
+        <button
+          aria-label="Pay"
+          className="button button--primary button--40 card-payment__pay-button"
+          disabled={true}
+          type="submit"
+        >
+          Pay
+        </button>
+      </form>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots DuffelPayments With Custom Styles 1`] = `
+[
+  <link
+    href="/global.css"
+    rel="stylesheet"
+  />,
+  <div
+    className="duffel-components"
+    style={
+      {
+        "--ACCENT": "29, 78, 216",
+        "--BUTTON-RADIUS": "15px",
+        "--FONT-FAMILY": "monospace",
+      }
+    }
+  >
+    <div
+      className="card-payment__container"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="card-details"
+        />
+        <div
+          className="card-payment__container--invalid"
+          role="alert"
+        />
+        <button
+          aria-label="Pay"
+          className="button button--primary button--40 card-payment__pay-button"
+          disabled={true}
+          type="submit"
+        >
+          Pay
+        </button>
+      </form>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Storyshots Icon Full List 1`] = `
 <div
   style={
