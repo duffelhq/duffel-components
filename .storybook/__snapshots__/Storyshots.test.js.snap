@@ -360,6 +360,11 @@ exports[`Storyshots DuffelAncillaries All Services 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -735,6 +740,11 @@ exports[`Storyshots DuffelAncillaries All Services 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -6718,6 +6728,11 @@ exports[`Storyshots DuffelAncillaries All Services 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -7046,6 +7061,11 @@ exports[`Storyshots DuffelAncillaries Expired Offer 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -7421,6 +7441,11 @@ exports[`Storyshots DuffelAncillaries Expired Offer 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -13404,6 +13429,11 @@ exports[`Storyshots DuffelAncillaries Expired Offer 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -13732,6 +13762,11 @@ exports[`Storyshots DuffelAncillaries Just Bags 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -14128,6 +14163,11 @@ exports[`Storyshots DuffelAncillaries Just CFAR 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -14456,6 +14496,11 @@ exports[`Storyshots DuffelAncillaries Just Seats 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -20460,6 +20505,11 @@ exports[`Storyshots DuffelAncillaries Markup 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -20835,6 +20885,11 @@ exports[`Storyshots DuffelAncillaries Markup 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -26818,6 +26873,11 @@ exports[`Storyshots DuffelAncillaries Markup 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -27146,6 +27206,11 @@ exports[`Storyshots DuffelAncillaries Markup Using Price Formatters 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -27521,6 +27586,11 @@ exports[`Storyshots DuffelAncillaries Markup Using Price Formatters 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -33504,6 +33574,11 @@ exports[`Storyshots DuffelAncillaries Markup Using Price Formatters 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -33832,6 +33907,11 @@ exports[`Storyshots DuffelAncillaries Markup Using Price Formatters With Custom 
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -34207,6 +34287,11 @@ exports[`Storyshots DuffelAncillaries Markup Using Price Formatters With Custom 
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -40190,6 +40275,11 @@ exports[`Storyshots DuffelAncillaries Markup Using Price Formatters With Custom 
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -40521,6 +40611,11 @@ exports[`Storyshots DuffelAncillaries With Custom Styles 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -40896,6 +40991,11 @@ exports[`Storyshots DuffelAncillaries With Custom Styles 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
@@ -46879,6 +46979,11 @@ exports[`Storyshots DuffelAncillaries With Custom Styles 1`] = `
     </button>
     <div
       className="modal"
+      style={
+        {
+          "opacity": 0,
+        }
+      }
     >
       <div
         className="modal--content"
