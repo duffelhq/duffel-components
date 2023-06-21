@@ -1,12 +1,13 @@
-import { Icon, ICON_MAP, IconName } from "@components/Icon";
 import { Meta } from "@storybook/react";
+import React from "react";
+import { Icon, ICON_MAP, IconName } from "../components/shared/Icon";
 
 export default {
   title: "Icon",
   component: Icon,
 } as Meta;
 
-export const FullList = () => (
+export const FullList: React.FC = () => (
   <div
     style={{
       display: "grid",

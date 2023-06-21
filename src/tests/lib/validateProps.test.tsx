@@ -4,7 +4,7 @@
  * that we can test functions with invalid props.
  */
 
-import { hasCommonRequiredProps } from "@lib/validateProps";
+import { hasCommonRequiredProps } from "../../lib/validateProps";
 import { Ancillaries } from "../../types/DuffelAncillariesProps";
 
 describe("hasCommonRequiredProps", () => {

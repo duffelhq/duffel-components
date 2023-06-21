@@ -1,4 +1,4 @@
-import { getCurrencyForServices } from "@lib/getCurrencyForServices";
+import { getCurrencyForServices } from "../../lib/getCurrencyForServices";
 import { Offer } from "../../types/Offer";
 
 describe("getCurrencyForServices", () => {

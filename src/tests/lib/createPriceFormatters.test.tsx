@@ -1,4 +1,4 @@
-import { createPriceFormatters } from "@lib/createPriceFormatters";
+import { createPriceFormatters } from "../../lib/createPriceFormatters";
 
 describe("createPriceFormatters", () => {
   it("should return an empty object if neither markup nor priceFormatters are supplied", () => {

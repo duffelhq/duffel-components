@@ -5,4 +5,4 @@
 export {
   onDuffelAncillariesPayloadReady,
   renderDuffelAncillariesCustomElement,
-} from "./components/DuffelAncillariesCustomElement";
+} from "./components/DuffelAncillaries/DuffelAncillariesCustomElement";

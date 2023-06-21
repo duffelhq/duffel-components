@@ -1,5 +1,5 @@
-import { IconButton, IconButtonProps } from "@components/IconButton";
 import type { Meta, StoryObj } from "@storybook/react";
+import { IconButton, IconButtonProps } from "../components/shared/IconButton";
 
 export default {
   title: "IconButton",

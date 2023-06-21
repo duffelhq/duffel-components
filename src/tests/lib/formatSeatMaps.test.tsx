@@ -1,5 +1,5 @@
-import { formatSeatMaps } from "@lib/formatSeatMaps";
-import { getFirstSeatElementMatchingCriteria } from "@lib/getFirstSeatElementMatchingCriteria";
+import { formatSeatMaps } from "../../lib/formatSeatMaps";
+import { getFirstSeatElementMatchingCriteria } from "../../lib/getFirstSeatElementMatchingCriteria";
 import { SeatMapCabinRowSectionElementSeat } from "../../types/SeatMap";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
