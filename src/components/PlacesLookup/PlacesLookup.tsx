@@ -1,5 +1,6 @@
 import Fuse from "fuse.js";
 import { debounce } from "lodash";
+import fetch from "node-fetch";
 import React from "react";
 import { Icon } from "../shared/Icon";
 
