@@ -23,6 +23,8 @@
     "dev": "node config/esbuild.dev.config.js",
     "generate-fixture": "esbuild ./scripts/generate-fixture.ts --outfile=dist/scripts/generate-fixture.cjs --format=cjs --platform=node --bundle --tsconfig=scripts.tsconfig.json",
     "postgenerate-fixture": "node dist/scripts/generate-fixture.cjs",
+    "setup-suggestion-data": "esbuild ./scripts/setup-suggestion-data.ts --outfile=dist/scripts/setup-suggestion-data.cjs --format=cjs --platform=node --bundle --tsconfig=scripts.tsconfig.json",
+    "postsetup-suggestion-data": "node dist/scripts/setup-suggestion-data.cjs",
     "generate-type-declarations": "tsc --project tsconfig.json",
     "commit": "cz",
     "lint": "eslint . --ext .ts,.tsx,.mjs,.js --max-warnings=0",
@@ -63,6 +65,8 @@
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.54.0",
     "classnames": "^2.3.2",
+    "fuse.js": "^6.6.2",
+    "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

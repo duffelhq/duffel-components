@@ -1,0 +1,36 @@
+.places-lookup-input {
+  width: 100%;
+}
+
+.places-lookup-popover {
+  background-color: var(--WHITE);
+  box-shadow: 0px 1px 4px rgba(59, 64, 86, 0.3);
+  border-radius: 4px;
+  margin-top: 4px;
+  width: 100%;
+  padding: 4px;
+}
+
+.places-lookup-popover__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  cursor: pointer;
+  column-gap: var(--SPACING-XS-2);
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+}
+
+.places-lookup-popover__item:hover,
+.places-lookup-popover__item:focus {
+  background-color: var(--GREY-100);
+}
+
+.places-lookup-popover__icon-and-name-container {
+  column-gap: var(--SPACING-SM-1);
+  display: flex;
+  align-items: flex-start;
+  text-align: start;
+}
