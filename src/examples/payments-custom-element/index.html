@@ -23,17 +23,19 @@
   <script>
     const duffelpaymentsElement = document.querySelector("duffel-payments");
 
-    // 3. Render the component with the required data, you can safely call this function as many times as you want. E.g. when your passenger data changes.
+    // 3. Render the component with the required data, you can safely call this function as many times as you want.
     duffelpaymentsElement.render({
       paymentIntentClientToken:
         "eyJjbGllbnRfc2VjcmV0IjoicGlfM0psczlVQWcySmhFeTh2WTBSTm1MU0JkX3NlY3JldF9QUW9yZXNuU3laeWJadGRiejZwNzBCbUdPIiwicHVibGlzaGFibGVfa2V5IjoicGtfdGVzdF9EQUJLY0E2Vzh6OTc0cTdPSWY0YmJ2MVQwMEpwRmMyOUpWIn0=",
       debug: true,
     });
 
-    // 4. Listen to 'onPayloadReady' event on the component. `event.detail.data` contains the payload you need to send to Duffel's API to create an order.
+    // 4. Listen to 'onSuccessfulPayment' event on the component:
     duffelpaymentsElement.addEventListener("onSuccessfulPayment", () =>
       console.log("onPayloadReady\n")
     );
+
+    // 5. If we run into an issue with the payment, you can listen to 'onFailedPayment' event:
     duffelpaymentsElement.addEventListener("onFailedPayment", (event) =>
       console.log("onPayloadReady\n", event.detail)
     );

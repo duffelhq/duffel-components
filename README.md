@@ -59,6 +59,6 @@ The ancillaries component allows your customers to add ancillaries to their orde
 
 ### Payments component
 
-Tha payments component provides a [PCI-compliant](https://help.duffel.com/hc/en-gb/articles/4409049543058) way for you to collect card payments for online bookings from your customers. To learnh more about how to work with Duffel payments please visit the [Collecting customer card payments guide](https://duffel.com/docs/guides/collecting-customer-card-payments).
+The payments component provides a [PCI-compliant](https://help.duffel.com/hc/en-gb/articles/4409049543058) way for you to collect card payments for online bookings from your customers. To learn more about how to work with Duffel payments please visit the [Collecting customer card payments guide](https://duffel.com/docs/guides/collecting-customer-card-payments).
 
 #### more coming soon...
