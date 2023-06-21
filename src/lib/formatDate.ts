@@ -5,10 +5,9 @@ export const formatDateString = (dateString: string) => {
   if (!isNaN(date.valueOf())) return formatDate(date);
   else {
     captureErrorInSentry(
-      new Error("formatDateString attempted to parse an invalid date string"),
-      {
-        dateString,
-      }
+      new Error(
+        `formatDateString attempted to parse an invalid date string: ${dateString}`
+      )
     );
   }
 };

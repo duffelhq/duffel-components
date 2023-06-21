@@ -1,5 +1,6 @@
 import { SeatMap } from "../types/SeatMap";
 import { captureErrorInSentry } from "./captureErrorInSentry";
+import { isErrorResponse } from "./fetchFromDuffelAPI";
 import { importFromSeatMapsFixtures } from "./fetchFromFixtures";
 import { isFixtureOfferId } from "./isFixtureOfferId";
 import { retrieveSeatMapsFromDuffelAPI } from "./retrieveSeatMapsFromDuffelAPI";
@@ -7,7 +8,7 @@ import { retrieveSeatMapsFromDuffelAPI } from "./retrieveSeatMapsFromDuffelAPI";
 export async function retrieveSeatMaps(
   offer_id: string,
   client_key: string | null,
-  onError: (error: string) => void,
+  onError: () => void,
   setIsLoading: (isLoading: boolean) => void,
   onSeatMapReady: (seatMaps: SeatMap[]) => void
 ) {
@@ -25,7 +26,7 @@ export async function retrieveSeatMaps(
 
   if (!client_key) {
     throw new Error(
-      "Attemptted to retrieve seat maps but the client key is missing"
+      "Attemptted to retrieve seat maps but the client key is missing."
     );
   }
 
@@ -33,17 +34,21 @@ export async function retrieveSeatMaps(
     const data = await retrieveSeatMapsFromDuffelAPI(offer_id, client_key);
     onSeatMapReady(data);
   } catch (error) {
-    let message = "An unknown error occurred while retrieving the offer.";
+    let message = "An unknown error occurred while retrieving the seat maps.";
+
     if (error instanceof Error) {
       message = error.message;
-      if (error.message.includes("ECONNREFUSED")) {
+      if (error.message.includes("Load failed")) {
         message = "The Duffel API is not available. Please try again later.";
       }
-      captureErrorInSentry(error, { offer_id });
-    } else {
-      captureErrorInSentry(new Error(message), { offer_id });
+    } else if (isErrorResponse(error)) {
+      message =
+        error.data.errors[0]?.message ||
+        "Received an unknown error from the Duffel API.";
     }
-    onError(message);
+
+    captureErrorInSentry(new Error(message));
+    onError();
   } finally {
     setIsLoading(false);
   }

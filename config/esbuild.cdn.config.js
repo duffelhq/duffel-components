@@ -6,6 +6,7 @@ const esbuildCopyStaticFiles = require("esbuild-copy-static-files");
 
 dotenv.config({ path: ".env.build" });
 if (process.env.SENTRY_AUTH_TOKEN === undefined) {
+  // eslint-disable-next-line
   console.error(
     "'process.env.SENTRY_AUTH_TOKEN' is required but missing." +
       "Make sure it's included in your .env.build file."
@@ -37,7 +38,7 @@ esbuild
         include: "./cdn-dist",
         authToken: process.env.SENTRY_AUTH_TOKEN,
         logLevel: "info",
-        release: `cdn-${VERSION}`,
+        release: VERSION,
       }),
       esbuildCopyStaticFiles({
         src: "src/fixtures",

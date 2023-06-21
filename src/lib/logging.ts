@@ -1,4 +1,14 @@
-import { createContext, useContext } from "react";
+import * as Sentry from "@sentry/browser";
+
+const MESSAGE_PREFIX = "[Duffel Ancillaries] ";
+const LOCAL_STORAGE_KEY = "duffel-ancillaries-logger-state";
+let LOG_INITIALISED = false;
+
+const storeLoggerState = (shouldLog: boolean) => {
+  localStorage.setItem(LOCAL_STORAGE_KEY, shouldLog.toString());
+};
+
+const shouldLog = () => localStorage.getItem(LOCAL_STORAGE_KEY) === "true";
 
 /**
  * The functions in this file are used to enable logging.
@@ -25,36 +35,37 @@ import { createContext, useContext } from "react";
  * log('This is a log message')
  * logGroup('These messages will be grouped together', ['This is a log message', 'This is another log message'])
  */
-
-const initializeLogger = (debugMode: boolean) => {
-  if (debugMode) {
-    log(
-      `\n\nDebug mode is enabled. Information about your setup will be printed to the console.\n\nIf you do not want to enable debug mode (for example in a production environment), pass "debug: false" when initializing this component.\n\nLearn more about the Ancillaries component:\nhttp://duffel.com/docs/guides/ancillaries-component`
+const initializeLogger = (debugMode: boolean): void => {
+  storeLoggerState(debugMode);
+  if (debugMode && !LOG_INITIALISED) {
+    // eslint-disable-next-line
+    console.info(
+      MESSAGE_PREFIX,
+      `\n\nDebug mode is enabled. Information about your setup will be printed to the console.
+    
+    If you do not want to enable debug mode (for example in a production environment), pass "debug: false" when initializing this component.
+    
+    Learn more about the Ancillaries component:
+    http://duffel.com/docs/guides/ancillaries-component`
     );
   }
-
-  // We return functions that do nothing because it allows consumers
-  // of this function to not have to check if the logger is enabled or not.
-  // If we returned undefined, consumers would have to do something like:
-  // if (log) { log('message') }
-  //
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const noop = () => {};
-
-  return {
-    log: debugMode ? log : noop,
-    logGroup: debugMode ? logGroup : noop,
-  };
+  LOG_INITIALISED = true;
 };
-
-const MESSAGE_PREFIX = "[Duffel Ancillaries] ";
 
 /**
  * Log a message to the console. Messages will be prefixed with "[Duffel Ancillaries]".
  * @param message The message to print to the console.
  */
 const log = (message: any) => {
-  console.log(MESSAGE_PREFIX, message);
+  if (shouldLog()) {
+    // eslint-disable-next-line
+    console.info(MESSAGE_PREFIX, message);
+  } else {
+    Sentry.addBreadcrumb({
+      category: "log",
+      message,
+    });
+  }
 };
 
 /**
@@ -77,8 +88,6 @@ function logGroup(
   groupName: string,
   messagesOrObject: any[] | { [key: string]: any }
 ): void {
-  console.groupCollapsed(MESSAGE_PREFIX, groupName);
-
   let transformedMessagesOrObject = [];
   if (Array.isArray(messagesOrObject)) {
     transformedMessagesOrObject = messagesOrObject;
@@ -87,14 +96,25 @@ function logGroup(
       ([key, value]) => ({ property: key, value })
     );
   }
-  transformedMessagesOrObject.forEach((message) => {
-    console.log(message);
-  });
 
-  console.groupEnd();
+  if (shouldLog()) {
+    // eslint-disable-next-line
+    console.groupCollapsed(MESSAGE_PREFIX, groupName);
+
+    transformedMessagesOrObject.forEach((message) => {
+      // eslint-disable-next-line
+      console.info(message);
+    });
+
+    // eslint-disable-next-line
+    console.groupEnd();
+  } else {
+    Sentry.addBreadcrumb({
+      category: "log.group",
+      message: groupName,
+      data: messagesOrObject,
+    });
+  }
 }
 
-const LogContext = createContext(initializeLogger(false));
-const useLog = () => useContext(LogContext);
-
-export { LogContext, initializeLogger, useLog };
+export { initializeLogger, logGroup, log };

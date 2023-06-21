@@ -3,7 +3,7 @@ import { createPriceFormatters } from "@lib/createPriceFormatters";
 import { formatAvailableServices } from "@lib/formatAvailableServices";
 import { formatSeatMaps } from "@lib/formatSeatMaps";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
-import { LogContext, initializeLogger } from "@lib/logging";
+import { initializeLogger, logGroup } from "@lib/logging";
 import { offerIsExpired } from "@lib/offerIsExpired";
 import { retrieveOffer } from "@lib/retrieveOffer";
 import { retrieveSeatMaps } from "@lib/retrieveSeatMaps";
@@ -33,9 +33,9 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
-  const logger = initializeLogger(props.debug || false);
+  initializeLogger(props.debug || false);
 
-  logger.logGroup("Properties passed into the component:", props);
+  logGroup("Properties passed into the component:", props);
 
   if (!areDuffelAncillariesPropsValid(props)) {
     throw new Error(
@@ -186,7 +186,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
           ? props.offer_id
           : props.offer.id,
         !isPropsWithOfferIdForFixture ? props.client_key : null,
-        setError,
+        () => updateSeatMaps([]),
         setIsSeatMapLoading,
         updateSeatMaps
       );
@@ -235,7 +235,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         cancel_for_any_reason_services: cfarSelectedServices,
       };
 
-      logger.logGroup("Payload ready", {
+      logGroup("Payload ready", {
         "Order creation payload": createOrderPayload,
         "Services metadata": metadata,
       });
@@ -284,63 +284,61 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     error,
   };
 
-  logger.logGroup("Component's internal state:", state);
+  logGroup("Component's internal state:", state);
 
   return (
     <>
       <link rel="stylesheet" href={hrefToComponentStyles}></link>
 
-      <LogContext.Provider value={logger}>
-        <div className="duffel-components" style={duffelComponentsStyle}>
-          <ErrorBoundary>
-            {error && (
-              <FetchOfferErrorState
-                height={nonIdealStateHeight}
-                message={error}
-              />
-            )}
+      <div className="duffel-components" style={duffelComponentsStyle}>
+        <ErrorBoundary>
+          {error && (
+            <FetchOfferErrorState
+              height={nonIdealStateHeight}
+              message={error}
+            />
+          )}
 
-            {!error &&
-              props.services.map((ancillaryName) => {
-                if (ancillaryName === "bags")
-                  return (
-                    <BaggageSelectionCard
-                      key="bags"
-                      isLoading={isOfferLoading}
-                      offer={offer}
-                      passengers={passengers}
-                      selectedServices={baggageSelectedServices}
-                      setSelectedServices={setBaggageSelectedServices}
-                    />
-                  );
+          {!error &&
+            props.services.map((ancillaryName) => {
+              if (ancillaryName === "bags")
+                return (
+                  <BaggageSelectionCard
+                    key="bags"
+                    isLoading={isOfferLoading}
+                    offer={offer}
+                    passengers={passengers}
+                    selectedServices={baggageSelectedServices}
+                    setSelectedServices={setBaggageSelectedServices}
+                  />
+                );
 
-                if (ancillaryName === "seats")
-                  return (
-                    <SeatSelectionCard
-                      key="seats"
-                      isLoading={isOfferLoading || isSeatMapLoading}
-                      seatMaps={seatMaps}
-                      offer={offer}
-                      passengers={passengers}
-                      selectedServices={seatSelectedServices}
-                      setSelectedServices={setSeatSelectedServices}
-                    />
-                  );
+              if (ancillaryName === "seats")
+                return (
+                  <SeatSelectionCard
+                    key="seats"
+                    isLoading={isOfferLoading || isSeatMapLoading}
+                    seatMaps={seatMaps}
+                    offer={offer}
+                    passengers={passengers}
+                    selectedServices={seatSelectedServices}
+                    setSelectedServices={setSeatSelectedServices}
+                  />
+                );
 
-                if (ancillaryName === "cancel_for_any_reason")
-                  return (
-                    <CfarSelectionCard
-                      key="cancel_for_any_reason"
-                      isLoading={isOfferLoading}
-                      offer={offer}
-                      selectedServices={cfarSelectedServices}
-                      setSelectedServices={setCfarSelectedServices}
-                    />
-                  );
-              })}
-          </ErrorBoundary>
-        </div>
-      </LogContext.Provider>
+              if (ancillaryName === "cancel_for_any_reason")
+                return (
+                  <CfarSelectionCard
+                    key="cancel_for_any_reason"
+                    isLoading={isOfferLoading}
+                    offer={offer}
+                    selectedServices={cfarSelectedServices}
+                    setSelectedServices={setCfarSelectedServices}
+                  />
+                );
+            })}
+        </ErrorBoundary>
+      </div>
     </>
   );
 };

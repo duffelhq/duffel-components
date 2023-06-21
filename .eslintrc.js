@@ -35,5 +35,13 @@ module.exports = {
     "react/react-in-jsx-scope": 0,
     "react/prop-types": 0,
     "react-hooks/exhaustive-deps": 0,
+    "no-restricted-syntax": [
+      "error",
+      {
+        selector: "CallExpression[callee.object.name='console']",
+        message:
+          "Prefer 'log' or 'logGroup' from 'src/lib/logging.ts' instead of 'console'.",
+      },
+    ],
   },
 };

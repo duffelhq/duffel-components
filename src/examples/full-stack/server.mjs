@@ -154,4 +154,5 @@ http
   })
   .listen(6262);
 
+// eslint-disable-next-line
 console.log(`\n🐄 Serving example on http://localhost:6262`);

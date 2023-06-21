@@ -6,8 +6,7 @@ export const getBaggageServiceDescription = (
 ) => {
   if (!metadata) {
     captureErrorInSentry(
-      new Error("getBaggageServiceDescription was not given any metadata"),
-      { metadata }
+      new Error("getBaggageServiceDescription was not given any metadata")
     );
     return null;
   }
@@ -19,8 +18,7 @@ export const getBaggageServiceDescription = (
     !metadata.maximum_depth_cm
   ) {
     captureErrorInSentry(
-      new Error("getBaggageServiceDescription metadata doesn't have any data"),
-      { metadata }
+      new Error("getBaggageServiceDescription metadata doesn't have any data")
     );
     return null;
   }

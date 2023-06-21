@@ -31,6 +31,7 @@ const App: React.FC = () => (
           born_on: "1942-10-17",
         },
       ]}
+      // eslint-disable-next-line
       onPayloadReady={console.log}
     />
   </>
