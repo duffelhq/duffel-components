@@ -27,7 +27,8 @@
 
 .modal--open,
 .modal--open .modal--content {
-  opacity: 1;
+  /* important needed to override inline style */
+  opacity: 1 !important;
   pointer-events: all;
 }
 
