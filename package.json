@@ -1,6 +1,6 @@
 {
   "name": "@duffel/components",
-  "version": "3.0.7-canary",
+  "version": "3.0.0",
   "private": false,
   "license": "MIT",
   "main": "react-dist/index.js",
