@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment page example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="https://duffel.com/images/favicon/favicon-96x96.png"
+    />
+
+    <!-- 1. This script loads duffel-components -->
+    <script src="http://localhost:8000/duffel-payments.js"></script>
+  </head>
+
+  <body style="font-family: sans-serif">
+    <h1 style="margin-bottom: 2rem">Payment page example</h1>
+
+    <!-- 2. Add the custom element to your markup where you want to render the payments card -->
+    <duffel-payments></duffel-payments>
+  </body>
+  <script>
+    const duffelpaymentsElement = document.querySelector("duffel-payments");
+
+    // 3. Render the component with the required data, you can safely call this function as many times as you want.
+    duffelpaymentsElement.render({
+      paymentIntentClientToken:
+        "eyJjbGllbnRfc2VjcmV0IjoicGlfM0psczlVQWcySmhFeTh2WTBSTm1MU0JkX3NlY3JldF9QUW9yZXNuU3laeWJadGRiejZwNzBCbUdPIiwicHVibGlzaGFibGVfa2V5IjoicGtfdGVzdF9EQUJLY0E2Vzh6OTc0cTdPSWY0YmJ2MVQwMEpwRmMyOUpWIn0=",
+      debug: true,
+    });
+
+    // 4. Listen to 'onSuccessfulPayment' event on the component:
+    duffelpaymentsElement.addEventListener("onSuccessfulPayment", () =>
+      console.log("onPayloadReady\n")
+    );
+
+    // 5. If we run into an issue with the payment, you can listen to 'onFailedPayment' event:
+    duffelpaymentsElement.addEventListener("onFailedPayment", (event) =>
+      console.log("onPayloadReady\n", event.detail)
+    );
+  </script>
+</html>

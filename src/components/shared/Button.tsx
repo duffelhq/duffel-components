@@ -25,7 +25,7 @@ type NativeButtonProps = React.DetailedHTMLProps<
 export interface ButtonProps
   extends Pick<
     NativeButtonProps,
-    "id" | "onClick" | "disabled" | "children" | "className"
+    "id" | "onClick" | "disabled" | "children" | "className" | "type"
   > {
   "data-testid"?: string;
   iconBefore?: IconName;
@@ -39,10 +39,11 @@ export const Button: React.FC<ButtonProps> = ({
   size = 40,
   children,
   className,
+  type = "button",
   ...nativeButtonProps
 }) => (
   <button
-    type="button"
+    type={type}
     className={classNames(
       "button",
       BUTTON_VARIANTS[variant],

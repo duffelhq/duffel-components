@@ -1,0 +1,42 @@
+.card-payment__container {
+  width: 480px;
+  height: auto;
+  max-width: 480px;
+  box-sizing: border-box;
+  margin: var(--SPACING-XS-3);
+}
+
+.card-payment__container--invalid {
+  margin-top: var(--SPACING-SM-1);
+  font-size: var(--FONT-SIZES-C2);
+  color: var(--RED);
+}
+
+.card-payment__container--invalid {
+  height: 16px;
+}
+
+.card-details {
+  background-color: rgb(var(--WHITE));
+  border: 1px solid var(--GREY-200);
+  border-radius: 5px;
+  padding: var(--SPACING-SM-2);
+  width: auto;
+}
+
+.card-details.StripeElement--invalid {
+  border: 1px solid var(--RED);
+}
+
+.card-payment__pay-button {
+  width: 100%;
+  margin-top: var(--SPACING-SM-3);
+}
+
+.card-payment--in-progress {
+  display: block;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}

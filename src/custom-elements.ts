@@ -6,3 +6,8 @@ export {
   onDuffelAncillariesPayloadReady,
   renderDuffelAncillariesCustomElement,
 } from "./components/DuffelAncillaries/DuffelAncillariesCustomElement";
+export {
+  onDuffelPaymentsFailedPayment,
+  onDuffelPaymentsSuccessfulPayment,
+  renderDuffelPaymentsCustomElement,
+} from "./components/DuffelPayments/DuffelPaymentsCustomElement";

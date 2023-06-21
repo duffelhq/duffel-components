@@ -16,7 +16,7 @@ if [ -z "$VERSION" ]; then
 fi
 
 # Check if folder exists
-if gsutil -q stat "$GCP_PREFIX/$VERSION/index.js"; then
+if gsutil -q stat "$GCP_PREFIX/$VERSION/duffel-ancillaries.js"; then
   # Confirm with user before overriding
   read -p "Version \`$VERSION\` already exists. Do you want to override it? (\`Y\` to continue) " -n 1 -r
   echo

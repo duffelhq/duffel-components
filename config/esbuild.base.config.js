@@ -1,8 +1,12 @@
 module.exports = {
   entryPoints: [
     {
-      out: "index",
+      out: "duffel-ancillaries",
       in: "src/components/DuffelAncillaries/DuffelAncillariesCustomElement.tsx",
+    },
+    {
+      out: "duffel-payments",
+      in: "src/components/DuffelPayments/DuffelPaymentsCustomElement.tsx",
     },
     { out: "global", in: "src/styles/global.css" },
   ],
