@@ -1,10 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "schedule:earlyMondays",
-    ":combinePatchMinorReleases"
-  ],
+  "extends": ["config:base", "schedule:monthly", ":combinePatchMinorReleases"],
   "labels": ["dependencies"],
   "enabledManagers": ["github-actions", "npm"],
   "packageRules": [
