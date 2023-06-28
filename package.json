@@ -58,6 +58,9 @@
       "prettier --write"
     ]
   },
+  "resolutions": {
+    "semver": "^7.5.3"
+  },
   "dependencies": {
     "@sentry/browser": "^7.43.0",
     "@stripe/react-stripe-js": "^2.1.0",
