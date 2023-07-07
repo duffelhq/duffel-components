@@ -29,6 +29,10 @@ export const SeatMap: React.FC<SeatMapProps> = ({
 }) => {
   const [selectedDeck, setSelectedDeck] = React.useState(0);
 
+  if (!seatMap) {
+    return <SeatMapUnavailable />;
+  }
+
   const cabins = getCabinsForSegmentAndDeck(selectedDeck, seatMap);
   const hasMultipleDecks = cabins.length !== seatMap.cabins.length;
   const anyHasWings = seatMap.cabins.some((cabin) => cabin.wings);
