@@ -6,6 +6,10 @@ export const getPassengerName = (
   offerPassenger: OfferPassenger | undefined,
   fallbackIndex: number
 ): string => {
+  if (!createOrderPayloadPassenger) {
+    return `Passenger ${fallbackIndex}`;
+  }
+
   if (
     createOrderPayloadPassenger.given_name &&
     createOrderPayloadPassenger.family_name
