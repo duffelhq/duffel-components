@@ -17,9 +17,6 @@ export const getBaggageServiceDescription = (
     !metadata.maximum_height_cm &&
     !metadata.maximum_depth_cm
   ) {
-    captureErrorInSentry(
-      new Error("getBaggageServiceDescription metadata doesn't have any data")
-    );
     return null;
   }
 
