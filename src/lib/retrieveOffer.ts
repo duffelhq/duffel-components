@@ -25,7 +25,7 @@ export async function retrieveOffer(
 
   if (!client_key) {
     throw new Error(
-      "Attemptted to retrieve seat maps but the client key is missing."
+      "Attempted to retrieve seat maps but the client key is missing."
     );
   }
 
@@ -46,7 +46,9 @@ export async function retrieveOffer(
       }
     }
 
-    captureErrorInSentry(new Error(message));
+    if (isErrorResponse(error) && error.status >= 500 && error.status < 600) {
+      captureErrorInSentry(new Error(message));
+    }
     onError(message);
   } finally {
     setIsLoading(false);
