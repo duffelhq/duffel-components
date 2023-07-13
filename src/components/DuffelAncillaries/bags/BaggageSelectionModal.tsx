@@ -48,7 +48,7 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={() => onClose(selectedServicesState)}>
+    <Modal isOpen={isOpen} onClose={() => onClose(selectedServices)}>
       <BaggageSelectionModalHeader
         segmentCount={segments.length}
         currentSegment={currentSegment}

@@ -86,7 +86,12 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
         offer={offer}
         passengers={passengers}
         onClose={(newSelectedServices) => {
-          setSelectedServices(newSelectedServices);
+          // We need to do a deep copy here because otherwise the modal changing the quantity
+          // will affect the selected services regardless of whether it's saved or not
+          const newSelectedServicesDeepCopy = JSON.parse(
+            JSON.stringify(newSelectedServices)
+          );
+          setSelectedServices(newSelectedServicesDeepCopy);
           setIsOpen(false);
         }}
         selectedServices={selectedServices}

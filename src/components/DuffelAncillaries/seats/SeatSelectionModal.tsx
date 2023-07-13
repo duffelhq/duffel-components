@@ -100,7 +100,7 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     getCurrencyForSeatMaps(seatMaps) ?? offer.total_currency;
 
   return (
-    <Modal isOpen={isOpen} onClose={() => onClose(selectedServicesState)}>
+    <Modal isOpen={isOpen} onClose={() => onClose(selectedServices)}>
       <SeatSelectionModalHeader
         segmentAndPassengerPermutationsCount={
           segmentAndPassengerPermutations.length
