@@ -42,6 +42,7 @@ export const SeatSelectionModalFooter: React.FC<
     seatMaps
   );
   const totalAmountLabel = moneyStringFormatter(currency)(totalAmount);
+  const isOneWay = isFirstSegment && isLastSegment;
 
   return (
     <div style={{ padding: "16px 24px 24px" }}>
@@ -51,21 +52,27 @@ export const SeatSelectionModalFooter: React.FC<
       </div>
 
       <div
-        style={{
-          marginTop: "16px",
-          display: "grid",
-          columnGap: "12px",
-          gridTemplateColumns: "repeat(2, 1fr)",
-        }}
+        style={
+          isOneWay
+            ? { marginTop: "16px", display: "grid" }
+            : {
+                marginTop: "16px",
+                display: "grid",
+                columnGap: "12px",
+                gridTemplateColumns: "repeat(2, 1fr)",
+              }
+        }
       >
-        <Button
-          size={48}
-          disabled={isFirstSegment}
-          variant="outlined"
-          onClick={() => onPreviousSegmentButtonClicked()}
-        >
-          Back
-        </Button>
+        {!isOneWay && (
+          <Button
+            size={48}
+            disabled={isFirstSegment}
+            variant="outlined"
+            onClick={() => onPreviousSegmentButtonClicked()}
+          >
+            Back
+          </Button>
+        )}
 
         <Button
           size={48}

@@ -38,6 +38,7 @@ export const BaggageSelectionModalFooter: React.FC<
     selectedServices
   );
   const totalAmountLabel = moneyStringFormatter(currency)(totalAmount);
+  const isOneWay = isFirstSegment && isFirstSegment;
 
   return (
     <div style={{ padding: "16px 24px 24px" }}>
@@ -51,21 +52,27 @@ export const BaggageSelectionModalFooter: React.FC<
       </div>
 
       <div
-        style={{
-          marginTop: "16px",
-          display: "grid",
-          columnGap: "12px",
-          gridTemplateColumns: "repeat(2, 1fr)",
-        }}
+        style={
+          isOneWay
+            ? { marginTop: "16px", display: "grid" }
+            : {
+                marginTop: "16px",
+                display: "grid",
+                columnGap: "12px",
+                gridTemplateColumns: "repeat(2, 1fr)",
+              }
+        }
       >
-        <Button
-          size={48}
-          variant="outlined"
-          disabled={isFirstSegment}
-          onClick={() => onPreviousSegmentButtonClicked()}
-        >
-          Back
-        </Button>
+        {!isOneWay && (
+          <Button
+            size={48}
+            variant="outlined"
+            disabled={isFirstSegment}
+            onClick={() => onPreviousSegmentButtonClicked()}
+          >
+            Back
+          </Button>
+        )}
         <Button
           size={48}
           data-testid="confirm-selection-for-baggage"
