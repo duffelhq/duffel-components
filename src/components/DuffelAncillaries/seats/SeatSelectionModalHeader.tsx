@@ -21,23 +21,32 @@ export const SeatSelectionModalHeader: React.FC<
   setCurrentSegmentAndPassengerPermutationsIndex,
 }) => (
   <div style={{ padding: "24px 24px 16px" }}>
-    <div style={{ display: "flex", columnGap: "4px" }}>
-      {Array(segmentAndPassengerPermutationsCount)
-        .fill(0)
-        .map((_, index) =>
-          index === currentSegmentAndPassengerPermutationsIndex ? (
-            <ActiveSegment key={`segment_${index}`} />
-          ) : (
-            <InactiveSegment
-              key={`segment_${index}`}
-              onClick={() =>
-                setCurrentSegmentAndPassengerPermutationsIndex(index)
-              }
-            />
-          )
-        )}
-    </div>
-    <h2 className="h3--semibold" style={{ marginBlock: "12px 0px" }}>
+    {segmentAndPassengerPermutationsCount > 1 && (
+      <div style={{ display: "flex", columnGap: "4px" }}>
+        {Array(segmentAndPassengerPermutationsCount)
+          .fill(0)
+          .map((_, index) =>
+            index === currentSegmentAndPassengerPermutationsIndex ? (
+              <ActiveSegment key={`segment_${index}`} />
+            ) : (
+              <InactiveSegment
+                key={`segment_${index}`}
+                onClick={() =>
+                  setCurrentSegmentAndPassengerPermutationsIndex(index)
+                }
+              />
+            )
+          )}
+      </div>
+    )}
+    <h2
+      className="h3--semibold"
+      style={
+        segmentAndPassengerPermutationsCount > 1
+          ? { marginBlock: "12px 0px" }
+          : {}
+      }
+    >
       Flight to {currentSegment.destination.iata_code}
       <span
         className="p2--regular"

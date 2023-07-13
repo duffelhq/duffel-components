@@ -62,6 +62,28 @@ export const ExpiredOffer: DuffelAncillariesStory = {
   },
 };
 
+export const OneWayOnePassengerOffer: DuffelAncillariesStory = {
+  args: {
+    ...defaultProps,
+    offer: {
+      ...offer,
+      slices: [
+        {
+          ...offer.slices[0],
+          segments: [
+            {
+              ...offer.slices[0].segments[0],
+              passengers: [offer.slices[0].segments[0].passengers[0]],
+            },
+          ],
+        },
+      ],
+      passengers: [offer.passengers[0]],
+      available_services: [offer.available_services[0]],
+    },
+  },
+};
+
 export const WithCustomStyles: DuffelAncillariesStory = {
   args: {
     ...defaultProps,
