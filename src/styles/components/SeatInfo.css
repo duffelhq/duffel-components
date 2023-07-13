@@ -1,5 +1,5 @@
 .seat-info {
-  --INFO-CARD-MARGIN: 10px;
+  --INFO-CARD-MARGIN: 20px;
   background-color: rgb(var(--WHITE));
   padding: 24px;
   padding-bottom: 24px;
