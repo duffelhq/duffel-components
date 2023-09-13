@@ -223,6 +223,25 @@ exports[`Storyshots Button With Size 48 1`] = `
 </button>
 `;
 
+exports[`Storyshots Button With White Accent Color Set 1`] = `
+<div
+  style={
+    {
+      "--ACCENT": "255, 255, 255",
+      "--SECONDARY": "black",
+    }
+  }
+>
+  <button
+    className="button button--primary button--40"
+    onClick={[Function]}
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;
+
 exports[`Storyshots DuffelAncillaries All Services 1`] = `
 [
   <link

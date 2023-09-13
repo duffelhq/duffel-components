@@ -67,3 +67,24 @@ export const WithAccentColorSet: StoryFn<ButtonProps> = () => (
     <Button {...defaultProps} />
   </AccentColorWrapper>
 );
+
+const WhiteAccentColorWrapper: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <div
+    style={
+      {
+        "--ACCENT": "255, 255, 255",
+        "--SECONDARY": "black",
+      } as any
+    }
+  >
+    {children}
+  </div>
+);
+
+export const WithWhiteAccentColorSet: StoryFn<ButtonProps> = () => (
+  <WhiteAccentColorWrapper>
+    <Button {...defaultProps} />
+  </WhiteAccentColorWrapper>
+);

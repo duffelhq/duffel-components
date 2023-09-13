@@ -1,4 +1,5 @@
 import { ErrorBoundary } from "@components/shared/ErrorBoundary";
+import { hasHighLuminance } from "@lib/hasHighLuminance";
 import { initializeLogger } from "@lib/logging";
 import {
   CardElement,
@@ -192,6 +193,10 @@ export const DuffelPayments: React.FC<DuffelPaymentsProps> = (props) => {
     ...(props.styles?.accentColor && {
       "--ACCENT": props.styles.accentColor,
     }),
+    ...(props.styles?.accentColor &&
+      hasHighLuminance(props.styles.accentColor) && {
+        "--SECONDARY": "black",
+      }),
     ...(props.styles?.fontFamily && {
       "--FONT-FAMILY": props.styles.fontFamily,
     }),

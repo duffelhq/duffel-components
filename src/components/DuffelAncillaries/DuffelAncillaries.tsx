@@ -4,6 +4,7 @@ import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import { createPriceFormatters } from "@lib/createPriceFormatters";
 import { formatAvailableServices } from "@lib/formatAvailableServices";
 import { formatSeatMaps } from "@lib/formatSeatMaps";
+import { hasHighLuminance } from "@lib/hasHighLuminance";
 import { isPayloadComplete } from "@lib/isPayloadComplete";
 import { initializeLogger, logGroup } from "@lib/logging";
 import { offerIsExpired } from "@lib/offerIsExpired";
@@ -263,6 +264,10 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     ...(props.styles?.accentColor && {
       "--ACCENT": props.styles.accentColor,
     }),
+    ...(props.styles?.accentColor &&
+      hasHighLuminance(props.styles.accentColor) && {
+        "--SECONDARY": "black",
+      }),
     ...(props.styles?.fontFamily && {
       "--FONT-FAMILY": props.styles.fontFamily,
     }),
