@@ -29,7 +29,7 @@ export const SeatMap: React.FC<SeatMapProps> = ({
 }) => {
   const [selectedDeck, setSelectedDeck] = React.useState(0);
 
-  if (!seatMap) {
+  if (!seatMap || !seatMap.cabins || !seatMap.cabins.length) {
     return <SeatMapUnavailable />;
   }
 
