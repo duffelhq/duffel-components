@@ -76,6 +76,7 @@ const WhiteAccentColorWrapper: React.FC<{ children: React.ReactNode }> = ({
       {
         "--ACCENT": "255, 255, 255",
         "--SECONDARY": "black",
+        "--TERTIARY": "grey",
       } as any
     }
   >

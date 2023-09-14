@@ -266,7 +266,8 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
     }),
     ...(props.styles?.accentColor &&
       hasHighLuminance(props.styles.accentColor) && {
-        "--SECONDARY": "black",
+        "--SECONDARY": "var(--GREY-900)",
+        "--TERTIARY": "var(--GREY-400)",
       }),
     ...(props.styles?.fontFamily && {
       "--FONT-FAMILY": props.styles.fontFamily,

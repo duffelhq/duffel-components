@@ -27,8 +27,9 @@
   width: var(--SPACING-MD-1);
   height: var(--SPACING-MD-1);
   border-radius: 5px;
-  border: 2px solid var(--GREY-400);
-  color: var(--GREY-400);
+  border: 2px solid var(--GREY-200);
+  color: var(--GREY-600);
+  background-color: var(--GREY-100);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,22 +38,22 @@
 
 .seat-map__legend-seat--fee-payable {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
-  border: 2px solid rgba(var(--ACCENT), var(--ACCENT-LIGHT-200));
+  border: 2px solid var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
 }
 
 .seat-map__legend-seat--fee-payable-indicator {
   position: relative;
   top: var(--SPACING-XS-2);
   left: var(--SPACING-XS-2);
-  color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-300));
+  color: var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-300)));
 }
 
 .seat-map__legend-seat--included {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
-  border: 2px solid rgba(var(--ACCENT), var(--ACCENT-LIGHT-200));
+  border: 2px solid var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
 }
 
 .seat-map__legend-seat--selected {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
-  border: 2px solid rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
+  border: 2px solid var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
 }

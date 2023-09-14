@@ -17,7 +17,7 @@
 }
 
 .cfar-modal-list-item > svg {
-  color: rgb(var(--ACCENT));
+  color: var(--SECONDARY, rgb(var(--ACCENT)));
 }
 
 .cfar-modal-list-item > p {

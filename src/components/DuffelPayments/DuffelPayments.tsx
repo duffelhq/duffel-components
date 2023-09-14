@@ -196,6 +196,7 @@ export const DuffelPayments: React.FC<DuffelPaymentsProps> = (props) => {
     ...(props.styles?.accentColor &&
       hasHighLuminance(props.styles.accentColor) && {
         "--SECONDARY": "black",
+        "--TERTIARY": "grey",
       }),
     ...(props.styles?.fontFamily && {
       "--FONT-FAMILY": props.styles.fontFamily,

@@ -33,18 +33,18 @@
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):hover,
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible {
   /* important is needed here to override the inline border style from Card.tsx */
-  border-color: rgb(var(--ACCENT)) !important;
+  border-color: var(--SECONDARY, rgb(var(--ACCENT))) !important;
 }
 
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):hover
   .ancillary-card__expand-icon,
 .ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible
   .ancillary-card__expand-icon {
-  color: rgb(var(--ACCENT));
+  color: var(--SECONDARY, rgb(var(--ACCENT)));
 }
 
 .ancillary-card__selected-icon {
-  background-color: rgb(var(--ACCENT));
+  background-color: var(--SECONDARY, rgb(var(--ACCENT)));
   border-radius: 20px;
   color: rgb(var(--WHITE));
   height: 24px;
