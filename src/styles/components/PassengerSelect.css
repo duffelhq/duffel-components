@@ -43,7 +43,10 @@
 .passenger-selection-passenger:hover,
 .passenger-selection-passenger:focus,
 .passenger-selection-passenger:active {
-  background-color: var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-100)));
+  background-color: var(
+    --SECONDARY,
+    rgba(var(--ACCENT), var(--ACCENT-LIGHT-100))
+  );
 }
 
 .passenger-selection-passenger__identifier,
@@ -78,7 +81,10 @@
 .passenger-selection-passenger--selected {
   box-shadow: 4px 0px 0px 0px rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000))
     inset;
-  background-color: var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-100)));
+  background-color: var(
+    --SECONDARY,
+    rgba(var(--ACCENT), var(--ACCENT-LIGHT-100))
+  );
 }
 
 .passenger-selection-segment {

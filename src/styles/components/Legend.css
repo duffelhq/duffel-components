@@ -38,7 +38,8 @@
 
 .seat-map__legend-seat--fee-payable {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
-  border: 2px solid var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
+  border: 2px solid
+    var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
 }
 
 .seat-map__legend-seat--fee-payable-indicator {
@@ -50,10 +51,12 @@
 
 .seat-map__legend-seat--included {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
-  border: 2px solid var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
+  border: 2px solid
+    var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
 }
 
 .seat-map__legend-seat--selected {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
-  border: 2px solid var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
+  border: 2px solid
+    var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
 }

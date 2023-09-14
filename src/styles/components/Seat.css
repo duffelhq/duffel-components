@@ -21,7 +21,8 @@
 }
 
 .map-element--available {
-  border: 2px solid var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
+  border: 2px solid
+    var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
   color: var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-300)));
 }
@@ -52,6 +53,7 @@
 
 .map-element--selected {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
-  border: 2px solid var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
+  border: 2px solid
+    var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
   color: var(--SECONDARY, rgba(var(--WHITE), 1));
 }
