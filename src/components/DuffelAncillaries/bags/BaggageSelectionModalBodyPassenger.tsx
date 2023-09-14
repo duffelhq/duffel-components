@@ -38,9 +38,9 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
       <h3 style={{ margin: 0 }} className="p1--semibold">
         {passengerName}
       </h3>
-      {hasIncludedBaggage && (
+      {hasIncludedBaggage ? (
         <IncludedBaggageBanner includedBaggage={includedBaggage} />
-      )}
+      ) : null}
 
       <div style={{ display: "flex", rowGap: "8px", flexDirection: "column" }}>
         {passengerServicesForSegment.map((availableService) => (
