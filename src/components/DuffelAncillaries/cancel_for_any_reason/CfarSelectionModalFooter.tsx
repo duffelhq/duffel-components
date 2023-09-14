@@ -67,7 +67,7 @@ const ProtectedTripBanner: React.FC = () => (
     <Icon
       size={20}
       name="shield_with_moon"
-      style={{ fill: "rgb(var(--ACCENT))" }}
+      style={{ fill: "var(--SECONDARY, rgb(var(--ACCENT)))" }}
     />
     Your trip is protected
   </div>

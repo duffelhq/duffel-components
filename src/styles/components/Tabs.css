@@ -28,8 +28,11 @@
 .seat-map__tab-select-option:hover,
 .seat-map__tab-select-option:focus,
 .seat-map__tab-select-option:active {
-  color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
-  background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-200));
+  color: var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
+  background-color: var(
+    --TERTIARY,
+    rgba(var(--ACCENT), var(--ACCENT-LIGHT-200))
+  );
   transition: var(--TRANSITIONS-CUBIC-BEZIER);
 }
 

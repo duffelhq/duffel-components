@@ -64,7 +64,8 @@ const InactiveSegment: React.FC<{
       height: "4px",
       padding: "0",
       borderRadius: "4px",
-      backgroundColor: "rgba(var(--ACCENT), var(--ACCENT-LIGHT-200))",
+      backgroundColor:
+        "var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)))",
       transition: "background-color 0.3s var(--TRANSITION-CUBIC-BEZIER)",
       ...style,
     }}
@@ -75,7 +76,7 @@ const ActiveSegment = () => (
   <InactiveSegment
     onClick={undefined}
     style={{
-      backgroundColor: "rgb(var(--ACCENT))",
+      backgroundColor: "var(--SECONDARY, rgb(var(--ACCENT)))",
     }}
   />
 );

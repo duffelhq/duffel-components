@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryFn, StoryObj } from "@storybook/react";
 import { DuffelAncillaries } from "../components/DuffelAncillaries/DuffelAncillaries";
 import mockPassengers from "../fixtures/passengers/mock_passengers";
 import { DuffelAncillariesPropsWithOffersAndSeatMaps } from "../types/DuffelAncillariesProps";
@@ -146,3 +146,21 @@ export const MarkupUsingPriceFormattersWithCustomCurrency: DuffelAncillariesStor
       },
     },
   };
+
+export const WithAccentColorSet: StoryFn<
+  DuffelAncillariesPropsWithOffersAndSeatMaps
+> = () => (
+  <DuffelAncillaries
+    {...defaultProps}
+    styles={{ accentColor: "29, 78, 216" }}
+  />
+);
+
+export const WithWhiteAccentColorSet: StoryFn<
+  DuffelAncillariesPropsWithOffersAndSeatMaps
+> = () => (
+  <DuffelAncillaries
+    {...defaultProps}
+    styles={{ accentColor: "255, 255, 255" }}
+  />
+);

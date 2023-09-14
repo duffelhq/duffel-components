@@ -21,16 +21,17 @@
 }
 
 .map-element--available {
-  border: 2px solid rgba(var(--ACCENT), var(--ACCENT-LIGHT-200));
+  border: 2px solid
+    var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
-  color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-300));
+  color: var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-300)));
 }
 
 .map-element--fee-payable {
   position: absolute;
   bottom: -2px;
   right: -2px;
-  color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-300));
+  color: var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-300)));
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -40,18 +41,19 @@
 
   .map-element--actionable:not(.map-element--selected):hover {
     background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-200));
-    color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
+    color: var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
     transition: var(--TRANSITIONS-CUBIC-BEZIER);
   }
 
   .map-element--fee-payable {
-    color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
+    color: var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
     transition: var(--TRANSITIONS-CUBIC-BEZIER);
   }
 }
 
 .map-element--selected {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
-  border: 2px solid rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
-  color: rgba(var(--WHITE), 1);
+  border: 2px solid
+    var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
+  color: var(--SECONDARY, rgba(var(--WHITE), 1));
 }
