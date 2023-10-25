@@ -49,6 +49,10 @@ npm i @duffel/components
 
    - [Find it on src/examples/payments-just-typescript](src/examples/payments-just-typescript)
 
+7. **next** | This example imports and renders `@duffel/components` into a `next.js` project.
+
+   - [Find it on src/examples/payments-just-typescript](src/examples/next)
+
 ## What components are available?
 
 ### Ancillaries component

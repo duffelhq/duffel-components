@@ -1,0 +1,24 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "duffel-components": "../../../../duffel-components/react-dist",
+    "next": "13.5.6",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "~18",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "next-transpile-modules": "^10.0.1",
+    "typescript": "^5"
+  }
+}

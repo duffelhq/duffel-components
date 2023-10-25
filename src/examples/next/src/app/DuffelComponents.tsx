@@ -1,12 +1,11 @@
+"use client";
+
 import { DuffelAncillaries, DuffelPayments } from "duffel-components";
-import React from "react";
-import { createRoot } from "react-dom/client";
 
-const App: React.FC = () => (
-  <div style={{ display: "grid", gridTemplateColumns: "1fr", rowGap: "2rem" }}>
-    <h1>Duffel ancillaries component react-app example</h1>
-
+export const DuffelComponents = () => (
+  <>
     <DuffelAncillaries
+      debug={true}
       offer_id="fixture_off_1"
       services={["bags", "seats"]}
       passengers={[
@@ -29,7 +28,6 @@ const App: React.FC = () => (
           born_on: "1942-10-17",
         },
       ]}
-      // eslint-disable-next-line
       onPayloadReady={console.log}
     />
 
@@ -38,11 +36,5 @@ const App: React.FC = () => (
       onSuccessfulPayment={console.log}
       onFailedPayment={console.log}
     />
-  </div>
+  </>
 );
-
-const rootElement = document.getElementById("root");
-if (rootElement) {
-  const root = createRoot(rootElement);
-  root.render(<App />);
-}
