@@ -7,7 +7,7 @@ export const DuffelComponents = () => (
     <DuffelAncillaries
       debug={true}
       offer_id="fixture_off_1"
-      services={["bags", "seats", "cancel_for_any_reason"]}
+      services={["bags", "seats"]}
       passengers={[
         {
           id: "pas_0000AUde3KY1SptM6ABSfU",
