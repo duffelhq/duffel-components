@@ -50,8 +50,7 @@
     ]
   },
   "resolutions": {
-    "semver": "7.5.3",
-    "word-wrap": "npm:@aashutoshrathi/word-wrap"
+    "semver": "7.5.3"
   },
   "dependencies": {
     "@sentry/browser": "7.77.0",
@@ -64,6 +63,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@aashutoshrathi/word-wrap": "^1.2.6",
     "@babel/core": "7.21.4",
     "@babel/preset-env": "7.21.4",
     "@babel/preset-react": "7.18.6",
