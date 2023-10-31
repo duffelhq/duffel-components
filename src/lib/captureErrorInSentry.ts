@@ -1,4 +1,4 @@
-import * as Sentry from "@sentry/browser";
+import Sentry from "@sentry/browser";
 
 let hasSentryInitiated = false;
 function initiateSentry() {
