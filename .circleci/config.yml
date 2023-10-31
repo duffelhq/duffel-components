@@ -6,7 +6,7 @@ version: 2.1
 
 aliases:
   - &working_directory ~/duffel_app
-  - &cache_directory ~/.cache/yarn
+  - &cache_directory ~/duffel_app/.yarn/cache
 
 executors:
   node-executor:
@@ -37,7 +37,7 @@ commands:
     steps:
       - checkout
       - restore_deps_cache
-      - run: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run: yarn install --immutable
       - save_deps_cache
 
 jobs:

@@ -2,7 +2,6 @@
   "name": "@duffel/components",
   "description": "Component library to build your travel product with Duffel.",
   "version": "3.1.3",
-  "private": false,
   "license": "MIT",
   "main": "react-dist/index.js",
   "exports": {
@@ -63,12 +62,13 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@aashutoshrathi/word-wrap": "^1.2.6",
+    "@aashutoshrathi/word-wrap": "1.2.6",
     "@babel/core": "7.21.4",
     "@babel/preset-env": "7.21.4",
     "@babel/preset-react": "7.18.6",
     "@babel/preset-typescript": "7.21.4",
     "@duffel/api": "1.26.0",
+    "@sentry/cli": "2.21.2",
     "@sentry/esbuild-plugin": "0.7.0",
     "@storybook/addon-essentials": "7.0.2",
     "@storybook/addon-interactions": "7.0.2",
@@ -128,5 +128,6 @@
   "bugs": {
     "url": "https://github.com/duffelhq/duffel-checkout/issues"
   },
-  "homepage": "https://github.com/duffelhq/duffel-checkout#readme"
+  "homepage": "https://github.com/duffelhq/duffel-checkout#readme",
+  "packageManager": "yarn@4.0.1"
 }
