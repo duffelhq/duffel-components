@@ -1,5 +1,6 @@
 {
   "name": "@duffel/components",
+  "description": "Component library to build your travel product with Duffel.",
   "version": "3.1.3",
   "private": false,
   "license": "MIT",
@@ -26,7 +27,6 @@
     "setup-suggestion-data": "esbuild ./scripts/setup-suggestion-data.ts --outfile=dist/scripts/setup-suggestion-data.cjs --format=cjs --platform=node --bundle --tsconfig=scripts.tsconfig.json",
     "postsetup-suggestion-data": "node dist/scripts/setup-suggestion-data.cjs",
     "generate-type-declarations": "tsc --project tsconfig.json",
-    "commit": "cz",
     "lint": "eslint . --ext .ts,.tsx,.mjs,.js --max-warnings=0",
     "prettier": "prettier --write --loglevel=warn .",
     "prettier-check": "prettier --check .",
@@ -41,8 +41,6 @@
     "test": "LANG='en_US' TZ=UTC yarn jest",
     "preupload-to-cdn": "yarn cdn-build",
     "upload-to-cdn": "bash ./scripts/upload-to-cdn.sh",
-    "prerelease": "yarn react-build",
-    "release": "yarn semantic-release",
     "get-version": "cat package.json | jq '.version'"
   },
   "lint-staged": {
@@ -70,8 +68,6 @@
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.4",
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
     "@duffel/api": "^1.26.0",
     "@sentry/esbuild-plugin": "^0.7.0",
     "@storybook/addon-essentials": "^7.0.2",
@@ -91,9 +87,7 @@
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.57.0",
     "babel-jest": "^29.5.0",
-    "commitizen": "^4.3.0",
     "concurrently": "^8.0.0",
-    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.0.3",
     "esbuild": "0.17.19",
     "esbuild-copy-static-files": "^0.1.0",
@@ -112,7 +106,6 @@
     "prettier-plugin-organize-imports": "^3.2.2",
     "prompts": "^2.4.2",
     "prop-types": "^15.8.1",
-    "semantic-release": "^21.0.3",
     "storybook": "^7.0.2",
     "ts-node": "^10.9.1",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
@@ -121,27 +114,6 @@
   "engines": {
     "node": "~18.*"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "plugins": [
-    [
-      "@semantic-release/commit-analyzer"
-    ],
-    [
-      "@semantic-release/release-notes-generator"
-    ],
-    "@semantic-release/npm",
-    "@semantic-release/github"
-  ],
-  "release": {
-    "branches": [
-      "main"
-    ]
-  },
-  "description": "Component library to build your travel product with Duffel.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/duffelhq/duffel-checkout.git"
