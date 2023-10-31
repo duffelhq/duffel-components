@@ -54,7 +54,7 @@
     "word-wrap": "npm:@aashutoshrathi/word-wrap"
   },
   "dependencies": {
-    "@sentry/browser": "7.43.0",
+    "@sentry/browser": "7.77.0",
     "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "1.54.0",
     "classnames": "2.3.2",
