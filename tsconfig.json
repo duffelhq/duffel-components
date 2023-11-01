@@ -28,19 +28,25 @@
       "@lib/*": ["./src/lib/*"]
     },
     "jsx": "react-jsx",
+    "types": ["node"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
-    "typeRoots": ["node_modules/@types", "node_modules/**/types"],
     "incremental": true,
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "react-dist",
     "declarationDir": "react-dist"
   },
-  "include": ["src"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "scripts/**/*.ts",
+    "scripts/**/*.d.ts",
+    "scripts/**/*.tsx"
+  ],
   "exclude": [
-    "node_modules",
     "**/**.css.js",
     "./cdn-dist/**/*",
     "./react-dist/**/*",

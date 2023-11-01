@@ -2093,7 +2093,8 @@ __metadata:
     "@stripe/stripe-js": "npm:1.54.0"
     "@testing-library/react": "npm:14.0.0"
     "@types/jest": "npm:29.5.7"
-    "@types/node": "npm:18.15.11"
+    "@types/lodash": "npm:4.14.200"
+    "@types/node": "npm:18.18.8"
     "@types/prompts": "npm:2.4.7"
     "@types/react": "npm:18.2.33"
     "@types/react-dom": "npm:18.2.14"
@@ -4517,7 +4518,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.14.167":
+"@types/lodash@npm:4.14.200, @types/lodash@npm:^4.14.167":
   version: 4.14.200
   resolution: "@types/lodash@npm:4.14.200"
   checksum: 7a8dac6dc866f10d1888846d6189d1faeb4f65adb139f0837a005fd1adcde62e60d7e7abb1a2733d13fc57bebb337d74182d8ad3dbd1d211dcd0c310c47e81bc
@@ -4578,10 +4579,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.15.11":
-  version: 18.15.11
-  resolution: "@types/node@npm:18.15.11"
-  checksum: 670deb1a9daa812dc86b1e8964c0c6b0bef7c32672833c10578c1e5dd2682f2bd99b86d814fde86a5dd4a3da48ea039f41db30a835b245aa7c34c62fa1f23f0d
+"@types/node@npm:18.18.8":
+  version: 18.18.8
+  resolution: "@types/node@npm:18.18.8"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 6a8592675bfc0895c0a3ed1b942344d56538c178c0acab8fcbaf069a6bdeef6f8a416d5aa297a8ced34232919caf7658a4dd4eabf33a9ae1a755eeef9ea8e681
   languageName: node
   linkType: hard
 

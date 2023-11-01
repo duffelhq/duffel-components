@@ -1,6 +1,5 @@
 import Fuse from "fuse.js";
 import { debounce } from "lodash";
-import fetch from "node-fetch";
 import React from "react";
 import { Icon } from "../shared/Icon";
 
@@ -61,8 +60,8 @@ export const PlacesLookup: React.FC<PlacesLookupProps> = ({
 
   React.useEffect(() => {
     fetch(DATA_SOURCE)
-      .then((response) => response.json())
-      .then((data) =>
+      .then((response: Response) => response.json())
+      .then((data: string[]) =>
         setLookupData(
           new Fuse<Place>(mapDataRowsIntoObjects(data), {
             threshold: 0.2,
