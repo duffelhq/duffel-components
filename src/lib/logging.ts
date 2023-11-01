@@ -117,4 +117,4 @@ function logGroup(
   }
 }
 
-export { initializeLogger, logGroup, log };
+export { initializeLogger, log, logGroup };
