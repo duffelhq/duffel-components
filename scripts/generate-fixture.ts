@@ -24,7 +24,7 @@ const duffelHeaders = {
   Authorization: `Bearer ${DUFFEL_API_TOKEN}`,
 };
 
-export const makeMockDateInTheFuture = (daysAhead) => {
+export const makeMockDateInTheFuture = (daysAhead: number) => {
   const now = new Date(Date.now());
   now.setDate(now.getDate() + daysAhead);
   return now;
@@ -137,7 +137,7 @@ const main = async () => {
     );
     if (VERBOSE) {
       const airlines = new Set(
-        offerRequest.offers.map((offer) => offer.owner.iata_code)
+        offerRequest.offers.map((offer: Offer) => offer.owner.iata_code)
       );
       log(
         `Received ${withPlural(

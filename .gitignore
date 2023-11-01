@@ -10,3 +10,14 @@ __generated__*
 yarn-error.log
 .env.build
 .next
+
+
+# Yarn 4 files
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
