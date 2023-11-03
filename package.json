@@ -1,6 +1,6 @@
 {
   "name": "@duffel/components",
-  "version": "3.1.3--prototype.2",
+  "version": "3.1.4--canary",
   "description": "Component library to build your travel product with Duffel.",
   "keywords": [
     "Duffel",
@@ -27,10 +27,10 @@
     }
   ],
   "exports": {
-    ".": "./react-dist/index.js",
-    "./custom-elements": "./react-dist/custom-elements.js"
+    ".": "./index.js",
+    "./custom-elements": "./custom-elements.js"
   },
-  "main": "react-dist/index.js",
+  "main": "./index.js",
   "scripts": {
     "build-and-publish": "bash ./scripts/build-and-publish.sh",
     "build-storybook": "storybook build",
@@ -54,6 +54,7 @@
     "semver": "7.5.3"
   },
   "dependencies": {
+    "@duffel/components": "3.1.3--prototype.14",
     "@sentry/browser": "7.77.0",
     "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "1.54.0",
