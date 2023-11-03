@@ -2,7 +2,7 @@ import {
   DuffelAncillariesMarkup,
   DuffelAncillariesMarkupDefinition,
   DuffelAncillariesPriceFormatters,
-} from "src/types/DuffelAncillariesProps";
+} from "../types/DuffelAncillariesProps";
 
 const convertMarkupIntoPriceFormatter = (
   markup: DuffelAncillariesMarkupDefinition
