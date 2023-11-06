@@ -3,7 +3,6 @@ import {
   onDuffelAncillariesPayloadReady,
 } from "@duffel/components/custom-elements";
 
-
 window.onload = () => {
   renderDuffelAncillariesCustomElement({
     offer_id: "fixture_off_1",
