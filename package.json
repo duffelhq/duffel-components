@@ -1,6 +1,6 @@
 {
   "name": "@duffel/components",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "Component library to build your travel product with Duffel.",
   "keywords": [
     "Duffel",
@@ -54,7 +54,6 @@
     "semver": "7.5.3"
   },
   "dependencies": {
-    "@duffel/components": "3.1.3--prototype.14",
     "@sentry/browser": "7.77.0",
     "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "1.54.0",

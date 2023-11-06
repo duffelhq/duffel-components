@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@duffel/components@npm:3.1.3--prototype.14":
-  version: 3.1.3--prototype.14
-  resolution: "@duffel/components@npm:3.1.3--prototype.14"
+"@duffel/components@npm:3.1.5":
+  version: 3.1.5
+  resolution: "@duffel/components@npm:3.1.5"
   dependencies:
     "@sentry/browser": "npm:7.77.0"
     "@stripe/react-stripe-js": "npm:2.1.0"
@@ -17,24 +17,7 @@ __metadata:
     lodash: "npm:4.17.21"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
-  checksum: 4615b4b910f18a0d02035f3305ecabc80e4069a6654ad42ca348686d6ec8459d2cf6a5605e0c8ca974aa23007bcb7403573c6b4a95c24b0ad117e1eef30af034
-  languageName: node
-  linkType: hard
-
-"@duffel/components@npm:3.1.4":
-  version: 3.1.4
-  resolution: "@duffel/components@npm:3.1.4"
-  dependencies:
-    "@duffel/components": "npm:3.1.3--prototype.14"
-    "@sentry/browser": "npm:7.77.0"
-    "@stripe/react-stripe-js": "npm:2.1.0"
-    "@stripe/stripe-js": "npm:1.54.0"
-    classnames: "npm:2.3.2"
-    fuse.js: "npm:6.6.2"
-    lodash: "npm:4.17.21"
-    react: "npm:18.2.0"
-    react-dom: "npm:18.2.0"
-  checksum: accd0dc21cf88cbd46acbf25a4436c8d6ad3fe1feba7ae257ba15f638f16b2953abbc66748b020fada1fe2dbe0c67e28e92fff23d3a4fd7f4e595e28b43b30fe
+  checksum: 0a0b205e090fb37b65ba3d6aecd98f63d509f771bbfbdaff048204ea8b6957a1419e1b1fe579d14172699747d1caa6b4ee570bd85725faacde24804e9bbc13af
   languageName: node
   linkType: hard
 
@@ -337,7 +320,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-app@workspace:."
   dependencies:
-    "@duffel/components": "npm:3.1.4"
+    "@duffel/components": "npm:3.1.5"
     "@types/node": "npm:~18"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
