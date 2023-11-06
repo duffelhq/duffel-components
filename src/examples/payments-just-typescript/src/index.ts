@@ -2,7 +2,7 @@ import {
   onDuffelPaymentsFailedPayment,
   onDuffelPaymentsSuccessfulPayment,
   renderDuffelPaymentsCustomElement,
-} from "duffel-components/custom-elements";
+} from "@duffel/components/custom-elements";
 
 window.onload = () => {
   renderDuffelPaymentsCustomElement({
