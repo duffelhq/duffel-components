@@ -1,7 +1,7 @@
 import {
-  onDuffelAncillariesPayloadReady,
   renderDuffelAncillariesCustomElement,
-} from "duffel-components/custom-elements";
+  onDuffelAncillariesPayloadReady,
+} from "@duffel/components/custom-elements";
 
 window.onload = () => {
   renderDuffelAncillariesCustomElement({

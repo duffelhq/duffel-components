@@ -9,7 +9,7 @@ assignees: ""
 **Describe the bug**
 A clear and concise description of what the bug is.
 
-**Version of duffel-components**
+**Version of @duffel/components**
 Please add:
 
 1. the version of the library you are using

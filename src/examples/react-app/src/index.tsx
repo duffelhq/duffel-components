@@ -1,4 +1,4 @@
-import { DuffelAncillaries, DuffelPayments } from "duffel-components";
+import { DuffelAncillaries, DuffelPayments } from "@duffel/components";
 import React from "react";
 import { createRoot } from "react-dom/client";
 
