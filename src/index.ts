@@ -4,4 +4,6 @@
  */
 export * from "./components/DuffelAncillaries/DuffelAncillaries";
 export * from "./components/DuffelPayments/DuffelPayments";
+export * from "./components/ResultsPage/ResultsPage";
+export * from "./components/SearchPage/SearchPage";
 export * from "./types";

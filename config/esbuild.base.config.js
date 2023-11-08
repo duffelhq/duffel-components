@@ -8,6 +8,14 @@ module.exports = {
       out: "duffel-payments",
       in: "src/components/DuffelPayments/DuffelPaymentsCustomElement.tsx",
     },
+    {
+      out: "results-page",
+      in: "src/components/ResultsPage/ResultsPageCustomElement.tsx",
+    },
+    {
+      out: "search-page",
+      in: "src/components/SearchPage/SearchPageCustomElement.tsx",
+    },
     { out: "global", in: "src/styles/global.css" },
   ],
   bundle: true,
