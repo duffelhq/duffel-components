@@ -623,7 +623,7 @@ export interface OfferSliceSegment {
   /**
    * Additional segment-specific information about the stops, if any, included in the segment
    */
-  stops: OfferSliceSegmentStop[];
+  stops?: OfferSliceSegmentStop[];
 }
 
 export interface OfferConditionModificationAllowed {
