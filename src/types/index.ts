@@ -1,5 +1,6 @@
 export * from "./Aircraft";
 export * from "./Airline";
+export * from "./AirlineInitiatedChange";
 export * from "./Airport";
 export * from "./City";
 export * from "./CreateOrderPayload";
