@@ -299,6 +299,9 @@ export interface OrderSliceSegment {
    * @example "424.2"
    */
   distance?: string | null;
+
+  /** Just to normalise with offer slice */
+  stops: undefined;
 }
 
 export interface OrderSlice {
