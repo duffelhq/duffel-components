@@ -1,4 +1,4 @@
-import { SeatMap } from "../types/SeatMap";
+import { SeatMap } from "@duffel/api/types";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 import { isErrorResponse } from "./fetchFromDuffelAPI";
 import { importFromSeatMapsFixtures } from "./fetchFromFixtures";

@@ -20,15 +20,16 @@ import {
 import * as Sentry from "@sentry/browser";
 import * as React from "react";
 import {
-  CreateOrderPayloadPassengers,
-  CreateOrderPayloadService,
-} from "../../types/CreateOrderPayload";
-import { DuffelAncillariesProps } from "../../types/DuffelAncillariesProps";
-import { Offer } from "../../types/Offer";
-import { SeatMap } from "../../types/SeatMap";
+  DuffelAncillariesProps,
+  WithServiceInformation,
+} from "../../types/DuffelAncillariesProps";
 import { BaggageSelectionCard } from "./bags/BaggageSelectionCard";
 import { CfarSelectionCard } from "./cancel_for_any_reason/CfarSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
+import { CreateOrder, Offer, OrderService, SeatMap } from "@duffel/api/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
@@ -75,8 +76,9 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
       isPropsWithClientKeyAndOfferId ||
       isPropsWithOfferAndClientKey);
 
-  const [passengers, setPassengers] =
-    React.useState<CreateOrderPayloadPassengers>(props.passengers);
+  const [passengers, setPassengers] = React.useState<CreateOrder["passengers"]>(
+    props.passengers
+  );
 
   const [offer, setOffer] = React.useState<Offer | undefined>(
     (props as any).offer
@@ -95,15 +97,15 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
   const [error, setError] = React.useState<null | string>(null);
 
-  const [baggageSelectedServices, setBaggageSelectedServices] = React.useState(
-    new Array<CreateOrderPayloadService>()
-  );
-  const [seatSelectedServices, setSeatSelectedServices] = React.useState(
-    new Array<CreateOrderPayloadService>()
-  );
-  const [cfarSelectedServices, setCfarSelectedServices] = React.useState(
-    new Array<CreateOrderPayloadService>()
-  );
+  const [baggageSelectedServices, setBaggageSelectedServices] = React.useState<
+    WithServiceInformation<CreateOrderService>[]
+  >([]);
+  const [seatSelectedServices, setSeatSelectedServices] = React.useState<
+    WithServiceInformation<CreateOrderService>[]
+  >([]);
+  const [cfarSelectedServices, setCfarSelectedServices] = React.useState<
+    WithServiceInformation<CreateOrderService>[]
+  >([]);
 
   const priceFormatters = createPriceFormatters(
     props.markup,

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { BaggageSelectionModalHeader } from "../components/DuffelAncillaries/bags/BaggageSelectionModalHeader";
-import { OfferSliceSegment } from "../types/Offer";
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const offer = require("../fixtures/offers/off_0000AUde3KwTztSRK1cznH.json");
 
@@ -15,7 +15,7 @@ export const FirstStory: Story = {
   args: {
     segmentCount: 2,
     currentSegmentIndex: 0,
-    currentSegment: offer.slices[0].segments[0] as OfferSliceSegment,
+    currentSegment: offer.slices[0].segments[0],
     setCurrentSegmentIndex: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
   },
 };

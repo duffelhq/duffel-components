@@ -6,23 +6,23 @@ import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
-import {
-  CreateOrderPayload,
-  CreateOrderPayloadSeatService,
-  CreateOrderPayloadServices,
-} from "../../../types/CreateOrderPayload";
-import { Offer } from "../../../types/Offer";
-import { SeatMap } from "../../../types/SeatMap";
 import { Card } from "../Card";
 import { SeatSelectionModal } from "./SeatSelectionModal";
+import { CreateOrder, Offer, OrderService, SeatMap } from "@duffel/api/types";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;
   offer?: Offer;
   seatMaps?: SeatMap[];
-  passengers: CreateOrderPayload["passengers"];
-  selectedServices: CreateOrderPayloadServices;
-  setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
+  passengers: CreateOrder["passengers"];
+  selectedServices: WithServiceInformation<CreateOrderService>[];
+  setSelectedServices: (
+    selectedServices: WithServiceInformation<CreateOrderService>[]
+  ) => void;
 }
 
 export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
@@ -92,7 +92,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
         seatMaps={seatMaps}
         offer={offer}
         passengers={passengers}
-        selectedServices={selectedServices as CreateOrderPayloadSeatService[]}
+        selectedServices={selectedServices}
         onClose={(services) => {
           setSelectedServices(services);
           setIsOpen(false);

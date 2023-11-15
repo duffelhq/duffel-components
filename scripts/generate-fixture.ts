@@ -2,7 +2,7 @@ import { config } from "dotenv";
 import fs from "fs";
 import prompts from "prompts";
 import { withPlural } from "../src/lib/withPlural";
-import { Offer } from "../src/types/Offer";
+import { Offer } from "@duffel/api/types";
 
 config({ path: ".env.local" });
 

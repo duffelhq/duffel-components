@@ -1,14 +1,22 @@
 import { getRowNumber } from "@lib/getRowNumber";
 import * as React from "react";
-import { CreateOrderPayloadSeatService } from "../../../types/CreateOrderPayload";
-import { SeatMapCabinRow } from "../../../types/SeatMap";
 import { RowSection } from "./RowSection";
+import { OrderService, SeatMapCabinRow } from "@duffel/api/types";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface RowProps {
   row: SeatMapCabinRow;
   hasWings: boolean;
-  selectedServicesMap: Record<string, CreateOrderPayloadSeatService>;
-  onSeatToggled: (seatService: CreateOrderPayloadSeatService) => void;
+  selectedServicesMap: Record<
+    string,
+    WithServiceInformation<CreateOrderService>
+  >;
+  onSeatToggled: (
+    seatService: WithServiceInformation<CreateOrderService>
+  ) => void;
   currentPassengerId: string;
   currentPassengerName: string;
   currentSegmentId: string;

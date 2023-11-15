@@ -1,4 +1,4 @@
-import { Offer, OfferAvailableServiceType } from "../types/Offer";
+import { Offer, OfferAvailableService } from "@duffel/api/types";
 import { isBaggageService } from "./isBaggageService";
 import { isCancelForAnyReasonService } from "./isCancelForAnyReasonService";
 
@@ -9,7 +9,7 @@ const checkFunctionsMap = {
 
 export const hasService = (
   offer: Offer | undefined,
-  type: OfferAvailableServiceType
+  type: OfferAvailableService["type"]
 ) => {
   const checkFunction = checkFunctionsMap[type];
   if (!checkFunction) throw new Error(`Unknown service type: ${type}`);

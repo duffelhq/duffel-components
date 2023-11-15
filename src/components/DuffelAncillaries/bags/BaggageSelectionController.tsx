@@ -1,16 +1,19 @@
+import { OfferAvailableServiceBaggage, OrderService } from "@duffel/api/types";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
 import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
-import { CreateOrderPayloadServices } from "../../../types/CreateOrderPayload";
-import { OfferAvailableServiceBaggage } from "../../../types/Offer";
+import { WithServiceInformation } from "src/types";
 import { Counter } from "../Counter";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 interface BaggageSelectionControllerProps {
   segmentId: string;
   passengerId: string;
   availableService: OfferAvailableServiceBaggage;
-  selectedServices: CreateOrderPayloadServices;
+  selectedServices: WithServiceInformation<CreateOrderService>[];
   quantity: number;
   onQuantityChanged: (quantity: number) => void;
 }

@@ -6,23 +6,25 @@ import { getPassengerName } from "@lib/getPassengerName";
 import { getSegmentList } from "@lib/getSegmentList";
 import { getServicePriceMapById } from "@lib/getServicePriceMapById";
 import React from "react";
-import {
-  CreateOrderPayload,
-  CreateOrderPayloadSeatService,
-} from "../../../types/CreateOrderPayload";
-import { Offer } from "../../../types/Offer";
-import { SeatMap } from "../../../types/SeatMap";
 import { SeatSelectionModalBody } from "./SeatSelectionModalBody";
 import { SeatSelectionModalFooter } from "./SeatSelectionModalFooter";
 import { SeatSelectionModalHeader } from "./SeatSelectionModalHeader";
+import { CreateOrder, Offer, OrderService, SeatMap } from "@duffel/api/types";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
+
+type CreateOrderServiceWithInformation =
+  WithServiceInformation<CreateOrderService>;
 
 export interface SeatSelectionModalProps {
   isOpen: boolean;
   offer?: Offer;
   seatMaps?: SeatMap[];
-  selectedServices: CreateOrderPayloadSeatService[];
-  passengers: CreateOrderPayload["passengers"];
-  onClose: (selectedServices: CreateOrderPayloadSeatService[]) => void;
+  selectedServices: CreateOrderServiceWithInformation[];
+  passengers: CreateOrder["passengers"];
+  onClose: (selectedServices: CreateOrderServiceWithInformation[]) => void;
 }
 
 export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
@@ -37,10 +39,10 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     React.useState(0);
 
   const [selectedServicesState, setSelectedServicesState] =
-    React.useState<CreateOrderPayloadSeatService[]>(selectedServices);
+    React.useState<CreateOrderServiceWithInformation[]>(selectedServices);
   const selectedServicesStateMap = selectedServicesState.reduce(
     (all, service) => ({ ...all, [service.id]: service }),
-    {} as Record<string, CreateOrderPayloadSeatService>
+    {} as Record<string, CreateOrderServiceWithInformation>
   );
 
   if (!offer || !seatMaps) return null;
@@ -67,8 +69,10 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     currentPassengerIndex + 1
   );
 
-  const onSeatToggle = (seatServiceToToggle: CreateOrderPayloadSeatService) => {
-    let newSeatServices = new Array<CreateOrderPayloadSeatService>();
+  const onSeatToggle = (
+    seatServiceToToggle: CreateOrderServiceWithInformation
+  ) => {
+    let newSeatServices = new Array<CreateOrderServiceWithInformation>();
 
     for (const selectedServiceFromState of selectedServicesState) {
       const hasClickedSeatToToggleOff =

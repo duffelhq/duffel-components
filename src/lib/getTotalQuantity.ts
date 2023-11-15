@@ -1,5 +1,9 @@
-import { CreateOrderPayloadServices } from "../types/CreateOrderPayload";
+import { CreateOrder } from "@duffel/api/types";
 
 export const getTotalQuantity = (
-  fromSelectedServices: CreateOrderPayloadServices
-) => fromSelectedServices.reduce((total, { quantity }) => total + quantity, 0);
+  fromSelectedServices: CreateOrder["services"]
+) =>
+  (fromSelectedServices || []).reduce(
+    (total, { quantity }) => total + quantity,
+    0
+  );

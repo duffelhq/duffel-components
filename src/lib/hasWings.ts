@@ -1,4 +1,4 @@
-import { SeatMapCabin } from "../types/SeatMap";
+import { SeatMapCabin } from "@duffel/api/types";
 
 export const hasWings = (cabin: SeatMapCabin, rowIndex: number) =>
   Boolean(

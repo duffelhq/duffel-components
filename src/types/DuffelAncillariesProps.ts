@@ -2,7 +2,10 @@ import {
   CreateOrder,
   Offer,
   OfferAvailableServiceBaggage,
+  OfferAvailableServiceBaggageMetadata,
   OfferAvailableServiceCFAR,
+  OfferAvailableServiceCFARMetadata,
+  OrderService,
   SeatMap,
   SeatMapCabinRowSectionAvailableService,
 } from "@duffel/api/types";
@@ -92,15 +95,58 @@ export type OnPayloadReady = (
   metadata: OnPayloadReadyMetadata
 ) => void;
 
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
+
 export interface OnPayloadReadyMetadata {
   offer_total_amount: Offer["total_amount"];
   offer_total_currency: Offer["total_currency"];
   offer_tax_amount: Offer["tax_amount"];
   offer_tax_currency: Offer["tax_currency"];
 
-  baggage_services: CreateOrder["services"];
-  seat_services: CreateOrder["services"];
-  cancel_for_any_reason_services: CreateOrder["services"];
+  baggage_services: WithServiceInformation<CreateOrderService>[];
+  seat_services: WithServiceInformation<CreateOrderService>[];
+  cancel_for_any_reason_services: WithServiceInformation<CreateOrderService>[];
 }
 
 export type Ancillaries = "bags" | "seats" | "cancel_for_any_reason";
+
+export type WithServiceInformation<TypeToExtend> = {
+  serviceInformation: ServiceInformation;
+} & TypeToExtend;
+
+export type ServiceInformation =
+  | BaggageServiceInformation
+  | SeatServiceInformation
+  | CancelForAnyReasonerviceInformation;
+
+interface BaggageServiceInformation
+  extends OfferAvailableServiceBaggageMetadata {
+  segmentId: string;
+  passengerId: string;
+  passengerName: string;
+  total_amount: string;
+  total_currency: string;
+  designator?: undefined;
+}
+
+interface SeatServiceInformation {
+  type: "seat";
+  segmentId: string;
+  passengerId: string;
+  passengerName: string;
+  designator: string;
+  disclosures: string[];
+  total_amount: string;
+  total_currency: string;
+}
+
+interface CancelForAnyReasonerviceInformation
+  extends OfferAvailableServiceCFARMetadata {
+  segmentId?: undefined;
+  sliceId?: undefined;
+  total_amount: string;
+  designator?: undefined;
+  total_currency: string;
+  passengerName?: undefined;
+}

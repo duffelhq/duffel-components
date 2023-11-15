@@ -1,7 +1,7 @@
 import { Icon, IconName } from "@components/shared/Icon";
+import { SeatMapCabinRowSectionElementAmenity } from "@duffel/api/types";
 import classNames from "classnames";
 import * as React from "react";
-import { SeatMapCabinRowSectionElementAmenity } from "../../../types/SeatMap";
 
 const amenitiesWithoutWrapper = ["bassinet", "exit_row"];
 

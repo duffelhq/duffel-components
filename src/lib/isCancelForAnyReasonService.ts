@@ -1,9 +1,9 @@
 import {
   OfferAvailableService,
-  OfferAvailableServiceCancelForAnyReason,
-} from "../types/Offer";
+  OfferAvailableServiceCFAR,
+} from "@duffel/api/types";
 
 export const isCancelForAnyReasonService = (
   service: OfferAvailableService
-): service is OfferAvailableServiceCancelForAnyReason =>
+): service is OfferAvailableServiceCFAR =>
   service.type === "cancel_for_any_reason";

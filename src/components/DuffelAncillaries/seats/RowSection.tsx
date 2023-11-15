@@ -1,12 +1,16 @@
 import classNames from "classnames";
 import * as React from "react";
-import { CreateOrderPayloadSeatService } from "../../../types/CreateOrderPayload";
-import {
-  SeatMapCabinRow,
-  SeatMapCabinRowSection,
-} from "../../../types/SeatMap";
 import { Element } from "./Element";
 import { EmptyElement } from "./EmptyElement";
+import {
+  OrderService,
+  SeatMapCabinRow,
+  SeatMapCabinRowSection,
+} from "@duffel/api/types";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 interface RowSectionProps {
   row: SeatMapCabinRow;
@@ -14,8 +18,13 @@ interface RowSectionProps {
   hasWings: boolean;
   section: SeatMapCabinRowSection;
   sectionIndex: number;
-  selectedServicesMap: Record<string, CreateOrderPayloadSeatService>;
-  onSeatToggled: (seatService: CreateOrderPayloadSeatService) => void;
+  selectedServicesMap: Record<
+    string,
+    WithServiceInformation<CreateOrderService>
+  >;
+  onSeatToggled: (
+    seatService: WithServiceInformation<CreateOrderService>
+  ) => void;
   currentPassengerId: string;
   currentPassengerName: string;
   currentSegmentId: string;

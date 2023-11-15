@@ -1,6 +1,4 @@
-import { CreateOrderPayloadServices } from "../types/CreateOrderPayload";
-import { Offer } from "../types/Offer";
-import { SeatMap } from "../types/SeatMap";
+import { CreateOrder, Offer, SeatMap } from "@duffel/api/types";
 import { captureErrorInSentry } from "./captureErrorInSentry";
 import {
   ServicePriceMapById,
@@ -9,10 +7,10 @@ import {
 
 export const getTotalAmountForServices = (
   offer: Offer,
-  selectedServices: CreateOrderPayloadServices,
+  selectedServices: CreateOrder["services"],
   seatMaps?: SeatMap[]
 ): number => {
-  if (!offer || selectedServices.length === 0) return 0;
+  if (!offer || !selectedServices || selectedServices.length === 0) return 0;
   const servicePriceMap = getServicePriceMapById(offer.available_services);
   return getTotalAmountForServicesWithPriceMap(
     servicePriceMap,
@@ -23,10 +21,10 @@ export const getTotalAmountForServices = (
 
 export const getTotalAmountForServicesWithPriceMap = (
   servicePriceMap: ServicePriceMapById,
-  selectedServices: CreateOrderPayloadServices,
+  selectedServices: CreateOrder["services"],
   seatMaps?: SeatMap[]
 ) =>
-  selectedServices.reduce(
+  (selectedServices || []).reduce(
     (total, { quantity, id }) => {
       let newTotal = total;
 

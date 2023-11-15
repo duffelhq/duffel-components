@@ -1,7 +1,7 @@
 import {
   SeatMapCabinRowSectionElement,
   SeatMapCabinRowSectionElementSeat,
-} from "../types/SeatMap";
+} from "@duffel/api/types";
 
 export function isSeatElement(
   element: SeatMapCabinRowSectionElement

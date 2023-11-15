@@ -1,4 +1,4 @@
-import { Offer, OfferSliceSegment } from "../types/Offer";
+import { Offer, OfferSliceSegment } from "@duffel/api/types";
 
 export const getSegmentList = (offer: Offer) =>
   offer.slices.reduce(

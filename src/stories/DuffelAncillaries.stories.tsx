@@ -2,8 +2,7 @@ import type { Meta, StoryFn, StoryObj } from "@storybook/react";
 import { DuffelAncillaries } from "../components/DuffelAncillaries/DuffelAncillaries";
 import mockPassengers from "../fixtures/passengers/mock_passengers";
 import { DuffelAncillariesPropsWithOffersAndSeatMaps } from "../types/DuffelAncillariesProps";
-import { Offer } from "../types/Offer";
-import { SeatMap } from "../types/SeatMap";
+import { Offer, SeatMap } from "@duffel/api/types";
 
 // Use a require because the fixture is not a module.
 /* eslint-disable @typescript-eslint/no-var-requires */

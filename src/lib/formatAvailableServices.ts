@@ -1,5 +1,5 @@
+import { Offer } from "@duffel/api/types";
 import { DuffelAncillariesPriceFormatters } from "../types/DuffelAncillariesProps";
-import { Offer } from "../types/Offer";
 import { isBaggageService } from "./isBaggageService";
 import { isCancelForAnyReasonService } from "./isCancelForAnyReasonService";
 
