@@ -1,13 +1,11 @@
 import {
-  CreateOrderPayload,
-  CreateOrderPayloadServices,
-} from "./CreateOrderPayload";
-import {
+  CreateOrder,
   Offer,
   OfferAvailableServiceBaggage,
-  OfferAvailableServiceCancelForAnyReason,
-} from "./Offer";
-import { SeatMap, SeatMapCabinRowSectionAvailableService } from "./SeatMap";
+  OfferAvailableServiceCFAR,
+  SeatMap,
+  SeatMapCabinRowSectionAvailableService,
+} from "@duffel/api/types";
 
 export type DuffelAncillariesProps =
   | DuffelAncillariesPropsWithOfferIdForFixture
@@ -18,7 +16,7 @@ export type DuffelAncillariesProps =
 export interface DuffelAncillariesCommonProps {
   styles?: CustomStyles;
   onPayloadReady: OnPayloadReady;
-  passengers: CreateOrderPayload["passengers"];
+  passengers: CreateOrder["passengers"];
   services: Ancillaries[];
   markup?: DuffelAncillariesMarkup;
   priceFormatters?: DuffelAncillariesPriceFormatters;
@@ -74,7 +72,7 @@ export type DuffelAncillariesPriceFormatterForSeats = (
 export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
   amount: number,
   currency: string,
-  service: OfferAvailableServiceCancelForAnyReason
+  service: OfferAvailableServiceCFAR
 ) => { amount: number; currency?: string };
 
 export interface DuffelAncillariesPriceFormatters {
@@ -90,7 +88,7 @@ export interface CustomStyles {
 }
 
 export type OnPayloadReady = (
-  data: CreateOrderPayload,
+  data: CreateOrder,
   metadata: OnPayloadReadyMetadata
 ) => void;
 
@@ -100,9 +98,9 @@ export interface OnPayloadReadyMetadata {
   offer_tax_amount: Offer["tax_amount"];
   offer_tax_currency: Offer["tax_currency"];
 
-  baggage_services: CreateOrderPayloadServices;
-  seat_services: CreateOrderPayloadServices;
-  cancel_for_any_reason_services: CreateOrderPayloadServices;
+  baggage_services: CreateOrder["services"];
+  seat_services: CreateOrder["services"];
+  cancel_for_any_reason_services: CreateOrder["services"];
 }
 
 export type Ancillaries = "bags" | "seats" | "cancel_for_any_reason";
