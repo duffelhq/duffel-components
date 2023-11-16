@@ -1,6 +1,6 @@
 import { Icon } from "@components/shared/Icon";
 import {
-  OrderService,
+  CreateOrderService,
   SeatMapCabinRowSectionElementSeat,
 } from "@duffel/api/types";
 import { getPassengerInitials } from "@lib/getPassengerInitials";
@@ -10,9 +10,6 @@ import * as React from "react";
 import { SeatInfo } from "./SeatInfo";
 import { SeatUnavailable } from "./SeatUnavailable";
 import { WithServiceInformation } from "src/types";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 interface SeatElementProps {
   element: SeatMapCabinRowSectionElementSeat;

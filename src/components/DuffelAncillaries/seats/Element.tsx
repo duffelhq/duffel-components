@@ -4,11 +4,11 @@ import { Amenity } from "./Amenity";
 import { EmptyElement } from "./EmptyElement";
 import { ExitElement } from "./ExitElement";
 import { SeatElement } from "./SeatElement";
-import { OrderService, SeatMapCabinRowSectionElement } from "@duffel/api/types";
+import {
+  CreateOrderService,
+  SeatMapCabinRowSectionElement,
+} from "@duffel/api/types";
 import { WithServiceInformation } from "src/types";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 interface ElementProps {
   sectionIndex: number;

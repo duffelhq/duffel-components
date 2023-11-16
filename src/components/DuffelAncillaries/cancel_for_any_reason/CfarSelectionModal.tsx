@@ -1,17 +1,14 @@
 import { Modal } from "@components/shared/Modal";
 import {
+  CreateOrderService,
   Offer,
   OfferAvailableServiceCFAR,
-  OrderService,
 } from "@duffel/api/types";
 import React from "react";
 import { WithServiceInformation } from "src/types";
 import { CfarSelectionModalBody } from "./CfarSelectionModalBody";
 import { CfarSelectionModalFooter } from "./CfarSelectionModalFooter";
 import { CfarSelectionModalHeader } from "./CfarSelectionModalHeader";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface CfarSelectionModalProps {
   isOpen: boolean;

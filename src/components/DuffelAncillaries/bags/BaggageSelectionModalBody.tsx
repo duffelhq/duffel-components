@@ -4,16 +4,13 @@ import React from "react";
 
 import {
   CreateOrderPassenger,
+  CreateOrderService,
   Offer,
   OfferAvailableServiceBaggage,
   OfferSliceSegment,
-  OrderService,
 } from "@duffel/api/types";
 import { WithServiceInformation } from "src/types";
 import { BaggageSelectionModalBodyPassenger } from "./BaggageSelectionModalBodyPassenger";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface BaggageSelectionModalBodyProps {
   offer: Offer;

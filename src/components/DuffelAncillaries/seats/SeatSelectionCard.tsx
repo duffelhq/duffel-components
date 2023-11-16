@@ -8,11 +8,13 @@ import { withPlural } from "@lib/withPlural";
 import React from "react";
 import { Card } from "../Card";
 import { SeatSelectionModal } from "./SeatSelectionModal";
-import { CreateOrder, Offer, OrderService, SeatMap } from "@duffel/api/types";
+import {
+  CreateOrder,
+  CreateOrderService,
+  Offer,
+  SeatMap,
+} from "@duffel/api/types";
 import { WithServiceInformation } from "src/types";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;

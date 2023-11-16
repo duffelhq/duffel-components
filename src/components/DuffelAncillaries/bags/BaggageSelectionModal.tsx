@@ -8,11 +8,8 @@ import React, { useState } from "react";
 import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
-import { CreateOrder, Offer, OrderService } from "@duffel/api/types";
+import { CreateOrder, CreateOrderService, Offer } from "@duffel/api/types";
 import { WithServiceInformation } from "src/types";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface BaggageSelectionModalProps {
   isOpen: boolean;

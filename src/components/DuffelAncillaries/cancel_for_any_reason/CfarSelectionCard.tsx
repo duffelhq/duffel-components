@@ -1,6 +1,6 @@
 import { AnimatedLoaderEllipsis } from "@components/shared/AnimatedLoaderEllipsis";
 import { Stamp } from "@components/shared/Stamp";
-import { Offer, OrderService } from "@duffel/api/types";
+import { CreateOrderService, Offer } from "@duffel/api/types";
 import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
@@ -11,9 +11,6 @@ import React from "react";
 import { WithServiceInformation } from "src/types";
 import { Card } from "../Card";
 import { CfarSelectionModal } from "./CfarSelectionModal";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface CfarSelectionCardProps {
   isLoading: boolean;

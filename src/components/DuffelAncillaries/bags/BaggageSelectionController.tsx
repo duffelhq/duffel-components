@@ -1,13 +1,13 @@
-import { OfferAvailableServiceBaggage, OrderService } from "@duffel/api/types";
+import {
+  CreateOrderService,
+  OfferAvailableServiceBaggage,
+} from "@duffel/api/types";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
 import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
 import { WithServiceInformation } from "src/types";
 import { Counter } from "../Counter";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 interface BaggageSelectionControllerProps {
   segmentId: string;
