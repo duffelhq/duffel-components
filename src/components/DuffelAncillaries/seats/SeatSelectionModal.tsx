@@ -9,11 +9,13 @@ import React from "react";
 import { SeatSelectionModalBody } from "./SeatSelectionModalBody";
 import { SeatSelectionModalFooter } from "./SeatSelectionModalFooter";
 import { SeatSelectionModalHeader } from "./SeatSelectionModalHeader";
-import { CreateOrder, Offer, OrderService, SeatMap } from "@duffel/api/types";
+import {
+  CreateOrder,
+  CreateOrderService,
+  Offer,
+  SeatMap,
+} from "@duffel/api/types";
 import { WithServiceInformation } from "src/types";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 type CreateOrderServiceWithInformation =
   WithServiceInformation<CreateOrderService>;

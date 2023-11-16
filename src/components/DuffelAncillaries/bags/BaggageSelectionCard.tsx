@@ -9,11 +9,8 @@ import { withPlural } from "@lib/withPlural";
 import React from "react";
 import { Card } from "../Card";
 import { BaggageSelectionModal } from "./BaggageSelectionModal";
-import { CreateOrder, Offer, OrderService } from "@duffel/api/types";
+import { CreateOrder, CreateOrderService, Offer } from "@duffel/api/types";
 import { WithServiceInformation } from "src/types";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface BaggageSelectionCardProps {
   isLoading: boolean;

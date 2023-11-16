@@ -3,14 +3,11 @@ import * as React from "react";
 import { Element } from "./Element";
 import { EmptyElement } from "./EmptyElement";
 import {
-  OrderService,
+  CreateOrderService,
   SeatMapCabinRow,
   SeatMapCabinRowSection,
 } from "@duffel/api/types";
 import { WithServiceInformation } from "src/types";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 interface RowSectionProps {
   row: SeatMapCabinRow;

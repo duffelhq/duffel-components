@@ -3,15 +3,12 @@ import { getSymbols } from "@lib/getSymbols";
 import { hasWings } from "@lib/hasWings";
 import classNames from "classnames";
 import * as React from "react";
-import { OrderService, SeatMap as SeatMapType } from "@duffel/api/types";
+import { CreateOrderService, SeatMap as SeatMapType } from "@duffel/api/types";
 import { DeckSelect } from "./DeckSelect";
 import { Legend } from "./Legend";
 import { Row } from "./Row";
 import { SeatMapUnavailable } from "./SeatMapUnavailable";
 import { WithServiceInformation } from "src/types";
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface SeatMapProps {
   seatMap: SeatMapType;

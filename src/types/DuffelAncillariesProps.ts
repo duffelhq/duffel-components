@@ -1,11 +1,11 @@
 import {
   CreateOrder,
+  CreateOrderService,
   Offer,
   OfferAvailableServiceBaggage,
   OfferAvailableServiceBaggageMetadata,
   OfferAvailableServiceCFAR,
   OfferAvailableServiceCFARMetadata,
-  OrderService,
   SeatMap,
   SeatMapCabinRowSectionAvailableService,
 } from "@duffel/api/types";
@@ -94,9 +94,6 @@ export type OnPayloadReady = (
   data: CreateOrder,
   metadata: OnPayloadReadyMetadata
 ) => void;
-
-// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
-type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface OnPayloadReadyMetadata {
   offer_total_amount: Offer["total_amount"];
