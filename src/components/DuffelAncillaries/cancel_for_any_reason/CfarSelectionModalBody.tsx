@@ -2,15 +2,12 @@ import { Icon } from "@components/shared//Icon";
 import { ModalBody } from "@components/shared/Modal";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
-import {
-  Offer,
-  OfferAvailableServiceCancelForAnyReason,
-} from "../../../types/Offer";
 import { CfarSelectionModalBodyListItem } from "./CfarSelectionModalBodyListItem";
+import { Offer, OfferAvailableServiceCFAR } from "@duffel/api/types";
 
 export interface CfarSelectionModalBodyProps {
   offerCurrency: Offer["base_currency"];
-  service: OfferAvailableServiceCancelForAnyReason;
+  service: OfferAvailableServiceCFAR;
 }
 
 export const CfarSelectionModalBody: React.FC<CfarSelectionModalBodyProps> = ({

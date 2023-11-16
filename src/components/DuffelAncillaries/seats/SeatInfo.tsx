@@ -1,9 +1,9 @@
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
-import * as React from "react";
 import {
   SeatMapCabinRowSectionAvailableService,
   SeatMapCabinRowSectionElementSeat,
-} from "../../../types/SeatMap";
+} from "@duffel/api/types";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import * as React from "react";
 
 export interface SeatInfoProps {
   seat: SeatMapCabinRowSectionElementSeat | null;

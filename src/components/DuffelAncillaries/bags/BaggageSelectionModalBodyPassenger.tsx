@@ -1,11 +1,15 @@
-import React from "react";
-import { CreateOrderPayloadServices } from "../../../types/CreateOrderPayload";
 import {
   OfferAvailableServiceBaggage,
   OfferSliceSegmentPassengerBaggage,
-} from "../../../types/Offer";
+  OrderService,
+} from "@duffel/api/types";
+import React from "react";
+import { WithServiceInformation } from "src/types";
 import { BaggageSelectionController } from "./BaggageSelectionController";
 import { IncludedBaggageBanner } from "./IncludedBaggageBanner";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface BaggageSelectionModalBodyPassengerProps {
   segmentId: string;
@@ -13,8 +17,10 @@ export interface BaggageSelectionModalBodyPassengerProps {
   passengerName: string;
   includedBaggage: OfferSliceSegmentPassengerBaggage[];
   passengerServicesForSegment: OfferAvailableServiceBaggage[];
-  selectedServices: CreateOrderPayloadServices;
-  setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
+  selectedServices: WithServiceInformation<CreateOrderService>[];
+  setSelectedServices: (
+    selectedServices: WithServiceInformation<CreateOrderService>[]
+  ) => void;
 }
 
 export const BaggageSelectionModalBodyPassenger: React.FC<
@@ -84,8 +90,10 @@ const onBaggageQuantityChanged = (
   passengerId: string,
   passengerName: string,
   availableService: OfferAvailableServiceBaggage,
-  selectedServices: CreateOrderPayloadServices,
-  setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void
+  selectedServices: WithServiceInformation<CreateOrderService>[],
+  setSelectedServices: (
+    selectedServices: WithServiceInformation<CreateOrderService>[]
+  ) => void
 ) => {
   // check if the service which had its quantity changed is already in the list
   const changedServiceIndex = selectedServices.findIndex(

@@ -1,8 +1,8 @@
 import {
-  OfferAvailableBaggageService,
   OfferAvailableService,
-} from "../types/Offer";
+  OfferAvailableServiceBaggage,
+} from "@duffel/api/types";
 
 export const isBaggageService = (
   service: OfferAvailableService
-): service is OfferAvailableBaggageService => service.type === "baggage";
+): service is OfferAvailableServiceBaggage => service.type === "baggage";

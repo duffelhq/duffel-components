@@ -1,13 +1,16 @@
 import { Button } from "@components/shared/Button";
 import { Icon } from "@components/shared/Icon";
+import { OfferAvailableServiceCFAR, OrderService } from "@duffel/api/types";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
-import { CreateOrderPayloadServices } from "../../../types/CreateOrderPayload";
-import { OfferAvailableServiceCancelForAnyReason } from "../../../types/Offer";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface CfarSelectionModalFooterProps {
-  service: OfferAvailableServiceCancelForAnyReason;
-  selectedServices: CreateOrderPayloadServices;
+  service: OfferAvailableServiceCFAR;
+  selectedServices: WithServiceInformation<CreateOrderService>[];
   onAddCfarService: () => void;
   onRemoveCfarService: () => void;
   onClose: () => void;

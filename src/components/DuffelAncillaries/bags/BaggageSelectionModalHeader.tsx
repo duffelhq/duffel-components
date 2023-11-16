@@ -1,6 +1,6 @@
+import { OfferSliceSegment } from "@duffel/api/types";
 import { formatDateString } from "@lib/formatDate";
 import React from "react";
-import { OfferSliceSegment } from "../../../types/Offer";
 
 export interface BaggageSelectionModalHeaderProps {
   segmentCount: number;

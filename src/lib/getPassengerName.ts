@@ -1,8 +1,7 @@
-import { CreateOrderPayloadPassenger } from "../types/CreateOrderPayload";
-import { OfferPassenger } from "../types/Offer";
+import { CreateOrderPassenger, OfferPassenger } from "@duffel/api/types";
 
 export const getPassengerName = (
-  createOrderPayloadPassenger: CreateOrderPayloadPassenger,
+  createOrderPayloadPassenger: CreateOrderPassenger,
   offerPassenger: OfferPassenger | undefined,
   fallbackIndex: number
 ): string => {

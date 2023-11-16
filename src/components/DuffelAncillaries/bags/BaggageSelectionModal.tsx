@@ -5,21 +5,23 @@ import { getSegmentList } from "@lib/getSegmentList";
 import { getServicePriceMapById } from "@lib/getServicePriceMapById";
 import { hasService } from "@lib/hasService";
 import React, { useState } from "react";
-import {
-  CreateOrderPayload,
-  CreateOrderPayloadServices,
-} from "../../../types/CreateOrderPayload";
-import { Offer } from "../../../types/Offer";
 import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
+import { CreateOrder, Offer, OrderService } from "@duffel/api/types";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface BaggageSelectionModalProps {
   isOpen: boolean;
   offer?: Offer;
-  passengers: CreateOrderPayload["passengers"];
-  selectedServices: CreateOrderPayloadServices;
-  onClose: (selectedServices: CreateOrderPayloadServices) => void;
+  passengers: CreateOrder["passengers"];
+  selectedServices: WithServiceInformation<CreateOrderService>[];
+  onClose: (
+    selectedServices: WithServiceInformation<CreateOrderService>[]
+  ) => void;
 }
 
 export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({

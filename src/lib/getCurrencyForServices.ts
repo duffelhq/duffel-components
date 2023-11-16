@@ -1,4 +1,4 @@
-import { Offer } from "../types/Offer";
+import { Offer } from "@duffel/api/types";
 
 /**
  *

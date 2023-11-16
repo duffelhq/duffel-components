@@ -1,19 +1,13 @@
-import {
-  CreateOrderPayload,
-  CreateOrderPayloadService,
-  CreateOrderPayloadServices,
-} from "../types/CreateOrderPayload";
-import { DuffelAncillariesProps } from "../types/DuffelAncillariesProps";
-import { Offer } from "../types/Offer";
-import { SeatMap } from "../types/SeatMap";
+import { CreateOrder, Offer, SeatMap } from "@duffel/api/types";
 import { getTotalAmountForServices } from "./getTotalAmountForServices";
+import { DuffelAncillariesProps } from "src/types";
 
 interface CompileCreateOrderPayloadInput {
   offer: Offer;
   passengers: DuffelAncillariesProps["passengers"];
-  baggageSelectedServices: CreateOrderPayloadServices;
-  seatSelectedServices: CreateOrderPayloadServices;
-  cfarSelectedServices: CreateOrderPayloadServices;
+  baggageSelectedServices: CreateOrder["services"];
+  seatSelectedServices: CreateOrder["services"];
+  cfarSelectedServices: CreateOrder["services"];
   seatMaps?: SeatMap[];
 }
 
@@ -24,11 +18,11 @@ export const compileCreateOrderPayload = ({
   offer,
   seatMaps,
   passengers,
-}: CompileCreateOrderPayloadInput): Partial<CreateOrderPayload> => {
+}: CompileCreateOrderPayloadInput): Partial<CreateOrder> => {
   const selectedServicesWithInformation = [
-    ...baggageSelectedServices,
-    ...seatSelectedServices,
-    ...cfarSelectedServices,
+    ...(baggageSelectedServices ? baggageSelectedServices : []),
+    ...(seatSelectedServices ? seatSelectedServices : []),
+    ...(cfarSelectedServices ? cfarSelectedServices : []),
   ];
 
   const totalAmountWithServices =
@@ -54,8 +48,8 @@ export const compileCreateOrderPayload = ({
 };
 
 const filterServicesForPayload = (
-  selectedServices: CreateOrderPayloadServices
-): Pick<CreateOrderPayloadService, "id" | "quantity">[] => {
+  selectedServices: CreateOrder["services"]
+): CreateOrder["services"] => {
   if (!Array.isArray(selectedServices)) return [];
   return selectedServices
     .filter(({ quantity }) => quantity > 0)

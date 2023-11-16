@@ -1,13 +1,14 @@
 import {
-  CreateOrderPayload,
-  CreateOrderPayloadServices,
-} from "./CreateOrderPayload";
-import {
+  CreateOrder,
   Offer,
   OfferAvailableServiceBaggage,
-  OfferAvailableServiceCancelForAnyReason,
-} from "./Offer";
-import { SeatMap, SeatMapCabinRowSectionAvailableService } from "./SeatMap";
+  OfferAvailableServiceBaggageMetadata,
+  OfferAvailableServiceCFAR,
+  OfferAvailableServiceCFARMetadata,
+  OrderService,
+  SeatMap,
+  SeatMapCabinRowSectionAvailableService,
+} from "@duffel/api/types";
 
 export type DuffelAncillariesProps =
   | DuffelAncillariesPropsWithOfferIdForFixture
@@ -18,7 +19,7 @@ export type DuffelAncillariesProps =
 export interface DuffelAncillariesCommonProps {
   styles?: CustomStyles;
   onPayloadReady: OnPayloadReady;
-  passengers: CreateOrderPayload["passengers"];
+  passengers: CreateOrder["passengers"];
   services: Ancillaries[];
   markup?: DuffelAncillariesMarkup;
   priceFormatters?: DuffelAncillariesPriceFormatters;
@@ -74,7 +75,7 @@ export type DuffelAncillariesPriceFormatterForSeats = (
 export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
   amount: number,
   currency: string,
-  service: OfferAvailableServiceCancelForAnyReason
+  service: OfferAvailableServiceCFAR
 ) => { amount: number; currency?: string };
 
 export interface DuffelAncillariesPriceFormatters {
@@ -90,9 +91,12 @@ export interface CustomStyles {
 }
 
 export type OnPayloadReady = (
-  data: CreateOrderPayload,
+  data: CreateOrder,
   metadata: OnPayloadReadyMetadata
 ) => void;
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface OnPayloadReadyMetadata {
   offer_total_amount: Offer["total_amount"];
@@ -100,9 +104,49 @@ export interface OnPayloadReadyMetadata {
   offer_tax_amount: Offer["tax_amount"];
   offer_tax_currency: Offer["tax_currency"];
 
-  baggage_services: CreateOrderPayloadServices;
-  seat_services: CreateOrderPayloadServices;
-  cancel_for_any_reason_services: CreateOrderPayloadServices;
+  baggage_services: WithServiceInformation<CreateOrderService>[];
+  seat_services: WithServiceInformation<CreateOrderService>[];
+  cancel_for_any_reason_services: WithServiceInformation<CreateOrderService>[];
 }
 
 export type Ancillaries = "bags" | "seats" | "cancel_for_any_reason";
+
+export type WithServiceInformation<TypeToExtend> = {
+  serviceInformation: ServiceInformation;
+} & TypeToExtend;
+
+export type ServiceInformation =
+  | BaggageServiceInformation
+  | SeatServiceInformation
+  | CancelForAnyReasonerviceInformation;
+
+interface BaggageServiceInformation
+  extends OfferAvailableServiceBaggageMetadata {
+  segmentId: string;
+  passengerId: string;
+  passengerName: string;
+  total_amount: string;
+  total_currency: string;
+  designator?: undefined;
+}
+
+interface SeatServiceInformation {
+  type: "seat";
+  segmentId: string;
+  passengerId: string;
+  passengerName: string;
+  designator: string;
+  disclosures: string[];
+  total_amount: string;
+  total_currency: string;
+}
+
+interface CancelForAnyReasonerviceInformation
+  extends OfferAvailableServiceCFARMetadata {
+  segmentId?: undefined;
+  sliceId?: undefined;
+  total_amount: string;
+  designator?: undefined;
+  total_currency: string;
+  passengerName?: undefined;
+}

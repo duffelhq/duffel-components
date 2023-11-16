@@ -1,8 +1,11 @@
-import { CreateOrderPayloadServices } from "../types/CreateOrderPayload";
-import { OfferAvailableServiceBaggage } from "../types/Offer";
+import { OfferAvailableServiceBaggage, OrderService } from "@duffel/api/types";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export const hasServiceOfSameMetadataTypeAlreadyBeenSelected = (
-  selectedServices: CreateOrderPayloadServices,
+  selectedServices: WithServiceInformation<CreateOrderService>[],
   segmentId: string,
   passengerId: string,
   availableService: OfferAvailableServiceBaggage

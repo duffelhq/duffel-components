@@ -1,7 +1,7 @@
 import {
   SeatMapCabin,
   SeatMapCabinRowSectionElementAmenity,
-} from "../types/SeatMap";
+} from "@duffel/api/types";
 
 export const getSymbols = (
   cabins: SeatMapCabin[]

@@ -7,20 +7,22 @@ import { hasService } from "@lib/hasService";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
-import {
-  CreateOrderPayload,
-  CreateOrderPayloadServices,
-} from "../../../types/CreateOrderPayload";
-import { Offer } from "../../../types/Offer";
 import { Card } from "../Card";
 import { BaggageSelectionModal } from "./BaggageSelectionModal";
+import { CreateOrder, Offer, OrderService } from "@duffel/api/types";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 export interface BaggageSelectionCardProps {
   isLoading: boolean;
   offer?: Offer;
-  passengers: CreateOrderPayload["passengers"];
-  selectedServices: CreateOrderPayloadServices;
-  setSelectedServices: (selectedServices: CreateOrderPayloadServices) => void;
+  passengers: CreateOrder["passengers"];
+  selectedServices: WithServiceInformation<CreateOrderService>[];
+  setSelectedServices: (
+    selectedServices: WithServiceInformation<CreateOrderService>[]
+  ) => void;
 }
 
 export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({

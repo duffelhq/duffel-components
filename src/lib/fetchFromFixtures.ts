@@ -1,5 +1,4 @@
-import { Offer } from "../types/Offer";
-import { SeatMap } from "../types/SeatMap";
+import { Offer, SeatMap } from "@duffel/api/types";
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN;
 

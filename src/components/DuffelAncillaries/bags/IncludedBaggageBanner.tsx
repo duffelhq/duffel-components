@@ -1,6 +1,6 @@
+import { OfferSliceSegmentPassengerBaggage } from "@duffel/api/types";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
-import { OfferSliceSegmentPassengerBaggage } from "../../../types/Offer";
 
 interface IncludedBaggageBannerProps {
   includedBaggage: OfferSliceSegmentPassengerBaggage[];

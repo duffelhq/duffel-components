@@ -1,21 +1,32 @@
+import { OfferAvailableServiceBaggage, OrderService } from "@duffel/api/types";
 import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "../../lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
-import { CreateOrderPayloadService } from "../../types/CreateOrderPayload";
-import { OfferAvailableBaggageService } from "../../types/Offer";
+import { WithServiceInformation } from "src/types";
 
-const availableService: OfferAvailableBaggageService = {
+const availableService: OfferAvailableServiceBaggage = {
   id: "available_service_id",
   metadata: { type: "checked" },
   // using as any because we don't need to test the whole type
 } as any;
 
-const selectedService: CreateOrderPayloadService = {
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
+
+const selectedService: WithServiceInformation<CreateOrderService> = {
   id: "selected_service_id",
+  quantity: 1,
   serviceInformation: {
+    type: "checked",
+    total_amount: "10.00",
+    total_currency: "GBP",
     segmentId: "segment_id",
     passengerId: "passenger_id",
-    type: "checked",
+    passengerName: "Traveller Smith",
+    maximum_weight_kg: null,
+    maximum_height_cm: null,
+    maximum_length_cm: null,
+    maximum_depth_cm: null,
   },
-} as any;
+};
 
 describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
   it("Should return false if no services selected", () => {

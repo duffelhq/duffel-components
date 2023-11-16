@@ -1,4 +1,4 @@
-import { SeatMap, SeatMapCabinRowSectionElementSeat } from "../types/SeatMap";
+import { SeatMap, SeatMapCabinRowSectionElementSeat } from "@duffel/api/types";
 import { getFirstSeatElementMatchingCriteria } from "./getFirstSeatElementMatchingCriteria";
 
 /**

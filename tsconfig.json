@@ -28,7 +28,7 @@
       "@lib/*": ["./src/lib/*"]
     },
     "jsx": "react-jsx",
-    "types": ["node"],
+    "types": ["node", "jest", "@duffel/api"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
@@ -51,8 +51,6 @@
     "./cdn-dist/**/*",
     "./react-dist/**/*",
     "./src/examples/**/*",
-    "./src/stories/**/*",
-    "./src/fixtures/**/*",
-    "./src/tests/**/*"
+    "./src/fixtures/**/*.json"
   ]
 }

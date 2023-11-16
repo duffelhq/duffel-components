@@ -1,5 +1,5 @@
+import { OfferAvailableServiceBaggageMetadata } from "@duffel/api/types";
 import { captureErrorInSentry } from "@lib/captureErrorInSentry";
-import { OfferAvailableServiceBaggageMetadata } from "../types/Offer";
 
 export const getBaggageServiceDescription = (
   metadata: OfferAvailableServiceBaggageMetadata

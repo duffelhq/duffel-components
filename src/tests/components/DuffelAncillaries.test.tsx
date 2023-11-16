@@ -6,8 +6,7 @@ import {
   DuffelAncillariesPropsWithOffersAndSeatMaps,
   OnPayloadReady,
 } from "../../types/DuffelAncillariesProps";
-import { Offer } from "../../types/Offer";
-import { SeatMap } from "../../types/SeatMap";
+import { Offer, SeatMap } from "@duffel/api/types";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const MOCK_OFFER: Offer = require("../../fixtures/offers/off_1.json");
@@ -46,7 +45,7 @@ describe("DuffelAncillaries", () => {
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
       if (++onPayloadReadyCallCount === 2) {
         expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
-        expect(metadata.baggage_services.length).toBe(2);
+        expect(metadata.baggage_services?.length).toBe(2);
       }
     });
     const { getByText, getByTestId, getByTitle } = render(
@@ -115,8 +114,8 @@ describe("DuffelAncillaries", () => {
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
       if (++onPayloadReadyCallCount === 2) {
         expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
-        expect(metadata.cancel_for_any_reason_services.length).toBe(1);
-        expect(data.services.length).toBe(1);
+        expect(metadata.cancel_for_any_reason_services?.length).toBe(1);
+        expect(data.services?.length).toBe(1);
       }
     });
     const { getByText, getByTestId, getByTitle } = render(
@@ -138,11 +137,11 @@ describe("DuffelAncillaries", () => {
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
       if (++onPayloadReadyCallCount === 2) {
         expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
-        expect(metadata.baggage_services.length).toBe(2);
+        expect(metadata.baggage_services?.length).toBe(2);
 
         // Confirm that the markup is applied.
         expect(
-          metadata.baggage_services[0].serviceInformation?.total_amount
+          metadata.baggage_services?.[0].serviceInformation?.total_amount
         ).toBe("23");
       }
     });
@@ -232,14 +231,14 @@ describe("DuffelAncillaries", () => {
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
       if (++onPayloadReadyCallCount === 2) {
         expect(data.selected_offers[0]).toBe(MOCK_OFFER.id);
-        expect(metadata.baggage_services.length).toBe(2);
+        expect(metadata.baggage_services?.length).toBe(2);
 
         // Confirm that the markup is applied.
         expect(
-          metadata.baggage_services[0].serviceInformation?.total_amount
+          metadata.baggage_services?.[0].serviceInformation?.total_amount
         ).toBe("40");
         expect(
-          metadata.baggage_services[0].serviceInformation?.total_currency
+          metadata.baggage_services?.[0].serviceInformation?.total_currency
         ).toBe("Duffel house points");
       }
     });

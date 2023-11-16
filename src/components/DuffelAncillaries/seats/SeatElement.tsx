@@ -1,20 +1,31 @@
 import { Icon } from "@components/shared/Icon";
+import {
+  OrderService,
+  SeatMapCabinRowSectionElementSeat,
+} from "@duffel/api/types";
 import { getPassengerInitials } from "@lib/getPassengerInitials";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
 import * as React from "react";
-import { CreateOrderPayloadSeatService } from "../../../types/CreateOrderPayload";
-import { SeatMapCabinRowSectionElementSeat } from "../../../types/SeatMap";
 import { SeatInfo } from "./SeatInfo";
 import { SeatUnavailable } from "./SeatUnavailable";
+import { WithServiceInformation } from "src/types";
+
+// TODO(idp): remove this when we merge https://github.com/duffelhq/duffel-api-javascript/pull/843
+type CreateOrderService = Pick<OrderService, "id" | "quantity">;
 
 interface SeatElementProps {
   element: SeatMapCabinRowSectionElementSeat;
   currentSegmentId: string;
   currentPassengerId: string;
   currentPassengerName: string;
-  onSeatToggled: (seatService: CreateOrderPayloadSeatService) => void;
-  selectedServicesMap: Record<string, CreateOrderPayloadSeatService>;
+  onSeatToggled: (
+    seatService: WithServiceInformation<CreateOrderService>
+  ) => void;
+  selectedServicesMap: Record<
+    string,
+    WithServiceInformation<CreateOrderService>
+  >;
 }
 
 export const SeatElement: React.FC<SeatElementProps> = ({

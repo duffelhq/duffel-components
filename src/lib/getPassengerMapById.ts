@@ -1,15 +1,12 @@
-import {
-  CreateOrderPayloadPassenger,
-  CreateOrderPayloadPassengers,
-} from "../types/CreateOrderPayload";
+import { CreateOrder, CreateOrderPassenger } from "@duffel/api/types";
 
 export type PassengerMapById = Record<
-  CreateOrderPayloadPassenger["id"],
-  CreateOrderPayloadPassenger
+  CreateOrderPassenger["id"],
+  CreateOrderPassenger
 >;
 
 export const getPassengerMapById = (
-  passengers: CreateOrderPayloadPassengers
+  passengers: CreateOrder["passengers"]
 ): PassengerMapById =>
   passengers.reduce(
     (all, passenger) => ({ [passenger.id]: passenger, ...all }),

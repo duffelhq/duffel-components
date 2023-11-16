@@ -1,6 +1,6 @@
 import { Icon, IconName } from "@components/shared/Icon";
+import { SeatMapCabinRowSectionElementAmenity } from "@duffel/api/types";
 import * as React from "react";
-import { SeatMapCabinRowSectionElementAmenity } from "../../../types/SeatMap";
 
 export interface LegendProps {
   /**

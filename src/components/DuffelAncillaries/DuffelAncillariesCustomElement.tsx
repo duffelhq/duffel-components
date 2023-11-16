@@ -1,5 +1,4 @@
 import { createRoot, Root } from "react-dom/client";
-import { CreateOrderPayload } from "../../types/CreateOrderPayload";
 import {
   DuffelAncillariesPropsWithClientKeyAndOfferId,
   DuffelAncillariesPropsWithOfferIdForFixture,
@@ -9,6 +8,7 @@ import {
   OnPayloadReadyMetadata,
 } from "../../types/DuffelAncillariesProps";
 import { DuffelAncillaries } from "./DuffelAncillaries";
+import { CreateOrder } from "@duffel/api/types";
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -103,7 +103,7 @@ export function renderDuffelAncillariesCustomElement(
 }
 
 type OnPayloadReadyCustomEvent = CustomEvent<{
-  data: CreateOrderPayload;
+  data: CreateOrder;
   metadata: OnPayloadReadyMetadata;
 }>;
 

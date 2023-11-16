@@ -1,8 +1,8 @@
-import { CreateOrderPayload } from "../types/CreateOrderPayload";
+import { CreateOrder } from "@duffel/api/types";
 
 export const isPayloadComplete = (
-  payload: Partial<CreateOrderPayload>
-): payload is CreateOrderPayload =>
+  payload: Partial<CreateOrder>
+): payload is CreateOrder =>
   "selected_offers" in payload &&
   "passengers" in payload &&
   "services" in payload &&

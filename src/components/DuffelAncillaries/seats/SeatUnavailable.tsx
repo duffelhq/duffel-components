@@ -1,6 +1,6 @@
 import { Icon } from "@components/shared/Icon";
+import { SeatMapCabinRowSectionElementSeat } from "@duffel/api/types";
 import * as React from "react";
-import { SeatMapCabinRowSectionElementSeat } from "../../../types/SeatMap";
 
 export const SeatUnavailable: React.FC<{
   seat: SeatMapCabinRowSectionElementSeat;

@@ -5,12 +5,11 @@ import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
-import { CreateOrderPayloadServices } from "../../../types/CreateOrderPayload";
-import { SeatMap } from "../../../types/SeatMap";
+import { CreateOrder, SeatMap } from "@duffel/api/types";
 
 export interface SeatSelectionModalFooterProps {
   currency: string;
-  selectedServices: CreateOrderPayloadServices;
+  selectedServices: CreateOrder["services"];
   servicePrices: ServicePriceMapById;
 
   isFirstSegment: boolean;

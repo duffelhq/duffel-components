@@ -1,7 +1,7 @@
 import {
   SeatMapCabinRow,
   SeatMapCabinRowSectionElementSeat,
-} from "../types/SeatMap";
+} from "@duffel/api/types";
 
 export const getRowNumber = (row: SeatMapCabinRow): string | null => {
   const seats = Object.values(row.sections)
@@ -10,6 +10,7 @@ export const getRowNumber = (row: SeatMapCabinRow): string | null => {
     .filter(
       (element) => element.type === "seat"
     ) as SeatMapCabinRowSectionElementSeat[];
+
   return seats.length > 0
     ? seats[0].designator.substring(0, seats[0].designator.length - 1)
     : null;

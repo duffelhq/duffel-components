@@ -1,15 +1,15 @@
 import { Button } from "@components/shared/Button";
+import { CreateOrder } from "@duffel/api/types";
 import { ServicePriceMapById } from "@lib/getServicePriceMapById";
 import { getTotalAmountForServicesWithPriceMap } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
-import { CreateOrderPayloadServices } from "../../../types/CreateOrderPayload";
 
 export interface BaggageSelectionModalFooterProps {
   currency: string;
-  selectedServices: CreateOrderPayloadServices;
+  selectedServices: CreateOrder["services"];
   servicePrices: ServicePriceMapById;
 
   isFirstSegment: boolean;

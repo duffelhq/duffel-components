@@ -1,4 +1,4 @@
-import { OfferAvailableService } from "../types/Offer";
+import { OfferAvailableService } from "@duffel/api/types";
 
 export type ServicePriceMapById = Record<
   OfferAvailableService["id"],
