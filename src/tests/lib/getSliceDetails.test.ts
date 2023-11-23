@@ -71,17 +71,16 @@ const segmentWithStops: OfferSliceSegment = {
       airport: {
         iata_code: "JFK",
       },
-      arrivingAt: "2019-12-06T01:25:20.525883Z",
-      departingAt: "2019-12-06T02:25:20.525883Z",
+      arriving_at: "2019-12-06T01:25:20.525883Z",
+      departing_at: "2019-12-06T02:25:20.525883Z",
       duration: "PT01h",
     },
     {
       airport: {
         iata_code: "EWR",
       },
-      // TODO(idp): this type in incorrect. Should it be snake case?
-      arrivingAt: "2019-12-06T04:25:20.525883Z",
-      departingAt: "2019-12-06T05:25:20.525883Z",
+      arriving_at: "2019-12-06T04:25:20.525883Z",
+      departing_at: "2019-12-06T05:25:20.525883Z",
       duration: "PT01h",
     },
   ],
