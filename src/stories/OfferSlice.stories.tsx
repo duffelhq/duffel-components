@@ -40,9 +40,7 @@ const MOCK_AIRPORT: Airport = {
 };
 
 const MOCK_STOP: OfferSliceSegmentStop = {
-  // TODO(idp): type errors will go away once we update to the latest version of the API
-  // eslint-disable-next-line
-  // @ts-ignore
+  id: "stp_paris_cdg",
   departing_at: "2024-03-25T05:00:00",
   arriving_at: "2024-03-25T03:00:00",
   duration: "PT01h38m",
