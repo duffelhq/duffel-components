@@ -1,0 +1,42 @@
+.v-space {
+  display: flex;
+  flex-direction: column;
+}
+
+.v-space--0 {
+  row-gap: 0;
+}
+
+.v-space--4 {
+  row-gap: 4px;
+}
+
+.v-space--8 {
+  row-gap: 8px;
+}
+
+.v-space--16 {
+  row-gap: 16px;
+}
+
+.h-space {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.h-space--0 {
+  column-gap: 0;
+}
+
+.h-space--4 {
+  column-gap: 4px;
+}
+
+.h-space--8 {
+  column-gap: 8px;
+}
+
+.h-space--16 {
+  column-gap: 16px;
+}

@@ -1,0 +1,86 @@
+.offer-slice {
+  display: flex;
+  align-items: center;
+}
+
+.offer-slice__airline-logo-wrapper {
+  margin-right: 32px;
+}
+
+.offer-slice__column:first-child {
+  flex-grow: 1;
+  margin-right: 32px;
+}
+
+.offer-slice__column > div {
+  min-width: 120px;
+}
+
+.offer-slice__column > div:first-child {
+  font-weight: bold;
+  margin-bottom: 4px;
+  line-height: 16px;
+  font-size: 16px;
+}
+
+.offer-slice__column > div:first-child > sup {
+  vertical-align: baseline;
+  position: relative;
+  top: -4px;
+  font-size: 12px;
+}
+
+.offer-slice__column > div:last-child {
+  color: var(--grey-700);
+  font-size: 14px;
+}
+
+.offer-slice__date-label {
+  margin-right: 16px;
+}
+
+.offer-slice > div:last-child {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.highlight {
+  position: relative;
+  border-radius: 4px;
+  color: var(--grey-900);
+  z-index: 1;
+}
+
+.highlight::before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -4px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.highlight--green::before {
+  background-color: var(--green-200);
+}
+
+.highlight--pink::before {
+  background-color: var(--pink-200);
+}
+
+.highlight--yellow::before {
+  background-color: var(--yellow-200);
+}
+
+.offer-slice__sup--pad {
+  padding-left: 4px;
+}
+
+.layover-item {
+  margin-left: var(--space-16);
+}
