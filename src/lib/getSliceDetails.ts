@@ -101,10 +101,10 @@ const splitTravelDetailsWithStops = (
         ...travelDetails,
         originDestination: `${nextOrigin.iata_code}-${stop.airport.iata_code}`,
         departingAt: nextDepartingAt,
-        arrivingAt: stop.arrivingAt,
+        arrivingAt: stop.arriving_at,
         origin: nextOrigin,
         destination: stop.airport,
-        flightDuration: getDurationString(nextDepartingAt, stop.arrivingAt),
+        flightDuration: getDurationString(nextDepartingAt, stop.arriving_at),
       },
     });
     // show a stop as a layover item
@@ -122,7 +122,7 @@ const splitTravelDetailsWithStops = (
     });
     // the stop becomes the next origin
     nextOrigin = stop.airport;
-    nextDepartingAt = stop.departingAt;
+    nextDepartingAt = stop.departing_at;
 
     // if it's the last stop, add a travel item from the last stop to the segment's destination
     if (index === stops.length - 1) {
@@ -132,12 +132,12 @@ const splitTravelDetailsWithStops = (
         travelDetails: {
           ...travelDetails,
           originDestination: `${stop.airport.iata_code}-${travelDetails.destination.iata_code}`,
-          departingAt: stop.departingAt,
+          departingAt: stop.departing_at,
           arrivingAt: travelDetails.arrivingAt,
           origin: stop.airport,
           destination: travelDetails.destination,
           flightDuration: getDurationString(
-            stop.departingAt,
+            stop.departing_at,
             travelDetails.arrivingAt
           ),
         },
