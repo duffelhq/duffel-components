@@ -17,8 +17,6 @@ export interface OfferSliceProps {
   showFlightNumbers?: boolean;
   hideFareBrand?: boolean;
   highlightAll?: boolean;
-  // keysToHighlight?: string[];
-  //   highlightColor?: ColorWithoutWeight;
 }
 
 export const OfferSlice: React.FC<OfferSliceProps> = ({
@@ -26,8 +24,6 @@ export const OfferSlice: React.FC<OfferSliceProps> = ({
   showFullDate = false,
   showFlightNumbers,
   hideFareBrand = false,
-  // keysToHighlight,
-  //   highlightColor,
 }) => {
   const { segments } = slice;
   const firstSegment = segments[0];
