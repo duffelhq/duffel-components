@@ -5,6 +5,7 @@
 @import "./spacing.css";
 @import "./transitions.css";
 @import "./typography.css";
+@import "./utilities.css";
 
 @import "./components/Amenity.css";
 @import "./components/BaggageDisplay.css";
@@ -18,6 +19,8 @@
 @import "./components/Loader.css";
 @import "./components/LoadingState.css";
 @import "./components/Modal.css";
+@import "./components/OfferSlice.css";
+@import "./components/OfferSliceDetailTravelItem.css";
 @import "./components/PassengerSelect.css";
 @import "./components/PassengersLayout.css";
 @import "./components/PlacesLookup.css";
