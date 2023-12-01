@@ -2077,7 +2077,7 @@ __metadata:
     "@types/jest": "npm:29.5.7"
     "@types/lodash": "npm:4.14.200"
     "@types/node": "npm:18.18.8"
-    "@types/prompts": "npm:2.4.7"
+    "@types/prompts": "npm:2.4.9"
     "@types/react": "npm:18.2.33"
     "@types/react-dom": "npm:18.2.14"
     "@typescript-eslint/eslint-plugin": "npm:6.9.1"
@@ -4616,13 +4616,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prompts@npm:2.4.7":
-  version: 2.4.7
-  resolution: "@types/prompts@npm:2.4.7"
+"@types/prompts@npm:2.4.9":
+  version: 2.4.9
+  resolution: "@types/prompts@npm:2.4.9"
   dependencies:
     "@types/node": "npm:*"
     kleur: "npm:^3.0.3"
-  checksum: be66745772ebd52ed97e35152b38ac47c21dde64b13cda1bc42e8177a89036742ffc4def1013d0fa718ad0e093868da417412b74cc798a0ba1252449aacf3948
+  checksum: 22fe0da6807681c85e88ba283184f4be4c8a95c744ea12a638865c98c4e0c22e7f733542f6b0f1fbca02245cdc3fe84feacf9c9adf4ddd8bc98a337fd679d8d2
   languageName: node
   linkType: hard
 
