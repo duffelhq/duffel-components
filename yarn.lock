@@ -2063,7 +2063,7 @@ __metadata:
     "@duffel/api": "npm:2.6.1"
     "@sentry/browser": "npm:7.77.0"
     "@sentry/cli": "npm:2.21.2"
-    "@sentry/esbuild-plugin": "npm:0.7.0"
+    "@sentry/esbuild-plugin": "npm:0.7.2"
     "@storybook/addon-essentials": "npm:7.0.2"
     "@storybook/addon-interactions": "npm:7.0.2"
     "@storybook/addon-links": "npm:7.0.2"
@@ -2839,9 +2839,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/bundler-plugin-core@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@sentry/bundler-plugin-core@npm:0.7.0"
+"@sentry/bundler-plugin-core@npm:0.7.2":
+  version: 0.7.2
+  resolution: "@sentry/bundler-plugin-core@npm:0.7.2"
   dependencies:
     "@sentry/cli": "npm:^2.17.0"
     "@sentry/node": "npm:^7.19.0"
@@ -2851,7 +2851,7 @@ __metadata:
     magic-string: "npm:0.27.0"
     unplugin: "npm:1.0.1"
     webpack-sources: "npm:3.2.3"
-  checksum: d95bc7d3e3f0572d92ffa8c3e9a68c4a786629fef1ee2d58d9cbb172f8b72741b4aad6fa44390120b85c6475d26289ad7a693a7d2bd87c5379761888db249cff
+  checksum: c2d3df13f9743db687ed05249a825ee689b0f3bb4a7c75015b12b50c46cc098bd9bbb92849aa581c76523df4fc13afc23752d2135cfa26176fd15a825a9e8fba
   languageName: node
   linkType: hard
 
@@ -2880,12 +2880,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/esbuild-plugin@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@sentry/esbuild-plugin@npm:0.7.0"
+"@sentry/esbuild-plugin@npm:0.7.2":
+  version: 0.7.2
+  resolution: "@sentry/esbuild-plugin@npm:0.7.2"
   dependencies:
-    "@sentry/bundler-plugin-core": "npm:0.7.0"
-  checksum: 0ddbfd83e09fc9ad9506968c60c496aad3b459a5e2b8f0381f5e13aad6b642a1084134d7d2f0e498f4e3dcc348e07ddcdf39f8babc5f301c4ec585b40cc0f07e
+    "@sentry/bundler-plugin-core": "npm:0.7.2"
+  checksum: b1456597e209268f0800c7c5f979374e020cc456c402e55b14bd4496b45d76a79917e6c373737b186837cd4298df1a5094c8802e4f3d36f8e21155310d895a61
   languageName: node
   linkType: hard
 
