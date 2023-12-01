@@ -71,7 +71,7 @@
     "@babel/preset-typescript": "7.21.4",
     "@duffel/api": "2.6.1",
     "@sentry/cli": "2.21.2",
-    "@sentry/esbuild-plugin": "0.7.0",
+    "@sentry/esbuild-plugin": "0.7.2",
     "@storybook/addon-essentials": "7.0.2",
     "@storybook/addon-interactions": "7.0.2",
     "@storybook/addon-links": "7.0.2",
