@@ -2040,14 +2040,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@duffel/api@npm:2.6.1":
-  version: 2.6.1
-  resolution: "@duffel/api@npm:2.6.1"
+"@duffel/api@npm:2.6.3":
+  version: 2.6.3
+  resolution: "@duffel/api@npm:2.6.3"
   dependencies:
     "@types/node": "npm:^18.0.0"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
-  checksum: cafc1249d4f0ae32e644a63e8150266717ea22132fc3e7d88f19e8fb0325f7753c11d6f311df93883431e8275848f65ded89b5c17d6e23617343c74ff228c376
+  checksum: 60cad72e7445f6422ba22e679788adc564cfc4c099901c317f068996c93b10a5ae6c9697ab2cd5fcfdfed83ba8aaefe4aa28ece5c3c0ce5d98fcf91664c426ee
   languageName: node
   linkType: hard
 
@@ -2060,7 +2060,7 @@ __metadata:
     "@babel/preset-env": "npm:7.21.4"
     "@babel/preset-react": "npm:7.18.6"
     "@babel/preset-typescript": "npm:7.21.4"
-    "@duffel/api": "npm:2.6.1"
+    "@duffel/api": "npm:2.6.3"
     "@sentry/browser": "npm:7.77.0"
     "@sentry/cli": "npm:2.21.2"
     "@sentry/esbuild-plugin": "npm:0.7.2"
@@ -4549,13 +4549,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node-fetch@npm:^2.5.7, @types/node-fetch@npm:^2.6.2":
+"@types/node-fetch@npm:^2.5.7":
   version: 2.6.8
   resolution: "@types/node-fetch@npm:2.6.8"
   dependencies:
     "@types/node": "npm:*"
     form-data: "npm:^4.0.0"
   checksum: f572c3139a8f0840cff93c66ee667d1589b75850efa34376058c1cc00ead0e239b84442907c2972a3ca01406a73893424a7ce02acdd95d9b37f32430d235c5dc
+  languageName: node
+  linkType: hard
+
+"@types/node-fetch@npm:^2.6.2":
+  version: 2.6.9
+  resolution: "@types/node-fetch@npm:2.6.9"
+  dependencies:
+    "@types/node": "npm:*"
+    form-data: "npm:^4.0.0"
+  checksum: b15b6d518ea4dd4a21cf328e9df0a88b2e5b76f3455ddfeb9063a3b97087c50b15ab195a869dadbbeb09d08dcc915557fb6a4f72b4fe79ee42e215fce3d9b0db
   languageName: node
   linkType: hard
 
@@ -4585,11 +4595,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^18.0.0":
-  version: 18.18.9
-  resolution: "@types/node@npm:18.18.9"
+  version: 18.19.3
+  resolution: "@types/node@npm:18.19.3"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 8d58fba5eede0df009412ee188bc96f4baf340f4fafbda1bc66fb680fa775aedc88f0cb154a2455966443d9538af402fff022fb0632bddb1bd0648e5a86e5db9
+  checksum: 3ed943d06e9dff70a3da793f794f1192cd93b0ababdb9f07425a05680f17cfce649cbc46734265f6fbe52fd9f277496d3a4da26c013f1193a0345f2420ea6cd0
   languageName: node
   linkType: hard
 

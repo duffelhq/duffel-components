@@ -31,8 +31,15 @@ mv ./react-dist/src/* ./react-dist/
 rm -rf ./react-dist/src
 rm -rf ./react-dist/scripts
 
+# We can't export just types from `src/types/index.ts` file otherwise esbuild will fail to build
+# That happens because `@duffel/api/types` is not an actual module, just a typescript declaration
+echo 'export * from "@duffel/api/types"' >> ./react-dist/types/index.d.ts
+
 # Moves package json to build folder, we'll publish from it
 cp package.json ./react-dist/package.json
+
+# Moves readme file so when we publish from the r4eact-dist folder our npm page will have all the info people need
+cp README.md ./react-dist/README.md
 
 # Only upload to CDN and publish to npm if it's not a dry run
 if [[ "$@" != *"--dry-run"* ]]; then
