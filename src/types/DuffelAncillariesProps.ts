@@ -140,6 +140,7 @@ interface SeatServiceInformation {
 
 interface CancelForAnyReasonerviceInformation
   extends OfferAvailableServiceCFARMetadata {
+  type: "cancel_for_any_reason";
   segmentId?: undefined;
   sliceId?: undefined;
   total_amount: string;
