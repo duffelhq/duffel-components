@@ -2040,14 +2040,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@duffel/api@npm:2.6.3":
-  version: 2.6.3
-  resolution: "@duffel/api@npm:2.6.3"
+"@duffel/api@npm:2.6.4":
+  version: 2.6.4
+  resolution: "@duffel/api@npm:2.6.4"
   dependencies:
     "@types/node": "npm:^18.0.0"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
-  checksum: 60cad72e7445f6422ba22e679788adc564cfc4c099901c317f068996c93b10a5ae6c9697ab2cd5fcfdfed83ba8aaefe4aa28ece5c3c0ce5d98fcf91664c426ee
+  checksum: fdcc9ff9a7523722fc3f0c1e1f971ef30c50cee4ae92b3f899074bb516c5841b453d3810f5831f148ecb0bdd6f2366296ad19ae3e8dbc3e74076860a180971d5
   languageName: node
   linkType: hard
 
@@ -2060,7 +2060,7 @@ __metadata:
     "@babel/preset-env": "npm:7.21.4"
     "@babel/preset-react": "npm:7.18.6"
     "@babel/preset-typescript": "npm:7.21.4"
-    "@duffel/api": "npm:2.6.3"
+    "@duffel/api": "npm:2.6.4"
     "@sentry/browser": "npm:7.77.0"
     "@sentry/cli": "npm:2.21.2"
     "@sentry/esbuild-plugin": "npm:0.7.2"

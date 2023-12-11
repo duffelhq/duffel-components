@@ -45,6 +45,7 @@ export const CfarSelectionModal: React.FC<CfarSelectionModalProps> = ({
                   id: service.id,
                   quantity: 1,
                   serviceInformation: {
+                    type: "cancel_for_any_reason",
                     total_amount: service.total_amount,
                     total_currency: service.total_currency,
                     ...service.metadata,
