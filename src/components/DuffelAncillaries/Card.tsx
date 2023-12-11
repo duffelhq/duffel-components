@@ -29,6 +29,7 @@ export const Card: React.FC<CardProps> = ({
 
   return (
     <button
+      type="button"
       title={buttonTitle}
       {...(onClick && { onClick })}
       disabled={disabled}
