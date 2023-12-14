@@ -98,14 +98,14 @@ export function onDuffelPaymentsSuccessfulPayment(
   onSuccessfulPayment: DuffelPaymentsProps["onSuccessfulPayment"]
 ) {
   const element = tryToGetDuffelPaymentsCustomElement(
-    "onDuffelPaymentsPayloadReady"
+    "onDuffelPaymentsSuccessfulPayment"
   );
 
   // using `as EventListener` here because typescript doesn't know the event type for `onPayloadReady`
   // There's a few different suggestions to resolve this seemed good enough
   // You can learn more here: https://github.com/microsoft/TypeScript/issues/28357
   element.addEventListener(
-    "onPayloadReady",
+    "onSuccessfulPayment",
     onSuccessfulPayment as EventListener
   );
 }
@@ -117,7 +117,7 @@ export function onDuffelPaymentsFailedPayment(
   onFailedPayment: DuffelPaymentsProps["onFailedPayment"]
 ) {
   const element = tryToGetDuffelPaymentsCustomElement(
-    "onDuffelPaymentsPayloadReady"
+    "onDuffelPaymentsFailedPayment"
   );
   const eventListener = (event: OnFailedPaymentCustomEvent) => {
     onFailedPayment(event.detail.error);
@@ -126,5 +126,5 @@ export function onDuffelPaymentsFailedPayment(
   // using `as EventListener` here because typescript doesn't know the event type for `onPayloadReady`
   // There's a few different suggestions to resolve this seemed good enough
   // You can learn more here: https://github.com/microsoft/TypeScript/issues/28357
-  element.addEventListener("onPayloadReady", eventListener as EventListener);
+  element.addEventListener("onFailedPayment", eventListener as EventListener);
 }

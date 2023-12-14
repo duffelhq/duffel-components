@@ -28,6 +28,7 @@ node config/esbuild.react.config.js
 ## For those that use typescript
 tsc --project tsconfig.json
 mv ./react-dist/src/* ./react-dist/
+echo 'export * from "@duffel/api/types"' >> ./react-dist/types/index.d.ts
 rm -rf ./react-dist/src
 rm -rf ./react-dist/scripts
 
@@ -37,6 +38,7 @@ echo 'export * from "@duffel/api/types"' >> ./react-dist/types/index.d.ts
 
 # Moves package json to build folder, we'll publish from it
 cp package.json ./react-dist/package.json
+cp README.md ./react-dist/README.md
 
 # Moves readme file so when we publish from the r4eact-dist folder our npm page will have all the info people need
 cp README.md ./react-dist/README.md
@@ -48,7 +50,7 @@ if [[ "$@" != *"--dry-run"* ]]; then
     
     # Publish to npm
     cd react-dist
-    npm publish
+    npm publish --canary
 else
     echo ""
     echo "Dry run."
