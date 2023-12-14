@@ -57,7 +57,7 @@ const InactiveSegment: React.FC<{
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }> = ({ onClick, style }) => (
   <button
-  type="button"
+    type="button"
     onClick={onClick}
     style={{
       border: "none",
