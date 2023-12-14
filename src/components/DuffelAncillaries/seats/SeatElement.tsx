@@ -87,6 +87,7 @@ export const SeatElement: React.FC<SeatElementProps> = ({
   return (
     <>
       <button
+        type="button"
         data-testid={`seat-${element.designator}`}
         id={element.designator}
         className={seatClassName}
