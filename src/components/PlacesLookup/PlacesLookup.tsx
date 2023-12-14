@@ -93,6 +93,7 @@ export const PlacesLookup: React.FC<PlacesLookupProps> = ({
           >
             {lookupResults.map(({ item }, index) => (
               <button
+                type="button"
                 className="places-lookup-popover__item"
                 key={item.iata_code + index}
                 onClick={() => {
