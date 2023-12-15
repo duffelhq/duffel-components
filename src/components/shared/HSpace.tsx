@@ -11,15 +11,29 @@ export interface HSpaceProps extends DivProps {
   /**
    * The vertical spacing between each child element
    */
-  space: 0 | 4 | 8 | 16;
+  space: 0 | 4 | 8 | 12 | 16;
+
+  /**
+   * If you'd like all children inside your horizontal space container
+   * to be vertically aligned to the center of the div, you can set `alignCenter` to `true`
+   *
+   * Default: `false`
+   */
+  alignCenter?: boolean;
 }
 export const HSpace: React.FC<HSpaceProps> = ({
   className,
   space,
+  alignCenter,
   ...divProps
 }) => (
   <div
-    className={classNames("h-space", `h-space--${space}`, className)}
+    className={classNames(
+      "h-space",
+      alignCenter && "hspace--align-center",
+      `h-space--${space}`,
+      className
+    )}
     {...divProps}
   ></div>
 );

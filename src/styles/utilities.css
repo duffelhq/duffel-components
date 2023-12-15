@@ -19,6 +19,10 @@
   row-gap: 16px;
 }
 
+.v-space--24 {
+  row-gap: 24px;
+}
+
 .h-space {
   display: flex;
   flex-direction: row;
@@ -37,6 +41,14 @@
   column-gap: 8px;
 }
 
+.h-space--12 {
+  column-gap: 12px;
+}
+
 .h-space--16 {
   column-gap: 16px;
+}
+
+.hspace--align-center {
+  align-items: center;
 }

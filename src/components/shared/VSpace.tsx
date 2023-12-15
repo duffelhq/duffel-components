@@ -11,7 +11,7 @@ export interface VSpaceProps extends DivProps {
   /**
    * The vertical spacing between each child element
    */
-  space: 0 | 4 | 8 | 16;
+  space: 0 | 4 | 8 | 16 | 24;
 }
 export const VSpace: React.FC<VSpaceProps> = ({
   className,
