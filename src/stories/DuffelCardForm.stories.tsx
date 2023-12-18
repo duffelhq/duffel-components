@@ -21,3 +21,22 @@ const defaultProps: DuffelCardFormProps = {
 };
 
 export const Default: DuffelCardFormStory = { args: defaultProps };
+
+export const WithLinksStyles: DuffelCardFormStory = {
+  args: {
+    ...defaultProps,
+    styles: {
+      label: {
+        color: "grey",
+        "font-size": "12px",
+        "font-weight": "500",
+        "line-height": "20px",
+        display: "inline-block",
+        transform: "translate(12px, 11px)",
+        "background-color": "white",
+        width: "fit-content",
+        "padding-inline": "4px",
+      },
+    },
+  },
+};

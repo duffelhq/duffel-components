@@ -34,7 +34,7 @@ export function getIFrameEventListener(
         if (postMessageWithStyles) postMessageWithStyles();
         return;
 
-      case "content-height-set":
+      case "content-height-ready":
         setIFrameHeight(event.data.height);
         return;
 
