@@ -1,5 +1,3 @@
-import { CustomStyles } from "src/types";
-
 export interface CreateCardForTemporaryUseData {
   id: string;
   live_mode: false;
@@ -10,9 +8,30 @@ export interface CreateCardForTemporaryUseError {
   message: string;
 }
 
-export type DuffelCardFormStyles = Pick<CustomStyles, "fontFamily"> & {
-  stylesheetUrl?: string;
-};
+/**
+ * An object where each key value pair is a style to be applied.
+ * e.g. { 'background-image': 'red', 'color': '#000', 'margin-inline': '8px' }
+ *
+ * Note: If you rely on css variables these will not work as they are
+ * defined on a stylesheet the component does not have access to.
+ */
+type StylesMap = Record<string, string>;
+
+export interface InteractiveElementStyles {
+  default?: StylesMap;
+  hover?: StylesMap;
+  active?: StylesMap;
+  focus?: StylesMap;
+}
+
+export interface DuffelCardFormStyles {
+  input?: InteractiveElementStyles;
+  select?: InteractiveElementStyles;
+  label?: StylesMap;
+  inputErrorMessage?: StylesMap;
+  sectionTitle?: StylesMap;
+  layoutGrid?: StylesMap;
+}
 
 export type DuffelCardFormActions =
   | "validate"
