@@ -21,13 +21,3 @@ const defaultProps: DuffelCardFormProps = {
 };
 
 export const Default: DuffelCardFormStory = { args: defaultProps };
-
-export const WithFont: DuffelCardFormStory = {
-  args: {
-    ...defaultProps,
-    styles: {
-      fontFamily: `'Tangerine', serif`,
-      stylesheetUrl: "https://fonts.googleapis.com/css?family=Tangerine",
-    },
-  },
-};
