@@ -59,14 +59,14 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
   function postMessageWithStyles() {
     if (!iFrameReference.current) {
       throw new Error(
-        "Attempted to call `sendMessageToStoreCardForTemporaryUse` with empty iFrameReference"
+        "Attempted to call `postMessageWithStyles` with empty iFrameReference"
       );
     }
 
     const iFrame = iFrameReference.current;
     if (!iFrame.contentWindow) {
       throw new Error(
-        "Attempted to call `sendMessageToStoreCardForTemporaryUse` but the iFrame contentWindow is null"
+        "Attempted to call `postMessageWithStyles` but the iFrame contentWindow is null"
       );
     }
 
