@@ -2,6 +2,7 @@ import { DuffelCardFormProps } from "./types";
 
 type Inputs = {
   setIFrameHeight: (height: string) => void;
+  postMessageWithStyles: () => void;
 } & Pick<
   DuffelCardFormProps,
   | "onValidateSuccess"
@@ -13,6 +14,7 @@ type Inputs = {
 export function getIFrameEventListener(
   baseUrl: string,
   {
+    postMessageWithStyles,
     setIFrameHeight,
     onValidateSuccess,
     onValidateFailure,
@@ -29,6 +31,10 @@ export function getIFrameEventListener(
 
     switch (eventType) {
       case "iframe-loaded":
+        if (postMessageWithStyles) postMessageWithStyles();
+        return;
+
+      case "content-height-set":
         setIFrameHeight(event.data.height);
         return;
 

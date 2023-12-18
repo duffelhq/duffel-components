@@ -32,28 +32,9 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
 
   const iFrameReference = React.useRef<HTMLIFrameElement>(null);
 
-  const params: Record<string, string> = {
+  const iFrameSrc = `${baseUrl}?${new URLSearchParams({
     token: getTokenFromClientKey(clientKey),
-    ...(styles?.fontFamily && { font: styles?.fontFamily }),
-    ...(styles?.stylesheetUrl && { stylesheet: styles?.stylesheetUrl }),
-  };
-
-  const iFrameSrc = `${baseUrl}?${new URLSearchParams(params).toString()}`;
-
-  /**
-   * Adds an event listener to the window to listen to messages from the iframe.
-   */
-  React.useEffect(() => {
-    const iFrameEventListener = getIFrameEventListener(baseUrl.origin, {
-      setIFrameHeight,
-      onValidateSuccess,
-      onValidateFailure,
-      onCreateCardForTemporaryUseSuccess,
-      onCreateCardForTemporaryUseFailure,
-    });
-    window.addEventListener("message", iFrameEventListener);
-    return () => window.removeEventListener("message", iFrameEventListener);
-  }, []);
+  }).toString()}`;
 
   function sendMessageToStoreCardForTemporaryUse() {
     if (!iFrameReference.current) {
@@ -75,6 +56,26 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
     );
   }
 
+  function postMessageWithStyles() {
+    if (!iFrameReference.current) {
+      throw new Error(
+        "Attempted to call `sendMessageToStoreCardForTemporaryUse` with empty iFrameReference"
+      );
+    }
+
+    const iFrame = iFrameReference.current;
+    if (!iFrame.contentWindow) {
+      throw new Error(
+        "Attempted to call `sendMessageToStoreCardForTemporaryUse` but the iFrame contentWindow is null"
+      );
+    }
+
+    iFrame.contentWindow.postMessage(
+      { type: "apply-styles", styles },
+      baseUrl.origin
+    );
+  }
+
   /**
    * useEffect to react to changes on the actions prop.
    */
@@ -83,6 +84,22 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
       sendMessageToStoreCardForTemporaryUse();
     }
   }, [actions]);
+
+  /**
+   * Adds an event listener to the window to listen to messages from the iframe.
+   */
+  React.useEffect(() => {
+    const iFrameEventListener = getIFrameEventListener(baseUrl.origin, {
+      postMessageWithStyles,
+      setIFrameHeight,
+      onValidateSuccess,
+      onValidateFailure,
+      onCreateCardForTemporaryUseSuccess,
+      onCreateCardForTemporaryUseFailure,
+    });
+    window.addEventListener("message", iFrameEventListener);
+    return () => window.removeEventListener("message", iFrameEventListener);
+  }, []);
 
   return (
     <iframe
