@@ -28,6 +28,8 @@ export const getBoardTypeLabel = (boardType: StaysRoomRate["board_type"]) => {
       return "Breakfast included";
     case "all_inclusive":
       return "All inclusive";
+    default:
+      return boardType;
   }
 };
 
@@ -41,5 +43,7 @@ export const boardTypeIcon = (
       return "bakery_dining";
     case "all_inclusive":
       return "brunch_dining";
+    default:
+      return boardType;
   }
 };

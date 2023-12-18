@@ -1,3 +1,4 @@
+import { Color } from "@lib/colors";
 import { log } from "@lib/logging";
 import * as React from "react";
 
@@ -189,7 +190,7 @@ const getIconPath = (name: IconName) => {
 interface IconProps {
   name: IconName;
   className?: string;
-  color?: string;
+  color?: Color;
   size?: number;
   onClick?: (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
 

@@ -37,7 +37,7 @@ export const StaysSummary: React.FC<
         style={
           accommodation.photos && accommodation.photos.length > 0
             ? { backgroundImage: `url(${accommodation.photos[0].url})` }
-            : { backgroundColor: "var(--GREY-100" }
+            : { backgroundColor: "var(--GREY-100)" }
         }
       >
         {(accommodation.photos?.length ?? 0) === 0 && (
@@ -45,7 +45,7 @@ export const StaysSummary: React.FC<
         )}
       </div>
       <VSpace space={4}>
-        <StaysRating rating={accommodation.rating} />
+        {accommodation.rating && <StaysRating rating={accommodation.rating} />}
         <p className="stays-summary-text--large">{accommodation.name}</p>
         <p className="stays-summary-text--small">
           {accommodation.location.address.line_one},{" "}
@@ -57,10 +57,7 @@ export const StaysSummary: React.FC<
     </HSpace>
     <VSpace space={8}>
       <HSpace space={8} alignCenter>
-        {numRooms && (
-          // <Stamp size="small" border>
-          <p className="stays-summary-stamp">{numRooms}x</p>
-        )}
+        {numRooms && <p className="stays-summary-stamp">{numRooms}x</p>}
         <p>{accommodation.rooms[0].name}</p>
       </HSpace>
       {accommodation.rooms.length &&

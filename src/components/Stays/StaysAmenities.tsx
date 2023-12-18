@@ -51,19 +51,13 @@ export interface StaysAmenitiesProps {
 
 export const StaysAmenities: React.FC<StaysAmenitiesProps> = ({
   amenities,
-}) => {
-  if (!amenities) {
-    return null;
-  }
-
-  return (
-    <>
-      {amenities.map((amenity) => (
-        <HSpace key={amenity.type} space={4} alignCenter>
-          <Icon name={amenityIcon(amenity.type)} size={16} />
-          <p>{amenity.description}</p>
-        </HSpace>
-      ))}
-    </>
-  );
-};
+}) => (
+  <>
+    {amenities?.map((amenity) => (
+      <HSpace key={amenity.type} space={4} alignCenter>
+        <Icon name={amenityIcon(amenity.type)} size={16} />
+        <p>{amenity.description}</p>
+      </HSpace>
+    ))}
+  </>
+);
