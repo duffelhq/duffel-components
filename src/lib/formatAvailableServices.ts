@@ -31,7 +31,7 @@ const formatAvailableServices = (
     return offer;
   }
 
-  const availableServices = offer.available_services;
+  const availableServices = offer.available_services || [];
 
   const foundCurrencies = new Set<string>();
 
