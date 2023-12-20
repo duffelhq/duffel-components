@@ -22,12 +22,21 @@ const defaultProps: DuffelCardFormProps = {
 
 export const Default: DuffelCardFormStory = { args: defaultProps };
 
-export const WithFont: DuffelCardFormStory = {
+export const WithLinksStyles: DuffelCardFormStory = {
   args: {
     ...defaultProps,
     styles: {
-      fontFamily: `'Tangerine', serif`,
-      stylesheetUrl: "https://fonts.googleapis.com/css?family=Tangerine",
+      label: {
+        color: "grey",
+        "font-size": "12px",
+        "font-weight": "500",
+        "line-height": "20px",
+        display: "inline-block",
+        transform: "translate(12px, 11px)",
+        "background-color": "white",
+        width: "fit-content",
+        "padding-inline": "4px",
+      },
     },
   },
 };

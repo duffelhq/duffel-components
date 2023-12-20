@@ -1,4 +1,6 @@
 export function getTokenFromClientKey(clientKey: string): string {
+  if (!clientKey) throw new Error("The client key is missing.");
+
   if (clientKey.split(".").length !== 3) {
     throw new Error(
       "Invalid clientKey attribute in DuffelCardForm. It must be a valid JWT."
