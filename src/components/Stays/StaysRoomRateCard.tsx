@@ -1,0 +1,178 @@
+import classNames from "classnames";
+import * as React from "react";
+import {
+  LOYALTY_PROGRAMS_NAME_MAP,
+  boardTypeIcon,
+  getBoardTypeLabel,
+} from "./lib/types";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import { getDateString } from "@lib/getDateString";
+import { HSpace } from "@components/shared/HSpace";
+import { Icon, IconName } from "@components/shared/Icon";
+import { VSpace } from "@components/shared/VSpace";
+import {
+  StaysRateCancellationTimeline,
+  StaysRoomRate,
+} from "@duffel/api/types";
+import { RadioButton } from "@components/shared/RadioButton";
+
+export interface StaysRoomRateCardProps {
+  rate: StaysRoomRate;
+  showPotentialCommission?: boolean;
+  searchNumberOfRooms: number;
+  numberOfNights: number;
+  selected: boolean;
+  onSelectRate: (rateId: string) => void;
+}
+
+const pluralise = (count: number, singular: string, plural: string) => {
+  return count === 1 ? singular : plural;
+};
+
+const getRateCommissionString = (rateCurrency: string, rateAmount: number) => {
+  return moneyStringFormatter(rateCurrency)(rateAmount * 0.05);
+};
+
+export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
+  numberOfNights,
+  searchNumberOfRooms,
+  rate,
+  selected,
+  onSelectRate,
+  showPotentialCommission = false,
+}) => {
+  const earliestCancellation: StaysRateCancellationTimeline | undefined =
+    rate.cancellation_timeline[0];
+
+  const quantityOfRoomsAvailable: number =
+    rate.quantity_available != null && !isNaN(rate.quantity_available)
+      ? rate.quantity_available
+      : searchNumberOfRooms;
+
+  return (
+    <button
+      onClick={() => onSelectRate(rate.id)}
+      className={classNames(
+        "stays-room-rate-card__container",
+        selected && "stays-room-rate-card__container--selected"
+      )}
+    >
+      <VSpace className="stays-room-rate-card__content" space={12}>
+        <HSpace space={0} spaceBetween>
+          <p className="stays-room-rate-card__text--medium">
+            {!earliestCancellation && "Non-refundable"}
+            {earliestCancellation &&
+              rate.total_amount === earliestCancellation.refund_amount &&
+              "Fully refundable"}
+            {earliestCancellation &&
+              rate.total_amount !== earliestCancellation.refund_amount &&
+              "Partially refundable"}
+            {rate.board_type === "breakfast" && " with breakfast"}
+            {rate.board_type === "all_inclusive" && " all inclusive"}
+          </p>
+        </HSpace>
+        <VSpace space={8}>
+          {rate.board_type && (
+            <StayResultRoomRateItem
+              icon={boardTypeIcon(rate.board_type)}
+              label={getBoardTypeLabel(rate.board_type)}
+            />
+          )}
+
+          {earliestCancellation && (
+            <StayResultRoomRateItem
+              icon="refund"
+              label={
+                rate.total_amount === earliestCancellation.refund_amount ? (
+                  `Free cancellation until ${getDateString(
+                    earliestCancellation.before,
+                    "medium"
+                  )}`
+                ) : (
+                  <>
+                    Cancellation available (from{" "}
+                    {moneyStringFormatter(earliestCancellation.currency)(
+                      +rate.total_amount - +earliestCancellation.refund_amount
+                    )}{" "}
+                    fee)
+                  </>
+                )
+              }
+            />
+          )}
+          {rate.payment_method && (
+            <StayResultRoomRateItem
+              icon={rate.payment_method === "card" ? "credit_card" : "wallet"}
+              label={
+                rate.payment_method === "card"
+                  ? "Card payment at accommodation"
+                  : "Pay now with Duffel Balance"
+              }
+            />
+          )}
+
+          {rate.supported_loyalty_programme && (
+            <StayResultRoomRateItem
+              icon="loyalty"
+              label={
+                LOYALTY_PROGRAMS_NAME_MAP[rate.supported_loyalty_programme]
+              }
+            />
+          )}
+        </VSpace>
+      </VSpace>
+      <VSpace space={8} className="stays-room-rate-card__footer">
+        {showPotentialCommission && (
+          <span className="stays-room-rate-card__commission-stamp">
+            Up to{" "}
+            {getRateCommissionString(rate.total_currency, +rate.total_amount)}{" "}
+            commission
+          </span>
+        )}
+        <p className="stays-room-rate-card__text--small">
+          At least {quantityOfRoomsAvailable}
+          {pluralise(quantityOfRoomsAvailable, " room", " rooms")} available
+        </p>
+
+        <VSpace space={4}>
+          <p className="stays-room-rate-card__text--small">
+            {moneyStringFormatter(rate.total_currency)(+rate.total_amount)} for{" "}
+            {numberOfNights} night{numberOfNights > 1 ? "s" : ""}
+          </p>
+
+          {rate.due_at_accommodation_amount &&
+            +rate.due_at_accommodation_amount > 0 && (
+              <p className="stays-room-rate-card__text--small">
+                <i>
+                  +{" "}
+                  {moneyStringFormatter(rate.due_at_accommodation_currency)(
+                    +rate.due_at_accommodation_amount
+                  )}{" "}
+                  at accommodation
+                </i>
+              </p>
+            )}
+        </VSpace>
+        <HSpace space={8} spaceBetween>
+          <p className="stays-room-rate-card__text--large">
+            {moneyStringFormatter(rate.total_currency)(
+              +rate.total_amount / numberOfNights
+            )}
+            <span className="stays-room-rate-card__text--small">/night</span>
+          </p>
+          <RadioButton checked={selected} value={selected} />
+        </HSpace>
+      </VSpace>
+    </button>
+  );
+};
+
+const StayResultRoomRateItem: React.FC<{
+  icon: IconName;
+  label: string | React.ReactNode;
+}> = ({ icon, label }) => (
+  <HSpace space={8}>
+    <Icon name={icon} size={16} color="--GREY-600" className="u-marginTop2" />
+    <p className="stays-room-rate-card__item-label">{label}</p>
+  </HSpace>
+);

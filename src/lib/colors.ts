@@ -19,7 +19,9 @@ export const colors = {
   "--GREEN-100": "#ecfdf5",
   "--GREEN-200": "#10b981",
   "--GREEN-300": "#064e3b",
+  "--GREEN-800": "#206c5e",
   "--YELLOW-600": "#ffb524",
+  "--PURPLE-500": "#b696f9",
 };
 
 export type Color = keyof typeof colors;

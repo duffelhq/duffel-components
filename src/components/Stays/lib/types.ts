@@ -26,6 +26,10 @@ export const getBoardTypeLabel = (boardType: StaysRoomRate["board_type"]) => {
       return "Room only, no meals";
     case "breakfast":
       return "Breakfast included";
+    case "half_board":
+      return "Half board";
+    case "full_board":
+      return "Full board";
     case "all_inclusive":
       return "All inclusive";
     default:
@@ -41,6 +45,10 @@ export const boardTypeIcon = (
       return "bedroom_parent";
     case "breakfast":
       return "bakery_dining";
+    case "half_board":
+      return "bakery_dining";
+    case "full_board":
+      return "brunch_dining";
     case "all_inclusive":
       return "brunch_dining";
     default:

@@ -1,0 +1,88 @@
+.stays-room-rate-card__container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 270px;
+  background-color: var(--WHITE);
+  border: 1px solid var(--GREY-200);
+  border-radius: 8px;
+  transition:  0.3s var(--TRANSITIONs-CUBIC-BEZIER);
+  cursor: pointer;
+}
+
+.stays-room-rate-card__container:hover {
+  border-color: var(--GREY-300);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stays-room-rate-card__container--selected,
+.stays-room-rate-card__container--selected:hover {
+  border-color: var(--PURPLE-600);
+}
+
+.stays-room-rate-card__container--disabled,
+.stays-room-rate-card__container--disabled:hover {
+  background-color: var(--GREY-100);
+  border-color: var(--GREY-100);
+  box-shadow: none;
+  cursor: auto;
+}
+
+.stays-room-rate-card__content {
+  padding: 20px;
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+.stays-room-rate-card__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+}
+
+.stays-room-rate-card__icon:hover {
+  fill: var(--GREY-900) !important;
+}
+
+.stays-room-rate-card__text--large {
+  color: var(--GREY-900);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  padding-top: 8px;
+}
+
+.stays-room-rate-card__text--medium {
+  color: var(--GREY-900);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.stays-room-rate-card__text--small {
+  color: var(--GREY-600);
+  font-size: 12px;
+  text-align: left;
+}
+
+.stays-room-rate-card__item-label {
+  color: var(--GREY-700);
+  font-size: 12px;
+}
+
+.stays-room-rate-card__commission-stamp {
+  display: inline-flex;
+  align-items: center;
+  min-width: max-content;
+  color: var(--GREEN-800);
+  background-color:var(--GREEN-100);
+  font-family: var(--FONTS-SANS);
+  font-weight: 400;
+  font-feature-settings: "kern", "liga";
+  border: solid 1px var(--GREEN-800);
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 1px 8px;
+  height: 20px;
+}

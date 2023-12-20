@@ -98,7 +98,7 @@ export const mockAccommodation: StaysAccommodation = {
           payment_type: "pay_now",
           id: "rat_0000ASuebQfixzpI2v20qe",
           due_at_accommodation_currency: "USD",
-          due_at_accommodation_amount: "39.95",
+          due_at_accommodation_amount: null,
           conditions: [
             {
               title: "Parking",
@@ -139,8 +139,14 @@ export const mockAccommodation: StaysAccommodation = {
           base_amount: "765.83",
           fee_currency: "GBP",
           fee_amount: "40.00",
-          cancellation_timeline: [],
-          board_type: "room_only",
+          cancellation_timeline: [
+            {
+              refund_amount: "800",
+              currency: "GBP",
+              before: "2021-08-01T00:00:00Z",
+            },
+          ],
+          board_type: "all_inclusive",
           payment_method: "card",
           quantity_available: 1,
           supported_loyalty_programme: "duffel_hotel_group_rewards",
