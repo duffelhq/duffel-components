@@ -31,7 +31,7 @@ export function getIFrameEventListener(
 
     switch (eventType) {
       case "iframe-loaded":
-        if (postMessageWithStyles) postMessageWithStyles();
+        postMessageWithStyles();
         return;
 
       case "content-height-ready":
