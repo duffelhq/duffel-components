@@ -22,3 +22,15 @@ export const Default: React.FC = () => (
     <MapboxPlacesLookup {...defaultProps} />
   </div>
 );
+
+export const WithStyles: React.FC = () => (
+  <div style={{ width: "350px" }}>
+    <MapboxPlacesLookup
+      {...{
+        ...defaultProps,
+        // This will make it look weird but it's just so we can see the styles picked up
+        inputClassName: "button",
+      }}
+    />
+  </div>
+);

@@ -4,17 +4,20 @@ import {
   Place,
   getPlacesFromMapboxClient,
 } from "./lib/getPlacesFromMapboxClient";
+import classNames from "classnames";
 
 export interface MapboxPlacesLookupProps {
   mapboxPublicKey: string;
   onPlaceSelected: (selection: Place) => void;
   placeholder?: string;
+  inputClassName?: string;
 }
 
 export const MapboxPlacesLookup: React.FC<MapboxPlacesLookupProps> = ({
   mapboxPublicKey,
   onPlaceSelected,
   placeholder = "Lookup city or airport",
+  inputClassName,
 }) => {
   const [shouldShowPopover, setShouldShowPopover] =
     React.useState<boolean>(true);
@@ -30,7 +33,7 @@ export const MapboxPlacesLookup: React.FC<MapboxPlacesLookupProps> = ({
   return (
     <div className="places-lookup">
       <input
-        className="places-lookup-input"
+        className={classNames("places-lookup-input", inputClassName)}
         placeholder={placeholder}
         type="text"
         value={inputValue}
