@@ -3,6 +3,9 @@ import { HSpace } from "@components/shared/HSpace";
 import { Icon, IconName } from "@components/shared/Icon";
 import { StaysAccommodation, StaysAmenity } from "@duffel/api/types";
 
+const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
+const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
+
 export const amenityIcon = (type: StaysAmenity["type"]): IconName => {
   switch (type) {
     case "adult_only":
@@ -53,10 +56,11 @@ export const StaysAmenities: React.FC<StaysAmenitiesProps> = ({
   amenities,
 }) => (
   <>
+    <link rel="stylesheet" href={hrefToComponentStyles}></link>
     {amenities?.map((amenity) => (
       <HSpace key={amenity.type} space={4} alignCenter>
         <Icon name={amenityIcon(amenity.type)} size={16} />
-        <p>{amenity.description}</p>
+        <p className="amenities__text">{amenity.description}</p>
       </HSpace>
     ))}
   </>

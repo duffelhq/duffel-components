@@ -6,7 +6,7 @@
   background-color: var(--WHITE);
   border: 1px solid var(--GREY-200);
   border-radius: 8px;
-  transition:  0.3s var(--TRANSITIONs-CUBIC-BEZIER);
+  transition: 0.3s var(--TRANSITIONs-CUBIC-BEZIER);
   cursor: pointer;
 }
 
@@ -69,6 +69,8 @@
 .stays-room-rate-card__item-label {
   color: var(--GREY-700);
   font-size: 12px;
+  text-align: left;
+  width: 100%;
 }
 
 .stays-room-rate-card__commission-stamp {
@@ -76,7 +78,7 @@
   align-items: center;
   min-width: max-content;
   color: var(--GREEN-800);
-  background-color:var(--GREEN-100);
+  background-color: var(--GREEN-100);
   font-family: var(--FONTS-SANS);
   font-weight: 400;
   font-feature-settings: "kern", "liga";
