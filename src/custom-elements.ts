@@ -12,3 +12,6 @@ export {
   renderDuffelPaymentsCustomElement,
 } from "./components/DuffelPayments/DuffelPaymentsCustomElement";
 export { renderDuffelStaysRatingCustomElement } from "./components/Stays/StaysRatingCustomElement";
+export { renderDuffelStaysAmenitiesCustomElement } from "./components/Stays/StaysAmenitiesCustomElement";
+export { renderDuffelStaysSummaryCustomElement } from "./components/Stays/StaysSummaryCustomElement";
+export { renderDuffelStaysRoomRateCardCustomElement } from "./components/Stays/StaysRoomRateCardCustomElement";

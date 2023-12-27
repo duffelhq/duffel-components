@@ -1,9 +1,9 @@
 import { createRoot, Root } from "react-dom/client";
-import { StaysRating, StaysRatingProps } from "./StaysRating";
+import { StaysRoomRateCard, StaysRoomRateCardProps } from "./StaysRoomRateCard";
 
-const CUSTOM_ELEMENT_TAG = "duffel-stays-rating";
+const CUSTOM_ELEMENT_TAG = "duffel-stays-room-rate-card";
 
-type CustomElementRenderArguments = StaysRatingProps;
+type CustomElementRenderArguments = StaysRoomRateCardProps;
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -42,7 +42,7 @@ class CustomElement extends HTMLElement {
       throw `It was not possible to render ${CUSTOM_ELEMENT_TAG} because 'this.root' is missing.`;
     }
 
-    this.root.render(<StaysRating {...withProps} />);
+    this.root.render(<StaysRoomRateCard {...withProps} />);
   }
 }
 
@@ -59,11 +59,11 @@ function tryToGetCustomElement(caller: string, tag: string): CustomElement {
   return element;
 }
 
-export function renderDuffelStaysRatingCustomElement(
+export function renderDuffelStaysRoomRateCardCustomElement(
   props: CustomElementRenderArguments
 ) {
   const element = tryToGetCustomElement(
-    "renderDuffelStaysRatingCustomElement",
+    "renderDuffelStaysRoomRateCardCustomElement",
     CUSTOM_ELEMENT_TAG
   );
   element.render(props);

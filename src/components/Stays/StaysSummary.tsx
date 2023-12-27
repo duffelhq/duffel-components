@@ -75,7 +75,6 @@ export const StaysSummary: React.FC<
                 name={boardTypeIcon(accommodation.rooms[0].rates[0].board_type)}
                 size={20}
                 color="--GREY-700"
-                className="u-marginLeft4"
               />
 
               <p>
