@@ -1,6 +1,6 @@
 "use client";
 
-import { DuffelAncillaries, DuffelPayments } from "duffel-components";
+import { DuffelAncillaries, DuffelPayments } from "@duffel/components";
 
 export const DuffelComponents = () => (
   <>
