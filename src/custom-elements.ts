@@ -11,3 +11,4 @@ export {
   onDuffelPaymentsSuccessfulPayment,
   renderDuffelPaymentsCustomElement,
 } from "./components/DuffelPayments/DuffelPaymentsCustomElement";
+export { renderDuffelStaysRatingCustomElement } from "./components/Stays/StaysRatingCustomElement";
