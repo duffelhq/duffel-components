@@ -58,6 +58,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
       <button
         onClick={() => onSelectRate(rate.id)}
         className={classNames(
+          "duffel-components",
           "stays-room-rate-card__container",
           selected && "stays-room-rate-card__container--selected"
         )}

@@ -58,7 +58,12 @@ export const StaysAmenities: React.FC<StaysAmenitiesProps> = ({
   <>
     <link rel="stylesheet" href={hrefToComponentStyles}></link>
     {amenities?.map((amenity) => (
-      <HSpace key={amenity.type} space={4} alignCenter>
+      <HSpace
+        key={amenity.type}
+        space={4}
+        alignCenter
+        className="duffel-components"
+      >
         <Icon name={amenityIcon(amenity.type)} size={16} />
         <p className="amenities__text">{amenity.description}</p>
       </HSpace>

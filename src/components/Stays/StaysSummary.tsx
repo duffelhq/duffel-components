@@ -35,7 +35,7 @@ export const StaysSummary: React.FC<
 }) => (
   <>
     <link rel="stylesheet" href={hrefToComponentStyles}></link>
-    <VSpace space={24} className="stays-summary-container">
+    <VSpace space={24} className="duffel-components stays-summary-container">
       <HSpace space={16}>
         <div
           className="stays-summary-photo"

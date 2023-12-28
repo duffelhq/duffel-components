@@ -13,7 +13,7 @@ export interface StaysRatingProps {
 export const StaysRating: React.FC<StaysRatingProps> = ({ rating, small }) => (
   <>
     <link rel="stylesheet" href={hrefToComponentStyles}></link>
-    <HSpace space={0}>
+    <HSpace space={0} className="duffel-components">
       {Array.from({ length: rating }).map((_, index) => (
         <Icon
           key={index}
