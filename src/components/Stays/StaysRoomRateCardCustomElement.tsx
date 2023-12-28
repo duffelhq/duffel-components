@@ -3,7 +3,9 @@ import { StaysRoomRateCard, StaysRoomRateCardProps } from "./StaysRoomRateCard";
 
 const CUSTOM_ELEMENT_TAG = "duffel-stays-room-rate-card";
 
-type CustomElementRenderArguments = StaysRoomRateCardProps;
+type CustomElementRenderArguments = StaysRoomRateCardProps & {
+  elementId: string;
+};
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -49,11 +51,16 @@ class CustomElement extends HTMLElement {
 window.customElements.get(CUSTOM_ELEMENT_TAG) ||
   window.customElements.define(CUSTOM_ELEMENT_TAG, CustomElement);
 
-function tryToGetCustomElement(caller: string, tag: string): CustomElement {
-  const element = document.querySelector<CustomElement>(CUSTOM_ELEMENT_TAG);
+function tryToGetCustomElement(
+  caller: string,
+  elementId: string
+): CustomElement {
+  const element = document.querySelector<CustomElement>(
+    elementId ? `#${elementId} > ${CUSTOM_ELEMENT_TAG}` : CUSTOM_ELEMENT_TAG
+  );
   if (!element) {
     throw new Error(
-      `Could not find ${tag} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
     );
   }
   return element;
@@ -64,7 +71,7 @@ export function renderDuffelStaysRoomRateCardCustomElement(
 ) {
   const element = tryToGetCustomElement(
     "renderDuffelStaysRoomRateCardCustomElement",
-    CUSTOM_ELEMENT_TAG
+    props.elementId
   );
   element.render(props);
 }

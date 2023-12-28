@@ -49,11 +49,11 @@ class CustomElement extends HTMLElement {
 window.customElements.get(CUSTOM_ELEMENT_TAG) ||
   window.customElements.define(CUSTOM_ELEMENT_TAG, CustomElement);
 
-function tryToGetCustomElement(caller: string, tag: string): CustomElement {
+function tryToGetCustomElement(caller: string): CustomElement {
   const element = document.querySelector<CustomElement>(CUSTOM_ELEMENT_TAG);
   if (!element) {
     throw new Error(
-      `Could not find ${tag} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
     );
   }
   return element;
@@ -63,8 +63,7 @@ export function renderDuffelStaysSummaryCustomElement(
   props: CustomElementRenderArguments
 ) {
   const element = tryToGetCustomElement(
-    "renderDuffelStaysSummaryCustomElement",
-    CUSTOM_ELEMENT_TAG
+    "renderDuffelStaysSummaryCustomElement"
   );
   element.render(props);
 }

@@ -3,7 +3,7 @@ import { StaysRating, StaysRatingProps } from "./StaysRating";
 
 const CUSTOM_ELEMENT_TAG = "duffel-stays-rating";
 
-type CustomElementRenderArguments = StaysRatingProps;
+type CustomElementRenderArguments = StaysRatingProps & { elementId: string };
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -49,11 +49,16 @@ class CustomElement extends HTMLElement {
 window.customElements.get(CUSTOM_ELEMENT_TAG) ||
   window.customElements.define(CUSTOM_ELEMENT_TAG, CustomElement);
 
-function tryToGetCustomElement(caller: string, tag: string): CustomElement {
-  const element = document.querySelector<CustomElement>(CUSTOM_ELEMENT_TAG);
+function tryToGetCustomElement(
+  caller: string,
+  elementId: string
+): CustomElement {
+  const element = document.querySelector<CustomElement>(
+    elementId ? `#${elementId} > ${CUSTOM_ELEMENT_TAG}` : CUSTOM_ELEMENT_TAG
+  );
   if (!element) {
     throw new Error(
-      `Could not find ${tag} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find ${elementId} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
     );
   }
   return element;
@@ -64,7 +69,7 @@ export function renderDuffelStaysRatingCustomElement(
 ) {
   const element = tryToGetCustomElement(
     "renderDuffelStaysRatingCustomElement",
-    CUSTOM_ELEMENT_TAG
+    props.elementId
   );
   element.render(props);
 }
