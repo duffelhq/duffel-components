@@ -9,6 +9,8 @@
   margin-top: 4px;
   width: 100%;
   padding: 4px;
+  display: flex;
+  flex-direction: column;
 }
 
 .places-lookup-popover__item {

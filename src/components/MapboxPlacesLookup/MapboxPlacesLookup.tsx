@@ -1,10 +1,10 @@
+import classNames from "classnames";
 import { debounce } from "lodash";
 import React from "react";
 import {
   Place,
   getPlacesFromMapboxClient,
 } from "./lib/getPlacesFromMapboxClient";
-import classNames from "classnames";
 
 export interface MapboxPlacesLookupProps {
   mapboxPublicKey: string;
@@ -16,7 +16,7 @@ export interface MapboxPlacesLookupProps {
 export const MapboxPlacesLookup: React.FC<MapboxPlacesLookupProps> = ({
   mapboxPublicKey,
   onPlaceSelected,
-  placeholder = "Lookup city or airport",
+  placeholder = "Look up city or airport",
   inputClassName,
 }) => {
   const [shouldShowPopover, setShouldShowPopover] =
@@ -46,10 +46,7 @@ export const MapboxPlacesLookup: React.FC<MapboxPlacesLookupProps> = ({
       {shouldShowPopover &&
         inputValue.length > 0 &&
         lookupResults.length > 0 && (
-          <div
-            className="places-lookup-popover"
-            style={{ display: "flex", flexDirection: "column" }}
-          >
+          <div className="places-lookup-popover">
             {lookupResults.map((place) => (
               <button
                 className="places-lookup-popover__item"
