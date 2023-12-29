@@ -3,7 +3,11 @@ import {
   StaysAmenities,
   StaysAmenitiesProps,
 } from "@components/Stays/StaysAmenities";
-import { mockAccommodation } from "src/fixtures/accommodation/mock_accommodation";
+import { StaysAccommodation } from "@duffel/api/types";
+
+/* eslint-disable @typescript-eslint/no-var-requires */
+const accommodation: StaysAccommodation = require("../fixtures/accommodation/acc_0000AWr2VsUNIF1Vl91xg0.json");
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 export default {
   title: "StaysAmenities",
@@ -26,6 +30,6 @@ export const Default = {
   render: Template,
 
   args: {
-    amenities: mockAccommodation.amenities,
+    amenities: accommodation.amenities,
   },
 };
