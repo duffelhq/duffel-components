@@ -5,6 +5,13 @@ import { Icon, ICON_MAP, IconName } from "../components/shared/Icon";
 export default {
   title: "Icon",
   component: Icon,
+  decorators: [
+    (Story) => (
+      <div className="duffel-components">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 export const FullList: React.FC = () => (

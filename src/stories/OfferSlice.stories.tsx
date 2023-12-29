@@ -50,6 +50,13 @@ const MOCK_STOP: OfferSliceSegmentStop = {
 export default {
   title: "OfferSlice",
   component: OfferSlice,
+  decorators: [
+    (Story) => (
+      <div className="duffel-components">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 const defaultProps: OfferSliceProps = {
