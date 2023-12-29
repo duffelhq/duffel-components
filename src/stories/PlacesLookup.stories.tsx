@@ -8,6 +8,13 @@ import {
 export default {
   title: "PlacesLookup",
   component: PlacesLookup,
+  decorators: [
+    (Story) => (
+      <div className="duffel-components">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 const defaultProps: PlacesLookupProps = {

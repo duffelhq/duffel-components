@@ -7,6 +7,13 @@ const offer = require("../fixtures/offers/off_0000AUde3KwTztSRK1cznH.json");
 export default {
   title: "BaggageSelectionModalHeader",
   component: BaggageSelectionModalHeader,
+  decorators: [
+    (Story) => (
+      <div className="duffel-components">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 type Story = StoryObj<typeof BaggageSelectionModalHeader>;

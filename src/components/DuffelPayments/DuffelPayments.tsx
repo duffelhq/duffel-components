@@ -11,9 +11,7 @@ import { StripeCardElement, StripeError, loadStripe } from "@stripe/stripe-js";
 import * as React from "react";
 import { CustomStyles } from "../../types";
 import { Button } from "../shared/Button";
-
-const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
-const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
+import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 
 const STRIPE_CARD_ELEMENT = "card";
 const COMPONENT_VERSION = process.env.COMPONENT_VERSION;
@@ -209,16 +207,14 @@ export const DuffelPayments: React.FC<DuffelPaymentsProps> = (props) => {
   } as any;
 
   return (
-    <>
-      <link rel="stylesheet" href={hrefToComponentStyles}></link>
-
-      <div className="duffel-components" style={duffelComponentsStyle}>
+    <WithComponentStyles>
+      <div style={duffelComponentsStyle}>
         <ErrorBoundary>
           <Elements stripe={stripe}>
             <CardPaymentComponent {...props} />
           </Elements>
         </ErrorBoundary>
       </div>
-    </>
+    </WithComponentStyles>
   );
 };

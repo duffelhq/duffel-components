@@ -4,6 +4,13 @@ import { IconButton, IconButtonProps } from "../components/shared/IconButton";
 export default {
   title: "IconButton",
   component: IconButton,
+  decorators: [
+    (Story) => (
+      <div className="duffel-components">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 type IconButtonStory = StoryObj<typeof IconButton>;

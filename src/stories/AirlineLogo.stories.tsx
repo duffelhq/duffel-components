@@ -13,6 +13,13 @@ const AIRLINES = [
 export default {
   title: "AirlineLogo",
   component: AirlineLogo,
+  decorators: [
+    (Story) => (
+      <div className="duffel-components">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 export const FullList: React.FC = () => (

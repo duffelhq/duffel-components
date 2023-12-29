@@ -5,6 +5,13 @@ import { Button, ButtonProps } from "../components/shared/Button";
 export default {
   title: "Button",
   component: Button,
+  decorators: [
+    (Story) => (
+      <div className="duffel-components">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 type ButtonStory = StoryObj<typeof Button>;

@@ -32,9 +32,7 @@ import {
   Offer,
   SeatMap,
 } from "@duffel/api/types";
-
-const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
-const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
+import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   initializeLogger(props.debug || false);
@@ -297,10 +295,8 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   logGroup("Component's internal state:", state);
 
   return (
-    <>
-      <link rel="stylesheet" href={hrefToComponentStyles}></link>
-
-      <div className="duffel-components" style={duffelComponentsStyle}>
+    <WithComponentStyles>
+      <div style={duffelComponentsStyle}>
         <ErrorBoundary>
           {error && (
             <FetchOfferErrorState
@@ -349,6 +345,6 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
             })}
         </ErrorBoundary>
       </div>
-    </>
+    </WithComponentStyles>
   );
 };
