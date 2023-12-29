@@ -23,11 +23,10 @@
   }
   
   .radio:hover {
-    border-color: var(--PURPLE-500);
+    border-color: var(--GREY-600);
   }
   
   .radio.radio--is-checked {
-    background: var(--PURPLE-500);
-    border-color: var(--PURPLE-500);
+    border-color: var(--GREY-900);
   }
   
