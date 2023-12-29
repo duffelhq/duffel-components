@@ -147,7 +147,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
               )}
               <span className="stays-room-rate-card__text--small">/night</span>
             </p>
-            <RadioButton checked={selected} value={selected} />
+            <RadioButton checked={selected} value={rate.id} />
           </HSpace>
         </VSpace>
       </button>
