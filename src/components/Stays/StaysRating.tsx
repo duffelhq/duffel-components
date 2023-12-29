@@ -1,9 +1,7 @@
 import * as React from "react";
 import { HSpace } from "@components/shared/HSpace";
 import { Icon } from "@components/shared/Icon";
-
-const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
-const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
+import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 
 export interface StaysRatingProps {
   rating: number;
@@ -11,8 +9,7 @@ export interface StaysRatingProps {
 }
 
 export const StaysRating: React.FC<StaysRatingProps> = ({ rating, small }) => (
-  <>
-    <link rel="stylesheet" href={hrefToComponentStyles}></link>
+  <WithComponentStyles>
     <HSpace space={0} className="duffel-components">
       {Array.from({ length: rating }).map((_, index) => (
         <Icon
@@ -23,5 +20,5 @@ export const StaysRating: React.FC<StaysRatingProps> = ({ rating, small }) => (
         />
       ))}
     </HSpace>
-  </>
+  </WithComponentStyles>
 );

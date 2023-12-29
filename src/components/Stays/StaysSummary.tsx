@@ -6,9 +6,7 @@ import { HSpace } from "@components/shared/HSpace";
 import { Icon } from "@components/shared/Icon";
 import { LOYALTY_PROGRAMS_NAME_MAP } from "./lib/types";
 import { getDateString } from "@lib/getDateString";
-
-const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
-const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
+import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 
 export interface StaysSummaryProps {
   accommodation: StaysAccommodation;
@@ -33,8 +31,7 @@ export const StaysSummary: React.FC<
   accommodationSpecialRequests,
   children,
 }) => (
-  <>
-    <link rel="stylesheet" href={hrefToComponentStyles}></link>
+  <WithComponentStyles>
     <VSpace space={24} className="duffel-components stays-summary-container">
       <HSpace space={16}>
         <div
@@ -125,5 +122,5 @@ export const StaysSummary: React.FC<
       )}
       {children}
     </VSpace>
-  </>
+  </WithComponentStyles>
 );

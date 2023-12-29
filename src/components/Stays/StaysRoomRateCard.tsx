@@ -16,9 +16,7 @@ import {
 } from "@duffel/api/types";
 import { RadioButton } from "@components/shared/RadioButton";
 import { withPlural } from "@lib/withPlural";
-
-const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
-const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
+import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 
 export interface StaysRoomRateCardProps {
   rate: StaysRoomRate;
@@ -44,8 +42,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
       : searchNumberOfRooms;
 
   return (
-    <>
-      <link rel="stylesheet" href={hrefToComponentStyles}></link>
+    <WithComponentStyles>
       <button
         onClick={() => onSelectRate(rate.id)}
         className={classNames(
@@ -154,7 +151,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
           </HSpace>
         </VSpace>
       </button>
-    </>
+    </WithComponentStyles>
   );
 };
 
