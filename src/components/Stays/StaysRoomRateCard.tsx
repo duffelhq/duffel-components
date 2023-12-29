@@ -15,26 +15,18 @@ import {
   StaysRoomRate,
 } from "@duffel/api/types";
 import { RadioButton } from "@components/shared/RadioButton";
+import { withPlural } from "@lib/withPlural";
 
 const COMPONENT_CDN = process.env.COMPONENT_CDN || "";
 const hrefToComponentStyles = `${COMPONENT_CDN}/global.css`;
 
 export interface StaysRoomRateCardProps {
   rate: StaysRoomRate;
-  showPotentialCommission?: boolean;
   searchNumberOfRooms: number;
   numberOfNights: number;
   selected: boolean;
   onSelectRate: (rateId: string) => void;
 }
-
-const pluralise = (count: number, singular: string, plural: string) => {
-  return count === 1 ? singular : plural;
-};
-
-const getRateCommissionString = (rateCurrency: string, rateAmount: number) => {
-  return moneyStringFormatter(rateCurrency)(rateAmount * 0.05);
-};
 
 export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
   numberOfNights,
@@ -42,7 +34,6 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
   rate,
   selected,
   onSelectRate,
-  showPotentialCommission = false,
 }) => {
   const earliestCancellation: StaysRateCancellationTimeline | undefined =
     rate.cancellation_timeline[0];
@@ -128,22 +119,15 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
           </VSpace>
         </VSpace>
         <VSpace space={8} className="stays-room-rate-card__footer">
-          {showPotentialCommission && (
-            <span className="stays-room-rate-card__commission-stamp">
-              Up to{" "}
-              {getRateCommissionString(rate.total_currency, +rate.total_amount)}{" "}
-              commission
-            </span>
-          )}
           <p className="stays-room-rate-card__text--small">
-            At least {quantityOfRoomsAvailable}
-            {pluralise(quantityOfRoomsAvailable, " room", " rooms")} available
+            At least {quantityOfRoomsAvailable}{" "}
+            {withPlural(quantityOfRoomsAvailable, "room", "rooms")} available
           </p>
 
           <VSpace space={4}>
             <p className="stays-room-rate-card__text--small">
               {moneyStringFormatter(rate.total_currency)(+rate.total_amount)}{" "}
-              for {numberOfNights} night{numberOfNights > 1 ? "s" : ""}
+              for {withPlural(numberOfNights, "night", "nights")}
             </p>
 
             {rate.due_at_accommodation_amount &&
