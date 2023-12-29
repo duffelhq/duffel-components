@@ -11,7 +11,6 @@ export interface RadioButtonProps {
 export const RadioButton: React.FC<RadioButtonProps> = ({
   value,
   checked = false,
-  ...props
 }) => {
   const inputId = `radio-${value}`;
   return (
@@ -22,7 +21,6 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
         value={value}
         checked={checked}
         className="radio__input"
-        {...props}
       />
       <label
         className="radio__container"

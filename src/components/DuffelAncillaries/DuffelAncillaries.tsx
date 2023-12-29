@@ -296,7 +296,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
   return (
     <WithComponentStyles>
-      <div className="duffel-components" style={duffelComponentsStyle}>
+      <div style={duffelComponentsStyle}>
         <ErrorBoundary>
           {error && (
             <FetchOfferErrorState

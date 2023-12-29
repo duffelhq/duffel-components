@@ -208,7 +208,7 @@ export const DuffelPayments: React.FC<DuffelPaymentsProps> = (props) => {
 
   return (
     <WithComponentStyles>
-      <div className="duffel-components" style={duffelComponentsStyle}>
+      <div style={duffelComponentsStyle}>
         <ErrorBoundary>
           <Elements stripe={stripe}>
             <CardPaymentComponent {...props} />

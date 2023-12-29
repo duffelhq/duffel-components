@@ -2,7 +2,7 @@ import * as React from "react";
 import { HSpace } from "@components/shared/HSpace";
 import { Icon, IconName } from "@components/shared/Icon";
 import { StaysAccommodation, StaysAmenity } from "@duffel/api/types";
-import { WithComponentStyles } from "@components/shared/WithComponentStyles";
+import { hrefToComponentStyles } from "@components/shared/WithComponentStyles";
 
 export const amenityIcon = (type: StaysAmenity["type"]): IconName => {
   switch (type) {
@@ -53,7 +53,9 @@ export interface StaysAmenitiesProps {
 export const StaysAmenities: React.FC<StaysAmenitiesProps> = ({
   amenities,
 }) => (
-  <WithComponentStyles>
+  <>
+    {/* This component doesn't use WithComponentStyles because we don't want to wrap it in a div */}
+    <link rel="stylesheet" href={hrefToComponentStyles}></link>
     {amenities?.map((amenity) => (
       <HSpace
         key={amenity.type}
@@ -65,5 +67,5 @@ export const StaysAmenities: React.FC<StaysAmenitiesProps> = ({
         <p className="amenities__text">{amenity.description}</p>
       </HSpace>
     ))}
-  </WithComponentStyles>
+  </>
 );
