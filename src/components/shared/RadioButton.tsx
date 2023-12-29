@@ -3,12 +3,12 @@ import * as React from "react";
 import { HSpace } from "./HSpace";
 import { Icon } from "./Icon";
 
-export interface RadioButtonProps<T extends string | number> {
-  value: T;
+export interface RadioButtonProps {
+  value: string;
   checked?: boolean;
 }
 
-export const RadioButton: React.FC<RadioButtonProps<any>> = ({
+export const RadioButton: React.FC<RadioButtonProps> = ({
   value,
   checked = false,
   ...props

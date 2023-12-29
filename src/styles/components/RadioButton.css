@@ -1,0 +1,33 @@
+.radio__input {
+    display: none;
+  }
+  
+  .radio__container {
+    cursor: pointer;
+  }
+  
+  .radio {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    color: white;
+    border: solid 1px var(--GREY-300);
+    border-radius: 999px;
+    background: transparent;
+    outline: none;
+    transition: all 0.3s var(--TRANSITIONs-CUBIC-BEZIER);
+  }
+  
+  .radio:hover {
+    border-color: var(--PURPLE-500);
+  }
+  
+  .radio.radio--is-checked {
+    background: var(--PURPLE-500);
+    border-color: var(--PURPLE-500);
+  }
+  
