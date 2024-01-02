@@ -1,4 +1,4 @@
-import { AirlineLogo } from "@components/AirlineLogo/AirlineLogo";
+import { AirlineLogo } from "@components/shared/AirlineLogo";
 import { OfferSlice as OfferSliceType } from "@duffel/api/types";
 import { convertDurationToString } from "@lib/convertDurationToString";
 import { getAirlinesText } from "@lib/getAirlinesText";
