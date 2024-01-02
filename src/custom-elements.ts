@@ -15,3 +15,7 @@ export { renderDuffelStaysRatingCustomElement } from "./components/Stays/StaysRa
 export { renderDuffelStaysAmenitiesCustomElement } from "./components/Stays/StaysAmenitiesCustomElement";
 export { renderDuffelStaysSummaryCustomElement } from "./components/Stays/StaysSummaryCustomElement";
 export { renderDuffelStaysRoomRateCardCustomElement } from "./components/Stays/StaysRoomRateCardCustomElement";
+export {
+  renderMapboxPlacesLookupCustomElement,
+  onMapboxPlacesLookupPlaceSelected,
+} from "./components/MapboxPlacesLookup/MapboxPlacesLookupCustomElement";

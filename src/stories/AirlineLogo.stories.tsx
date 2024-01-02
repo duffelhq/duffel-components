@@ -1,4 +1,4 @@
-import { AirlineLogo } from "@components/AirlineLogo/AirlineLogo";
+import { AirlineLogo } from "@components/shared/AirlineLogo";
 import { Meta } from "@storybook/react";
 import React from "react";
 
