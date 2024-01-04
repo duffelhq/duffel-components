@@ -1,11 +1,11 @@
-import dotenv from "dotenv";
 import { readFileSync } from "fs";
 import http from "http";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 
-/* https://nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue */
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-
-dotenv.config({ path: ".env.local" });
+const PORT = 3000;
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const HTML_FILE_PATH = path.resolve(__dirname, "./index.html");
 
 if (process.env.DUFFEL_API_URL === undefined) {
   throw new Error("process.env.DUFFEL_API_URL is required but missing");
@@ -30,7 +30,7 @@ const duffelHeaders = {
 };
 
 let searchRoundTripOnDuffelResultCache = null;
-const searchRoundTripOnDuffel = async (origin, destination) => {
+async function searchRoundTripOnDuffel(origin, destination) {
   if (searchRoundTripOnDuffelResultCache !== null) {
     return searchRoundTripOnDuffelResultCache;
   }
@@ -71,9 +71,9 @@ const searchRoundTripOnDuffel = async (origin, destination) => {
 
   searchRoundTripOnDuffelResultCache = offerRequest;
   return searchRoundTripOnDuffelResultCache;
-};
+}
 
-const createOrderOnDuffel = async (request, response) => {
+async function createOrderOnDuffel(request, response) {
   const createOrderOnDuffelResponse = await fetch(
     process.env.DUFFEL_API_URL + "/air/orders",
     {
@@ -89,9 +89,9 @@ const createOrderOnDuffel = async (request, response) => {
   });
   response.write(await createOrderOnDuffelResponse.text());
   response.end();
-};
+}
 
-const ROUTES = {
+const SERVER_ROUTES = {
   "/": async function index(request, response) {
     const offerRequest = await searchRoundTripOnDuffel("JFK", "MIA");
     const offer = offerRequest.offers[0];
@@ -115,7 +115,7 @@ const ROUTES = {
       },
     ];
 
-    const template = readFileSync("src/examples/full-stack/index.html", {
+    const template = readFileSync(HTML_FILE_PATH, {
       encoding: "utf-8",
     });
 
@@ -145,14 +145,14 @@ const ROUTES = {
 
 http
   .createServer(function (request, response) {
-    if (request.url in ROUTES) {
-      return ROUTES[request.url](request, response);
+    if (request.url in SERVER_ROUTES) {
+      return SERVER_ROUTES[request.url](request, response);
     }
 
     response.writeHead(404);
     response.end(http.STATUS_CODES[404]);
   })
-  .listen(6262);
+  .listen(PORT);
 
 // eslint-disable-next-line
-console.log(`\n🐄 Serving example on http://localhost:6262`);
+console.log(`\nServing example on http://localhost:${PORT}`);

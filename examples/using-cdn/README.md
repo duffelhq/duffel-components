@@ -18,7 +18,7 @@ DUFFEL_API_TOKEN=test_duffel_dev_rw # development (for Duffel engineers only)
 
 # The url for the component CDN.
 # This is used to load both the styles an
-# COMPONENT_CDN=https://assets.duffel.com/components/ancillaries/VERSION # production
+# COMPONENT_CDN=w # production
 COMPONENT_CDN=http://localhost:8000 # development
 ```
 
