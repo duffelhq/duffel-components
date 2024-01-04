@@ -41,7 +41,8 @@
     "prettier": "prettier --write --loglevel=warn .",
     "prettier-check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
-    "test": "LANG='en_US' TZ=UTC yarn jest"
+    "test": "LANG='en_US' TZ=UTC yarn jest",
+    "e2e": "bash e2e/start.sh"
   },
   "lint-staged": {
     "*.{ts,tsx,mjs,js}": [
@@ -108,6 +109,7 @@
     "prettier-plugin-organize-imports": "3.2.2",
     "prompts": "2.4.2",
     "prop-types": "15.8.1",
+    "puppeteer": "21.6.1",
     "storybook": "7.0.2",
     "ts-node": "10.9.1",
     "tsconfig-paths-webpack-plugin": "4.0.1",
