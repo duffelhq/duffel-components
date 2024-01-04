@@ -2,67 +2,152 @@
 
 This package is a component library to help you build your travel product using the [Duffel API](https://duffel.com/docs).
 
-## Get started
+## Getting started
 
-### Installing
+There are 3 different ways to integrate the components into your website.
+This will depend on which technology you are using.
+We'll use the ancillaries component as an example but the same steps will apply for other components.
 
-```sh
-yarn add @duffel/components
-# -- or --
-npm i @duffel/components
-```
+### Integrating React component
 
-### (alternative) Load from CDN:
+1. Install the package:
 
-```html
-<script src="https://assets.duffel.com/components/VERSION/duffel-ancillaries.js"></script>
-<script src="https://assets.duffel.com/components/VERSION/duffel-payments.js"></script>
-```
+   ```sh
+   yarn add @duffel/components
+   # -- or --
+   npm i @duffel/components
+   ```
 
-## How do I integrate this into my website?
+2. Import the component from `@duffel/components`
 
-1. Please start by reading our integration guide on https://duffel.com/docs/guides/ancillaries-component
+   ```javascript
+   import { DuffelAncillaries } from "@duffel/components";
+   ```
 
-## Integration examples
+3. Render the component with the desired props
 
-1. **client-side** | This example loads a local version of the components using a `script` tag. It uses a fixture for the offer and seat maps.
+   ```jsx
+   <DuffelAncillaries
+     offer_id="fixture_off_1"
+     services={["bags", "seats"]}
+     passengers={[ ... ]}
+     onPayloadReady={console.log}
+   />
+   ```
 
-   - [Find it on src/examples/client-side](src/examples/client-side)
+### Integrating HTML custom element
 
-2. **full-stack** | This example loads a local version of the components using a `script` tag. It will search and retrieve an offer from the Duffel API and render the ancillaries component custom element with its `offer_id` and `client_key`. As soon as a service modal is closed it will create a test order with the given payload.
+If you are not using React but still in a node environemnt you cna
 
-   - [Find it on src/examples/full-stack](src/examples/full-stack)
+1. Install the package:
 
-3. **just-typescript** | This example imports a local version of `@duffel/components` and renders the custom element with an offer fixture once the page loads.
+   ```sh
+   yarn add @duffel/components
+   # -- or --
+   npm i @duffel/components
+   ```
 
-   - [Find it on src/examples/just-typescript](src/examples/just-typescript)
+2. Import the component render function and event listeners from `@duffel/components/custom-elements`
 
-4. **react-app** | This example imports a local version of `@duffel/components` and renders the a react element with an offer fixture.
+   ```javascript
+   import {
+     renderDuffelAncillariesCustomElement,
+     onDuffelAncillariesPayloadReady,
+   } from "@duffel/components/custom-elements";
+   ```
 
-   - [Find it on src/examples/react-app](src/examples/react-app)
+3. Include the custom element on your html
 
-5. **payments-custom-element** | This example demonstrates the use of the payments component loaded through a script tag
+   ```html
+   <duffel-ancillaries></duffel-ancillaries>
+   ```
 
-- [Find it on src/examples/payments-custom-element](src/examples/payments-custom-element)
+4. Call the render function with the right properties to render the custom element:
 
-6. **payments-just-typescript** | This example imports a local version of `@duffel/components` and renders the payments custom element with a fixture of the payment intent.
+   ```javascript
+   renderDuffelAncillariesCustomElement({
+     offer_id: "fixture_off_1",
+     services: ["bags", "seats"],
+     passengers: [ ... ],
+   });
+   ```
 
-   - [Find it on src/examples/payments-just-typescript](src/examples/payments-just-typescript)
+5. Setup listeners for events triggered by the component:
 
-7. **next** | This example imports and renders `@duffel/components` into a `next.js` project.
+   ```javascript
+   onDuffelAncillariesPayloadReady((data, metadata) => {
+     console.table(data);
+     console.table(metadata);
+   });
+   ```
 
-   - [Find it on src/examples/payments-just-typescript](src/examples/next)
+### Integrating custom element without node
 
-## What components are available?
+If you are not in a node environment and can't rely on npm to install the package, we make it available through our CDN. Here's how to integrate it:
 
-### Ancillaries component
+1. Include a script tag
 
-The ancillaries component allows your customers to add ancillaries to their order. It's simple to add to your website and can be customised to fit your brand. This component is avaiable through npm and our cdn.
+   ```html
+   <!--
+     Replace VERSION with the desired version.
+     You can find them all on https://www.npmjs.com/package/@duffel/components?activeTab=versions
+   
+     Replace COMPONENT with the desired component you'd like to use.
+     You can find the components available on the `./cdn-dist` directory after running `yarn build-and-publish --dry-run`
+   
+     For example, for the duffel ancillaries component on version 3.3.1 use:
+     https://assets.duffel.com/components/3.3.1/duffel-ancillaries.js
+   -->
 
-- [Find live demo on codesandbox.io&nbsp;&nbsp;↗](https://codesandbox.io/s/duffel-ancillaries-example-1nxuu7)
+   <script src="https://assets.duffel.com/components/VERSION/COMPONENT.js"></script>
+   ```
 
-### Payments component
+2. Include the custom element tag in your html:
 
-The payments component provides a [PCI-compliant](https://help.duffel.com/hc/en-gb/articles/4409049543058) way for you to collect card payments for online bookings from your customers. To learn more about how to work with Duffel payments please visit the [Collecting customer card payments guide](https://duffel.com/docs/guides/collecting-customer-card-payments).
+   ```html
+   <duffel-ancillaries></duffel-ancillaries>
+   ```
 
-#### more coming soon...
+3. Render the component with the required data, you can safely call this function as many times as
+   you want. E.g. when your passenger data changes.
+
+   ```javascript
+   const duffelAncillariesElement = document.querySelector("duffel-ancillaries");
+
+   duffelAncillariesElement.render({
+     offer_id: "fixture_off_1",
+     services: ["bags", "seats"],
+     passengers: [ ... ]
+   });
+   ```
+
+4. Listen to 'onPayloadReady' event on the component. `event.detail.data` contains the payload you need to send to Duffel's API to create an order.
+
+   ```javascript
+   const duffelAncillariesElement =
+     document.querySelector("duffel-ancillaries");
+
+   duffelAncillariesElement.addEventListener("onPayloadReady", (event) =>
+     console.log("onPayloadReady\n", event.detail)
+   );
+   ```
+
+## FAQ
+
+### Are there integration guides?
+
+- [Integrating the ancillaries component to your booking flow](https://duffel.com/docs/guides/ancillaries-component).
+- [Collecting payments with Duffel Payments](https://duffel.com/docs/guides/collecting-customer-card-payments)
+
+More guides are coming soon.
+
+The `examples` folder is a great way to get started quickly and see a fully functioning examples for every component.
+
+### What components are available through npm?
+
+The list of react components can be found on `src/index.ts`.
+If you are using custom elements you can find all render functions and event listeners on `src/custom-elements.ts`
+
+### What components are available through the CDN?
+
+Please check `entryPoints` on `config/esbuild.base.config.js`, it lists all of the components we'll build and upload to the CDN.
