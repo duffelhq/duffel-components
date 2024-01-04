@@ -1,5 +1,6 @@
 module.exports = {
   entryPoints: [
+    { out: "global", in: "src/styles/global.css" },
     {
       out: "duffel-ancillaries",
       in: "src/components/DuffelAncillaries/DuffelAncillariesCustomElement.tsx",
@@ -8,7 +9,8 @@ module.exports = {
       out: "duffel-payments",
       in: "src/components/DuffelPayments/DuffelPaymentsCustomElement.tsx",
     },
-    { out: "global", in: "src/styles/global.css" },
+    // Created a new custom element wrapper for a components
+    // and want to make it available on the CDN? Add it here.
   ],
   bundle: true,
   minify: true,
