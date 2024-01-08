@@ -3,6 +3,9 @@ import { testDuffelAncillariesComponentIntegration } from "./lib/testDuffelAncil
 
 const puppeteerLaunchOptions: PuppeteerLaunchOptions = {
   headless: "new",
+  // Set this value to true if you are running
+  // the e2e tests against https://localhost:4000
+  ignoreHTTPSErrors: true,
 };
 
 export default (async function main() {
@@ -25,6 +28,8 @@ export default (async function main() {
     console.error(error);
     process.exit(1);
   } finally {
+    // eslint-disable-next-line
+    console.log("Test completed with no issues.");
     if (browser) await browser.close();
   }
 })();

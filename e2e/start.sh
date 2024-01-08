@@ -22,6 +22,7 @@ node e2e/dist/index.e2e.cjs http://localhost:3000
 
 ## Now we are done, let's kill that server
 kill $FULL_STACK_WITH_CDN_PID
+echo -e "\n'using-cdn' example process killed"
 
 ## TODO: will run the other examples here:
 ## [ ] example with custom element
