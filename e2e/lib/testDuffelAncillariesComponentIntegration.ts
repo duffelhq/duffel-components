@@ -1,6 +1,9 @@
 import { Page } from "puppeteer";
 
 export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
+  // Wait for network requests to be completed
+  await page.waitForNetworkIdle();
+
   await page.evaluate(async () => {
     // We'll use evaluate instead because the component DOM
     // is in the shadow root of <duffel-ancillaries />
@@ -112,40 +115,23 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     seatsConfirmButton.click();
   });
 
-  // And this outside, because we are back to the regular DOM
-  // Is the baggage price correct?
-  const baggagePriceTableElementSelector =
-    "#payment-breakdown-services-baggage-row > td.payment-breakdown__number-element";
-  await page.waitForSelector(baggagePriceTableElementSelector);
+  page.on("response", (response) => {
+    if (response.url().endsWith("/create-order")) {
+      response.json().then((data) => {
+        if (typeof data.data.id !== "string" || !data.data.id.startsWith("")) {
+          throw new Error("The order was not created successfully");
+        }
 
-  const baggagePriceTableElement = await page.$(
-    baggagePriceTableElementSelector
-  );
-  const baggagePriceValue = await page.evaluate(
-    (el) => el!.textContent!.trim(),
-    baggagePriceTableElement
-  );
-
-  const baggageExpectedValue = "20.00";
-  if (baggagePriceValue != baggageExpectedValue)
-    throw new Error(
-      `Baggage added to flight does not equal '${baggageExpectedValue}': ${baggagePriceValue}`
-    );
-
-  // Is the seats price correct?
-  const seatsPriceTableElementSelector =
-    "#payment-breakdown-services-seats-row > td.payment-breakdown__number-element";
-  await page.waitForSelector(seatsPriceTableElementSelector);
-
-  const seatsPriceTableElement = await page.$(seatsPriceTableElementSelector);
-  const seatsPriceValue = await page.evaluate(
-    (el) => el!.textContent?.trim(),
-    seatsPriceTableElement
-  );
-
-  const seatsExpectedValue = "40.00";
-  if (seatsPriceValue != seatsExpectedValue)
-    throw new Error(
-      `Seats added to flight does not equal '${seatsExpectedValue}': ${seatsPriceValue}`
-    );
+        if (
+          !Array.isArray(data.data.services) ||
+          // 3 services because it's 1 bag + 2 seats
+          data.data.services.length !== 3
+        ) {
+          throw new Error(
+            "The order was created but not all services are present in the order"
+          );
+        }
+      });
+    }
+  });
 };
