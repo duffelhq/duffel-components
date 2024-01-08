@@ -9,6 +9,8 @@ const HTML_FILE_PATH = path.resolve(__dirname, "./index.html");
 
 if (process.env.DUFFEL_API_URL === undefined) {
   throw new Error("process.env.DUFFEL_API_URL is required but missing");
+} else if (process.env.DUFFEL_API_URL === "https://localhost:4000") {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 }
 
 if (process.env.DUFFEL_API_TOKEN === undefined) {
@@ -29,12 +31,7 @@ const duffelHeaders = {
   Authorization: `Bearer ${process.env.DUFFEL_API_TOKEN}`,
 };
 
-let searchRoundTripOnDuffelResultCache = null;
 async function searchRoundTripOnDuffel(origin, destination) {
-  if (searchRoundTripOnDuffelResultCache !== null) {
-    return searchRoundTripOnDuffelResultCache;
-  }
-
   const payload = {
     data: {
       slices: [
@@ -69,8 +66,7 @@ async function searchRoundTripOnDuffel(origin, destination) {
     )
   ).json();
 
-  searchRoundTripOnDuffelResultCache = offerRequest;
-  return searchRoundTripOnDuffelResultCache;
+  return offerRequest;
 }
 
 async function createOrderOnDuffel(request, response) {
@@ -92,7 +88,7 @@ async function createOrderOnDuffel(request, response) {
 }
 
 const SERVER_ROUTES = {
-  "/": async function index(request, response) {
+  "/": async function (request, response) {
     const offerRequest = await searchRoundTripOnDuffel("JFK", "MIA");
     const offer = offerRequest.offers[0];
 
@@ -132,7 +128,7 @@ const SERVER_ROUTES = {
     response.writeHead(200);
     response.end(withPassengers);
   },
-  "/book": async function book(request, response) {
+  "/create-order": async function (request, response) {
     if (request.method != "POST") {
       response.writeHead(404);
       response.end(http.STATUS_CODES[404]);
