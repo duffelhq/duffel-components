@@ -4,9 +4,7 @@ This package is a component library to help you build your travel product using 
 
 ## Getting started
 
-There are 3 different ways to integrate the components into your website.
-This will depend on which technology you are using.
-We'll use the ancillaries component as an example but the same steps will apply for other components.
+There are 3 different ways to integrate the components into your website. This will depend on which technology you are using. We'll use the ancillaries component as an example, but the same steps will apply for other components.
 
 ### Integrating React component
 
@@ -30,14 +28,14 @@ We'll use the ancillaries component as an example but the same steps will apply 
    <DuffelAncillaries
      offer_id="fixture_off_1"
      services={["bags", "seats"]}
-     passengers={[ ... ]}
+     passengers={[...]}
      onPayloadReady={console.log}
    />
    ```
 
 ### Integrating HTML custom element
 
-If you are not using React but still in a node environemnt you cna
+If you are not using React but still in a node environment, you can:
 
 1. Install the package:
 
@@ -56,7 +54,7 @@ If you are not using React but still in a node environemnt you cna
    } from "@duffel/components/custom-elements";
    ```
 
-3. Include the custom element on your html
+3. Include the custom element in your HTML
 
    ```html
    <duffel-ancillaries></duffel-ancillaries>
@@ -68,11 +66,11 @@ If you are not using React but still in a node environemnt you cna
    renderDuffelAncillariesCustomElement({
      offer_id: "fixture_off_1",
      services: ["bags", "seats"],
-     passengers: [ ... ],
+     passengers: [...],
    });
    ```
 
-5. Setup listeners for events triggered by the component:
+5. Set up listeners for events triggered by the component:
 
    ```javascript
    onDuffelAncillariesPayloadReady((data, metadata) => {
@@ -93,23 +91,22 @@ If you are not in a node environment and can't rely on npm to install the packag
      You can find them all on https://www.npmjs.com/package/@duffel/components?activeTab=versions
    
      Replace COMPONENT with the desired component you'd like to use.
-     You can find the components available on the `./cdn-dist` directory after running `yarn build-and-publish --dry-run`
+     You can find the components available in the `./cdn-dist` directory after running `yarn build-and-publish --dry-run`
    
-     For example, for the duffel ancillaries component on version 3.3.1 use:
+     For example, for the duffel ancillaries component on version 3.3.1, use:
      https://assets.duffel.com/components/3.3.1/duffel-ancillaries.js
    -->
 
    <script src="https://assets.duffel.com/components/VERSION/COMPONENT.js"></script>
    ```
 
-2. Include the custom element tag in your html:
+2. Include the custom element tag in your HTML:
 
    ```html
    <duffel-ancillaries></duffel-ancillaries>
    ```
 
-3. Render the component with the required data, you can safely call this function as many times as
-   you want. E.g. when your passenger data changes.
+3. Render the component with the required data. You can safely call this function as many times as you want, e.g., when your passenger data changes.
 
    ```javascript
    const duffelAncillariesElement = document.querySelector("duffel-ancillaries");
@@ -117,11 +114,11 @@ If you are not in a node environment and can't rely on npm to install the packag
    duffelAncillariesElement.render({
      offer_id: "fixture_off_1",
      services: ["bags", "seats"],
-     passengers: [ ... ]
+     passengers: [...],
    });
    ```
 
-4. Listen to 'onPayloadReady' event on the component. `event.detail.data` contains the payload you need to send to Duffel's API to create an order.
+4. Listen to the 'onPayloadReady' event on the component. `event.detail.data` contains the payload you need to send to Duffel's API to create an order.
 
    ```javascript
    const duffelAncillariesElement =
@@ -136,18 +133,17 @@ If you are not in a node environment and can't rely on npm to install the packag
 
 ### Are there integration guides?
 
-- [Integrating the ancillaries component to your booking flow](https://duffel.com/docs/guides/ancillaries-component).
+- [Integrating the ancillaries component into your booking flow](https://duffel.com/docs/guides/ancillaries-component).
 - [Collecting payments with Duffel Payments](https://duffel.com/docs/guides/collecting-customer-card-payments)
 
 More guides are coming soon.
 
-The `examples` folder is a great way to get started quickly and see a fully functioning examples for every component.
+The `examples` folder is a great way to get started quickly and see fully functioning examples for every component.
 
 ### What components are available through npm?
 
-The list of react components can be found on `src/index.ts`.
-If you are using custom elements you can find all render functions and event listeners on `src/custom-elements.ts`
+The list of React components can be found in `src/index.ts`. If you are using custom elements, you can find all render functions and event listeners in `src/custom-elements.ts`.
 
 ### What components are available through the CDN?
 
-Please check `entryPoints` on `config/esbuild.base.config.js`, it lists all of the components we'll build and upload to the CDN.
+Please check `entryPoints` in `config/esbuild.base.config.js`. It lists all the components we'll build and upload to the CDN.
