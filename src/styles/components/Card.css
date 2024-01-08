@@ -47,6 +47,7 @@
   background-color: var(--SECONDARY, rgb(var(--ACCENT)));
   border-radius: 20px;
   color: rgb(var(--WHITE));
+  fill: rgb(var(--WHITE));
   height: 24px;
   width: 24px;
 }
