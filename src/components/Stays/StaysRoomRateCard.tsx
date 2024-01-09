@@ -116,11 +116,12 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
           </VSpace>
         </VSpace>
         <VSpace space={8} className="stays-room-rate-card__footer">
-          <p className="stays-room-rate-card__text--small">
-            At least {quantityOfRoomsAvailable}{" "}
-            {withPlural(quantityOfRoomsAvailable, "room", "rooms")} available
-          </p>
-
+          {quantityOfRoomsAvailable && (
+            <p className="stays-room-rate-card__text--small">
+              At least {withPlural(quantityOfRoomsAvailable, "room", "rooms")}{" "}
+              available
+            </p>
+          )}
           <VSpace space={4}>
             <p className="stays-room-rate-card__text--small">
               {moneyStringFormatter(rate.total_currency)(+rate.total_amount)}{" "}
