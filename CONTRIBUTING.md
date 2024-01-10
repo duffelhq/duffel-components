@@ -66,11 +66,6 @@ This command will:
 yarn cdn-build # Build will output to ./cdn-dist
 ```
 
-You can see this build referenced on:
-
-- `src/examples/client-side`
-- `src/examples/full-stack`
-
 #### Build for npm publishing
 
 ```sh
