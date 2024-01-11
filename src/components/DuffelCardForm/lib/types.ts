@@ -49,9 +49,11 @@ export interface DuffelCardFormProps {
   styles?: DuffelCardFormStyles;
 
   /**
-   * If you want to develop with a local deployment of the token proxy on port 8000. Set this flag to true.
+   * If you want to develop with in a different environment of the token proxy, you can choose it here.
+   *
+   * @default: `production`
    */
-  shouldUseLocalTokenProxy?: boolean;
+  tokenProxyEnvironment?: "development" | "staging" | "production";
 
   /**
    * The actions you'd like the component to perform.

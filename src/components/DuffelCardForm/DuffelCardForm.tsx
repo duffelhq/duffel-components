@@ -3,12 +3,10 @@ import { getTokenFromClientKey } from "./lib/getTokenFromClientKey";
 import { DuffelCardFormProps } from "./lib/types";
 import { getIFrameEventListener } from "./lib/getIFrameEventListener";
 
-const LOCAL_TOKEN_PROXY_IFRAME_BASE_URL = "https://localhost:8000/iframe.html";
-
 export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
   clientKey,
   styles,
-  shouldUseLocalTokenProxy,
+  tokenProxyEnvironment = "production",
 
   actions,
 
@@ -18,12 +16,11 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
   onCreateCardForTemporaryUseSuccess,
   onCreateCardForTemporaryUseFailure,
 }) => {
-  const baseUrlString = shouldUseLocalTokenProxy
-    ? LOCAL_TOKEN_PROXY_IFRAME_BASE_URL
-    : process.env.TOKEN_PROXY_IFRAME_BASE_URL;
-
-  if (typeof baseUrlString !== "string") {
-    throw new Error("TOKEN_PROXY_IFRAME_BASE_URL is not defined");
+  let baseUrlString = "https://api.duffel.cards/iframe.html";
+  if (tokenProxyEnvironment === "staging") {
+    baseUrlString = "https://api.staging.duffel.cards/iframe.html";
+  } else if (tokenProxyEnvironment === "development") {
+    baseUrlString = "https://localhost:8000/iframe.html";
   }
 
   const baseUrl = new URL(baseUrlString);
