@@ -115,7 +115,7 @@ export type WithServiceInformation<TypeToExtend> = {
 export type ServiceInformation =
   | BaggageServiceInformation
   | SeatServiceInformation
-  | CancelForAnyReasonServiceInformation;
+  | CancelForAnyReasonerviceInformation;
 
 interface BaggageServiceInformation
   extends OfferAvailableServiceBaggageMetadata {
@@ -138,7 +138,7 @@ interface SeatServiceInformation {
   total_currency: string;
 }
 
-interface CancelForAnyReasonServiceInformation
+interface CancelForAnyReasonerviceInformation
   extends OfferAvailableServiceCFARMetadata {
   type: "cancel_for_any_reason";
   segmentId?: undefined;

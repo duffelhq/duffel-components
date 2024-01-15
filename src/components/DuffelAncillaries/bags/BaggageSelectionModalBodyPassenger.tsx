@@ -54,12 +54,8 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
             availableService={availableService}
             selectedServices={selectedServices}
             quantity={
-              selectedServices.find(
-                ({ id, serviceInformation }) =>
-                  id == availableService.id &&
-                  serviceInformation.segmentId == segmentId &&
-                  serviceInformation.passengerId == passengerId
-              )?.quantity || 0
+              selectedServices.find(({ id }) => id == availableService.id)
+                ?.quantity || 0
             }
             onQuantityChanged={(newQuantity) =>
               onBaggageQuantityChanged(
@@ -98,10 +94,7 @@ const onBaggageQuantityChanged = (
 ) => {
   // check if the service which had its quantity changed is already in the list
   const changedServiceIndex = selectedServices.findIndex(
-    ({ id, serviceInformation }) =>
-      availableService.id === id &&
-      serviceInformation.segmentId === segmentId &&
-      serviceInformation.passengerId === passengerId
+    ({ id }) => availableService.id === id
   );
 
   // create a copy of the existing list of selected services
