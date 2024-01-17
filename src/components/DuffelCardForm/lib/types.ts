@@ -3,9 +3,30 @@ export interface CreateCardForTemporaryUseData {
   live_mode: false;
 }
 
-export interface CreateCardForTemporaryUseError {
+export type CreateCardForTemporaryUseError = {
   status: number;
   message: string;
+};
+
+export type SaveCardError = {
+  status: number;
+  message: string;
+};
+
+export interface SaveCardData {
+  id: string;
+  live_mode: boolean;
+  last_4_digits: string;
+  bin: string;
+  expiry_month: number;
+  expiry_year: number;
+  brand: string;
+  cardholder_name: string;
+
+  /**
+   * The card will no longer be available for use after this time.
+   */
+  unavailable_at: string;
 }
 
 /**
@@ -35,7 +56,13 @@ export interface DuffelCardFormStyles {
 
 export type DuffelCardFormActions =
   | "validate"
+  | "save-card"
   | "create-card-for-temporary-use";
+
+export type DuffelCardFormIntent =
+  | "to-create-card-for-temporary-use"
+  | "to-use-saved-card"
+  | "to-save-card";
 
 export interface DuffelCardFormProps {
   /**
@@ -56,6 +83,16 @@ export interface DuffelCardFormProps {
   tokenProxyEnvironment?: "development" | "staging" | "production";
 
   /**
+   * The card intent defines what the form is meant to look like.
+   * It can be one of:
+   *
+   * - `create-card-for-temporary-use`: The full form will be shown. You may also use this intent for the use case of using and saving the card.
+   * - `use-saved-card`: When using this intent also provide the saved card ID. Only a cvv field will be rendered.
+   * - `save-card`: The form will be shown without the cvv field.
+   */
+  intent: DuffelCardFormIntent;
+
+  /**
    * The actions you'd like the component to perform.
    *
    * This prop is a dependecy of a useEffect hook in the component
@@ -67,15 +104,21 @@ export interface DuffelCardFormProps {
   actions: DuffelCardFormActions[];
 
   /**
+   * Once a card is saved, in order to use it, travellers need to enter its cvv.
+   * When using the `use-saved-card` intent, you must provide the card ID.
+   */
+  cardId?: string;
+
+  /**
    * This function will be called when the card form validation has been successful.
    */
-  onValidateSuccess: () => void;
+  onValidateSuccess?: () => void;
 
   /**
    * If the card form validation is successful but data is changed afterwards,
    * making it invalid, this function will be called.
    */
-  onValidateFailure: () => void;
+  onValidateFailure?: () => void;
 
   /**
    * This function will be called when the card has been created for temporary use.
@@ -83,7 +126,7 @@ export interface DuffelCardFormProps {
    * This callback will only be triggered if the `create-card-for-temporary-use`
    * action is present in the `actions` prop.
    */
-  onCreateCardForTemporaryUseSuccess: (
+  onCreateCardForTemporaryUseSuccess?: (
     data: CreateCardForTemporaryUseData
   ) => void;
 
@@ -93,7 +136,23 @@ export interface DuffelCardFormProps {
    * This callback will only be triggered if the `create-card-for-temporary-use`
    * action is present in the `actions` prop.
    */
-  onCreateCardForTemporaryUseFailure: (
+  onCreateCardForTemporaryUseFailure?: (
     error: CreateCardForTemporaryUseError
   ) => void;
+
+  /**
+   * This function will be called when the card has been created for temporary use.
+   *
+   * This callback will only be triggered if the `create-card-for-temporary-use`
+   * action is present in the `actions` prop.
+   */
+  onSaveCardSuccess?: (data: SaveCardData) => void;
+
+  /**
+   * This function will be called when the component has failed to create the card for temporary use.
+   *
+   * This callback will only be triggered if the `create-card-for-temporary-use`
+   * action is present in the `actions` prop.
+   */
+  onSaveCardFailure?: (error: SaveCardError) => void;
 }
