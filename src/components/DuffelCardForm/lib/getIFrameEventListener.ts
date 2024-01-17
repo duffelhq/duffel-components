@@ -9,10 +9,12 @@ type Inputs = {
   | "onValidateFailure"
   | "onCreateCardForTemporaryUseSuccess"
   | "onCreateCardForTemporaryUseFailure"
+  | "onSaveCardSuccess"
+  | "onSaveCardFailure"
 >;
 
 export function getIFrameEventListener(
-  baseUrl: string,
+  iFrameURL: URL,
   {
     postMessageWithStyles,
     setIFrameHeight,
@@ -20,10 +22,16 @@ export function getIFrameEventListener(
     onValidateFailure,
     onCreateCardForTemporaryUseSuccess,
     onCreateCardForTemporaryUseFailure,
+    onSaveCardSuccess,
+    onSaveCardFailure,
   }: Inputs
 ) {
   return function iFrameEventListener(event: MessageEvent) {
-    if (!baseUrl?.startsWith(event.origin) || !event.data || !event.data.type) {
+    if (
+      !iFrameURL.origin?.startsWith(event.origin) ||
+      !event.data ||
+      !event.data.type
+    ) {
       return;
     }
 
@@ -39,19 +47,51 @@ export function getIFrameEventListener(
         return;
 
       case "validate-success":
-        onValidateSuccess();
+        if (onValidateSuccess) {
+          onValidateSuccess();
+        } else {
+          console.warn("`onValidateSuccess` not implemented");
+        }
         return;
 
       case "validate-failure":
-        onValidateFailure();
+        if (onValidateFailure) {
+          onValidateFailure();
+        } else {
+          console.warn("`onValidateFailure` not implemented");
+        }
         return;
 
       case "create-card-for-temporary-use-success":
-        onCreateCardForTemporaryUseSuccess(event.data.data);
+        if (onCreateCardForTemporaryUseSuccess) {
+          onCreateCardForTemporaryUseSuccess(event.data.data);
+        } else {
+          console.warn("`onCreateCardForTemporaryUseSuccess` not implemented");
+        }
         return;
 
       case "create-card-for-temporary-use-failure":
-        onCreateCardForTemporaryUseFailure(event.data.error);
+        if (onCreateCardForTemporaryUseFailure) {
+          onCreateCardForTemporaryUseFailure(event.data.error);
+        } else {
+          console.warn("`onCreateCardForTemporaryUseFailure` not implemented");
+        }
+        return;
+
+      case "save-card-success":
+        if (onSaveCardSuccess) {
+          onSaveCardSuccess(event.data.data);
+        } else {
+          console.warn("`onSaveCardSuccess` not implemented");
+        }
+        return;
+
+      case "save-card-failure":
+        if (onSaveCardFailure) {
+          onSaveCardFailure(event.data.error);
+        } else {
+          console.warn("`onSaveCardFailure` not implemented");
+        }
         return;
 
       default:
