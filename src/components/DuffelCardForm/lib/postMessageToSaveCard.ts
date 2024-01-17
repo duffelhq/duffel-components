@@ -4,14 +4,14 @@ export function postMessageToSaveCard(
 ) {
   if (!iFrameReference.current) {
     throw new Error(
-      "Attempted to call `postMessageWithStyles` with empty iFrameReference"
+      "Attempted to call `postMessageToSaveCard` with empty iFrameReference"
     );
   }
 
   const iFrame = iFrameReference.current;
   if (!iFrame.contentWindow) {
     throw new Error(
-      "Attempted to call `postMessageWithStyles` but the iFrame contentWindow is null"
+      "Attempted to call `postMessageToSaveCard` but the iFrame contentWindow is null"
     );
   }
 
