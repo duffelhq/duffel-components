@@ -3,7 +3,8 @@ import { DuffelCardFormProps } from "./types";
 
 export interface UseDuffelCardFormActionsHook {
   /**
-   *  The actions array that should be passed to the `actions` prop of the `DuffelCardForm` component.
+   * The actions array that should be passed to the `actions` prop of the `DuffelCardForm` component.
+   * You do not have have to modify this array directly, instead rely on `triggerSaveCard` and `triggerCreateCardForTemporaryUse` to update the array.
    */
   actions: DuffelCardFormProps["actions"];
 
@@ -20,7 +21,7 @@ export interface UseDuffelCardFormActionsHook {
 
 /**
  * This hook gives you convinient helpers to read and reason through the DuffelCardForm integration.
- * Add `actions` to the `DuffelCardForm` actiosn prop and call the functions to trigger the actions you'd like.
+ * Add `actions` to the `DuffelCardForm` actions prop and call the functions to trigger the actions you'd like.
  *
  * In the background, this hook is setting the state on actions prop and the component's useEffect hook will trigger the action.
  */

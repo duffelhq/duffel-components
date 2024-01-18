@@ -88,7 +88,8 @@ export interface DuffelCardFormProps {
    *
    * - `to-create-card-for-temporary-use`: The full form will be shown. You may also use this intent for the use case of using and saving the card.
    * - `to-use-saved-card`: When using this intent also provide the saved card ID. Only a cvv field will be rendered.
-   * - `to-save-card`: The form will be shown without the cvv field.
+   * - `to-save-card`: The form will be shown without the cvv field. This only allows you to save a card for future use,
+   *    but not create an id for immediate, temporary use. For the use case of saving during checkout or save + use, use the `to-create-card-for-temporary-use` intent.
    */
   intent: DuffelCardFormIntent;
 
@@ -127,8 +128,8 @@ export interface DuffelCardFormProps {
    *
    * This callback will only be triggered if the `create-card-for-temporary-use`
    * action is present in the `actions` prop. Alternatively,
-   * you may use the `triggerSaveCard` function from the
-   * `triggerCreateCardForTemporaryUse` hook.
+   * you may use the `triggerCreateCardForTemporaryUse` function from the
+   * `useDuffelCardFormActions` hook.
    */
   onCreateCardForTemporaryUseSuccess?: (
     data: CreateCardForTemporaryUseData
@@ -139,8 +140,8 @@ export interface DuffelCardFormProps {
    *
    * This callback will only be triggered if the `create-card-for-temporary-use`
    * action is present in the `actions` prop. Alternatively,
-   * you may use the `triggerSaveCard` function from the
-   * `triggerCreateCardForTemporaryUse` hook.
+   * you may use the `triggerCreateCardForTemporaryUse` function from the
+   * `useDuffelCardFormActions` hook.
    */
   onCreateCardForTemporaryUseFailure?: (
     error: CreateCardForTemporaryUseError

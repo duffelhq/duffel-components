@@ -161,7 +161,7 @@ export const OptionallySavingCardOnCheckoutExample = () => {
   const { actions, triggerSaveCard, triggerCreateCardForTemporaryUse } =
     useDuffelCardFormActions();
 
-  const [cardId, setCardId] = React.useState<string>();
+  const [cardId, setCardId] = React.useState<string>(); // 1.create state for cardId
 
   return (
     <body>
@@ -197,9 +197,9 @@ export const OptionallySavingCardOnCheckoutExample = () => {
       </label>
 
       <button
-        disabled={!cardId} //
+        disabled={!cardId} // 6. Only enable button when card is saved
         onClick={() => {
-          console.log("User triggered form submission"); //
+          console.log("User triggered form submission"); // 7. User triggers form submission. use the cardId to crrate booking or order
         }}
       >
         Pay for flight

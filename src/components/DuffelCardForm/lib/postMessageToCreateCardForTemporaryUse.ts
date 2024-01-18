@@ -1,4 +1,4 @@
-export function postMessageToStoreCardForTemporaryUse(
+export function postMessageToCreateCardForTemporaryUse(
   iFrameReference: React.RefObject<HTMLIFrameElement>,
   baseUrl: URL
 ) {

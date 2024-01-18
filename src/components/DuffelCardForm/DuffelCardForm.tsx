@@ -1,8 +1,8 @@
 import * as React from "react";
 import { getIFrameEventListener } from "./lib/getIFrameEventListener";
 import { getIframeURL } from "./lib/getIframeURL";
+import { postMessageToCreateCardForTemporaryUse } from "./lib/postMessageToCreateCardForTemporaryUse";
 import { postMessageToSaveCard } from "./lib/postMessageToSaveCard";
-import { postMessageToStoreCardForTemporaryUse } from "./lib/postMessageToStoreCardForTemporaryUse";
 import { postMessageWithStyles } from "./lib/postMessageWithStyles";
 import { DuffelCardFormProps } from "./lib/types";
 
@@ -33,7 +33,7 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
   }
   if (!Array.isArray(actions)) {
     throw new Error(
-      "Attempted to render `DuffelCardForm` without an `actions` array. You may set the initial state for actions to `['validate']` or use `action` returned from the `useDuffelCardFormActions` hook."
+      "Attempted to render `DuffelCardForm` without an `actions` array. You may set the initial state for actions to `['validate']` or use `actions` returned from the `useDuffelCardFormActions` hook."
     );
   }
   if (intent == "to-use-saved-card" && !cardId) {
@@ -74,7 +74,7 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
 
   React.useEffect(() => {
     if (actions.includes("create-card-for-temporary-use")) {
-      postMessageToStoreCardForTemporaryUse(iFrameReference, iFrameURL);
+      postMessageToCreateCardForTemporaryUse(iFrameReference, iFrameURL);
     }
 
     if (actions.includes("save-card")) {
