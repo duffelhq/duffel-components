@@ -1,0 +1,35 @@
+.ngs-shelf-info-card_container {
+  padding: 36px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.ngs-shelf-info-card_title {
+  font-size: 14px;
+  color: var(--GREY-900);
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+
+.ngs-shelf-info-card_text {
+  font-size: 12px;
+  color: var(--GREY-600);
+  font-weight: 400;
+}
+
+.ngs-shelf-info-card_items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4px;
+  margin-top: 16px;
+}
+
+.ngs-shelf-info-card_items > div {
+  display: flex;
+  align-items: center;
+}
+
+.ngs-shelf-info-card_items > div > .ngs-shelf-info-card_text {
+  margin-left: 2px;
+}

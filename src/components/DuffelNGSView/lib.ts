@@ -38,7 +38,8 @@ type SeatType =
   | "Standard seat"
   | "Extra legroom"
   | "Larger seat"
-  | "Lie flat bed";
+  | "Lie flat bed"
+  | "Lie flat suite";
 
 type ShelfInfo = {
   short_title: string;
@@ -50,7 +51,7 @@ type ShelfInfo = {
   icon: IconName;
 };
 
-export const NGSShelfInfo: Record<string, ShelfInfo> = {
+export const NGSShelfInfo = {
   "1": {
     short_title: "Basic",
     full_title: "Basic Economy",
@@ -60,7 +61,7 @@ export const NGSShelfInfo: Record<string, ShelfInfo> = {
     checked_bag: false,
     seat_selection: false,
     icon: "carry_on_bag_inactive",
-  },
+  } satisfies ShelfInfo,
   "2": {
     short_title: "Standard",
     full_title: "Standard Economy",
@@ -70,7 +71,7 @@ export const NGSShelfInfo: Record<string, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_recline_normal",
-  },
+  } satisfies ShelfInfo,
   "3": {
     short_title: "Plus",
     full_title: "Economy Plus",
@@ -80,7 +81,7 @@ export const NGSShelfInfo: Record<string, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_legroom_extra",
-  },
+  } satisfies ShelfInfo,
   "4": {
     short_title: "Premium",
     full_title: "Premium Economy",
@@ -90,7 +91,7 @@ export const NGSShelfInfo: Record<string, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_recline_extra",
-  },
+  } satisfies ShelfInfo,
   "5": {
     short_title: "Luxury",
     full_title: "Luxury",
@@ -100,7 +101,17 @@ export const NGSShelfInfo: Record<string, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_flat",
-  },
+  } satisfies ShelfInfo,
+  "6": {
+    short_title: "Ultra",
+    full_title: "Ultra-Lux",
+    description:
+      "A luxury seat with a lie flat pod, seat selection, flexible change and cancellation options and checked baggage.",
+    seat: "Lie flat suite",
+    checked_bag: true,
+    seat_selection: true,
+    icon: "airline_seat_individual_suite",
+  } satisfies ShelfInfo,
 };
 
 export type NGSShelf = keyof typeof NGSShelfInfo;
@@ -110,4 +121,5 @@ export const seatIconsMap: Record<SeatType, IconName> = {
   "Extra legroom": "airline_seat_legroom_extra",
   "Larger seat": "airline_seat_recline_extra",
   "Lie flat bed": "airline_seat_flat",
+  "Lie flat suite": "airline_seat_individual_suite",
 };
