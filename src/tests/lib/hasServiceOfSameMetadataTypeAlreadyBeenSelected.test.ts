@@ -83,6 +83,19 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         }
       )
     ).toBe(true);
+
+    expect(
+      hasServiceOfSameMetadataTypeAlreadyBeenSelected(
+        [selectedService],
+        "segment_id_wont_match",
+        "passenger_id",
+        {
+          ...availableService,
+          metadata: { ...availableService.metadata, type: "carry_on" },
+          segment_ids: ["segment_id", "segment_id_wont_match"],
+        }
+      )
+    ).toBe(false);
   });
 
   it("Should return false if service selected is of different type", () => {

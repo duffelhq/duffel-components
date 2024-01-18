@@ -11,6 +11,14 @@ export const hasServiceOfSameMetadataTypeAlreadyBeenSelected = (
   availableService: OfferAvailableServiceBaggage
 ) =>
   selectedServices.some((selectedService) => {
+    const isOnDifferentSegment =
+      selectedService.serviceInformation?.segmentId !== segmentId;
+    const doesAvailableServiceApplyToSegment =
+      availableService.segment_ids?.includes(segmentId);
+    const hasSameBaggageType =
+      selectedService.serviceInformation?.type ===
+      availableService.metadata.type;
+
     if (selectedService.id === availableService.id) {
       // if the selected service is the one on the counter, don't disable it
       // the max quantity will be availableService.maximum_quantity
@@ -20,21 +28,10 @@ export const hasServiceOfSameMetadataTypeAlreadyBeenSelected = (
       selectedService.serviceInformation?.type !== "checked"
     ) {
       return false;
-    } else if (
-      selectedService.serviceInformation?.segmentId !== segmentId &&
-      !availableService.segment_ids?.includes(
-        selectedService.serviceInformation?.segmentId
-      )
-    ) {
+    } else if (isOnDifferentSegment) {
       // if the selected service doesn't belong to the same segment, don't disable it
-      // eslint-disable-next-line no-restricted-syntax
-      console.log(
-        "test",
-        segmentId,
-        selectedService.serviceInformation?.segmentId,
-        availableService.segment_ids
-      );
-      return false;
+      // unless the service applies to both segments
+      return hasSameBaggageType && doesAvailableServiceApplyToSegment;
     } else if (
       // if the selected service doesn't belong to the same passenger, don't disable it
       selectedService.serviceInformation?.passengerId !== passengerId
