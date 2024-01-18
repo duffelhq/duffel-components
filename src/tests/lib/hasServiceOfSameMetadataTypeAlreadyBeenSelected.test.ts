@@ -62,7 +62,7 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
     ).toBe(false);
   });
 
-  it("Should return false if service selected are for different segment", () => {
+  it("Should return false if service selected are for different segment unless the service applies to both segments", () => {
     expect(
       hasServiceOfSameMetadataTypeAlreadyBeenSelected(
         [selectedService],
@@ -71,6 +71,18 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         availableService
       )
     ).toBe(false);
+
+    expect(
+      hasServiceOfSameMetadataTypeAlreadyBeenSelected(
+        [selectedService],
+        "segment_id_wont_match",
+        "passenger_id",
+        {
+          ...availableService,
+          segment_ids: ["segment_id", "segment_id_wont_match"],
+        }
+      )
+    ).toBe(true);
   });
 
   it("Should return false if service selected is of different type", () => {

@@ -20,8 +20,20 @@ export const hasServiceOfSameMetadataTypeAlreadyBeenSelected = (
       selectedService.serviceInformation?.type !== "checked"
     ) {
       return false;
-    } else if (selectedService.serviceInformation?.segmentId !== segmentId) {
+    } else if (
+      selectedService.serviceInformation?.segmentId !== segmentId &&
+      !availableService.segment_ids?.includes(
+        selectedService.serviceInformation?.segmentId
+      )
+    ) {
       // if the selected service doesn't belong to the same segment, don't disable it
+      // eslint-disable-next-line no-restricted-syntax
+      console.log(
+        "test",
+        segmentId,
+        selectedService.serviceInformation?.segmentId,
+        availableService.segment_ids
+      );
       return false;
     } else if (
       // if the selected service doesn't belong to the same passenger, don't disable it
