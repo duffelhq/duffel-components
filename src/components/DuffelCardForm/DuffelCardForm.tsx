@@ -1,108 +1,92 @@
 import * as React from "react";
-import { getTokenFromClientKey } from "./lib/getTokenFromClientKey";
-import { DuffelCardFormProps } from "./lib/types";
 import { getIFrameEventListener } from "./lib/getIFrameEventListener";
+import { getIframeURL } from "./lib/getIframeURL";
+import { postMessageToCreateCardForTemporaryUse } from "./lib/postMessageToCreateCardForTemporaryUse";
+import { postMessageToSaveCard } from "./lib/postMessageToSaveCard";
+import { postMessageWithStyles } from "./lib/postMessageWithStyles";
+import { DuffelCardFormProps } from "./lib/types";
 
 export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
+  tokenProxyEnvironment = "production",
   clientKey,
   styles,
-  tokenProxyEnvironment = "production",
-
+  intent,
   actions,
-
+  cardId,
   onValidateSuccess,
   onValidateFailure,
-
   onCreateCardForTemporaryUseSuccess,
   onCreateCardForTemporaryUseFailure,
+  onSaveCardSuccess,
+  onSaveCardFailure,
 }) => {
-  let baseUrlString = "https://api.duffel.cards/iframe.html";
-  if (tokenProxyEnvironment === "staging") {
-    baseUrlString = "https://api.staging.duffel.cards/iframe.html";
-  } else if (tokenProxyEnvironment === "development") {
-    baseUrlString = "https://localhost:8000/iframe.html";
+  // Validates required props
+  if (!clientKey) {
+    throw new Error(
+      "Attempted to render `DuffelCardForm` without a clientKey."
+    );
+  }
+  if (!intent) {
+    throw new Error(
+      "Attempted to render `DuffelCardForm` without an `intent`. Make sure your provide one of the following: `create-card-for-temporary-use`, `save-card`, `use-saved-card`."
+    );
+  }
+  if (!Array.isArray(actions)) {
+    throw new Error(
+      "Attempted to render `DuffelCardForm` without an `actions` array. You may set the initial state for actions to `['validate']` or use `actions` returned from the `useDuffelCardFormActions` hook."
+    );
+  }
+  if (intent == "to-use-saved-card" && !cardId) {
+    throw new Error(
+      "Attempted to render `DuffelCardForm`to use a saved card but the `cardId` prop is missing. Make sure you provide the id of the saved card you'd like to use."
+    );
   }
 
-  const baseUrl = new URL(baseUrlString);
-
+  // Calls hooks
   const [iFrameHeight, setIFrameHeight] = React.useState("0px");
-
   const iFrameReference = React.useRef<HTMLIFrameElement>(null);
 
-  const iFrameSrc = `${baseUrl}?${new URLSearchParams({
-    token: getTokenFromClientKey(clientKey),
-  }).toString()}`;
+  // Sets the iframe src
+  const iFrameURL = getIframeURL(
+    tokenProxyEnvironment,
+    intent,
+    clientKey,
+    cardId
+  );
 
-  function sendMessageToStoreCardForTemporaryUse() {
-    if (!iFrameReference.current) {
-      throw new Error(
-        "Attempted to call `sendMessageToStoreCardForTemporaryUse` with empty iFrameReference"
-      );
-    }
-
-    const iFrame = iFrameReference.current;
-    if (!iFrame.contentWindow) {
-      throw new Error(
-        "Attempted to call `sendMessageToStoreCardForTemporaryUse` but the iFrame contentWindow is null"
-      );
-    }
-
-    iFrame.contentWindow.postMessage(
-      { type: "create-card-for-temporary-use" },
-      baseUrl.origin
-    );
-  }
-
-  function postMessageWithStyles() {
-    if (!iFrameReference.current) {
-      throw new Error(
-        "Attempted to call `postMessageWithStyles` with empty iFrameReference"
-      );
-    }
-
-    const iFrame = iFrameReference.current;
-    if (!iFrame.contentWindow) {
-      throw new Error(
-        "Attempted to call `postMessageWithStyles` but the iFrame contentWindow is null"
-      );
-    }
-
-    iFrame.contentWindow.postMessage(
-      { type: "apply-styles", styles },
-      baseUrl.origin
-    );
-  }
-
-  /**
-   * useEffect to react to changes on the actions prop.
-   */
+  // Register event listeners to the window to listen to messages from the iframe.
   React.useEffect(() => {
-    if (actions.includes("create-card-for-temporary-use")) {
-      sendMessageToStoreCardForTemporaryUse();
-    }
-  }, [actions]);
-
-  /**
-   * Adds an event listener to the window to listen to messages from the iframe.
-   */
-  React.useEffect(() => {
-    const iFrameEventListener = getIFrameEventListener(baseUrl.origin, {
-      postMessageWithStyles,
+    const iFrameEventListener = getIFrameEventListener(iFrameURL, {
+      postMessageWithStyles: () =>
+        postMessageWithStyles(iFrameReference, iFrameURL, styles),
       setIFrameHeight,
       onValidateSuccess,
       onValidateFailure,
       onCreateCardForTemporaryUseSuccess,
       onCreateCardForTemporaryUseFailure,
+      onSaveCardSuccess,
+      onSaveCardFailure,
     });
+
     window.addEventListener("message", iFrameEventListener);
     return () => window.removeEventListener("message", iFrameEventListener);
   }, []);
+
+  React.useEffect(() => {
+    if (actions.includes("create-card-for-temporary-use")) {
+      postMessageToCreateCardForTemporaryUse(iFrameReference, iFrameURL);
+    }
+
+    if (actions.includes("save-card")) {
+      postMessageToSaveCard(iFrameReference, iFrameURL);
+    }
+  }, [actions]);
 
   return (
     <iframe
       ref={iFrameReference}
       title="Card Payment Form"
-      src={iFrameSrc}
+      src={iFrameURL.href}
       style={{
         width: "100%",
         border: "none",
