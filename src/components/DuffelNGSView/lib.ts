@@ -75,7 +75,7 @@ export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
     checked_bag: false,
     seat_selection: false,
     icon: "carry_on_bag_inactive",
-  } satisfies ShelfInfo,
+  },
   "2": {
     short_title: "Standard",
     full_title: "Standard Economy",
@@ -88,7 +88,7 @@ export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_recline_normal",
-  } satisfies ShelfInfo,
+  },
   "3": {
     short_title: "Plus",
     full_title: "Economy Plus",
@@ -101,7 +101,7 @@ export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_legroom_extra",
-  } satisfies ShelfInfo,
+  },
   "4": {
     short_title: "Premium",
     full_title: "Premium Economy",
@@ -111,7 +111,7 @@ export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_recline_extra",
-  } satisfies ShelfInfo,
+  },
   "5": {
     short_title: "Luxury",
     full_title: "Luxury",
@@ -121,7 +121,7 @@ export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_flat",
-  } satisfies ShelfInfo,
+  },
   // We might not include the Ultra shelf in the API currently
   "6": {
     short_title: "Ultra",
@@ -135,5 +135,5 @@ export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_individual_suite",
-  } satisfies ShelfInfo,
+  },
 };
