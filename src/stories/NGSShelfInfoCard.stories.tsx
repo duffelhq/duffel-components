@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { NGSShelfInfoCard } from "@components/DuffelNGSView/NGSShelfInfoCard";
-import { NGSShelf, NGSShelfInfo } from "@components/DuffelNGSView/lib";
+import { NGS_SHELVES } from "@components/DuffelNGSView/lib";
 
 export default {
   title: "NGSShelfInfoCard",
@@ -25,9 +25,9 @@ export const FullList: React.FC = () => (
       padding: "32px",
     }}
   >
-    {Object.keys(NGSShelfInfo).map((ngs_shelf) => (
+    {NGS_SHELVES.map((ngs_shelf) => (
       <div key={ngs_shelf}>
-        <NGSShelfInfoCard ngs_shelf={ngs_shelf as NGSShelf} />
+        <NGSShelfInfoCard ngs_shelf={ngs_shelf} />
       </div>
     ))}
   </div>

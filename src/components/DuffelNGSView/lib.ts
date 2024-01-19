@@ -6,7 +6,7 @@ import {
   OfferSliceSegmentPassenger,
 } from "@duffel/api/types";
 
-// These types are temporary until this is in the official API
+// TODO([@andrejak)](https://github.com/andrejak)) These types are temporary until this is in the official API
 type SeatWithNGS = { type: string; flatness: string };
 type CabinWithNGS = {
   amenities: {
@@ -45,19 +45,33 @@ type ShelfInfo = {
   short_title: string;
   full_title: string;
   description: string;
-  seat: SeatType;
+  seat: { description: SeatType; icon: IconName };
   checked_bag: boolean;
   seat_selection: boolean;
   icon: IconName;
 };
 
-export const NGSShelfInfo = {
+export const SEAT_ICONS_MAP: Record<SeatType, IconName> = {
+  "Standard seat": "airline_seat_recline_normal",
+  "Extra legroom": "airline_seat_legroom_extra",
+  "Larger seat": "airline_seat_recline_extra",
+  "Lie flat bed": "airline_seat_flat",
+  "Lie flat suite": "airline_seat_individual_suite",
+};
+
+export const NGS_SHELVES = ["1", "2", "3", "4", "5", "6"] as const;
+export type NGSShelf = (typeof NGS_SHELVES)[number];
+
+export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
   "1": {
     short_title: "Basic",
     full_title: "Basic Economy",
     description:
       "Basic economy seats without seat selection, flexible change/cancellation options or checked baggage.",
-    seat: "Standard seat",
+    seat: {
+      description: "Standard seat",
+      icon: SEAT_ICONS_MAP["Standard seat"],
+    },
     checked_bag: false,
     seat_selection: false,
     icon: "carry_on_bag_inactive",
@@ -67,7 +81,10 @@ export const NGSShelfInfo = {
     full_title: "Standard Economy",
     description:
       "Economy seats that allow seat selection, flexible change/cancellation options and checked baggage.",
-    seat: "Standard seat",
+    seat: {
+      description: "Standard seat",
+      icon: SEAT_ICONS_MAP["Standard seat"],
+    },
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_recline_normal",
@@ -77,7 +94,10 @@ export const NGSShelfInfo = {
     full_title: "Economy Plus",
     description:
       "Economy seats with extra leg room that allow seat selection, flexible change and cancellation options and checked baggage.",
-    seat: "Extra legroom",
+    seat: {
+      description: "Extra legroom",
+      icon: SEAT_ICONS_MAP["Extra legroom"],
+    },
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_legroom_extra",
@@ -87,7 +107,7 @@ export const NGSShelfInfo = {
     full_title: "Premium Economy",
     description:
       "Premium seats that have a recliner seat type, allow seat selection, flexible change and cancellation options and checked baggage.",
-    seat: "Larger seat",
+    seat: { description: "Larger seat", icon: SEAT_ICONS_MAP["Larger seat"] },
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_recline_extra",
@@ -97,29 +117,23 @@ export const NGSShelfInfo = {
     full_title: "Luxury",
     description:
       "A luxury seat with a lie flat bed, seat selection, flexible change and cancellation options and checked baggage.",
-    seat: "Lie flat bed",
+    seat: { description: "Lie flat bed", icon: SEAT_ICONS_MAP["Lie flat bed"] },
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_flat",
   } satisfies ShelfInfo,
+  // We might not include the Ultra shelf in the API currently
   "6": {
     short_title: "Ultra",
     full_title: "Ultra-Lux",
     description:
       "A luxury seat with a lie flat pod, seat selection, flexible change and cancellation options and checked baggage.",
-    seat: "Lie flat suite",
+    seat: {
+      description: "Lie flat suite",
+      icon: SEAT_ICONS_MAP["Lie flat suite"],
+    },
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_individual_suite",
   } satisfies ShelfInfo,
-};
-
-export type NGSShelf = keyof typeof NGSShelfInfo;
-
-export const seatIconsMap: Record<SeatType, IconName> = {
-  "Standard seat": "airline_seat_recline_normal",
-  "Extra legroom": "airline_seat_legroom_extra",
-  "Larger seat": "airline_seat_recline_extra",
-  "Lie flat bed": "airline_seat_flat",
-  "Lie flat suite": "airline_seat_individual_suite",
 };
