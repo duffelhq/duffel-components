@@ -6,15 +6,17 @@ import { Icon } from "./Icon";
 export interface RadioButtonProps {
   value: string;
   checked?: boolean;
+  className?: string;
 }
 
 export const RadioButton: React.FC<RadioButtonProps> = ({
   value,
   checked = false,
+  className,
 }) => {
   const inputId = `radio-${value}`;
   return (
-    <div>
+    <div className={className}>
       <input
         id={inputId}
         type="radio"
