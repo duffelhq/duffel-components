@@ -20,6 +20,7 @@
 @import "./components/LoadingState.css";
 @import "./components/Modal.css";
 @import "./components/NGSShelfInfoCard.css";
+@import "./components/NGSSliceFareCard.css";
 @import "./components/OfferSlice.css";
 @import "./components/OfferSliceDetailTravelItem.css";
 @import "./components/PassengerSelect.css";
