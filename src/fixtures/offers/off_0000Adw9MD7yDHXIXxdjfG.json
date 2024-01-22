@@ -88,12 +88,12 @@
       "fare_brand_name": "Basic",
       "conditions": {
         "change_before_departure": {
-          "penalty_currency": "GBP",
-          "penalty_amount": "150.00",
-          "allowed": true
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
         }
       },
-      "ngs_shelf": 3,
+      "ngs_shelf": 1,
       "segments": [
         {
           "origin_terminal": "2",
@@ -321,15 +321,20 @@
     {
       "destination_type": "airport",
       "origin_type": "airport",
-      "fare_brand_name": "Basic",
+      "fare_brand_name": "Flexi",
       "conditions": {
         "change_before_departure": {
+          "penalty_currency": "GBP",
+          "penalty_amount": "30.00",
+          "allowed": true
+        },
+        "refund_before_departure": {
           "penalty_currency": "GBP",
           "penalty_amount": "150.00",
           "allowed": true
         }
       },
-      "ngs_shelf": 1,
+      "ngs_shelf": 3,
       "segments": [
         {
           "origin_terminal": "2",
