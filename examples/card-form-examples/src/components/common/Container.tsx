@@ -18,7 +18,7 @@ export const Container: React.FC<
     >
       <h3>
         {title}{" "}
-        <a
+        <button
           onClick={() => setShowing(!showing)}
           style={{
             fontSize: "12px",
@@ -28,7 +28,7 @@ export const Container: React.FC<
           }}
         >
           Click to {!showing ? "show" : "hide"} example
-        </a>
+        </button>
       </h3>
       {showing && children}
     </div>
