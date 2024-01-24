@@ -23,7 +23,6 @@ export const FullList: React.FC = () => {
   const compareToAmount = 500;
   console.log(selected);
 
-  // TODO: This wrapper structure might become a component in itself with more precise responsive styles
   return (
     <div
       style={{

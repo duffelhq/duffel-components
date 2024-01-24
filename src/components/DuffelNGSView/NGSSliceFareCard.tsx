@@ -29,9 +29,8 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   }
 
   const slice = offer.slices[sliceIndex];
+  // TODO: Update the fields that are currently retrieved from the shelf info to be from the API once the fields are finalised
   const shelfInfo = NGS_SHELF_INFO[slice.ngs_shelf];
-
-  // The following logic is taken from how the dashboard displays it currently
 
   // Cabin class can vary within a slice across passengers and segments. Here we
   // make a list of all cabin classes present in the slice.
@@ -59,8 +58,10 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
     ? slice.conditions.refund_before_departure
     : offer.conditions.refund_before_departure;
 
-  // TODO: verify whether we want to use checked (and carry on?) bag info from the shelf or the offer
   const baggages = getMaxBaggagesForOfferSlice(slice);
+  const checkedBagItems = baggages.filter(
+    (baggage) => baggage.type === "checked"
+  );
   const carryOnBagItems = baggages.filter(
     (baggage) => baggage.type === "carry_on"
   );
@@ -94,13 +95,13 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
           </div>
           <Icon name={shelfInfo.icon} color="--GREY-900" />
         </div>
-        <div className="ngs-slice-fare-card_items">
-          <div>
+        <div>
+          <div className="ngs-slice-fare-card_item">
             <Icon name={shelfInfo.seat.icon} color="--GREY-600" size={20} />
             {shelfInfo.seat.description}
           </div>
           {changeBeforeDepartureCondition && (
-            <div>
+            <div className="ngs-slice-fare-card_item">
               <Icon
                 name={
                   changeBeforeDepartureCondition.allowed
@@ -121,7 +122,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
             </div>
           )}
           {refundBeforeDepartureCondition && (
-            <div>
+            <div className="ngs-slice-fare-card_item">
               <Icon
                 name={
                   refundBeforeDepartureCondition.allowed
@@ -141,25 +142,23 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
                 : ""}
             </div>
           )}
-          {carryOnBagItems !== undefined && carryOnBagItems.length > 0 && (
-            <div>
-              <Icon
-                name={shelfInfo.checked_bag ? "shopping_bag" : "close"}
-                color="--GREY-600"
-                size={20}
-              />
-              Carry-on bag
-            </div>
-          )}
-          <div>
+          <div className="ngs-slice-fare-card_item">
             <Icon
-              name={shelfInfo.checked_bag ? "luggage" : "close"}
+              name={carryOnBagItems.length > 0 ? "shopping_bag" : "close"}
+              color="--GREY-600"
+              size={20}
+            />
+            Carry-on bag
+          </div>
+          <div className="ngs-slice-fare-card_item">
+            <Icon
+              name={checkedBagItems.length > 0 ? "luggage" : "close"}
               color="--GREY-600"
               size={20}
             />
             Checked bag
           </div>
-          <div>
+          <div className="ngs-slice-fare-card_item">
             <Icon
               name={shelfInfo.seat_selection ? "check_small" : "close"}
               color="--GREY-600"

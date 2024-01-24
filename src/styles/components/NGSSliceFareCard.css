@@ -35,16 +35,16 @@
   font-weight: 600;
 }
 
-.ngs-slice-fare-card_items > div {
+.ngs-slice-fare-card_item {
   display: flex;
   align-items: center;
 }
 
-.ngs-slice-fare-card_items > div + div {
+.ngs-slice-fare-card_item + .ngs-slice-fare-card_item {
   margin-top: 8px;
 }
 
-.ngs-slice-fare-card_items > div > svg {
+.ngs-slice-fare-card_item > svg {
   margin-right: 4px;
 }
 
