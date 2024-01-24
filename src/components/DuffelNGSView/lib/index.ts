@@ -26,7 +26,7 @@ type OfferSliceSegmentPassengerWithNGS = OfferSliceSegmentPassenger & {
   cabin: CabinWithNGS;
   ticket_attributes: { advanced_selection_available: boolean };
 };
-type OfferSliceSegmentWithNGS = OfferSliceSegment & {
+export type OfferSliceSegmentWithNGS = OfferSliceSegment & {
   passengers: OfferSliceSegmentPassengerWithNGS[];
 };
 type OfferSliceWithNGS = OfferSlice & {

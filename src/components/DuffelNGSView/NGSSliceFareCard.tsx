@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NGS_SHELF_INFO, OfferWithNGS } from "./lib";
+import { NGS_SHELF_INFO, OfferSliceSegmentWithNGS, OfferWithNGS } from "./lib";
 import { OfferSliceSegmentPassenger } from "@duffel/api/types";
 import { Icon } from "@components/shared/Icon";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
@@ -29,7 +29,6 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   }
 
   const slice = offer.slices[sliceIndex];
-  // TODO: Update the fields that are currently retrieved from the shelf info to be from the API once the fields are finalised
   const shelfInfo = NGS_SHELF_INFO[slice.ngs_shelf];
 
   // Cabin class can vary within a slice across passengers and segments. Here we
@@ -58,13 +57,8 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
     ? slice.conditions.refund_before_departure
     : offer.conditions.refund_before_departure;
 
-  const baggages = getMaxBaggagesForOfferSlice(slice);
-  const checkedBagItems = baggages.filter(
-    (baggage) => baggage.type === "checked"
-  );
-  const carryOnBagItems = baggages.filter(
-    (baggage) => baggage.type === "carry_on"
-  );
+  const checkedBagItems = getMaxBaggagesForOfferSlice(slice, "checked");
+  const carryOnBagItems = getMaxBaggagesForOfferSlice(slice, "carry_on");
 
   const showComparedAmount = !selected && compareToAmount;
   const amountDifference = showComparedAmount
@@ -73,6 +67,12 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   const amountDifferencePrefix = showComparedAmount
     ? `${amountDifference > 0 ? "+" : ""}`
     : "";
+
+  const isAdvancedSeatSelectionAvailable = slice.segments
+    .flatMap((segment: OfferSliceSegmentWithNGS) => segment.passengers)
+    .some(
+      (passenger) => passenger.ticket_attributes?.advanced_selection_available
+    );
 
   return (
     <button
@@ -160,7 +160,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
           </div>
           <div className="ngs-slice-fare-card_item">
             <Icon
-              name={shelfInfo.seat_selection ? "check_small" : "close"}
+              name={isAdvancedSeatSelectionAvailable ? "check_small" : "close"}
               color="--GREY-600"
               size={20}
             />
