@@ -1,0 +1,122 @@
+.ngs-slice-fare-card_container {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--FONT-FAMILY);
+
+  font-size: 12px;
+  color: var(--GREY-600);
+  border-radius: 8px;
+  border: 1px solid var(--GREY-200);
+  text-align: left;
+
+  width: 190px;
+}
+
+.ngs-slice-fare-card_container > div {
+  padding: 16px;
+}
+
+.ngs-slice-fare-card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ngs-slice-fare-card_title {
+  font-size: 14px;
+  margin-top: 2px;
+  color: var(--GREY-900);
+  font-weight: 600;
+}
+
+.ngs-slice-fare-card_item {
+  display: flex;
+  align-items: center;
+}
+
+.ngs-slice-fare-card_item + .ngs-slice-fare-card_item {
+  margin-top: 8px;
+}
+
+.ngs-slice-fare-card_item > svg {
+  margin-right: 4px;
+}
+
+.ngs-slice-fare-card_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--GREY-200);
+
+  min-height: 32px;
+}
+
+.ngs-slice-fare-card_price {
+  color: var(--GREY-900);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ngs-slice-fare-card_radio {
+  display: inline;
+}
+
+.ngs-slice-fare-card_button {
+  display: none;
+}
+
+.ngs-slice-fare-card_price--compared {
+  display: none;
+}
+
+.ngs-slice-fare-card_price--total {
+  display: inline;
+}
+
+/* tablet or greater  */
+@media (min-width: 768px) {
+  .ngs-slice-fare-card_container {
+    width: 260px;
+  }
+
+  .ngs-slice-fare-card_radio {
+    display: none;
+  }
+
+  .ngs-slice-fare-card_button {
+    display: inline;
+  }
+
+  .ngs-slice-fare-card_title {
+    color: var(--GREY-600);
+  }
+
+  .ngs-slice-fare-card_title--selected {
+    color: var(--GREY-900);
+    font-size: 16px;
+  }
+
+  .ngs-slice-fare-card_price {
+    color: var(--GREY-600);
+    font-size: 18px;
+  }
+
+  .ngs-slice-fare-card_price--selected {
+    color: var(--GREY-900);
+    font-size: 20px;
+  }
+
+  .ngs-slice-fare-card_price--total {
+    display: none;
+  }
+
+  .ngs-slice-fare-card_price--compared {
+    display: inline;
+  }
+}

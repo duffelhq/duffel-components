@@ -6,6 +6,9 @@ import {
   OfferSliceSegmentPassenger,
 } from "@duffel/api/types";
 
+export const NGS_SHELVES = ["1", "2", "3", "4", "5", "6"] as const;
+export type NGSShelf = (typeof NGS_SHELVES)[number];
+
 // TODO([@andrejak)](https://github.com/andrejak)) These types are temporary until this is in the official API
 type SeatWithNGS = { type: string; flatness: string };
 type CabinWithNGS = {
@@ -23,12 +26,12 @@ type OfferSliceSegmentPassengerWithNGS = OfferSliceSegmentPassenger & {
   cabin: CabinWithNGS;
   ticket_attributes: { advanced_selection_available: boolean };
 };
-type OfferSliceSegmentWithNGS = OfferSliceSegment & {
+export type OfferSliceSegmentWithNGS = OfferSliceSegment & {
   passengers: OfferSliceSegmentPassengerWithNGS[];
 };
 type OfferSliceWithNGS = OfferSlice & {
   segments: OfferSliceSegmentWithNGS[];
-  ngs_shelf: number;
+  ngs_shelf: NGSShelf;
 };
 export type OfferWithNGS = Offer & {
   slices: OfferSliceWithNGS[];
@@ -58,9 +61,6 @@ export const SEAT_ICONS_MAP: Record<SeatType, IconName> = {
   "Lie flat bed": "airline_seat_flat",
   "Lie flat suite": "airline_seat_individual_suite",
 };
-
-export const NGS_SHELVES = ["1", "2", "3", "4", "5", "6"] as const;
-export type NGSShelf = (typeof NGS_SHELVES)[number];
 
 export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
   "1": {
