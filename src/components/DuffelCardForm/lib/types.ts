@@ -1,33 +1,27 @@
-export interface CreateCardForTemporaryUseData {
+interface CommonCardData {
   id: string;
+  last_4_digits: string;
   live_mode: false;
 }
 
-export type CreateCardForTemporaryUseError = {
+interface CardActionError {
   status: number;
   message: string;
-};
+}
 
-export type SaveCardError = {
-  status: number;
-  message: string;
-};
-
-export interface SaveCardData {
-  id: string;
-  live_mode: boolean;
-  last_4_digits: string;
-  bin: string;
-  expiry_month: number;
-  expiry_year: number;
-  brand: string;
-  cardholder_name: string;
-
-  /**
-   * The card will no longer be available for use after this time.
-   */
+export interface CreateCardForTemporaryUseData extends CommonCardData {
+  saved: false;
+  /** The card will no longer be available for use after this time. */
   unavailable_at: string;
 }
+
+export interface SaveCardData extends CommonCardData {
+  saved: true;
+  unavailable_at: null;
+}
+
+export type SaveCardError = CardActionError;
+export type CreateCardForTemporaryUseError = CardActionError;
 
 /**
  * An object where each key value pair is a style to be applied.
@@ -54,7 +48,7 @@ export interface DuffelCardFormStyles {
   layoutGrid?: StylesMap;
 }
 
-export type DuffelCardFormActions =
+export type DuffelCardFormAction =
   | "validate"
   | "save-card"
   | "create-card-for-temporary-use";
@@ -104,13 +98,13 @@ export interface DuffelCardFormProps {
    * We recommend using the `useDuffelCardFormActions` hook for a simpler, more readable interface to manage the actions array.
    *
    */
-  actions: DuffelCardFormActions[];
+  actions: DuffelCardFormAction[];
 
   /**
    * Once a card is saved, in order to use it, travellers need to enter its cvv.
    * When using the `use-saved-card` intent, you must provide the card ID.
    */
-  cardId?: string;
+  savedCardData?: { id: string; brand: string };
 
   /**
    * This function will be called when the card form validation has been successful.

@@ -5,6 +5,7 @@ import { postMessageToCreateCardForTemporaryUse } from "./lib/postMessageToCreat
 import { postMessageToSaveCard } from "./lib/postMessageToSaveCard";
 import { postMessageWithStyles } from "./lib/postMessageWithStyles";
 import { DuffelCardFormProps } from "./lib/types";
+import { getNewActionsStack } from "./lib/getNewActionsStack";
 
 export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
   tokenProxyEnvironment = "production",
@@ -12,7 +13,7 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
   styles,
   intent,
   actions,
-  cardId,
+  savedCardData,
   onValidateSuccess,
   onValidateFailure,
   onCreateCardForTemporaryUseSuccess,
@@ -36,13 +37,16 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
       "Attempted to render `DuffelCardForm` without an `actions` array. You may set the initial state for actions to `['validate']` or use `actions` returned from the `useDuffelCardFormActions` hook."
     );
   }
-  if (intent == "to-use-saved-card" && !cardId) {
+  if (intent == "to-use-saved-card" && !savedCardData) {
     throw new Error(
       "Attempted to render `DuffelCardForm`to use a saved card but the `cardId` prop is missing. Make sure you provide the id of the saved card you'd like to use."
     );
   }
 
-  // Calls hooks
+  // Component state
+
+  const [previousActionsProp, setPreviousActionsProp] =
+    React.useState<DuffelCardFormProps["actions"]>(actions);
   const [iFrameHeight, setIFrameHeight] = React.useState("0px");
   const iFrameReference = React.useRef<HTMLIFrameElement>(null);
 
@@ -51,7 +55,7 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
     tokenProxyEnvironment,
     intent,
     clientKey,
-    cardId
+    savedCardData
   );
 
   // Register event listeners to the window to listen to messages from the iframe.
@@ -73,12 +77,23 @@ export const DuffelCardForm: React.FC<DuffelCardFormProps> = ({
   }, []);
 
   React.useEffect(() => {
-    if (actions.includes("create-card-for-temporary-use")) {
-      postMessageToCreateCardForTemporaryUse(iFrameReference, iFrameURL);
-    }
+    const actionStack = getNewActionsStack(previousActionsProp, actions);
 
-    if (actions.includes("save-card")) {
-      postMessageToSaveCard(iFrameReference, iFrameURL);
+    for (const action of actionStack) {
+      switch (action) {
+        case "create-card-for-temporary-use":
+          postMessageToCreateCardForTemporaryUse(iFrameReference, iFrameURL);
+          break;
+        case "save-card":
+          postMessageToSaveCard(iFrameReference, iFrameURL);
+          break;
+        case "validate":
+          // this happens by default on the iframe, no need to post message
+          break;
+        default:
+          throw new Error(`Attempted to perform an unknown action: ${action}.`);
+      }
+      setPreviousActionsProp(actions);
     }
   }, [actions]);
 
