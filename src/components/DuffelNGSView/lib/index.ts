@@ -6,7 +6,7 @@ import {
   OfferSliceSegmentPassenger,
 } from "@duffel/api/types";
 
-export const NGS_SHELVES = ["1", "2", "3", "4", "5", "6"] as const;
+export const NGS_SHELVES = ["1", "2", "3", "4", "5"] as const;
 export type NGSShelf = (typeof NGS_SHELVES)[number];
 
 // TODO([@andrejak)](https://github.com/andrejak)) These types are temporary until this is in the official API
@@ -29,7 +29,7 @@ type OfferSliceSegmentPassengerWithNGS = OfferSliceSegmentPassenger & {
 export type OfferSliceSegmentWithNGS = OfferSliceSegment & {
   passengers: OfferSliceSegmentPassengerWithNGS[];
 };
-type OfferSliceWithNGS = OfferSlice & {
+export type OfferSliceWithNGS = OfferSlice & {
   segments: OfferSliceSegmentWithNGS[];
   ngs_shelf: NGSShelf;
 };
@@ -121,19 +121,5 @@ export const NGS_SHELF_INFO: Record<NGSShelf, ShelfInfo> = {
     checked_bag: true,
     seat_selection: true,
     icon: "airline_seat_flat",
-  },
-  // We might not include the Ultra shelf in the API currently
-  "6": {
-    short_title: "Ultra",
-    full_title: "Ultra-Lux",
-    description:
-      "A luxury seat with a lie flat pod, seat selection, flexible change and cancellation options and checked baggage.",
-    seat: {
-      description: "Lie flat suite",
-      icon: SEAT_ICONS_MAP["Lie flat suite"],
-    },
-    checked_bag: true,
-    seat_selection: true,
-    icon: "airline_seat_individual_suite",
   },
 };
