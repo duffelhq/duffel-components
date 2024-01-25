@@ -9,6 +9,7 @@ import {
 import { Icon } from "@components/shared/Icon";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
+import { SliceCarriersTitle } from "@components/shared/SliceCarriersTitle";
 
 export interface DuffelNGSViewProps {
   offers: OfferWithNGS[];
@@ -30,7 +31,8 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
     return null;
   }
 
-  // TODO Group offers by carrier, find offers per carrier for each shelf
+  // TODO Group offers by carrier and time
+  // find offers per carrier for each shelf
   const rows: NGSOfferRow[] = [
     {
       slice: offers[0].slices[sliceIndex],
@@ -82,8 +84,9 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
         <tbody>
           {rows.map((row, index) => (
             <tr key={index}>
-              <td>
-                {row["slice"].id} TODO Carriers, Flight Summary, View Details
+              <td className="duffel-ngs-view_slice-info">
+                <SliceCarriersTitle slice={row["slice"]} />
+                <div>TODO Flight Summary</div>
               </td>
               {NGS_SHELVES.map((shelf) => (
                 <td

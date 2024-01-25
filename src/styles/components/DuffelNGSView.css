@@ -41,6 +41,7 @@
 .duffel-ngs-view_shelf-icon {
   margin-right: 4px;
 }
+
 .duffel-ngs-view_column-header {
   display: flex;
   align-items: center;
@@ -63,4 +64,13 @@
 .duffel-ngs-view_table-data--selected {
   color: var(--GREY-900);
   font-weight: 600;
+}
+
+.duffel-ngs-view_slice-info {
+  padding: 24px 16px 20px 16px;
+  width: 300px;
+}
+
+.duffel-ngs-view_slice-info > div:first-child {
+  margin-bottom: 16px;
 }
