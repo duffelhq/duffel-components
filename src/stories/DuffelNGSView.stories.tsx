@@ -15,7 +15,8 @@ export default {
 type DuffelNGSViewStory = StoryObj<typeof DuffelNGSView>;
 
 const defaultProps: DuffelNGSViewProps = {
-  offers: [offer], // TODO: generate a few more offers with realistic data for comparison
+  offers: [offer],
+  sliceIndex: 0, // TODO: generate a few more offers with realistic data for comparison
 };
 
 export const Default: DuffelNGSViewStory = {
