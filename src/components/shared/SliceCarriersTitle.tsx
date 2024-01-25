@@ -1,0 +1,57 @@
+import { OfferSlice } from "@duffel/api/types";
+import * as React from "react";
+import { AirlineLogo } from "./AirlineLogo";
+import { HSpace } from "./HSpace";
+
+export interface SliceCarriersTitleProps {
+  slice: OfferSlice;
+}
+
+export const SliceCarriersTitle: React.FC<SliceCarriersTitleProps> = ({
+  slice,
+}) => {
+  const marketingCarriers = slice.segments.map(
+    ({ marketing_carrier }) => marketing_carrier
+  );
+  const operatingCarriers = slice.segments.map(
+    ({ operating_carrier }) => operating_carrier
+  );
+
+  const firstMarketingCarrier = marketingCarriers[0];
+  const marketingCarrierNamesSet = new Set<string>(
+    marketingCarriers.map(({ name }) => name)
+  );
+  const operatingCarrierNamesSet = new Set<string>(
+    operatingCarriers.map(({ name }) => name)
+  );
+
+  const marketingCarriersLabel = Array.from(marketingCarrierNamesSet).join(
+    " & "
+  );
+
+  const operatingCarriersLabel = Array.from(operatingCarrierNamesSet)
+    .filter((name) => !marketingCarrierNamesSet.has(name))
+    .join(" & ");
+
+  const isPartialOperarion = Array.from(operatingCarrierNamesSet).some((name) =>
+    marketingCarrierNamesSet.has(name)
+  );
+
+  return (
+    <HSpace space={8}>
+      <AirlineLogo
+        name={firstMarketingCarrier.name}
+        iataCode={firstMarketingCarrier.iata_code}
+      />
+      <div className="slice-carriers-title">
+        {marketingCarriersLabel}{" "}
+        {operatingCarriersLabel && (
+          <span className="slice-carriers-title__operating-carrier">
+            ({isPartialOperarion && "partially "}operated by{" "}
+            {operatingCarriersLabel})
+          </span>
+        )}
+      </div>
+    </HSpace>
+  );
+};
