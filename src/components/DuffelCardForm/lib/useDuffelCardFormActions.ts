@@ -43,7 +43,7 @@ export function useDuffelCardFormActions(): UseDuffelCardFormActionsHook {
         ref.current.createCardForTemporaryUse();
       } else {
         console.warn(
-          "Attempted to create card for temporary use, but ref is null"
+          "Attempted to create card for temporary use, but ref is null",
         );
       }
     },

@@ -20,13 +20,13 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   sliceIndex,
 }) => {
   const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
-    null
+    null,
   );
   const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
   const [sortDirection, setSortDirection] =
     React.useState<SortDirection>("asc");
   const [rows, setRows] = React.useState<NGSOfferRow[]>(
-    groupOffersForNGSView(offers, sliceIndex)
+    groupOffersForNGSView(offers, sliceIndex),
   );
 
   React.useEffect(() => {
@@ -62,7 +62,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                   className={classNames(
                     "duffel-ngs-view_column-header",
                     selectedColumn === shelf &&
-                      "duffel-ngs-view_column-header--selected"
+                      "duffel-ngs-view_column-header--selected",
                   )}
                 >
                   <Icon
@@ -118,7 +118,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                 >
                   {row[shelf]
                     ? moneyStringFormatter(row[shelf]!.total_currency)(
-                        +row[shelf]!.total_amount
+                        +row[shelf]!.total_amount,
                       )
                     : "-"}
                 </td>
