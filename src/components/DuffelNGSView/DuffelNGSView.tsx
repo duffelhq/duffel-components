@@ -8,16 +8,12 @@ import {
   NGSOfferRow,
   groupOffersForNGSView,
 } from "./lib/group-offers-for-ngs-view";
+import { SortDirection, sortNGSRows } from "./lib/sort-ngs-rows";
 
 export interface DuffelNGSViewProps {
   offers: OfferWithNGS[];
   sliceIndex: number;
 }
-
-type SortSettings = {
-  shelf: NGSShelf | null;
-  direction: "asc" | "desc";
-};
 
 export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   offers,
@@ -26,29 +22,19 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
     null
   );
-  const [sortSettings, setSortSettings] = React.useState<SortSettings>({
-    shelf: null,
-    direction: "asc",
-  });
+  const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
+  const [sortDirection, setSortDirection] =
+    React.useState<SortDirection>("asc");
   const [rows, setRows] = React.useState<NGSOfferRow[]>(
     groupOffersForNGSView(offers, sliceIndex)
   );
 
   React.useEffect(() => {
-    if (sortSettings.shelf) {
-      const sortedRows = [...rows].sort((a, b) => {
-        const aAmount = +(a[sortSettings.shelf!]?.total_amount || 0);
-        const bAmount = +(b[sortSettings.shelf!]?.total_amount || 0);
-        if (aAmount && bAmount) {
-          return sortSettings.direction === "asc"
-            ? aAmount - bAmount
-            : bAmount - aAmount;
-        }
-        return 0;
-      });
+    if (sortShelf) {
+      const sortedRows = sortNGSRows(rows, sortShelf, sortDirection);
       setRows(sortedRows);
     }
-  }, [sortSettings]);
+  }, [sortShelf, sortDirection]);
 
   if (offers.length == 0) {
     return null;
@@ -64,17 +50,10 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
               <th
                 key={shelf}
                 onClick={() => {
-                  if (shelf === sortSettings.shelf) {
-                    setSortSettings({
-                      shelf,
-                      direction:
-                        sortSettings.direction === "asc" ? "desc" : "asc",
-                    });
+                  if (shelf === sortShelf) {
+                    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
                   } else if (selectedColumn === shelf) {
-                    setSortSettings({
-                      shelf,
-                      direction: sortSettings.direction,
-                    });
+                    setSortShelf(shelf);
                   }
                   setSelectedColumn(shelf);
                 }}
@@ -95,10 +74,10 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                     className="duffel-ngs-view_shelf-icon"
                   />
                   {NGS_SHELF_INFO[shelf].short_title}
-                  {sortSettings.shelf === shelf ? (
+                  {sortShelf === shelf ? (
                     <Icon
                       name={
-                        sortSettings.direction === "asc"
+                        sortDirection === "asc"
                           ? "arrow_downward"
                           : "arrow_upward"
                       }
