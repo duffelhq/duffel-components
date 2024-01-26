@@ -1,23 +1,19 @@
 import * as React from "react";
-import {
-  NGSShelf,
-  NGS_SHELF_INFO,
-  NGS_SHELVES,
-  OfferWithNGS,
-  OfferSliceWithNGS,
-} from "./lib";
+import { NGSShelf, NGS_SHELF_INFO, NGS_SHELVES, OfferWithNGS } from "./lib";
 import { Icon } from "@components/shared/Icon";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
 import { SliceCarriersTitle } from "@components/shared/SliceCarriersTitle";
+import {
+  NGSOfferRow,
+  groupOffersForNGSView,
+} from "./lib/group-offers-for-ngs-view";
+import { SortDirection, sortNGSRows } from "./lib/sort-ngs-rows";
 
 export interface DuffelNGSViewProps {
   offers: OfferWithNGS[];
   sliceIndex: number;
 }
-
-type NGSOfferRow = Record<"slice", OfferSliceWithNGS> &
-  Record<NGSShelf, OfferWithNGS | null>;
 
 export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   offers,
@@ -26,31 +22,23 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
     null
   );
+  const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
+  const [sortDirection, setSortDirection] =
+    React.useState<SortDirection>("asc");
+  const [rows, setRows] = React.useState<NGSOfferRow[]>(
+    groupOffersForNGSView(offers, sliceIndex)
+  );
+
+  React.useEffect(() => {
+    if (sortShelf) {
+      const sortedRows = sortNGSRows(rows, sortShelf, sortDirection);
+      setRows(sortedRows);
+    }
+  }, [sortShelf, sortDirection]);
 
   if (offers.length == 0) {
     return null;
   }
-
-  // TODO Group offers by carrier and time
-  // find offers per carrier for each shelf
-  const rows: NGSOfferRow[] = [
-    {
-      slice: offers[0].slices[sliceIndex],
-      "1": null,
-      "2": null,
-      "3": offers[0],
-      "4": null,
-      "5": null,
-    },
-    {
-      slice: offers[0].slices[sliceIndex],
-      "1": null,
-      "2": offers[0],
-      "3": offers[0],
-      "4": offers[0],
-      "5": offers[0],
-    },
-  ];
 
   return (
     <div className="duffel-ngs-view duffel-components">
@@ -59,7 +47,17 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
           <tr className="duffel-ngs-view_table-header?">
             <th className="duffel-ngs-view_th"></th>
             {NGS_SHELVES.map((shelf) => (
-              <th key={shelf} onClick={() => setSelectedColumn(shelf)}>
+              <th
+                key={shelf}
+                onClick={() => {
+                  if (shelf === sortShelf) {
+                    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+                  } else if (selectedColumn === shelf) {
+                    setSortShelf(shelf);
+                  }
+                  setSelectedColumn(shelf);
+                }}
+              >
                 <div
                   className={classNames(
                     "duffel-ngs-view_column-header",
@@ -69,13 +67,34 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                 >
                   <Icon
                     name={NGS_SHELF_INFO[shelf].icon}
-                    size={16}
+                    size={14}
                     color={
                       selectedColumn === shelf ? "--GREY-900" : "--GREY-500"
                     }
                     className="duffel-ngs-view_shelf-icon"
                   />
                   {NGS_SHELF_INFO[shelf].short_title}
+                  {sortShelf === shelf ? (
+                    <Icon
+                      name={
+                        sortDirection === "asc"
+                          ? "arrow_downward"
+                          : "arrow_upward"
+                      }
+                      size={12}
+                      color={
+                        selectedColumn === shelf ? "--GREY-900" : "--GREY-500"
+                      }
+                      className="duffel-ngs-view_sort-icon"
+                    />
+                  ) : selectedColumn === shelf ? (
+                    <Icon
+                      name="unfold_more"
+                      size={12}
+                      color="--GREY-900"
+                      className="duffel-ngs-view_sort-icon"
+                    />
+                  ) : null}
                 </div>
               </th>
             ))}

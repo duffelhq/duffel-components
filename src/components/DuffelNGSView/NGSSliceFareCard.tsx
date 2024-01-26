@@ -25,7 +25,9 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   compareToAmount,
 }) => {
   if (sliceIndex >= offer.slices.length) {
-    throw new Error("Invalid slice index");
+    throw new Error(
+      "Attempted to create `NGSSliceFareCard` with invalid slice index"
+    );
   }
 
   const slice = offer.slices[sliceIndex];

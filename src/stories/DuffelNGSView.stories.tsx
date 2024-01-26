@@ -6,6 +6,51 @@ import {
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const offer = require("../fixtures/offers/off_0000Adw9MD7yDHXIXxdjfG.json");
+const cheapOffer = {
+  ...offer,
+  slices: [{ ...offer.slices[0], ngs_shelf: 1 }, ...offer.slices.slice(1)],
+  total_amount: "100",
+};
+const expensiveOffer = {
+  ...offer,
+  slices: [{ ...offer.slices[0], ngs_shelf: 5 }, ...offer.slices.slice(1)],
+  total_amount: "10000",
+};
+const alternativeCheapOffer = {
+  ...offer,
+  slices: [
+    {
+      ...offer.slices[0],
+      segments: [
+        {
+          ...offer.slices[0].segments[0],
+          marketing_carrier: { name: "British Airways", iata_code: "BA" },
+        },
+        ...offer.slices[0].segments.slice(1),
+      ],
+      ngs_shelf: 1,
+    },
+    ...offer.slices.slice(1),
+  ],
+  total_amount: "50",
+};
+const alternativeExpensiveOffer = {
+  ...offer,
+  slices: [
+    {
+      ...offer.slices[0],
+      segments: [
+        {
+          ...offer.slices[0].segments[0],
+          marketing_carrier: { name: "British Airways", iata_code: "BA" },
+        },
+        ...offer.slices[0].segments.slice(1),
+      ],
+      ngs_shelf: 5,
+    },
+  ],
+  total_amount: "20000",
+};
 
 export default {
   title: "DuffelNGSView",
@@ -15,8 +60,14 @@ export default {
 type DuffelNGSViewStory = StoryObj<typeof DuffelNGSView>;
 
 const defaultProps: DuffelNGSViewProps = {
-  offers: [offer],
-  sliceIndex: 0, // TODO: generate a few more offers with realistic data for comparison
+  offers: [
+    offer,
+    cheapOffer,
+    expensiveOffer,
+    alternativeCheapOffer,
+    alternativeExpensiveOffer,
+  ],
+  sliceIndex: 0,
 };
 
 export const Default: DuffelNGSViewStory = {
