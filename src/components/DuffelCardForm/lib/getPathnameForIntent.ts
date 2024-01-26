@@ -11,11 +11,11 @@ export function getPathnameForIntent(intent: DuffelCardFormIntent): string {
     default:
       if (!intent) {
         throw new Error(
-          "Attempted to call `getPathnameForIntent` without an intent."
+          "Attempted to call `getPathnameForIntent` without an intent.",
         );
       } else {
         throw new Error(
-          `Attempted to call \`getPathnameForIntent\` but the intent "${intent}" is unknown.`
+          `Attempted to call \`getPathnameForIntent\` but the intent "${intent}" is unknown.`,
         );
       }
   }

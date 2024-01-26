@@ -10,7 +10,7 @@ export async function retrieveOffer(
   client_key: string | null,
   onError: (error: string) => void,
   setIsLoading: (isLoading: boolean) => void,
-  onOfferReady: (offer: Offer) => void
+  onOfferReady: (offer: Offer) => void,
 ) {
   setIsLoading(true);
   const useFixture = isFixtureOfferId(offer_id);
@@ -25,7 +25,7 @@ export async function retrieveOffer(
 
   if (!client_key) {
     throw new Error(
-      "Attempted to retrieve seat maps but the client key is missing."
+      "Attempted to retrieve seat maps but the client key is missing.",
     );
   }
 

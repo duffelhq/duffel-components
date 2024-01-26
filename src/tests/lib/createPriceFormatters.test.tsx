@@ -76,7 +76,7 @@ describe("createPriceFormatters", () => {
           amount: 100,
         },
       },
-      undefined
+      undefined,
     );
 
     // Force unwrap the price formatter and use 'any' to avoid type errors.
@@ -99,10 +99,10 @@ describe("createPriceFormatters", () => {
     // Pass the same arguments to both the priceFormatters and the formatters
     // to ensure they're the same functions.
     expect(formatters.bags!(100, "GBP", {} as any)).toEqual(
-      priceFormatters.bags(100)
+      priceFormatters.bags(100),
     );
     expect(formatters.seats!(100, "GBP", {} as any)).toEqual(
-      priceFormatters.seats(100)
+      priceFormatters.seats(100),
     );
   });
 
@@ -125,7 +125,7 @@ describe("createPriceFormatters", () => {
       currency: "GBP",
     });
     expect(formatters.seats!(100, "GBP", {} as any)).toEqual(
-      priceFormatters.seats(100)
+      priceFormatters.seats(100),
     );
   });
 
@@ -145,7 +145,7 @@ describe("createPriceFormatters", () => {
         {
           bags: () => ({ amount: 100 }),
           seats: () => ({ amount: 100 }),
-        }
+        },
       );
     }).toThrowError();
   });

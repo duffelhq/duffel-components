@@ -25,22 +25,22 @@ export const DuffelCardForm = React.forwardRef<
       onSaveCardSuccess,
       onSaveCardFailure,
     },
-    ref
+    ref,
   ) => {
     // Validates required props
     if (!clientKey) {
       throw new Error(
-        "Attempted to render `DuffelCardForm` without a clientKey."
+        "Attempted to render `DuffelCardForm` without a clientKey.",
       );
     }
     if (!intent) {
       throw new Error(
-        "Attempted to render `DuffelCardForm` without an `intent`. Make sure your provide one of the following: `create-card-for-temporary-use`, `save-card`, `use-saved-card`."
+        "Attempted to render `DuffelCardForm` without an `intent`. Make sure your provide one of the following: `create-card-for-temporary-use`, `save-card`, `use-saved-card`.",
       );
     }
     if (intent == "to-use-saved-card" && !savedCardData) {
       throw new Error(
-        "Attempted to render `DuffelCardForm`to use a saved card but the `cardId` prop is missing. Make sure you provide the id of the saved card you'd like to use."
+        "Attempted to render `DuffelCardForm`to use a saved card but the `cardId` prop is missing. Make sure you provide the id of the saved card you'd like to use.",
       );
     }
 
@@ -54,7 +54,7 @@ export const DuffelCardForm = React.forwardRef<
             postMessageToCreateCardForTemporaryUse(iFrameReference, iFrameURL),
         };
       },
-      []
+      [],
     );
 
     // Component state
@@ -66,7 +66,7 @@ export const DuffelCardForm = React.forwardRef<
       tokenProxyEnvironment,
       intent,
       clientKey,
-      savedCardData
+      savedCardData,
     );
 
     // Register event listeners to the window to listen to messages from the iframe.
@@ -99,5 +99,5 @@ export const DuffelCardForm = React.forwardRef<
         }}
       />
     );
-  }
+  },
 );

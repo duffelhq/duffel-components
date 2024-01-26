@@ -9,7 +9,7 @@ const checkFunctionsMap = {
 
 export const hasService = (
   offer: Offer | undefined,
-  type: OfferAvailableService["type"]
+  type: OfferAvailableService["type"],
 ) => {
   const checkFunction = checkFunctionsMap[type];
   if (!checkFunction) throw new Error(`Unknown service type: ${type}`);
@@ -18,7 +18,7 @@ export const hasService = (
     offer &&
     Array.isArray(offer.available_services) &&
     offer.available_services.some(
-      (service) => checkFunction(service) && service.maximum_quantity > 0
+      (service) => checkFunction(service) && service.maximum_quantity > 0,
     )
   );
 };

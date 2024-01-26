@@ -16,7 +16,7 @@ export interface CfarSelectionModalProps {
   service?: OfferAvailableServiceCFAR;
   selectedServices: WithServiceInformation<CreateOrderService>[];
   onClose: (
-    selectedServices: WithServiceInformation<CreateOrderService>[]
+    selectedServices: WithServiceInformation<CreateOrderService>[],
   ) => void;
 }
 

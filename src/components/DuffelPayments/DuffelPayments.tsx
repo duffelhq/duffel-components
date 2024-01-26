@@ -81,7 +81,7 @@ const CardPaymentComponent: React.FC<DuffelPaymentsProps> = ({
 
   // User is responsible for handling outcome of payment.
   const handleSubmit = async (
-    e: React.MouseEvent<HTMLFormElement, MouseEvent>
+    e: React.MouseEvent<HTMLFormElement, MouseEvent>,
   ) => {
     e.preventDefault();
     if (!stripe || !elements) {
@@ -91,10 +91,10 @@ const CardPaymentComponent: React.FC<DuffelPaymentsProps> = ({
     if (cardElement) {
       setIsProcessing(true);
       const decodedDuffelPaymentIntentClientToken = atob(
-        paymentIntentClientToken
+        paymentIntentClientToken,
       );
       const parsedDuffelPaymentIntentClientToken = JSON.parse(
-        decodedDuffelPaymentIntentClientToken
+        decodedDuffelPaymentIntentClientToken,
       );
       const { client_secret: clientSecret } =
         parsedDuffelPaymentIntentClientToken;
@@ -164,14 +164,14 @@ export const DuffelPayments: React.FC<DuffelPaymentsProps> = (props) => {
   initializeLogger(props.debug || false);
 
   const decodedDuffelPaymentIntentClientToken = atob(
-    props.paymentIntentClientToken
+    props.paymentIntentClientToken,
   );
 
   let parsedDuffelPaymentIntentClientToken;
 
   try {
     parsedDuffelPaymentIntentClientToken = JSON.parse(
-      decodedDuffelPaymentIntentClientToken
+      decodedDuffelPaymentIntentClientToken,
     );
   } catch (error) {
     throw new Error("Invalid Duffel payment intent client token provided");

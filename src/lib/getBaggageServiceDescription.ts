@@ -2,11 +2,11 @@ import { OfferAvailableServiceBaggageMetadata } from "@duffel/api/types";
 import { captureErrorInSentry } from "@lib/captureErrorInSentry";
 
 export const getBaggageServiceDescription = (
-  metadata: OfferAvailableServiceBaggageMetadata
+  metadata: OfferAvailableServiceBaggageMetadata,
 ) => {
   if (!metadata) {
     captureErrorInSentry(
-      new Error("getBaggageServiceDescription was not given any metadata")
+      new Error("getBaggageServiceDescription was not given any metadata"),
     );
     return null;
   }

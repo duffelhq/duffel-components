@@ -35,7 +35,7 @@ export const BaggageSelectionModalFooter: React.FC<
   const totalQuantity = getTotalQuantity(selectedServices);
   const totalAmount = getTotalAmountForServicesWithPriceMap(
     servicePrices,
-    selectedServices
+    selectedServices,
   );
   const totalAmountLabel = moneyStringFormatter(currency)(totalAmount);
   const isOneWay = isFirstSegment && isFirstSegment;

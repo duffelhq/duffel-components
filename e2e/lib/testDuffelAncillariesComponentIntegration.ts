@@ -12,7 +12,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
 
     if (!duffelAncillariesShadowRoot) {
       throw new Error(
-        `duffelAncillariesShadowRoot is ${duffelAncillariesShadowRoot}`
+        `duffelAncillariesShadowRoot is ${duffelAncillariesShadowRoot}`,
       );
     }
 
@@ -20,7 +20,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // open card
     const baggageCardButtonEl =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        ".ancillary-card:nth-child(1)"
+        ".ancillary-card:nth-child(1)",
       );
     if (!baggageCardButtonEl) throw new Error("baggageCardButtonEl is missing");
     baggageCardButtonEl.click();
@@ -31,7 +31,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // click to next flight
     const bagsNextButton =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        "[data-testid='confirm-selection-for-baggage']"
+        "[data-testid='confirm-selection-for-baggage']",
       );
     if (!bagsNextButton) throw new Error("bagsNextButton is missing");
     bagsNextButton.click();
@@ -42,7 +42,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // click to add bag
     const bagsPlusButton =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        "[title='Add one']"
+        "[title='Add one']",
       );
     if (!bagsPlusButton) throw new Error("bagsPlusButton is missing");
     bagsPlusButton.click();
@@ -53,7 +53,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // click to confirm and close
     const bagsConfirmButton =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        "[data-testid='confirm-selection-for-baggage']"
+        "[data-testid='confirm-selection-for-baggage']",
       );
     if (!bagsConfirmButton) throw new Error("bagsConfirmButton is missing");
     bagsConfirmButton.click();
@@ -65,7 +65,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // open card
     const seatsCardButton =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        'button[title="Select seats"]'
+        'button[title="Select seats"]',
       );
     if (!seatsCardButton) throw new Error("seatsCardButton is missing");
     seatsCardButton.click();
@@ -76,7 +76,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // click to select seat on first flight
     const seat1Button =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        ".map-element.map-element__seat.map-element--available.map-element--actionable"
+        ".map-element.map-element__seat.map-element--available.map-element--actionable",
       );
     if (!seat1Button) throw new Error("seat1Button is missing");
     seat1Button.click();
@@ -87,7 +87,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // click to next flight
     const seatsNextButton =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        "[data-testid='confirm-selection-for-seats']"
+        "[data-testid='confirm-selection-for-seats']",
       );
     if (!seatsNextButton) throw new Error("seatsNextButton is missing");
     seatsNextButton.click();
@@ -98,7 +98,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // click to select seat on second flight
     const seat2Button =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        ".map-element.map-element__seat.map-element--available.map-element--actionable"
+        ".map-element.map-element__seat.map-element--available.map-element--actionable",
       );
     if (!seat2Button) throw new Error("seat2Button is missing");
     seat2Button.click();
@@ -109,7 +109,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
     // click to confirm and close
     const seatsConfirmButton =
       duffelAncillariesShadowRoot.querySelector<HTMLButtonElement>(
-        "[data-testid='confirm-selection-for-seats']"
+        "[data-testid='confirm-selection-for-seats']",
       );
     if (!seatsConfirmButton) throw new Error("seatsConfirmButton is missing");
     seatsConfirmButton.click();
@@ -128,7 +128,7 @@ export const testDuffelAncillariesComponentIntegration = async (page: Page) => {
           data.data.services.length !== 3
         ) {
           throw new Error(
-            "The order was created but not all services are present in the order"
+            "The order was created but not all services are present in the order",
           );
         }
       });

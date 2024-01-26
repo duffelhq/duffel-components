@@ -6,8 +6,8 @@ export const formatDateString = (dateString: string) => {
   else {
     captureErrorInSentry(
       new Error(
-        `formatDateString attempted to parse an invalid date string: ${dateString}`
-      )
+        `formatDateString attempted to parse an invalid date string: ${dateString}`,
+      ),
     );
   }
 };

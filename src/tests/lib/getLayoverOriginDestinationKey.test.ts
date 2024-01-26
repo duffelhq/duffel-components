@@ -5,7 +5,7 @@ describe("getLayoverOriginDestinationKey", () => {
     const key = getLayoverOriginDestinationKey(
       "LHR",
       "2022-01-01T12:00:00Z",
-      "JFK"
+      "JFK",
     );
     expect(key).toEqual("LHR-2022-01-01T12:00:00Z-JFK");
   });

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Payment page example</title>
@@ -32,12 +32,12 @@
 
     // 4. Listen to 'onSuccessfulPayment' event on the component:
     duffelpaymentsElement.addEventListener("onSuccessfulPayment", () =>
-      console.log("onPayloadReady\n")
+      console.log("onPayloadReady\n"),
     );
 
     // 5. If we run into an issue with the payment, you can listen to 'onFailedPayment' event:
     duffelpaymentsElement.addEventListener("onFailedPayment", (event) =>
-      console.log("onPayloadReady\n", event.detail)
+      console.log("onPayloadReady\n", event.detail),
     );
   </script>
 </html>

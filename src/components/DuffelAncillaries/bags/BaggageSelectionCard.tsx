@@ -18,7 +18,7 @@ export interface BaggageSelectionCardProps {
   passengers: CreateOrder["passengers"];
   selectedServices: WithServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[]
+    selectedServices: WithServiceInformation<CreateOrderService>[],
   ) => void;
 }
 
@@ -51,7 +51,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
       ? `${withPlural(
           totalQuantity,
           "bag",
-          "bags"
+          "bags",
         )} added for ${totalAmountFormatted}`
       : "Add any extra baggage you need for your trip";
 
@@ -88,7 +88,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
           // We need to do a deep copy here because otherwise the modal changing the quantity
           // will affect the selected services regardless of whether it's saved or not
           const newSelectedServicesDeepCopy = JSON.parse(
-            JSON.stringify(newSelectedServices)
+            JSON.stringify(newSelectedServices),
           );
           setSelectedServices(newSelectedServicesDeepCopy);
           setIsOpen(false);

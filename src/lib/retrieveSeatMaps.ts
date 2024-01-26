@@ -10,7 +10,7 @@ export async function retrieveSeatMaps(
   client_key: string | null,
   onError: () => void,
   setIsLoading: (isLoading: boolean) => void,
-  onSeatMapReady: (seatMaps: SeatMap[]) => void
+  onSeatMapReady: (seatMaps: SeatMap[]) => void,
 ) {
   setIsLoading(true);
 
@@ -26,7 +26,7 @@ export async function retrieveSeatMaps(
 
   if (!client_key) {
     throw new Error(
-      "Attemptted to retrieve seat maps but the client key is missing."
+      "Attemptted to retrieve seat maps but the client key is missing.",
     );
   }
 

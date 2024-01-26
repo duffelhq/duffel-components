@@ -3,7 +3,7 @@ import { CreateOrderPassenger, OfferPassenger } from "@duffel/api/types";
 export const getPassengerName = (
   createOrderPayloadPassenger: CreateOrderPassenger,
   offerPassenger: OfferPassenger | undefined,
-  fallbackIndex: number
+  fallbackIndex: number,
 ): string => {
   if (!createOrderPayloadPassenger) {
     return `Passenger ${fallbackIndex}`;

@@ -16,7 +16,9 @@ const getFallbackLogoUrl = (iataCode: string | null) =>
 const getSrcForIataCode = (iataCode: string | null, airlineName: string) => {
   if (!iataCode) {
     captureErrorInSentry(
-      new Error(`iataCode is passed as "null" value for airline ${airlineName}`)
+      new Error(
+        `iataCode is passed as "null" value for airline ${airlineName}`,
+      ),
     );
     return getFallbackLogoUrl("ZZ");
   }

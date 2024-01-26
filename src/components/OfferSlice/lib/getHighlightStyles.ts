@@ -5,7 +5,7 @@ export const getHighlightStyles = (
   highlightAll: boolean,
   key?: string,
   keysToHighlight?: string[],
-  highlightColor?: Color
+  highlightColor?: Color,
 ) => {
   const highlightClasses = classNames("highlight");
 

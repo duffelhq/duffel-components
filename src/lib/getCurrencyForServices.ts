@@ -13,7 +13,7 @@ const getCurrencyForServices = (offer: Offer, serviceType: string): string => {
     throw new Error("No services available");
   }
   const firstService = offer.available_services.find(
-    (service) => service.type === serviceType
+    (service) => service.type === serviceType,
   );
   if (!firstService) {
     throw new Error(`No ${serviceType} services available`);

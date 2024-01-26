@@ -36,7 +36,7 @@ const ExampleWithoutServices: React.FC = () => (
 describe("DuffelAncillaries", () => {
   test("should throw an error when services is empty", () => {
     expect(() => render(<ExampleWithoutServices />)).toThrow(
-      `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats", "cancel_for_any_reason"]`
+      `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats", "cancel_for_any_reason"]`,
     );
   });
 
@@ -49,7 +49,7 @@ describe("DuffelAncillaries", () => {
       }
     });
     const { getByText, getByTestId, getByTitle } = render(
-      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />
+      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />,
     );
 
     fireEvent.click(getByTitle("Select extra baggage"));
@@ -84,7 +84,7 @@ describe("DuffelAncillaries", () => {
       }
     });
     const { getByText, getByTestId, getByTitle } = render(
-      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />
+      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />,
     );
 
     const seatCard = getByTitle("Select seats");
@@ -119,7 +119,7 @@ describe("DuffelAncillaries", () => {
       }
     });
     const { getByText, getByTestId, getByTitle } = render(
-      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />
+      <DuffelAncillaries {...defaultProps} onPayloadReady={onPayloadReady} />,
     );
 
     fireEvent.click(getByTitle("Add cancel for any reason"));
@@ -141,7 +141,7 @@ describe("DuffelAncillaries", () => {
 
         // Confirm that the markup is applied.
         expect(
-          metadata.baggage_services?.[0].serviceInformation?.total_amount
+          metadata.baggage_services?.[0].serviceInformation?.total_amount,
         ).toBe("23");
       }
     });
@@ -154,7 +154,7 @@ describe("DuffelAncillaries", () => {
           seats: { amount: 2, rate: 0.2 },
           cancel_for_any_reason: { amount: 3, rate: 0.3 },
         }}
-      />
+      />,
     );
 
     /**
@@ -235,10 +235,10 @@ describe("DuffelAncillaries", () => {
 
         // Confirm that the markup is applied.
         expect(
-          metadata.baggage_services?.[0].serviceInformation?.total_amount
+          metadata.baggage_services?.[0].serviceInformation?.total_amount,
         ).toBe("40");
         expect(
-          metadata.baggage_services?.[0].serviceInformation?.total_currency
+          metadata.baggage_services?.[0].serviceInformation?.total_currency,
         ).toBe("Duffel house points");
       }
     });
@@ -267,7 +267,7 @@ describe("DuffelAncillaries", () => {
             };
           },
         }}
-      />
+      />,
     );
 
     /**

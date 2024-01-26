@@ -76,7 +76,7 @@ export type DateTimeDisplayFormat = keyof typeof formats;
 export const getDateString = (
   original: Date | string | null,
   format: DateTimeDisplayFormat,
-  locale = "en-GB"
+  locale = "en-GB",
 ) => {
   if (!original) return "";
   const date =

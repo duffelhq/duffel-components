@@ -164,8 +164,8 @@ describe("getSliceDetails", () => {
       sliceDetails.map(
         (slice) =>
           slice.travelDetails?.originDestination ??
-          `layover (${slice.layoverDetails?.originDestinationKey})`
-      )
+          `layover (${slice.layoverDetails?.originDestinationKey})`,
+      ),
     ).toEqual([
       "LHR-JFK",
       "layover (LHR-JFK-BOS)", // layover details
@@ -181,8 +181,8 @@ describe("getSliceDetails", () => {
               departingAt: slice.travelDetails?.departingAt,
               arrivingAt: slice.travelDetails.arrivingAt,
             }
-          : slice.layoverDetails.duration
-      )
+          : slice.layoverDetails.duration,
+      ),
     ).toEqual([
       {
         departingAt: "2019-12-05T22:25:20.525883Z",

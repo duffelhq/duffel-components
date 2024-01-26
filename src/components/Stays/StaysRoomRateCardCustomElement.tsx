@@ -53,25 +53,25 @@ window.customElements.get(CUSTOM_ELEMENT_TAG) ||
 
 function tryToGetCustomElement(
   caller: string,
-  elementId: string
+  elementId: string,
 ): CustomElement {
   const element = document.querySelector<CustomElement>(
-    elementId ? `#${elementId} > ${CUSTOM_ELEMENT_TAG}` : CUSTOM_ELEMENT_TAG
+    elementId ? `#${elementId} > ${CUSTOM_ELEMENT_TAG}` : CUSTOM_ELEMENT_TAG,
   );
   if (!element) {
     throw new Error(
-      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`,
     );
   }
   return element;
 }
 
 export function renderDuffelStaysRoomRateCardCustomElement(
-  props: CustomElementRenderArguments
+  props: CustomElementRenderArguments,
 ) {
   const element = tryToGetCustomElement(
     "renderDuffelStaysRoomRateCardCustomElement",
-    props.elementId
+    props.elementId,
   );
   element.render(props);
 }

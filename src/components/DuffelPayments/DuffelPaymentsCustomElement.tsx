@@ -53,7 +53,7 @@ class DuffelPaymentsCustomElement extends HTMLElement {
           this.dispatchEvent(
             new CustomEvent("onSuccessfulPayment", {
               composed: true,
-            })
+            }),
           );
         }}
         onFailedPayment={(error: StripeError) => {
@@ -61,10 +61,10 @@ class DuffelPaymentsCustomElement extends HTMLElement {
             new CustomEvent("onFailedPayment", {
               detail: { error },
               composed: true,
-            })
+            }),
           );
         }}
-      />
+      />,
     );
   }
 }
@@ -73,32 +73,32 @@ window.customElements.get(CUSTOM_ELEMENT_TAG) ||
   window.customElements.define(CUSTOM_ELEMENT_TAG, DuffelPaymentsCustomElement);
 
 function tryToGetDuffelPaymentsCustomElement(
-  caller: string
+  caller: string,
 ): DuffelPaymentsCustomElement {
   const element =
     document.querySelector<DuffelPaymentsCustomElement>(CUSTOM_ELEMENT_TAG);
   if (!element) {
     throw new Error(
-      `Could not find duffel-payments element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find duffel-payments element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`,
     );
   }
   return element;
 }
 
 export function renderDuffelPaymentsCustomElement(
-  props: DuffelPaymentsCustomElementRenderArguments
+  props: DuffelPaymentsCustomElementRenderArguments,
 ) {
   const element = tryToGetDuffelPaymentsCustomElement(
-    "renderDuffelPaymentsCustomElement"
+    "renderDuffelPaymentsCustomElement",
   );
   element.render(props);
 }
 
 export function onDuffelPaymentsSuccessfulPayment(
-  onSuccessfulPayment: DuffelPaymentsProps["onSuccessfulPayment"]
+  onSuccessfulPayment: DuffelPaymentsProps["onSuccessfulPayment"],
 ) {
   const element = tryToGetDuffelPaymentsCustomElement(
-    "onDuffelPaymentsSuccessfulPayment"
+    "onDuffelPaymentsSuccessfulPayment",
   );
 
   // using `as EventListener` here because typescript doesn't know the event type for `onPayloadReady`
@@ -106,7 +106,7 @@ export function onDuffelPaymentsSuccessfulPayment(
   // You can learn more here: https://github.com/microsoft/TypeScript/issues/28357
   element.addEventListener(
     "onSuccessfulPayment",
-    onSuccessfulPayment as EventListener
+    onSuccessfulPayment as EventListener,
   );
 }
 
@@ -114,10 +114,10 @@ type OnFailedPaymentCustomEvent = CustomEvent<{
   error: StripeError;
 }>;
 export function onDuffelPaymentsFailedPayment(
-  onFailedPayment: DuffelPaymentsProps["onFailedPayment"]
+  onFailedPayment: DuffelPaymentsProps["onFailedPayment"],
 ) {
   const element = tryToGetDuffelPaymentsCustomElement(
-    "onDuffelPaymentsFailedPayment"
+    "onDuffelPaymentsFailedPayment",
   );
   const eventListener = (event: OnFailedPaymentCustomEvent) => {
     onFailedPayment(event.detail.error);

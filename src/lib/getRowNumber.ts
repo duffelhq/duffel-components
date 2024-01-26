@@ -8,7 +8,7 @@ export const getRowNumber = (row: SeatMapCabinRow): string | null => {
     .map((section) => section.elements)
     .reduce((acc, val) => acc.concat(val), [])
     .filter(
-      (element) => element.type === "seat"
+      (element) => element.type === "seat",
     ) as SeatMapCabinRowSectionElementSeat[];
 
   return seats.length > 0

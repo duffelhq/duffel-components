@@ -27,7 +27,7 @@ export const SavingAndUsingCardExample: React.FC<{ clientKey: string }> = ({
           console.log("card saved", data); // 2. get the card data and store it in your system
         }}
         onCreateCardForTemporaryUseSuccess={(
-          data: CreateCardForTemporaryUseData
+          data: CreateCardForTemporaryUseData,
         ) => {
           console.log("temporary card created", data); // 5. get the temporary card data and use it to create stays booking or flights order
         }}

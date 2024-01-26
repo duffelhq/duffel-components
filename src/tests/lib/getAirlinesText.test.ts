@@ -23,7 +23,7 @@ describe("getAirlinesText", () => {
       segments: [{ marketing_carrier: ba }],
     } as any;
     expect(getAirlinesText(slice, false, true)).toBe(
-      "Economy · British Airways"
+      "Economy · British Airways",
     );
   });
   test("handles missing fare brand name", () => {
@@ -38,7 +38,7 @@ describe("getAirlinesText", () => {
       segments: [{ marketing_carrier: ba, operating_carrier: ba }],
     } as any;
     expect(getAirlinesText(slice, false, true)).toBe(
-      "Economy · British Airways"
+      "Economy · British Airways",
     );
   });
   test("correctly displays differing marketing and operating carrier", () => {
@@ -47,7 +47,7 @@ describe("getAirlinesText", () => {
       segments: [{ marketing_carrier: ba, operating_carrier: aa }],
     } as any;
     expect(getAirlinesText(slice, false, true)).toBe(
-      "Economy · Sold by British Airways, operated by American Airlines"
+      "Economy · Sold by British Airways, operated by American Airlines",
     );
   });
   test("correctly displays offers partially operated by different carrier", () => {
@@ -60,7 +60,7 @@ describe("getAirlinesText", () => {
       ],
     } as any;
     expect(getAirlinesText(slice, false, true)).toBe(
-      "Economy · Sold by British Airways, partially operated by American Airlines"
+      "Economy · Sold by British Airways, partially operated by American Airlines",
     );
   });
   test("correctly displays offers partially operated by multiple different carriers", () => {
@@ -73,7 +73,7 @@ describe("getAirlinesText", () => {
       ],
     } as any;
     expect(getAirlinesText(slice, false, true)).toBe(
-      "Economy · Sold by British Airways, partially operated by American Airlines, Vueling"
+      "Economy · Sold by British Airways, partially operated by American Airlines, Vueling",
     );
   });
 });

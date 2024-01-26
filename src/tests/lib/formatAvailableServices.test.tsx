@@ -72,7 +72,7 @@ describe("formatAvailableServices", () => {
               currency: service.id === "1" ? "GBP" : "USD",
             };
           },
-        }
+        },
       );
     }).toThrow();
   });

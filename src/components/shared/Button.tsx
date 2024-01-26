@@ -48,7 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
       "button",
       BUTTON_VARIANTS[variant],
       BUTTON_SIZES[size],
-      className
+      className,
     )}
     {...nativeButtonProps}
   >

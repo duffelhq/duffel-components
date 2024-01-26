@@ -8,7 +8,7 @@ import { isISO8601Duration } from "./isISO8601Duration";
 
 export const getTravelItem = (
   fromSegment: OfferSliceSegment | OrderSliceSegment,
-  fareBrandName: string | null
+  fareBrandName: string | null,
 ): TravelDetails<"order" | "offer"> => {
   const { origin, destination } = fromSegment;
   const { arrivingAt, departingAt } = getSegmentDates(fromSegment);
@@ -42,10 +42,10 @@ export const getTravelItem = (
       // NOTE: need to make passengers optional because order request change offer slice
       // shares the same type as offer's slice when it shouldn't
       carryOn: fromSegment.passengers?.[0].baggages?.find(
-        (baggage) => baggage.type === "carry_on"
+        (baggage) => baggage.type === "carry_on",
       )?.quantity,
       checked: fromSegment.passengers?.[0].baggages?.find(
-        (baggage) => baggage.type === "checked"
+        (baggage) => baggage.type === "checked",
       )?.quantity,
     },
     originTerminal: fromSegment.origin_terminal,

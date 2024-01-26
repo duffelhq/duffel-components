@@ -1,7 +1,7 @@
 import { DuffelCardFormProps } from "./types";
 
 export function getIFrameOriginForEnvironment(
-  tokenProxyEnvironment: DuffelCardFormProps["tokenProxyEnvironment"]
+  tokenProxyEnvironment: DuffelCardFormProps["tokenProxyEnvironment"],
 ): string {
   let origin = "https://api.duffel.cards";
   if (tokenProxyEnvironment === "staging") {

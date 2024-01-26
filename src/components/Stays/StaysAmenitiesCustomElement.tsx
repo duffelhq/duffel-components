@@ -53,17 +53,17 @@ function tryToGetCustomElement(caller: string): CustomElement {
   const element = document.querySelector<CustomElement>(CUSTOM_ELEMENT_TAG);
   if (!element) {
     throw new Error(
-      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`,
     );
   }
   return element;
 }
 
 export function renderDuffelStaysAmenitiesCustomElement(
-  props: CustomElementRenderArguments
+  props: CustomElementRenderArguments,
 ) {
   const element = tryToGetCustomElement(
-    "renderDuffelStaysAmenitiesCustomElement"
+    "renderDuffelStaysAmenitiesCustomElement",
   );
   element.render(props);
 }

@@ -62,7 +62,7 @@ async function searchRoundTripOnDuffel(origin, destination) {
         method: "POST",
         body: JSON.stringify(payload),
         headers: duffelHeaders,
-      }
+      },
     )
   ).json();
 
@@ -77,7 +77,7 @@ async function createOrderOnDuffel(request, response) {
       headers: duffelHeaders,
       body: request,
       duplex: "half",
-    }
+    },
   );
 
   response.writeHead(createOrderOnDuffelResponse.status, {
@@ -118,11 +118,11 @@ const SERVER_ROUTES = {
     const withOfferId = template.replace("__OFFER_ID__", offer.id);
     const withclientKey = withOfferId.replace(
       "__CLIENT_KEY__",
-      offerRequest.client_key
+      offerRequest.client_key,
     );
     const withPassengers = withclientKey.replace(
       `"__PASSENGERS__"`,
-      `${JSON.stringify(passengers)}`
+      `${JSON.stringify(passengers)}`,
     );
 
     response.writeHead(200);

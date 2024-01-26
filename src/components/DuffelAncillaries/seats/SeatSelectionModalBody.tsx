@@ -5,7 +5,7 @@ import { SeatMap, SeatMapProps } from "./SeatMap";
 export type SeatSelectionModalBodyProps = SeatMapProps;
 
 export const SeatSelectionModalBody: React.FC<SeatSelectionModalBodyProps> = (
-  props
+  props,
 ) => (
   <ModalBody>
     <SeatMap {...props} />

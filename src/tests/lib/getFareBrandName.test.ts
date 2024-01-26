@@ -13,7 +13,7 @@ const segment: OfferSliceSegment = {
 describe("getFareBrandName", () => {
   test("correctly returns slice fare brand name if present", () => {
     expect(getFareBrandName("Economy class restrictive", segment)).toBe(
-      "Economy class restrictive"
+      "Economy class restrictive",
     );
   });
   test("correctly returns first passenger cabin class marketing name if slice fare brand name not present", () => {

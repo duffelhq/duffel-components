@@ -16,7 +16,7 @@ export interface BaggageSelectionModalBodyPassengerProps {
   passengerServicesForSegment: OfferAvailableServiceBaggage[];
   selectedServices: WithServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[]
+    selectedServices: WithServiceInformation<CreateOrderService>[],
   ) => void;
 }
 
@@ -33,7 +33,7 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
 }) => {
   const hasIncludedBaggage = includedBaggage.reduce(
     (sum, bag) => sum + bag.quantity,
-    0
+    0,
   );
 
   return (
@@ -65,7 +65,7 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
                 passengerName,
                 availableService,
                 selectedServices,
-                setSelectedServices
+                setSelectedServices,
               )
             }
           />
@@ -89,12 +89,12 @@ const onBaggageQuantityChanged = (
   availableService: OfferAvailableServiceBaggage,
   selectedServices: WithServiceInformation<CreateOrderService>[],
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[]
-  ) => void
+    selectedServices: WithServiceInformation<CreateOrderService>[],
+  ) => void,
 ) => {
   // check if the service which had its quantity changed is already in the list
   const changedServiceIndex = selectedServices.findIndex(
-    ({ id }) => availableService.id === id
+    ({ id }) => availableService.id === id,
   );
 
   // create a copy of the existing list of selected services
@@ -122,6 +122,6 @@ const onBaggageQuantityChanged = (
   // remove any services with a quantity of 0
   // and update the list of selected services
   setSelectedServices(
-    newSelectedServices.filter(({ quantity }) => quantity !== 0)
+    newSelectedServices.filter(({ quantity }) => quantity !== 0),
   );
 };

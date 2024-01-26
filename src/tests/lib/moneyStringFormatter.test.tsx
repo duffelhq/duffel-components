@@ -6,7 +6,7 @@ describe("moneyStringFormatter", () => {
   });
   it("should fall back to value + currency for unknown currencies", () => {
     expect(moneyStringFormatter("Duffel house points")(10.23)).toEqual(
-      "10.23 Duffel house points"
+      "10.23 Duffel house points",
     );
   });
 });

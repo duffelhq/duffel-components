@@ -38,7 +38,7 @@ export const getBoardTypeLabel = (boardType: StaysRoomRate["board_type"]) => {
 };
 
 export const boardTypeIcon = (
-  boardType: StaysRoomRate["board_type"]
+  boardType: StaysRoomRate["board_type"],
 ): IconName => {
   switch (boardType) {
     case "room_only":

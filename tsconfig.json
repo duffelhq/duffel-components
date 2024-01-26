@@ -12,7 +12,7 @@
       "es2018",
       "es2019",
       "es2020",
-      "esnext"
+      "esnext",
     ],
     "sourceMap": true,
     "allowJs": true,
@@ -25,7 +25,7 @@
     "moduleResolution": "node",
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@lib/*": ["./src/lib/*"]
+      "@lib/*": ["./src/lib/*"],
     },
     "jsx": "react-jsx",
     "types": ["node", "jest", "@duffel/api"],
@@ -36,7 +36,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "react-dist",
-    "declarationDir": "react-dist"
+    "declarationDir": "react-dist",
   },
   "include": [
     "src/**/*.ts",
@@ -44,13 +44,13 @@
     "src/**/*.tsx",
     "scripts/**/*.ts",
     "scripts/**/*.d.ts",
-    "scripts/**/*.tsx"
+    "scripts/**/*.tsx",
   ],
   "exclude": [
     "**/**.css.js",
     "./cdn-dist/**/*",
     "./react-dist/**/*",
     "./src/examples/**/*",
-    "./src/fixtures/**/*.json"
-  ]
+    "./src/fixtures/**/*.json",
+  ],
 }

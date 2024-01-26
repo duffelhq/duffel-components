@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Checkout page example</title>
@@ -51,7 +51,7 @@
 
     // 4. Listen to 'onPayloadReady' event on the component. `event.detail.data` contains the payload you need to send to Duffel's API to create an order.
     duffelAncillariesElement.addEventListener("onPayloadReady", (event) =>
-      console.log("onPayloadReady\n", event.detail)
+      console.log("onPayloadReady\n", event.detail),
     );
   </script>
 </html>

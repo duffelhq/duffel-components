@@ -6,14 +6,14 @@ const multipleCurrenciesErrorMessage = (currencies: Set<string>) => {
   return `Seats must all have the same currency, but they have ${
     currencies.size
   } different currencies (${[...currencies].join(
-    ", "
+    ", ",
   )}). Check the price formatters passed into the component's render function.`;
 };
 
 const formatElement = (
   element: SeatMapCabinRowSectionElement,
   priceFormatter: DuffelAncillariesPriceFormatterForSeats,
-  foundCurrencies: Set<string>
+  foundCurrencies: Set<string>,
 ) => {
   const formattedElement = { ...element };
   if (
@@ -26,7 +26,7 @@ const formatElement = (
         const { amount, currency } = priceFormatter(
           +service.total_amount,
           service.total_currency,
-          service
+          service,
         );
 
         formattedService.total_amount = amount.toString();
@@ -41,7 +41,7 @@ const formatElement = (
         }
 
         return formattedService;
-      }
+      },
     );
     formattedElement.available_services = formattedServices;
   }
@@ -50,7 +50,7 @@ const formatElement = (
 
 const formatSeatMaps = (
   seatMaps: SeatMap[],
-  priceFormatter?: DuffelAncillariesPriceFormatterForSeats
+  priceFormatter?: DuffelAncillariesPriceFormatterForSeats,
 ): SeatMap[] => {
   // If a custom formatter wasn't passed in, don't do anything.
   if (!priceFormatter) {

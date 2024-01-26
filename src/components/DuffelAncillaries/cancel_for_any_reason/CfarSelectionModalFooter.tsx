@@ -27,7 +27,7 @@ export const CfarSelectionModalFooter: React.FC<
 }) => {
   const serviceIncluded = selectedServices.some(({ id }) => id == service.id);
   const formattedPrice = moneyStringFormatter(service.total_currency)(
-    +service.total_amount
+    +service.total_amount,
   );
 
   return (

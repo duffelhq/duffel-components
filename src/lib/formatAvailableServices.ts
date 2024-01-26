@@ -5,12 +5,12 @@ import { isCancelForAnyReasonService } from "./isCancelForAnyReasonService";
 
 const multipleCurrenciesErrorMessage = (
   label: string,
-  currencies: Set<string>
+  currencies: Set<string>,
 ) => {
   return `${label} must all have the same currency, but they have ${
     currencies.size
   } different currencies (${[...currencies].join(
-    ", "
+    ", ",
   )}). Check the price formatters passed into the component's render function.`;
 };
 
@@ -24,7 +24,7 @@ const multipleCurrenciesErrorMessage = (
  */
 const formatAvailableServices = (
   offer: Offer,
-  priceFormatters?: DuffelAncillariesPriceFormatters
+  priceFormatters?: DuffelAncillariesPriceFormatters,
 ): Offer => {
   // If no custom formatters were passed in, don't do anything.
   if (!priceFormatters) {
@@ -50,7 +50,7 @@ const formatAvailableServices = (
         const { amount, currency } = formatters[service.type]!(
           +service.total_amount,
           service.total_currency,
-          service
+          service,
         );
 
         total_amount = amount.toString();
@@ -63,7 +63,7 @@ const formatAvailableServices = (
         const { amount, currency } = formatters[service.type]!(
           +service.total_amount,
           service.total_currency,
-          service
+          service,
         );
 
         total_amount = amount.toString();
@@ -76,7 +76,7 @@ const formatAvailableServices = (
       foundCurrencies.add(total_currency);
       if (foundCurrencies.size > 1) {
         throw new Error(
-          multipleCurrenciesErrorMessage(service.type, foundCurrencies)
+          multipleCurrenciesErrorMessage(service.type, foundCurrencies),
         );
       }
 

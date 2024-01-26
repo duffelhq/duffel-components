@@ -33,7 +33,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
     className={classNames(
       "icon-button",
       ICON_BUTTON_VARIANTS[variant],
-      className
+      className,
     )}
     {...nativeButtonProps}
   >

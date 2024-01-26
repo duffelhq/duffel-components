@@ -35,8 +35,8 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         [],
         "segment_id",
         "passenger_id",
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(false);
   });
 
@@ -46,8 +46,8 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         [{ ...selectedService, id: availableService.id }],
         "segment_id",
         "passenger_id",
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(false);
   });
 
@@ -57,8 +57,8 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         [selectedService],
         "segment_id",
         "passenger_id_wont_match",
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(false);
   });
 
@@ -68,8 +68,8 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         [selectedService],
         "segment_id_wont_match",
         "passenger_id",
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(false);
 
     expect(
@@ -80,8 +80,8 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         {
           ...availableService,
           segment_ids: ["segment_id", "segment_id_wont_match"],
-        }
-      )
+        },
+      ),
     ).toBe(true);
 
     expect(
@@ -93,8 +93,8 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
           ...availableService,
           metadata: { ...availableService.metadata, type: "carry_on" },
           segment_ids: ["segment_id", "segment_id_wont_match"],
-        }
-      )
+        },
+      ),
     ).toBe(false);
   });
 
@@ -104,8 +104,8 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         [selectedService],
         "segment_id",
         "passenger_id",
-        { ...availableService, metadata: { type: "carry_on" } } as any
-      )
+        { ...availableService, metadata: { type: "carry_on" } } as any,
+      ),
     ).toBe(false);
   });
 
@@ -115,8 +115,8 @@ describe("hasServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
         [selectedService],
         "segment_id",
         "passenger_id",
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(true);
   });
 });

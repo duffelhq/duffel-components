@@ -7,7 +7,7 @@ export function getIframeURL(
   tokenProxyEnvironment: DuffelCardFormProps["tokenProxyEnvironment"],
   intent: DuffelCardFormProps["intent"],
   clientKey: DuffelCardFormProps["clientKey"],
-  savedCardData: DuffelCardFormProps["savedCardData"]
+  savedCardData: DuffelCardFormProps["savedCardData"],
 ) {
   const iFrameOrigin = getIFrameOriginForEnvironment(tokenProxyEnvironment);
   const iframeURL = new URL(iFrameOrigin);

@@ -54,7 +54,7 @@ export const PlacesLookup: React.FC<PlacesLookupProps> = ({
     setLookupResults(
       lookupData.search(newInputValue, {
         limit: 10,
-      })
+      }),
     );
   }, 300);
 
@@ -66,8 +66,8 @@ export const PlacesLookup: React.FC<PlacesLookupProps> = ({
           new Fuse<Place>(mapDataRowsIntoObjects(data), {
             threshold: 0.2,
             keys: ["name", "iata_code"],
-          })
-        )
+          }),
+        ),
       );
   }, []);
 

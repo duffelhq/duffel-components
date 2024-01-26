@@ -48,7 +48,7 @@ export const compileCreateOrderPayload = ({
 };
 
 const filterServicesForPayload = (
-  selectedServices: CreateOrder["services"]
+  selectedServices: CreateOrder["services"],
 ): CreateOrder["services"] => {
   if (!Array.isArray(selectedServices)) return [];
   return selectedServices

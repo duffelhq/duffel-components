@@ -5,7 +5,7 @@ import {
 } from "../types/DuffelAncillariesProps";
 
 const convertMarkupIntoPriceFormatter = (
-  markup: DuffelAncillariesMarkupDefinition
+  markup: DuffelAncillariesMarkupDefinition,
 ) => {
   return (amount: number, currency: string) => {
     const { rate, amount: markupAmount } = markup;
@@ -28,7 +28,7 @@ const errorMessage =
  */
 const createPriceFormatters = (
   markup?: DuffelAncillariesMarkup,
-  priceFormatters?: DuffelAncillariesPriceFormatters
+  priceFormatters?: DuffelAncillariesPriceFormatters,
 ): DuffelAncillariesPriceFormatters => {
   const formatters: DuffelAncillariesPriceFormatters = {};
 
@@ -63,7 +63,7 @@ const createPriceFormatters = (
         throw new Error(errorMessage);
       }
       formatters.cancel_for_any_reason = convertMarkupIntoPriceFormatter(
-        markup.cancel_for_any_reason
+        markup.cancel_for_any_reason,
       );
     }
   }

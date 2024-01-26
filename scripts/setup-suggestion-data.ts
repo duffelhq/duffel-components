@@ -4,7 +4,7 @@ import readline from "readline";
 async function readCSVIntoMatrix(
   filePath: string,
   linePrefix: string,
-  keys: string[]
+  keys: string[],
 ): Promise<string[]> {
   const rl = readline.createInterface({
     input: fs.createReadStream(filePath),
@@ -93,7 +93,7 @@ async function main() {
 
   fs.writeFileSync(
     "./data/__generated__iata-lookup.json",
-    JSON.stringify([...cities, ...airports])
+    JSON.stringify([...cities, ...airports]),
   );
 }
 

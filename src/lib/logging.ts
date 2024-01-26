@@ -46,7 +46,7 @@ const initializeLogger = (debugMode: boolean): void => {
     If you do not want to enable debug mode (for example in a production environment), pass "debug: false" when initializing this component.
     
     Learn more about the Ancillaries component:
-    http://duffel.com/docs/guides/ancillaries-component`
+    http://duffel.com/docs/guides/ancillaries-component`,
     );
   }
   LOG_INITIALISED = true;
@@ -86,14 +86,14 @@ function logGroup(groupName: string, object: { [key: string]: any }): void;
 // https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads
 function logGroup(
   groupName: string,
-  messagesOrObject: any[] | { [key: string]: any }
+  messagesOrObject: any[] | { [key: string]: any },
 ): void {
   let transformedMessagesOrObject = [];
   if (Array.isArray(messagesOrObject)) {
     transformedMessagesOrObject = messagesOrObject;
   } else {
     transformedMessagesOrObject = Object.entries(messagesOrObject).map(
-      ([key, value]) => ({ property: key, value })
+      ([key, value]) => ({ property: key, value }),
     );
   }
 
