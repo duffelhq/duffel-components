@@ -19,18 +19,18 @@ export const IncludedBaggageBanner: React.FC<IncludedBaggageBannerProps> = ({
     {
       carryOnBagsQuantity: 0,
       checkedBagsQuantity: 0,
-    }
+    },
   );
 
   const baggageLabelStringArray = new Array<string>();
   if (carryOnBagsQuantity > 0) {
     baggageLabelStringArray.push(
-      withPlural(carryOnBagsQuantity, "cabin bag", "cabin bags")
+      withPlural(carryOnBagsQuantity, "cabin bag", "cabin bags"),
     );
   }
   if (checkedBagsQuantity > 0) {
     baggageLabelStringArray.push(
-      withPlural(checkedBagsQuantity, "checked bag", "checked bags")
+      withPlural(checkedBagsQuantity, "checked bag", "checked bags"),
     );
   }
 

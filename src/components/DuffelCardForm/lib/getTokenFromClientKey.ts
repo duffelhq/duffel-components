@@ -3,7 +3,7 @@ export function getTokenFromClientKey(clientKey: string): string {
 
   if (clientKey.split(".").length !== 3) {
     throw new Error(
-      "Invalid clientKey attribute in DuffelCardForm. It must be a valid JWT."
+      "Invalid clientKey attribute in DuffelCardForm. It must be a valid JWT.",
     );
   }
 
@@ -14,7 +14,7 @@ export function getTokenFromClientKey(clientKey: string): string {
     return payload.token;
   } catch (error) {
     throw new Error(
-      "Invalid clientKey attribute in DuffelCardForm. It was not possible to read the payload."
+      "Invalid clientKey attribute in DuffelCardForm. It was not possible to read the payload.",
     );
   }
 }

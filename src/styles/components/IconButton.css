@@ -20,7 +20,8 @@
   color: var(--GREY-400);
   border: 1px solid transparent;
 
-  transition: background-color 0.3s var(--TRANSITION-CUBIC-BEZIER),
+  transition:
+    background-color 0.3s var(--TRANSITION-CUBIC-BEZIER),
     color 0.3s var(--TRANSITION-CUBIC-BEZIER),
     opacity 0.3s var(--TRANSITION-CUBIC-BEZIER);
 }

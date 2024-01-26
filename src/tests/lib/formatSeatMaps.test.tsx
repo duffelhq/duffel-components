@@ -20,14 +20,14 @@ describe("formatSeatMaps", () => {
     const firstElementWithServices = getFirstSeatElementMatchingCriteria(
       result,
       (element) =>
-        element.type === "seat" && element.available_services.length > 0
+        element.type === "seat" && element.available_services.length > 0,
     ) as SeatMapCabinRowSectionElementSeat;
 
     expect(firstElementWithServices?.available_services[0].total_amount).toBe(
-      "100"
+      "100",
     );
     expect(firstElementWithServices?.available_services[0].total_currency).toBe(
-      "Duffel points"
+      "Duffel points",
     );
   });
 

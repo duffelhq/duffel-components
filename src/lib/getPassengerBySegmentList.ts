@@ -6,5 +6,5 @@ export const getPassengerBySegmentList = (segments: OfferSliceSegment[]) =>
       passenger,
       passengerIndex,
       segment,
-    }))
+    })),
   );

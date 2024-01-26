@@ -37,12 +37,12 @@ export const OfferSliceDetailTravelItem: React.FC<
 
   const circleClasses = classNames(
     "circle",
-    changeStatus && `circle--${changeStatus}`
+    changeStatus && `circle--${changeStatus}`,
   );
 
   const itineraryClasses = classNames(
     "itinerary-top",
-    changeStatus && `itinerary-top--${changeStatus}`
+    changeStatus && `itinerary-top--${changeStatus}`,
   );
 
   const highlightStyles = (key?: string) => {

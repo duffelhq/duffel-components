@@ -2,7 +2,7 @@ import { SeatMap, SeatMapCabinRowSectionElement } from "@duffel/api/types";
 
 const getFirstSeatElementMatchingCriteria = (
   seatMaps: SeatMap[],
-  matcher: (element: SeatMapCabinRowSectionElement) => boolean
+  matcher: (element: SeatMapCabinRowSectionElement) => boolean,
 ) => {
   for (const seatMap of seatMaps) {
     for (const cabin of seatMap.cabins) {

@@ -10,7 +10,7 @@ const CabinClassMap = {
 
 export const getFareBrandName = (
   fareBrandName: string | null,
-  forSegment: OfferSliceSegment | OrderSliceSegment
+  forSegment: OfferSliceSegment | OrderSliceSegment,
 ) =>
   fareBrandName ||
   (forSegment.passengers &&

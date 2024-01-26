@@ -7,7 +7,7 @@ export function getIframeURL(
   tokenProxyEnvironment: DuffelCardFormProps["tokenProxyEnvironment"],
   intent: DuffelCardFormProps["intent"],
   clientKey: DuffelCardFormProps["clientKey"],
-  cardId: DuffelCardFormProps["cardId"]
+  savedCardData: DuffelCardFormProps["savedCardData"],
 ) {
   const iFrameOrigin = getIFrameOriginForEnvironment(tokenProxyEnvironment);
   const iframeURL = new URL(iFrameOrigin);
@@ -16,8 +16,9 @@ export function getIframeURL(
 
   iframeURL.searchParams.set("token", getTokenFromClientKey(clientKey));
 
-  if (cardId) {
-    iframeURL.searchParams.set("card_id", getTokenFromClientKey(cardId));
+  if (savedCardData) {
+    iframeURL.searchParams.set("card_id", savedCardData.id);
+    iframeURL.searchParams.set("card_brand", savedCardData.brand);
   }
 
   return iframeURL;

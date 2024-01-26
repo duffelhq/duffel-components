@@ -6,7 +6,7 @@
 export const moneyStringFormatter = (
   currency: string,
   locale = "en-GB",
-  options: { [option: string]: string } = {}
+  options: { [option: string]: string } = {},
 ) => {
   return (value: number) => {
     try {

@@ -66,10 +66,10 @@ class DuffelAncillariesCustomElement extends HTMLElement {
             new CustomEvent("onPayloadReady", {
               detail: { data, metadata },
               composed: true,
-            })
+            }),
           );
         }}
-      />
+      />,
     );
   }
 }
@@ -77,27 +77,27 @@ class DuffelAncillariesCustomElement extends HTMLElement {
 window.customElements.get(CUSTOM_ELEMENT_TAG) ||
   window.customElements.define(
     CUSTOM_ELEMENT_TAG,
-    DuffelAncillariesCustomElement
+    DuffelAncillariesCustomElement,
   );
 
 function tryToGetDuffelAncillariesCustomElement(
-  caller: string
+  caller: string,
 ): DuffelAncillariesCustomElement {
   const element =
     document.querySelector<DuffelAncillariesCustomElement>(CUSTOM_ELEMENT_TAG);
   if (!element) {
     throw new Error(
-      `Could not find duffel-ancillaries element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find duffel-ancillaries element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`,
     );
   }
   return element;
 }
 
 export function renderDuffelAncillariesCustomElement(
-  props: DuffelAncillariesCustomElementRenderArguments
+  props: DuffelAncillariesCustomElementRenderArguments,
 ) {
   const element = tryToGetDuffelAncillariesCustomElement(
-    "renderDuffelAncillariesCustomElement"
+    "renderDuffelAncillariesCustomElement",
   );
   element.render(props);
 }
@@ -108,10 +108,10 @@ type OnPayloadReadyCustomEvent = CustomEvent<{
 }>;
 
 export function onDuffelAncillariesPayloadReady(
-  onPayloadReady: OnPayloadReady
+  onPayloadReady: OnPayloadReady,
 ) {
   const element = tryToGetDuffelAncillariesCustomElement(
-    "onDuffelAncillariesPayloadReady"
+    "onDuffelAncillariesPayloadReady",
   );
   const eventListener = (event: OnPayloadReadyCustomEvent) => {
     onPayloadReady(event.detail.data, event.detail.metadata);

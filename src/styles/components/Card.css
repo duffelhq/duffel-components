@@ -10,7 +10,8 @@
 
 .ancillary-card__expand-icon {
   color: var(--GREY-400);
-  transition: color 0.3s var(--TRANSITION-CUBIC-BEZIER),
+  transition:
+    color 0.3s var(--TRANSITION-CUBIC-BEZIER),
     transform 0.5s var(--TRANSITION-CUBIC-BEZIER);
   transform: scale(1);
 }

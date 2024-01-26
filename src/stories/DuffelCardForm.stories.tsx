@@ -14,7 +14,6 @@ const defaultProps: DuffelCardFormProps = {
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IkVOQ1JZUFRFRF9UT0tFTiJ9.qP-zHSkMn-O9VGSj4wkh_A4VDOIrzpgRxh1xgLZ51rk",
   intent: "to-create-card-for-temporary-use",
   tokenProxyEnvironment: "development",
-  actions: ["validate"],
   onValidateSuccess: console.log,
   onValidateFailure: console.error,
   onCreateCardForTemporaryUseSuccess: console.log,

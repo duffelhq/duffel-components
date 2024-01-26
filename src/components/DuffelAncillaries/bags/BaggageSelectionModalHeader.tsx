@@ -30,7 +30,7 @@ export const BaggageSelectionModalHeader: React.FC<
                 key={`segment_${index}`}
                 onClick={() => setCurrentSegmentIndex(index)}
               />
-            )
+            ),
           )}
       </div>
     )}

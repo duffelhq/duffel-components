@@ -17,7 +17,7 @@ export interface CfarSelectionCardProps {
   offer?: Offer;
   selectedServices: WithServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[]
+    selectedServices: WithServiceInformation<CreateOrderService>[],
   ) => void;
 }
 
@@ -44,7 +44,7 @@ export const CfarSelectionCard: React.FC<CfarSelectionCardProps> = ({
     : "0";
 
   const cfarService = offer?.available_services.find(
-    isCancelForAnyReasonService
+    isCancelForAnyReasonService,
   );
 
   const copy =

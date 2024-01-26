@@ -6,15 +6,15 @@ import { getSegmentFlightNumber } from "./getSegmentFlightNumber";
 export const getAirlinesText = (
   forSlice: OfferSlice,
   withFlightNumbers?: boolean,
-  withFareBrand?: boolean
+  withFareBrand?: boolean,
 ): string => {
   const fareBrandName = getFareBrandName(
     "fare_brand_name" in forSlice ? forSlice.fare_brand_name : null,
-    forSlice.segments[0]
+    forSlice.segments[0],
   );
 
   const { marketingCarrier, operatingCarriers } = getCarriers(
-    forSlice.segments
+    forSlice.segments,
   );
   const isMarketingSameAsOperating =
     operatingCarriers.length > 0 &&

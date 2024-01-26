@@ -8,7 +8,7 @@ export const hasServiceOfSameMetadataTypeAlreadyBeenSelected = (
   selectedServices: WithServiceInformation<CreateOrderService>[],
   segmentId: string,
   passengerId: string,
-  availableService: OfferAvailableServiceBaggage
+  availableService: OfferAvailableServiceBaggage,
 ) =>
   selectedServices.some((selectedService) => {
     const isOnDifferentSegment =

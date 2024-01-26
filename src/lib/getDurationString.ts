@@ -6,7 +6,7 @@ const MS_PER_DAY = MS_PER_HOUR * 24;
 export function getDurationString(
   start: Date | string,
   end: Date | string,
-  format?: "long"
+  format?: "long",
 ): string {
   let startDate: Date = typeof start === "string" ? new Date(start) : start;
   let prefix = "";
@@ -34,7 +34,7 @@ export function getDurationString(
   const days = Math.floor(diff / MS_PER_DAY);
   const hours = Math.floor((diff - days * MS_PER_DAY) / MS_PER_HOUR);
   const minutes = Math.floor(
-    (diff - days * MS_PER_DAY - hours * MS_PER_HOUR) / MS_PER_MINUTE
+    (diff - days * MS_PER_DAY - hours * MS_PER_HOUR) / MS_PER_MINUTE,
   );
 
   let daysString = "";

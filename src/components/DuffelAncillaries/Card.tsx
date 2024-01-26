@@ -35,7 +35,7 @@ export const Card: React.FC<CardProps> = ({
       disabled={disabled}
       className={classNames(
         "ancillary-card",
-        isLoading && "ancillary-card--loading"
+        isLoading && "ancillary-card--loading",
       )}
       // We are using inline styles here because
       // we don't want the cards to appear unstyled

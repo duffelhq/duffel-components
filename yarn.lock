@@ -2100,7 +2100,7 @@ __metadata:
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"
     lodash: "npm:4.17.21"
-    prettier: "npm:2.8.7"
+    prettier: "npm:3.2.4"
     prettier-plugin-organize-imports: "npm:3.2.2"
     prompts: "npm:2.4.2"
     prop-types: "npm:15.8.1"
@@ -11938,12 +11938,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.7":
-  version: 2.8.7
-  resolution: "prettier@npm:2.8.7"
+"prettier@npm:3.2.4":
+  version: 3.2.4
+  resolution: "prettier@npm:3.2.4"
   bin:
-    prettier: bin-prettier.js
-  checksum: 84c5b62f7d4909ae5b18b1a4cee67f6a30a548244c8919e67158dee1453f4fa4ff4d291c6f2e41e21d443a0c405f03ec27690502d4ad90c3a7c59bcaf38b51ba
+    prettier: bin/prettier.cjs
+  checksum: 88dfeb78ac6096522c9a5b81f1413d875f568420d9bb6a5e5103527912519b993f2bcdcac311fcff5718d5869671d44e4f85827d3626f3a6ce32b9abc65d88e0
   languageName: node
   linkType: hard
 

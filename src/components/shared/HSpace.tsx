@@ -42,7 +42,7 @@ export const HSpace: React.FC<HSpaceProps> = ({
       alignCenter && "hspace--align-center",
       spaceBetween && "hspace--space-between",
       `h-space--${space}`,
-      className
+      className,
     )}
     {...divProps}
   ></div>

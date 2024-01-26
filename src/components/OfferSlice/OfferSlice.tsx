@@ -48,11 +48,11 @@ export const OfferSlice: React.FC<OfferSliceProps> = ({
       : null;
 
   const numberOfStops = sliceDetails.filter(
-    (item) => item.type === "layover"
+    (item) => item.type === "layover",
   ).length;
 
   const layoverItems = (sliceDetails.filter(
-    (item) => item.type === "layover"
+    (item) => item.type === "layover",
     // using type assertion here because typescript cannot infer that item.type of 'layover' is SliceLayoverItem
   ) || []) as SliceLayoverItem[];
 

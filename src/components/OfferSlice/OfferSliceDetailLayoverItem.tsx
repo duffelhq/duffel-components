@@ -16,7 +16,7 @@ export interface SliceDetailsLayoverItemProps {
 const getLayoverString = (layoverDetails: LayoverDetails) => {
   if (!layoverDetails) return "Missing layover details";
   const layoverString = `${layoverDetails.duration} layover at ${startCase(
-    layoverDetails.airport.name
+    layoverDetails.airport.name,
   )} (${layoverDetails.airport.iata_code})`;
 
   return layoverString;

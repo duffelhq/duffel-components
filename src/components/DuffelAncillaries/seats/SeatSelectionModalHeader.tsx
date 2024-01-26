@@ -35,7 +35,7 @@ export const SeatSelectionModalHeader: React.FC<
                   setCurrentSegmentAndPassengerPermutationsIndex(index)
                 }
               />
-            )
+            ),
           )}
       </div>
     )}

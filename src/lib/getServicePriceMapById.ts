@@ -6,7 +6,7 @@ export type ServicePriceMapById = Record<
 >;
 
 export const getServicePriceMapById = (
-  availableServices: OfferAvailableService[]
+  availableServices: OfferAvailableService[],
 ): ServicePriceMapById =>
   availableServices.reduce(
     (all, { id, total_amount, total_currency }) => ({
@@ -16,5 +16,5 @@ export const getServicePriceMapById = (
       },
       ...all,
     }),
-    {} as ServicePriceMapById
+    {} as ServicePriceMapById,
   );

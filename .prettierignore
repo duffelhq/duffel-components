@@ -2,5 +2,6 @@ dist
 *-dist
 __generated__*
 storybook-static/*
-.yarn/*
+.yarn
 .pnp*
+.next

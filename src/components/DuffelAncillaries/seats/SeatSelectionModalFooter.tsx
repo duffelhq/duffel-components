@@ -38,7 +38,7 @@ export const SeatSelectionModalFooter: React.FC<
   const totalAmount = getTotalAmountForServicesWithPriceMap(
     servicePrices,
     selectedServices,
-    seatMaps
+    seatMaps,
   );
   const totalAmountLabel = moneyStringFormatter(currency)(totalAmount);
   const isOneWay = isFirstSegment && isLastSegment;

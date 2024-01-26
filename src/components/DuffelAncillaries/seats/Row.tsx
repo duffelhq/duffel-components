@@ -12,7 +12,7 @@ export interface RowProps {
     WithServiceInformation<CreateOrderService>
   >;
   onSeatToggled: (
-    seatService: WithServiceInformation<CreateOrderService>
+    seatService: WithServiceInformation<CreateOrderService>,
   ) => void;
   currentPassengerId: string;
   currentPassengerName: string;

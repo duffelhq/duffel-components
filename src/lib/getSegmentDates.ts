@@ -1,7 +1,7 @@
 import { OfferSliceSegment, OrderSliceSegment } from "@duffel/api/types";
 
 export const getSegmentDates = (
-  segment: OfferSliceSegment | OrderSliceSegment
+  segment: OfferSliceSegment | OrderSliceSegment,
 ) => {
   // TODO: remove the fallback once AIC returns arrivingAt and departingAt for AICs as well
   const arrivingAt =

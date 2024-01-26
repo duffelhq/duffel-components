@@ -14,7 +14,7 @@ const getCurrencyForSeatMaps = (seatMaps: SeatMap[]): string | undefined => {
     | undefined = getFirstSeatElementMatchingCriteria(
     seatMaps,
     (element) =>
-      element.type === "seat" && element.available_services.length > 0
+      element.type === "seat" && element.available_services.length > 0,
   ) as SeatMapCabinRowSectionElementSeat;
   return firstElementWithServices?.available_services[0]?.total_currency;
 };

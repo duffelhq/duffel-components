@@ -4,5 +4,5 @@ import {
 } from "@duffel/api/types";
 
 export const isBaggageService = (
-  service: OfferAvailableService
+  service: OfferAvailableService,
 ): service is OfferAvailableServiceBaggage => service.type === "baggage";

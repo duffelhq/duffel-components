@@ -5,7 +5,7 @@ import {
 } from "@duffel/api/types";
 
 export const getCarriers = (
-  forSegments: OfferSliceSegment[] | OrderSliceSegment[]
+  forSegments: OfferSliceSegment[] | OrderSliceSegment[],
 ) => {
   const operatorSet = new Set<string>();
   const operatingCarriers = new Array<Airline>();

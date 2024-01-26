@@ -44,7 +44,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
         }
         return [...cabinClasses, passenger.cabin_class];
       },
-      []
+      [],
     );
   const brandName = slice.fare_brand_name || cabinClasses.join("/");
 
@@ -73,7 +73,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   const isAdvancedSeatSelectionAvailable = slice.segments
     .flatMap((segment: OfferSliceSegmentWithNGS) => segment.passengers)
     .some(
-      (passenger) => passenger.ticket_attributes?.advanced_selection_available
+      (passenger) => passenger.ticket_attributes?.advanced_selection_available,
     );
 
   return (
@@ -118,7 +118,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
               changeBeforeDepartureCondition.penalty_currency &&
               changeBeforeDepartureCondition.penalty_amount
                 ? ` (${moneyStringFormatter(
-                    changeBeforeDepartureCondition.penalty_currency
+                    changeBeforeDepartureCondition.penalty_currency,
                   )(+changeBeforeDepartureCondition.penalty_amount)})`
                 : ""}
             </div>
@@ -139,7 +139,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
               refundBeforeDepartureCondition.penalty_currency &&
               refundBeforeDepartureCondition.penalty_amount
                 ? ` (${moneyStringFormatter(
-                    refundBeforeDepartureCondition.penalty_currency
+                    refundBeforeDepartureCondition.penalty_currency,
                   )(+refundBeforeDepartureCondition.penalty_amount)})`
                 : ""}
             </div>
@@ -177,7 +177,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
             "ngs-slice-fare-card_price--compared",
             {
               "ngs-slice-fare-card_price--selected": selected,
-            }
+            },
           )}
         >
           {amountDifferencePrefix}
@@ -189,7 +189,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
             "ngs-slice-fare-card_price--total",
             {
               "ngs-slice-fare-card_price--selected": selected,
-            }
+            },
           )}
         >
           {moneyStringFormatter(offer.total_currency)(+offer.total_amount)}

@@ -15,7 +15,7 @@ import { getSegmentDates } from "./getSegmentDates";
 import { getLayoverOriginDestinationKey } from "./getLayoverOriginDestinationKey";
 
 export const getSliceDetails = (
-  slice: OfferSlice | OrderSlice | undefined
+  slice: OfferSlice | OrderSlice | undefined,
 ): SliceDetails => {
   if (!slice) return [];
 
@@ -35,7 +35,7 @@ export const getSliceDetails = (
 
       const duration = getDurationString(
         lastOnStack.travelDetails!.arrivingAt,
-        departingAt!
+        departingAt!,
       );
 
       sliceDetailsStack.push({
@@ -46,7 +46,7 @@ export const getSliceDetails = (
           originDestinationKey: getLayoverOriginDestinationKey(
             lastOnStack.travelDetails?.origin.iata_code,
             lastOnStack.travelDetails?.destination.iata_code,
-            currentSegment.destination?.iata_code
+            currentSegment.destination?.iata_code,
           ),
         },
       });
@@ -67,8 +67,8 @@ export const getSliceDetails = (
           ...splitTravelDetailsWithStops(
             travelDetails,
             stops,
-            currentSegment.id
-          )
+            currentSegment.id,
+          ),
         );
       }
     } else {
@@ -86,7 +86,7 @@ export const getSliceDetails = (
 const splitTravelDetailsWithStops = (
   travelDetails: TravelDetails<"offer">,
   stops: OfferSliceSegmentStop[],
-  segmentId: string
+  segmentId: string,
 ): SliceItem[] => {
   const items: SliceItem[] = [];
   // split the travel details by the number of stops
@@ -116,7 +116,7 @@ const splitTravelDetailsWithStops = (
         originDestinationKey: getLayoverOriginDestinationKey(
           nextOrigin.iata_code,
           stop.airport.iata_code,
-          travelDetails.destination.iata_code
+          travelDetails.destination.iata_code,
         ),
       },
     });
@@ -138,7 +138,7 @@ const splitTravelDetailsWithStops = (
           destination: travelDetails.destination,
           flightDuration: getDurationString(
             stop.departing_at,
-            travelDetails.arrivingAt
+            travelDetails.arrivingAt,
           ),
         },
       });

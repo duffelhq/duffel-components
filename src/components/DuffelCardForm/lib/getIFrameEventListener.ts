@@ -24,7 +24,7 @@ export function getIFrameEventListener(
     onCreateCardForTemporaryUseFailure,
     onSaveCardSuccess,
     onSaveCardFailure,
-  }: Inputs
+  }: Inputs,
 ) {
   return function iFrameEventListener(event: MessageEvent) {
     if (

@@ -6,9 +6,9 @@ export type PassengerMapById = Record<
 >;
 
 export const getPassengerMapById = (
-  passengers: CreateOrder["passengers"]
+  passengers: CreateOrder["passengers"],
 ): PassengerMapById =>
   passengers.reduce(
     (all, passenger) => ({ [passenger.id]: passenger, ...all }),
-    {} as PassengerMapById
+    {} as PassengerMapById,
   );

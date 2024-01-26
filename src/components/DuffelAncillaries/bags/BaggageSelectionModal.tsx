@@ -17,7 +17,7 @@ export interface BaggageSelectionModalProps {
   passengers: CreateOrder["passengers"];
   selectedServices: WithServiceInformation<CreateOrderService>[];
   onClose: (
-    selectedServices: WithServiceInformation<CreateOrderService>[]
+    selectedServices: WithServiceInformation<CreateOrderService>[],
   ) => void;
 }
 

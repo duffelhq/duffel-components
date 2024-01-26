@@ -8,21 +8,21 @@ import {
 export const getTotalAmountForServices = (
   offer: Offer,
   selectedServices: CreateOrder["services"],
-  seatMaps?: SeatMap[]
+  seatMaps?: SeatMap[],
 ): number => {
   if (!offer || !selectedServices || selectedServices.length === 0) return 0;
   const servicePriceMap = getServicePriceMapById(offer.available_services);
   return getTotalAmountForServicesWithPriceMap(
     servicePriceMap,
     selectedServices,
-    seatMaps
+    seatMaps,
   );
 };
 
 export const getTotalAmountForServicesWithPriceMap = (
   servicePriceMap: ServicePriceMapById,
   selectedServices: CreateOrder["services"],
-  seatMaps?: SeatMap[]
+  seatMaps?: SeatMap[],
 ) =>
   (selectedServices || []).reduce(
     (total, { quantity, id }) => {
@@ -35,15 +35,15 @@ export const getTotalAmountForServicesWithPriceMap = (
       } else {
         captureErrorInSentry(
           new Error(
-            `The service id (${id}) provided could not be found in neither the offer nor the seat maps.`
-          )
+            `The service id (${id}) provided could not be found in neither the offer nor the seat maps.`,
+          ),
         );
       }
 
       return newTotal;
     },
 
-    0
+    0,
   );
 
 const getTotalAmountFromSeatMaps = (serviceId: string, seatMaps: SeatMap[]) => {
@@ -57,7 +57,7 @@ const getTotalAmountFromSeatMaps = (serviceId: string, seatMaps: SeatMap[]) => {
               Array.isArray(element.available_services)
             ) {
               const serviceMatch = element.available_services.find(
-                (service) => service.id === serviceId
+                (service) => service.id === serviceId,
               );
               if (serviceMatch) return +serviceMatch.total_amount;
             }
