@@ -9,11 +9,60 @@ import {
   groupOffersForNGSView,
 } from "./lib/group-offers-for-ngs-view";
 import { SortDirection, sortNGSRows } from "./lib/sort-ngs-rows";
+import { NGSSliceFareCard } from "./NGSSliceFareCard";
 
 export interface DuffelNGSViewProps {
   offers: OfferWithNGS[];
   sliceIndex: number;
 }
+
+type OfferPosition = {
+  row: number;
+  shelf: NGSShelf;
+};
+
+function getPreviousShelf(shelf: NGSShelf): NGSShelf | null {
+  const previousShelf = +shelf - 1;
+  return previousShelf === 0 ? null : (previousShelf.toString() as NGSShelf);
+}
+
+function getNextShelf(shelf: NGSShelf): NGSShelf | null {
+  const nextShelf = +shelf + 1;
+  return nextShelf > 5 ? null : (nextShelf.toString() as NGSShelf);
+}
+
+const getPreviousOffer = (
+  rows: NGSOfferRow[],
+  expandedOffer: OfferPosition,
+): OfferWithNGS | null => {
+  const previousShelf = getPreviousShelf(expandedOffer.shelf);
+  if (!previousShelf) {
+    return null;
+  }
+  const previousOffer = rows[expandedOffer.row][previousShelf];
+  if (previousOffer) {
+    return previousOffer;
+  }
+  return getPreviousOffer(rows, {
+    row: expandedOffer.row,
+    shelf: previousShelf,
+  });
+};
+
+const getNextOffer = (
+  rows: NGSOfferRow[],
+  expandedOffer: OfferPosition,
+): OfferWithNGS | null => {
+  const nextShelf = getNextShelf(expandedOffer.shelf);
+  if (!nextShelf) {
+    return null;
+  }
+  const nextOffer = rows[expandedOffer.row][nextShelf];
+  if (nextOffer) {
+    return nextOffer;
+  }
+  return getNextOffer(rows, { row: expandedOffer.row, shelf: nextShelf });
+};
 
 export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   offers,
@@ -28,6 +77,8 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   const [rows, setRows] = React.useState<NGSOfferRow[]>(
     groupOffersForNGSView(offers, sliceIndex),
   );
+  const [expandedOffer, setExpandedOffer] =
+    React.useState<OfferPosition | null>(null);
 
   React.useEffect(() => {
     if (sortShelf) {
@@ -56,6 +107,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                     setSortShelf(shelf);
                   }
                   setSelectedColumn(shelf);
+                  setExpandedOffer(null);
                 }}
               >
                 <div
@@ -102,28 +154,78 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
         </thead>
         <tbody>
           {rows.map((row, index) => (
-            <tr key={index}>
-              <td className="duffel-ngs-view_slice-info">
-                <SliceCarriersTitle slice={row["slice"]} />
-                <div>TODO Flight Summary</div>
-              </td>
-              {NGS_SHELVES.map((shelf) => (
-                <td
-                  key={shelf}
-                  onClick={() => setSelectedColumn(shelf)}
-                  className={classNames("duffel-ngs-view_table-data", {
-                    "duffel-ngs-view_table-data--selected":
-                      selectedColumn === shelf,
-                  })}
-                >
-                  {row[shelf]
-                    ? moneyStringFormatter(row[shelf]!.total_currency)(
-                        +row[shelf]!.total_amount,
-                      )
-                    : "-"}
+            <>
+              <tr key={index}>
+                <td className="duffel-ngs-view_slice-info">
+                  <SliceCarriersTitle slice={row["slice"]} />
+                  <div>TODO Flight Summary</div>
                 </td>
-              ))}
-            </tr>
+                {NGS_SHELVES.map((shelf) => (
+                  <td
+                    key={shelf}
+                    onClick={() => {
+                      if (
+                        expandedOffer?.row === index &&
+                        expandedOffer?.shelf === shelf
+                      ) {
+                        setExpandedOffer(null);
+                      } else if (selectedColumn === shelf) {
+                        setExpandedOffer({ row: index, shelf });
+                      }
+                    }}
+                    className={classNames(
+                      "duffel-ngs-view_table-data",
+                      selectedColumn === shelf &&
+                        "duffel-ngs-view_table-data--selected",
+                      expandedOffer?.row === index &&
+                        expandedOffer?.shelf === shelf &&
+                        "duffel-ngs-view_table-data--expanded",
+                    )}
+                  >
+                    {row[shelf]
+                      ? moneyStringFormatter(row[shelf]!.total_currency)(
+                          +row[shelf]!.total_amount,
+                        )
+                      : "-"}
+                  </td>
+                ))}
+              </tr>
+              {expandedOffer?.row === index &&
+                rows[index][expandedOffer.shelf] && (
+                  <tr>
+                    <td colSpan={6} className="duffel-ngs-view_expanded">
+                      <div>
+                        {getPreviousOffer(rows, expandedOffer) && (
+                          <NGSSliceFareCard
+                            offer={getPreviousOffer(rows, expandedOffer)!}
+                            sliceIndex={sliceIndex}
+                            compareToAmount={
+                              +rows[index][expandedOffer.shelf]!.total_amount
+                            }
+                            className="duffel-ngs-view_card--alternative"
+                          />
+                        )}
+                        <NGSSliceFareCard
+                          offer={rows[index][expandedOffer.shelf]!}
+                          sliceIndex={sliceIndex}
+                          selected
+                          className="duffel-ngs-view_card--selected"
+                        />
+                        {getNextOffer(rows, expandedOffer) && (
+                          <NGSSliceFareCard
+                            offer={getNextOffer(rows, expandedOffer)!}
+                            sliceIndex={sliceIndex}
+                            compareToAmount={
+                              +rows[index][expandedOffer.shelf]!.total_amount
+                            }
+                            className="duffel-ngs-view_card--alternative"
+                          />
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                )}
+            </>
           ))}
         </tbody>
       </table>

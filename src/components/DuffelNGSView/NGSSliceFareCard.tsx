@@ -15,6 +15,8 @@ export interface NGSSliceFareCardProps {
   selected?: boolean;
   onSelect?: () => void;
   compareToAmount?: number;
+
+  className?: string;
 }
 
 export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
@@ -23,6 +25,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   selected,
   onSelect,
   compareToAmount,
+  className,
 }) => {
   if (sliceIndex >= offer.slices.length) {
     throw new Error(
@@ -78,7 +81,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
 
   return (
     <button
-      className="ngs-slice-fare-card_container"
+      className={classNames("ngs-slice-fare-card_container", className)}
       onClick={() => {
         onSelect && onSelect();
       }}
