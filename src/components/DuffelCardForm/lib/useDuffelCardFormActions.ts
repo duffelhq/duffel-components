@@ -23,7 +23,7 @@ export interface UseDuffelCardFormActionsHook {
 }
 
 /**
- * This hook abstracts the ref for convinience and readability.
+ * This hook abstracts the ref for convenience and readability.
  * Add `ref` to the `DuffelCardForm` `ref` prop and call the functions to trigger the actions you'd like.
  */
 export function useDuffelCardFormActions(): UseDuffelCardFormActionsHook {
@@ -43,7 +43,7 @@ export function useDuffelCardFormActions(): UseDuffelCardFormActionsHook {
         ref.current.createCardForTemporaryUse();
       } else {
         console.warn(
-          "Attempted to create card for temporary use, but ref is null",
+          "Attempted to create card for temporary use, but ref is null"
         );
       }
     },
