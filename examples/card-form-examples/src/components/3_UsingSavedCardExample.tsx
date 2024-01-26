@@ -10,7 +10,7 @@ export const UsingSavedCardExample: React.FC<{ clientKey: string }> = ({
   clientKey,
 }) => {
   const [cardId, setCardId] = React.useState<string>("");
-  const { ref,  createCardForTemporaryUse } = useDuffelCardFormActions();
+  const { ref, createCardForTemporaryUse } = useDuffelCardFormActions();
 
   return (
     <Container title="Use saved card">
@@ -29,8 +29,10 @@ export const UsingSavedCardExample: React.FC<{ clientKey: string }> = ({
       ) : (
         <>
           <DuffelCardForm
-          ref={ref}
-            tokenProxyEnvironment={process.env.NEXT_PUBLIC_TOKEN_PROXY_ENV! as any}
+            ref={ref}
+            tokenProxyEnvironment={
+              process.env.NEXT_PUBLIC_TOKEN_PROXY_ENV! as any
+            }
             clientKey={clientKey}
             savedCardData={{
               id: cardId,
@@ -49,7 +51,7 @@ export const UsingSavedCardExample: React.FC<{ clientKey: string }> = ({
             onCreateCardForTemporaryUseFailure={console.error}
           />
           <button
-            onClick={createCardForTemporaryUse}            // 1. wait for card to be successfully validated
+            onClick={createCardForTemporaryUse} // 1. wait for card to be successfully validated
           >
             Pay with saved card
           </button>

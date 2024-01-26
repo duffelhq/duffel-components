@@ -27,7 +27,7 @@ export const SavingCardExample: React.FC<{ clientKey: string }> = ({
         onSaveCardFailure={console.error}
       />
       <button
-        onClick={saveCard} // 2. trigger save card and wait for card to be saved once validation is successfull 
+        onClick={saveCard} // 2. trigger save card and wait for card to be saved once validation is successfull
       >
         save
       </button>

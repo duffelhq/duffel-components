@@ -8,12 +8,11 @@ import { Container } from "./common/Container";
 export const CreatingTemporaryCardExample: React.FC<{ clientKey: string }> = ({
   clientKey,
 }) => {
-  const { ref, createCardForTemporaryUse } =
-    useDuffelCardFormActions();
+  const { ref, createCardForTemporaryUse } = useDuffelCardFormActions();
   return (
     <Container title="Create card for temporary use">
       <DuffelCardForm
-      ref={ref}
+        ref={ref}
         tokenProxyEnvironment={process.env.NEXT_PUBLIC_TOKEN_PROXY_ENV! as any}
         clientKey={clientKey}
         intent="to-create-card-for-temporary-use"

@@ -1,4 +1,3 @@
-
 import { SavingCardExample } from "@/components/1_SavingCardExample";
 import { CreatingTemporaryCardExample } from "@/components/2_CreatingTemporaryCardExample";
 import { UsingSavedCardExample } from "@/components/3_UsingSavedCardExample";
@@ -9,7 +8,6 @@ interface Props {
 }
 
 export const getServerSideProps = async () => {
-
   const response = await fetch(
     `${process.env.DUFFEL_API_ORIGIN}/identity/component_client_keys`,
     {
