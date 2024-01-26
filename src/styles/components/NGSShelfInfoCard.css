@@ -17,19 +17,3 @@
   color: var(--GREY-600);
   font-weight: 400;
 }
-
-.ngs-shelf-info-card_items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 4px;
-  margin-top: 16px;
-}
-
-.ngs-shelf-info-card_items > div {
-  display: flex;
-  align-items: center;
-}
-
-.ngs-shelf-info-card_items > div > .ngs-shelf-info-card_text {
-  margin-left: 2px;
-}

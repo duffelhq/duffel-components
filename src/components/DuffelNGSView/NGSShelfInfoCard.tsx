@@ -15,30 +15,6 @@ export const NGSShelfInfoCard: React.FC<NGSShelfInfoCardProps> = ({
       <Icon name={shelfInfo.icon} size={24} />
       <h3 className="ngs-shelf-info-card_title">{shelfInfo.full_title}</h3>
       <p className="ngs-shelf-info-card_text">{shelfInfo.description}</p>
-      <div className="ngs-shelf-info-card_items">
-        <div>
-          <Icon name={shelfInfo.seat.icon} size={16} color="--GREY-600" />
-          <span className="ngs-shelf-info-card_text">
-            {shelfInfo.seat.description}
-          </span>
-        </div>
-        <div>
-          <Icon
-            name={shelfInfo.checked_bag ? "luggage" : "close"}
-            size={16}
-            color="--GREY-600"
-          />
-          <span className="ngs-shelf-info-card_text">Checked bag</span>
-        </div>
-        <div>
-          <Icon
-            name={shelfInfo.seat_selection ? "check_small" : "close"}
-            size={16}
-            color="--GREY-600"
-          />
-          <span className="ngs-shelf-info-card_text">Seat selection</span>
-        </div>
-      </div>
     </div>
   );
 };
