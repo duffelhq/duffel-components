@@ -6,7 +6,7 @@ export type SortDirection = "asc" | "desc";
 export const sortNGSRows = (
   rows: NGSOfferRow[],
   sortShelf: NGSShelf,
-  sortDirection: SortDirection
+  sortDirection: SortDirection,
 ): NGSOfferRow[] => {
   const sortedRows = [...rows].sort((a, b) => {
     const aAmount = +(a[sortShelf!]?.total_amount || 0);

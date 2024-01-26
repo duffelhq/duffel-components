@@ -26,7 +26,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
 }) => {
   if (sliceIndex >= offer.slices.length) {
     throw new Error(
-      "Attempted to create `NGSSliceFareCard` with invalid slice index"
+      "Attempted to create `NGSSliceFareCard` with invalid slice index",
     );
   }
 

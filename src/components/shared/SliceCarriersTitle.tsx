@@ -11,22 +11,22 @@ export const SliceCarriersTitle: React.FC<SliceCarriersTitleProps> = ({
   slice,
 }) => {
   const marketingCarriers = slice.segments.map(
-    ({ marketing_carrier }) => marketing_carrier
+    ({ marketing_carrier }) => marketing_carrier,
   );
   const operatingCarriers = slice.segments.map(
-    ({ operating_carrier }) => operating_carrier
+    ({ operating_carrier }) => operating_carrier,
   );
 
   const firstMarketingCarrier = marketingCarriers[0];
   const marketingCarrierNamesSet = new Set<string>(
-    marketingCarriers.map(({ name }) => name)
+    marketingCarriers.map(({ name }) => name),
   );
   const operatingCarrierNamesSet = new Set<string>(
-    operatingCarriers.map(({ name }) => name)
+    operatingCarriers.map(({ name }) => name),
   );
 
   const marketingCarriersLabel = Array.from(marketingCarrierNamesSet).join(
-    " & "
+    " & ",
   );
 
   const operatingCarriersLabel = Array.from(operatingCarrierNamesSet)
@@ -34,7 +34,7 @@ export const SliceCarriersTitle: React.FC<SliceCarriersTitleProps> = ({
     .join(" & ");
 
   const isPartialOperarion = Array.from(operatingCarrierNamesSet).some((name) =>
-    marketingCarrierNamesSet.has(name)
+    marketingCarrierNamesSet.has(name),
   );
 
   return (

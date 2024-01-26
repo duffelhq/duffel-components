@@ -12,13 +12,13 @@ const getSliceKey = (slice: OfferSliceWithNGS): string => {
 
 export const groupOffersForNGSView = (
   offers: OfferWithNGS[],
-  sliceIndex: number
+  sliceIndex: number,
 ): NGSOfferRow[] => {
   const offersMap: Record<string, NGSOfferRow> = {};
   offers.forEach((offer) => {
     if (sliceIndex > offer.slices.length) {
       throw new Error(
-        "Attempted to call `groupOffersForNGSView` with an invalid slice index"
+        "Attempted to call `groupOffersForNGSView` with an invalid slice index",
       );
     }
 
