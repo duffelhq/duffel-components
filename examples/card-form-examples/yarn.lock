@@ -16,9 +16,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@duffel/components@npm:3.5.0--canary-5":
-  version: 3.5.0--canary-5
-  resolution: "@duffel/components@npm:3.5.0--canary-5"
+"@duffel/components@npm:3.5.0--canary-7":
+  version: 3.5.0--canary-7
+  resolution: "@duffel/components@npm:3.5.0--canary-7"
   dependencies:
     "@duffel/api": "npm:2.6.6"
     "@sentry/browser": "npm:7.77.0"
@@ -29,7 +29,7 @@ __metadata:
     lodash: "npm:4.17.21"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
-  checksum: e8fecb5e28c2a4a7c8e00e803cea93bceb4fb720344ac26c0e9b46ec1d63d2358ca928f93b5a35e7c5a2e5b86c4ce219cd1b50d8753144f24115541d7b9c59ad
+  checksum: 7e9f463b63e5f80199bbf1e8d97bb749e8918f633aef7c2f2a5bdaf5d6b831f461ac551cb8e082c84b8be6833e35bdde82caa22fe4dc23b3afda5e204a33f5d6
   languageName: node
   linkType: hard
 
@@ -283,7 +283,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "card-form-examples@workspace:."
   dependencies:
-    "@duffel/components": "npm:3.5.0--canary-5"
+    "@duffel/components": "npm:3.5.0--canary-7"
     "@types/node": "npm:20.11.5"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"

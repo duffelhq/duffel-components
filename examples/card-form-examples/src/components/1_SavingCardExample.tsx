@@ -4,18 +4,19 @@ import {
   useDuffelCardFormActions,
 } from "@duffel/components";
 import { Container } from "./common/Container";
+import React from "react";
 
 export const SavingCardExample: React.FC<{ clientKey: string }> = ({
   clientKey,
 }) => {
-  const { actions, triggerSaveCard } = useDuffelCardFormActions();
+  const { ref, saveCard } = useDuffelCardFormActions();
   return (
     <Container title="Save card">
       <DuffelCardForm
-        tokenProxyEnvironment="development"
+        ref={ref} // 1. Setup ref to be able to trigger save card action
+        tokenProxyEnvironment={process.env.NEXT_PUBLIC_TOKEN_PROXY_ENV! as any}
         clientKey={clientKey}
         intent="to-save-card"
-        actions={actions}
         onValidateSuccess={() => {
           console.log("validation ok");
         }}
@@ -26,9 +27,7 @@ export const SavingCardExample: React.FC<{ clientKey: string }> = ({
         onSaveCardFailure={console.error}
       />
       <button
-        onClick={() => {
-          triggerSaveCard(); // 2. wait for card to be saved
-        }}
+        onClick={saveCard} // 2. trigger save card and wait for card to be saved once validation is successfull 
       >
         save
       </button>

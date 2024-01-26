@@ -8,15 +8,15 @@ import { Container } from "./common/Container";
 export const CreatingTemporaryCardExample: React.FC<{ clientKey: string }> = ({
   clientKey,
 }) => {
-  const { actions, triggerCreateCardForTemporaryUse } =
+  const { ref, createCardForTemporaryUse } =
     useDuffelCardFormActions();
   return (
     <Container title="Create card for temporary use">
       <DuffelCardForm
-        tokenProxyEnvironment="development"
+      ref={ref}
+        tokenProxyEnvironment={process.env.NEXT_PUBLIC_TOKEN_PROXY_ENV! as any}
         clientKey={clientKey}
         intent="to-create-card-for-temporary-use"
-        actions={actions}
         onValidateSuccess={() => {
           console.log("validation ok");
         }}
@@ -29,9 +29,7 @@ export const CreatingTemporaryCardExample: React.FC<{ clientKey: string }> = ({
         onCreateCardForTemporaryUseFailure={console.error}
       />
       <button
-        onClick={
-          () => triggerCreateCardForTemporaryUse() // 1. wait for card to be successfully validated
-        }
+        onClick={createCardForTemporaryUse} // 1. wait for card to be successfully validated
       >
         Click to pay
       </button>

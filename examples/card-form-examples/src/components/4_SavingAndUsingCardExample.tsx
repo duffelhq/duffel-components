@@ -4,22 +4,21 @@ import {
   SaveCardData,
   useDuffelCardFormActions,
 } from "@duffel/components";
-import React from "react";
+import React, { useRef } from "react";
 import { Container } from "./common/Container";
 
 export const SavingAndUsingCardExample: React.FC<{ clientKey: string }> = ({
   clientKey,
 }) => {
-  const { actions, triggerSaveCard, triggerCreateCardForTemporaryUse } =
-    useDuffelCardFormActions();
+  const { ref,  saveCard, createCardForTemporaryUse } = useDuffelCardFormActions();
 
   return (
     <Container title="Save and use card with checkbox">
       <DuffelCardForm
-        tokenProxyEnvironment="development"
+        ref={ref}
+        tokenProxyEnvironment={process.env.NEXT_PUBLIC_TOKEN_PROXY_ENV! as any}
         clientKey={clientKey}
         intent="to-create-card-for-temporary-use"
-        actions={actions}
         onValidateSuccess={() => {
           console.log("validation ok");
         }}
@@ -43,7 +42,7 @@ export const SavingAndUsingCardExample: React.FC<{ clientKey: string }> = ({
             type="checkbox"
             onChange={(e) => {
               if (e.target.checked) {
-                triggerSaveCard(); // 1. If user chooses to save for later, trigger save card action
+                saveCard(); // 1. If user chooses to save for later, trigger save card action
               }
             }}
           />
@@ -54,7 +53,7 @@ export const SavingAndUsingCardExample: React.FC<{ clientKey: string }> = ({
         <button
           onClick={() => {
             console.log("User triggered form submission"); // 3. User triggers form submission
-            triggerCreateCardForTemporaryUse(); // 4. wait for card to be successfully validated
+            createCardForTemporaryUse(); // 4. wait for card to be successfully validated
           }}
         >
           Pay for flight

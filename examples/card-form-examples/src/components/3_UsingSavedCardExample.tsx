@@ -10,8 +10,7 @@ export const UsingSavedCardExample: React.FC<{ clientKey: string }> = ({
   clientKey,
 }) => {
   const [cardId, setCardId] = React.useState<string>("");
-  const { actions, triggerCreateCardForTemporaryUse } =
-    useDuffelCardFormActions();
+  const { ref,  createCardForTemporaryUse } = useDuffelCardFormActions();
 
   return (
     <Container title="Use saved card">
@@ -24,22 +23,20 @@ export const UsingSavedCardExample: React.FC<{ clientKey: string }> = ({
       />
       {cardId.length !== 26 ? (
         <p>
-          The card component will appear once a valid card Id is added to the
+          The card component will appear once a valid card ID is added to the
           input
         </p>
       ) : (
         <>
           <DuffelCardForm
-            tokenProxyEnvironment="development"
+          ref={ref}
+            tokenProxyEnvironment={process.env.NEXT_PUBLIC_TOKEN_PROXY_ENV! as any}
             clientKey={clientKey}
-            savedCardData={
-              {
-               id: cardId,
-               brand: "visa", // you must get this from the save card response
-              }
-            }
+            savedCardData={{
+              id: cardId,
+              brand: "visa", // you must get this from the save card response
+            }}
             intent="to-use-saved-card"
-            actions={actions}
             onValidateSuccess={() => {
               console.log("validation ok");
             }}
@@ -52,9 +49,7 @@ export const UsingSavedCardExample: React.FC<{ clientKey: string }> = ({
             onCreateCardForTemporaryUseFailure={console.error}
           />
           <button
-            onClick={() => {
-              triggerCreateCardForTemporaryUse(); // 1. wait for card to be successfully validated
-            }}
+            onClick={createCardForTemporaryUse}            // 1. wait for card to be successfully validated
           >
             Pay with saved card
           </button>

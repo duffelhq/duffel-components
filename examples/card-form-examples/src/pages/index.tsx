@@ -1,15 +1,15 @@
-import { SavingAndUsingCardExample } from "@/components/5_SavingAndUsingCardExample";
-import { SavingCardExampleWithoutHook } from "../components/1_SavingCardExampleWithoutHook";
-import { SavingCardExample } from "../components/2_SavingCardExample";
-import { CreatingTemporaryCardExample } from "../components/3_CreatingTemporaryCardExample";
-import { UsingSavedCardExample } from "../components/4_UsingSavedCardExample";
-import React from "react";
+
+import { SavingCardExample } from "@/components/1_SavingCardExample";
+import { CreatingTemporaryCardExample } from "@/components/2_CreatingTemporaryCardExample";
+import { UsingSavedCardExample } from "@/components/3_UsingSavedCardExample";
+import { SavingAndUsingCardExample } from "@/components/4_SavingAndUsingCardExample";
 
 interface Props {
   clientKey: string;
 }
 
 export const getServerSideProps = async () => {
+
   const response = await fetch(
     `${process.env.DUFFEL_API_ORIGIN}/identity/component_client_keys`,
     {
@@ -30,7 +30,6 @@ export const getServerSideProps = async () => {
 export default function IndexPage({ clientKey }: Props) {
   return (
     <div>
-      <SavingCardExampleWithoutHook clientKey={clientKey} />
       <SavingCardExample clientKey={clientKey} />
       <CreatingTemporaryCardExample clientKey={clientKey} />
       <UsingSavedCardExample clientKey={clientKey} />
