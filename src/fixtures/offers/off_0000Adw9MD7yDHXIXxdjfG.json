@@ -85,7 +85,7 @@
     {
       "destination_type": "airport",
       "origin_type": "airport",
-      "fare_brand_name": "Basic",
+      "fare_brand_name": "Standard",
       "conditions": {
         "change_before_departure": {
           "penalty_currency": null,

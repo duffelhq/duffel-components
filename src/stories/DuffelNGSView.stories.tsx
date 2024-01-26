@@ -8,12 +8,18 @@ import {
 const offer = require("../fixtures/offers/off_0000Adw9MD7yDHXIXxdjfG.json");
 const cheapOffer = {
   ...offer,
-  slices: [{ ...offer.slices[0], ngs_shelf: 1 }, ...offer.slices.slice(1)],
+  slices: [
+    { ...offer.slices[0], ngs_shelf: 1, fare_brand_name: "Very Basic" },
+    ...offer.slices.slice(1),
+  ],
   total_amount: "100",
 };
 const expensiveOffer = {
   ...offer,
-  slices: [{ ...offer.slices[0], ngs_shelf: 5 }, ...offer.slices.slice(1)],
+  slices: [
+    { ...offer.slices[0], ngs_shelf: 5, fare_brand_name: "Business" },
+    ...offer.slices.slice(1),
+  ],
   total_amount: "10000",
 };
 const alternativeCheapOffer = {
@@ -29,6 +35,7 @@ const alternativeCheapOffer = {
         ...offer.slices[0].segments.slice(1),
       ],
       ngs_shelf: 1,
+      fare_brand_name: "Economy",
     },
     ...offer.slices.slice(1),
   ],
@@ -47,6 +54,7 @@ const alternativeExpensiveOffer = {
         ...offer.slices[0].segments.slice(1),
       ],
       ngs_shelf: 5,
+      fare_brand_name: "First",
     },
   ],
   total_amount: "20000",

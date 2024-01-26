@@ -78,3 +78,39 @@
 .duffel-ngs-view_slice-info > div:first-child {
   margin-bottom: 16px;
 }
+
+.duffel-ngs-view_expanded {
+  padding: 0;
+}
+
+.duffel-ngs-view_expanded > div {
+  background-color: var(--GREY-50);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.duffel-ngs-view_table-data--expanded {
+  background-color: var(--GREY-50);
+}
+
+.duffel-ngs-view_expanded .ngs-slice-fare-card_container {
+  background-color: white;
+}
+
+.duffel-ngs-view_expanded
+  .ngs-slice-fare-card_container
+  + .ngs-slice-fare-card_container {
+  margin-left: 32px;
+}
+
+.duffel-ngs-view_card--selected {
+  align-self: stretch;
+}
+
+/* Added important here to overwrite the slice card styles */
+.duffel-ngs-view_card--alternative {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+}
