@@ -21,35 +21,15 @@ type OfferPosition = {
   shelf: NGSShelf;
 };
 
-const getPreviousShelf = (shelf: NGSShelf): NGSShelf | null => {
-  switch (shelf) {
-    case "1":
-      return null;
-    case "2":
-      return "1";
-    case "3":
-      return "2";
-    case "4":
-      return "3";
-    case "5":
-      return "4";
-  }
-};
+function getPreviousShelf(shelf: NGSShelf): NGSShelf | null {
+  const previousShelf = +shelf - 1;
+  return previousShelf === 0 ? null : (previousShelf.toString() as NGSShelf);
+}
 
-const getNextShelf = (shelf: NGSShelf): NGSShelf | null => {
-  switch (shelf) {
-    case "1":
-      return "2";
-    case "2":
-      return "3";
-    case "3":
-      return "4";
-    case "4":
-      return "5";
-    case "5":
-      return null;
-  }
-};
+function getNextShelf(shelf: NGSShelf): NGSShelf | null {
+  const nextShelf = +shelf + 1;
+  return nextShelf > 5 ? null : (nextShelf.toString() as NGSShelf);
+}
 
 const getPreviousOffer = (
   rows: NGSOfferRow[],
