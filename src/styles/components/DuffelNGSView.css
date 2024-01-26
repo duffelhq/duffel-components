@@ -42,6 +42,10 @@
   margin-right: 4px;
 }
 
+.duffel-ngs-view_sort-icon {
+  margin-left: 4px;
+}
+
 .duffel-ngs-view_column-header {
   display: flex;
   align-items: center;
