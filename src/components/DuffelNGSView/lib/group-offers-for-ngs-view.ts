@@ -17,7 +17,9 @@ export const groupOffersForNGSView = (
   const offersMap: Record<string, NGSOfferRow> = {};
   offers.forEach((offer) => {
     if (sliceIndex > offer.slices.length) {
-      throw new Error("Invalid slice index");
+      throw new Error(
+        "Attempted to call `groupOffersForNGSView` with an invalid slice index"
+      );
     }
 
     const slice = offer.slices[sliceIndex];
