@@ -53,7 +53,7 @@ const getNextShelf = (shelf: NGSShelf): NGSShelf | null => {
 
 const getPreviousOffer = (
   rows: NGSOfferRow[],
-  expandedOffer: OfferPosition
+  expandedOffer: OfferPosition,
 ): OfferWithNGS | null => {
   const previousShelf = getPreviousShelf(expandedOffer.shelf);
   if (!previousShelf) {
@@ -71,7 +71,7 @@ const getPreviousOffer = (
 
 const getNextOffer = (
   rows: NGSOfferRow[],
-  expandedOffer: OfferPosition
+  expandedOffer: OfferPosition,
 ): OfferWithNGS | null => {
   const nextShelf = getNextShelf(expandedOffer.shelf);
   if (!nextShelf) {
@@ -89,13 +89,13 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   sliceIndex,
 }) => {
   const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
-    null
+    null,
   );
   const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
   const [sortDirection, setSortDirection] =
     React.useState<SortDirection>("asc");
   const [rows, setRows] = React.useState<NGSOfferRow[]>(
-    groupOffersForNGSView(offers, sliceIndex)
+    groupOffersForNGSView(offers, sliceIndex),
   );
   const [expandedOffer, setExpandedOffer] =
     React.useState<OfferPosition | null>(null);
@@ -134,7 +134,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                   className={classNames(
                     "duffel-ngs-view_column-header",
                     selectedColumn === shelf &&
-                      "duffel-ngs-view_column-header--selected"
+                      "duffel-ngs-view_column-header--selected",
                   )}
                 >
                   <Icon
@@ -199,12 +199,12 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                         "duffel-ngs-view_table-data--selected",
                       expandedOffer?.row === index &&
                         expandedOffer?.shelf === shelf &&
-                        "duffel-ngs-view_table-data--expanded"
+                        "duffel-ngs-view_table-data--expanded",
                     )}
                   >
                     {row[shelf]
                       ? moneyStringFormatter(row[shelf]!.total_currency)(
-                          +row[shelf]!.total_amount
+                          +row[shelf]!.total_amount,
                         )
                       : "-"}
                   </td>
