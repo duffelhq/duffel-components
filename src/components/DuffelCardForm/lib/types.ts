@@ -88,19 +88,6 @@ export interface DuffelCardFormProps {
   intent: DuffelCardFormIntent;
 
   /**
-   * The actions you'd like the component to perform.
-   *
-   * This prop is a dependecy of a useEffect hook in the component
-   * and so when it's changed it will perform the action you specify.
-   *
-   * The `create-card-for-temporary-use` and `save-card` actions will only happen once `validate` has been successful.
-   *
-   * We recommend using the `useDuffelCardFormActions` hook for a simpler, more readable interface to manage the actions array.
-   *
-   */
-  actions: DuffelCardFormAction[];
-
-  /**
    * Once a card is saved, in order to use it, travellers need to enter its cvv.
    * When using the `use-saved-card` intent, you must provide the card ID.
    */
