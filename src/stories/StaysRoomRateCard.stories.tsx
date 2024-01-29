@@ -15,36 +15,59 @@ export default {
   component: StaysRoomRateCard,
 } as Meta;
 
-const Template: StoryFn<StaysRoomRateCardProps> = (args) => {
-  const [selected, setSelected] = useState(false);
+const Template: StoryFn<{ roomRates: StaysRoomRateCardProps[] }> = (args) => {
+  const { roomRates } = args;
+
+  const [selectedRate, setSelectedRate] = useState(roomRates[0].rate.id);
 
   return (
-    <div style={{ maxWidth: "400px" }}>
-      <StaysRoomRateCard
-        {...args}
-        selected={selected}
-        onSelectRate={() => setSelected(!selected)}
-      />
+    <div style={{ display: "flex", gap: "16px", height: "300px" }}>
+      {roomRates.map((roomRate) => (
+        <StaysRoomRateCard
+          {...roomRate}
+          key={roomRate.rate.id}
+          selected={roomRate.rate.id === selectedRate}
+          onSelectRate={() => setSelectedRate(roomRate.rate.id)}
+        />
+      ))}
     </div>
   );
 };
 
-export const Default = {
+export const RateWithMinimalInformation = {
   render: Template,
 
   args: {
-    rate: accommodation.rooms[0].rates[0],
-    numberOfNights: 3,
+    roomRates: [
+      {
+        rate: accommodation.rooms[0].rates[0],
+        numberOfNights: 3,
+      },
+    ],
   },
 };
 
-export const Variant = {
+export const RateWithCompleteInformation = {
   render: Template,
 
   args: {
-    rate: { ...accommodation.rooms[0].rates[1] },
-    numberOfNights: 3,
-    searchNumberOfRooms: 2,
-    selected: true,
+    roomRates: [
+      {
+        rate: accommodation.rooms[0].rates[1],
+        numberOfNights: 3,
+        searchNumberOfRooms: 2,
+      },
+    ],
+  },
+};
+
+export const RatesCrossComparison = {
+  render: Template,
+
+  args: {
+    roomRates: [
+      ...RateWithMinimalInformation.args.roomRates,
+      ...RateWithCompleteInformation.args.roomRates,
+    ],
   },
 };
