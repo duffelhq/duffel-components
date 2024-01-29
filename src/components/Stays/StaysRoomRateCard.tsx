@@ -95,16 +95,18 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                 }
               />
             )}
-            {rate.payment_method && (
+
+            {rate.available_payment_methods.map((paymentMethod) => (
               <StayResultRoomRateItem
-                icon={rate.payment_method === "card" ? "credit_card" : "wallet"}
+                key={paymentMethod}
+                icon={paymentMethod === "card" ? "credit_card" : "wallet"}
                 label={
-                  rate.payment_method === "card"
+                  paymentMethod === "card"
                     ? "Card payment at accommodation"
                     : "Pay now with Duffel Balance"
                 }
               />
-            )}
+            ))}
 
             {rate.supported_loyalty_programme && (
               <StayResultRoomRateItem
