@@ -10,6 +10,7 @@ import {
 } from "./lib/group-offers-for-ngs-view";
 import { SortDirection, sortNGSRows } from "./lib/sort-ngs-rows";
 import { NGSSliceFareCard } from "./NGSSliceFareCard";
+import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 
 export interface DuffelNGSViewProps {
   offers: OfferWithNGS[];
@@ -92,7 +93,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   }
 
   return (
-    <div className="duffel-ngs-view duffel-components">
+    <div className="duffel-components duffel-ngs-view">
       <table className="duffel-ngs-view_table">
         <thead>
           <tr className="duffel-ngs-view_table-header?">
@@ -147,6 +148,10 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                       className="duffel-ngs-view_sort-icon"
                     />
                   ) : null}
+                  <NGSShelfInfoCard
+                    ngs_shelf={shelf}
+                    className="duffel-ngs-view_column-header-tooltip"
+                  />
                 </div>
               </th>
             ))}
