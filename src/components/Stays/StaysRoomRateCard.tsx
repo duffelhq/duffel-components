@@ -73,7 +73,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
               />
             )}
 
-            {earliestCancellation && (
+            {earliestCancellation ? (
               <StayResultRoomRateItem
                 icon="refund"
                 label={
@@ -94,6 +94,8 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                   )
                 }
               />
+            ) : (
+              <StayResultRoomRateItem icon="close" label="Non-refundable" />
             )}
 
             {rate.available_payment_methods.map((paymentMethod) => (
