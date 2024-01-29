@@ -147,7 +147,7 @@
           ],
           "board_type": "all_inclusive",
           "payment_method": "card",
-          "available_payment_methods": ["card"],
+          "available_payment_methods": ["balance", "card"],
           "quantity_available": 1,
           "supported_loyalty_programme": "duffel_hotel_group_rewards"
         }
