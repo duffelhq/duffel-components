@@ -3,7 +3,6 @@ import {
   StaysRoomRateCard,
   StaysRoomRateCardProps,
 } from "@components/Stays/StaysRoomRateCard";
-import { useState } from "react";
 import { StaysAccommodation } from "@duffel/api/types";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -15,16 +14,14 @@ export default {
   component: StaysRoomRateCard,
 } as Meta;
 
-const Template: StoryFn<StaysRoomRateCardProps> = (args) => {
-  const [selected, setSelected] = useState(false);
+const Template: StoryFn<{ roomRates: StaysRoomRateCardProps[] }> = (args) => {
+  const { roomRates } = args;
 
   return (
-    <div style={{ maxWidth: "400px" }}>
-      <StaysRoomRateCard
-        {...args}
-        selected={selected}
-        onSelectRate={() => setSelected(!selected)}
-      />
+    <div style={{ display: "flex", gap: "16px", height: "300px" }}>
+      {roomRates.map((roomRate) => (
+        <StaysRoomRateCard {...roomRate} key={roomRate.rate.id} />
+      ))}
     </div>
   );
 };
@@ -33,8 +30,12 @@ export const Default = {
   render: Template,
 
   args: {
-    rate: accommodation.rooms[0].rates[0],
-    numberOfNights: 3,
+    roomRates: [
+      {
+        rate: accommodation.rooms[0].rates[0],
+        numberOfNights: 3,
+      },
+    ],
   },
 };
 
@@ -42,9 +43,20 @@ export const Variant = {
   render: Template,
 
   args: {
-    rate: { ...accommodation.rooms[0].rates[1] },
-    numberOfNights: 3,
-    searchNumberOfRooms: 2,
-    selected: true,
+    roomRates: [
+      {
+        rate: accommodation.rooms[0].rates[1],
+        numberOfNights: 3,
+        searchNumberOfRooms: 2,
+      },
+    ],
+  },
+};
+
+export const CrossComparison = {
+  render: Template,
+
+  args: {
+    roomRates: [...Default.args.roomRates, ...Variant.args.roomRates],
   },
 };

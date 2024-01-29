@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: space-between;
   min-width: 270px;
   background-color: var(--WHITE);
   border: 1px solid var(--GREY-200);
@@ -31,7 +32,6 @@
 .stays-room-rate-card__content {
   padding: 20px;
   height: 100px;
-  margin-bottom: 40px;
 }
 
 .stays-room-rate-card__footer {
