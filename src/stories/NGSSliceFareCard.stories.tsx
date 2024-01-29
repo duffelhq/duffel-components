@@ -21,7 +21,6 @@ export default {
 export const FullList: React.FC = () => {
   const [selected, setSelected] = React.useState(0);
   const compareToAmount = 500;
-  console.log(selected);
 
   return (
     <div

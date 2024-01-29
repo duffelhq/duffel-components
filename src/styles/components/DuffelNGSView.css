@@ -8,6 +8,7 @@
   border: 1px solid var(--GREY-100);
   display: table;
   border-collapse: collapse;
+  width: 100%;
 
   text-align: center;
   cursor: pointer;
@@ -126,10 +127,14 @@
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  top: -200px;
-  left: -250px;
-  width: 360px;
+  top: -130px;
+  left: 35px;
+  width: 373px;
   text-align: left;
+}
+
+.duffel-ngs-view_column-header-tooltip--left {
+  left: -300px;
 }
 
 .duffel-ngs-view_column-header:hover .duffel-ngs-view_column-header-tooltip {

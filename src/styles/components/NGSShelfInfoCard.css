@@ -1,7 +1,8 @@
 .ngs-shelf-info-card_container {
-  padding: 36px;
+  padding: 16px;
   border-radius: 4px;
   background-color: white;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
 .ngs-shelf-info-card_title {
