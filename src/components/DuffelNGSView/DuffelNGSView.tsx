@@ -10,10 +10,13 @@ import {
 } from "./lib/group-offers-for-ngs-view";
 import { SortDirection, sortNGSRows } from "./lib/sort-ngs-rows";
 import { NGSSliceFareCard } from "./NGSSliceFareCard";
+import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
+import { SliceSummary } from "./SliceSummary";
 
 export interface DuffelNGSViewProps {
   offers: OfferWithNGS[];
   sliceIndex: number;
+  onSelect: (offerId: string) => void;
 }
 
 type OfferPosition = {
@@ -67,6 +70,7 @@ const getNextOffer = (
 export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   offers,
   sliceIndex,
+  onSelect,
 }) => {
   const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
     null,
@@ -92,10 +96,10 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   }
 
   return (
-    <div className="duffel-ngs-view duffel-components">
+    <div className="duffel-components duffel-ngs-view">
       <table className="duffel-ngs-view_table">
         <thead>
-          <tr className="duffel-ngs-view_table-header?">
+          <tr className="duffel-ngs-view_table-header">
             <th className="duffel-ngs-view_th"></th>
             {NGS_SHELVES.map((shelf) => (
               <th
@@ -147,6 +151,14 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                       className="duffel-ngs-view_sort-icon"
                     />
                   ) : null}
+                  <NGSShelfInfoCard
+                    ngs_shelf={shelf}
+                    className={classNames(
+                      "duffel-ngs-view_column-header-tooltip",
+                      +shelf >= 4 &&
+                        "duffel-ngs-view_column-header-tooltip--left",
+                    )}
+                  />
                 </div>
               </th>
             ))}
@@ -158,7 +170,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
               <tr key={index}>
                 <td className="duffel-ngs-view_slice-info">
                   <SliceCarriersTitle slice={row["slice"]} />
-                  <div>TODO Flight Summary</div>
+                  <SliceSummary slice={row["slice"]} />
                 </td>
                 {NGS_SHELVES.map((shelf) => (
                   <td
@@ -210,6 +222,9 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                           sliceIndex={sliceIndex}
                           selected
                           className="duffel-ngs-view_card--selected"
+                          onSelect={() =>
+                            onSelect(rows[index][expandedOffer.shelf]!.id)
+                          }
                         />
                         {getNextOffer(rows, expandedOffer) && (
                           <NGSSliceFareCard

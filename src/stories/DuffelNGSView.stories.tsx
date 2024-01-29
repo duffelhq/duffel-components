@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   DuffelNGSView,
   DuffelNGSViewProps,
@@ -65,8 +65,6 @@ export default {
   component: DuffelNGSView,
 } as Meta;
 
-type DuffelNGSViewStory = StoryObj<typeof DuffelNGSView>;
-
 const defaultProps: DuffelNGSViewProps = {
   offers: [
     offer,
@@ -76,8 +74,12 @@ const defaultProps: DuffelNGSViewProps = {
     alternativeExpensiveOffer,
   ],
   sliceIndex: 0,
+  onSelect: console.log,
 };
 
-export const Default: DuffelNGSViewStory = {
-  args: defaultProps,
-};
+export const Default: StoryFn<DuffelNGSViewProps> = () => (
+  <>
+    <div style={{ height: "100px" }} />
+    <DuffelNGSView {...defaultProps} />
+  </>
+);
