@@ -5,22 +5,22 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@duffel/api@npm:2.6.6":
-  version: 2.6.6
-  resolution: "@duffel/api@npm:2.6.6"
+"@duffel/api@npm:2.7.1":
+  version: 2.7.1
+  resolution: "@duffel/api@npm:2.7.1"
   dependencies:
     "@types/node": "npm:^18.0.0"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
-  checksum: 9b8f6903b61a6f39c73bc03d4e07b735cd78f9124e874a9fdb87957b1e697040123d75b84eca8baf852b956a587753b6314876e5c8ff85011e81d399e520d887
+  checksum: e8429f6163373fe489b8ab962ae2816e5376fe6b2a9209d0846057194cddd112f8c8b5951256db97115c529551fd9a8d2c83560557f153f4ca3a8de3233653c6
   languageName: node
   linkType: hard
 
-"@duffel/components@npm:3.5.0--canary-7":
-  version: 3.5.0--canary-7
-  resolution: "@duffel/components@npm:3.5.0--canary-7"
+"@duffel/components@npm:3.5.1":
+  version: 3.5.1
+  resolution: "@duffel/components@npm:3.5.1"
   dependencies:
-    "@duffel/api": "npm:2.6.6"
+    "@duffel/api": "npm:2.7.1"
     "@sentry/browser": "npm:7.77.0"
     "@stripe/react-stripe-js": "npm:2.1.0"
     "@stripe/stripe-js": "npm:1.54.0"
@@ -29,7 +29,7 @@ __metadata:
     lodash: "npm:4.17.21"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
-  checksum: 7e9f463b63e5f80199bbf1e8d97bb749e8918f633aef7c2f2a5bdaf5d6b831f461ac551cb8e082c84b8be6833e35bdde82caa22fe4dc23b3afda5e204a33f5d6
+  checksum: 63b08ff85127e0e039eb60451770dacb777324a16d38a2ff68ffb0838700d5a4457976ce85512c2c7c5ac7c97899fc347261195780ddbfec6e979c0449365a6a
   languageName: node
   linkType: hard
 
@@ -283,7 +283,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "card-form-examples@workspace:."
   dependencies:
-    "@duffel/components": "npm:3.5.0--canary-7"
+    "@duffel/components": "npm:3.5.1"
     "@types/node": "npm:20.11.5"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
