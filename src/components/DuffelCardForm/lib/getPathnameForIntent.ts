@@ -3,11 +3,11 @@ import { DuffelCardFormIntent } from "./types";
 export function getPathnameForIntent(intent: DuffelCardFormIntent): string {
   switch (intent) {
     case "to-use-saved-card":
-      return `/use_saved_card`;
+      return `/vault/use_saved_card`;
     case "to-save-card":
-      return `/save_card`;
+      return `/vault/save_card`;
     case "to-create-card-for-temporary-use":
-      return `/create_card_for_temporary_use`;
+      return `/vault/create_card_for_temporary_use`;
     default:
       if (!intent) {
         throw new Error(
