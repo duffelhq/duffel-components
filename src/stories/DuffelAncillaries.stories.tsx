@@ -163,3 +163,10 @@ export const WithWhiteAccentColorSet: StoryFn<
     styles={{ accentColor: "255, 255, 255" }}
   />
 );
+
+export const NoSeatMaps: DuffelAncillariesStory = {
+  args: {
+    ...defaultProps,
+    seat_maps: [],
+  },
+};

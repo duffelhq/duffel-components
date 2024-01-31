@@ -1,7 +1,8 @@
 .ancillary-card:disabled {
-  color: inherit;
-  cursor: not-allowed;
-  background-color: var(--GREY-100);
+  /* important needed to take precedence over default button styles */
+  color: inherit !important;
+  cursor: not-allowed !important;
+  background-color: var(--GREY-100) !important;
 }
 
 .ancillary-card--loading:disabled {

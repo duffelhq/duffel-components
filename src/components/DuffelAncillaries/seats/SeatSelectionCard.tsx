@@ -1,20 +1,21 @@
 import { AnimatedLoaderEllipsis } from "@components/shared/AnimatedLoaderEllipsis";
 import { Stamp } from "@components/shared/Stamp";
-import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
-import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
-import { getTotalQuantity } from "@lib/getTotalQuantity";
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
-import { withPlural } from "@lib/withPlural";
-import React from "react";
-import { Card } from "../Card";
-import { SeatSelectionModal } from "./SeatSelectionModal";
 import {
   CreateOrder,
   CreateOrderService,
   Offer,
   SeatMap,
 } from "@duffel/api/types";
+import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
+import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
+import { getTotalQuantity } from "@lib/getTotalQuantity";
+import { hasAvailableSeatService } from "@lib/hasAvailableSeatService";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import { withPlural } from "@lib/withPlural";
+import React from "react";
 import { WithServiceInformation } from "src/types";
+import { Card } from "../Card";
+import { SeatSelectionModal } from "./SeatSelectionModal";
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;
@@ -37,7 +38,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const containsSeatService = Array.isArray(seatMaps) && seatMaps.length > 0;
+  const containsSeatService = hasAvailableSeatService(seatMaps);
   const totalQuantity = getTotalQuantity(selectedServices);
   const areSeatsAdded = totalQuantity > 0;
 
@@ -73,7 +74,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
         icon="flight_class"
         onClick={containsSeatService ? () => setIsOpen(true) : null}
         isLoading={isLoading}
-        disabled={isLoading && !containsSeatService}
+        disabled={!isLoading && !containsSeatService}
         isSelected={areSeatsAdded}
       >
         {isLoading && (
