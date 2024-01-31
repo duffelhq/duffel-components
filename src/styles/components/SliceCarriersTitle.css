@@ -1,5 +1,5 @@
 .slice-carriers-title {
-  color: var(--grey-900, #09090a);
+  color: var(--GREY-900, #09090a);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -7,7 +7,7 @@
 }
 
 .slice-carriers-title__operating-carrier {
-  color: var(--grey-600, #71717a);
+  color: var(--GREY-600, #71717a);
   font-size: 10px;
   font-style: normal;
   font-weight: 400;

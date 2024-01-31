@@ -1,4 +1,4 @@
-import { OfferSlice } from "@components/OfferSlice/OfferSlice";
+import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
 import { Airport, City, Offer, OfferSliceSegmentStop } from "@duffel/api/types";
 import type { Meta } from "@storybook/react";
 import React from "react";
@@ -45,8 +45,8 @@ const MOCK_STOP: OfferSliceSegmentStop = {
 };
 
 export default {
-  title: "OfferSlice",
-  component: OfferSlice,
+  title: "OfferSliceModal",
+  component: OfferSliceModal,
   decorators: [
     (Story) => (
       <div className="duffel-components">
@@ -57,11 +57,13 @@ export default {
 } as Meta;
 
 export const Default: React.FC = () => (
-  <OfferSlice slice={MOCK_OFFER.slices[0]} />
+  <OfferSliceModal onClose={() => 0} isOpen slice={MOCK_OFFER.slices[0]} />
 );
 
 export const WithStop: React.FC = () => (
-  <OfferSlice
+  <OfferSliceModal
+    onClose={() => 0}
+    isOpen
     slice={{
       ...MOCK_SLICE,
       segments: [
@@ -75,7 +77,9 @@ export const WithStop: React.FC = () => (
 );
 
 export const WithStopAnd2Segments: React.FC = () => (
-  <OfferSlice
+  <OfferSliceModal
+    onClose={() => 0}
+    isOpen
     slice={{
       ...MOCK_SLICE,
       segments: [

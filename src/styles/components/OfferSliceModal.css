@@ -1,0 +1,17 @@
+.offer-slice-modal-title {
+  color: var(--GREY-900, #161618);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.offer-slice-modal-divider {
+  height: 1px;
+  background: var(--GREY-200, #e2e2e8);
+  border: none;
+  margin: 0;
+}
+
+.offer-slice-modal-padding {
+  padding: 20px 24px;
+}

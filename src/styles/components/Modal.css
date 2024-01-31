@@ -36,7 +36,21 @@
   max-height: 250px;
   padding: 0px 24px 24px;
   overflow: scroll;
-  border-block: solid 1px var(--GREY-200);
+  /* Hide the scroll bar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.modal-body::-webkit-scrollbar {
+  display: none; /* Hide the scroll bar for Chrome, Safari, and Opera */
+}
+
+.modal-body--tall {
+  max-height: 560px;
+}
+
+.modal-body--no-padding {
+  padding: 0;
 }
 
 /* 667px is the height of https://www.ios-resolution.com/iphone-se-3rd-gen/ */
