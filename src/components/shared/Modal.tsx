@@ -3,7 +3,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { IconButton } from "./IconButton";
 
-interface ModalProps {
+export interface ModalProps {
   onClose: () => void;
   isOpen: boolean;
   children: React.ReactNode;
@@ -35,6 +35,23 @@ export const Modal: React.FC<ModalProps> = ({ children, onClose, isOpen }) => {
   );
 };
 
-export const ModalBody: React.FC<{ children: React.ReactNode }> = ({
+interface ModalBodyProps {
+  tall?: boolean;
+  noPadding?: boolean;
+  children: React.ReactNode;
+}
+export const ModalBody: React.FC<ModalBodyProps> = ({
   children,
-}) => <div className={"modal-body"}>{children}</div>;
+  tall,
+  noPadding,
+}) => (
+  <div
+    className={classNames(
+      "modal-body",
+      noPadding && "modal-body--no-padding",
+      tall && "modal-body--tall",
+    )}
+  >
+    {children}
+  </div>
+);
