@@ -15,6 +15,7 @@ import {
   SeatMap,
 } from "@duffel/api/types";
 import { WithServiceInformation } from "src/types";
+import { hasAvailableSeatService } from "@lib/hasAvailableSeatService";
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;
@@ -23,7 +24,7 @@ export interface SeatSelectionCardProps {
   passengers: CreateOrder["passengers"];
   selectedServices: WithServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithServiceInformation<CreateOrderService>[]
   ) => void;
 }
 
@@ -37,14 +38,14 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const containsSeatService = Array.isArray(seatMaps) && seatMaps.length > 0;
+  const containsSeatService = hasAvailableSeatService(seatMaps);
   const totalQuantity = getTotalQuantity(selectedServices);
   const areSeatsAdded = totalQuantity > 0;
 
   const totalAmount = getTotalAmountForServices(
     offer!,
     selectedServices,
-    seatMaps,
+    seatMaps
   );
   let currencyToUse = offer?.base_currency ?? "";
   if (seatMaps) {
@@ -60,7 +61,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
       ? `${withPlural(
           totalQuantity,
           "seat",
-          "seats",
+          "seats"
         )} selected for ${totalAmountFormatted}`
       : "Specify where on the plane you’d like to sit";
 
@@ -73,7 +74,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
         icon="flight_class"
         onClick={containsSeatService ? () => setIsOpen(true) : null}
         isLoading={isLoading}
-        disabled={isLoading && !containsSeatService}
+        disabled={!isLoading && !containsSeatService}
         isSelected={areSeatsAdded}
       >
         {isLoading && (
