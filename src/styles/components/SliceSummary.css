@@ -66,6 +66,10 @@
   width: calc(100% - 24px);
 }
 
+.slice-summary__flight-line-color--full-width {
+  width: 100%;
+}
+
 .slice-summary__flight-line svg {
   position: absolute;
   top: -10px;
