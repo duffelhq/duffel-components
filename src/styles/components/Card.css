@@ -1,5 +1,5 @@
 .ancillary-card:disabled {
-  /* important needed to take prescedence over default button styles */
+  /* important needed to take precedence over default button styles */
   color: inherit !important;
   cursor: not-allowed !important;
   background-color: var(--GREY-100) !important;
