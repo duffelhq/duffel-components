@@ -76,14 +76,29 @@ const SliceStopsAndDurationOverview: React.FC<{
         }}
       >
         <div className="slice-summary__flight-line">
-          <div className="slice-summary__flight-line-color" />
-          <Icon name="flight" size={20} />
+          <div
+            className={classNames(
+              "slice-summary__flight-line-color",
+              stops.length > 0 &&
+                "slice-summary__flight-line-color--full-width",
+            )}
+          />
+          {stops.length === 0 && <Icon name="flight" size={20} />}
         </div>
 
         {stops.map((stop, index) => (
           <React.Fragment key={stop + index}>
             <div className="slice-summary__flight-line-dot" />
-            <div className="slice-summary__flight-line" />
+            <div className="slice-summary__flight-line">
+              <div
+                className={classNames(
+                  "slice-summary__flight-line-color",
+                  index !== stops.length - 1 &&
+                    "slice-summary__flight-line-color--full-width",
+                )}
+              />
+              {index === stops.length - 1 && <Icon name="flight" size={20} />}
+            </div>
           </React.Fragment>
         ))}
       </div>
