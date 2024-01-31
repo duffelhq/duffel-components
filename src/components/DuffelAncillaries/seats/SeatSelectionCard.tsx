@@ -24,7 +24,7 @@ export interface SeatSelectionCardProps {
   passengers: CreateOrder["passengers"];
   selectedServices: WithServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[]
+    selectedServices: WithServiceInformation<CreateOrderService>[],
   ) => void;
 }
 
@@ -45,7 +45,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
   const totalAmount = getTotalAmountForServices(
     offer!,
     selectedServices,
-    seatMaps
+    seatMaps,
   );
   let currencyToUse = offer?.base_currency ?? "";
   if (seatMaps) {
@@ -61,7 +61,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
       ? `${withPlural(
           totalQuantity,
           "seat",
-          "seats"
+          "seats",
         )} selected for ${totalAmountFormatted}`
       : "Specify where on the plane you’d like to sit";
 
