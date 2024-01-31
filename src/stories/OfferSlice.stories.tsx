@@ -1,10 +1,7 @@
+import { OfferSlice } from "@components/OfferSlice/OfferSlice";
+import { Airport, City, Offer, OfferSliceSegmentStop } from "@duffel/api/types";
 import type { Meta } from "@storybook/react";
 import React from "react";
-import {
-  OfferSlice,
-  OfferSliceProps,
-} from "../components/OfferSlice/OfferSlice";
-import { Airport, City, Offer, OfferSliceSegmentStop } from "@duffel/api/types";
 
 // Use a require because the fixture is not a module.
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -59,30 +56,47 @@ export default {
   ],
 } as Meta;
 
-const defaultProps: OfferSliceProps = {
-  slice: MOCK_OFFER.slices[0],
-  showFullDate: false,
-  showFlightNumbers: false,
-  hideFareBrand: false,
-  highlightAll: false,
-};
-
-export const Default: React.FC = () => <OfferSlice {...defaultProps} />;
-
-const prospWithStopOnFirstSegment: OfferSliceProps = {
-  ...defaultProps,
-  slice: {
-    ...MOCK_SLICE,
-    segments: [
-      {
-        ...MOCK_SEGMENT,
-        stops: [MOCK_STOP],
-      },
-      ...MOCK_SEGMENTS.slice(1),
-    ],
-  },
-};
+export const Default: React.FC = () => (
+  <OfferSlice slice={MOCK_OFFER.slices[0]} />
+);
 
 export const WithStop: React.FC = () => (
-  <OfferSlice {...prospWithStopOnFirstSegment} />
+  <OfferSlice
+    slice={{
+      ...MOCK_SLICE,
+      segments: [
+        {
+          ...MOCK_SEGMENT,
+          stops: [MOCK_STOP],
+        },
+      ],
+    }}
+  />
+);
+
+export const WithStopAnd2Segments: React.FC = () => (
+  <OfferSlice
+    slice={{
+      ...MOCK_SLICE,
+      segments: [
+        MOCK_SEGMENT,
+        {
+          ...{
+            ...MOCK_SEGMENT,
+            origin: {
+              ...MOCK_AIRPORT,
+              iata_code: "LAX",
+              name: " Los Angeles International Airport",
+            },
+            destination: {
+              ...MOCK_AIRPORT,
+              iata_code: "EWR",
+              name: "Newark airport",
+            },
+          },
+          stops: [MOCK_STOP],
+        },
+      ],
+    }}
+  />
 );

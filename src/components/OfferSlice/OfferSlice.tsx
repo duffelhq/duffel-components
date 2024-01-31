@@ -1,145 +1,150 @@
-import { AirlineLogo } from "@components/shared/AirlineLogo";
+import { Icon, IconName } from "@components/shared/Icon";
 import { OfferSlice as OfferSliceType } from "@duffel/api/types";
 import { convertDurationToString } from "@lib/convertDurationToString";
-import { getAirlinesText } from "@lib/getAirlinesText";
 import { getDateString } from "@lib/getDateString";
-import { getDayDiff } from "@lib/getDayDiff";
-import { getSliceDetails } from "@lib/getSliceDetails";
+import { getDurationString } from "@lib/getDurationString";
 import { getTimeString } from "@lib/getTimeString";
-import { isISO8601Duration } from "@lib/isISO8601Duration";
-import { SliceLayoverItem } from "src/types/TravelDetails";
-import { OfferSliceDetailItem } from "./OfferSliceDetailItem";
-import { VSpace } from "@components/shared/VSpace";
+import { withPlural } from "@lib/withPlural";
+import classNames from "classnames";
+import React from "react";
 
 export interface OfferSliceProps {
   slice: OfferSliceType;
-  showFullDate?: boolean;
-  showFlightNumbers?: boolean;
-  hideFareBrand?: boolean;
-  highlightAll?: boolean;
 }
 
-export const OfferSlice: React.FC<OfferSliceProps> = ({
-  slice,
-  showFullDate = false,
-  showFlightNumbers,
-  hideFareBrand = false,
-}) => {
-  const { segments } = slice;
-  const firstSegment = segments[0];
-  const sliceDetails = getSliceDetails(slice);
-  const lastSegment = segments[segments.length - 1];
-  const departingAt = sliceDetails[0].travelDetails?.departingAt;
-  const arrivingAt =
-    sliceDetails[sliceDetails.length - 1].travelDetails?.arrivingAt;
-  // We need to strip out the time as getDayDiff rounds the time difference up, but here we
-  // only care whether the day is the same or not
-  const dayDiff =
-    departingAt && arrivingAt
-      ? getDayDiff(arrivingAt.split("T")[0], departingAt.split("T")[0])
-      : 0;
-  const duration =
-    slice.duration &&
-    typeof slice.duration === "string" &&
-    isISO8601Duration(slice.duration) &&
-    arrivingAt &&
-    departingAt
-      ? convertDurationToString(String(slice.duration))
-      : null;
+export const OfferSlice: React.FC<OfferSliceProps> = ({ slice }) => {
+  const firstSegment = slice.segments[0];
+  const lastSegment = slice.segments[slice.segments.length - 1];
 
-  const numberOfStops = sliceDetails.filter(
-    (item) => item.type === "layover",
-  ).length;
-
-  const layoverItems = (sliceDetails.filter(
-    (item) => item.type === "layover",
-    // using type assertion here because typescript cannot infer that item.type of 'layover' is SliceLayoverItem
-  ) || []) as SliceLayoverItem[];
+  const startDate = getDateString(firstSegment.departing_at!, "long");
+  const endDate = getDateString(lastSegment.departing_at!, "long");
+  const endsOnDifferentDate = startDate != endDate;
 
   return (
-    <VSpace space={16}>
-      <div className={"offer-slice"}>
-        <div className={"offer-slice__airline-logo-wrapper"}>
-          <AirlineLogo
-            name={firstSegment.marketing_carrier.name}
-            iataCode={firstSegment.marketing_carrier.iata_code}
-            size={40}
-          />
-        </div>
-        <div>
-          <VSpace space={8} className={"offer-slice__column"}>
-            <div>
-              {showFullDate && departingAt && (
-                <span className={"offer-slice__date-label"}>
-                  {getDateString(departingAt, "long")}
-                </span>
-              )}
+    <div>
+      {/*  start date */}
+      <OfferSliceRow
+        withGreyBackground
+        icon="calendar_month"
+        dottedLine="after"
+      >
+        {startDate}
+      </OfferSliceRow>
 
-              {departingAt && arrivingAt && (
-                <span className="u-skeletonable">
-                  <span>{getTimeString(departingAt)}</span>
-                  {" - "}
-                  <span>
-                    <span>{getTimeString(arrivingAt)}</span>
-                    {dayDiff > 0 && (
-                      <sup
-                      // className={
-                      //   keysToHighlight?.includes("arrivingAt") &&
-                      //   !keysToHighlight?.includes("dayDiff")
-                      //     ? "offer-slice__sup--pa"]
-                      //     : undefined
-                      // }
-                      >
-                        +{dayDiff}
-                      </sup>
-                    )}
-                  </span>
-                </span>
-              )}
-            </div>
-            <div>
-              <span className="u-skeletonable u-skeletonable--small">
-                {getAirlinesText(slice, showFlightNumbers, !hideFareBrand)}
-              </span>
-            </div>
-          </VSpace>
-          <VSpace space={8} className={"offer-slice__column"}>
-            {duration && (
-              <div>
-                <span className="u-skeletonable">{duration}</span>
-              </div>
+      {/* segments information */}
+      {slice.segments.map((segment, index) => {
+        const isLast = index === slice.segments.length - 1;
+        return (
+          <>
+            <OfferSliceRow
+              dottedLine="before"
+              icon="flight_takeoff"
+              time={getTimeString(segment.departing_at)}
+            >
+              Depart from {segment.origin.name} ({segment.origin.iata_code})
+            </OfferSliceRow>
+
+            <OfferSliceRow compact>
+              {[
+                convertDurationToString(segment.duration!),
+                segment.marketing_carrier.name,
+                `${segment.marketing_carrier.iata_code}${segment.marketing_carrier_flight_number}`,
+                segment.aircraft.name,
+                segment.passengers[0].cabin_class_marketing_name ||
+                  segment.passengers[0].cabin_class,
+              ].join(" · ")}
+            </OfferSliceRow>
+
+            {segment.stops && segment.stops.length > 0 && (
+              <OfferSliceRow compactCallout>
+                <p>
+                  {withPlural(segment.stops.length, "stop", "stops")}:{" "}
+                  {segment.stops
+                    .map(
+                      (stop) =>
+                        `${convertDurationToString(stop.duration)} in ${stop.airport.iata_code}`,
+                    )
+                    .join(",")}
+                </p>
+              </OfferSliceRow>
             )}
-            <div>
-              <span className="u-skeletonable u-skeletonable--small">
-                {firstSegment.origin.iata_code} -{" "}
-                {lastSegment.destination.iata_code}
-              </span>
-            </div>
-          </VSpace>
-          <VSpace space={8} className={"offer-slice__column"}>
-            <div>
-              <span className="u-skeletonable">
-                {numberOfStops === 0
-                  ? "Non-stop"
-                  : `${numberOfStops} stop${numberOfStops > 1 ? "s" : ""}`}
-              </span>
-            </div>
-            <div>
-              <div />
-              {layoverItems.map(({ layoverDetails }, index) => (
-                <div className="u-skeletonable" key={index}>
-                  {layoverDetails.duration} {layoverDetails.airport.iata_code}
-                </div>
-              ))}
-            </div>
-          </VSpace>
-        </div>
-      </div>
-      <div>
-        {sliceDetails.map((item, index) => (
-          <OfferSliceDetailItem item={item} key={index} />
-        ))}
-      </div>
-    </VSpace>
+
+            <OfferSliceRow
+              icon="flight_landing"
+              time={getTimeString(segment.arriving_at)}
+            >
+              Arrive at {segment.destination.name} (
+              {segment.destination.iata_code})
+            </OfferSliceRow>
+
+            {!isLast && (
+              <OfferSliceRow
+                dottedLine="both"
+                withGreyBackground
+                icon="airline_stops"
+              >
+                {getDurationString(
+                  slice.segments[index + 1].departing_at,
+                  segment.arriving_at,
+                )}{" "}
+                Layover at {segment.destination.name} (
+                {segment.destination.iata_code})
+              </OfferSliceRow>
+            )}
+          </>
+        );
+      })}
+
+      {/* end date, if not the same */}
+      {endsOnDifferentDate && (
+        <OfferSliceRow
+          withGreyBackground
+          icon="calendar_month"
+          dottedLine="before"
+        >
+          {endDate}
+        </OfferSliceRow>
+      )}
+    </div>
   );
 };
+
+type OfferSliceRow = React.PropsWithChildren<{
+  time?: string;
+  icon?: IconName;
+  withGreyBackground?: boolean;
+  compact?: boolean;
+  compactCallout?: boolean;
+  dottedLine?: "before" | "after" | "both";
+}>;
+
+const OfferSliceRow: React.FC<OfferSliceRow> = ({
+  time,
+  icon,
+  withGreyBackground,
+  compact,
+  dottedLine,
+  compactCallout,
+  children,
+}) => (
+  <div
+    className={classNames(
+      "offer-slice__row",
+      withGreyBackground && "offer-slice__row--grey-background",
+      compact && "offer-slice__row--compact",
+      compactCallout && `offer-slice__row--compact-callout`,
+    )}
+  >
+    <div className="offer-slice__row-time">{time && <span>{time}</span>}</div>
+    <div
+      className={classNames(
+        "offer-slice__row-icon-container",
+        !icon && "offer-slice__row-icon-container--no-icon",
+        dottedLine && `offer-slice__row-icon-container--dotted-${dottedLine}`,
+      )}
+    >
+      {icon && <Icon color="--GREY-600" size={16} name={icon} />}
+    </div>
+    <div>{children}</div>
+  </div>
+);
