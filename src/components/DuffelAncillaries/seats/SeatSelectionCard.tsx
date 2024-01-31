@@ -1,21 +1,21 @@
 import { AnimatedLoaderEllipsis } from "@components/shared/AnimatedLoaderEllipsis";
 import { Stamp } from "@components/shared/Stamp";
-import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
-import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
-import { getTotalQuantity } from "@lib/getTotalQuantity";
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
-import { withPlural } from "@lib/withPlural";
-import React from "react";
-import { Card } from "../Card";
-import { SeatSelectionModal } from "./SeatSelectionModal";
 import {
   CreateOrder,
   CreateOrderService,
   Offer,
   SeatMap,
 } from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
+import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
+import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
+import { getTotalQuantity } from "@lib/getTotalQuantity";
 import { hasAvailableSeatService } from "@lib/hasAvailableSeatService";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import { withPlural } from "@lib/withPlural";
+import React from "react";
+import { WithServiceInformation } from "src/types";
+import { Card } from "../Card";
+import { SeatSelectionModal } from "./SeatSelectionModal";
 
 export interface SeatSelectionCardProps {
   isLoading: boolean;
@@ -24,7 +24,7 @@ export interface SeatSelectionCardProps {
   passengers: CreateOrder["passengers"];
   selectedServices: WithServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithServiceInformation<CreateOrderService>[]
   ) => void;
 }
 
@@ -45,7 +45,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
   const totalAmount = getTotalAmountForServices(
     offer!,
     selectedServices,
-    seatMaps,
+    seatMaps
   );
   let currencyToUse = offer?.base_currency ?? "";
   if (seatMaps) {
@@ -61,7 +61,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
       ? `${withPlural(
           totalQuantity,
           "seat",
-          "seats",
+          "seats"
         )} selected for ${totalAmountFormatted}`
       : "Specify where on the plane you’d like to sit";
 
