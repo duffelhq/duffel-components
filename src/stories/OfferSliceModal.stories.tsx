@@ -57,11 +57,12 @@ export default {
 } as Meta;
 
 export const Default: React.FC = () => (
-  <OfferSliceModal isOpen slice={MOCK_OFFER.slices[0]} />
+  <OfferSliceModal onClose={() => 0} isOpen slice={MOCK_OFFER.slices[0]} />
 );
 
 export const WithStop: React.FC = () => (
   <OfferSliceModal
+    onClose={() => 0}
     isOpen
     slice={{
       ...MOCK_SLICE,
@@ -77,6 +78,7 @@ export const WithStop: React.FC = () => (
 
 export const WithStopAnd2Segments: React.FC = () => (
   <OfferSliceModal
+    onClose={() => 0}
     isOpen
     slice={{
       ...MOCK_SLICE,
