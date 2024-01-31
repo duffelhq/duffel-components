@@ -1,3 +1,4 @@
+import { Icon } from "@components/shared/Icon";
 import { OfferSlice } from "@duffel/api/types";
 import { convertDurationToString } from "@lib/convertDurationToString";
 import { getTimeString } from "@lib/getTimeString";
@@ -74,7 +75,10 @@ const SliceStopsAndDurationOverview: React.FC<{
           gridTemplateColumns: `1fr repeat(${stops.length}, auto 1fr)`,
         }}
       >
-        <div className="slice-summary__flight-line" />
+        <div className="slice-summary__flight-line">
+          <div className="slice-summary__flight-line-color" />
+          <Icon name="flight" size={20} />
+        </div>
 
         {stops.map((stop, index) => (
           <React.Fragment key={stop + index}>

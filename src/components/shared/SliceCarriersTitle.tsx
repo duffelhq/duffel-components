@@ -40,6 +40,7 @@ export const SliceCarriersTitle: React.FC<SliceCarriersTitleProps> = ({
   return (
     <HSpace space={8}>
       <AirlineLogo
+        size={20}
         name={firstMarketingCarrier.name}
         iataCode={firstMarketingCarrier.iata_code}
       />
