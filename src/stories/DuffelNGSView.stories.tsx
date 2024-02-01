@@ -73,13 +73,9 @@ const defaultProps: DuffelNGSViewProps = {
     alternativeCheapOffer,
     alternativeExpensiveOffer,
   ],
-  sliceIndex: 0,
   onSelect: console.log,
 };
 
 export const Default: StoryFn<DuffelNGSViewProps> = () => (
-  <>
-    <div style={{ height: "100px" }} />
-    <DuffelNGSView {...defaultProps} />
-  </>
+  <DuffelNGSView {...defaultProps} />
 );

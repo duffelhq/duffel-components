@@ -1,249 +1,94 @@
 import * as React from "react";
-import { NGSShelf, NGS_SHELF_INFO, NGS_SHELVES, OfferWithNGS } from "./lib";
+import { OfferSliceWithNGS, OfferWithNGS } from "./lib";
+import { NGSTable } from "./NGSTable";
+import { getDateString } from "@lib/getDateString";
 import { Icon } from "@components/shared/Icon";
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
-import { SliceCarriersTitle } from "@components/shared/SliceCarriersTitle";
-import {
-  NGSOfferRow,
-  groupOffersForNGSView,
-} from "./lib/group-offers-for-ngs-view";
-import { SortDirection, sortNGSRows } from "./lib/sort-ngs-rows";
-import { NGSSliceFareCard } from "./NGSSliceFareCard";
-import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
-import { SliceSummary } from "./SliceSummary";
 
 export interface DuffelNGSViewProps {
   offers: OfferWithNGS[];
-  sliceIndex: number;
   onSelect: (offerId: string) => void;
 }
 
-type OfferPosition = {
-  row: number;
-  shelf: NGSShelf;
-};
-
-function getPreviousShelf(shelf: NGSShelf): NGSShelf | null {
-  const previousShelf = +shelf - 1;
-  return previousShelf === 0 ? null : (previousShelf.toString() as NGSShelf);
-}
-
-function getNextShelf(shelf: NGSShelf): NGSShelf | null {
-  const nextShelf = +shelf + 1;
-  return nextShelf > 5 ? null : (nextShelf.toString() as NGSShelf);
-}
-
-const getPreviousOffer = (
-  rows: NGSOfferRow[],
-  expandedOffer: OfferPosition,
-): OfferWithNGS | null => {
-  const previousShelf = getPreviousShelf(expandedOffer.shelf);
-  if (!previousShelf) {
-    return null;
-  }
-  const previousOffer = rows[expandedOffer.row][previousShelf];
-  if (previousOffer) {
-    return previousOffer;
-  }
-  return getPreviousOffer(rows, {
-    row: expandedOffer.row,
-    shelf: previousShelf,
-  });
-};
-
-const getNextOffer = (
-  rows: NGSOfferRow[],
-  expandedOffer: OfferPosition,
-): OfferWithNGS | null => {
-  const nextShelf = getNextShelf(expandedOffer.shelf);
-  if (!nextShelf) {
-    return null;
-  }
-  const nextOffer = rows[expandedOffer.row][nextShelf];
-  if (nextOffer) {
-    return nextOffer;
-  }
-  return getNextOffer(rows, { row: expandedOffer.row, shelf: nextShelf });
-};
-
 export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   offers,
-  sliceIndex,
   onSelect,
 }) => {
-  const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
-    null,
+  const [selectedSliceKeys, setSelectedSliceKeys] = React.useState<string[]>(
+    []
   );
-  const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
-  const [sortDirection, setSortDirection] =
-    React.useState<SortDirection>("asc");
-  const [rows, setRows] = React.useState<NGSOfferRow[]>(
-    groupOffersForNGSView(offers, sliceIndex),
-  );
-  const [expandedOffer, setExpandedOffer] =
-    React.useState<OfferPosition | null>(null);
+  const [currentSlice, setCurrentSlice] =
+    React.useState<OfferSliceWithNGS | null>(null);
 
   React.useEffect(() => {
-    if (sortShelf) {
-      const sortedRows = sortNGSRows(rows, sortShelf, sortDirection);
-      setRows(sortedRows);
-    }
-  }, [sortShelf, sortDirection]);
+    const slice =
+      selectedSliceKeys.length > 0
+        ? offers[0].slices[selectedSliceKeys.length]
+        : offers[0].slices[0];
+    setCurrentSlice(slice);
+  }, [selectedSliceKeys]);
 
   if (offers.length == 0) {
     return null;
   }
 
+  const numSlices = offers[0].slices.length;
+
   return (
     <div className="duffel-components duffel-ngs-view">
-      <table className="duffel-ngs-view_table">
-        <thead>
-          <tr className="duffel-ngs-view_table-header">
-            <th className="duffel-ngs-view_th"></th>
-            {NGS_SHELVES.map((shelf) => (
-              <th
-                key={shelf}
-                onClick={() => {
-                  if (shelf === sortShelf) {
-                    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-                  } else if (selectedColumn === shelf) {
-                    setSortShelf(shelf);
-                  }
-                  setSelectedColumn(shelf);
-                  setExpandedOffer(null);
-                }}
-              >
-                <div
+      {currentSlice && (
+        <>
+          <div className="duffel-ngs-view_breadcrumbs">
+            {offers[0].slices.map((slice, index) => (
+              <>
+                <button
+                  key={index}
                   className={classNames(
-                    "duffel-ngs-view_column-header",
-                    selectedColumn === shelf &&
-                      "duffel-ngs-view_column-header--selected",
+                    "duffel-ngs-view_breadcrumb",
+                    index < selectedSliceKeys.length &&
+                      "duffel-ngs-view_breadcrumb--clickable",
+                    index === selectedSliceKeys.length &&
+                      "duffel-ngs-view_breadcrumb--selected"
                   )}
-                >
-                  <Icon
-                    name={NGS_SHELF_INFO[shelf].icon}
-                    size={14}
-                    color={
-                      selectedColumn === shelf ? "--GREY-900" : "--GREY-500"
+                  onClick={() => {
+                    if (index < selectedSliceKeys.length) {
+                      setSelectedSliceKeys(
+                        selectedSliceKeys.slice(0, index - 1)
+                      );
                     }
-                    className="duffel-ngs-view_shelf-icon"
-                  />
-                  {NGS_SHELF_INFO[shelf].short_title}
-                  {sortShelf === shelf ? (
-                    <Icon
-                      name={
-                        sortDirection === "asc"
-                          ? "arrow_downward"
-                          : "arrow_upward"
-                      }
-                      size={12}
-                      color={
-                        selectedColumn === shelf ? "--GREY-900" : "--GREY-500"
-                      }
-                      className="duffel-ngs-view_sort-icon"
-                    />
-                  ) : selectedColumn === shelf ? (
-                    <Icon
-                      name="unfold_more"
-                      size={12}
-                      color="--GREY-900"
-                      className="duffel-ngs-view_sort-icon"
-                    />
-                  ) : null}
-                  <NGSShelfInfoCard
-                    ngs_shelf={shelf}
-                    className={classNames(
-                      "duffel-ngs-view_column-header-tooltip",
-                      +shelf >= 4 &&
-                        "duffel-ngs-view_column-header-tooltip--left",
-                    )}
-                  />
-                </div>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <>
-              <tr key={index}>
-                <td className="duffel-ngs-view_slice-info">
-                  <SliceCarriersTitle slice={row["slice"]} />
-                  <SliceSummary slice={row["slice"]} />
-                </td>
-                {NGS_SHELVES.map((shelf) => (
-                  <td
-                    key={shelf}
-                    onClick={() => {
-                      if (
-                        expandedOffer?.row === index &&
-                        expandedOffer?.shelf === shelf
-                      ) {
-                        setExpandedOffer(null);
-                      } else if (selectedColumn === shelf) {
-                        setExpandedOffer({ row: index, shelf });
-                      }
-                    }}
-                    className={classNames(
-                      "duffel-ngs-view_table-data",
-                      selectedColumn === shelf &&
-                        "duffel-ngs-view_table-data--selected",
-                      expandedOffer?.row === index &&
-                        expandedOffer?.shelf === shelf &&
-                        "duffel-ngs-view_table-data--expanded",
-                    )}
-                  >
-                    {row[shelf]
-                      ? moneyStringFormatter(row[shelf]!.total_currency)(
-                          +row[shelf]!.total_amount,
-                        )
-                      : "-"}
-                  </td>
-                ))}
-              </tr>
-              {expandedOffer?.row === index &&
-                rows[index][expandedOffer.shelf] && (
-                  <tr>
-                    <td colSpan={6} className="duffel-ngs-view_expanded">
-                      <div>
-                        {getPreviousOffer(rows, expandedOffer) && (
-                          <NGSSliceFareCard
-                            offer={getPreviousOffer(rows, expandedOffer)!}
-                            sliceIndex={sliceIndex}
-                            compareToAmount={
-                              +rows[index][expandedOffer.shelf]!.total_amount
-                            }
-                            className="duffel-ngs-view_card--alternative"
-                          />
-                        )}
-                        <NGSSliceFareCard
-                          offer={rows[index][expandedOffer.shelf]!}
-                          sliceIndex={sliceIndex}
-                          selected
-                          className="duffel-ngs-view_card--selected"
-                          onSelect={() =>
-                            onSelect(rows[index][expandedOffer.shelf]!.id)
-                          }
-                        />
-                        {getNextOffer(rows, expandedOffer) && (
-                          <NGSSliceFareCard
-                            offer={getNextOffer(rows, expandedOffer)!}
-                            sliceIndex={sliceIndex}
-                            compareToAmount={
-                              +rows[index][expandedOffer.shelf]!.total_amount
-                            }
-                            className="duffel-ngs-view_card--alternative"
-                          />
-                        )}
-                      </div>
-                    </td>
-                  </tr>
+                  }}
+                >
+                  {slice.origin.iata_code} - {slice.destination.iata_code}
+                </button>
+                {index < numSlices - 1 && (
+                  <Icon name="arrow_right" size={12} color="--GREY-500" />
                 )}
-            </>
-          ))}
-        </tbody>
-      </table>
+              </>
+            ))}
+          </div>
+          <h3 className="duffel-ngs-view_heading">
+            {numSlices === 2 &&
+              `${selectedSliceKeys.length === 0 ? "Outbound" : "Inbound"} flight to  ${currentSlice.destination.city_name}`}
+            {numSlices !== 2 &&
+              `Flight to ${currentSlice.destination.city_name}`}
+          </h3>
+          <h4 className="duffel-ngs-view_subheading">
+            {getDateString(currentSlice.segments[0].departing_at, "long")}
+          </h4>
+        </>
+      )}
+      <NGSTable
+        offers={offers}
+        sliceIndex={selectedSliceKeys.length}
+        previousSliceKeys={selectedSliceKeys}
+        onSelect={(offerId, sliceKey) => {
+          if (selectedSliceKeys.length == numSlices - 1) {
+            onSelect(offerId);
+          } else {
+            setSelectedSliceKeys([...selectedSliceKeys, sliceKey]);
+          }
+        }}
+      />
     </div>
   );
 };
