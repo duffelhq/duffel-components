@@ -2101,7 +2101,7 @@ __metadata:
     jest-environment-jsdom: "npm:29.7.0"
     lodash: "npm:4.17.21"
     prettier: "npm:3.2.4"
-    prettier-plugin-organize-imports: "npm:3.2.2"
+    prettier-plugin-organize-imports: "npm:3.2.4"
     prompts: "npm:2.4.2"
     prop-types: "npm:15.8.1"
     puppeteer: "npm:21.6.1"
@@ -11921,9 +11921,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-organize-imports@npm:3.2.2":
-  version: 3.2.2
-  resolution: "prettier-plugin-organize-imports@npm:3.2.2"
+"prettier-plugin-organize-imports@npm:3.2.4":
+  version: 3.2.4
+  resolution: "prettier-plugin-organize-imports@npm:3.2.4"
   peerDependencies:
     "@volar/vue-language-plugin-pug": ^1.0.4
     "@volar/vue-typescript": ^1.0.4
@@ -11934,7 +11934,7 @@ __metadata:
       optional: true
     "@volar/vue-typescript":
       optional: true
-  checksum: b49433485059ae9df77d8d89fdb5ef7b4e270329fd3792f9962a552efe86a76d6ab49d9a33860bc250d6707265643d59060add5b2389aa668013bad613601dda
+  checksum: c20afa9b379106839a273d53c83fef70920e8ae86939d4890a06c63da19440de411568793e716bafcdd96e5ba8e34233f2944ea53ecd6ac18ba1ec0fa05bb58b
   languageName: node
   linkType: hard
 
