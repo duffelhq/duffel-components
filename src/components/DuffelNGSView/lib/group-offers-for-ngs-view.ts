@@ -12,7 +12,7 @@ export const getNGSSliceKey = (slice: OfferSliceWithNGS): string => {
 
 const filterOffersThatMatchCurrentSlice = (
   offers: OfferWithNGS[],
-  previousSliceKeys: string[],
+  previousSliceKeys: string[]
 ) => {
   const filteredOffers = previousSliceKeys.length > 0 ? [] : offers;
   if (previousSliceKeys.length > 0) {
@@ -35,19 +35,19 @@ const filterOffersThatMatchCurrentSlice = (
 export const groupOffersForNGSView = (
   offers: OfferWithNGS[],
   sliceIndex: number,
-  previousSliceKeys: string[],
+  previousSliceKeys: string[]
 ): NGSOfferRow[] => {
   // Only display offers where previous slices match the current selection
   const filteredOffers = filterOffersThatMatchCurrentSlice(
     offers,
-    previousSliceKeys,
+    previousSliceKeys
   );
 
   const offersMap: Record<string, NGSOfferRow> = {};
   filteredOffers.forEach((offer) => {
     if (sliceIndex > offer.slices.length) {
       throw new Error(
-        "Attempted to call `groupOffersForNGSView` with an invalid slice index",
+        "Attempted to call `groupOffersForNGSView` with an invalid slice index"
       );
     }
 
