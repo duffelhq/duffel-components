@@ -39,7 +39,7 @@ function getNextShelf(shelf: NGSShelf): NGSShelf | null {
 
 const getPreviousOffer = (
   rows: NGSOfferRow[],
-  expandedOffer: OfferPosition
+  expandedOffer: OfferPosition,
 ): OfferWithNGS | null => {
   const previousShelf = getPreviousShelf(expandedOffer.shelf);
   if (!previousShelf) {
@@ -57,7 +57,7 @@ const getPreviousOffer = (
 
 const getNextOffer = (
   rows: NGSOfferRow[],
-  expandedOffer: OfferPosition
+  expandedOffer: OfferPosition,
 ): OfferWithNGS | null => {
   const nextShelf = getNextShelf(expandedOffer.shelf);
   if (!nextShelf) {
@@ -77,13 +77,13 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   previousSliceKeys,
 }) => {
   const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
-    null
+    null,
   );
   const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
   const [sortDirection, setSortDirection] =
     React.useState<SortDirection>("asc");
   const [rows, setRows] = React.useState<NGSOfferRow[]>(
-    groupOffersForNGSView(offers, sliceIndex, previousSliceKeys)
+    groupOffersForNGSView(offers, sliceIndex, previousSliceKeys),
   );
   const [expandedOffer, setExpandedOffer] =
     React.useState<OfferPosition | null>(null);
@@ -132,7 +132,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                   className={classNames(
                     "ngs-table_column-header",
                     selectedColumn === shelf &&
-                      "ngs-table_column-header--selected"
+                      "ngs-table_column-header--selected",
                   )}
                 >
                   <Icon
@@ -169,7 +169,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                     ngs_shelf={shelf}
                     className={classNames(
                       "ngs-table_column-header-tooltip",
-                      +shelf >= 3 && "ngs-table_column-header-tooltip--left"
+                      +shelf >= 3 && "ngs-table_column-header-tooltip--left",
                     )}
                   />
                 </div>
@@ -216,12 +216,12 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                         "ngs-table_table-data--selected",
                       expandedOffer?.row === index &&
                         expandedOffer?.shelf === shelf &&
-                        "ngs-table_table-data--expanded"
+                        "ngs-table_table-data--expanded",
                     )}
                   >
                     {row[shelf]
                       ? moneyStringFormatter(row[shelf]!.total_currency)(
-                          +row[shelf]!.total_amount
+                          +row[shelf]!.total_amount,
                         )
                       : "-"}
                   </td>
@@ -253,8 +253,8 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                               getNGSSliceKey(
                                 rows[index][expandedOffer.shelf]!.slices[
                                   sliceIndex
-                                ]
-                              )
+                                ],
+                              ),
                             )
                           }
                         />
