@@ -52,7 +52,7 @@
     "@duffel/api": "2.7.2",
     "@sentry/browser": "7.77.0",
     "@stripe/react-stripe-js": "2.1.0",
-    "@stripe/stripe-js": "1.54.0",
+    "@stripe/stripe-js": "1.54.2",
     "classnames": "2.3.2",
     "fuse.js": "6.6.2",
     "lodash": "4.17.21",
