@@ -22,6 +22,7 @@
 @import "./components/Modal.css";
 @import "./components/NGSShelfInfoCard.css";
 @import "./components/NGSSliceFareCard.css";
+@import "./components/NGSTable.css";
 @import "./components/OfferSlice.css";
 @import "./components/OfferSliceModal.css";
 @import "./components/OfferSliceDetailTravelItem.css";
