@@ -187,10 +187,10 @@ export const BaggageBehaviourSpirit: StoryFn<
     <pre>
       {JSON.stringify(
         offer_for_baggage.available_services.filter(
-          (service) => service.type === "baggage"
+          (service) => service.type === "baggage",
         ),
         null,
-        2
+        2,
       )}
     </pre>
   </>
@@ -208,10 +208,10 @@ export const BaggageBehaviourEasyjet: StoryFn<
     <pre>
       {JSON.stringify(
         offer_for_baggage_that_applies_to_multiple_segments.available_services.filter(
-          (service) => service.type === "baggage"
+          (service) => service.type === "baggage",
         ),
         null,
-        2
+        2,
       )}
     </pre>
   </>
@@ -229,10 +229,10 @@ export const BaggageBehaviourLufthansa: StoryFn<
     <pre>
       {JSON.stringify(
         offer_for_baggage_that_applies_to_single_segment.available_services.filter(
-          (service) => service.type === "baggage"
+          (service) => service.type === "baggage",
         ),
         null,
-        2
+        2,
       )}
     </pre>
   </>
@@ -252,10 +252,10 @@ export const BaggageBehaviourAustrian: StoryFn<
     <pre>
       {JSON.stringify(
         offer_with_multiple_segments_and_baggages_that_applies_to_2_segments.available_services.filter(
-          (service) => service.type === "baggage"
+          (service) => service.type === "baggage",
         ),
         null,
-        2
+        2,
       )}
     </pre>
   </>

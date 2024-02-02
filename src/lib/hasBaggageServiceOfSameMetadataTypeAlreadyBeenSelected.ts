@@ -6,7 +6,7 @@ import { WithBaggageServiceInformation } from "src/types";
 
 export function hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
   selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
-  availableService: OfferAvailableServiceBaggage
+  availableService: OfferAvailableServiceBaggage,
 ) {
   const selectedServiceMap: Record<string, string[]> = {};
   for (const service of selectedServices) {
@@ -39,13 +39,13 @@ export function hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
  * Creates a unique key for a selected service based on its type, segmentId and passengerId
  */
 function getMetadataServiceUniquenessKey(
-  service: WithBaggageServiceInformation<CreateOrderService>
+  service: WithBaggageServiceInformation<CreateOrderService>,
 ) {
   const keys: string[] = [];
   for (const segmentId of service.serviceInformation.segmentIds) {
     for (const passengerId of service.serviceInformation.passengerIds) {
       keys.push(
-        [service.serviceInformation.type, segmentId, passengerId].join(":")
+        [service.serviceInformation.type, segmentId, passengerId].join(":"),
       );
     }
   }
@@ -57,7 +57,7 @@ function getMetadataServiceUniquenessKey(
  * Creates a unique key for an avaialable service based on its type, segmentId and passengerId
  */
 function getMetadataServiceUniquenessKeyFromAvailableService(
-  service: OfferAvailableServiceBaggage
+  service: OfferAvailableServiceBaggage,
 ) {
   const keys: string[] = [];
   for (const segmentId of service.segment_ids) {

@@ -18,7 +18,7 @@ export interface BaggageSelectionModalBodyProps {
   passengersById: Record<CreateOrderPassenger["id"], CreateOrderPassenger>;
   selectedServices: WithBaggageServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithBaggageServiceInformation<CreateOrderService>[]
+    selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
   ) => void;
 }
 
@@ -40,7 +40,7 @@ export const BaggageSelectionModalBody: React.FC<
         passengerName={getPassengerName(
           passengersById[passenger_id],
           offer.passengers.find(({ id }) => id === passenger_id),
-          index + 1
+          index + 1,
         )}
         includedBaggage={baggages}
         passengerServicesForSegment={
@@ -48,7 +48,7 @@ export const BaggageSelectionModalBody: React.FC<
             ({ type, passenger_ids, segment_ids }) =>
               type === "baggage" &&
               passenger_ids.includes(passenger_id) &&
-              segment_ids.includes(segment.id)
+              segment_ids.includes(segment.id),
           ) as OfferAvailableServiceBaggage[]
         }
         selectedServices={selectedServices}

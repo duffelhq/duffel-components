@@ -31,16 +31,16 @@ export const BaggageSelectionController: React.FC<
     availableService.metadata.type === "carry_on" ? "Cabin bag" : "Checked bag";
 
   const servicePrice = moneyStringFormatter(availableService.total_currency)(
-    +availableService.total_amount
+    +availableService.total_amount,
   );
   const serviceDescription = getBaggageServiceDescription(
-    availableService.metadata
+    availableService.metadata,
   );
 
   const shouldDisableController =
     hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
       selectedServices,
-      availableService
+      availableService,
     );
 
   return (

@@ -19,7 +19,7 @@ interface ElementProps {
     WithSeatServiceInformation<CreateOrderService>
   >;
   onSeatToggled: (
-    seatService: WithSeatServiceInformation<CreateOrderService>
+    seatService: WithSeatServiceInformation<CreateOrderService>,
   ) => void;
   currentPassengerId: string;
   currentSegmentId: string;

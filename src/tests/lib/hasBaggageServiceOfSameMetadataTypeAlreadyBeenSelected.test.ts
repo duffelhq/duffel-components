@@ -44,8 +44,8 @@ describe("hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
     expect(
       hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
         [],
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(false);
   });
 
@@ -53,8 +53,8 @@ describe("hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
     expect(
       hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
         [selectedService],
-        { ...availableService, id: selectedService.id }
-      )
+        { ...availableService, id: selectedService.id },
+      ),
     ).toBe(false);
   });
 
@@ -62,8 +62,8 @@ describe("hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
     expect(
       hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
         [selectedService],
-        { ...availableService, passenger_ids: ["passenger_id_no_match"] }
-      )
+        { ...availableService, passenger_ids: ["passenger_id_no_match"] },
+      ),
     ).toBe(false);
   });
 
@@ -79,8 +79,8 @@ describe("hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
             },
           },
         ],
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(false);
   });
 
@@ -102,8 +102,8 @@ describe("hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
             },
           },
         ],
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(true);
   });
 
@@ -111,8 +111,8 @@ describe("hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
     expect(
       hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
         [selectedService],
-        { ...availableService, metadata: { type: "carry_on" } } as any
-      )
+        { ...availableService, metadata: { type: "carry_on" } } as any,
+      ),
     ).toBe(false);
   });
 
@@ -120,8 +120,8 @@ describe("hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected", () => {
     expect(
       hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
         [selectedService],
-        availableService
-      )
+        availableService,
+      ),
     ).toBe(true);
   });
 });

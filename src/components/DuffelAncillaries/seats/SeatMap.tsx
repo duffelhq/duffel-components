@@ -17,7 +17,7 @@ export interface SeatMapProps {
     WithSeatServiceInformation<CreateOrderService>
   >;
   onSeatToggled: (
-    seatService: WithSeatServiceInformation<CreateOrderService>
+    seatService: WithSeatServiceInformation<CreateOrderService>,
   ) => void;
   currentPassengerId: string;
   currentPassengerName: string;
