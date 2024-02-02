@@ -1,5 +1,12 @@
 import { ErrorBoundary } from "@components/shared/ErrorBoundary";
 import { FetchOfferErrorState } from "@components/shared/FetchOfferErrorState";
+import { WithComponentStyles } from "@components/shared/WithComponentStyles";
+import {
+  CreateOrder,
+  CreateOrderService,
+  Offer,
+  SeatMap,
+} from "@duffel/api/types";
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import { createPriceFormatters } from "@lib/createPriceFormatters";
 import { formatAvailableServices } from "@lib/formatAvailableServices";
@@ -21,18 +28,13 @@ import * as Sentry from "@sentry/browser";
 import * as React from "react";
 import {
   DuffelAncillariesProps,
+  WithBaggageServiceInformation,
+  WithSeatServiceInformation,
   WithServiceInformation,
 } from "../../types/DuffelAncillariesProps";
 import { BaggageSelectionCard } from "./bags/BaggageSelectionCard";
 import { CfarSelectionCard } from "./cancel_for_any_reason/CfarSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
-import {
-  CreateOrder,
-  CreateOrderService,
-  Offer,
-  SeatMap,
-} from "@duffel/api/types";
-import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   initializeLogger(props.debug || false);
@@ -98,10 +100,10 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   const [error, setError] = React.useState<null | string>(null);
 
   const [baggageSelectedServices, setBaggageSelectedServices] = React.useState<
-    WithServiceInformation<CreateOrderService>[]
+    WithBaggageServiceInformation<CreateOrderService>[]
   >([]);
   const [seatSelectedServices, setSeatSelectedServices] = React.useState<
-    WithServiceInformation<CreateOrderService>[]
+    WithSeatServiceInformation<CreateOrderService>[]
   >([]);
   const [cfarSelectedServices, setCfarSelectedServices] = React.useState<
     WithServiceInformation<CreateOrderService>[]

@@ -4,7 +4,7 @@ import {
   OfferSliceSegmentPassengerBaggage,
 } from "@duffel/api/types";
 import React from "react";
-import { WithServiceInformation } from "src/types";
+import { WithBaggageServiceInformation } from "src/types";
 import { BaggageSelectionController } from "./BaggageSelectionController";
 import { IncludedBaggageBanner } from "./IncludedBaggageBanner";
 
@@ -14,9 +14,9 @@ export interface BaggageSelectionModalBodyPassengerProps {
   passengerName: string;
   includedBaggage: OfferSliceSegmentPassengerBaggage[];
   passengerServicesForSegment: OfferAvailableServiceBaggage[];
-  selectedServices: WithServiceInformation<CreateOrderService>[];
+  selectedServices: WithBaggageServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
   ) => void;
 }
 
@@ -60,8 +60,6 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
             onQuantityChanged={(newQuantity) =>
               onBaggageQuantityChanged(
                 newQuantity,
-                segmentId,
-                passengerId,
                 passengerName,
                 availableService,
                 selectedServices,
@@ -83,13 +81,11 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
 
 const onBaggageQuantityChanged = (
   newQuantity: number,
-  segmentId: string,
-  passengerId: string,
   passengerName: string,
   availableService: OfferAvailableServiceBaggage,
-  selectedServices: WithServiceInformation<CreateOrderService>[],
+  selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
   ) => void,
 ) => {
   // check if the service which had its quantity changed is already in the list
@@ -106,8 +102,8 @@ const onBaggageQuantityChanged = (
       id: availableService.id,
       quantity: newQuantity,
       serviceInformation: {
-        segmentId,
-        passengerId,
+        segmentIds: availableService.segment_ids,
+        passengerIds: availableService.passenger_ids,
         passengerName,
         total_amount: availableService.total_amount,
         total_currency: availableService.total_currency,

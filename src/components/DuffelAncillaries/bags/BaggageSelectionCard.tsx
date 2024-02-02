@@ -1,5 +1,6 @@
 import { AnimatedLoaderEllipsis } from "@components/shared/AnimatedLoaderEllipsis";
 import { Stamp } from "@components/shared/Stamp";
+import { CreateOrder, CreateOrderService, Offer } from "@duffel/api/types";
 import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import { getTotalAmountForServices } from "@lib/getTotalAmountForServices";
 import { getTotalQuantity } from "@lib/getTotalQuantity";
@@ -7,18 +8,17 @@ import { hasService } from "@lib/hasService";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
+import { WithBaggageServiceInformation } from "src/types";
 import { Card } from "../Card";
 import { BaggageSelectionModal } from "./BaggageSelectionModal";
-import { CreateOrder, CreateOrderService, Offer } from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
 
 export interface BaggageSelectionCardProps {
   isLoading: boolean;
   offer?: Offer;
   passengers: CreateOrder["passengers"];
-  selectedServices: WithServiceInformation<CreateOrderService>[];
+  selectedServices: WithBaggageServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
   ) => void;
 }
 

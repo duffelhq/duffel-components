@@ -112,15 +112,23 @@ export type WithServiceInformation<TypeToExtend> = {
   serviceInformation: ServiceInformation;
 } & TypeToExtend;
 
+export type WithBaggageServiceInformation<TypeToExtend> = {
+  serviceInformation: BaggageServiceInformation;
+} & TypeToExtend;
+
+export type WithSeatServiceInformation<TypeToExtend> = {
+  serviceInformation: SeatServiceInformation;
+} & TypeToExtend;
+
 export type ServiceInformation =
   | BaggageServiceInformation
   | SeatServiceInformation
   | CancelForAnyReasonServiceInformation;
 
-interface BaggageServiceInformation
+export interface BaggageServiceInformation
   extends OfferAvailableServiceBaggageMetadata {
-  segmentId: string;
-  passengerId: string;
+  segmentIds: string[];
+  passengerIds: string[];
   passengerName: string;
   total_amount: string;
   total_currency: string;

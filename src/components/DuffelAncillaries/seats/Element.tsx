@@ -1,14 +1,14 @@
-import { isSeatElement } from "@lib/isSeatElement";
-import * as React from "react";
-import { Amenity } from "./Amenity";
-import { EmptyElement } from "./EmptyElement";
-import { ExitElement } from "./ExitElement";
-import { SeatElement } from "./SeatElement";
 import {
   CreateOrderService,
   SeatMapCabinRowSectionElement,
 } from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
+import { isSeatElement } from "@lib/isSeatElement";
+import * as React from "react";
+import { WithSeatServiceInformation } from "src/types";
+import { Amenity } from "./Amenity";
+import { EmptyElement } from "./EmptyElement";
+import { ExitElement } from "./ExitElement";
+import { SeatElement } from "./SeatElement";
 
 interface ElementProps {
   sectionIndex: number;
@@ -16,10 +16,10 @@ interface ElementProps {
   element: SeatMapCabinRowSectionElement;
   selectedServicesMap: Record<
     string,
-    WithServiceInformation<CreateOrderService>
+    WithSeatServiceInformation<CreateOrderService>
   >;
   onSeatToggled: (
-    seatService: WithServiceInformation<CreateOrderService>,
+    seatService: WithSeatServiceInformation<CreateOrderService>,
   ) => void;
   currentPassengerId: string;
   currentSegmentId: string;

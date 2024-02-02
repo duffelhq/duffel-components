@@ -1,23 +1,23 @@
+import { CreateOrderService, SeatMap as SeatMapType } from "@duffel/api/types";
 import { getCabinsForSegmentAndDeck } from "@lib/getCabinsForSegmentAndDeck";
 import { getSymbols } from "@lib/getSymbols";
 import { hasWings } from "@lib/hasWings";
 import classNames from "classnames";
 import * as React from "react";
-import { CreateOrderService, SeatMap as SeatMapType } from "@duffel/api/types";
+import { WithSeatServiceInformation } from "src/types";
 import { DeckSelect } from "./DeckSelect";
 import { Legend } from "./Legend";
 import { Row } from "./Row";
 import { SeatMapUnavailable } from "./SeatMapUnavailable";
-import { WithServiceInformation } from "src/types";
 
 export interface SeatMapProps {
   seatMap: SeatMapType;
   selectedServicesMap: Record<
     string,
-    WithServiceInformation<CreateOrderService>
+    WithSeatServiceInformation<CreateOrderService>
   >;
   onSeatToggled: (
-    seatService: WithServiceInformation<CreateOrderService>,
+    seatService: WithSeatServiceInformation<CreateOrderService>,
   ) => void;
   currentPassengerId: string;
   currentPassengerName: string;

@@ -1,4 +1,10 @@
 import { Modal } from "@components/shared/Modal";
+import {
+  CreateOrder,
+  CreateOrderService,
+  Offer,
+  SeatMap,
+} from "@duffel/api/types";
 import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
 import { getPassengerBySegmentList } from "@lib/getPassengerBySegmentList";
 import { getPassengerMapById } from "@lib/getPassengerMapById";
@@ -6,19 +12,13 @@ import { getPassengerName } from "@lib/getPassengerName";
 import { getSegmentList } from "@lib/getSegmentList";
 import { getServicePriceMapById } from "@lib/getServicePriceMapById";
 import React from "react";
+import { WithSeatServiceInformation } from "src/types";
 import { SeatSelectionModalBody } from "./SeatSelectionModalBody";
 import { SeatSelectionModalFooter } from "./SeatSelectionModalFooter";
 import { SeatSelectionModalHeader } from "./SeatSelectionModalHeader";
-import {
-  CreateOrder,
-  CreateOrderService,
-  Offer,
-  SeatMap,
-} from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
 
 type CreateOrderServiceWithInformation =
-  WithServiceInformation<CreateOrderService>;
+  WithSeatServiceInformation<CreateOrderService>;
 
 export interface SeatSelectionModalProps {
   isOpen: boolean;

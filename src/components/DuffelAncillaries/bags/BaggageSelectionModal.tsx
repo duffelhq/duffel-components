@@ -1,23 +1,23 @@
 import { Modal } from "@components/shared/Modal";
+import { CreateOrder, CreateOrderService, Offer } from "@duffel/api/types";
 import { getCurrencyForServices } from "@lib/getCurrencyForServices";
 import { getPassengerMapById } from "@lib/getPassengerMapById";
 import { getSegmentList } from "@lib/getSegmentList";
 import { getServicePriceMapById } from "@lib/getServicePriceMapById";
 import { hasService } from "@lib/hasService";
 import React, { useState } from "react";
+import { WithBaggageServiceInformation } from "src/types";
 import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
-import { CreateOrder, CreateOrderService, Offer } from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
 
 export interface BaggageSelectionModalProps {
   isOpen: boolean;
   offer?: Offer;
   passengers: CreateOrder["passengers"];
-  selectedServices: WithServiceInformation<CreateOrderService>[];
+  selectedServices: WithBaggageServiceInformation<CreateOrderService>[];
   onClose: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
   ) => void;
 }
 

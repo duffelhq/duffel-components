@@ -8,6 +8,10 @@ import { Offer, SeatMap } from "@duffel/api/types";
 /* eslint-disable @typescript-eslint/no-var-requires */
 const offer: Offer = require("../fixtures/offers/off_1.json");
 const seat_maps: SeatMap[] = require("../fixtures/seat-maps/off_1.json");
+const offer_for_baggage: Offer = require("../fixtures/offers/off_0000AeT5uiyKxIXKOOMX0r.json");
+const offer_for_baggage_that_applies_to_single_segment: Offer = require("../fixtures/offers/off_0000AeTBYSYYIsOQXvkYcU.json");
+const offer_for_baggage_that_applies_to_multiple_segments: Offer = require("../fixtures/offers/off_0000AeTBGutRgqHe0r53Dx.json");
+const offer_with_multiple_segments_and_baggages_that_applies_to_2_segments: Offer = require("../fixtures/offers/off_0000AeTCyLn97tj8zqhylF.json");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 export default {
@@ -170,3 +174,89 @@ export const NoSeatMaps: DuffelAncillariesStory = {
     seat_maps: [],
   },
 };
+
+export const BaggageBehaviourSpirit: StoryFn<
+  DuffelAncillariesPropsWithOffersAndSeatMaps
+> = () => (
+  <>
+    <DuffelAncillaries
+      {...defaultProps}
+      services={["bags"]}
+      offer={offer_for_baggage}
+    />
+    <pre>
+      {JSON.stringify(
+        offer_for_baggage.available_services.filter(
+          (service) => service.type === "baggage",
+        ),
+        null,
+        2,
+      )}
+    </pre>
+  </>
+);
+
+export const BaggageBehaviourEasyjet: StoryFn<
+  DuffelAncillariesPropsWithOffersAndSeatMaps
+> = () => (
+  <>
+    <DuffelAncillaries
+      {...defaultProps}
+      services={["bags"]}
+      offer={offer_for_baggage_that_applies_to_multiple_segments}
+    />
+    <pre>
+      {JSON.stringify(
+        offer_for_baggage_that_applies_to_multiple_segments.available_services.filter(
+          (service) => service.type === "baggage",
+        ),
+        null,
+        2,
+      )}
+    </pre>
+  </>
+);
+
+export const BaggageBehaviourLufthansa: StoryFn<
+  DuffelAncillariesPropsWithOffersAndSeatMaps
+> = () => (
+  <>
+    <DuffelAncillaries
+      {...defaultProps}
+      services={["bags"]}
+      offer={offer_for_baggage_that_applies_to_single_segment}
+    />
+    <pre>
+      {JSON.stringify(
+        offer_for_baggage_that_applies_to_single_segment.available_services.filter(
+          (service) => service.type === "baggage",
+        ),
+        null,
+        2,
+      )}
+    </pre>
+  </>
+);
+
+export const BaggageBehaviourAustrian: StoryFn<
+  DuffelAncillariesPropsWithOffersAndSeatMaps
+> = () => (
+  <>
+    <DuffelAncillaries
+      {...defaultProps}
+      services={["bags"]}
+      offer={
+        offer_with_multiple_segments_and_baggages_that_applies_to_2_segments
+      }
+    />
+    <pre>
+      {JSON.stringify(
+        offer_with_multiple_segments_and_baggages_that_applies_to_2_segments.available_services.filter(
+          (service) => service.type === "baggage",
+        ),
+        null,
+        2,
+      )}
+    </pre>
+  </>
+);

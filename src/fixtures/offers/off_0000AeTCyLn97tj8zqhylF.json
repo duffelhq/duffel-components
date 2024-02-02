@@ -1,0 +1,681 @@
+{
+  "total_emissions_kg": "124",
+  "allowed_passenger_identity_document_types": [
+    "passport",
+    "tax_id",
+    "known_traveler_number",
+    "passenger_redress_number"
+  ],
+  "payment_requirements": {
+    "requires_instant_payment": false,
+    "price_guarantee_expires_at": null,
+    "payment_required_by": "2024-02-03T11:19:00Z"
+  },
+  "available_payment_types": ["balance", "card"],
+  "available_services": [
+    {
+      "maximum_quantity": 1,
+      "segment_ids": [
+        "seg_0000AeTCyLn97tj8zqhyl7",
+        "seg_0000AeTCyLn97tj8zqhyl8"
+      ],
+      "passenger_ids": ["pas_0000AeTCxpj8LHVHY8aK3P"],
+      "total_currency": "GBP",
+      "total_amount": "26.00",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": 23,
+        "type": "checked"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeTD1algx02CMpLpUe"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": [
+        "seg_0000AeTCyLn97tj8zqhylB",
+        "seg_0000AeTCyLn97tj8zqhylC"
+      ],
+      "passenger_ids": ["pas_0000AeTCxpj8LHVHY8aK3P"],
+      "total_currency": "GBP",
+      "total_amount": "26.00",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": 23,
+        "type": "checked"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeTD1algx02CMpLpUf"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": [
+        "seg_0000AeTCyLn97tj8zqhyl7",
+        "seg_0000AeTCyLn97tj8zqhyl8",
+        "seg_0000AeTCyLn97tj8zqhylB",
+        "seg_0000AeTCyLn97tj8zqhylC"
+      ],
+      "passenger_ids": ["pas_0000AeTCxpj8LHVHY8aK3P"],
+      "total_currency": "GBP",
+      "total_amount": "27.99",
+      "metadata": {
+        "merchant_copy": "Cancel for any reason - Provided in partnership with Duffel\nIf you purchase this product we can refund up to 75% of your base fare if you cancel 24 hours before your first scheduled departure. To cancel, please contact us using the details in your email confirmation.\n\nNote this is not insurance and may be purchased in addition to your travel insurance. See the CFAR terms and conditions here: https://duffel.com/cfar_terms_and_conditions.\n",
+        "terms_and_conditions_url": "https://duffel.com/cfar_terms_and_conditions",
+        "refund_amount": "133.28"
+      },
+      "type": "cancel_for_any_reason",
+      "id": "cfa_0000AeTD1arMbuZUeQ0MKm"
+    }
+  ],
+  "supported_passenger_identity_document_types": [
+    "passenger_redress_number",
+    "known_traveler_number",
+    "passport"
+  ],
+  "passenger_identity_documents_required": false,
+  "tax_currency": "GBP",
+  "base_currency": "GBP",
+  "base_amount": "59.00",
+  "private_fares": [],
+  "tax_amount": "118.7",
+  "total_currency": "GBP",
+  "total_amount": "177.70",
+  "created_at": "2024-02-02T11:18:49.129699Z",
+  "live_mode": false,
+  "slices": [
+    {
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": "Economy Light",
+      "conditions": {
+        "change_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        }
+      },
+      "segments": [
+        {
+          "origin_terminal": "1",
+          "destination_terminal": "3",
+          "aircraft": {
+            "iata_code": "E95",
+            "name": "Embraer 195 and Legacy 1000",
+            "id": "arc_00009VMF8AiFPp0xSPcfO1"
+          },
+          "departing_at": "2024-03-19T12:50:00",
+          "arriving_at": "2024-03-19T14:35:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+            "iata_code": "OS",
+            "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+            "name": "Austrian",
+            "id": "arl_00009VME7DAch01WpssCcW"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+            "iata_code": "OS",
+            "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+            "name": "Austrian",
+            "id": "arl_00009VME7DAch01WpssCcW"
+          },
+          "operating_carrier_flight_number": "406",
+          "marketing_carrier_flight_number": "406",
+          "distance": "909.27710",
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": null,
+                "marketing_name": "ECONOMY",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 1,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "ECONOMY",
+              "passenger_id": "pas_0000AeTCxpj8LHVHY8aK3P",
+              "fare_basis_code": "KETLGTU3",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT1H45M",
+          "destination": {
+            "airports": null,
+            "iata_city_code": "VIE",
+            "city_name": "Vienna",
+            "iata_country_code": "AT",
+            "icao_code": "LOWW",
+            "iata_code": "VIE",
+            "latitude": 48.113065,
+            "longitude": 16.568137,
+            "city": null,
+            "time_zone": "Europe/Vienna",
+            "type": "airport",
+            "name": "Vienna International Airport",
+            "id": "arp_vie_at"
+          },
+          "origin": {
+            "airports": null,
+            "iata_city_code": "LYS",
+            "city_name": "Lyon",
+            "iata_country_code": "FR",
+            "icao_code": "LFLL",
+            "iata_code": "LYS",
+            "latitude": 45.723723,
+            "longitude": 5.082626,
+            "city": {
+              "iata_city_code": "LYS",
+              "city_name": null,
+              "iata_country_code": "FR",
+              "icao_code": null,
+              "iata_code": "LYS",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Lyon",
+              "id": "cit_lys_fr"
+            },
+            "time_zone": "Europe/Paris",
+            "type": "airport",
+            "name": "Lyon-Saint-Exupéry Airport",
+            "id": "arp_lys_fr"
+          },
+          "id": "seg_0000AeTCyLn97tj8zqhyl7"
+        },
+        {
+          "origin_terminal": "3",
+          "destination_terminal": "5",
+          "aircraft": {
+            "iata_code": "320",
+            "name": "Airbus A320",
+            "id": "arc_00009VMF8AgpV5sdO0xXAr"
+          },
+          "departing_at": "2024-03-19T20:20:00",
+          "arriving_at": "2024-03-19T22:35:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+            "iata_code": "OS",
+            "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+            "name": "Austrian",
+            "id": "arl_00009VME7DAch01WpssCcW"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+            "iata_code": "OS",
+            "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+            "name": "Austrian",
+            "id": "arl_00009VME7DAch01WpssCcW"
+          },
+          "operating_carrier_flight_number": "317",
+          "marketing_carrier_flight_number": "317",
+          "distance": "1269.76926",
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": {
+                  "wifi": {
+                    "cost": "n/a",
+                    "available": false
+                  },
+                  "seat": {
+                    "pitch": "28",
+                    "legroom": "less"
+                  },
+                  "power": {
+                    "available": true
+                  }
+                },
+                "marketing_name": "ECONOMY",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 1,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "ECONOMY",
+              "passenger_id": "pas_0000AeTCxpj8LHVHY8aK3P",
+              "fare_basis_code": "KETLGTU3",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT2H15M",
+          "destination": {
+            "airports": null,
+            "iata_city_code": "STO",
+            "city_name": "Stockholm",
+            "iata_country_code": "SE",
+            "icao_code": "ESSA",
+            "iata_code": "ARN",
+            "latitude": 59.650831,
+            "longitude": 17.92119,
+            "city": {
+              "iata_city_code": "STO",
+              "city_name": null,
+              "iata_country_code": "SE",
+              "icao_code": null,
+              "iata_code": "STO",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Stockholm",
+              "id": "cit_sto_se"
+            },
+            "time_zone": "Europe/Stockholm",
+            "type": "airport",
+            "name": "Stockholm-Arlanda Airport",
+            "id": "arp_arn_se"
+          },
+          "origin": {
+            "airports": null,
+            "iata_city_code": "VIE",
+            "city_name": "Vienna",
+            "iata_country_code": "AT",
+            "icao_code": "LOWW",
+            "iata_code": "VIE",
+            "latitude": 48.113065,
+            "longitude": 16.568137,
+            "city": null,
+            "time_zone": "Europe/Vienna",
+            "type": "airport",
+            "name": "Vienna International Airport",
+            "id": "arp_vie_at"
+          },
+          "id": "seg_0000AeTCyLn97tj8zqhyl8"
+        }
+      ],
+      "duration": "PT9H45M",
+      "destination": {
+        "airports": null,
+        "iata_city_code": "STO",
+        "city_name": "Stockholm",
+        "iata_country_code": "SE",
+        "icao_code": "ESSA",
+        "iata_code": "ARN",
+        "latitude": 59.650831,
+        "longitude": 17.92119,
+        "city": {
+          "iata_city_code": "STO",
+          "city_name": null,
+          "iata_country_code": "SE",
+          "icao_code": null,
+          "iata_code": "STO",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Stockholm",
+          "id": "cit_sto_se"
+        },
+        "time_zone": "Europe/Stockholm",
+        "type": "airport",
+        "name": "Stockholm-Arlanda Airport",
+        "id": "arp_arn_se"
+      },
+      "origin": {
+        "airports": null,
+        "iata_city_code": "LYS",
+        "city_name": "Lyon",
+        "iata_country_code": "FR",
+        "icao_code": "LFLL",
+        "iata_code": "LYS",
+        "latitude": 45.723723,
+        "longitude": 5.082626,
+        "city": {
+          "iata_city_code": "LYS",
+          "city_name": null,
+          "iata_country_code": "FR",
+          "icao_code": null,
+          "iata_code": "LYS",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Lyon",
+          "id": "cit_lys_fr"
+        },
+        "time_zone": "Europe/Paris",
+        "type": "airport",
+        "name": "Lyon-Saint-Exupéry Airport",
+        "id": "arp_lys_fr"
+      },
+      "id": "sli_0000AeTCyLn97tj8zqhyl9"
+    },
+    {
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": "Economy Light",
+      "conditions": {
+        "change_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        }
+      },
+      "segments": [
+        {
+          "origin_terminal": "5",
+          "destination_terminal": "3",
+          "aircraft": {
+            "iata_code": "320",
+            "name": "Airbus A320",
+            "id": "arc_00009VMF8AgpV5sdO0xXAr"
+          },
+          "departing_at": "2024-03-22T06:35:00",
+          "arriving_at": "2024-03-22T08:50:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+            "iata_code": "OS",
+            "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+            "name": "Austrian",
+            "id": "arl_00009VME7DAch01WpssCcW"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+            "iata_code": "OS",
+            "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+            "name": "Austrian",
+            "id": "arl_00009VME7DAch01WpssCcW"
+          },
+          "operating_carrier_flight_number": "318",
+          "marketing_carrier_flight_number": "318",
+          "distance": "1269.76926",
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": {
+                  "wifi": {
+                    "cost": "n/a",
+                    "available": false
+                  },
+                  "seat": {
+                    "pitch": "28",
+                    "legroom": "less"
+                  },
+                  "power": {
+                    "available": true
+                  }
+                },
+                "marketing_name": "ECONOMY",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 1,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "ECONOMY",
+              "passenger_id": "pas_0000AeTCxpj8LHVHY8aK3P",
+              "fare_basis_code": "SETLGTU3",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT2H15M",
+          "destination": {
+            "airports": null,
+            "iata_city_code": "VIE",
+            "city_name": "Vienna",
+            "iata_country_code": "AT",
+            "icao_code": "LOWW",
+            "iata_code": "VIE",
+            "latitude": 48.113065,
+            "longitude": 16.568137,
+            "city": null,
+            "time_zone": "Europe/Vienna",
+            "type": "airport",
+            "name": "Vienna International Airport",
+            "id": "arp_vie_at"
+          },
+          "origin": {
+            "airports": null,
+            "iata_city_code": "STO",
+            "city_name": "Stockholm",
+            "iata_country_code": "SE",
+            "icao_code": "ESSA",
+            "iata_code": "ARN",
+            "latitude": 59.650831,
+            "longitude": 17.92119,
+            "city": {
+              "iata_city_code": "STO",
+              "city_name": null,
+              "iata_country_code": "SE",
+              "icao_code": null,
+              "iata_code": "STO",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Stockholm",
+              "id": "cit_sto_se"
+            },
+            "time_zone": "Europe/Stockholm",
+            "type": "airport",
+            "name": "Stockholm-Arlanda Airport",
+            "id": "arp_arn_se"
+          },
+          "id": "seg_0000AeTCyLn97tj8zqhylB"
+        },
+        {
+          "origin_terminal": "3",
+          "destination_terminal": "1",
+          "aircraft": {
+            "iata_code": "E95",
+            "name": "Embraer 195 and Legacy 1000",
+            "id": "arc_00009VMF8AiFPp0xSPcfO1"
+          },
+          "departing_at": "2024-03-22T10:15:00",
+          "arriving_at": "2024-03-22T12:05:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+            "iata_code": "OS",
+            "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+            "name": "Austrian",
+            "id": "arl_00009VME7DAch01WpssCcW"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+            "iata_code": "OS",
+            "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+            "name": "Austrian",
+            "id": "arl_00009VME7DAch01WpssCcW"
+          },
+          "operating_carrier_flight_number": "405",
+          "marketing_carrier_flight_number": "405",
+          "distance": "909.27710",
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": null,
+                "marketing_name": "ECONOMY",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 1,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "ECONOMY",
+              "passenger_id": "pas_0000AeTCxpj8LHVHY8aK3P",
+              "fare_basis_code": "SETLGTU3",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT1H50M",
+          "destination": {
+            "airports": null,
+            "iata_city_code": "LYS",
+            "city_name": "Lyon",
+            "iata_country_code": "FR",
+            "icao_code": "LFLL",
+            "iata_code": "LYS",
+            "latitude": 45.723723,
+            "longitude": 5.082626,
+            "city": {
+              "iata_city_code": "LYS",
+              "city_name": null,
+              "iata_country_code": "FR",
+              "icao_code": null,
+              "iata_code": "LYS",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Lyon",
+              "id": "cit_lys_fr"
+            },
+            "time_zone": "Europe/Paris",
+            "type": "airport",
+            "name": "Lyon-Saint-Exupéry Airport",
+            "id": "arp_lys_fr"
+          },
+          "origin": {
+            "airports": null,
+            "iata_city_code": "VIE",
+            "city_name": "Vienna",
+            "iata_country_code": "AT",
+            "icao_code": "LOWW",
+            "iata_code": "VIE",
+            "latitude": 48.113065,
+            "longitude": 16.568137,
+            "city": null,
+            "time_zone": "Europe/Vienna",
+            "type": "airport",
+            "name": "Vienna International Airport",
+            "id": "arp_vie_at"
+          },
+          "id": "seg_0000AeTCyLn97tj8zqhylC"
+        }
+      ],
+      "duration": "PT5H30M",
+      "destination": {
+        "airports": null,
+        "iata_city_code": "LYS",
+        "city_name": "Lyon",
+        "iata_country_code": "FR",
+        "icao_code": "LFLL",
+        "iata_code": "LYS",
+        "latitude": 45.723723,
+        "longitude": 5.082626,
+        "city": {
+          "iata_city_code": "LYS",
+          "city_name": null,
+          "iata_country_code": "FR",
+          "icao_code": null,
+          "iata_code": "LYS",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Lyon",
+          "id": "cit_lys_fr"
+        },
+        "time_zone": "Europe/Paris",
+        "type": "airport",
+        "name": "Lyon-Saint-Exupéry Airport",
+        "id": "arp_lys_fr"
+      },
+      "origin": {
+        "airports": null,
+        "iata_city_code": "STO",
+        "city_name": "Stockholm",
+        "iata_country_code": "SE",
+        "icao_code": "ESSA",
+        "iata_code": "ARN",
+        "latitude": 59.650831,
+        "longitude": 17.92119,
+        "city": {
+          "iata_city_code": "STO",
+          "city_name": null,
+          "iata_country_code": "SE",
+          "icao_code": null,
+          "iata_code": "STO",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Stockholm",
+          "id": "cit_sto_se"
+        },
+        "time_zone": "Europe/Stockholm",
+        "type": "airport",
+        "name": "Stockholm-Arlanda Airport",
+        "id": "arp_arn_se"
+      },
+      "id": "sli_0000AeTCyLn97tj8zqhylD"
+    }
+  ],
+  "passengers": [
+    {
+      "loyalty_programme_accounts": [],
+      "family_name": null,
+      "given_name": null,
+      "age": null,
+      "type": "adult",
+      "id": "pas_0000AeTCxpj8LHVHY8aK3P"
+    }
+  ],
+  "conditions": {
+    "refund_before_departure": {
+      "penalty_currency": null,
+      "penalty_amount": null,
+      "allowed": false
+    },
+    "change_before_departure": {
+      "penalty_currency": null,
+      "penalty_amount": null,
+      "allowed": false
+    }
+  },
+  "updated_at": "2024-02-02T11:19:23.565498Z",
+  "expires_at": "2026-02-02T11:49:22.000000Z",
+  "partial": false,
+  "owner": {
+    "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/OS.svg",
+    "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/OS.svg",
+    "iata_code": "OS",
+    "conditions_of_carriage_url": "https://www.austrian.com/at/en/conditions-of-carriage",
+    "name": "Austrian",
+    "id": "arl_00009VME7DAch01WpssCcW"
+  },
+  "id": "off_0000AeTCyLn97tj8zqhylF"
+}

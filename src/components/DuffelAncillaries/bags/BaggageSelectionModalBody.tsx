@@ -9,16 +9,16 @@ import {
   OfferAvailableServiceBaggage,
   OfferSliceSegment,
 } from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
+import { WithBaggageServiceInformation } from "src/types";
 import { BaggageSelectionModalBodyPassenger } from "./BaggageSelectionModalBodyPassenger";
 
 export interface BaggageSelectionModalBodyProps {
   offer: Offer;
   segment: OfferSliceSegment;
   passengersById: Record<CreateOrderPassenger["id"], CreateOrderPassenger>;
-  selectedServices: WithServiceInformation<CreateOrderService>[];
+  selectedServices: WithBaggageServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
   ) => void;
 }
 

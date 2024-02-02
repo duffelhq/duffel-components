@@ -9,7 +9,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { SeatInfo } from "./SeatInfo";
 import { SeatUnavailable } from "./SeatUnavailable";
-import { WithServiceInformation } from "src/types";
+import { WithSeatServiceInformation } from "src/types";
 
 interface SeatElementProps {
   element: SeatMapCabinRowSectionElementSeat;
@@ -17,11 +17,11 @@ interface SeatElementProps {
   currentPassengerId: string;
   currentPassengerName: string;
   onSeatToggled: (
-    seatService: WithServiceInformation<CreateOrderService>,
+    seatService: WithSeatServiceInformation<CreateOrderService>,
   ) => void;
   selectedServicesMap: Record<
     string,
-    WithServiceInformation<CreateOrderService>
+    WithSeatServiceInformation<CreateOrderService>
   >;
 }
 

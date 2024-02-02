@@ -1,0 +1,2629 @@
+{
+  "total_emissions_kg": "47",
+  "allowed_passenger_identity_document_types": [
+    "passport",
+    "tax_id",
+    "known_traveler_number",
+    "passenger_redress_number"
+  ],
+  "payment_requirements": {
+    "requires_instant_payment": false,
+    "price_guarantee_expires_at": null,
+    "payment_required_by": "2024-02-03T11:03:00Z"
+  },
+  "available_payment_types": ["balance", "card"],
+  "available_services": [
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10A",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcG"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10B",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcH"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10C",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcI"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10D",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcJ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10E",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcK"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10F",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcL"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11A",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcM"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11B",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcN"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11C",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcO"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11D",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcP"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11E",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcQ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11F",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcR"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12A",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcS"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12B",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcT"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12C",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcU"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12D",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcV"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12E",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcW"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12F",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcX"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14A",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcY"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14B",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcZ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14C",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZca"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14D",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcb"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14E",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcc"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14F",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmOePs68YkZcd"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15A",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAW"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15B",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAX"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15C",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAY"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15D",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAZ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15E",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAa"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15F",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAb"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16A",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAc"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16B",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAd"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16C",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAe"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16D",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAf"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16E",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAg"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16F",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAh"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAi"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAj"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAk"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAl"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAm"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAn"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAo"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAp"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAq"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAr"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAs"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAt"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAu"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAv"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAw"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAx"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAy"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurAz"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB0"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB1"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB2"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB3"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB4"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB5"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB6"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB7"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB8"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurB9"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBA"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBB"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBC"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBD"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBE"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBF"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBG"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBH"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBI"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBJ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBK"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBL"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBM"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBN"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBO"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBP"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBQ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBR"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBS"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29B",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBT"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBU"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBV"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29E",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBW"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBX"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8A",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBY"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8C",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBZ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8D",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBa"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8F",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBb"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9A",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBc"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9C",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBd"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9D",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBe"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9F",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBf"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10A",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBg"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10C",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBh"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10D",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBi"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10F",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBj"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11A",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBk"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11C",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBl"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11D",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBm"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "17.10",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11F",
+        "name": "PREFERRED ZONE SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBn"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12A",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBo"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12C",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBp"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12D",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBq"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "24.80",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12F",
+        "name": "EXTRA LEGROOM SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBr"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBs"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBt"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBu"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBv"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBw"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBx"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBy"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurBz"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC0"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC1"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC2"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC3"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC4"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC5"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC6"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC7"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC8"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurC9"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurCA"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurCB"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurCC"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYmkd69g9eurCD"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58im"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58in"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58io"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58ip"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58iq"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58ir"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58is"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58it"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58iu"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58iv"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58iw"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58ix"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58iy"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58iz"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58j0"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58j1"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58j2"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58j3"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27A",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58j4"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27C",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58j5"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27D",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58j6"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "12.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27F",
+        "name": "STANDARD SEAT"
+      },
+      "type": "seat",
+      "id": "ase_0000AeTBZYn6bmRGAl58j7"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcR"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "26.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": 23,
+        "type": "checked"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeTBZoVy9GEowFBgES"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeTBYSYYIsOQXvkYcO"],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "30.00",
+      "total_currency": "GBP",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": 23,
+        "type": "checked"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeTBZoVy9GEowFBgET"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": [
+        "seg_0000AeTBYSYYIsOQXvkYcO",
+        "seg_0000AeTBYSYYIsOQXvkYcR"
+      ],
+      "passenger_ids": ["pas_0000AeTBXrRAJNV1QJ0dRj"],
+      "total_amount": "32.36",
+      "total_currency": "GBP",
+      "metadata": {
+        "merchant_copy": "Cancel for any reason - Provided in partnership with Duffel\nIf you purchase this product we can refund up to 75% of your base fare if you cancel 24 hours before your first scheduled departure. To cancel, please contact us using the details in your email confirmation.\n\nNote this is not insurance and may be purchased in addition to your travel insurance. See the CFAR terms and conditions here: https://duffel.com/cfar_terms_and_conditions.\n",
+        "terms_and_conditions_url": "https://duffel.com/cfar_terms_and_conditions",
+        "refund_amount": "155.69"
+      },
+      "type": "cancel_for_any_reason",
+      "id": "cfa_0000AeTBccHjYVt4ffmwJK"
+    }
+  ],
+  "supported_passenger_identity_document_types": [
+    "passenger_redress_number",
+    "known_traveler_number",
+    "passport"
+  ],
+  "passenger_identity_documents_required": false,
+  "tax_currency": "GBP",
+  "base_currency": "GBP",
+  "base_amount": "91.00",
+  "private_fares": [],
+  "tax_amount": "116.59",
+  "total_amount": "207.59",
+  "total_currency": "GBP",
+  "created_at": "2024-02-02T11:02:55.953823Z",
+  "live_mode": false,
+  "slices": [
+    {
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": "Economy Light",
+      "conditions": {
+        "change_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        }
+      },
+      "segments": [
+        {
+          "origin_terminal": "2",
+          "destination_terminal": "1",
+          "aircraft": {
+            "iata_code": "32N",
+            "name": "Airbus A320neo",
+            "id": "arc_00009lcSPZuSbgKG1u4Pkn"
+          },
+          "departing_at": "2024-02-08T09:30:00",
+          "arriving_at": "2024-02-08T12:05:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/LH.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/LH.svg",
+            "conditions_of_carriage_url": "https://www.lufthansa.com/gb/en/business-terms-and-conditions-1",
+            "iata_code": "LH",
+            "name": "Lufthansa",
+            "id": "arl_00009VME7DCkZ5j0wTrtvG"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/LH.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/LH.svg",
+            "conditions_of_carriage_url": "https://www.lufthansa.com/gb/en/business-terms-and-conditions-1",
+            "iata_code": "LH",
+            "name": "Lufthansa",
+            "id": "arl_00009VME7DCkZ5j0wTrtvG"
+          },
+          "operating_carrier_flight_number": "901",
+          "marketing_carrier_flight_number": "901",
+          "distance": "635.68930",
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": {
+                  "wifi": {
+                    "cost": "n/a",
+                    "available": false
+                  },
+                  "seat": {
+                    "pitch": "29",
+                    "legroom": "less"
+                  },
+                  "power": {
+                    "available": true
+                  }
+                },
+                "marketing_name": "ECONOMY",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 1,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "ECONOMY",
+              "passenger_id": "pas_0000AeTBXrRAJNV1QJ0dRj",
+              "fare_basis_code": "WEULGTX0",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT1H35M",
+          "destination": {
+            "iata_city_code": "FRA",
+            "city_name": "Frankfurt",
+            "icao_code": "EDDF",
+            "airports": null,
+            "iata_country_code": "DE",
+            "iata_code": "FRA",
+            "latitude": 50.034866,
+            "longitude": 8.567755,
+            "city": {
+              "iata_city_code": "FRA",
+              "city_name": null,
+              "icao_code": null,
+              "iata_country_code": "DE",
+              "iata_code": "FRA",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Frankfurt",
+              "id": "cit_fra_de"
+            },
+            "time_zone": "Europe/Berlin",
+            "type": "airport",
+            "name": "Frankfurt am Main Airport",
+            "id": "arp_fra_de"
+          },
+          "origin": {
+            "iata_city_code": "LON",
+            "city_name": "London",
+            "icao_code": "EGLL",
+            "airports": null,
+            "iata_country_code": "GB",
+            "iata_code": "LHR",
+            "latitude": 51.470311,
+            "longitude": -0.458118,
+            "city": {
+              "iata_city_code": "LON",
+              "city_name": null,
+              "icao_code": null,
+              "iata_country_code": "GB",
+              "iata_code": "LON",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "London",
+              "id": "cit_lon_gb"
+            },
+            "time_zone": "Europe/London",
+            "type": "airport",
+            "name": "Heathrow Airport",
+            "id": "arp_lhr_gb"
+          },
+          "id": "seg_0000AeTBYSYYIsOQXvkYcO"
+        }
+      ],
+      "duration": "PT1H35M",
+      "destination": {
+        "iata_city_code": "FRA",
+        "city_name": "Frankfurt",
+        "icao_code": "EDDF",
+        "airports": null,
+        "iata_country_code": "DE",
+        "iata_code": "FRA",
+        "latitude": 50.034866,
+        "longitude": 8.567755,
+        "city": {
+          "iata_city_code": "FRA",
+          "city_name": null,
+          "icao_code": null,
+          "iata_country_code": "DE",
+          "iata_code": "FRA",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Frankfurt",
+          "id": "cit_fra_de"
+        },
+        "time_zone": "Europe/Berlin",
+        "type": "airport",
+        "name": "Frankfurt am Main Airport",
+        "id": "arp_fra_de"
+      },
+      "origin": {
+        "iata_city_code": "LON",
+        "city_name": "London",
+        "icao_code": "EGLL",
+        "airports": null,
+        "iata_country_code": "GB",
+        "iata_code": "LHR",
+        "latitude": 51.470311,
+        "longitude": -0.458118,
+        "city": {
+          "iata_city_code": "LON",
+          "city_name": null,
+          "icao_code": null,
+          "iata_country_code": "GB",
+          "iata_code": "LON",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "London",
+          "id": "cit_lon_gb"
+        },
+        "time_zone": "Europe/London",
+        "type": "airport",
+        "name": "Heathrow Airport",
+        "id": "arp_lhr_gb"
+      },
+      "id": "sli_0000AeTBYSYYIsOQXvkYcP"
+    },
+    {
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": "Economy Light",
+      "conditions": {
+        "change_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        }
+      },
+      "segments": [
+        {
+          "origin_terminal": "1",
+          "destination_terminal": null,
+          "aircraft": {
+            "iata_code": "E90",
+            "name": "Embraer 190",
+            "id": "arc_00009VMF8AiFPp0xSPcfO0"
+          },
+          "departing_at": "2024-03-03T16:15:00",
+          "arriving_at": "2024-03-03T16:40:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/LH.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/LH.svg",
+            "conditions_of_carriage_url": "https://www.lufthansa.com/gb/en/business-terms-and-conditions-1",
+            "iata_code": "LH",
+            "name": "Lufthansa",
+            "id": "arl_00009VME7DCkZ5j0wTrtvG"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/LH.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/LH.svg",
+            "conditions_of_carriage_url": "https://www.lufthansa.com/gb/en/business-terms-and-conditions-1",
+            "iata_code": "LH",
+            "name": "Lufthansa",
+            "id": "arl_00009VME7DCkZ5j0wTrtvG"
+          },
+          "operating_carrier_flight_number": "934",
+          "marketing_carrier_flight_number": "934",
+          "distance": "635.68930",
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": {
+                  "wifi": {
+                    "cost": "n/a",
+                    "available": false
+                  },
+                  "seat": {
+                    "pitch": "32",
+                    "legroom": "more"
+                  },
+                  "power": {
+                    "available": false
+                  }
+                },
+                "marketing_name": "ECONOMY",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 1,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "ECONOMY",
+              "passenger_id": "pas_0000AeTBXrRAJNV1QJ0dRj",
+              "fare_basis_code": "LEULGTX2",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT1H25M",
+          "destination": {
+            "iata_city_code": "LON",
+            "city_name": "London",
+            "icao_code": "EGLC",
+            "airports": null,
+            "iata_country_code": "GB",
+            "iata_code": "LCY",
+            "latitude": 51.505071,
+            "longitude": 0.052398,
+            "city": {
+              "iata_city_code": "LON",
+              "city_name": null,
+              "icao_code": null,
+              "iata_country_code": "GB",
+              "iata_code": "LON",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "London",
+              "id": "cit_lon_gb"
+            },
+            "time_zone": "Europe/London",
+            "type": "airport",
+            "name": "London City Airport",
+            "id": "arp_lcy_gb"
+          },
+          "origin": {
+            "iata_city_code": "FRA",
+            "city_name": "Frankfurt",
+            "icao_code": "EDDF",
+            "airports": null,
+            "iata_country_code": "DE",
+            "iata_code": "FRA",
+            "latitude": 50.034866,
+            "longitude": 8.567755,
+            "city": {
+              "iata_city_code": "FRA",
+              "city_name": null,
+              "icao_code": null,
+              "iata_country_code": "DE",
+              "iata_code": "FRA",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Frankfurt",
+              "id": "cit_fra_de"
+            },
+            "time_zone": "Europe/Berlin",
+            "type": "airport",
+            "name": "Frankfurt am Main Airport",
+            "id": "arp_fra_de"
+          },
+          "id": "seg_0000AeTBYSYYIsOQXvkYcR"
+        }
+      ],
+      "duration": "PT1H25M",
+      "destination": {
+        "iata_city_code": "LON",
+        "city_name": "London",
+        "icao_code": "EGLC",
+        "airports": null,
+        "iata_country_code": "GB",
+        "iata_code": "LCY",
+        "latitude": 51.505071,
+        "longitude": 0.052398,
+        "city": {
+          "iata_city_code": "LON",
+          "city_name": null,
+          "icao_code": null,
+          "iata_country_code": "GB",
+          "iata_code": "LON",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "London",
+          "id": "cit_lon_gb"
+        },
+        "time_zone": "Europe/London",
+        "type": "airport",
+        "name": "London City Airport",
+        "id": "arp_lcy_gb"
+      },
+      "origin": {
+        "iata_city_code": "FRA",
+        "city_name": "Frankfurt",
+        "icao_code": "EDDF",
+        "airports": null,
+        "iata_country_code": "DE",
+        "iata_code": "FRA",
+        "latitude": 50.034866,
+        "longitude": 8.567755,
+        "city": {
+          "iata_city_code": "FRA",
+          "city_name": null,
+          "icao_code": null,
+          "iata_country_code": "DE",
+          "iata_code": "FRA",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Frankfurt",
+          "id": "cit_fra_de"
+        },
+        "time_zone": "Europe/Berlin",
+        "type": "airport",
+        "name": "Frankfurt am Main Airport",
+        "id": "arp_fra_de"
+      },
+      "id": "sli_0000AeTBYSYYIsOQXvkYcS"
+    }
+  ],
+  "passengers": [
+    {
+      "loyalty_programme_accounts": [],
+      "family_name": null,
+      "given_name": null,
+      "age": null,
+      "type": "adult",
+      "id": "pas_0000AeTBXrRAJNV1QJ0dRj"
+    }
+  ],
+  "conditions": {
+    "refund_before_departure": {
+      "penalty_currency": null,
+      "penalty_amount": null,
+      "allowed": false
+    },
+    "change_before_departure": {
+      "penalty_currency": null,
+      "penalty_amount": null,
+      "allowed": false
+    }
+  },
+  "updated_at": "2024-02-02T11:03:40.398483Z",
+  "expires_at": "2026-02-02T11:33:38.000000Z",
+  "partial": false,
+  "owner": {
+    "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/LH.svg",
+    "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/LH.svg",
+    "conditions_of_carriage_url": "https://www.lufthansa.com/gb/en/business-terms-and-conditions-1",
+    "iata_code": "LH",
+    "name": "Lufthansa",
+    "id": "arl_00009VME7DCkZ5j0wTrtvG"
+  },
+  "id": "off_0000AeTBYSYYIsOQXvkYcU"
+}

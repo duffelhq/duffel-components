@@ -1,13 +1,13 @@
-import classNames from "classnames";
-import * as React from "react";
-import { Element } from "./Element";
-import { EmptyElement } from "./EmptyElement";
 import {
   CreateOrderService,
   SeatMapCabinRow,
   SeatMapCabinRowSection,
 } from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
+import classNames from "classnames";
+import * as React from "react";
+import { WithSeatServiceInformation } from "src/types";
+import { Element } from "./Element";
+import { EmptyElement } from "./EmptyElement";
 
 interface RowSectionProps {
   row: SeatMapCabinRow;
@@ -17,10 +17,10 @@ interface RowSectionProps {
   sectionIndex: number;
   selectedServicesMap: Record<
     string,
-    WithServiceInformation<CreateOrderService>
+    WithSeatServiceInformation<CreateOrderService>
   >;
   onSeatToggled: (
-    seatService: WithServiceInformation<CreateOrderService>,
+    seatService: WithSeatServiceInformation<CreateOrderService>,
   ) => void;
   currentPassengerId: string;
   currentPassengerName: string;
