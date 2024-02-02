@@ -3,17 +3,17 @@ import {
   OfferAvailableServiceBaggage,
 } from "@duffel/api/types";
 import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription";
-import { hasServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasServiceOfSameMetadataTypeAlreadyBeenSelected";
+import { hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
-import { WithServiceInformation } from "src/types";
+import { WithBaggageServiceInformation } from "src/types";
 import { Counter } from "../Counter";
 
 interface BaggageSelectionControllerProps {
   segmentId: string;
   passengerId: string;
   availableService: OfferAvailableServiceBaggage;
-  selectedServices: WithServiceInformation<CreateOrderService>[];
+  selectedServices: WithBaggageServiceInformation<CreateOrderService>[];
   quantity: number;
   onQuantityChanged: (quantity: number) => void;
 }
@@ -21,7 +21,6 @@ interface BaggageSelectionControllerProps {
 export const BaggageSelectionController: React.FC<
   BaggageSelectionControllerProps
 > = ({
-  segmentId,
   passengerId,
   availableService,
   quantity,
@@ -32,18 +31,16 @@ export const BaggageSelectionController: React.FC<
     availableService.metadata.type === "carry_on" ? "Cabin bag" : "Checked bag";
 
   const servicePrice = moneyStringFormatter(availableService.total_currency)(
-    +availableService.total_amount,
+    +availableService.total_amount
   );
   const serviceDescription = getBaggageServiceDescription(
-    availableService.metadata,
+    availableService.metadata
   );
 
   const shouldDisableController =
-    hasServiceOfSameMetadataTypeAlreadyBeenSelected(
+    hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected(
       selectedServices,
-      segmentId,
-      passengerId,
-      availableService,
+      availableService
     );
 
   return (

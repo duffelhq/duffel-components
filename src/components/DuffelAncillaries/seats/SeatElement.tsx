@@ -9,7 +9,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { SeatInfo } from "./SeatInfo";
 import { SeatUnavailable } from "./SeatUnavailable";
-import { WithServiceInformation } from "src/types";
+import { WithSeatServiceInformation } from "src/types";
 
 interface SeatElementProps {
   element: SeatMapCabinRowSectionElementSeat;
@@ -17,11 +17,11 @@ interface SeatElementProps {
   currentPassengerId: string;
   currentPassengerName: string;
   onSeatToggled: (
-    seatService: WithServiceInformation<CreateOrderService>,
+    seatService: WithSeatServiceInformation<CreateOrderService>
   ) => void;
   selectedServicesMap: Record<
     string,
-    WithServiceInformation<CreateOrderService>
+    WithSeatServiceInformation<CreateOrderService>
   >;
 }
 
@@ -34,21 +34,21 @@ export const SeatElement: React.FC<SeatElementProps> = ({
   selectedServicesMap,
 }) => {
   const seatServiceFromElement = element.available_services.find(
-    (service) => service.passenger_id === currentPassengerId,
+    (service) => service.passenger_id === currentPassengerId
   );
   if (!seatServiceFromElement) return <SeatUnavailable seat={element} />;
 
   const selectedServiceFromMap = Object.values(selectedServicesMap).find(
     (service) =>
       service.serviceInformation?.designator === element.designator &&
-      service.serviceInformation?.segmentId === currentSegmentId,
+      service.serviceInformation?.segmentId === currentSegmentId
   );
 
   const isSeatSelected = selectedServiceFromMap != undefined;
 
   const seatLabel = isSeatSelected
     ? getPassengerInitials(
-        selectedServiceFromMap.serviceInformation?.passengerName,
+        selectedServiceFromMap.serviceInformation?.passengerName
       )
     : element.designator.charAt(element.designator.length - 1);
 
@@ -75,7 +75,7 @@ export const SeatElement: React.FC<SeatElementProps> = ({
   });
 
   const priceLabel = moneyStringFormatter(
-    seatServiceFromElement.total_currency,
+    seatServiceFromElement.total_currency
   )(+seatServiceFromElement.total_amount);
 
   const isSeatInfoDisplayed =

@@ -1,4 +1,10 @@
 import { Modal } from "@components/shared/Modal";
+import {
+  CreateOrder,
+  CreateOrderService,
+  Offer,
+  SeatMap,
+} from "@duffel/api/types";
 import { getCurrencyForSeatMaps } from "@lib/getCurrencyForSeatMaps";
 import { getPassengerBySegmentList } from "@lib/getPassengerBySegmentList";
 import { getPassengerMapById } from "@lib/getPassengerMapById";
@@ -6,19 +12,13 @@ import { getPassengerName } from "@lib/getPassengerName";
 import { getSegmentList } from "@lib/getSegmentList";
 import { getServicePriceMapById } from "@lib/getServicePriceMapById";
 import React from "react";
+import { WithSeatServiceInformation } from "src/types";
 import { SeatSelectionModalBody } from "./SeatSelectionModalBody";
 import { SeatSelectionModalFooter } from "./SeatSelectionModalFooter";
 import { SeatSelectionModalHeader } from "./SeatSelectionModalHeader";
-import {
-  CreateOrder,
-  CreateOrderService,
-  Offer,
-  SeatMap,
-} from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
 
 type CreateOrderServiceWithInformation =
-  WithServiceInformation<CreateOrderService>;
+  WithSeatServiceInformation<CreateOrderService>;
 
 export interface SeatSelectionModalProps {
   isOpen: boolean;
@@ -44,7 +44,7 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     React.useState<CreateOrderServiceWithInformation[]>(selectedServices);
   const selectedServicesStateMap = selectedServicesState.reduce(
     (all, service) => ({ ...all, [service.id]: service }),
-    {} as Record<string, CreateOrderServiceWithInformation>,
+    {} as Record<string, CreateOrderServiceWithInformation>
   );
 
   if (!offer || !seatMaps) return null;
@@ -62,17 +62,17 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
   const currentSegment = segments.find(({ id }) => id === currentSegmentId)!;
   const currentPassenger = passengerMapById[currentPassengerId];
   const currentSeatMap = seatMaps.find(
-    (seatMap) => seatMap.segment_id === currentSegmentId,
+    (seatMap) => seatMap.segment_id === currentSegmentId
   )!;
 
   const currentPassengerName = getPassengerName(
     currentPassenger,
     offer.passengers[currentPassengerIndex],
-    currentPassengerIndex + 1,
+    currentPassengerIndex + 1
   );
 
   const onSeatToggle = (
-    seatServiceToToggle: CreateOrderServiceWithInformation,
+    seatServiceToToggle: CreateOrderServiceWithInformation
   ) => {
     let newSeatServices = new Array<CreateOrderServiceWithInformation>();
 

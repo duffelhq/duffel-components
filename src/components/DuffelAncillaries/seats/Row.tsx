@@ -1,18 +1,18 @@
+import { CreateOrderService, SeatMapCabinRow } from "@duffel/api/types";
 import { getRowNumber } from "@lib/getRowNumber";
 import * as React from "react";
+import { WithSeatServiceInformation } from "src/types";
 import { RowSection } from "./RowSection";
-import { CreateOrderService, SeatMapCabinRow } from "@duffel/api/types";
-import { WithServiceInformation } from "src/types";
 
 export interface RowProps {
   row: SeatMapCabinRow;
   hasWings: boolean;
   selectedServicesMap: Record<
     string,
-    WithServiceInformation<CreateOrderService>
+    WithSeatServiceInformation<CreateOrderService>
   >;
   onSeatToggled: (
-    seatService: WithServiceInformation<CreateOrderService>,
+    seatService: WithSeatServiceInformation<CreateOrderService>
   ) => void;
   currentPassengerId: string;
   currentPassengerName: string;

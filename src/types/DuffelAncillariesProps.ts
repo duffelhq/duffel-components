@@ -63,19 +63,19 @@ export interface DuffelAncillariesMarkup {
 export type DuffelAncillariesPriceFormatterForBags = (
   amount: number,
   currency: string,
-  service: OfferAvailableServiceBaggage,
+  service: OfferAvailableServiceBaggage
 ) => { amount: number; currency?: string };
 
 export type DuffelAncillariesPriceFormatterForSeats = (
   amount: number,
   currency: string,
-  service: SeatMapCabinRowSectionAvailableService,
+  service: SeatMapCabinRowSectionAvailableService
 ) => { amount: number; currency?: string };
 
 export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
   amount: number,
   currency: string,
-  service: OfferAvailableServiceCFAR,
+  service: OfferAvailableServiceCFAR
 ) => { amount: number; currency?: string };
 
 export interface DuffelAncillariesPriceFormatters {
@@ -92,7 +92,7 @@ export interface CustomStyles {
 
 export type OnPayloadReady = (
   data: CreateOrder,
-  metadata: OnPayloadReadyMetadata,
+  metadata: OnPayloadReadyMetadata
 ) => void;
 
 export interface OnPayloadReadyMetadata {
@@ -112,15 +112,23 @@ export type WithServiceInformation<TypeToExtend> = {
   serviceInformation: ServiceInformation;
 } & TypeToExtend;
 
+export type WithBaggageServiceInformation<TypeToExtend> = {
+  serviceInformation: BaggageServiceInformation;
+} & TypeToExtend;
+
+export type WithSeatServiceInformation<TypeToExtend> = {
+  serviceInformation: SeatServiceInformation;
+} & TypeToExtend;
+
 export type ServiceInformation =
   | BaggageServiceInformation
   | SeatServiceInformation
   | CancelForAnyReasonServiceInformation;
 
-interface BaggageServiceInformation
+export interface BaggageServiceInformation
   extends OfferAvailableServiceBaggageMetadata {
-  segmentId: string;
-  passengerId: string;
+  segmentIds: string[];
+  passengerIds: string[];
   passengerName: string;
   total_amount: string;
   total_currency: string;

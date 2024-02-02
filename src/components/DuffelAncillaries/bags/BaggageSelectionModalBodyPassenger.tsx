@@ -4,7 +4,7 @@ import {
   OfferSliceSegmentPassengerBaggage,
 } from "@duffel/api/types";
 import React from "react";
-import { WithServiceInformation } from "src/types";
+import { WithBaggageServiceInformation } from "src/types";
 import { BaggageSelectionController } from "./BaggageSelectionController";
 import { IncludedBaggageBanner } from "./IncludedBaggageBanner";
 
@@ -14,9 +14,9 @@ export interface BaggageSelectionModalBodyPassengerProps {
   passengerName: string;
   includedBaggage: OfferSliceSegmentPassengerBaggage[];
   passengerServicesForSegment: OfferAvailableServiceBaggage[];
-  selectedServices: WithServiceInformation<CreateOrderService>[];
+  selectedServices: WithBaggageServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithBaggageServiceInformation<CreateOrderService>[]
   ) => void;
 }
 
@@ -33,7 +33,7 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
 }) => {
   const hasIncludedBaggage = includedBaggage.reduce(
     (sum, bag) => sum + bag.quantity,
-    0,
+    0
   );
 
   return (
@@ -60,12 +60,10 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
             onQuantityChanged={(newQuantity) =>
               onBaggageQuantityChanged(
                 newQuantity,
-                segmentId,
-                passengerId,
                 passengerName,
                 availableService,
                 selectedServices,
-                setSelectedServices,
+                setSelectedServices
               )
             }
           />
@@ -83,18 +81,16 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
 
 const onBaggageQuantityChanged = (
   newQuantity: number,
-  segmentId: string,
-  passengerId: string,
   passengerName: string,
   availableService: OfferAvailableServiceBaggage,
-  selectedServices: WithServiceInformation<CreateOrderService>[],
+  selectedServices: WithBaggageServiceInformation<CreateOrderService>[],
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
-  ) => void,
+    selectedServices: WithBaggageServiceInformation<CreateOrderService>[]
+  ) => void
 ) => {
   // check if the service which had its quantity changed is already in the list
   const changedServiceIndex = selectedServices.findIndex(
-    ({ id }) => availableService.id === id,
+    ({ id }) => availableService.id === id
   );
 
   // create a copy of the existing list of selected services
@@ -106,8 +102,8 @@ const onBaggageQuantityChanged = (
       id: availableService.id,
       quantity: newQuantity,
       serviceInformation: {
-        segmentId,
-        passengerId,
+        segmentIds: availableService.segment_ids,
+        passengerIds: availableService.passenger_ids,
         passengerName,
         total_amount: availableService.total_amount,
         total_currency: availableService.total_currency,
@@ -122,6 +118,6 @@ const onBaggageQuantityChanged = (
   // remove any services with a quantity of 0
   // and update the list of selected services
   setSelectedServices(
-    newSelectedServices.filter(({ quantity }) => quantity !== 0),
+    newSelectedServices.filter(({ quantity }) => quantity !== 0)
   );
 };

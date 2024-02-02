@@ -1,5 +1,12 @@
 import { ErrorBoundary } from "@components/shared/ErrorBoundary";
 import { FetchOfferErrorState } from "@components/shared/FetchOfferErrorState";
+import { WithComponentStyles } from "@components/shared/WithComponentStyles";
+import {
+  CreateOrder,
+  CreateOrderService,
+  Offer,
+  SeatMap,
+} from "@duffel/api/types";
 import { compileCreateOrderPayload } from "@lib/compileCreateOrderPayload";
 import { createPriceFormatters } from "@lib/createPriceFormatters";
 import { formatAvailableServices } from "@lib/formatAvailableServices";
@@ -21,18 +28,13 @@ import * as Sentry from "@sentry/browser";
 import * as React from "react";
 import {
   DuffelAncillariesProps,
+  WithBaggageServiceInformation,
+  WithSeatServiceInformation,
   WithServiceInformation,
 } from "../../types/DuffelAncillariesProps";
 import { BaggageSelectionCard } from "./bags/BaggageSelectionCard";
 import { CfarSelectionCard } from "./cancel_for_any_reason/CfarSelectionCard";
 import { SeatSelectionCard } from "./seats/SeatSelectionCard";
-import {
-  CreateOrder,
-  CreateOrderService,
-  Offer,
-  SeatMap,
-} from "@duffel/api/types";
-import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 
 export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   initializeLogger(props.debug || false);
@@ -42,18 +44,18 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
   if (!areDuffelAncillariesPropsValid(props)) {
     throw new Error(
       `The props (${Object.keys(
-        props,
+        props
       )}) passed to DuffelAncillaries are invalid. ` +
         "`onPayloadReady`, `passengers` and `services` are always required. " +
         "Then, depending on your use case you may have one of the following combinations of required props: " +
         "`offer_id` and `client_key`, `offer` and `seat_maps` or `offer` and `client_key`." +
         "Please refer to the documentation for more information and working examples: " +
-        "https://duffel.com/docs/guides/ancillaries-component",
+        "https://duffel.com/docs/guides/ancillaries-component"
     );
   }
   if (props.services.length === 0) {
     throw new Error(
-      `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats", "cancel_for_any_reason"]`,
+      `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats", "cancel_for_any_reason"]`
     );
   }
 
@@ -77,31 +79,31 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
       isPropsWithOfferAndClientKey);
 
   const [passengers, setPassengers] = React.useState<CreateOrder["passengers"]>(
-    props.passengers,
+    props.passengers
   );
 
   const [offer, setOffer] = React.useState<Offer | undefined>(
-    (props as any).offer,
+    (props as any).offer
   );
 
   const [isOfferLoading, setIsOfferLoading] = React.useState(
-    isPropsWithClientKeyAndOfferId,
+    isPropsWithClientKeyAndOfferId
   );
 
   const [seatMaps, setSeatMaps] = React.useState<SeatMap[] | undefined>(
-    isPropsWithOfferAndSeatMaps ? props.seat_maps : undefined,
+    isPropsWithOfferAndSeatMaps ? props.seat_maps : undefined
   );
   const [isSeatMapLoading, setIsSeatMapLoading] = React.useState(
-    shouldRetrieveSeatMaps,
+    shouldRetrieveSeatMaps
   );
 
   const [error, setError] = React.useState<null | string>(null);
 
   const [baggageSelectedServices, setBaggageSelectedServices] = React.useState<
-    WithServiceInformation<CreateOrderService>[]
+    WithBaggageServiceInformation<CreateOrderService>[]
   >([]);
   const [seatSelectedServices, setSeatSelectedServices] = React.useState<
-    WithServiceInformation<CreateOrderService>[]
+    WithSeatServiceInformation<CreateOrderService>[]
   >([]);
   const [cfarSelectedServices, setCfarSelectedServices] = React.useState<
     WithServiceInformation<CreateOrderService>[]
@@ -109,7 +111,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
   const priceFormatters = createPriceFormatters(
     props.markup,
-    props.priceFormatters,
+    props.priceFormatters
   );
 
   const updateOffer = (offer: Offer) => {
@@ -131,7 +133,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
     const offerWithFormattedServices = formatAvailableServices(
       offer,
-      priceFormatters,
+      priceFormatters
     );
     setOffer(offerWithFormattedServices);
   };
@@ -165,7 +167,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
           if (offer.passengers.length !== passengers.length) {
             throw new Error(
               `The number of passengers given to \`duffel-ancillaries\` (${props.passengers.length}) doesn't match ` +
-                `the number of passengers on the given offer (${offer.passengers.length}).`,
+                `the number of passengers on the given offer (${offer.passengers.length}).`
             );
           }
 
@@ -176,10 +178,10 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
               props.passengers.map((passenger, index) => ({
                 ...passenger,
                 id: offer.passengers[index].id,
-              })),
+              }))
             );
           }
-        },
+        }
       );
     }
 
@@ -191,7 +193,7 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         !isPropsWithOfferIdForFixture ? props.client_key : null,
         () => updateSeatMaps([]),
         setIsSeatMapLoading,
-        updateSeatMaps,
+        updateSeatMaps
       );
     }
 

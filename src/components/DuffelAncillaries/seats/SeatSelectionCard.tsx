@@ -13,7 +13,7 @@ import { hasAvailableSeatService } from "@lib/hasAvailableSeatService";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
-import { WithServiceInformation } from "src/types";
+import { WithSeatServiceInformation } from "src/types";
 import { Card } from "../Card";
 import { SeatSelectionModal } from "./SeatSelectionModal";
 
@@ -22,9 +22,9 @@ export interface SeatSelectionCardProps {
   offer?: Offer;
   seatMaps?: SeatMap[];
   passengers: CreateOrder["passengers"];
-  selectedServices: WithServiceInformation<CreateOrderService>[];
+  selectedServices: WithSeatServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithSeatServiceInformation<CreateOrderService>[]
   ) => void;
 }
 
@@ -45,7 +45,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
   const totalAmount = getTotalAmountForServices(
     offer!,
     selectedServices,
-    seatMaps,
+    seatMaps
   );
   let currencyToUse = offer?.base_currency ?? "";
   if (seatMaps) {
@@ -61,7 +61,7 @@ export const SeatSelectionCard: React.FC<SeatSelectionCardProps> = ({
       ? `${withPlural(
           totalQuantity,
           "seat",
-          "seats",
+          "seats"
         )} selected for ${totalAmountFormatted}`
       : "Specify where on the plane you’d like to sit";
 
