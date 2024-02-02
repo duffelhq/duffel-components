@@ -82,9 +82,6 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
   const [sortDirection, setSortDirection] =
     React.useState<SortDirection>("asc");
-  const [rows, setRows] = React.useState<NGSOfferRow[]>(
-    groupOffersForNGSView(offers, sliceIndex, previousSliceKeys),
-  );
   const [expandedOffer, setExpandedOffer] =
     React.useState<OfferPosition | null>(null);
   const [isOfferSliceModalOpen, setIsOfferSliceModalOpen] =
@@ -95,15 +92,12 @@ export const NGSTable: React.FC<NGSTableProps> = ({
     setSortShelf(null);
     setExpandedOffer(null);
     setIsOfferSliceModalOpen(false);
-    setRows(groupOffersForNGSView(offers, sliceIndex, previousSliceKeys));
   }, [previousSliceKeys]);
 
-  React.useEffect(() => {
-    if (sortShelf) {
-      const sortedRows = sortNGSRows(rows, sortShelf, sortDirection);
-      setRows(sortedRows);
-    }
-  }, [sortShelf, sortDirection]);
+  const rows = groupOffersForNGSView(offers, sliceIndex, previousSliceKeys);
+  const sortedRows = sortShelf
+    ? sortNGSRows(rows, sortShelf, sortDirection)
+    : rows;
 
   if (offers.length == 0) {
     return null;
@@ -178,7 +172,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, index) => (
+          {sortedRows.map((row, index) => (
             <>
               <tr key={index}>
                 <td className="ngs-table_slice-info">

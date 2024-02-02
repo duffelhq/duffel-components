@@ -10,12 +10,10 @@ export const getNGSSliceKey = (slice: OfferSliceWithNGS): string => {
   return `${firstSegment.marketing_carrier.id}-${firstSegment.departing_at}-${lastSegment.arriving_at}`;
 };
 
-export const groupOffersForNGSView = (
+const filterOffersThatMatchCurrentSlice = (
   offers: OfferWithNGS[],
-  sliceIndex: number,
   previousSliceKeys: string[],
-): NGSOfferRow[] => {
-  // Only display offers where previous slices match the current selection
+) => {
   const filteredOffers = previousSliceKeys.length > 0 ? [] : offers;
   if (previousSliceKeys.length > 0) {
     for (const offer of offers) {
@@ -31,6 +29,19 @@ export const groupOffersForNGSView = (
       }
     }
   }
+  return filteredOffers;
+};
+
+export const groupOffersForNGSView = (
+  offers: OfferWithNGS[],
+  sliceIndex: number,
+  previousSliceKeys: string[],
+): NGSOfferRow[] => {
+  // Only display offers where previous slices match the current selection
+  const filteredOffers = filterOffersThatMatchCurrentSlice(
+    offers,
+    previousSliceKeys,
+  );
 
   const offersMap: Record<string, NGSOfferRow> = {};
   filteredOffers.forEach((offer) => {

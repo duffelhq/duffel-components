@@ -1,5 +1,5 @@
 import * as React from "react";
-import { OfferSliceWithNGS, OfferWithNGS } from "./lib";
+import { OfferWithNGS } from "./lib";
 import { NGSTable } from "./NGSTable";
 import { getDateString } from "@lib/getDateString";
 import { Icon } from "@components/shared/Icon";
@@ -17,22 +17,15 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   const [selectedSliceKeys, setSelectedSliceKeys] = React.useState<string[]>(
     [],
   );
-  const [currentSlice, setCurrentSlice] =
-    React.useState<OfferSliceWithNGS | null>(null);
-
-  React.useEffect(() => {
-    const slice =
-      selectedSliceKeys.length > 0
-        ? offers[0].slices[selectedSliceKeys.length]
-        : offers[0].slices[0];
-    setCurrentSlice(slice);
-  }, [selectedSliceKeys]);
-
   if (offers.length == 0) {
     return null;
   }
 
   const numSlices = offers[0].slices.length;
+  const currentSlice =
+    selectedSliceKeys.length > 0
+      ? offers[0].slices[selectedSliceKeys.length]
+      : offers[0].slices[0];
 
   return (
     <div className="duffel-components duffel-ngs-view">
