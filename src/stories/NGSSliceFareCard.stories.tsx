@@ -3,7 +3,8 @@ import { NGSSliceFareCard } from "../components/DuffelNGSView/NGSSliceFareCard";
 import React from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const offer = require("../fixtures/offers/off_0000Adw9MD7yDHXIXxdjfG.json");
+const offerRequest = require("../fixtures/offer-requests/orq_0000Ab7taNqbK8y5YqW6Zk.json");
+const offer = offerRequest.offers[0];
 
 export default {
   title: "NGSSliceFareCard",

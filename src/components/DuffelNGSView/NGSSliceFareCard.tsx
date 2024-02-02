@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NGS_SHELF_INFO, OfferSliceSegmentWithNGS, OfferWithNGS } from "./lib";
+import { NGS_SHELF_INFO, OfferWithNGS } from "./lib";
 import { OfferSliceSegmentPassenger } from "@duffel/api/types";
 import { Icon } from "@components/shared/Icon";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
@@ -73,12 +73,6 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
     ? `${amountDifference > 0 ? "+" : ""}`
     : "";
 
-  const isAdvancedSeatSelectionAvailable = slice.segments
-    .flatMap((segment: OfferSliceSegmentWithNGS) => segment.passengers)
-    .some(
-      (passenger) => passenger.ticket_attributes?.advanced_selection_available,
-    );
-
   return (
     <button
       className={classNames("ngs-slice-fare-card_container", className)}
@@ -101,10 +95,6 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
           <Icon name={shelfInfo.icon} color="--GREY-900" />
         </div>
         <div>
-          <div className="ngs-slice-fare-card_item">
-            <Icon name={shelfInfo.seat.icon} color="--GREY-600" size={20} />
-            {shelfInfo.seat.description}
-          </div>
           {changeBeforeDepartureCondition && (
             <div className="ngs-slice-fare-card_item">
               <Icon
@@ -165,11 +155,35 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
           </div>
           <div className="ngs-slice-fare-card_item">
             <Icon
-              name={isAdvancedSeatSelectionAvailable ? "check_small" : "close"}
+              name={
+                slice.conditions.advance_seat_selection
+                  ? "check_small"
+                  : "close"
+              }
               color="--GREY-600"
               size={20}
             />
             Seat selection
+          </div>
+          <div className="ngs-slice-fare-card_item">
+            <Icon
+              name={
+                slice.conditions.priority_boarding ? "check_small" : "close"
+              }
+              color="--GREY-600"
+              size={20}
+            />
+            Priority boarding
+          </div>
+          <div className="ngs-slice-fare-card_item">
+            <Icon
+              name={
+                slice.conditions.priority_check_in ? "check_small" : "close"
+              }
+              color="--GREY-600"
+              size={20}
+            />
+            Priority check-in
           </div>
         </div>
       </div>
