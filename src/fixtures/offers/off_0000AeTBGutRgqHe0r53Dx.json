@@ -1,0 +1,482 @@
+{
+  "total_emissions_kg": "58",
+  "allowed_passenger_identity_document_types": [
+    "passport",
+    "tax_id",
+    "known_traveler_number",
+    "passenger_redress_number"
+  ],
+  "payment_requirements": {
+    "requires_instant_payment": true,
+    "price_guarantee_expires_at": null,
+    "payment_required_by": null
+  },
+  "available_payment_types": ["balance", "card"],
+  "available_services": [
+    {
+      "maximum_quantity": 1,
+      "segment_ids": [
+        "seg_0000AeTBGut5iA03zkulfp",
+        "seg_0000AeTBGutRgqHe0r53Du"
+      ],
+      "passenger_ids": ["pas_0000AeTBGtRP5cG5Vax8s8"],
+      "total_currency": "GBP",
+      "total_amount": "31.98",
+      "metadata": {
+        "maximum_length_cm": 45,
+        "maximum_height_cm": 56,
+        "maximum_depth_cm": 25,
+        "maximum_weight_kg": null,
+        "type": "carry_on"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeTBHXL9GRNESaPXZA"
+    },
+    {
+      "maximum_quantity": 3,
+      "segment_ids": [
+        "seg_0000AeTBGut5iA03zkulfp",
+        "seg_0000AeTBGutRgqHe0r53Du"
+      ],
+      "passenger_ids": ["pas_0000AeTBGtRP5cG5Vax8s8"],
+      "total_currency": "GBP",
+      "total_amount": "53.98",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": 15,
+        "type": "checked"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeTBHXL9GRNESaPXZB"
+    },
+    {
+      "maximum_quantity": 3,
+      "segment_ids": [
+        "seg_0000AeTBGut5iA03zkulfp",
+        "seg_0000AeTBGutRgqHe0r53Du"
+      ],
+      "passenger_ids": ["pas_0000AeTBGtRP5cG5Vax8s8"],
+      "total_currency": "GBP",
+      "total_amount": "64.98",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": 23,
+        "type": "checked"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeTBHXL9GRNESaPXZC"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": [
+        "seg_0000AeTBGut5iA03zkulfp",
+        "seg_0000AeTBGutRgqHe0r53Du"
+      ],
+      "passenger_ids": ["pas_0000AeTBGtRP5cG5Vax8s8"],
+      "total_currency": "GBP",
+      "total_amount": "23.79",
+      "metadata": {
+        "merchant_copy": "Cancel for any reason - Provided in partnership with Duffel\nIf you purchase this product we can refund up to 75% of your base fare if you cancel 24 hours before your first scheduled departure. To cancel, please contact us using the details in your email confirmation.\n\nNote this is not insurance and may be purchased in addition to your travel insurance. See the CFAR terms and conditions here: https://duffel.com/cfar_terms_and_conditions.\n",
+        "terms_and_conditions_url": "https://duffel.com/cfar_terms_and_conditions",
+        "refund_amount": "111.74"
+      },
+      "type": "cancel_for_any_reason",
+      "id": "cfa_0000AeTBHXOh3GD2da4N5k"
+    }
+  ],
+  "supported_passenger_identity_document_types": [],
+  "passenger_identity_documents_required": false,
+  "tax_currency": "GBP",
+  "base_currency": "GBP",
+  "base_amount": "135.98",
+  "private_fares": [],
+  "tax_amount": "13.00",
+  "total_currency": "GBP",
+  "total_amount": "148.98",
+  "created_at": "2024-02-02T10:59:45.879660Z",
+  "live_mode": false,
+  "slices": [
+    {
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": "Standard",
+      "conditions": {
+        "change_before_departure": null
+      },
+      "segments": [
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": null,
+          "departing_at": "2024-03-20T07:25:00",
+          "arriving_at": "2024-03-20T11:05:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": null,
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/U2.svg",
+            "iata_code": "U2",
+            "conditions_of_carriage_url": "https://www.easyjet.com/en/terms-and-conditions",
+            "name": "easyJet",
+            "id": "arl_00009VME7DC2bj9quHXKop"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": null,
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/U2.svg",
+            "iata_code": "U2",
+            "conditions_of_carriage_url": "https://www.easyjet.com/en/terms-and-conditions",
+            "name": "easyJet",
+            "id": "arl_00009VME7DC2bj9quHXKop"
+          },
+          "operating_carrier_flight_number": "8017",
+          "marketing_carrier_flight_number": "8017",
+          "distance": null,
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": null,
+                "marketing_name": "Economy",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 0,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AeTBGtRP5cG5Vax8s8",
+              "fare_basis_code": null,
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT2H40M",
+          "destination": {
+            "airports": null,
+            "iata_city_code": "MAD",
+            "city_name": "Madrid",
+            "iata_country_code": "ES",
+            "icao_code": "LEMD",
+            "iata_code": "MAD",
+            "latitude": 40.49923,
+            "longitude": -3.567169,
+            "city": {
+              "iata_city_code": "MAD",
+              "city_name": null,
+              "iata_country_code": "ES",
+              "icao_code": null,
+              "iata_code": "MAD",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Madrid",
+              "id": "cit_mad_es"
+            },
+            "time_zone": "Europe/Madrid",
+            "type": "airport",
+            "name": "Adolfo Suárez Madrid-Barajas Airport",
+            "id": "arp_mad_es"
+          },
+          "origin": {
+            "airports": null,
+            "iata_city_code": "LON",
+            "city_name": "London",
+            "iata_country_code": "GB",
+            "icao_code": "EGKK",
+            "iata_code": "LGW",
+            "latitude": 51.150882,
+            "longitude": -0.18617,
+            "city": {
+              "iata_city_code": "LON",
+              "city_name": null,
+              "iata_country_code": "GB",
+              "icao_code": null,
+              "iata_code": "LON",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "London",
+              "id": "cit_lon_gb"
+            },
+            "time_zone": "Europe/London",
+            "type": "airport",
+            "name": "Gatwick Airport",
+            "id": "arp_lgw_gb"
+          },
+          "id": "seg_0000AeTBGut5iA03zkulfp"
+        }
+      ],
+      "duration": "PT2H40M",
+      "destination": {
+        "airports": null,
+        "iata_city_code": "MAD",
+        "city_name": "Madrid",
+        "iata_country_code": "ES",
+        "icao_code": "LEMD",
+        "iata_code": "MAD",
+        "latitude": 40.49923,
+        "longitude": -3.567169,
+        "city": {
+          "iata_city_code": "MAD",
+          "city_name": null,
+          "iata_country_code": "ES",
+          "icao_code": null,
+          "iata_code": "MAD",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Madrid",
+          "id": "cit_mad_es"
+        },
+        "time_zone": "Europe/Madrid",
+        "type": "airport",
+        "name": "Adolfo Suárez Madrid-Barajas Airport",
+        "id": "arp_mad_es"
+      },
+      "origin": {
+        "airports": null,
+        "iata_city_code": "LON",
+        "city_name": "London",
+        "iata_country_code": "GB",
+        "icao_code": "EGKK",
+        "iata_code": "LGW",
+        "latitude": 51.150882,
+        "longitude": -0.18617,
+        "city": {
+          "iata_city_code": "LON",
+          "city_name": null,
+          "iata_country_code": "GB",
+          "icao_code": null,
+          "iata_code": "LON",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "London",
+          "id": "cit_lon_gb"
+        },
+        "time_zone": "Europe/London",
+        "type": "airport",
+        "name": "Gatwick Airport",
+        "id": "arp_lgw_gb"
+      },
+      "id": "sli_0000AeTBGutRgqHe0r53Ds"
+    },
+    {
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": "Standard",
+      "conditions": {
+        "change_before_departure": null
+      },
+      "segments": [
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": null,
+          "departing_at": "2024-04-16T10:15:00",
+          "arriving_at": "2024-04-16T11:35:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": null,
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/U2.svg",
+            "iata_code": "U2",
+            "conditions_of_carriage_url": "https://www.easyjet.com/en/terms-and-conditions",
+            "name": "easyJet",
+            "id": "arl_00009VME7DC2bj9quHXKop"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": null,
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/U2.svg",
+            "iata_code": "U2",
+            "conditions_of_carriage_url": "https://www.easyjet.com/en/terms-and-conditions",
+            "name": "easyJet",
+            "id": "arl_00009VME7DC2bj9quHXKop"
+          },
+          "operating_carrier_flight_number": "8020",
+          "marketing_carrier_flight_number": "8020",
+          "distance": null,
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": null,
+                "marketing_name": "Economy",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 0,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AeTBGtRP5cG5Vax8s8",
+              "fare_basis_code": null,
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT2H20M",
+          "destination": {
+            "airports": null,
+            "iata_city_code": "LON",
+            "city_name": "London",
+            "iata_country_code": "GB",
+            "icao_code": "EGKK",
+            "iata_code": "LGW",
+            "latitude": 51.150882,
+            "longitude": -0.18617,
+            "city": {
+              "iata_city_code": "LON",
+              "city_name": null,
+              "iata_country_code": "GB",
+              "icao_code": null,
+              "iata_code": "LON",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "London",
+              "id": "cit_lon_gb"
+            },
+            "time_zone": "Europe/London",
+            "type": "airport",
+            "name": "Gatwick Airport",
+            "id": "arp_lgw_gb"
+          },
+          "origin": {
+            "airports": null,
+            "iata_city_code": "MAD",
+            "city_name": "Madrid",
+            "iata_country_code": "ES",
+            "icao_code": "LEMD",
+            "iata_code": "MAD",
+            "latitude": 40.49923,
+            "longitude": -3.567169,
+            "city": {
+              "iata_city_code": "MAD",
+              "city_name": null,
+              "iata_country_code": "ES",
+              "icao_code": null,
+              "iata_code": "MAD",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Madrid",
+              "id": "cit_mad_es"
+            },
+            "time_zone": "Europe/Madrid",
+            "type": "airport",
+            "name": "Adolfo Suárez Madrid-Barajas Airport",
+            "id": "arp_mad_es"
+          },
+          "id": "seg_0000AeTBGutRgqHe0r53Du"
+        }
+      ],
+      "duration": "PT2H20M",
+      "destination": {
+        "airports": null,
+        "iata_city_code": "LON",
+        "city_name": "London",
+        "iata_country_code": "GB",
+        "icao_code": "EGKK",
+        "iata_code": "LGW",
+        "latitude": 51.150882,
+        "longitude": -0.18617,
+        "city": {
+          "iata_city_code": "LON",
+          "city_name": null,
+          "iata_country_code": "GB",
+          "icao_code": null,
+          "iata_code": "LON",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "London",
+          "id": "cit_lon_gb"
+        },
+        "time_zone": "Europe/London",
+        "type": "airport",
+        "name": "Gatwick Airport",
+        "id": "arp_lgw_gb"
+      },
+      "origin": {
+        "airports": null,
+        "iata_city_code": "MAD",
+        "city_name": "Madrid",
+        "iata_country_code": "ES",
+        "icao_code": "LEMD",
+        "iata_code": "MAD",
+        "latitude": 40.49923,
+        "longitude": -3.567169,
+        "city": {
+          "iata_city_code": "MAD",
+          "city_name": null,
+          "iata_country_code": "ES",
+          "icao_code": null,
+          "iata_code": "MAD",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Madrid",
+          "id": "cit_mad_es"
+        },
+        "time_zone": "Europe/Madrid",
+        "type": "airport",
+        "name": "Adolfo Suárez Madrid-Barajas Airport",
+        "id": "arp_mad_es"
+      },
+      "id": "sli_0000AeTBGutRgqHe0r53Dv"
+    }
+  ],
+  "passengers": [
+    {
+      "loyalty_programme_accounts": [],
+      "family_name": null,
+      "given_name": null,
+      "age": null,
+      "type": "adult",
+      "id": "pas_0000AeTBGtRP5cG5Vax8s8"
+    }
+  ],
+  "conditions": {
+    "refund_before_departure": {
+      "penalty_currency": null,
+      "penalty_amount": null,
+      "allowed": false
+    },
+    "change_before_departure": {
+      "penalty_currency": "GBP",
+      "penalty_amount": "98.00",
+      "allowed": true
+    }
+  },
+  "updated_at": "2024-02-02T10:59:52.252036Z",
+  "expires_at": "2026-02-02T11:59:52.247340Z",
+  "partial": false,
+  "owner": {
+    "logo_symbol_url": null,
+    "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/U2.svg",
+    "iata_code": "U2",
+    "conditions_of_carriage_url": "https://www.easyjet.com/en/terms-and-conditions",
+    "name": "easyJet",
+    "id": "arl_00009VME7DC2bj9quHXKop"
+  },
+  "id": "off_0000AeTBGutRgqHe0r53Dx"
+}

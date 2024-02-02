@@ -1,0 +1,5700 @@
+{
+  "_description": "A Spirit offer that demonstarted a bug on seat selection",
+  "total_emissions_kg": "62",
+  "allowed_passenger_identity_document_types": [
+    "passport",
+    "tax_id",
+    "known_traveler_number",
+    "passenger_redress_number"
+  ],
+  "available_payment_types": ["balance", "card"],
+  "payment_requirements": {
+    "price_guarantee_expires_at": null,
+    "payment_required_by": null,
+    "requires_instant_payment": true
+  },
+  "available_services": [
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "85.54",
+      "metadata": {
+        "disclosures": [],
+        "designator": "1A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSN"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "85.54",
+      "metadata": {
+        "disclosures": [],
+        "designator": "1C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSO"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "85.54",
+      "metadata": {
+        "disclosures": [],
+        "designator": "1D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSP"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "85.54",
+      "metadata": {
+        "disclosures": [],
+        "designator": "1F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSQ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "85.54",
+      "metadata": {
+        "disclosures": [],
+        "designator": "2A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSR"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "85.54",
+      "metadata": {
+        "disclosures": [],
+        "designator": "2C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSS"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "85.54",
+      "metadata": {
+        "disclosures": [],
+        "designator": "2D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHST"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "85.54",
+      "metadata": {
+        "disclosures": [],
+        "designator": "2F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSU"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSV"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSW"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSX"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSY"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSZ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSa"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSb"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSc"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSd"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSe"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSf"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSg"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSh"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSi"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSj"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSk"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSl"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.81",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSm"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSn"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSo"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSp"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDM1p2oEYzHSq"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0C"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0D"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0E"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0F"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0G"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0H"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0I"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0J"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0K"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0L"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0M"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0N"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0O"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0P"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0Q"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0R"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0S"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0T"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0U"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0V"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0W"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0X"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0Y"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0Z"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0a"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0b"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0c"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0d"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0e"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0f"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0g"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0h"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0i"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0j"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0k"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0l"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0m"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0n"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0o"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0p"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0q"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0r"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0s"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0t"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0u"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0v"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0w"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0x"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0y"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z0z"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z10"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z11"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "40.02",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z12"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z13"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z14"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z15"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z16"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z17"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z18"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z19"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1A"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1B"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1C"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1D"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1E"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1F"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1G"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1H"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1I"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1J"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1K"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1L"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1M"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1N"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1O"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1P"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1Q"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1R"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1S"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1T"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1U"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1V"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1W"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1X"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1Y"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1Z"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1a"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1b"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.96",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1c"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1d"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvDi0VKOFf9Z1e"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYS"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYT"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYU"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYV"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYW"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYX"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYY"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYZ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYa"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYb"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYc"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYd"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYe"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYf"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYg"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYh"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYi"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYj"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYk"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYl"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYm"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYn"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYo"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYp"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYq"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYr"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYs"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "32.17",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYt"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYu"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYv"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYw"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYx"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "56.50",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYy"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqYz"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ0"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ1"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ2"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ3"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ4"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "31A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ5"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "31B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ6"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "31C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ7"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "31D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ8"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "31E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZ9"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "31F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZA"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "32A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZB"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "32B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZC"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "32C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZD"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "32D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZE"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "32E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZF"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "32F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZG"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "33A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZH"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "33B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZI"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "33C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZJ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "33D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZK"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "33E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZL"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "33F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZM"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "34A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZN"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "34B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZO"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "34C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZP"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "34D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZQ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "34E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZR"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.90",
+      "metadata": {
+        "disclosures": [],
+        "designator": "34F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZS"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "35A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZT"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "35B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZU"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "35C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZV"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "35D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZW"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "35E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZX"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "35F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZY"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "36A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZZ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "36B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZa"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "36C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZb"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "36D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZc"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "36E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZd"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "36F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZe"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "37A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZf"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "37B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZg"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "37C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZh"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "37D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZi"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "37E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZj"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "37F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZk"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "38A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZl"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "38B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZm"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "38C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZn"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "38D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZo"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "38E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZp"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "38F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZq"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "39A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZr"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "39B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZs"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "39C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvE3zBbyGlJqZt"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "39D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86i"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "39E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86j"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "25.11",
+      "metadata": {
+        "disclosures": [],
+        "designator": "39F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86k"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "146.75",
+      "metadata": {
+        "disclosures": [],
+        "designator": "1A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86l"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "146.75",
+      "metadata": {
+        "disclosures": [],
+        "designator": "1C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86m"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "146.75",
+      "metadata": {
+        "disclosures": [],
+        "designator": "1D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86n"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "146.75",
+      "metadata": {
+        "disclosures": [],
+        "designator": "1F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86o"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "146.75",
+      "metadata": {
+        "disclosures": [],
+        "designator": "2A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86p"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "146.75",
+      "metadata": {
+        "disclosures": [],
+        "designator": "2C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86q"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "146.75",
+      "metadata": {
+        "disclosures": [],
+        "designator": "2D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86r"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "146.75",
+      "metadata": {
+        "disclosures": [],
+        "designator": "2F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86s"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86t"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86u"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86v"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86w"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86x"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "3F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86y"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU86z"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU870"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU871"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU872"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU873"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "52.58",
+      "metadata": {
+        "disclosures": [],
+        "designator": "6F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU874"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU875"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU876"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU877"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU878"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU879"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "7F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87A"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87B"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87C"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87D"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87E"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87F"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "8F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87G"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87H"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87I"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87J"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87K"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87L"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "9F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87M"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87N"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87O"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87P"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87Q"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87R"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "10F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87S"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87T"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87U"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87V"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87W"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87X"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "51.79",
+      "metadata": {
+        "disclosures": [],
+        "designator": "11F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87Y"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87Z"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87a"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87b"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87c"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "12F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87d"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87e"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87f"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87g"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87h"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87i"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "54.15",
+      "metadata": {
+        "disclosures": [],
+        "designator": "13F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87j"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87k"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87l"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87m"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87n"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "14F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87o"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87p"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87q"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87r"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87s"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87t"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "15F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87u"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87v"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87w"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87x"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87y"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU87z"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "49.44",
+      "metadata": {
+        "disclosures": [],
+        "designator": "16F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU880"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU881"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU882"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU883"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU884"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU885"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "17F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU886"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU887"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU888"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvEPxrtYHrU889"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePey"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePez"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "18F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf0"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf1"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf2"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf3"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf4"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf5"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "48.65",
+      "metadata": {
+        "disclosures": [],
+        "designator": "19F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf6"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf7"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf8"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePf9"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfA"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "20E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfB"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfC"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfD"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfE"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfF"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfG"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "21F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfH"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfI"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfJ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfK"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfL"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfM"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "22F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfN"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfO"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfP"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfQ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfR"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfS"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "23F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfT"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfU"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfV"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfW"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfX"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfY"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "37.67",
+      "metadata": {
+        "disclosures": [],
+        "designator": "24F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfZ"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfa"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfb"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfc"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfd"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfe"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "25F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePff"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfg"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfh"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfi"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfj"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfk"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "26F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfl"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfm"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfn"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfo"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfp"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfq"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "27F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfr"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfs"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePft"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfu"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfv"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfw"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "28F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfx"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfy"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePfz"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg0"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg1"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg2"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "29F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg3"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30A",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg4"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30B",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg5"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30C",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg6"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30D",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg7"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30E",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg8"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "36.88",
+      "metadata": {
+        "disclosures": [],
+        "designator": "30F",
+        "name": null
+      },
+      "type": "seat",
+      "id": "ase_0000AeT5vvElwYB8IxePg9"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "43.16",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": null,
+        "type": "carry_on"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeT5vYa14xyoS1NqK0"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0l"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "43.95",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": null,
+        "type": "checked"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeT5vYa14xyoS1NqK1"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "43.95",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": null,
+        "type": "checked"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeT5vYa14xyoS1NqK2"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": ["seg_0000AeT5uiyKxIXKOOMX0o"],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "43.95",
+      "metadata": {
+        "maximum_length_cm": null,
+        "maximum_height_cm": null,
+        "maximum_depth_cm": null,
+        "maximum_weight_kg": null,
+        "type": "carry_on"
+      },
+      "type": "baggage",
+      "id": "ase_0000AeT5vYa14xyoS1NqK3"
+    },
+    {
+      "maximum_quantity": 1,
+      "segment_ids": [
+        "seg_0000AeT5uiyKxIXKOOMX0l",
+        "seg_0000AeT5uiyKxIXKOOMX0o"
+      ],
+      "passenger_ids": ["pas_0000AeT5uf5dODzsLrkIpX"],
+      "total_currency": "GBP",
+      "total_amount": "16.52",
+      "metadata": {
+        "terms_and_conditions_url": "https://duffel.com/cfar_terms_and_conditions",
+        "merchant_copy": "Cancel for any reason - Provided in partnership with Duffel\nIf you purchase this product we can refund up to 75% of your base fare if you cancel 24 hours before your first scheduled departure. To cancel, please contact us using the details in your email confirmation.\n\nNote this is not insurance and may be purchased in addition to your travel insurance. See the CFAR terms and conditions here: https://duffel.com/cfar_terms_and_conditions.\n",
+        "refund_amount": "74.47"
+      },
+      "type": "cancel_for_any_reason",
+      "id": "cfa_0000AeT73cGyR8Ozl4ugUq"
+    }
+  ],
+  "supported_passenger_identity_document_types": [],
+  "passenger_identity_documents_required": false,
+  "tax_currency": "GBP",
+  "base_currency": "GBP",
+  "base_amount": "6.92",
+  "private_fares": [],
+  "tax_amount": "92.37",
+  "total_currency": "GBP",
+  "total_amount": "99.29",
+  "created_at": "2024-02-02T09:59:43.724342Z",
+  "live_mode": true,
+  "slices": [
+    {
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": "Base Fare",
+      "conditions": {
+        "change_before_departure": {
+          "penalty_currency": "USD",
+          "penalty_amount": "99.00",
+          "allowed": true
+        }
+      },
+      "segments": [
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": null,
+          "departing_at": "2024-03-12T15:10:00",
+          "arriving_at": "2024-03-12T17:35:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/NK.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/NK.svg",
+            "conditions_of_carriage_url": "https://content.spirit.com/Shared/en-us/Documents/Contract_of_Carriage.pdf",
+            "iata_code": "NK",
+            "name": "Spirit Airlines",
+            "id": "arl_00009VME7DDSWSIAygCT2J"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/NK.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/NK.svg",
+            "conditions_of_carriage_url": "https://content.spirit.com/Shared/en-us/Documents/Contract_of_Carriage.pdf",
+            "iata_code": "NK",
+            "name": "Spirit Airlines",
+            "id": "arl_00009VME7DDSWSIAygCT2J"
+          },
+          "operating_carrier_flight_number": "3942",
+          "marketing_carrier_flight_number": "3942",
+          "distance": null,
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": null,
+                "marketing_name": "Economy",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 0,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AeT5uf5dODzsLrkIpX",
+              "fare_basis_code": "UA7NR",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT2H25M",
+          "destination": {
+            "iata_city_code": "ORL",
+            "city_name": "Orlando",
+            "icao_code": "KMCO",
+            "airports": null,
+            "iata_country_code": "US",
+            "iata_code": "MCO",
+            "latitude": 28.43026,
+            "longitude": -81.308493,
+            "city": {
+              "iata_city_code": "ORL",
+              "city_name": null,
+              "icao_code": null,
+              "iata_country_code": "US",
+              "iata_code": "ORL",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Orlando",
+              "id": "cit_orl_us"
+            },
+            "time_zone": "America/New_York",
+            "type": "airport",
+            "name": "Orlando International Airport",
+            "id": "arp_mco_us"
+          },
+          "origin": {
+            "iata_city_code": "ACY",
+            "city_name": "Atlantic City",
+            "icao_code": "KACY",
+            "airports": null,
+            "iata_country_code": "US",
+            "iata_code": "ACY",
+            "latitude": 39.455572,
+            "longitude": -74.574777,
+            "city": null,
+            "time_zone": "America/New_York",
+            "type": "airport",
+            "name": "Atlantic City International Airport",
+            "id": "arp_acy_us"
+          },
+          "id": "seg_0000AeT5uiyKxIXKOOMX0l"
+        }
+      ],
+      "duration": "PT2H25M",
+      "destination": {
+        "iata_city_code": "ORL",
+        "city_name": "Orlando",
+        "icao_code": "KMCO",
+        "airports": null,
+        "iata_country_code": "US",
+        "iata_code": "MCO",
+        "latitude": 28.43026,
+        "longitude": -81.308493,
+        "city": {
+          "iata_city_code": "ORL",
+          "city_name": null,
+          "icao_code": null,
+          "iata_country_code": "US",
+          "iata_code": "ORL",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Orlando",
+          "id": "cit_orl_us"
+        },
+        "time_zone": "America/New_York",
+        "type": "airport",
+        "name": "Orlando International Airport",
+        "id": "arp_mco_us"
+      },
+      "origin": {
+        "iata_city_code": "ACY",
+        "city_name": "Atlantic City",
+        "icao_code": "KACY",
+        "airports": null,
+        "iata_country_code": "US",
+        "iata_code": "ACY",
+        "latitude": 39.455572,
+        "longitude": -74.574777,
+        "city": null,
+        "time_zone": "America/New_York",
+        "type": "airport",
+        "name": "Atlantic City International Airport",
+        "id": "arp_acy_us"
+      },
+      "id": "sli_0000AeT5uiyKxIXKOOMX0m"
+    },
+    {
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": "Base Fare",
+      "conditions": {
+        "change_before_departure": {
+          "penalty_currency": "USD",
+          "penalty_amount": "99.00",
+          "allowed": true
+        }
+      },
+      "segments": [
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": null,
+          "departing_at": "2024-03-14T08:32:00",
+          "arriving_at": "2024-03-14T10:56:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/NK.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/NK.svg",
+            "conditions_of_carriage_url": "https://content.spirit.com/Shared/en-us/Documents/Contract_of_Carriage.pdf",
+            "iata_code": "NK",
+            "name": "Spirit Airlines",
+            "id": "arl_00009VME7DDSWSIAygCT2J"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/NK.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/NK.svg",
+            "conditions_of_carriage_url": "https://content.spirit.com/Shared/en-us/Documents/Contract_of_Carriage.pdf",
+            "iata_code": "NK",
+            "name": "Spirit Airlines",
+            "id": "arl_00009VME7DDSWSIAygCT2J"
+          },
+          "operating_carrier_flight_number": "1669",
+          "marketing_carrier_flight_number": "1669",
+          "distance": null,
+          "passengers": [
+            {
+              "cabin": {
+                "amenities": null,
+                "marketing_name": "Economy",
+                "name": "economy"
+              },
+              "baggages": [
+                {
+                  "quantity": 0,
+                  "type": "checked"
+                },
+                {
+                  "quantity": 0,
+                  "type": "carry_on"
+                }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AeT5uf5dODzsLrkIpX",
+              "fare_basis_code": "UA7NR",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT2H24M",
+          "destination": {
+            "iata_city_code": "ACY",
+            "city_name": "Atlantic City",
+            "icao_code": "KACY",
+            "airports": null,
+            "iata_country_code": "US",
+            "iata_code": "ACY",
+            "latitude": 39.455572,
+            "longitude": -74.574777,
+            "city": null,
+            "time_zone": "America/New_York",
+            "type": "airport",
+            "name": "Atlantic City International Airport",
+            "id": "arp_acy_us"
+          },
+          "origin": {
+            "iata_city_code": "ORL",
+            "city_name": "Orlando",
+            "icao_code": "KMCO",
+            "airports": null,
+            "iata_country_code": "US",
+            "iata_code": "MCO",
+            "latitude": 28.43026,
+            "longitude": -81.308493,
+            "city": {
+              "iata_city_code": "ORL",
+              "city_name": null,
+              "icao_code": null,
+              "iata_country_code": "US",
+              "iata_code": "ORL",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Orlando",
+              "id": "cit_orl_us"
+            },
+            "time_zone": "America/New_York",
+            "type": "airport",
+            "name": "Orlando International Airport",
+            "id": "arp_mco_us"
+          },
+          "id": "seg_0000AeT5uiyKxIXKOOMX0o"
+        }
+      ],
+      "duration": "PT2H24M",
+      "destination": {
+        "iata_city_code": "ACY",
+        "city_name": "Atlantic City",
+        "icao_code": "KACY",
+        "airports": null,
+        "iata_country_code": "US",
+        "iata_code": "ACY",
+        "latitude": 39.455572,
+        "longitude": -74.574777,
+        "city": null,
+        "time_zone": "America/New_York",
+        "type": "airport",
+        "name": "Atlantic City International Airport",
+        "id": "arp_acy_us"
+      },
+      "origin": {
+        "iata_city_code": "ORL",
+        "city_name": "Orlando",
+        "icao_code": "KMCO",
+        "airports": null,
+        "iata_country_code": "US",
+        "iata_code": "MCO",
+        "latitude": 28.43026,
+        "longitude": -81.308493,
+        "city": {
+          "iata_city_code": "ORL",
+          "city_name": null,
+          "icao_code": null,
+          "iata_country_code": "US",
+          "iata_code": "ORL",
+          "latitude": null,
+          "longitude": null,
+          "time_zone": null,
+          "type": "city",
+          "name": "Orlando",
+          "id": "cit_orl_us"
+        },
+        "time_zone": "America/New_York",
+        "type": "airport",
+        "name": "Orlando International Airport",
+        "id": "arp_mco_us"
+      },
+      "id": "sli_0000AeT5uiyKxIXKOOMX0p"
+    }
+  ],
+  "passengers": [
+    {
+      "loyalty_programme_accounts": [],
+      "family_name": null,
+      "given_name": null,
+      "age": null,
+      "type": "adult",
+      "id": "pas_0000AeT5uf5dODzsLrkIpX"
+    }
+  ],
+  "conditions": {
+    "refund_before_departure": {
+      "penalty_currency": null,
+      "penalty_amount": null,
+      "allowed": false
+    },
+    "change_before_departure": {
+      "penalty_currency": "USD",
+      "penalty_amount": "198.00",
+      "allowed": true
+    }
+  },
+  "updated_at": "2024-02-02T10:12:31.302463Z",
+  "expires_at": "2026-02-02T10:14:43.570578Z",
+  "partial": false,
+  "owner": {
+    "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/NK.svg",
+    "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/NK.svg",
+    "conditions_of_carriage_url": "https://content.spirit.com/Shared/en-us/Documents/Contract_of_Carriage.pdf",
+    "iata_code": "NK",
+    "name": "Spirit Airlines",
+    "id": "arl_00009VME7DDSWSIAygCT2J"
+  },
+  "id": "off_0000AeT5uiyKxIXKOOMX0r"
+}
