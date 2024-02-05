@@ -49,7 +49,7 @@ export const OfferSlice: React.FC<OfferSliceProps> = ({ slice }) => {
                 convertDurationToString(segment.duration!),
                 segment.marketing_carrier.name,
                 `${segment.marketing_carrier.iata_code}${segment.marketing_carrier_flight_number}`,
-                segment.aircraft.name,
+                segment.aircraft?.name,
                 segment.passengers[0].cabin_class_marketing_name ||
                   segment.passengers[0].cabin_class,
               ].join(" · ")}

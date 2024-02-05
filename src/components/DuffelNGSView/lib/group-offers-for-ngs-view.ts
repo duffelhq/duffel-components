@@ -3,19 +3,48 @@ import { NGSShelf, OfferSliceWithNGS, OfferWithNGS } from ".";
 export type NGSOfferRow = Record<"slice", OfferSliceWithNGS> &
   Record<NGSShelf, OfferWithNGS | null>;
 
-const getSliceKey = (slice: OfferSliceWithNGS): string => {
+export const getNGSSliceKey = (slice: OfferSliceWithNGS): string => {
   const firstSegment = slice.segments[0];
   const lastSegment = slice.segments[slice.segments.length - 1];
   // TODO: Confirm whether this is the correct and complete list of comparison fields
   return `${firstSegment.marketing_carrier.id}-${firstSegment.departing_at}-${lastSegment.arriving_at}`;
 };
 
+const filterOffersThatMatchCurrentSlice = (
+  offers: OfferWithNGS[],
+  previousSliceKeys: string[],
+) => {
+  const filteredOffers = previousSliceKeys.length > 0 ? [] : offers;
+  if (previousSliceKeys.length > 0) {
+    for (const offer of offers) {
+      let match = true;
+      for (const [index, sliceKey] of previousSliceKeys.entries()) {
+        if (sliceKey !== getNGSSliceKey(offer.slices[index])) {
+          match = false;
+          break;
+        }
+      }
+      if (match) {
+        filteredOffers.push(offer);
+      }
+    }
+  }
+  return filteredOffers;
+};
+
 export const groupOffersForNGSView = (
   offers: OfferWithNGS[],
   sliceIndex: number,
+  previousSliceKeys: string[],
 ): NGSOfferRow[] => {
+  // Only display offers where previous slices match the current selection
+  const filteredOffers = filterOffersThatMatchCurrentSlice(
+    offers,
+    previousSliceKeys,
+  );
+
   const offersMap: Record<string, NGSOfferRow> = {};
-  offers.forEach((offer) => {
+  filteredOffers.forEach((offer) => {
     if (sliceIndex > offer.slices.length) {
       throw new Error(
         "Attempted to call `groupOffersForNGSView` with an invalid slice index",
@@ -23,7 +52,7 @@ export const groupOffersForNGSView = (
     }
 
     const slice = offer.slices[sliceIndex];
-    const sliceKey = getSliceKey(slice);
+    const sliceKey = getNGSSliceKey(slice);
     if (offersMap[sliceKey]) {
       offersMap[sliceKey][slice.ngs_shelf] = offer;
     } else {

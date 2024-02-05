@@ -1,0 +1,157 @@
+.ngs-table_table {
+  border-radius: 4px;
+  border: 1px solid var(--GREY-100);
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+
+  text-align: center;
+  cursor: pointer;
+}
+
+.ngs-table_table > thead {
+  color: var(--GREY-500);
+  background-color: var(--GREY-100);
+  font-size: 12px;
+  font-weight: 500;
+  height: 40px;
+}
+
+.ngs-table_table th:first-of-type {
+  border-top-left-radius: 4px;
+  border-left: 1px solid var(--GREY-100);
+}
+
+.ngs-table_table th:last-of-type {
+  border-top-right-radius: 4px;
+  border-right: 1px solid var(--GREY-100);
+}
+
+.ngs-table_table tbody:last-child tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
+}
+
+.ngs-table_table tbody:last-child tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+}
+
+.ngs-table_table > tbody > tr {
+  border-top: 1px solid var(--GREY-100) !important;
+}
+
+.ngs-table_shelf-icon {
+  margin-right: 4px;
+}
+
+.ngs-table_sort-icon {
+  margin-left: 4px;
+}
+
+.ngs-table_column-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+
+  position: relative;
+}
+
+.ngs-table_column-header--selected {
+  color: var(--GREY-900);
+  font-weight: 500;
+}
+
+.ngs-table_table-data {
+  padding: 16px;
+  font-size: 16px;
+  color: var(--GREY-500);
+  width: 115px;
+}
+
+.ngs-table_table-data--selected {
+  color: var(--GREY-900);
+  font-weight: 600;
+}
+
+.ngs-table_slice-info {
+  padding: 24px 16px 20px 16px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: auto;
+}
+
+.ngs-table_slice-info > div:first-child {
+  margin-bottom: 16px;
+}
+
+.ngs-table_expanded {
+  padding: 0;
+}
+
+.ngs-table_expanded > div {
+  background-color: var(--GREY-50);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ngs-table_table-data--expanded {
+  background-color: var(--GREY-50);
+}
+
+.ngs-table_expanded .ngs-slice-fare-card_container {
+  background-color: white;
+}
+
+.ngs-table_expanded
+  .ngs-slice-fare-card_container
+  + .ngs-slice-fare-card_container {
+  margin-left: 32px;
+}
+
+.ngs-table_card--selected {
+  align-self: stretch;
+}
+
+/* Added important here to overwrite the slice card styles */
+.ngs-table_card--alternative {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+.ngs-table_column-header-tooltip {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  top: -140px;
+  left: 25px;
+  width: 420px;
+  text-align: left;
+}
+
+.ngs-table_column-header-tooltip--left {
+  left: -300px;
+}
+
+.ngs-table_column-header:hover .ngs-table_column-header-tooltip {
+  visibility: visible;
+}
+
+.ngs-table_slice-details-button {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--FONT-FAMILY);
+
+  color: var(--GREY-500);
+  text-decoration: underline;
+  font-size: 10px;
+  margin-top: 16px;
+}
