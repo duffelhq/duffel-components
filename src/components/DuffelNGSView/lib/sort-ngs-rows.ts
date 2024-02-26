@@ -10,7 +10,7 @@ export const getCheapestOfferAmount = (offers: Offer[] | null) =>
 export const sortNGSRows = (
   rows: NGSOfferRow[],
   sortShelf: NGSShelf,
-  sortDirection: SortDirection
+  sortDirection: SortDirection,
 ): NGSOfferRow[] => {
   const sortedRows = [...rows].sort((a, b) => {
     const aAmount = +(getCheapestOfferAmount(a[sortShelf!]) || 0);

@@ -16,7 +16,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   onSelect,
 }) => {
   const [selectedSliceKeys, setSelectedSliceKeys] = React.useState<string[]>(
-    []
+    [],
   );
   if (offers.length == 0) {
     return null;
@@ -43,12 +43,12 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                       index < selectedSliceKeys.length &&
                         "duffel-ngs-view_breadcrumb--clickable",
                       index === selectedSliceKeys.length &&
-                        "duffel-ngs-view_breadcrumb--selected"
+                        "duffel-ngs-view_breadcrumb--selected",
                     )}
                     onClick={() => {
                       if (index < selectedSliceKeys.length) {
                         setSelectedSliceKeys(
-                          selectedSliceKeys.slice(0, index - 1)
+                          selectedSliceKeys.slice(0, index - 1),
                         );
                       }
                     }}

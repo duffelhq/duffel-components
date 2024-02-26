@@ -38,7 +38,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   previousSliceKeys,
 }) => {
   const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
-    null
+    null,
   );
   const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
   const [sortDirection, setSortDirection] =
@@ -87,7 +87,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                   className={classNames(
                     "ngs-table_column-header",
                     selectedColumn === shelf &&
-                      "ngs-table_column-header--selected"
+                      "ngs-table_column-header--selected",
                   )}
                 >
                   <Icon
@@ -124,7 +124,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                     ngs_shelf={shelf}
                     className={classNames(
                       "ngs-table_column-header-tooltip",
-                      +shelf >= 3 && "ngs-table_column-header-tooltip--left"
+                      +shelf >= 3 && "ngs-table_column-header-tooltip--left",
                     )}
                   />
                 </div>
@@ -171,12 +171,12 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                         "ngs-table_table-data--selected",
                       expandedOffer?.row === index &&
                         expandedOffer?.shelf === shelf &&
-                        "ngs-table_table-data--expanded"
+                        "ngs-table_table-data--expanded",
                     )}
                   >
                     {row[shelf]
                       ? moneyStringFormatter(row[shelf]![0].total_currency)(
-                          getCheapestOfferAmount(row[shelf])!
+                          getCheapestOfferAmount(row[shelf])!,
                         )
                       : "-"}
                   </td>
@@ -197,7 +197,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                             onSelect={() =>
                               onSelect(
                                 offer.id,
-                                getNGSSliceKey(offer.slices[sliceIndex])
+                                getNGSSliceKey(offer.slices[sliceIndex]),
                               )
                             }
                           />
