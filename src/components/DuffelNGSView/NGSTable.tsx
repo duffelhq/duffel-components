@@ -8,7 +8,11 @@ import {
   getNGSSliceKey,
   groupOffersForNGSView,
 } from "./lib/group-offers-for-ngs-view";
-import { SortDirection, sortNGSRows } from "./lib/sort-ngs-rows";
+import {
+  SortDirection,
+  getCheapestOfferAmount,
+  sortNGSRows,
+} from "./lib/sort-ngs-rows";
 import { NGSSliceFareCard } from "./NGSSliceFareCard";
 import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { SliceSummary } from "./SliceSummary";
@@ -172,9 +176,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                   >
                     {row[shelf]
                       ? moneyStringFormatter(row[shelf]![0].total_currency)(
-                          Math.min(
-                            ...row[shelf]!.map((offer) => +offer.total_amount)
-                          )
+                          getCheapestOfferAmount(row[shelf])!
                         )
                       : "-"}
                   </td>
