@@ -1,9 +1,7 @@
 import { IconName } from "@components/shared/Icon";
 import { OfferSlice, SeatType } from "@duffel/api/types";
-
 export const NGS_SHELVES = [1, 2, 3, 4, 5] as const;
-export type NGSShelf = (typeof NGS_SHELVES)[number];
-
+export type NGSShelf = OfferSlice["ngs_shelf"];
 type ShelfInfo = {
   short_title: string;
   full_title: string;

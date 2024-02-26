@@ -171,8 +171,10 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                     )}
                   >
                     {row[shelf]
-                      ? moneyStringFormatter(row[shelf]!.total_currency)(
-                          +row[shelf]!.total_amount
+                      ? moneyStringFormatter(row[shelf]![0].total_currency)(
+                          Math.min(
+                            ...row[shelf]!.map((offer) => +offer.total_amount)
+                          )
                         )
                       : "-"}
                   </td>
@@ -183,22 +185,21 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                   <tr>
                     <td colSpan={6} className="ngs-table_expanded">
                       <div>
-                        <NGSSliceFareCard
-                          offer={rows[index][expandedOffer.shelf]!}
-                          sliceIndex={sliceIndex}
-                          selected
-                          className="ngs-table_card--selected"
-                          onSelect={() =>
-                            onSelect(
-                              rows[index][expandedOffer.shelf]!.id,
-                              getNGSSliceKey(
-                                rows[index][expandedOffer.shelf]!.slices[
-                                  sliceIndex
-                                ]
+                        {rows[index][expandedOffer.shelf]?.map((offer) => (
+                          <NGSSliceFareCard
+                            key={offer.id}
+                            offer={offer}
+                            sliceIndex={sliceIndex}
+                            selected
+                            className="ngs-table_card--selected"
+                            onSelect={() =>
+                              onSelect(
+                                offer.id,
+                                getNGSSliceKey(offer.slices[sliceIndex])
                               )
-                            )
-                          }
-                        />
+                            }
+                          />
+                        ))}
                       </div>
                     </td>
                   </tr>

@@ -2,18 +2,17 @@ import { Offer, OfferSlice } from "@duffel/api/types";
 import { NGSShelf } from ".";
 
 export type NGSOfferRow = Record<"slice", OfferSlice> &
-  Record<NGSShelf, Offer | null>;
+  Record<NGSShelf, Offer[] | null>;
 
 export const getNGSSliceKey = (slice: OfferSlice): string => {
   const firstSegment = slice.segments[0];
   const lastSegment = slice.segments[slice.segments.length - 1];
-  // TODO: Confirm whether this is the correct and complete list of comparison fields
   return `${firstSegment.marketing_carrier.id}-${firstSegment.departing_at}-${lastSegment.arriving_at}`;
 };
 
 const filterOffersThatMatchCurrentSlice = (
   offers: Offer[],
-  previousSliceKeys: string[],
+  previousSliceKeys: string[]
 ) => {
   const filteredOffers = previousSliceKeys.length > 0 ? [] : offers;
   if (previousSliceKeys.length > 0) {
@@ -36,26 +35,30 @@ const filterOffersThatMatchCurrentSlice = (
 export const groupOffersForNGSView = (
   offers: Offer[],
   sliceIndex: number,
-  previousSliceKeys: string[],
+  previousSliceKeys: string[]
 ): NGSOfferRow[] => {
   // Only display offers where previous slices match the current selection
   const filteredOffers = filterOffersThatMatchCurrentSlice(
     offers,
-    previousSliceKeys,
+    previousSliceKeys
   );
 
   const offersMap: Record<string, NGSOfferRow> = {};
   filteredOffers.forEach((offer) => {
     if (sliceIndex > offer.slices.length) {
       throw new Error(
-        "Attempted to call `groupOffersForNGSView` with an invalid slice index",
+        "Attempted to call `groupOffersForNGSView` with an invalid slice index"
       );
     }
 
     const slice = offer.slices[sliceIndex];
     const sliceKey = getNGSSliceKey(slice);
     if (offersMap[sliceKey]) {
-      offersMap[sliceKey][slice.ngs_shelf as NGSShelf] = offer;
+      if (offersMap[sliceKey][slice.ngs_shelf]) {
+        offersMap[sliceKey][slice.ngs_shelf]?.push(offer);
+      } else {
+        offersMap[sliceKey][slice.ngs_shelf] = [offer];
+      }
     } else {
       offersMap[sliceKey] = {
         slice: offer.slices[sliceIndex],
@@ -64,7 +67,7 @@ export const groupOffersForNGSView = (
         3: null,
         4: null,
         5: null,
-        [slice.ngs_shelf]: offer,
+        [slice.ngs_shelf]: [offer],
       };
     }
   });

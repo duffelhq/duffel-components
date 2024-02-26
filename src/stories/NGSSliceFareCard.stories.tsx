@@ -18,7 +18,6 @@ export default {
   ],
 } as Meta;
 
-// TODO: make this example more realistic once we have data in the API?
 export const FullList: React.FC = () => {
   const [selected, setSelected] = React.useState(0);
   const compareToAmount = 500;
