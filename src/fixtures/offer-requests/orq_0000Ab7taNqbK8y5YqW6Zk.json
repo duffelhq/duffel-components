@@ -1,0 +1,1413 @@
+{
+  "slices": [
+    {
+      "origin_type": "airport",
+      "origin": {
+        "type": "airport",
+        "time_zone": "America/Asuncion",
+        "name": "Silvio Pettirossi International Airport",
+        "longitude": -57.518337,
+        "latitude": -25.240308,
+        "id": "arp_asu_py",
+        "icao_code": "SGAS",
+        "iata_country_code": "PY",
+        "iata_code": "ASU",
+        "iata_city_code": "ASU",
+        "city_name": "Asunción",
+        "city": null,
+        "airports": null
+      },
+      "destination_type": "city",
+      "destination": {
+        "type": "city",
+        "time_zone": null,
+        "name": "Panama City",
+        "longitude": null,
+        "latitude": null,
+        "id": "cit_pty_pa",
+        "icao_code": null,
+        "iata_country_code": "PA",
+        "iata_code": "PTY",
+        "iata_city_code": "PTY",
+        "city_name": null,
+        "city": null,
+        "airports": [
+          {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Tocumen International Airport",
+            "longitude": -79.38536,
+            "latitude": 9.069099,
+            "id": "arp_pty_pa",
+            "icao_code": "MPTO",
+            "iata_country_code": "PA",
+            "iata_code": "PTY",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City"
+          },
+          {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Panama City International Airport",
+            "longitude": -79.557289,
+            "latitude": 8.971642,
+            "id": "arp_pac_pa",
+            "icao_code": "MPMG",
+            "iata_country_code": "PA",
+            "iata_code": "PAC",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City"
+          }
+        ]
+      },
+      "departure_date": "2024-10-01"
+    },
+    {
+      "origin_type": "city",
+      "origin": {
+        "type": "city",
+        "time_zone": null,
+        "name": "Panama City",
+        "longitude": null,
+        "latitude": null,
+        "id": "cit_pty_pa",
+        "icao_code": null,
+        "iata_country_code": "PA",
+        "iata_code": "PTY",
+        "iata_city_code": "PTY",
+        "city_name": null,
+        "city": null,
+        "airports": [
+          {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Tocumen International Airport",
+            "longitude": -79.38536,
+            "latitude": 9.069099,
+            "id": "arp_pty_pa",
+            "icao_code": "MPTO",
+            "iata_country_code": "PA",
+            "iata_code": "PTY",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City"
+          },
+          {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Panama City International Airport",
+            "longitude": -79.557289,
+            "latitude": 8.971642,
+            "id": "arp_pac_pa",
+            "icao_code": "MPMG",
+            "iata_country_code": "PA",
+            "iata_code": "PAC",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City"
+          }
+        ]
+      },
+      "destination_type": "airport",
+      "destination": {
+        "type": "airport",
+        "time_zone": "America/Asuncion",
+        "name": "Silvio Pettirossi International Airport",
+        "longitude": -57.518337,
+        "latitude": -25.240308,
+        "id": "arp_asu_py",
+        "icao_code": "SGAS",
+        "iata_country_code": "PY",
+        "iata_code": "ASU",
+        "iata_city_code": "ASU",
+        "city_name": "Asunción",
+        "city": null,
+        "airports": null
+      },
+      "departure_date": "2024-10-08"
+    }
+  ],
+  "passengers": [
+    {
+      "type": "adult",
+      "loyalty_programme_accounts": [],
+      "id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+      "given_name": null,
+      "fare_type": null,
+      "family_name": null,
+      "age": null
+    }
+  ],
+  "offers": [
+    {
+      "updated_at": "2023-10-25T10:56:21.138538Z",
+      "total_emissions_kg": "182",
+      "total_currency": "GBP",
+      "total_amount": "343.77",
+      "tax_currency": "GBP",
+      "tax_amount": "52.44",
+      "supported_passenger_identity_document_types": [
+        "passport",
+        "known_traveler_number",
+        "passenger_redress_number"
+      ],
+      "slices": [
+        {
+          "segments": [
+            {
+              "stops": [],
+              "passengers": [
+                {
+                  "passenger_id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+                  "fare_basis_code": "Y20LGTN2",
+                  "cabin_class_marketing_name": "Economy",
+                  "cabin_class": "economy",
+                  "cabin": {
+                    "name": "economy",
+                    "marketing_name": "Economy",
+                    "amenities": {
+                      "wifi": {
+                        "cost": "paid",
+                        "available": true
+                      },
+                      "seat": {
+                        "pitch": "30",
+                        "legroom": "n/a",
+                        "type": "standard"
+                      },
+                      "power": {
+                        "available": true
+                      }
+                    }
+                  },
+                  "baggages": [
+                    {
+                      "type": "checked",
+                      "quantity": 0
+                    },
+                    {
+                      "type": "carry_on",
+                      "quantity": 0
+                    }
+                  ],
+                  "conditions": {
+                    "priority_boarding": false,
+                    "priority_check_in": false,
+                    "advanced_seat_selection": false
+                  }
+                }
+              ],
+              "origin_terminal": "2",
+              "origin": {
+                "type": "airport",
+                "time_zone": "America/Asuncion",
+                "name": "Silvio Pettirossi International Airport",
+                "longitude": -57.518337,
+                "latitude": -25.240308,
+                "id": "arp_asu_py",
+                "icao_code": "SGAS",
+                "iata_country_code": "PY",
+                "iata_code": "ASU",
+                "iata_city_code": "ASU",
+                "city_name": "Asunción",
+                "city": null,
+                "airports": null
+              },
+              "operating_carrier_flight_number": "7967",
+              "operating_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "marketing_carrier_flight_number": "7967",
+              "marketing_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "id": "seg_0000Ab7taODHxn7GhD8DwG",
+              "duration": "PT6H34M",
+              "distance": "4490.305193671358",
+              "destination_terminal": "1",
+              "destination": {
+                "type": "airport",
+                "time_zone": "America/Panama",
+                "name": "Tocumen International Airport",
+                "longitude": -79.38536,
+                "latitude": 9.069099,
+                "id": "arp_pty_pa",
+                "icao_code": "MPTO",
+                "iata_country_code": "PA",
+                "iata_code": "PTY",
+                "iata_city_code": "PTY",
+                "city_name": "Panama City",
+                "city": {
+                  "type": "city",
+                  "time_zone": null,
+                  "name": "Panama City",
+                  "longitude": null,
+                  "latitude": null,
+                  "id": "cit_pty_pa",
+                  "icao_code": null,
+                  "iata_country_code": "PA",
+                  "iata_code": "PTY",
+                  "iata_city_code": "PTY",
+                  "city_name": null
+                },
+                "airports": null
+              },
+              "departing_at": "2024-10-01T00:00:00",
+              "arriving_at": "2024-10-01T05:34:00",
+              "aircraft": {
+                "name": "Boeing 777-300",
+                "id": "arc_00009VMF8AhXSSRnQDI6HE",
+                "iata_code": "773"
+              }
+            }
+          ],
+          "origin_type": "airport",
+          "origin": {
+            "type": "airport",
+            "time_zone": "America/Asuncion",
+            "name": "Silvio Pettirossi International Airport",
+            "longitude": -57.518337,
+            "latitude": -25.240308,
+            "id": "arp_asu_py",
+            "icao_code": "SGAS",
+            "iata_country_code": "PY",
+            "iata_code": "ASU",
+            "iata_city_code": "ASU",
+            "city_name": "Asunción",
+            "city": null,
+            "airports": null
+          },
+          "id": "sli_0000Ab7taODHxn7GhD8DwH",
+          "fare_brand_name": "Basic",
+          "duration": "PT6H34M",
+          "destination_type": "airport",
+          "destination": {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Tocumen International Airport",
+            "longitude": -79.38536,
+            "latitude": 9.069099,
+            "id": "arp_pty_pa",
+            "icao_code": "MPTO",
+            "iata_country_code": "PA",
+            "iata_code": "PTY",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City",
+            "city": {
+              "type": "city",
+              "time_zone": null,
+              "name": "Panama City",
+              "longitude": null,
+              "latitude": null,
+              "id": "cit_pty_pa",
+              "icao_code": null,
+              "iata_country_code": "PA",
+              "iata_code": "PTY",
+              "iata_city_code": "PTY",
+              "city_name": null
+            },
+            "airports": null
+          },
+          "conditions": {
+            "change_before_departure": {
+              "penalty_currency": null,
+              "penalty_amount": null,
+              "allowed": false
+            },
+            "priority_boarding": false,
+            "priority_check_in": false,
+            "advanced_seat_selection": false
+          },
+          "ngs_shelf": 1
+        },
+        {
+          "segments": [
+            {
+              "stops": [],
+              "passengers": [
+                {
+                  "passenger_id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+                  "fare_basis_code": "Y20LGTN2",
+                  "cabin_class_marketing_name": "Economy",
+                  "cabin_class": "economy",
+                  "cabin": {
+                    "name": "economy",
+                    "marketing_name": "Economy",
+                    "amenities": {
+                      "wifi": {
+                        "cost": "paid",
+                        "available": true
+                      },
+                      "seat": {
+                        "pitch": "30",
+                        "legroom": "n/a",
+                        "type": "standard"
+                      },
+                      "power": {
+                        "available": true
+                      }
+                    }
+                  },
+                  "baggages": [
+                    {
+                      "type": "checked",
+                      "quantity": 0
+                    },
+                    {
+                      "type": "carry_on",
+                      "quantity": 0
+                    }
+                  ],
+                  "conditions": {
+                    "priority_boarding": false,
+                    "priority_check_in": false,
+                    "advanced_seat_selection": false
+                  }
+                }
+              ],
+              "origin_terminal": "2",
+              "origin": {
+                "type": "airport",
+                "time_zone": "America/Panama",
+                "name": "Tocumen International Airport",
+                "longitude": -79.38536,
+                "latitude": 9.069099,
+                "id": "arp_pty_pa",
+                "icao_code": "MPTO",
+                "iata_country_code": "PA",
+                "iata_code": "PTY",
+                "iata_city_code": "PTY",
+                "city_name": "Panama City",
+                "city": {
+                  "type": "city",
+                  "time_zone": null,
+                  "name": "Panama City",
+                  "longitude": null,
+                  "latitude": null,
+                  "id": "cit_pty_pa",
+                  "icao_code": null,
+                  "iata_country_code": "PA",
+                  "iata_code": "PTY",
+                  "iata_city_code": "PTY",
+                  "city_name": null
+                },
+                "airports": null
+              },
+              "operating_carrier_flight_number": "7967",
+              "operating_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "marketing_carrier_flight_number": "7967",
+              "marketing_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "id": "seg_0000Ab7taODHxn7GhD8DwI",
+              "duration": "PT6H34M",
+              "distance": "4490.305193671358",
+              "destination_terminal": "1",
+              "destination": {
+                "type": "airport",
+                "time_zone": "America/Asuncion",
+                "name": "Silvio Pettirossi International Airport",
+                "longitude": -57.518337,
+                "latitude": -25.240308,
+                "id": "arp_asu_py",
+                "icao_code": "SGAS",
+                "iata_country_code": "PY",
+                "iata_code": "ASU",
+                "iata_city_code": "ASU",
+                "city_name": "Asunción",
+                "city": null,
+                "airports": null
+              },
+              "departing_at": "2024-10-08T05:25:00",
+              "arriving_at": "2024-10-08T13:59:00",
+              "aircraft": {
+                "name": "Boeing 777-300",
+                "id": "arc_00009VMF8AhXSSRnQDI6HE",
+                "iata_code": "773"
+              }
+            }
+          ],
+          "origin_type": "airport",
+          "origin": {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Tocumen International Airport",
+            "longitude": -79.38536,
+            "latitude": 9.069099,
+            "id": "arp_pty_pa",
+            "icao_code": "MPTO",
+            "iata_country_code": "PA",
+            "iata_code": "PTY",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City",
+            "city": {
+              "type": "city",
+              "time_zone": null,
+              "name": "Panama City",
+              "longitude": null,
+              "latitude": null,
+              "id": "cit_pty_pa",
+              "icao_code": null,
+              "iata_country_code": "PA",
+              "iata_code": "PTY",
+              "iata_city_code": "PTY",
+              "city_name": null
+            },
+            "airports": null
+          },
+          "id": "sli_0000Ab7taODHxn7GhD8DwJ",
+          "fare_brand_name": "Basic",
+          "duration": "PT6H34M",
+          "destination_type": "airport",
+          "destination": {
+            "type": "airport",
+            "time_zone": "America/Asuncion",
+            "name": "Silvio Pettirossi International Airport",
+            "longitude": -57.518337,
+            "latitude": -25.240308,
+            "id": "arp_asu_py",
+            "icao_code": "SGAS",
+            "iata_country_code": "PY",
+            "iata_code": "ASU",
+            "iata_city_code": "ASU",
+            "city_name": "Asunción",
+            "city": null,
+            "airports": null
+          },
+          "conditions": {
+            "change_before_departure": {
+              "penalty_currency": null,
+              "penalty_amount": null,
+              "allowed": false
+            },
+            "priority_boarding": true,
+            "priority_check_in": true,
+            "advanced_seat_selection": true
+          },
+          "ngs_shelf": 1
+        }
+      ],
+      "private_fares": [],
+      "payment_requirements": {
+        "requires_instant_payment": false,
+        "price_guarantee_expires_at": "2023-10-27T10:56:21Z",
+        "payment_required_by": "2023-10-28T10:56:21Z"
+      },
+      "passengers": [
+        {
+          "type": "adult",
+          "loyalty_programme_accounts": [],
+          "id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+          "given_name": null,
+          "fare_type": null,
+          "family_name": null,
+          "age": null
+        }
+      ],
+      "passenger_identity_documents_required": false,
+      "partial": false,
+      "owner": {
+        "name": "Duffel Airways",
+        "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+        "logo_lockup_url": null,
+        "id": "arl_00009VME7D6ivUu8dn35WK",
+        "iata_code": "ZZ",
+        "conditions_of_carriage_url": null
+      },
+      "live_mode": false,
+      "id": "off_0000Ab7taODHxn7GhD8DwK",
+      "expires_at": "2023-10-25T11:26:21.137581Z",
+      "created_at": "2023-10-25T10:56:21.138538Z",
+      "conditions": {
+        "refund_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        },
+        "change_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        }
+      },
+      "ngs_shelf": 1,
+      "base_currency": "GBP",
+      "base_amount": "291.33",
+      "allowed_passenger_identity_document_types": [
+        "passport",
+        "tax_id",
+        "known_traveler_number",
+        "passenger_redress_number"
+      ]
+    },
+    {
+      "updated_at": "2023-10-25T10:56:21.138538Z",
+      "total_emissions_kg": "182",
+      "total_currency": "GBP",
+      "total_amount": "390.77",
+      "tax_currency": "GBP",
+      "tax_amount": "52.44",
+      "supported_passenger_identity_document_types": [
+        "passport",
+        "known_traveler_number",
+        "passenger_redress_number"
+      ],
+      "slices": [
+        {
+          "segments": [
+            {
+              "stops": [],
+              "passengers": [
+                {
+                  "passenger_id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+                  "fare_basis_code": "Y20LGTN2",
+                  "cabin_class_marketing_name": "Economy",
+                  "cabin_class": "economy",
+                  "cabin": {
+                    "name": "economy",
+                    "marketing_name": "Economy",
+                    "amenities": {
+                      "wifi": {
+                        "cost": "paid",
+                        "available": true
+                      },
+                      "seat": {
+                        "pitch": "32",
+                        "legroom": "n/a",
+                        "type": "standard"
+                      },
+                      "power": {
+                        "available": true
+                      }
+                    }
+                  },
+                  "baggages": [
+                    {
+                      "type": "checked",
+                      "quantity": 1
+                    },
+                    {
+                      "type": "carry_on",
+                      "quantity": 1
+                    }
+                  ],
+                  "conditions": {
+                    "priority_boarding": true,
+                    "priority_check_in": false,
+                    "advanced_seat_selection": true
+                  }
+                }
+              ],
+              "origin_terminal": "2",
+              "origin": {
+                "type": "airport",
+                "time_zone": "America/Asuncion",
+                "name": "Silvio Pettirossi International Airport",
+                "longitude": -57.518337,
+                "latitude": -25.240308,
+                "id": "arp_asu_py",
+                "icao_code": "SGAS",
+                "iata_country_code": "PY",
+                "iata_code": "ASU",
+                "iata_city_code": "ASU",
+                "city_name": "Asunción",
+                "city": null,
+                "airports": null
+              },
+              "operating_carrier_flight_number": "7967",
+              "operating_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "marketing_carrier_flight_number": "7967",
+              "marketing_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "id": "seg_0000Ab7taODHxn7GhD8DwG",
+              "duration": "PT6H34M",
+              "distance": "4490.305193671358",
+              "destination_terminal": "1",
+              "destination": {
+                "type": "airport",
+                "time_zone": "America/Panama",
+                "name": "Tocumen International Airport",
+                "longitude": -79.38536,
+                "latitude": 9.069099,
+                "id": "arp_pty_pa",
+                "icao_code": "MPTO",
+                "iata_country_code": "PA",
+                "iata_code": "PTY",
+                "iata_city_code": "PTY",
+                "city_name": "Panama City",
+                "city": {
+                  "type": "city",
+                  "time_zone": null,
+                  "name": "Panama City",
+                  "longitude": null,
+                  "latitude": null,
+                  "id": "cit_pty_pa",
+                  "icao_code": null,
+                  "iata_country_code": "PA",
+                  "iata_code": "PTY",
+                  "iata_city_code": "PTY",
+                  "city_name": null
+                },
+                "airports": null
+              },
+              "departing_at": "2024-10-01T00:00:00",
+              "arriving_at": "2024-10-01T05:34:00",
+              "aircraft": {
+                "name": "Boeing 777-300",
+                "id": "arc_00009VMF8AhXSSRnQDI6HE",
+                "iata_code": "773"
+              }
+            }
+          ],
+          "origin_type": "airport",
+          "origin": {
+            "type": "airport",
+            "time_zone": "America/Asuncion",
+            "name": "Silvio Pettirossi International Airport",
+            "longitude": -57.518337,
+            "latitude": -25.240308,
+            "id": "arp_asu_py",
+            "icao_code": "SGAS",
+            "iata_country_code": "PY",
+            "iata_code": "ASU",
+            "iata_city_code": "ASU",
+            "city_name": "Asunción",
+            "city": null,
+            "airports": null
+          },
+          "id": "sli_0000Ab7taODHxn7GhD8DwH",
+          "fare_brand_name": "Standard",
+          "duration": "PT6H34M",
+          "destination_type": "airport",
+          "destination": {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Tocumen International Airport",
+            "longitude": -79.38536,
+            "latitude": 9.069099,
+            "id": "arp_pty_pa",
+            "icao_code": "MPTO",
+            "iata_country_code": "PA",
+            "iata_code": "PTY",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City",
+            "city": {
+              "type": "city",
+              "time_zone": null,
+              "name": "Panama City",
+              "longitude": null,
+              "latitude": null,
+              "id": "cit_pty_pa",
+              "icao_code": null,
+              "iata_country_code": "PA",
+              "iata_code": "PTY",
+              "iata_city_code": "PTY",
+              "city_name": null
+            },
+            "airports": null
+          },
+          "conditions": {
+            "change_before_departure": {
+              "penalty_currency": null,
+              "penalty_amount": null,
+              "allowed": false
+            },
+            "priority_boarding": true,
+            "priority_check_in": false,
+            "advanced_seat_selection": true
+          },
+          "ngs_shelf": 2
+        },
+        {
+          "segments": [
+            {
+              "stops": [],
+              "passengers": [
+                {
+                  "passenger_id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+                  "fare_basis_code": "Y20LGTN2",
+                  "cabin_class_marketing_name": "Economy",
+                  "cabin_class": "economy",
+                  "cabin": {
+                    "name": "economy",
+                    "marketing_name": "Economy",
+                    "amenities": {
+                      "wifi": {
+                        "cost": "paid",
+                        "available": true
+                      },
+                      "seat": {
+                        "pitch": "32",
+                        "legroom": "n/a",
+                        "type": "standard"
+                      },
+                      "power": {
+                        "available": true
+                      }
+                    }
+                  },
+                  "baggages": [
+                    {
+                      "type": "checked",
+                      "quantity": 1
+                    },
+                    {
+                      "type": "carry_on",
+                      "quantity": 1
+                    }
+                  ],
+                  "conditions": {
+                    "priority_boarding": true,
+                    "priority_check_in": false,
+                    "advanced_seat_selection": true
+                  }
+                }
+              ],
+              "origin_terminal": "2",
+              "origin": {
+                "type": "airport",
+                "time_zone": "America/Panama",
+                "name": "Tocumen International Airport",
+                "longitude": -79.38536,
+                "latitude": 9.069099,
+                "id": "arp_pty_pa",
+                "icao_code": "MPTO",
+                "iata_country_code": "PA",
+                "iata_code": "PTY",
+                "iata_city_code": "PTY",
+                "city_name": "Panama City",
+                "city": {
+                  "type": "city",
+                  "time_zone": null,
+                  "name": "Panama City",
+                  "longitude": null,
+                  "latitude": null,
+                  "id": "cit_pty_pa",
+                  "icao_code": null,
+                  "iata_country_code": "PA",
+                  "iata_code": "PTY",
+                  "iata_city_code": "PTY",
+                  "city_name": null
+                },
+                "airports": null
+              },
+              "operating_carrier_flight_number": "7967",
+              "operating_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "marketing_carrier_flight_number": "7967",
+              "marketing_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "id": "seg_0000Ab7taODHxn7GhD8DwI",
+              "duration": "PT6H34M",
+              "distance": "4490.305193671358",
+              "destination_terminal": "1",
+              "destination": {
+                "type": "airport",
+                "time_zone": "America/Asuncion",
+                "name": "Silvio Pettirossi International Airport",
+                "longitude": -57.518337,
+                "latitude": -25.240308,
+                "id": "arp_asu_py",
+                "icao_code": "SGAS",
+                "iata_country_code": "PY",
+                "iata_code": "ASU",
+                "iata_city_code": "ASU",
+                "city_name": "Asunción",
+                "city": null,
+                "airports": null
+              },
+              "departing_at": "2024-10-08T05:25:00",
+              "arriving_at": "2024-10-08T13:59:00",
+              "aircraft": {
+                "name": "Boeing 777-300",
+                "id": "arc_00009VMF8AhXSSRnQDI6HE",
+                "iata_code": "773"
+              }
+            }
+          ],
+          "origin_type": "airport",
+          "origin": {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Tocumen International Airport",
+            "longitude": -79.38536,
+            "latitude": 9.069099,
+            "id": "arp_pty_pa",
+            "icao_code": "MPTO",
+            "iata_country_code": "PA",
+            "iata_code": "PTY",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City",
+            "city": {
+              "type": "city",
+              "time_zone": null,
+              "name": "Panama City",
+              "longitude": null,
+              "latitude": null,
+              "id": "cit_pty_pa",
+              "icao_code": null,
+              "iata_country_code": "PA",
+              "iata_code": "PTY",
+              "iata_city_code": "PTY",
+              "city_name": null
+            },
+            "airports": null
+          },
+          "id": "sli_0000Ab7taODHxn7GhD8DwJ",
+          "fare_brand_name": "Standard",
+          "duration": "PT6H34M",
+          "destination_type": "airport",
+          "destination": {
+            "type": "airport",
+            "time_zone": "America/Asuncion",
+            "name": "Silvio Pettirossi International Airport",
+            "longitude": -57.518337,
+            "latitude": -25.240308,
+            "id": "arp_asu_py",
+            "icao_code": "SGAS",
+            "iata_country_code": "PY",
+            "iata_code": "ASU",
+            "iata_city_code": "ASU",
+            "city_name": "Asunción",
+            "city": null,
+            "airports": null
+          },
+          "conditions": {
+            "change_before_departure": {
+              "penalty_currency": null,
+              "penalty_amount": null,
+              "allowed": false
+            },
+            "priority_boarding": true,
+            "priority_check_in": false,
+            "advanced_seat_selection": true
+          },
+          "ngs_shelf": 2
+        }
+      ],
+      "private_fares": [],
+      "payment_requirements": {
+        "requires_instant_payment": false,
+        "price_guarantee_expires_at": "2023-10-27T10:56:21Z",
+        "payment_required_by": "2023-10-28T10:56:21Z"
+      },
+      "passengers": [
+        {
+          "type": "adult",
+          "loyalty_programme_accounts": [],
+          "id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+          "given_name": null,
+          "fare_type": null,
+          "family_name": null,
+          "age": null
+        }
+      ],
+      "passenger_identity_documents_required": false,
+      "partial": false,
+      "owner": {
+        "name": "Duffel Airways",
+        "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+        "logo_lockup_url": null,
+        "id": "arl_00009VME7D6ivUu8dn35WK",
+        "iata_code": "ZZ",
+        "conditions_of_carriage_url": null
+      },
+      "live_mode": false,
+      "id": "off_0000Ab7taODHxn7GhD8DwK",
+      "expires_at": "2023-10-25T11:26:21.137581Z",
+      "created_at": "2023-10-25T10:56:21.138538Z",
+      "conditions": {
+        "refund_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        },
+        "change_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        }
+      },
+      "base_currency": "GBP",
+      "base_amount": "291.33",
+      "allowed_passenger_identity_document_types": [
+        "passport",
+        "tax_id",
+        "known_traveler_number",
+        "passenger_redress_number"
+      ]
+    },
+    {
+      "updated_at": "2023-10-25T10:56:21.138538Z",
+      "total_emissions_kg": "182",
+      "total_currency": "GBP",
+      "total_amount": "390.77",
+      "tax_currency": "GBP",
+      "tax_amount": "52.44",
+      "supported_passenger_identity_document_types": [
+        "passport",
+        "known_traveler_number",
+        "passenger_redress_number"
+      ],
+      "slices": [
+        {
+          "segments": [
+            {
+              "stops": [],
+              "passengers": [
+                {
+                  "passenger_id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+                  "fare_basis_code": "Y20LGTN2",
+                  "cabin_class_marketing_name": "First",
+                  "cabin_class": "first",
+                  "cabin": {
+                    "name": "first",
+                    "marketing_name": "First",
+                    "amenities": {
+                      "wifi": {
+                        "cost": "paid",
+                        "available": true
+                      },
+                      "seat": {
+                        "pitch": "30",
+                        "legroom": "n/a",
+                        "type": "standard"
+                      },
+                      "power": {
+                        "available": true
+                      }
+                    }
+                  },
+                  "baggages": [
+                    {
+                      "type": "checked",
+                      "quantity": 1
+                    },
+                    {
+                      "type": "carry_on",
+                      "quantity": 1
+                    }
+                  ],
+                  "conditions": {
+                    "priority_boarding": true,
+                    "priority_check_in": true,
+                    "advanced_seat_selection": true
+                  }
+                }
+              ],
+              "origin_terminal": "2",
+              "origin": {
+                "type": "airport",
+                "time_zone": "America/Asuncion",
+                "name": "Silvio Pettirossi International Airport",
+                "longitude": -57.518337,
+                "latitude": -25.240308,
+                "id": "arp_asu_py",
+                "icao_code": "SGAS",
+                "iata_country_code": "PY",
+                "iata_code": "ASU",
+                "iata_city_code": "ASU",
+                "city_name": "Asunción",
+                "city": null,
+                "airports": null
+              },
+              "operating_carrier_flight_number": "7967",
+              "operating_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "marketing_carrier_flight_number": "7967",
+              "marketing_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "id": "seg_0000Ab7taODHxn7GhD8DwG",
+              "duration": "PT6H34M",
+              "distance": "4490.305193671358",
+              "destination_terminal": "1",
+              "destination": {
+                "type": "airport",
+                "time_zone": "America/Panama",
+                "name": "Tocumen International Airport",
+                "longitude": -79.38536,
+                "latitude": 9.069099,
+                "id": "arp_pty_pa",
+                "icao_code": "MPTO",
+                "iata_country_code": "PA",
+                "iata_code": "PTY",
+                "iata_city_code": "PTY",
+                "city_name": "Panama City",
+                "city": {
+                  "type": "city",
+                  "time_zone": null,
+                  "name": "Panama City",
+                  "longitude": null,
+                  "latitude": null,
+                  "id": "cit_pty_pa",
+                  "icao_code": null,
+                  "iata_country_code": "PA",
+                  "iata_code": "PTY",
+                  "iata_city_code": "PTY",
+                  "city_name": null
+                },
+                "airports": null
+              },
+              "departing_at": "2024-10-01T00:00:00",
+              "arriving_at": "2024-10-01T05:34:00",
+              "aircraft": {
+                "name": "Boeing 777-300",
+                "id": "arc_00009VMF8AhXSSRnQDI6HE",
+                "iata_code": "773"
+              }
+            }
+          ],
+          "origin_type": "airport",
+          "origin": {
+            "type": "airport",
+            "time_zone": "America/Asuncion",
+            "name": "Silvio Pettirossi International Airport",
+            "longitude": -57.518337,
+            "latitude": -25.240308,
+            "id": "arp_asu_py",
+            "icao_code": "SGAS",
+            "iata_country_code": "PY",
+            "iata_code": "ASU",
+            "iata_city_code": "ASU",
+            "city_name": "Asunción",
+            "city": null,
+            "airports": null
+          },
+          "id": "sli_0000Ab7taODHxn7GhD8DwH",
+          "fare_brand_name": "Standard",
+          "duration": "PT6H34M",
+          "destination_type": "airport",
+          "destination": {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Tocumen International Airport",
+            "longitude": -79.38536,
+            "latitude": 9.069099,
+            "id": "arp_pty_pa",
+            "icao_code": "MPTO",
+            "iata_country_code": "PA",
+            "iata_code": "PTY",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City",
+            "city": {
+              "type": "city",
+              "time_zone": null,
+              "name": "Panama City",
+              "longitude": null,
+              "latitude": null,
+              "id": "cit_pty_pa",
+              "icao_code": null,
+              "iata_country_code": "PA",
+              "iata_code": "PTY",
+              "iata_city_code": "PTY",
+              "city_name": null
+            },
+            "airports": null
+          },
+          "conditions": {
+            "change_before_departure": {
+              "penalty_currency": null,
+              "penalty_amount": null,
+              "allowed": false
+            },
+            "priority_boarding": true,
+            "priority_check_in": true,
+            "advanced_seat_selection": true
+          },
+          "ngs_shelf": 5
+        },
+        {
+          "segments": [
+            {
+              "stops": [],
+              "passengers": [
+                {
+                  "passenger_id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+                  "fare_basis_code": "Y20LGTN2",
+                  "cabin_class_marketing_name": "First",
+                  "cabin_class": "first",
+                  "cabin": {
+                    "name": "first",
+                    "marketing_name": "First",
+                    "amenities": {
+                      "wifi": {
+                        "cost": "paid",
+                        "available": true
+                      },
+                      "seat": {
+                        "pitch": "30",
+                        "legroom": "n/a",
+                        "type": "standard"
+                      },
+                      "power": {
+                        "available": true
+                      }
+                    }
+                  },
+                  "baggages": [
+                    {
+                      "type": "checked",
+                      "quantity": 1
+                    },
+                    {
+                      "type": "carry_on",
+                      "quantity": 1
+                    }
+                  ],
+                  "conditions": {
+                    "priority_boarding": true,
+                    "priority_check_in": false,
+                    "advanced_seat_selection": true
+                  }
+                }
+              ],
+              "origin_terminal": "2",
+              "origin": {
+                "type": "airport",
+                "time_zone": "America/Panama",
+                "name": "Tocumen International Airport",
+                "longitude": -79.38536,
+                "latitude": 9.069099,
+                "id": "arp_pty_pa",
+                "icao_code": "MPTO",
+                "iata_country_code": "PA",
+                "iata_code": "PTY",
+                "iata_city_code": "PTY",
+                "city_name": "Panama City",
+                "city": {
+                  "type": "city",
+                  "time_zone": null,
+                  "name": "Panama City",
+                  "longitude": null,
+                  "latitude": null,
+                  "id": "cit_pty_pa",
+                  "icao_code": null,
+                  "iata_country_code": "PA",
+                  "iata_code": "PTY",
+                  "iata_city_code": "PTY",
+                  "city_name": null
+                },
+                "airports": null
+              },
+              "operating_carrier_flight_number": "7967",
+              "operating_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "marketing_carrier_flight_number": "7967",
+              "marketing_carrier": {
+                "name": "Duffel Airways",
+                "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                "logo_lockup_url": null,
+                "id": "arl_00009VME7D6ivUu8dn35WK",
+                "iata_code": "ZZ",
+                "conditions_of_carriage_url": null
+              },
+              "id": "seg_0000Ab7taODHxn7GhD8DwI",
+              "duration": "PT6H34M",
+              "distance": "4490.305193671358",
+              "destination_terminal": "1",
+              "destination": {
+                "type": "airport",
+                "time_zone": "America/Asuncion",
+                "name": "Silvio Pettirossi International Airport",
+                "longitude": -57.518337,
+                "latitude": -25.240308,
+                "id": "arp_asu_py",
+                "icao_code": "SGAS",
+                "iata_country_code": "PY",
+                "iata_code": "ASU",
+                "iata_city_code": "ASU",
+                "city_name": "Asunción",
+                "city": null,
+                "airports": null
+              },
+              "departing_at": "2024-10-08T05:25:00",
+              "arriving_at": "2024-10-08T13:59:00",
+              "aircraft": {
+                "name": "Boeing 777-300",
+                "id": "arc_00009VMF8AhXSSRnQDI6HE",
+                "iata_code": "773"
+              }
+            }
+          ],
+          "origin_type": "airport",
+          "origin": {
+            "type": "airport",
+            "time_zone": "America/Panama",
+            "name": "Tocumen International Airport",
+            "longitude": -79.38536,
+            "latitude": 9.069099,
+            "id": "arp_pty_pa",
+            "icao_code": "MPTO",
+            "iata_country_code": "PA",
+            "iata_code": "PTY",
+            "iata_city_code": "PTY",
+            "city_name": "Panama City",
+            "city": {
+              "type": "city",
+              "time_zone": null,
+              "name": "Panama City",
+              "longitude": null,
+              "latitude": null,
+              "id": "cit_pty_pa",
+              "icao_code": null,
+              "iata_country_code": "PA",
+              "iata_code": "PTY",
+              "iata_city_code": "PTY",
+              "city_name": null
+            },
+            "airports": null
+          },
+          "id": "sli_0000Ab7taODHxn7GhD8DwJ",
+          "fare_brand_name": "Standard",
+          "duration": "PT6H34M",
+          "destination_type": "airport",
+          "destination": {
+            "type": "airport",
+            "time_zone": "America/Asuncion",
+            "name": "Silvio Pettirossi International Airport",
+            "longitude": -57.518337,
+            "latitude": -25.240308,
+            "id": "arp_asu_py",
+            "icao_code": "SGAS",
+            "iata_country_code": "PY",
+            "iata_code": "ASU",
+            "iata_city_code": "ASU",
+            "city_name": "Asunción",
+            "city": null,
+            "airports": null
+          },
+          "conditions": {
+            "change_before_departure": {
+              "penalty_currency": null,
+              "penalty_amount": null,
+              "allowed": false
+            },
+            "priority_boarding": true,
+            "priority_check_in": false,
+            "advanced_seat_selection": true
+          },
+          "ngs_shelf": 5
+        }
+      ],
+      "private_fares": [],
+      "payment_requirements": {
+        "requires_instant_payment": false,
+        "price_guarantee_expires_at": "2023-10-27T10:56:21Z",
+        "payment_required_by": "2023-10-28T10:56:21Z"
+      },
+      "passengers": [
+        {
+          "type": "adult",
+          "loyalty_programme_accounts": [],
+          "id": "pas_0000Ab7taNqbK8y5YqW6Zn",
+          "given_name": null,
+          "fare_type": null,
+          "family_name": null,
+          "age": null
+        }
+      ],
+      "passenger_identity_documents_required": false,
+      "partial": false,
+      "owner": {
+        "name": "Duffel Airways",
+        "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+        "logo_lockup_url": null,
+        "id": "arl_00009VME7D6ivUu8dn35WK",
+        "iata_code": "ZZ",
+        "conditions_of_carriage_url": null
+      },
+      "live_mode": false,
+      "id": "off_0000Ab7taODHxn7GhD8DwK",
+      "expires_at": "2023-10-25T11:26:21.137581Z",
+      "created_at": "2023-10-25T10:56:21.138538Z",
+      "conditions": {
+        "refund_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        },
+        "change_before_departure": {
+          "penalty_currency": null,
+          "penalty_amount": null,
+          "allowed": false
+        }
+      },
+      "base_currency": "GBP",
+      "base_amount": "291.33",
+      "allowed_passenger_identity_document_types": [
+        "passport",
+        "tax_id",
+        "known_traveler_number",
+        "passenger_redress_number"
+      ]
+    }
+  ],
+  "live_mode": false,
+  "id": "orq_0000Ab7taNqbK8y5YqW6Zk",
+  "created_at": "2023-10-25T10:56:21.074753Z",
+  "client_key": "SFMyNTY.g2gDdAAAAANkAAlsaXZlX21vZGVkAAVmYWxzZWQAD29yZ2FuaXNhdGlvbl9pZG0AAAAab3JnXzAwMDA5VWhGY29ERGk5TTFTRjhiS2FkAAtyZXNvdXJjZV9pZG0AAAAab3JxXzAwMDBBYjd0YU5xYks4eTVZcVc2WmtuBgCmbHpmiwFiAAFRgA._eLk_TQ3zqLe5izSjk_74-WFGKcXXwp-11CNFcAUlN0",
+  "cabin_class": null
+}

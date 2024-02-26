@@ -1,12 +1,12 @@
 import * as React from "react";
-import { OfferWithNGS } from "./lib";
 import { NGSTable } from "./NGSTable";
 import { getDateString } from "@lib/getDateString";
 import { Icon } from "@components/shared/Icon";
 import classNames from "classnames";
+import { Offer } from "@duffel/api/types";
 
 export interface DuffelNGSViewProps {
-  offers: OfferWithNGS[];
+  offers: Offer[];
   onSelect: (offerId: string) => void;
 }
 
