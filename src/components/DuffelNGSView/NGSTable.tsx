@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NGSShelf, NGS_SHELF_INFO, NGS_SHELVES, OfferWithNGS } from "./lib";
+import { NGSShelf, NGS_SHELF_INFO, NGS_SHELVES } from "./lib";
 import { Icon } from "@components/shared/Icon";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
@@ -14,9 +14,10 @@ import { NGSSliceFareCard } from "./NGSSliceFareCard";
 import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { SliceSummary } from "./SliceSummary";
 import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
+import { Offer } from "@duffel/api/types";
 
 export interface NGSTableProps {
-  offers: OfferWithNGS[];
+  offers: Offer[];
   sliceIndex: number;
   previousSliceKeys: string[]; // For filtering the current set of offers
   onSelect: (offerId: string, sliceKey: string) => void;
@@ -29,18 +30,18 @@ type OfferPosition = {
 
 function getPreviousShelf(shelf: NGSShelf): NGSShelf | null {
   const previousShelf = +shelf - 1;
-  return previousShelf === 0 ? null : (previousShelf.toString() as NGSShelf);
+  return previousShelf === 0 ? null : (previousShelf as NGSShelf);
 }
 
 function getNextShelf(shelf: NGSShelf): NGSShelf | null {
   const nextShelf = +shelf + 1;
-  return nextShelf > 5 ? null : (nextShelf.toString() as NGSShelf);
+  return nextShelf > 5 ? null : (nextShelf as NGSShelf);
 }
 
 const getPreviousOffer = (
   rows: NGSOfferRow[],
-  expandedOffer: OfferPosition,
-): OfferWithNGS | null => {
+  expandedOffer: OfferPosition
+): Offer | null => {
   const previousShelf = getPreviousShelf(expandedOffer.shelf);
   if (!previousShelf) {
     return null;
@@ -57,8 +58,8 @@ const getPreviousOffer = (
 
 const getNextOffer = (
   rows: NGSOfferRow[],
-  expandedOffer: OfferPosition,
-): OfferWithNGS | null => {
+  expandedOffer: OfferPosition
+): Offer | null => {
   const nextShelf = getNextShelf(expandedOffer.shelf);
   if (!nextShelf) {
     return null;
@@ -77,7 +78,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   previousSliceKeys,
 }) => {
   const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
-    null,
+    null
   );
   const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
   const [sortDirection, setSortDirection] =
@@ -126,7 +127,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                   className={classNames(
                     "ngs-table_column-header",
                     selectedColumn === shelf &&
-                      "ngs-table_column-header--selected",
+                      "ngs-table_column-header--selected"
                   )}
                 >
                   <Icon
@@ -163,7 +164,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                     ngs_shelf={shelf}
                     className={classNames(
                       "ngs-table_column-header-tooltip",
-                      +shelf >= 3 && "ngs-table_column-header-tooltip--left",
+                      +shelf >= 3 && "ngs-table_column-header-tooltip--left"
                     )}
                   />
                 </div>
@@ -210,12 +211,12 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                         "ngs-table_table-data--selected",
                       expandedOffer?.row === index &&
                         expandedOffer?.shelf === shelf &&
-                        "ngs-table_table-data--expanded",
+                        "ngs-table_table-data--expanded"
                     )}
                   >
                     {row[shelf]
                       ? moneyStringFormatter(row[shelf]!.total_currency)(
-                          +row[shelf]!.total_amount,
+                          +row[shelf]!.total_amount
                         )
                       : "-"}
                   </td>
@@ -247,8 +248,8 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                               getNGSSliceKey(
                                 rows[index][expandedOffer.shelf]!.slices[
                                   sliceIndex
-                                ],
-                              ),
+                                ]
+                              )
                             )
                           }
                         />

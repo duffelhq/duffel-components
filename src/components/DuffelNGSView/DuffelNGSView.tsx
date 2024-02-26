@@ -1,12 +1,12 @@
 import * as React from "react";
-import { OfferWithNGS } from "./lib";
 import { NGSTable } from "./NGSTable";
 import { getDateString } from "@lib/getDateString";
 import { Icon } from "@components/shared/Icon";
 import classNames from "classnames";
+import { Offer } from "@duffel/api/types";
 
 export interface DuffelNGSViewProps {
-  offers: OfferWithNGS[];
+  offers: Offer[];
   onSelect: (offerId: string) => void;
 }
 
@@ -15,7 +15,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   onSelect,
 }) => {
   const [selectedSliceKeys, setSelectedSliceKeys] = React.useState<string[]>(
-    [],
+    []
   );
   if (offers.length == 0) {
     return null;
@@ -41,12 +41,12 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                     index < selectedSliceKeys.length &&
                       "duffel-ngs-view_breadcrumb--clickable",
                     index === selectedSliceKeys.length &&
-                      "duffel-ngs-view_breadcrumb--selected",
+                      "duffel-ngs-view_breadcrumb--selected"
                   )}
                   onClick={() => {
                     if (index < selectedSliceKeys.length) {
                       setSelectedSliceKeys(
-                        selectedSliceKeys.slice(0, index - 1),
+                        selectedSliceKeys.slice(0, index - 1)
                       );
                     }
                   }}

@@ -326,7 +326,7 @@
             "priority_check_in": false,
             "advanced_seat_selection": false
           },
-          "ngs_shelf": "1"
+          "ngs_shelf": 1
         },
         {
           "segments": [
@@ -504,7 +504,7 @@
             "priority_check_in": true,
             "advanced_seat_selection": true
           },
-          "ngs_shelf": "1"
+          "ngs_shelf": 1
         }
       ],
       "private_fares": [],
@@ -550,7 +550,7 @@
           "allowed": false
         }
       },
-      "ngs_shelf": "1",
+      "ngs_shelf": 1,
       "base_currency": "GBP",
       "base_amount": "291.33",
       "allowed_passenger_identity_document_types": [
@@ -749,7 +749,7 @@
             "priority_check_in": false,
             "advanced_seat_selection": true
           },
-          "ngs_shelf": "2"
+          "ngs_shelf": 2
         },
         {
           "segments": [
@@ -927,7 +927,7 @@
             "priority_check_in": false,
             "advanced_seat_selection": true
           },
-          "ngs_shelf": "2"
+          "ngs_shelf": 2
         }
       ],
       "private_fares": [],
@@ -1171,7 +1171,7 @@
             "priority_check_in": true,
             "advanced_seat_selection": true
           },
-          "ngs_shelf": "5"
+          "ngs_shelf": 5
         },
         {
           "segments": [
@@ -1349,7 +1349,7 @@
             "priority_check_in": false,
             "advanced_seat_selection": true
           },
-          "ngs_shelf": "5"
+          "ngs_shelf": 5
         }
       ],
       "private_fares": [],
