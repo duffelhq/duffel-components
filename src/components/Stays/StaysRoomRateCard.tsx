@@ -2,6 +2,7 @@ import classNames from "classnames";
 import * as React from "react";
 import {
   LOYALTY_PROGRAMS_NAME_MAP,
+  SOURCE_NAME_MAP,
   boardTypeIcon,
   getBoardTypeLabel,
 } from "./lib/types";
@@ -118,6 +119,10 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                 }
               />
             )}
+            <StayResultRoomRateItem
+              icon="travel_search"
+              label={SOURCE_NAME_MAP[rate.source]}
+            />
           </VSpace>
         </VSpace>
         <VSpace space={8} className="stays-room-rate-card__footer">

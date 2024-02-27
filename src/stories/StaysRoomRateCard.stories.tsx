@@ -21,7 +21,7 @@ const Template: StoryFn<{ roomRates: StaysRoomRateCardProps[] }> = (args) => {
   const [selectedRate, setSelectedRate] = useState(roomRates[0].rate.id);
 
   return (
-    <div style={{ display: "flex", gap: "16px", height: "300px" }}>
+    <div style={{ display: "flex", gap: "16px", height: "310px" }}>
       {roomRates.map((roomRate) => (
         <StaysRoomRateCard
           {...roomRate}
