@@ -20,6 +20,14 @@ export const LOYALTY_PROGRAMS_NAME_MAP = {
   duffel_hotel_group_rewards: "Duffel Hotel Group Rewards",
 };
 
+export const SOURCE_NAME_MAP = {
+  bookingcom: "Booking.com",
+  expedia: "Expedia",
+  priceline: "Priceline",
+  travelport: "Travelport",
+  duffel_hotel_group: "Duffel Hotel Group",
+};
+
 export const getBoardTypeLabel = (boardType: StaysRoomRate["board_type"]) => {
   switch (boardType) {
     case "room_only":
