@@ -120,8 +120,8 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
               />
             )}
             <StayResultRoomRateItem
-              icon="travel_search"
-              label={SOURCE_NAME_MAP[rate.source]}
+              icon="shopfront"
+              label={`Sourced from ${SOURCE_NAME_MAP[rate.source]}`}
             />
           </VSpace>
         </VSpace>

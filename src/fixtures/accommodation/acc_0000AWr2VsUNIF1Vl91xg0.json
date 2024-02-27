@@ -119,7 +119,7 @@
           "total_amount": "899.00",
           "tax_currency": "GBP",
           "tax_amount": "133.17",
-          "source": "priceline",
+          "source": "duffel_hotel_group",
           "payment_type": "pay_now",
           "id": "rat_0000ASuebQfixzpI2v20bx",
           "due_at_accommodation_currency": "GBP",
