@@ -25,8 +25,8 @@ export const SOURCE_NAME_MAP = {
   expedia: "Expedia",
   priceline: "Priceline",
   travelport: "Travelport",
-  duffel_hotel_group: "Duffel Hotel Group"
-}
+  duffel_hotel_group: "Duffel Hotel Group",
+};
 
 export const getBoardTypeLabel = (boardType: StaysRoomRate["board_type"]) => {
   switch (boardType) {
