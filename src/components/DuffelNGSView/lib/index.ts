@@ -26,23 +26,23 @@ export const NGS_SHELF_INFO: Record<OfferSlice["ngs_shelf"], ShelfInfo> = {
   },
   3: {
     short_title: "Plus",
-    full_title: "Economy Plus",
+    full_title: "Plus",
     description:
-      "Economy seats with extra leg room that allow seat selection, flexible change and cancellation options and checked baggage.",
+      "Preferred seating that offer more comfort to passengers, such as additional legroom, width or having the middle seat free for the row.",
     icon: "airline_seat_legroom_extra",
   },
   4: {
     short_title: "Premium",
-    full_title: "Premium Economy",
+    full_title: "Premium",
     description:
-      "Premium seats that have a recliner seat type, allow seat selection, flexible change and cancellation options and checked baggage.",
+      "Premium seating with additional legroom and recline. Seats shall be typically situated in the business class cabin or higher.",
     icon: "airline_seat_recline_extra",
   },
   5: {
     short_title: "Luxury",
     full_title: "Luxury",
     description:
-      "A luxury seat with a lie flat bed, seat selection, flexible change and cancellation options and checked baggage.",
+      "Luxury seating with additional legroom and reclines to a lie flat position. Seats shall be typically situated in business class or higher.",
     icon: "airline_seat_flat",
   },
 };
