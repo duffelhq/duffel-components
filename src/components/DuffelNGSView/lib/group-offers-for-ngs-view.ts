@@ -2,12 +2,11 @@ import { Offer, OfferSlice } from "@duffel/api/types";
 import { NGSShelf } from ".";
 
 export type NGSOfferRow = Record<"slice", OfferSlice> &
-  Record<NGSShelf, Offer | null>;
+  Record<NGSShelf, Offer[] | null>;
 
 export const getNGSSliceKey = (slice: OfferSlice): string => {
   const firstSegment = slice.segments[0];
   const lastSegment = slice.segments[slice.segments.length - 1];
-  // TODO: Confirm whether this is the correct and complete list of comparison fields
   return `${firstSegment.marketing_carrier.id}-${firstSegment.departing_at}-${lastSegment.arriving_at}`;
 };
 
@@ -55,7 +54,11 @@ export const groupOffersForNGSView = (
     const slice = offer.slices[sliceIndex];
     const sliceKey = getNGSSliceKey(slice);
     if (offersMap[sliceKey]) {
-      offersMap[sliceKey][slice.ngs_shelf as NGSShelf] = offer;
+      if (offersMap[sliceKey][slice.ngs_shelf]) {
+        offersMap[sliceKey][slice.ngs_shelf]?.push(offer);
+      } else {
+        offersMap[sliceKey][slice.ngs_shelf] = [offer];
+      }
     } else {
       offersMap[sliceKey] = {
         slice: offer.slices[sliceIndex],
@@ -64,7 +67,7 @@ export const groupOffersForNGSView = (
         3: null,
         4: null,
         5: null,
-        [slice.ngs_shelf]: offer,
+        [slice.ngs_shelf]: [offer],
       };
     }
   });

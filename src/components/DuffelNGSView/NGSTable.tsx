@@ -5,11 +5,14 @@ import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
 import { SliceCarriersTitle } from "@components/shared/SliceCarriersTitle";
 import {
-  NGSOfferRow,
   getNGSSliceKey,
   groupOffersForNGSView,
 } from "./lib/group-offers-for-ngs-view";
-import { SortDirection, sortNGSRows } from "./lib/sort-ngs-rows";
+import {
+  SortDirection,
+  getCheapestOfferAmount,
+  sortNGSRows,
+} from "./lib/sort-ngs-rows";
 import { NGSSliceFareCard } from "./NGSSliceFareCard";
 import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { SliceSummary } from "./SliceSummary";
@@ -26,49 +29,6 @@ export interface NGSTableProps {
 type OfferPosition = {
   row: number;
   shelf: NGSShelf;
-};
-
-function getPreviousShelf(shelf: NGSShelf): NGSShelf | null {
-  const previousShelf = +shelf - 1;
-  return previousShelf === 0 ? null : (previousShelf as NGSShelf);
-}
-
-function getNextShelf(shelf: NGSShelf): NGSShelf | null {
-  const nextShelf = +shelf + 1;
-  return nextShelf > 5 ? null : (nextShelf as NGSShelf);
-}
-
-const getPreviousOffer = (
-  rows: NGSOfferRow[],
-  expandedOffer: OfferPosition,
-): Offer | null => {
-  const previousShelf = getPreviousShelf(expandedOffer.shelf);
-  if (!previousShelf) {
-    return null;
-  }
-  const previousOffer = rows[expandedOffer.row][previousShelf];
-  if (previousOffer) {
-    return previousOffer;
-  }
-  return getPreviousOffer(rows, {
-    row: expandedOffer.row,
-    shelf: previousShelf,
-  });
-};
-
-const getNextOffer = (
-  rows: NGSOfferRow[],
-  expandedOffer: OfferPosition,
-): Offer | null => {
-  const nextShelf = getNextShelf(expandedOffer.shelf);
-  if (!nextShelf) {
-    return null;
-  }
-  const nextOffer = rows[expandedOffer.row][nextShelf];
-  if (nextOffer) {
-    return nextOffer;
-  }
-  return getNextOffer(rows, { row: expandedOffer.row, shelf: nextShelf });
 };
 
 export const NGSTable: React.FC<NGSTableProps> = ({
@@ -215,8 +175,8 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                     )}
                   >
                     {row[shelf]
-                      ? moneyStringFormatter(row[shelf]!.total_currency)(
-                          +row[shelf]!.total_amount,
+                      ? moneyStringFormatter(row[shelf]![0].total_currency)(
+                          getCheapestOfferAmount(row[shelf])!,
                         )
                       : "-"}
                   </td>
@@ -227,42 +187,21 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                   <tr>
                     <td colSpan={6} className="ngs-table_expanded">
                       <div>
-                        {getPreviousOffer(rows, expandedOffer) && (
+                        {rows[index][expandedOffer.shelf]?.map((offer) => (
                           <NGSSliceFareCard
-                            offer={getPreviousOffer(rows, expandedOffer)!}
+                            key={offer.id}
+                            offer={offer}
                             sliceIndex={sliceIndex}
-                            compareToAmount={
-                              +rows[index][expandedOffer.shelf]!.total_amount
+                            selected
+                            className="ngs-table_card--selected"
+                            onSelect={() =>
+                              onSelect(
+                                offer.id,
+                                getNGSSliceKey(offer.slices[sliceIndex]),
+                              )
                             }
-                            className="ngs-table_card--alternative"
                           />
-                        )}
-                        <NGSSliceFareCard
-                          offer={rows[index][expandedOffer.shelf]!}
-                          sliceIndex={sliceIndex}
-                          selected
-                          className="ngs-table_card--selected"
-                          onSelect={() =>
-                            onSelect(
-                              rows[index][expandedOffer.shelf]!.id,
-                              getNGSSliceKey(
-                                rows[index][expandedOffer.shelf]!.slices[
-                                  sliceIndex
-                                ],
-                              ),
-                            )
-                          }
-                        />
-                        {getNextOffer(rows, expandedOffer) && (
-                          <NGSSliceFareCard
-                            offer={getNextOffer(rows, expandedOffer)!}
-                            sliceIndex={sliceIndex}
-                            compareToAmount={
-                              +rows[index][expandedOffer.shelf]!.total_amount
-                            }
-                            className="ngs-table_card--alternative"
-                          />
-                        )}
+                        ))}
                       </div>
                     </td>
                   </tr>

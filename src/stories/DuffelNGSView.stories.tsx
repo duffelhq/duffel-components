@@ -12,7 +12,7 @@ const cheapOffer = {
   ...offer,
   slices: [
     { ...offer.slices[0], ngs_shelf: 1, fare_brand_name: "Very Basic" },
-    ...offer.slices.slice(1),
+    offer.slices[1],
   ],
   total_amount: "100",
 };
@@ -20,7 +20,7 @@ const expensiveOffer = {
   ...offer,
   slices: [
     { ...offer.slices[0], ngs_shelf: 5, fare_brand_name: "Business" },
-    ...offer.slices.slice(1),
+    { ...offer.slices[1], ngs_shelf: 5, fare_brand_name: "Business" },
   ],
   total_amount: "10000",
 };
@@ -39,7 +39,7 @@ const alternativeCheapOffer = {
       ngs_shelf: 1,
       fare_brand_name: "Economy",
     },
-    ...offer.slices.slice(1),
+    { ...offer.slices[1], ngs_shelf: 1, fare_brand_name: "Economy" },
   ],
   total_amount: "50",
 };
@@ -58,6 +58,7 @@ const alternativeExpensiveOffer = {
       ngs_shelf: 5,
       fare_brand_name: "First",
     },
+    { ...offer.slices[1], ngs_shelf: 5, fare_brand_name: "First" },
   ],
   total_amount: "20000",
 };

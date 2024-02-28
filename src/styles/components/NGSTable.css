@@ -88,6 +88,7 @@
 
 .ngs-table_expanded {
   padding: 0;
+  cursor: auto;
 }
 
 .ngs-table_expanded > div {
