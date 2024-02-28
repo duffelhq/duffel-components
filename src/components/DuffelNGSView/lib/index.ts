@@ -28,7 +28,7 @@ export const NGS_SHELF_INFO: Record<OfferSlice["ngs_shelf"], ShelfInfo> = {
     short_title: "Plus",
     full_title: "Plus",
     description:
-      "Preferred seating that offer more comfort to passengers, such as additional legroom, width or having the middle seat free for the row.",
+      "Preferred seating that offers more comfort to passengers, such as additional legroom, width or having the middle seat free for the row.",
     icon: "airline_seat_legroom_extra",
   },
   4: {
