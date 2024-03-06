@@ -1,6 +1,7 @@
 .duffel-ngs-view {
   /* To override duffel-components overflow */
   overflow: visible !important;
+  padding-top: 40px;
 }
 
 .duffel-ngs-view_heading {
