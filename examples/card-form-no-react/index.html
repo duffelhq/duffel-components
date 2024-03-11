@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Card Form integration example</title>
+  </head>
+  <body style="height: 100vh">
+    <h1>Card Form integration example</h1>
+
+    <!-- 1. Add the custom element to your markup -->
+    <duffel-card-form></duffel-card-form>
+
+    <button onclick="createCardForTemporaryUse()">
+      Create card for temporary use
+    </button>
+
+    <button onclick="saveCard()">Save card</button>
+  </body>
+
+  <!-- 2. Load the script -->
+  <script
+    type="text/javascript"
+    src="http://127.0.0.1:8000/duffel-card-form.js"
+  ></script>
+  <!-- Alternatively, if you want to run this example with the live version use the script below instead -->
+  <!-- <script type="text/javascript" src="http://assets.duffel.com/traveller-support/custom-element.js"></script> -->
+
+  <!-- 3. Enable open function once window is loaded -->
+  <script type="text/javascript">
+    window.onload = () => {
+      renderDuffelCardFormCustomElement({
+        clientKey: "__COMPONENT_CLIENT_KEY__",
+        intent: "to-create-card-for-temporary-use",
+      });
+
+      onValidateSuccess(console.info);
+      onValidateFailure(console.error);
+
+      onCreateCardForTemporaryUseSuccess(console.info);
+      onCreateCardForTemporaryUseFailure(console.error);
+
+      onSaveCardSuccess(console.info);
+      onSaveCardFailure(console.error);
+    };
+  </script>
+</html>
