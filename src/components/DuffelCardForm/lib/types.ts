@@ -114,7 +114,7 @@ export interface DuffelCardFormProps {
    * `useDuffelCardFormActions` hook.
    */
   onCreateCardForTemporaryUseSuccess?: (
-    data: CreateCardForTemporaryUseData
+    data: CreateCardForTemporaryUseData,
   ) => void;
 
   /**
@@ -126,7 +126,7 @@ export interface DuffelCardFormProps {
    * `useDuffelCardFormActions` hook.
    */
   onCreateCardForTemporaryUseFailure?: (
-    error: CreateCardForTemporaryUseError
+    error: CreateCardForTemporaryUseError,
   ) => void;
 
   /**

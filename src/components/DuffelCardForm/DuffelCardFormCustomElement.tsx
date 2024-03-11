@@ -80,7 +80,7 @@ class DuffelCardFormCustomElement extends HTMLElement {
       withProps.tokenProxyEnvironment,
       withProps.intent,
       withProps.clientKey,
-      withProps.savedCardData
+      withProps.savedCardData,
     );
 
     this.root.render(
@@ -90,14 +90,14 @@ class DuffelCardFormCustomElement extends HTMLElement {
           this.dispatchEvent(
             new CustomEvent("onValidateSuccess", {
               composed: true,
-            })
+            }),
           )
         }
         onValidateFailure={() =>
           this.dispatchEvent(
             new CustomEvent("onValidateFailure", {
               composed: true,
-            })
+            }),
           )
         }
         onSaveCardSuccess={(data) =>
@@ -105,7 +105,7 @@ class DuffelCardFormCustomElement extends HTMLElement {
             new CustomEvent("onSaveCardSuccess", {
               detail: { data },
               composed: true,
-            })
+            }),
           )
         }
         onSaveCardFailure={(error) =>
@@ -113,7 +113,7 @@ class DuffelCardFormCustomElement extends HTMLElement {
             new CustomEvent("onSaveCardFailure", {
               detail: { error },
               composed: true,
-            })
+            }),
           )
         }
         onCreateCardForTemporaryUseSuccess={(data) =>
@@ -121,7 +121,7 @@ class DuffelCardFormCustomElement extends HTMLElement {
             new CustomEvent("onCreateCardForTemporaryUseSuccess", {
               detail: { data },
               composed: true,
-            })
+            }),
           )
         }
         onCreateCardForTemporaryUseFailure={(error) =>
@@ -129,10 +129,10 @@ class DuffelCardFormCustomElement extends HTMLElement {
             new CustomEvent("onCreateCardForTemporaryUseFailure", {
               detail: { error },
               composed: true,
-            })
+            }),
           )
         }
-      />
+      />,
     );
   }
 
@@ -159,14 +159,14 @@ function tryToGetCustomElement(caller: string): DuffelCardFormCustomElement {
     document.querySelector<DuffelCardFormCustomElement>(CUSTOM_ELEMENT_TAG);
   if (!element) {
     throw new Error(
-      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`,
     );
   }
   return element;
 }
 
 export function renderDuffelCardFormCustomElement(
-  props: DuffelCardFormCustomElementRenderArguments
+  props: DuffelCardFormCustomElementRenderArguments,
 ) {
   const element = tryToGetCustomElement("renderDuffelCardFormCustomElement");
   element.render(props);
@@ -194,11 +194,11 @@ type DuffelCardFormPropActions = Pick<
 
 function registerCallbackFactory<T extends keyof DuffelCardFormPropActions>(
   eventPropName: T,
-  eventDetailArgumentName?: string
+  eventDetailArgumentName?: string,
 ) {
   return function (callback: NonNullable<DuffelCardFormPropActions[T]>) {
     const element = tryToGetCustomElement(
-      `registerCallbackFactory(${eventPropName})`
+      `registerCallbackFactory(${eventPropName})`,
     );
 
     element.addEventListener(eventPropName, (event) => {
@@ -220,22 +220,22 @@ export const onValidateFailure = registerCallbackFactory("onValidateFailure");
 
 export const onSaveCardSuccess = registerCallbackFactory(
   "onSaveCardSuccess",
-  "data"
+  "data",
 );
 
 export const onSaveCardFailure = registerCallbackFactory(
   "onSaveCardFailure",
-  "error"
+  "error",
 );
 
 export const onCreateCardForTemporaryUseSuccess = registerCallbackFactory(
   "onCreateCardForTemporaryUseSuccess",
-  "data"
+  "data",
 );
 
 export const onCreateCardForTemporaryUseFailure = registerCallbackFactory(
   "onCreateCardForTemporaryUseFailure",
-  "error"
+  "error",
 );
 
 window.renderDuffelCardFormCustomElement = renderDuffelCardFormCustomElement;
