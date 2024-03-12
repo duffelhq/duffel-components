@@ -9,6 +9,10 @@ module.exports = {
       out: "duffel-payments",
       in: "src/components/DuffelPayments/DuffelPaymentsCustomElement.tsx",
     },
+    {
+      out: "duffel-card-form",
+      in: "src/components/DuffelCardForm/DuffelCardFormCustomElement.tsx",
+    },
     // Created a new custom element wrapper for a components
     // and want to make it available on the CDN? Add it here.
   ],

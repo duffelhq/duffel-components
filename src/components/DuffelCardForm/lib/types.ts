@@ -20,8 +20,9 @@ export interface SaveCardData extends CommonCardData {
   unavailable_at: null;
 }
 
-export type SaveCardError = CardActionError;
-export type CreateCardForTemporaryUseError = CardActionError;
+export interface SaveCardError extends CardActionError {}
+
+export interface CreateCardForTemporaryUseError extends CardActionError {}
 
 /**
  * An object where each key value pair is a style to be applied.
