@@ -1,13 +1,16 @@
 .places-lookup-input {
-  width: 100%;
+  width: calc(100% - 34px);
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: 1px solid var(--GREY-400);
+  font-size: 16px;
 }
 
 .places-lookup-popover {
   background-color: var(--WHITE);
-  box-shadow: 0px 1px 4px rgba(59, 64, 86, 0.3);
+  box-shadow: 0 1px 4px rgb(59 64 86 / 30%);
   border-radius: 4px;
-  margin-top: 4px;
-  width: 100%;
+  margin: 4px;
   padding: 4px;
   display: flex;
   flex-direction: column;
