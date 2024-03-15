@@ -24,7 +24,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
 }) => {
   if (sliceIndex >= offer.slices.length) {
     throw new Error(
-      "Attempted to create `NGSSliceFareCard` with invalid slice index"
+      "Attempted to create `NGSSliceFareCard` with invalid slice index",
     );
   }
 
@@ -42,7 +42,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
         }
         return [...cabinClasses, passenger.cabin_class];
       },
-      []
+      [],
     );
   const brandName = slice.fare_brand_name || cabinClasses.join("/");
 
@@ -92,7 +92,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
               changeBeforeDepartureCondition.penalty_currency &&
               changeBeforeDepartureCondition.penalty_amount
                 ? ` (${moneyStringFormatter(
-                    changeBeforeDepartureCondition.penalty_currency
+                    changeBeforeDepartureCondition.penalty_currency,
                   )(+changeBeforeDepartureCondition.penalty_amount)})`
                 : ""}
             </div>
@@ -113,7 +113,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
               refundBeforeDepartureCondition.penalty_currency &&
               refundBeforeDepartureCondition.penalty_amount
                 ? ` (${moneyStringFormatter(
-                    refundBeforeDepartureCondition.penalty_currency
+                    refundBeforeDepartureCondition.penalty_currency,
                   )(+refundBeforeDepartureCondition.penalty_amount)})`
                 : ""}
             </div>
