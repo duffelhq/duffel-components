@@ -61,6 +61,7 @@
   color: var(--GREY-900);
   font-size: 16px;
   font-weight: 600;
+  padding-right: 8px;
 }
 
 .ngs-slice-fare-card_radio {
@@ -69,14 +70,6 @@
 
 .ngs-slice-fare-card_button {
   display: none;
-}
-
-.ngs-slice-fare-card_price--compared {
-  display: none;
-}
-
-.ngs-slice-fare-card_price--total {
-  display: inline;
 }
 
 /* tablet or greater  */
@@ -94,29 +87,12 @@
   }
 
   .ngs-slice-fare-card_title {
-    color: var(--GREY-600);
-  }
-
-  .ngs-slice-fare-card_title--selected {
     color: var(--GREY-900);
     font-size: 16px;
   }
 
   .ngs-slice-fare-card_price {
-    color: var(--GREY-600);
-    font-size: 18px;
-  }
-
-  .ngs-slice-fare-card_price--selected {
     color: var(--GREY-900);
     font-size: 20px;
-  }
-
-  .ngs-slice-fare-card_price--total {
-    display: none;
-  }
-
-  .ngs-slice-fare-card_price--compared {
-    display: inline;
   }
 }

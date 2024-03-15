@@ -192,8 +192,6 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                             key={offer.id}
                             offer={offer}
                             sliceIndex={sliceIndex}
-                            selected
-                            className="ngs-table_card--selected"
                             onSelect={() =>
                               onSelect(
                                 offer.id,
