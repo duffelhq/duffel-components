@@ -1,9 +1,14 @@
+.ngs-table {
+  overflow-x: auto;
+}
+
 .ngs-table_table {
   border-radius: 4px;
   border: 1px solid var(--GREY-100);
   display: table;
   border-collapse: collapse;
-  width: 100%;
+  width: 1280px;
+  table-layout: fixed;
 
   text-align: center;
   cursor: pointer;
@@ -89,6 +94,8 @@
 .ngs-table_expanded {
   padding: 0;
   cursor: auto;
+  overflow-x: auto;
+  max-width: 1280px;
 }
 
 .ngs-table_expanded > div {
@@ -111,10 +118,6 @@
   .ngs-slice-fare-card_container
   + .ngs-slice-fare-card_container {
   margin-left: 32px;
-}
-
-.ngs-table_card--selected {
-  align-self: stretch;
 }
 
 /* Added important here to overwrite the slice card styles */
@@ -155,4 +158,8 @@
   text-decoration: underline;
   font-size: 10px;
   margin-top: 16px;
+}
+
+.ngs-table_th {
+  width: 300px;
 }

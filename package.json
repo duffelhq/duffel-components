@@ -1,6 +1,6 @@
 {
   "name": "@duffel/components",
-  "version": "3.6.6",
+  "version": "3.6.8",
   "description": "Component library to build your travel product with Duffel.",
   "keywords": [
     "Duffel",
@@ -102,7 +102,7 @@
     "prettier-plugin-organize-imports": "3.2.4",
     "prompts": "2.4.2",
     "prop-types": "15.8.1",
-    "puppeteer": "21.6.1",
+    "puppeteer": "22.4.1",
     "storybook": "7.0.2",
     "ts-node": "10.9.2",
     "tsconfig-paths-webpack-plugin": "4.0.1",

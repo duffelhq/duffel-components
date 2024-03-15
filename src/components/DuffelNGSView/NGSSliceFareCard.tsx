@@ -4,7 +4,6 @@ import { Offer, OfferSliceSegmentPassenger } from "@duffel/api/types";
 import { Icon } from "@components/shared/Icon";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { getMaxBaggagesForOfferSlice } from "./lib/get-max-baggages-for-offer-slice";
-import { RadioButton } from "@components/shared/RadioButton";
 import { Button } from "@components/shared/Button";
 import classNames from "classnames";
 
@@ -12,9 +11,7 @@ export interface NGSSliceFareCardProps {
   offer: Offer;
   sliceIndex: number;
 
-  selected?: boolean;
   onSelect?: () => void;
-  compareToAmount?: number;
 
   className?: string;
 }
@@ -22,9 +19,7 @@ export interface NGSSliceFareCardProps {
 export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   offer,
   sliceIndex,
-  selected,
   onSelect,
-  compareToAmount,
   className,
 }) => {
   if (sliceIndex >= offer.slices.length) {
@@ -65,14 +60,6 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   const checkedBagItems = getMaxBaggagesForOfferSlice(slice, "checked");
   const carryOnBagItems = getMaxBaggagesForOfferSlice(slice, "carry_on");
 
-  const showComparedAmount = !selected && compareToAmount;
-  const amountDifference = showComparedAmount
-    ? +offer.total_amount - compareToAmount
-    : +offer.total_amount;
-  const amountDifferencePrefix = showComparedAmount
-    ? `${amountDifference > 0 ? "+" : ""}`
-    : "";
-
   return (
     <button
       className={classNames("ngs-slice-fare-card_container", className)}
@@ -84,13 +71,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
         <div className="ngs-slice-fare-card_header">
           <div>
             <span>{shelfInfo.short_title}</span>
-            <h4
-              className={classNames("ngs-slice-fare-card_title", {
-                "ngs-slice-fare-card_title--selected": selected,
-              })}
-            >
-              {brandName}
-            </h4>
+            <h4 className="ngs-slice-fare-card_title">{brandName}</h4>
           </div>
           <Icon name={shelfInfo.icon} color="--GREY-900" />
         </div>
@@ -188,40 +169,13 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
         </div>
       </div>
       <div className="ngs-slice-fare-card_footer">
-        <span
-          className={classNames(
-            "ngs-slice-fare-card_price",
-            "ngs-slice-fare-card_price--compared",
-            {
-              "ngs-slice-fare-card_price--selected": selected,
-            },
-          )}
-        >
-          {amountDifferencePrefix}
-          {moneyStringFormatter(offer.total_currency)(amountDifference)}
-        </span>
-        <span
-          className={classNames(
-            "ngs-slice-fare-card_price",
-            "ngs-slice-fare-card_price--total",
-            {
-              "ngs-slice-fare-card_price--selected": selected,
-            },
-          )}
-        >
+        <span className="ngs-slice-fare-card_price">
           {moneyStringFormatter(offer.total_currency)(+offer.total_amount)}
         </span>
         <div>
-          <RadioButton
-            value={slice.id}
-            checked={selected}
-            className="ngs-slice-fare-card_radio"
-          />
-          {selected && (
-            <Button size={32} className="ngs-slice-fare-card_button">
-              Select
-            </Button>
-          )}
+          <Button size={32} className="ngs-slice-fare-card_button">
+            Select
+          </Button>
         </div>
       </div>
     </button>

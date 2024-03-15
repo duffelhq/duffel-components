@@ -19,7 +19,6 @@ export default {
 } as Meta;
 
 export const FullList: React.FC = () => {
-  const [selected, setSelected] = React.useState(0);
   const compareToAmount = 500;
 
   return (
@@ -35,17 +34,9 @@ export const FullList: React.FC = () => {
       <NGSSliceFareCard
         offer={{ ...offer, total_amount: compareToAmount }}
         sliceIndex={0}
-        compareToAmount={offer.total_amount}
-        selected={selected === 0}
-        onSelect={() => setSelected(0)}
+        onSelect={console.log}
       />
-      <NGSSliceFareCard
-        offer={offer}
-        sliceIndex={1}
-        compareToAmount={compareToAmount}
-        selected={selected === 1}
-        onSelect={() => setSelected(1)}
-      />
+      <NGSSliceFareCard offer={offer} sliceIndex={1} onSelect={console.log} />
     </div>
   );
 };
