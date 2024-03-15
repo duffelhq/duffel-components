@@ -200,45 +200,6 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                             }
                           />
                         ))}
-                        {rows[index][expandedOffer.shelf]?.map((offer) => (
-                          <NGSSliceFareCard
-                            key={offer.id}
-                            offer={offer}
-                            sliceIndex={sliceIndex}
-                            onSelect={() =>
-                              onSelect(
-                                offer.id,
-                                getNGSSliceKey(offer.slices[sliceIndex]),
-                              )
-                            }
-                          />
-                        ))}
-                        {rows[index][expandedOffer.shelf]?.map((offer) => (
-                          <NGSSliceFareCard
-                            key={offer.id}
-                            offer={offer}
-                            sliceIndex={sliceIndex}
-                            onSelect={() =>
-                              onSelect(
-                                offer.id,
-                                getNGSSliceKey(offer.slices[sliceIndex]),
-                              )
-                            }
-                          />
-                        ))}
-                        {rows[index][expandedOffer.shelf]?.map((offer) => (
-                          <NGSSliceFareCard
-                            key={offer.id}
-                            offer={offer}
-                            sliceIndex={sliceIndex}
-                            onSelect={() =>
-                              onSelect(
-                                offer.id,
-                                getNGSSliceKey(offer.slices[sliceIndex]),
-                              )
-                            }
-                          />
-                        ))}
                       </div>
                     </td>
                   </tr>
