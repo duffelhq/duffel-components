@@ -1,6 +1,6 @@
 .duffel-ngs-view {
   /* To override duffel-components overflow */
-  overflow: visible !important;
+  overflow: auto !important;
   padding-top: 40px;
 }
 

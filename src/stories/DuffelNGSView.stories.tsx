@@ -8,6 +8,10 @@ import {
 const offerRequest = require("../fixtures/offer-requests/orq_0000Ab7taNqbK8y5YqW6Zk.json");
 
 const offer = offerRequest.offers[0];
+const moreExpensiveDuplicateOffer = {
+  ...offer,
+  total_amount: (+offer.total_amount + 1).toString(),
+};
 const cheapOffer = {
   ...offer,
   slices: [
@@ -71,6 +75,11 @@ export default {
 const defaultProps: DuffelNGSViewProps = {
   offers: [
     offer,
+    offer,
+    offer,
+    offer,
+    offer, // duplicate to test aggregation: should not appear in the UI
+    moreExpensiveDuplicateOffer, // duplicate to test aggregation: should not appear in the UI
     cheapOffer,
     expensiveOffer,
     alternativeCheapOffer,
