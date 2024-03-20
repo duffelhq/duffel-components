@@ -260,7 +260,7 @@
                 },
                 "airports": null
               },
-              "departing_at": "2024-10-01T00:00:00",
+              "departing_at": "2024-10-01T01:00:00",
               "arriving_at": "2024-10-01T05:34:00",
               "aircraft": {
                 "name": "Boeing 777-300",
@@ -287,7 +287,7 @@
           },
           "id": "sli_0000Ab7taODHxn7GhD8DwH",
           "fare_brand_name": "Basic",
-          "duration": "PT6H34M",
+          "duration": "PT5H34M",
           "destination_type": "airport",
           "destination": {
             "type": "airport",
@@ -420,7 +420,7 @@
                 "conditions_of_carriage_url": null
               },
               "id": "seg_0000Ab7taODHxn7GhD8DwI",
-              "duration": "PT6H34M",
+              "duration": "PT5H34M",
               "distance": "4490.305193671358",
               "destination_terminal": "1",
               "destination": {
@@ -438,7 +438,7 @@
                 "city": null,
                 "airports": null
               },
-              "departing_at": "2024-10-08T05:25:00",
+              "departing_at": "2024-10-08T06:25:00",
               "arriving_at": "2024-10-08T13:59:00",
               "aircraft": {
                 "name": "Boeing 777-300",
@@ -477,7 +477,7 @@
           },
           "id": "sli_0000Ab7taODHxn7GhD8DwJ",
           "fare_brand_name": "Basic",
-          "duration": "PT6H34M",
+          "duration": "PT5H34M",
           "destination_type": "airport",
           "destination": {
             "type": "airport",
@@ -1106,7 +1106,7 @@
                 "airports": null
               },
               "departing_at": "2024-10-01T00:00:00",
-              "arriving_at": "2024-10-01T05:34:00",
+              "arriving_at": "2024-10-01T07:34:00",
               "aircraft": {
                 "name": "Boeing 777-300",
                 "id": "arc_00009VMF8AhXSSRnQDI6HE",
@@ -1132,7 +1132,7 @@
           },
           "id": "sli_0000Ab7taODHxn7GhD8DwH",
           "fare_brand_name": "Standard",
-          "duration": "PT6H34M",
+          "duration": "PT7H34M",
           "destination_type": "airport",
           "destination": {
             "type": "airport",
@@ -1284,7 +1284,7 @@
                 "airports": null
               },
               "departing_at": "2024-10-08T05:25:00",
-              "arriving_at": "2024-10-08T13:59:00",
+              "arriving_at": "2024-10-08T15:59:00",
               "aircraft": {
                 "name": "Boeing 777-300",
                 "id": "arc_00009VMF8AhXSSRnQDI6HE",
@@ -1322,7 +1322,7 @@
           },
           "id": "sli_0000Ab7taODHxn7GhD8DwJ",
           "fare_brand_name": "Standard",
-          "duration": "PT6H34M",
+          "duration": "PT7H34M",
           "destination_type": "airport",
           "destination": {
             "type": "airport",

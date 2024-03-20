@@ -1,11 +1,12 @@
 import * as React from "react";
 import { NGS_SHELF_INFO } from "./lib";
-import { Offer, OfferSliceSegmentPassenger } from "@duffel/api/types";
+import { Offer } from "@duffel/api/types";
 import { Icon } from "@components/shared/Icon";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { getMaxBaggagesForOfferSlice } from "./lib/get-max-baggages-for-offer-slice";
 import { Button } from "@components/shared/Button";
 import classNames from "classnames";
+import { getFareBrandNameForOffer } from "./lib/deduplicate-mapped-offers-by-fare-brand";
 
 export interface NGSSliceFareCardProps {
   offer: Offer;
@@ -31,20 +32,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   const slice = offer.slices[sliceIndex];
   const shelfInfo = NGS_SHELF_INFO[slice.ngs_shelf];
 
-  // Cabin class can vary within a slice across passengers and segments. Here we
-  // make a list of all cabin classes present in the slice.
-  const cabinClasses = slice.segments
-    .flatMap((segment) => segment.passengers)
-    .reduce<OfferSliceSegmentPassenger["cabin_class"][]>(
-      (cabinClasses, passenger) => {
-        if (cabinClasses.includes(passenger.cabin_class)) {
-          return cabinClasses;
-        }
-        return [...cabinClasses, passenger.cabin_class];
-      },
-      [],
-    );
-  const brandName = slice.fare_brand_name || cabinClasses.join("/");
+  const brandName = getFareBrandNameForOffer(offer);
 
   // A null property indicates the API can't provide the information for this
   // slice, so we default to using the offer condition.

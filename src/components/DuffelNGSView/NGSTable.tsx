@@ -195,7 +195,11 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                             onSelect={() =>
                               onSelect(
                                 offer.id,
-                                getNGSSliceKey(offer.slices[sliceIndex]),
+                                getNGSSliceKey(
+                                  offer.slices[sliceIndex],
+                                  offer.owner.iata_code,
+                                  true,
+                                ),
                               )
                             }
                           />
