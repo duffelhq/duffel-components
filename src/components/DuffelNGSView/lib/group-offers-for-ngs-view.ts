@@ -1,13 +1,19 @@
 import { Offer, OfferSlice } from "@duffel/api/types";
 import { NGSShelf } from ".";
+import { deduplicateMappedOffersByFareBrand } from "./deduplicate-mapped-offers-by-fare-brand";
 
 export type NGSOfferRow = Record<"slice", OfferSlice> &
   Record<NGSShelf, Offer[] | null>;
 
-export const getNGSSliceKey = (slice: OfferSlice): string => {
-  const firstSegment = slice.segments[0];
-  const lastSegment = slice.segments[slice.segments.length - 1];
-  return `${firstSegment.marketing_carrier.id}-${firstSegment.departing_at}-${lastSegment.arriving_at}`;
+export const getNGSSliceKey = (
+  slice: OfferSlice,
+  ownerId: string | null,
+  includeFareBrand?: boolean,
+): string => {
+  const flightNumbers = slice.segments
+    .map((segment) => segment.marketing_carrier_flight_number)
+    .join("-");
+  return `${ownerId}-${flightNumbers}${includeFareBrand ? `-${slice.fare_brand_name}` : ""}`;
 };
 
 const filterOffersThatMatchCurrentSlice = (
@@ -19,7 +25,10 @@ const filterOffersThatMatchCurrentSlice = (
     for (const offer of offers) {
       let match = true;
       for (const [index, sliceKey] of previousSliceKeys.entries()) {
-        if (sliceKey !== getNGSSliceKey(offer.slices[index])) {
+        if (
+          sliceKey !==
+          getNGSSliceKey(offer.slices[index], offer.owner.iata_code, true)
+        ) {
           match = false;
           break;
         }
@@ -52,7 +61,7 @@ export const groupOffersForNGSView = (
     }
 
     const slice = offer.slices[sliceIndex];
-    const sliceKey = getNGSSliceKey(slice);
+    const sliceKey = getNGSSliceKey(slice, offer.owner.iata_code);
     if (offersMap[sliceKey]) {
       if (offersMap[sliceKey][slice.ngs_shelf]) {
         offersMap[sliceKey][slice.ngs_shelf]?.push(offer);
@@ -72,5 +81,5 @@ export const groupOffersForNGSView = (
     }
   });
 
-  return Object.values(offersMap);
+  return Object.values(deduplicateMappedOffersByFareBrand(offersMap));
 };
