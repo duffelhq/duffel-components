@@ -57,10 +57,10 @@ class MapboxPlacesLookupCustomElement extends HTMLElement {
             new CustomEvent("onPlaceSelected", {
               composed: true,
               detail: { place },
-            })
+            }),
           );
         }}
-      />
+      />,
     );
   }
 }
@@ -68,27 +68,27 @@ class MapboxPlacesLookupCustomElement extends HTMLElement {
 window.customElements.get(CUSTOM_ELEMENT_TAG) ||
   window.customElements.define(
     CUSTOM_ELEMENT_TAG,
-    MapboxPlacesLookupCustomElement
+    MapboxPlacesLookupCustomElement,
   );
 
 function tryToGetCustomElement(
-  caller: string
+  caller: string,
 ): MapboxPlacesLookupCustomElement {
   const element =
     document.querySelector<MapboxPlacesLookupCustomElement>(CUSTOM_ELEMENT_TAG);
   if (!element) {
     throw new Error(
-      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`
+      `Could not find ${CUSTOM_ELEMENT_TAG} element in the DOM. Maybe you need to call ${caller} after 'window.onload'?`,
     );
   }
   return element;
 }
 
 export function renderMapboxPlacesLookupCustomElement(
-  props: MapboxPlacesLookupCustomElementRenderArguments
+  props: MapboxPlacesLookupCustomElementRenderArguments,
 ) {
   const element = tryToGetCustomElement(
-    "renderMapboxPlacesLookupCustomElement"
+    "renderMapboxPlacesLookupCustomElement",
   );
   element.render(props);
 }
@@ -98,7 +98,7 @@ type OnPlaceSelectedCustomEvent = CustomEvent<{
 }>;
 
 export function onMapboxPlacesLookupPlaceSelected(
-  onPlaceSelected: MapboxPlacesLookupProps["onPlaceSelected"]
+  onPlaceSelected: MapboxPlacesLookupProps["onPlaceSelected"],
 ) {
   const element = tryToGetCustomElement("onDuffelAncillariesPayloadReady");
   const eventListener = (event: OnPlaceSelectedCustomEvent) => {
