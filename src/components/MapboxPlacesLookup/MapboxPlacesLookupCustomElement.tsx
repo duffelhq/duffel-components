@@ -35,7 +35,7 @@ class MapboxPlacesLookupCustomElement extends HTMLElement {
    */
   connectedCallback() {
     const container = document.createElement("div");
-    this.attachShadow({ mode: "open" }).appendChild(container);
+    this.appendChild(container);
 
     this.root = createRoot(container);
   }
