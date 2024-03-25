@@ -143,7 +143,6 @@ const offer10 = { ...offer, slices: [A1F2, B3F2], total_amount: "100" };
 // Example from https://www.notion.so/duffel/NGS-Technical-Scoping-26df8e8fb8db40e19bd661b748810622?pvs=4#b4db506e7de24815afe3ad4ca13bed89
 // eslint-disable-next-line storybook/prefer-pascal-case
 export const duplicateOffers = [
-  // TODO export from somewhere else as it's not a story
   offer1,
   offer2,
   offer3,
