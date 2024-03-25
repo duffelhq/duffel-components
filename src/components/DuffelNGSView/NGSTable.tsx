@@ -17,7 +17,7 @@ import { NGSSliceFareCard } from "./NGSSliceFareCard";
 import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { SliceSummary } from "./SliceSummary";
 import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
-import { OfferRequest } from "@duffel/api/types";
+import { OfferRequest, OfferSlice } from "@duffel/api/types";
 
 export interface NGSTableProps {
   offers: OfferRequest["offers"];
@@ -47,6 +47,8 @@ export const NGSTable: React.FC<NGSTableProps> = ({
     React.useState<OfferPosition | null>(null);
   const [isOfferSliceModalOpen, setIsOfferSliceModalOpen] =
     React.useState<boolean>(false);
+  const [offerSliceModalSlice, setOfferSliceModalSlice] =
+    React.useState<OfferSlice>(offers[0].slices[sliceIndex]);
 
   React.useEffect(() => {
     setSelectedColumn(null);
@@ -140,16 +142,14 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                   <SliceCarriersTitle slice={row["slice"]} />
                   <SliceSummary slice={row["slice"]} />
                   <button
-                    onClick={() => setIsOfferSliceModalOpen(true)}
+                    onClick={() => {
+                      setOfferSliceModalSlice(row["slice"]);
+                      setIsOfferSliceModalOpen(true);
+                    }}
                     className="ngs-table_slice-details-button"
                   >
                     View details
                   </button>
-                  <OfferSliceModal
-                    slice={row["slice"]}
-                    isOpen={isOfferSliceModalOpen}
-                    onClose={() => setIsOfferSliceModalOpen(false)}
-                  />
                 </td>
                 {NGS_SHELVES.map((shelf) => (
                   <td
@@ -212,6 +212,11 @@ export const NGSTable: React.FC<NGSTableProps> = ({
           ))}
         </tbody>
       </table>
+      <OfferSliceModal
+        slice={offerSliceModalSlice}
+        isOpen={isOfferSliceModalOpen}
+        onClose={() => setIsOfferSliceModalOpen(false)}
+      />
     </div>
   );
 };
