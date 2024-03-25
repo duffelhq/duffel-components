@@ -15,17 +15,33 @@
   text-align: left;
 
   width: 190px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .ngs-slice-fare-card_container > div {
   padding: 16px;
+  width: calc(100% - 32px);
+}
+
+.ngs-slice-fare-card_container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .ngs-slice-fare-card_header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.ngs-slice-fare-card_header > svg {
+  margin-left: 8px;
+  min-width: 24px;
 }
 
 .ngs-slice-fare-card_title {
