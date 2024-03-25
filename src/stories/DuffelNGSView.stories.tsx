@@ -13,7 +13,11 @@ const offer = offerRequest.offers[0];
 const cheapOffer = {
   ...offer,
   slices: [
-    { ...offer.slices[0], ngs_shelf: 1, fare_brand_name: "Very Basic" },
+    {
+      ...offer.slices[0],
+      ngs_shelf: 1,
+      fare_brand_name: "Very Basic Long Fare Brand Name",
+    },
     offer.slices[1],
   ],
   total_amount: "100",
