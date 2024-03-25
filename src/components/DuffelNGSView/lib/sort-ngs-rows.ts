@@ -19,6 +19,8 @@ export const sortNGSRows = (
     if (aAmount && bAmount) {
       return sortDirection === "asc" ? aAmount - bAmount : bAmount - aAmount;
     }
+    if (aAmount) return -1;
+    if (bAmount) return 1;
     return 0;
   });
 
