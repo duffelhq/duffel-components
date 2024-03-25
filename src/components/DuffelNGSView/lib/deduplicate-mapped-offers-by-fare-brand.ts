@@ -1,4 +1,8 @@
-import { Offer, OfferSliceSegmentPassenger } from "@duffel/api/types";
+import {
+  Offer,
+  OfferRequest,
+  OfferSliceSegmentPassenger,
+} from "@duffel/api/types";
 import { NGSOfferRow } from "./group-offers-for-ngs-view";
 import { NGS_SHELVES } from ".";
 
@@ -27,7 +31,9 @@ export const deduplicateMappedOffersByFareBrand = (
   return offersMap;
 };
 
-export const getFareBrandNameForOffer = (offer: Offer): string => {
+export const getFareBrandNameForOffer = (
+  offer: Omit<Offer, "available_services">,
+): string => {
   // Cabin class can vary within a slice across passengers and segments. Here we
   // make a list of all cabin classes present in the slice.
   const cabinClasses = offer.slices[0].segments
@@ -45,25 +51,29 @@ export const getFareBrandNameForOffer = (offer: Offer): string => {
   return offer.slices[0].fare_brand_name || cabinClasses.join("/");
 };
 
-export const getCheapestOffer = (offers: Offer[]) =>
+export const getCheapestOffer = (offers: OfferRequest["offers"]) =>
   offers.find(
     (offer) =>
       +offer.total_amount ==
       Math.min(...offers.map((offer) => +offer.total_amount)),
   )!;
 
-export const groupByFareBrandName = (offers: Offer[]) => {
-  const groupedResult: { [key: string]: Offer[] } = offers.reduce(
-    (previous: { [key: string]: Offer[] }, current: Offer) => {
-      const key = getFareBrandNameForOffer(current);
-      if (!previous[key]) {
-        previous[key] = [];
-      }
+export const groupByFareBrandName = (offers: OfferRequest["offers"]) => {
+  const groupedResult: { [key: string]: OfferRequest["offers"] } =
+    offers.reduce(
+      (
+        previous: { [key: string]: OfferRequest["offers"] },
+        current: Omit<Offer, "available_services">,
+      ) => {
+        const key = getFareBrandNameForOffer(current);
+        if (!previous[key]) {
+          previous[key] = [];
+        }
 
-      previous[key].push(current);
-      return previous;
-    },
-    {},
-  );
+        previous[key].push(current);
+        return previous;
+      },
+      {},
+    );
   return Object.values(groupedResult);
 };

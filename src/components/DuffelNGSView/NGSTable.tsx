@@ -17,10 +17,10 @@ import { NGSSliceFareCard } from "./NGSSliceFareCard";
 import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { SliceSummary } from "./SliceSummary";
 import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
-import { Offer } from "@duffel/api/types";
+import { OfferRequest } from "@duffel/api/types";
 
 export interface NGSTableProps {
-  offers: Offer[];
+  offers: OfferRequest["offers"];
   sliceIndex: number;
   previousSliceKeys: string[]; // For filtering the current set of offers
   onSelect: (offerId: string, sliceKey: string) => void;

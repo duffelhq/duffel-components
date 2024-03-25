@@ -16,11 +16,6 @@ const MOCK_CITY: City = {
   iata_country_code: "FR",
   id: "cit_paris",
   name: "Paris",
-  time_zone: "Europe/Paris",
-  latitude: 49.0079,
-  longitude: 2.5508,
-  iata_city_code: "PAR",
-  city_name: "Paris",
 };
 const MOCK_AIRPORT: Airport = {
   city: MOCK_CITY,

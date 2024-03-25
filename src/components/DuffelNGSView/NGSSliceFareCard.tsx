@@ -9,7 +9,7 @@ import classNames from "classnames";
 import { getFareBrandNameForOffer } from "./lib/deduplicate-mapped-offers-by-fare-brand";
 
 export interface NGSSliceFareCardProps {
-  offer: Offer;
+  offer: Omit<Offer, "available_services">;
   sliceIndex: number;
 
   onSelect?: () => void;
