@@ -32,7 +32,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   const slice = offer.slices[sliceIndex];
   const shelfInfo = NGS_SHELF_INFO[slice.ngs_shelf];
 
-  const brandName = getFareBrandNameForOffer(offer);
+  const brandName = getFareBrandNameForOffer(offer, sliceIndex);
 
   // A null property indicates the API can't provide the information for this
   // slice, so we default to using the offer condition.

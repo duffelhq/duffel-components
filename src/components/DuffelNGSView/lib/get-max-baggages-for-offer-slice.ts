@@ -25,7 +25,9 @@ export const getMaxBaggagesForOfferSlice = (
   offerSlice: OfferSlice,
   type: OfferAvailableServiceBaggageMetadata["type"],
 ): OfferSliceSegmentPassenger["baggages"] => {
-  let maxBaggages = offerSlice.segments[0].passengers[0].baggages;
+  let maxBaggages = offerSlice.segments[0].passengers[0].baggages.filter(
+    (baggage) => baggage.type === type,
+  );
   let maxBaggagesQuantity = getBaggagesQuantity(maxBaggages, type);
 
   offerSlice.segments.forEach((segment) => {

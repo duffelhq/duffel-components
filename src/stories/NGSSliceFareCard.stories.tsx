@@ -18,25 +18,65 @@ export default {
   ],
 } as Meta;
 
-export const FullList: React.FC = () => {
-  const compareToAmount = 500;
+export const FullList: React.FC = () => (
+  <div
+    style={{
+      display: "flex",
+      alignItems: "stretch",
+      justifyContent: "space-evenly",
+      width: "600px",
+    }}
+  >
+    <NGSSliceFareCard offer={offer} sliceIndex={0} onSelect={console.log} />
+    <NGSSliceFareCard
+      offer={{
+        ...offer,
+        total_amount: 500,
+        slices: [
+          {
+            ...offer.slices[0],
+            fare_brand_name: "Really long fare brand name",
+          },
+          {
+            ...offer.slices[1],
+            fare_brand_name: "Really long fare brand name",
+            conditions: {
+              refund_before_departure: {
+                allowed: true,
+                penalty_amount: 100,
+                penalty_currency: "USD",
+              },
+              change_before_departure: {
+                allowed: true,
+                penalty_amount: 10,
+                penalty_currency: "USD",
+              },
+              priority_check_in: true,
+              priority_boarding: true,
+              advance_seat_selection: true,
+            },
 
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "space-evenly",
-        width: "600px",
-        height: "400px",
+            segments: [
+              {
+                ...offer.slices[1].segments[0],
+                passengers: [
+                  {
+                    ...offer.slices[1].segments[0].passengers[0],
+                    baggages: [
+                      { quantity: 0, type: "checked" },
+                      { quantity: 1, type: "carry_on" },
+                    ],
+                  },
+                  ...offer.slices[1].segments[0].passengers.slice(1),
+                ],
+              },
+              ...offer.slices[1].segments.slice(1),
+            ],
+          },
+        ],
       }}
-    >
-      <NGSSliceFareCard
-        offer={{ ...offer, total_amount: compareToAmount }}
-        sliceIndex={0}
-        onSelect={console.log}
-      />
-      <NGSSliceFareCard offer={offer} sliceIndex={1} onSelect={console.log} />
-    </div>
-  );
-};
+      sliceIndex={1}
+      onSelect={console.log}
+    />
+  </div>
+);

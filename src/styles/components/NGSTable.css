@@ -97,12 +97,15 @@
   background-color: var(--GREY-50);
   padding: 32px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   overflow-x: auto;
 }
 
-.ngs-table_expanded > div > button {
-  margin: auto;
+.ngs-table_expanded > div > button:first-child {
+  margin-left: auto;
+}
+.ngs-table_expanded > div > button:last-child {
+  margin-right: auto;
 }
 
 .ngs-table_table-data--expanded {

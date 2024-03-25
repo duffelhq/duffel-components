@@ -33,10 +33,11 @@ export const deduplicateMappedOffersByFareBrand = (
 
 export const getFareBrandNameForOffer = (
   offer: Omit<Offer, "available_services">,
+  sliceIndex?: number,
 ): string => {
   // Cabin class can vary within a slice across passengers and segments. Here we
   // make a list of all cabin classes present in the slice.
-  const cabinClasses = offer.slices[0].segments
+  const cabinClasses = offer.slices[sliceIndex || 0].segments
     .flatMap((segment) => segment.passengers)
     .reduce<OfferSliceSegmentPassenger["cabin_class"][]>(
       (cabinClasses, passenger) => {
