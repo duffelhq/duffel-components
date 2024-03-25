@@ -30,6 +30,45 @@ const expensiveOffer = {
   ],
   total_amount: "10000",
 };
+const mediumOffer = {
+  ...offer,
+  slices: [
+    {
+      ...offer.slices[0],
+      segments: [
+        {
+          ...offer.slices[0].segments[0],
+          marketing_carrier: { name: "British Airways", iata_code: "BA" },
+          marketing_carrier_flight_number: "BA123",
+        },
+        ...offer.slices[0].segments.slice(1),
+      ],
+      ngs_shelf: 3,
+    },
+    offer.slices[1],
+  ],
+  total_amount: "500",
+};
+const alternativeMediumOffer = {
+  ...offer,
+  slices: [
+    {
+      ...offer.slices[0],
+      segments: [
+        {
+          ...offer.slices[0].segments[0],
+          marketing_carrier: { name: "British Airways", iata_code: "BA" },
+          operating_carrier: { name: "British Airways", iata_code: "BA" },
+          marketing_carrier_flight_number: "BA456",
+        },
+        ...offer.slices[0].segments.slice(1),
+      ],
+      ngs_shelf: 3,
+    },
+    offer.slices[1],
+  ],
+  total_amount: "400",
+};
 const alternativeCheapOffer = {
   ...offer,
   slices: [
@@ -82,6 +121,8 @@ const defaultProps: DuffelNGSViewProps = {
     offers: [
       offer,
       cheapOffer,
+      mediumOffer,
+      alternativeMediumOffer,
       expensiveOffer,
       alternativeCheapOffer,
       alternativeExpensiveOffer,
