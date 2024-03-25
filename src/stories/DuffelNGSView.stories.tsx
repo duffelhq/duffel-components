@@ -4,6 +4,7 @@ import {
   DuffelNGSViewProps,
 } from "../components/DuffelNGSView/DuffelNGSView";
 import { OfferSlice } from "@duffel/api/types";
+import { NGSShelf } from "@components/DuffelNGSView/lib";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const offerRequest = require("../fixtures/offer-requests/orq_0000Ab7taNqbK8y5YqW6Zk.json");
@@ -72,13 +73,16 @@ export default {
 } as Meta;
 
 const defaultProps: DuffelNGSViewProps = {
-  offers: [
-    offer,
-    cheapOffer,
-    expensiveOffer,
-    alternativeCheapOffer,
-    alternativeExpensiveOffer,
-  ],
+  offerRequest: {
+    ...offerRequest,
+    offers: [
+      offer,
+      cheapOffer,
+      expensiveOffer,
+      alternativeCheapOffer,
+      alternativeExpensiveOffer,
+    ],
+  },
   onSelect: console.log,
 };
 
@@ -89,7 +93,7 @@ export const Default: StoryFn<DuffelNGSViewProps> = () => (
 const makeSlice = (
   offerIndex: number,
   sliceIndex: number,
-  ngs_shelf: number,
+  ngs_shelf: NGSShelf,
   marketing_carrier_flight_number: string,
 ) => ({
   ...offerRequest.offers[offerIndex].slices[sliceIndex],
@@ -139,6 +143,7 @@ const offer10 = { ...offer, slices: [A1F2, B3F2], total_amount: "100" };
 // Example from https://www.notion.so/duffel/NGS-Technical-Scoping-26df8e8fb8db40e19bd661b748810622?pvs=4#b4db506e7de24815afe3ad4ca13bed89
 // eslint-disable-next-line storybook/prefer-pascal-case
 export const duplicateOffers = [
+  // TODO export from somewhere else as it's not a story
   offer1,
   offer2,
   offer3,
@@ -153,7 +158,7 @@ export const duplicateOffers = [
 
 // Example from https://www.notion.so/duffel/NGS-Technical-Scoping-26df8e8fb8db40e19bd661b748810622?pvs=4#b4db506e7de24815afe3ad4ca13bed89
 const deduplicatedProps: DuffelNGSViewProps = {
-  offers: duplicateOffers,
+  offerRequest: { ...offerRequest, offers: duplicateOffers },
   onSelect: console.log,
 };
 

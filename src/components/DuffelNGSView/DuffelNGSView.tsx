@@ -3,30 +3,30 @@ import { NGSTable } from "./NGSTable";
 import { getDateString } from "@lib/getDateString";
 import { Icon } from "@components/shared/Icon";
 import classNames from "classnames";
-import { Offer } from "@duffel/api/types";
+import { OfferRequest } from "@duffel/api/types";
 import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 
 export interface DuffelNGSViewProps {
-  offers: Offer[];
+  offerRequest: OfferRequest;
   onSelect: (offerId: string) => void;
 }
 
 export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
-  offers,
+  offerRequest,
   onSelect,
 }) => {
   const [selectedSliceKeys, setSelectedSliceKeys] = React.useState<string[]>(
     [],
   );
-  if (offers.length == 0) {
+  if (offerRequest.offers.length == 0) {
     return null;
   }
 
-  const numSlices = offers[0].slices.length;
+  const numSlices = offerRequest.slices.length;
   const currentSlice =
     selectedSliceKeys.length > 0
-      ? offers[0].slices[selectedSliceKeys.length]
-      : offers[0].slices[0];
+      ? offerRequest.slices[selectedSliceKeys.length]
+      : offerRequest.slices[0];
 
   return (
     <WithComponentStyles>
@@ -34,7 +34,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
         {currentSlice && (
           <>
             <div className="duffel-ngs-view_breadcrumbs">
-              {offers[0].slices.map((slice, index) => (
+              {offerRequest.slices.map((slice, index) => (
                 <>
                   <button
                     key={index}
@@ -63,17 +63,16 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
             </div>
             <h3 className="duffel-ngs-view_heading">
               {numSlices === 2 &&
-                `${selectedSliceKeys.length === 0 ? "Outbound" : "Inbound"} flight to  ${currentSlice.destination.city_name}`}
-              {numSlices !== 2 &&
-                `Flight to ${currentSlice.destination.city_name}`}
+                `${selectedSliceKeys.length === 0 ? "Outbound" : "Inbound"} flight to  ${currentSlice.destination.name}`}
+              {numSlices !== 2 && `Flight to ${currentSlice.destination.name}`}
             </h3>
             <h4 className="duffel-ngs-view_subheading">
-              {getDateString(currentSlice.segments[0].departing_at, "long")}
+              {getDateString(currentSlice.departure_date, "long")}
             </h4>
           </>
         )}
         <NGSTable
-          offers={offers}
+          offers={offerRequest.offers}
           sliceIndex={selectedSliceKeys.length}
           previousSliceKeys={selectedSliceKeys}
           onSelect={(offerId, sliceKey) => {
