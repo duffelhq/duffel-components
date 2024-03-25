@@ -2,7 +2,7 @@ import {
   getNGSSliceKey,
   groupOffersForNGSView,
 } from "@components/DuffelNGSView/lib/group-offers-for-ngs-view";
-import { duplicateOffers } from "../../stories/DuffelNGSView.stories";
+import { duplicateOffers } from "../../fixtures/offer-requests/orq_duplicates";
 
 describe("groupOffersForNGSView", () => {
   test("should group duplicate offers within fare brands for NGS view correctly", () => {

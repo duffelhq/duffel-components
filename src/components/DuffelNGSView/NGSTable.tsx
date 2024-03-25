@@ -183,27 +183,29 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                 ))}
               </tr>
               {expandedOffer?.row === index &&
-                rows[index][expandedOffer.shelf] && (
+                sortedRows[index][expandedOffer.shelf] && (
                   <tr>
                     <td colSpan={6} className="ngs-table_expanded">
                       <div>
-                        {rows[index][expandedOffer.shelf]?.map((offer) => (
-                          <NGSSliceFareCard
-                            key={offer.id}
-                            offer={offer}
-                            sliceIndex={sliceIndex}
-                            onSelect={() =>
-                              onSelect(
-                                offer.id,
-                                getNGSSliceKey(
-                                  offer.slices[sliceIndex],
-                                  offer.owner.iata_code,
-                                  true,
-                                ),
-                              )
-                            }
-                          />
-                        ))}
+                        {sortedRows[index][expandedOffer.shelf]?.map(
+                          (offer) => (
+                            <NGSSliceFareCard
+                              key={offer.id}
+                              offer={offer}
+                              sliceIndex={sliceIndex}
+                              onSelect={() =>
+                                onSelect(
+                                  offer.id,
+                                  getNGSSliceKey(
+                                    offer.slices[sliceIndex],
+                                    offer.owner.iata_code,
+                                    true,
+                                  ),
+                                )
+                              }
+                            />
+                          ),
+                        )}
                       </div>
                     </td>
                   </tr>
