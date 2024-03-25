@@ -5,3 +5,5 @@ storybook-static/*
 .yarn
 .pnp*
 .next
+
+src/fixtures/offer-requests/orq_0000AgDHjHoX1SDBo07hdQ.json
