@@ -2,13 +2,13 @@
   width: calc(100% - 34px);
   padding: 12px 16px;
   border-radius: 4px;
-  border: 1px solid var(--GREY-400);
+  border: 1px solid grey;
   font-size: 16px;
 }
 
 .places-lookup-popover {
-  background-color: var(--WHITE);
-  box-shadow: 0 1px 4px rgb(59 64 86 / 30%);
+  background-color: white;
+  box-shadow: 0 1px 4px rgb(59 64 86 / 100%);
   border-radius: 4px;
   margin: 4px;
   padding: 4px;
@@ -22,19 +22,20 @@
   justify-content: space-between;
   padding: 0.5rem;
   cursor: pointer;
-  column-gap: var(--SPACING-XS-2);
+  column-gap: 2px;
   background-color: transparent;
   border: none;
   border-radius: 4px;
 }
 
+.places-lookup-popover-item--highlighted,
 .places-lookup-popover__item:hover,
 .places-lookup-popover__item:focus {
-  background-color: var(--GREY-100);
+  background-color: lightgrey;
 }
 
 .places-lookup-popover__icon-and-name-container {
-  column-gap: var(--SPACING-SM-1);
+  column-gap: 2px;
   display: flex;
   align-items: flex-start;
   text-align: start;
