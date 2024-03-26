@@ -25,6 +25,9 @@ export interface StaysRoomRateCardProps {
   numberOfNights: number;
   selected: boolean;
   onSelectRate: (rateId: string) => void;
+
+  hidePaymentMethod?: boolean;
+  hideSource?: boolean;
 }
 
 export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
@@ -33,6 +36,8 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
   rate,
   selected,
   onSelectRate,
+  hidePaymentMethod = false,
+  hideSource = false,
 }) => {
   const earliestCancellation: StaysRateCancellationTimeline | undefined =
     rate.cancellation_timeline[0];
@@ -49,7 +54,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
         className={classNames(
           "duffel-components",
           "stays-room-rate-card__container",
-          selected && "stays-room-rate-card__container--selected",
+          selected && "stays-room-rate-card__container--selected"
         )}
       >
         <VSpace className="stays-room-rate-card__content" space={12}>
@@ -81,14 +86,13 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                   rate.total_amount === earliestCancellation.refund_amount ? (
                     `Free cancellation until ${getDateString(
                       earliestCancellation.before,
-                      "medium",
+                      "medium"
                     )}`
                   ) : (
                     <>
                       Cancellation available (from{" "}
                       {moneyStringFormatter(earliestCancellation.currency)(
-                        +rate.total_amount -
-                          +earliestCancellation.refund_amount,
+                        +rate.total_amount - +earliestCancellation.refund_amount
                       )}{" "}
                       fee)
                     </>
@@ -99,17 +103,18 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
               <StayResultRoomRateItem icon="close" label="Non-refundable" />
             )}
 
-            {rate.available_payment_methods.map((paymentMethod) => (
-              <StayResultRoomRateItem
-                key={paymentMethod}
-                icon={paymentMethod === "card" ? "credit_card" : "wallet"}
-                label={
-                  paymentMethod === "card"
-                    ? "Card payment at accommodation"
-                    : "Pay now with Duffel Balance"
-                }
-              />
-            ))}
+            {!hidePaymentMethod &&
+              rate.available_payment_methods.map((paymentMethod) => (
+                <StayResultRoomRateItem
+                  key={paymentMethod}
+                  icon={paymentMethod === "card" ? "credit_card" : "wallet"}
+                  label={
+                    paymentMethod === "card"
+                      ? "Card payment at accommodation"
+                      : "Pay now with Duffel Balance"
+                  }
+                />
+              ))}
 
             {rate.supported_loyalty_programme && (
               <StayResultRoomRateItem
@@ -119,10 +124,12 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                 }
               />
             )}
-            <StayResultRoomRateItem
-              icon="shopfront"
-              label={`Sourced from ${SOURCE_NAME_MAP[rate.source]}`}
-            />
+            {!hideSource && (
+              <StayResultRoomRateItem
+                icon="shopfront"
+                label={`Sourced from ${SOURCE_NAME_MAP[rate.source]}`}
+              />
+            )}
           </VSpace>
         </VSpace>
         <VSpace space={8} className="stays-room-rate-card__footer">
@@ -144,7 +151,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                   <i>
                     +{" "}
                     {moneyStringFormatter(rate.due_at_accommodation_currency)(
-                      +rate.due_at_accommodation_amount,
+                      +rate.due_at_accommodation_amount
                     )}{" "}
                     at accommodation
                   </i>
@@ -154,7 +161,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
           <HSpace space={8} spaceBetween>
             <p className="stays-room-rate-card__text--large">
               {moneyStringFormatter(rate.total_currency)(
-                +rate.total_amount / numberOfNights,
+                +rate.total_amount / numberOfNights
               )}
               <span className="stays-room-rate-card__text--small">/night</span>
             </p>
