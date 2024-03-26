@@ -93,8 +93,12 @@ export const MapboxPlacesLookup: React.FC<MapboxPlacesLookupProps> = ({
         value={inputValue}
         onKeyDown={handleSpecialKeyPress}
         onBlur={() => {
-          setShouldShowPopover(false);
-          setLookupResults([]);
+          // Timeout is needed to prevent the popover from
+          // closing before the click event is registered on a button below
+          setTimeout(() => {
+            setShouldShowPopover(false);
+            setLookupResults([]);
+          }, 300);
         }}
         onChange={(e) => {
           if (!shouldShowPopover) setShouldShowPopover(true);
@@ -112,8 +116,9 @@ export const MapboxPlacesLookup: React.FC<MapboxPlacesLookupProps> = ({
                   "places-lookup-popover__item",
                   index === highlightedIndex && highlightedPopupItemClassName
                 )}
-                key={place.shortName}
+                key={place.shortName + index}
                 onClick={() => {
+                  setHighlightedIndex(0);
                   setShouldShowPopover(false);
                   onPlaceSelected(place);
                   setInputValue(place.name);
