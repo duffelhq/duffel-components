@@ -14,7 +14,7 @@ export interface Place {
 export function getPlacesFromMapboxClient(publicKey: string) {
   return async function getPlacesFromMapbox(query: string): Promise<Place[]> {
     const result = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${publicKey}`
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${publicKey}`,
     );
 
     const { features } = await result.json();

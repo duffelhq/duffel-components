@@ -54,7 +54,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
         className={classNames(
           "duffel-components",
           "stays-room-rate-card__container",
-          selected && "stays-room-rate-card__container--selected"
+          selected && "stays-room-rate-card__container--selected",
         )}
       >
         <VSpace className="stays-room-rate-card__content" space={12}>
@@ -86,13 +86,14 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                   rate.total_amount === earliestCancellation.refund_amount ? (
                     `Free cancellation until ${getDateString(
                       earliestCancellation.before,
-                      "medium"
+                      "medium",
                     )}`
                   ) : (
                     <>
                       Cancellation available (from{" "}
                       {moneyStringFormatter(earliestCancellation.currency)(
-                        +rate.total_amount - +earliestCancellation.refund_amount
+                        +rate.total_amount -
+                          +earliestCancellation.refund_amount,
                       )}{" "}
                       fee)
                     </>
@@ -151,7 +152,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                   <i>
                     +{" "}
                     {moneyStringFormatter(rate.due_at_accommodation_currency)(
-                      +rate.due_at_accommodation_amount
+                      +rate.due_at_accommodation_amount,
                     )}{" "}
                     at accommodation
                   </i>
@@ -161,7 +162,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
           <HSpace space={8} spaceBetween>
             <p className="stays-room-rate-card__text--large">
               {moneyStringFormatter(rate.total_currency)(
-                +rate.total_amount / numberOfNights
+                +rate.total_amount / numberOfNights,
               )}
               <span className="stays-room-rate-card__text--small">/night</span>
             </p>

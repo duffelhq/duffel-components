@@ -114,7 +114,7 @@ export const MapboxPlacesLookup: React.FC<MapboxPlacesLookupProps> = ({
               <button
                 className={classNames(
                   "places-lookup-popover__item",
-                  index === highlightedIndex && highlightedPopupItemClassName
+                  index === highlightedIndex && highlightedPopupItemClassName,
                 )}
                 key={place.shortName + index}
                 onClick={() => {
