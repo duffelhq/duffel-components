@@ -32,10 +32,21 @@ export const WithLinksStyles: DuffelCardFormStory = {
         "font-weight": "500",
         "line-height": "20px",
         display: "inline-block",
-        transform: "translate(12px, 11px)",
+        position: "absolute",
+        "margin-top": "-9px",
+        "margin-left": "8px",
         "background-color": "white",
         width: "fit-content",
         "padding-inline": "4px",
+      },
+      select: {
+        default: {
+          "border-radius": "4px",
+        },
+      },
+      layoutGrid: {
+        padding: "8px 2px",
+        "row-gap": "8px",
       },
     },
   },
