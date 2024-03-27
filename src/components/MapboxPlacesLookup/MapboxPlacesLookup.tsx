@@ -65,7 +65,6 @@ export const MapboxPlacesLookup: React.FC<MapboxPlacesLookupProps> = ({
   }
 
   function handleSpecialKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
-    console.log(event.key);
     if (event.key === "Enter") {
       confirmHighlightedIndex();
       event.preventDefault();
