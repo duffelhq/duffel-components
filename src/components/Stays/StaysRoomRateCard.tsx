@@ -25,6 +25,9 @@ export interface StaysRoomRateCardProps {
   numberOfNights: number;
   selected: boolean;
   onSelectRate: (rateId: string) => void;
+
+  hidePaymentMethod?: boolean;
+  hideSource?: boolean;
 }
 
 export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
@@ -33,6 +36,8 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
   rate,
   selected,
   onSelectRate,
+  hidePaymentMethod = false,
+  hideSource = false,
 }) => {
   const earliestCancellation: StaysRateCancellationTimeline | undefined =
     rate.cancellation_timeline[0];
@@ -99,17 +104,18 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
               <StayResultRoomRateItem icon="close" label="Non-refundable" />
             )}
 
-            {rate.available_payment_methods.map((paymentMethod) => (
-              <StayResultRoomRateItem
-                key={paymentMethod}
-                icon={paymentMethod === "card" ? "credit_card" : "wallet"}
-                label={
-                  paymentMethod === "card"
-                    ? "Card payment at accommodation"
-                    : "Pay now with Duffel Balance"
-                }
-              />
-            ))}
+            {!hidePaymentMethod &&
+              rate.available_payment_methods.map((paymentMethod) => (
+                <StayResultRoomRateItem
+                  key={paymentMethod}
+                  icon={paymentMethod === "card" ? "credit_card" : "wallet"}
+                  label={
+                    paymentMethod === "card"
+                      ? "Card payment at accommodation"
+                      : "Pay now with Duffel Balance"
+                  }
+                />
+              ))}
 
             {rate.supported_loyalty_programme && (
               <StayResultRoomRateItem
@@ -119,10 +125,12 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                 }
               />
             )}
-            <StayResultRoomRateItem
-              icon="shopfront"
-              label={`Sourced from ${SOURCE_NAME_MAP[rate.source]}`}
-            />
+            {!hideSource && (
+              <StayResultRoomRateItem
+                icon="shopfront"
+                label={`Sourced from ${SOURCE_NAME_MAP[rate.source]}`}
+              />
+            )}
           </VSpace>
         </VSpace>
         <VSpace space={8} className="stays-room-rate-card__footer">
