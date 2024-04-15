@@ -2932,14 +2932,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@duffel/api@npm:2.8.1":
-  version: 2.8.1
-  resolution: "@duffel/api@npm:2.8.1"
+"@duffel/api@npm:2.9.0":
+  version: 2.9.0
+  resolution: "@duffel/api@npm:2.9.0"
   dependencies:
     "@types/node": "npm:^18.0.0"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
-  checksum: b6cf7d3b58aed04fc5ae71370f052ba0babe9a79365566f09d98a7041f2897bb98c1675845d4100d189261894da1cd8228bb3c63f39febe4a007a2b9a05956d9
+  checksum: 93b1477977a529531d4a6322adbf6e15341aefb0ba9a0d2255fd2fd663114bb9226fdae9b9d8a58d04a0654daa8cf9629cc51055db2bc8e18e8139a3fd37fff7
   languageName: node
   linkType: hard
 
@@ -2952,7 +2952,7 @@ __metadata:
     "@babel/preset-env": "npm:7.24.3"
     "@babel/preset-react": "npm:7.24.1"
     "@babel/preset-typescript": "npm:7.24.1"
-    "@duffel/api": "npm:2.8.1"
+    "@duffel/api": "npm:2.9.0"
     "@sentry/browser": "npm:7.77.0"
     "@sentry/cli": "npm:2.21.2"
     "@sentry/esbuild-plugin": "npm:0.7.2"
@@ -2970,8 +2970,8 @@ __metadata:
     "@types/lodash": "npm:4.14.202"
     "@types/node": "npm:18.18.8"
     "@types/prompts": "npm:2.4.9"
-    "@types/react": "npm:18.2.74"
-    "@types/react-dom": "npm:18.2.23"
+    "@types/react": "npm:18.2.33"
+    "@types/react-dom": "npm:18.2.14"
     "@typescript-eslint/eslint-plugin": "npm:6.9.1"
     "@typescript-eslint/parser": "npm:6.9.1"
     babel-jest: "npm:29.7.0"
@@ -5618,16 +5618,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.23":
-  version: 18.2.23
-  resolution: "@types/react-dom@npm:18.2.23"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 9348e93558aa67b4b237bd0eab62e72e85f3e17a1c45fde04d874476269730f7c671b3d62390c4fca588da2a026e90cc74148abc349dbfd4ee5535a82ccdf38e
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^18.0.0":
+"@types/react-dom@npm:18.2.14, @types/react-dom@npm:^18.0.0":
   version: 18.2.14
   resolution: "@types/react-dom@npm:18.2.14"
   dependencies:
@@ -5636,7 +5627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:18.2.33, @types/react@npm:>=16":
   version: 18.2.33
   resolution: "@types/react@npm:18.2.33"
   dependencies:
@@ -5644,16 +5635,6 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: d3392785660d78121541403a5d1da57dc79e8ce402769251a626aa06a6886a6aaead868a01ee473661380ddd4ac79743de78853d69f652544da191d435f78afb
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.2.74":
-  version: 18.2.74
-  resolution: "@types/react@npm:18.2.74"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 347e38b4c5dc20d50ff71bf04b7caaef490e5ff695e74a0088a13fbb2a0c5d125a5ecfd142adfa30f0176da0e2734942c91ba61d95ce269c43b3265bd7379361
   languageName: node
   linkType: hard
 
