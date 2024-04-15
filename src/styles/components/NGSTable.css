@@ -74,6 +74,12 @@
   font-weight: 600;
 }
 
+.ngs-table_table-data--details {
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 12px;
+}
+
 .ngs-table_slice-info {
   padding: 24px 16px 20px 16px;
   width: 300px;
