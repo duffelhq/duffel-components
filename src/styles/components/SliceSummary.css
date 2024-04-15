@@ -3,6 +3,7 @@
   grid-template-columns: auto 1fr auto;
   column-gap: 16px;
   align-items: center;
+  width: 100%;
 }
 
 .slice-summary__time-and-place {
