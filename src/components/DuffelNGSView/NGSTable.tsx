@@ -18,6 +18,10 @@ import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { SliceSummary } from "./SliceSummary";
 import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
 import { OfferRequest, OfferSlice } from "@duffel/api/types";
+import {
+  getCheapestOffer,
+  getFareBrandNameForOffer,
+} from "./lib/deduplicate-mapped-offers-by-fare-brand";
 
 export interface NGSTableProps {
   offers: OfferRequest["offers"];
@@ -65,6 +69,15 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   if (offers.length == 0) {
     return null;
   }
+
+  let tripType = "";
+  if (offers[0].slices.length == 1) tripType = "One-way";
+  if (
+    offers[0].slices.length == 2 &&
+    offers[0].slices[0].origin.iata_code ===
+      offers[0].slices[1].destination.iata_code
+  )
+    tripType = "Roundtrip";
 
   return (
     <div className="ngs-table">
@@ -174,11 +187,25 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                         "ngs-table_table-data--expanded",
                     )}
                   >
-                    {row[shelf]
-                      ? moneyStringFormatter(row[shelf]![0].total_currency)(
-                          getCheapestOfferAmount(row[shelf])!,
-                        )
-                      : "-"}
+                    {row[shelf] ? (
+                      <div>
+                        <p className="ngs-table_table-data--details">
+                          {getFareBrandNameForOffer(
+                            getCheapestOffer(row[shelf]!),
+                          )}
+                        </p>
+                        <p>
+                          {moneyStringFormatter(row[shelf]![0].total_currency)(
+                            getCheapestOfferAmount(row[shelf])!,
+                          )}
+                        </p>
+                        <p className="ngs-table_table-data--details">
+                          {tripType}
+                        </p>
+                      </div>
+                    ) : (
+                      "-"
+                    )}
                   </td>
                 ))}
               </tr>
