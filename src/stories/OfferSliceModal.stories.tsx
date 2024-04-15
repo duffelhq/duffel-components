@@ -10,6 +10,8 @@ const MOCK_SLICE = MOCK_OFFER.slices[0];
 const MOCK_SEGMENTS = MOCK_SLICE.segments;
 const MOCK_SEGMENT = MOCK_SEGMENTS[0];
 
+const MOCK_OFFER_2: Offer = require("../fixtures/offers/off_0000AguUNlT6zsvmL0UBKn.json");
+
 const MOCK_CITY: City = {
   type: "city",
   iata_code: "PAR",
@@ -33,8 +35,8 @@ const MOCK_AIRPORT: Airport = {
 
 const MOCK_STOP: OfferSliceSegmentStop = {
   id: "stp_paris_cdg",
-  departing_at: "2024-03-25T05:00:00",
-  arriving_at: "2024-03-25T03:00:00",
+  departing_at: "2023-04-22T05:00:00",
+  arriving_at: "2023-04-22T03:00:00",
   duration: "PT01h38m",
   airport: MOCK_AIRPORT,
 };
@@ -82,6 +84,8 @@ export const WithStopAnd2Segments: React.FC = () => (
         {
           ...{
             ...MOCK_SEGMENT,
+            departing_at: "2023-04-22T01:00:00",
+            arriving_at: "2023-04-22T07:00:00",
             origin: {
               ...MOCK_AIRPORT,
               iata_code: "LAX",
@@ -98,4 +102,8 @@ export const WithStopAnd2Segments: React.FC = () => (
       ],
     }}
   />
+);
+
+export const WithLayovers: React.FC = () => (
+  <OfferSliceModal onClose={() => 0} isOpen slice={MOCK_OFFER_2.slices[0]} />
 );
