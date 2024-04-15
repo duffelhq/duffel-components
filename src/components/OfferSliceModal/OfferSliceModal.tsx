@@ -14,11 +14,11 @@ export const OfferSliceModal: React.FC<OfferSliceModalProps> = ({
 }) => {
   return (
     <Modal {...modalProps}>
+      <div className="offer-slice-modal-title offer-slice-modal-padding">
+        Flight Details
+      </div>
+      <hr className="offer-slice-modal-divider" />
       <ModalBody tall noPadding>
-        <div className="offer-slice-modal-title offer-slice-modal-padding">
-          Flight Details
-        </div>
-        <hr className="offer-slice-modal-divider" />
         <VSpace space={24} className="offer-slice-modal-padding">
           <SliceCarriersTitle slice={slice} />
           <SliceSummary slice={slice} />
