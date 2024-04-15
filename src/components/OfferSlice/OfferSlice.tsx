@@ -84,8 +84,8 @@ export const OfferSlice: React.FC<OfferSliceProps> = ({ slice }) => {
                 icon="airline_stops"
               >
                 {getDurationString(
-                  slice.segments[index + 1].departing_at,
                   segment.arriving_at,
+                  slice.segments[index + 1].departing_at,
                 )}{" "}
                 Layover at {segment.destination.name} (
                 {segment.destination.iata_code})

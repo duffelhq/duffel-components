@@ -1,0 +1,650 @@
+{
+  "total_emissions_kg": "1814",
+  "allowed_passenger_identity_document_types": [
+    "passport",
+    "tax_id",
+    "known_traveler_number",
+    "passenger_redress_number"
+  ],
+  "payment_requirements": {
+    "price_guarantee_expires_at": null,
+    "payment_required_by": null,
+    "requires_instant_payment": true
+  },
+  "available_services": null,
+  "supported_passenger_identity_document_types": [
+    "passport",
+    "known_traveler_number",
+    "passenger_redress_number"
+  ],
+  "passenger_identity_documents_required": false,
+  "tax_currency": "USD",
+  "base_currency": "USD",
+  "base_amount": "751.00",
+  "private_fares": [],
+  "tax_amount": "482.46",
+  "total_currency": "USD",
+  "created_at": "2024-04-15T11:16:53.375959Z",
+  "total_amount": "1233.46",
+  "slices": [
+    {
+      "comparison_key": "A6NCZg==",
+      "ngs_shelf": null,
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": null,
+      "conditions": {
+        "priority_check_in": null,
+        "priority_boarding": null,
+        "advance_seat_selection": null,
+        "change_before_departure": null
+      },
+      "segments": [
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": {
+            "iata_code": "773",
+            "name": "Boeing 777-300",
+            "id": "arc_00009VMF8AhXSSRnQDI6HE"
+          },
+          "departing_at": "2024-09-01T12:20:00",
+          "arriving_at": "2024-09-02T15:10:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "operating_carrier_flight_number": "1",
+          "marketing_carrier_flight_number": "1",
+          "distance": null,
+          "passengers": [
+            {
+              "baggages": [
+                { "quantity": 2, "type": "checked" },
+                { "quantity": 1, "type": "carry_on" }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AguUNDl0Kr2bmeazUh",
+              "fare_basis_code": "OLN01MDI",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT10H50M",
+          "destination": {
+            "city_name": "Tokyo",
+            "iata_country_code": "JP",
+            "airports": null,
+            "iata_city_code": "TYO",
+            "icao_code": "RJTT",
+            "iata_code": "HND",
+            "latitude": 35.550846,
+            "longitude": 139.779919,
+            "city": {
+              "city_name": null,
+              "iata_country_code": "JP",
+              "iata_city_code": "TYO",
+              "icao_code": null,
+              "iata_code": "TYO",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Tokyo",
+              "id": "cit_tyo_jp"
+            },
+            "time_zone": "Asia/Tokyo",
+            "type": "airport",
+            "name": "Haneda Airport",
+            "id": "arp_hnd_jp"
+          },
+          "origin": {
+            "city_name": "San Francisco",
+            "iata_country_code": "US",
+            "airports": null,
+            "iata_city_code": "SFO",
+            "icao_code": "KSFO",
+            "iata_code": "SFO",
+            "latitude": 37.620156,
+            "longitude": -122.376977,
+            "city": null,
+            "time_zone": "America/Los_Angeles",
+            "type": "airport",
+            "name": "San Francisco International Airport",
+            "id": "arp_sfo_us"
+          },
+          "id": "seg_0000AguUNlT6zsvmL0UBKd"
+        },
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": {
+            "iata_code": "789",
+            "name": "Boeing 787-9",
+            "id": "arc_00009Y7sdMgecbtm6IHItE"
+          },
+          "departing_at": "2024-09-03T10:40:00",
+          "arriving_at": "2024-09-03T16:00:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "operating_carrier_flight_number": "39",
+          "marketing_carrier_flight_number": "39",
+          "distance": null,
+          "passengers": [
+            {
+              "baggages": [
+                { "quantity": 2, "type": "checked" },
+                { "quantity": 1, "type": "carry_on" }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AguUNDl0Kr2bmeazUh",
+              "fare_basis_code": "OLN01MDI",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT8H50M",
+          "destination": {
+            "city_name": "New Delhi",
+            "iata_country_code": "IN",
+            "airports": null,
+            "iata_city_code": "DEL",
+            "icao_code": "VIDP",
+            "iata_code": "DEL",
+            "latitude": 28.558498,
+            "longitude": 77.100193,
+            "city": null,
+            "time_zone": "Asia/Kolkata",
+            "type": "airport",
+            "name": "Indira Gandhi International Airport",
+            "id": "arp_del_in"
+          },
+          "origin": {
+            "city_name": "Tokyo",
+            "iata_country_code": "JP",
+            "airports": null,
+            "iata_city_code": "TYO",
+            "icao_code": "RJTT",
+            "iata_code": "HND",
+            "latitude": 35.550846,
+            "longitude": 139.779919,
+            "city": {
+              "city_name": null,
+              "iata_country_code": "JP",
+              "iata_city_code": "TYO",
+              "icao_code": null,
+              "iata_code": "TYO",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Tokyo",
+              "id": "cit_tyo_jp"
+            },
+            "time_zone": "Asia/Tokyo",
+            "type": "airport",
+            "name": "Haneda Airport",
+            "id": "arp_hnd_jp"
+          },
+          "id": "seg_0000AguUNlT6zsvmL0UBKe"
+        },
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": {
+            "iata_code": "320",
+            "name": "Airbus A320",
+            "id": "arc_00009VMF8AgpV5sdO0xXAr"
+          },
+          "departing_at": "2024-09-03T20:50:00",
+          "arriving_at": "2024-09-03T23:20:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/UK.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/UK.svg",
+            "iata_code": "UK",
+            "conditions_of_carriage_url": "https://www.airvistara.com/gb/en/terms-and-conditions",
+            "name": "Vistara",
+            "id": "arl_00009zkE2hvrPsrXMeoy4e"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "operating_carrier_flight_number": null,
+          "marketing_carrier_flight_number": "5193",
+          "distance": null,
+          "passengers": [
+            {
+              "baggages": [
+                { "quantity": 2, "type": "checked" },
+                { "quantity": 2, "type": "carry_on" }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AguUNDl0Kr2bmeazUh",
+              "fare_basis_code": "OLN01MDI",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT2H30M",
+          "destination": {
+            "city_name": "Bangalore",
+            "iata_country_code": "IN",
+            "airports": null,
+            "iata_city_code": "BLR",
+            "icao_code": "VOBL",
+            "iata_code": "BLR",
+            "latitude": 13.199732,
+            "longitude": 77.706719,
+            "city": null,
+            "time_zone": "Asia/Kolkata",
+            "type": "airport",
+            "name": "Bangalore Kempegowda International Airport",
+            "id": "arp_blr_in"
+          },
+          "origin": {
+            "city_name": "New Delhi",
+            "iata_country_code": "IN",
+            "airports": null,
+            "iata_city_code": "DEL",
+            "icao_code": "VIDP",
+            "iata_code": "DEL",
+            "latitude": 28.558498,
+            "longitude": 77.100193,
+            "city": null,
+            "time_zone": "Asia/Kolkata",
+            "type": "airport",
+            "name": "Indira Gandhi International Airport",
+            "id": "arp_del_in"
+          },
+          "id": "seg_0000AguUNlT6zsvmL0UBKf"
+        }
+      ],
+      "duration": "P1DT22H30M",
+      "destination": {
+        "city_name": "Bangalore",
+        "iata_country_code": "IN",
+        "airports": null,
+        "iata_city_code": "BLR",
+        "icao_code": "VOBL",
+        "iata_code": "BLR",
+        "latitude": 13.199732,
+        "longitude": 77.706719,
+        "city": null,
+        "time_zone": "Asia/Kolkata",
+        "type": "airport",
+        "name": "Bangalore Kempegowda International Airport",
+        "id": "arp_blr_in"
+      },
+      "origin": {
+        "city_name": "San Francisco",
+        "iata_country_code": "US",
+        "airports": null,
+        "iata_city_code": "SFO",
+        "icao_code": "KSFO",
+        "iata_code": "SFO",
+        "latitude": 37.620156,
+        "longitude": -122.376977,
+        "city": null,
+        "time_zone": "America/Los_Angeles",
+        "type": "airport",
+        "name": "San Francisco International Airport",
+        "id": "arp_sfo_us"
+      },
+      "id": "sli_0000AguUNlT6zsvmL0UBKg"
+    },
+    {
+      "comparison_key": "BQH0Fg==",
+      "ngs_shelf": null,
+      "destination_type": "airport",
+      "origin_type": "airport",
+      "fare_brand_name": null,
+      "conditions": {
+        "priority_check_in": null,
+        "priority_boarding": null,
+        "advance_seat_selection": null,
+        "change_before_departure": null
+      },
+      "segments": [
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": {
+            "iata_code": "320",
+            "name": "Airbus A320",
+            "id": "arc_00009VMF8AgpV5sdO0xXAr"
+          },
+          "departing_at": "2024-09-06T07:00:00",
+          "arriving_at": "2024-09-06T09:40:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/UK.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/UK.svg",
+            "iata_code": "UK",
+            "conditions_of_carriage_url": "https://www.airvistara.com/gb/en/terms-and-conditions",
+            "name": "Vistara",
+            "id": "arl_00009zkE2hvrPsrXMeoy4e"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "operating_carrier_flight_number": null,
+          "marketing_carrier_flight_number": "5180",
+          "distance": null,
+          "passengers": [
+            {
+              "baggages": [
+                { "quantity": 2, "type": "checked" },
+                { "quantity": 2, "type": "carry_on" }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AguUNDl0Kr2bmeazUh",
+              "fare_basis_code": "VLN01MDI",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT2H40M",
+          "destination": {
+            "city_name": "New Delhi",
+            "iata_country_code": "IN",
+            "airports": null,
+            "iata_city_code": "DEL",
+            "icao_code": "VIDP",
+            "iata_code": "DEL",
+            "latitude": 28.558498,
+            "longitude": 77.100193,
+            "city": null,
+            "time_zone": "Asia/Kolkata",
+            "type": "airport",
+            "name": "Indira Gandhi International Airport",
+            "id": "arp_del_in"
+          },
+          "origin": {
+            "city_name": "Bangalore",
+            "iata_country_code": "IN",
+            "airports": null,
+            "iata_city_code": "BLR",
+            "icao_code": "VOBL",
+            "iata_code": "BLR",
+            "latitude": 13.199732,
+            "longitude": 77.706719,
+            "city": null,
+            "time_zone": "Asia/Kolkata",
+            "type": "airport",
+            "name": "Bangalore Kempegowda International Airport",
+            "id": "arp_blr_in"
+          },
+          "id": "seg_0000AguUNlT6zsvmL0UBKi"
+        },
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": {
+            "iata_code": "789",
+            "name": "Boeing 787-9",
+            "id": "arc_00009Y7sdMgecbtm6IHItE"
+          },
+          "departing_at": "2024-09-06T19:05:00",
+          "arriving_at": "2024-09-07T06:45:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "operating_carrier_flight_number": "30",
+          "marketing_carrier_flight_number": "30",
+          "distance": null,
+          "passengers": [
+            {
+              "baggages": [
+                { "quantity": 2, "type": "checked" },
+                { "quantity": 2, "type": "carry_on" }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AguUNDl0Kr2bmeazUh",
+              "fare_basis_code": "VLN01MDI",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT8H10M",
+          "destination": {
+            "city_name": "Tokyo",
+            "iata_country_code": "JP",
+            "airports": null,
+            "iata_city_code": "TYO",
+            "icao_code": "RJTT",
+            "iata_code": "HND",
+            "latitude": 35.550846,
+            "longitude": 139.779919,
+            "city": {
+              "city_name": null,
+              "iata_country_code": "JP",
+              "iata_city_code": "TYO",
+              "icao_code": null,
+              "iata_code": "TYO",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Tokyo",
+              "id": "cit_tyo_jp"
+            },
+            "time_zone": "Asia/Tokyo",
+            "type": "airport",
+            "name": "Haneda Airport",
+            "id": "arp_hnd_jp"
+          },
+          "origin": {
+            "city_name": "New Delhi",
+            "iata_country_code": "IN",
+            "airports": null,
+            "iata_city_code": "DEL",
+            "icao_code": "VIDP",
+            "iata_code": "DEL",
+            "latitude": 28.558498,
+            "longitude": 77.100193,
+            "city": null,
+            "time_zone": "Asia/Kolkata",
+            "type": "airport",
+            "name": "Indira Gandhi International Airport",
+            "id": "arp_del_in"
+          },
+          "id": "seg_0000AguUNlT6zsvmL0UBKj"
+        },
+        {
+          "origin_terminal": null,
+          "destination_terminal": null,
+          "aircraft": {
+            "iata_code": "773",
+            "name": "Boeing 777-300",
+            "id": "arc_00009VMF8AhXSSRnQDI6HE"
+          },
+          "departing_at": "2024-09-07T16:25:00",
+          "arriving_at": "2024-09-07T10:05:00",
+          "stops": [],
+          "operating_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "marketing_carrier": {
+            "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+            "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+            "iata_code": "JL",
+            "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+            "name": "JAL",
+            "id": "arl_00009VME7DCOaPRQvNhcNM"
+          },
+          "operating_carrier_flight_number": "2",
+          "marketing_carrier_flight_number": "2",
+          "distance": null,
+          "passengers": [
+            {
+              "baggages": [
+                { "quantity": 2, "type": "checked" },
+                { "quantity": 1, "type": "carry_on" }
+              ],
+              "cabin_class_marketing_name": "Economy",
+              "passenger_id": "pas_0000AguUNDl0Kr2bmeazUh",
+              "fare_basis_code": "VLN01MDI",
+              "cabin_class": "economy"
+            }
+          ],
+          "duration": "PT9H40M",
+          "destination": {
+            "city_name": "San Francisco",
+            "iata_country_code": "US",
+            "airports": null,
+            "iata_city_code": "SFO",
+            "icao_code": "KSFO",
+            "iata_code": "SFO",
+            "latitude": 37.620156,
+            "longitude": -122.376977,
+            "city": null,
+            "time_zone": "America/Los_Angeles",
+            "type": "airport",
+            "name": "San Francisco International Airport",
+            "id": "arp_sfo_us"
+          },
+          "origin": {
+            "city_name": "Tokyo",
+            "iata_country_code": "JP",
+            "airports": null,
+            "iata_city_code": "TYO",
+            "icao_code": "RJTT",
+            "iata_code": "HND",
+            "latitude": 35.550846,
+            "longitude": 139.779919,
+            "city": {
+              "city_name": null,
+              "iata_country_code": "JP",
+              "iata_city_code": "TYO",
+              "icao_code": null,
+              "iata_code": "TYO",
+              "latitude": null,
+              "longitude": null,
+              "time_zone": null,
+              "type": "city",
+              "name": "Tokyo",
+              "id": "cit_tyo_jp"
+            },
+            "time_zone": "Asia/Tokyo",
+            "type": "airport",
+            "name": "Haneda Airport",
+            "id": "arp_hnd_jp"
+          },
+          "id": "seg_0000AguUNlT6zsvmL0UBKk"
+        }
+      ],
+      "duration": "P1DT15H35M",
+      "destination": {
+        "city_name": "San Francisco",
+        "iata_country_code": "US",
+        "airports": null,
+        "iata_city_code": "SFO",
+        "icao_code": "KSFO",
+        "iata_code": "SFO",
+        "latitude": 37.620156,
+        "longitude": -122.376977,
+        "city": null,
+        "time_zone": "America/Los_Angeles",
+        "type": "airport",
+        "name": "San Francisco International Airport",
+        "id": "arp_sfo_us"
+      },
+      "origin": {
+        "city_name": "Bangalore",
+        "iata_country_code": "IN",
+        "airports": null,
+        "iata_city_code": "BLR",
+        "icao_code": "VOBL",
+        "iata_code": "BLR",
+        "latitude": 13.199732,
+        "longitude": 77.706719,
+        "city": null,
+        "time_zone": "Asia/Kolkata",
+        "type": "airport",
+        "name": "Bangalore Kempegowda International Airport",
+        "id": "arp_blr_in"
+      },
+      "id": "sli_0000AguUNlT6zsvmL0UBKl"
+    }
+  ],
+  "passengers": [
+    {
+      "loyalty_programme_accounts": [],
+      "family_name": null,
+      "given_name": null,
+      "age": null,
+      "type": "adult",
+      "id": "pas_0000AguUNDl0Kr2bmeazUh"
+    }
+  ],
+  "live_mode": true,
+  "conditions": {
+    "refund_before_departure": null,
+    "change_before_departure": null
+  },
+  "updated_at": "2024-04-15T11:16:53.387514Z",
+  "expires_at": "2024-04-15T12:15:23.048750Z",
+  "partial": null,
+  "owner": {
+    "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/JL.svg",
+    "logo_lockup_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/JL.svg",
+    "iata_code": "JL",
+    "conditions_of_carriage_url": "https://www.jal.co.jp/jp/en/inter/carriage/220920/",
+    "name": "JAL",
+    "id": "arl_00009VME7DCOaPRQvNhcNM"
+  },
+  "id": "off_0000AguUNlT6zsvmL0UBKn"
+}
