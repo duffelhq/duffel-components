@@ -8,6 +8,7 @@
 
   text-align: center;
   cursor: pointer;
+  position: relative;
 }
 
 .ngs-table_table > thead {
@@ -138,7 +139,7 @@
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  top: -140px;
+  top: -150px;
   left: 25px;
   width: 420px;
   text-align: left;
@@ -170,4 +171,11 @@
 
 .ngs-table_th {
   width: 300px;
+}
+
+.ngs-table_th--sticky {
+  position: sticky;
+  top: 0;
+  background-color: var(--GREY-100);
+  z-index: 1;
 }

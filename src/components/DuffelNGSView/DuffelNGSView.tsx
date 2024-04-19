@@ -29,8 +29,8 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
       : offerRequest.slices[0];
 
   return (
-    <WithComponentStyles>
-      <div className="duffel-components duffel-ngs-view">
+    <div className="duffel-ngs-view">
+      <WithComponentStyles>
         {currentSlice && (
           <>
             <div className="duffel-ngs-view_breadcrumbs">
@@ -83,7 +83,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
             }
           }}
         />
-      </div>
-    </WithComponentStyles>
+      </WithComponentStyles>
+    </div>
   );
 };
