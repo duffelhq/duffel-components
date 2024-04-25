@@ -84,7 +84,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
       <table className="ngs-table_table">
         <thead>
           <tr className="ngs-table_table-header">
-            <th className="ngs-table_th"></th>
+            <th className="ngs-table_th ngs-table_th--sticky"></th>
             {NGS_SHELVES.map((shelf) => (
               <th
                 key={shelf}
@@ -97,6 +97,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                   setSelectedColumn(shelf);
                   setExpandedOffer(null);
                 }}
+                className="ngs-table_th--sticky"
               >
                 <div
                   className={classNames(

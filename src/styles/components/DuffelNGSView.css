@@ -1,7 +1,9 @@
 .duffel-ngs-view {
-  /* To override duffel-components overflow */
-  overflow: auto !important;
   padding-top: 40px;
+}
+
+.duffel-ngs-view .duffel-components {
+  overflow: unset;
 }
 
 .duffel-ngs-view_heading {
