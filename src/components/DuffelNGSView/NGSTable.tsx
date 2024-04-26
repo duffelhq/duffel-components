@@ -54,7 +54,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
     null,
   );
   const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
-  const [sortDuration, setSortDuration] = React.useState<DurationSort>(null);
+  const [sortDuration, setSortDuration] = React.useState<DurationSort>("asc");
 
   const [sortDirection, setSortDirection] =
     React.useState<SortDirection>("asc");
