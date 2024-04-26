@@ -36,6 +36,7 @@ export const SliceSummary: React.FC<SliceSummaryProps> = ({ slice }) => {
         duration={convertDurationToString(slice.duration!)}
         stops={segmentsAndStops}
       />
+      <Icon name="flight" size={20} className="slice-summary__plane" />
       <SliceSummaryTimeAndPlace
         time={getTimeString(lastSegment.arriving_at)}
         place={lastSegment.destination.iata_code!}
@@ -72,35 +73,31 @@ const SliceStopsAndDurationOverview: React.FC<{
       <div
         className="slice-summary__flight-line-container"
         style={{
-          gridTemplateColumns: `1fr repeat(${stops.length}, auto 1fr)`,
+          gridTemplateColumns:
+            stops.length === 0
+              ? "1fr"
+              : `auto repeat(${stops.length}, 20px auto)`,
         }}
       >
-        <div className="slice-summary__flight-line">
+        {stops.length === 0 ? (
           <div
             className={classNames(
               "slice-summary__flight-line-color",
-              stops.length > 0 &&
-                "slice-summary__flight-line-color--full-width",
+              "slice-summary__flight-line-color--full-width",
             )}
           />
-          {stops.length === 0 && <Icon name="flight" size={20} />}
-        </div>
-
-        {stops.map((stop, index) => (
-          <React.Fragment key={stop + index}>
-            <div className="slice-summary__flight-line-dot" />
-            <div className="slice-summary__flight-line">
-              <div
-                className={classNames(
-                  "slice-summary__flight-line-color",
-                  index !== stops.length - 1 &&
-                    "slice-summary__flight-line-color--full-width",
+        ) : (
+          <>
+            {new Array(stops.length + 1).fill(0).map((_value, index, all) => (
+              <React.Fragment key={index}>
+                <div className="slice-summary__flight-line-color" />
+                {index !== all.length - 1 && (
+                  <div className="slice-summary__flight-line-dot" />
                 )}
-              />
-              {index === stops.length - 1 && <Icon name="flight" size={20} />}
-            </div>
-          </React.Fragment>
-        ))}
+              </React.Fragment>
+            ))}
+          </>
+        )}
       </div>
 
       <p className="slice-summary__stops">
