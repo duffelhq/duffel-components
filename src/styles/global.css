@@ -7,6 +7,7 @@
 @import "./typography.css";
 @import "./utilities.css";
 
+@import "./components/AirlineSelector.css";
 @import "./components/Amenity.css";
 @import "./components/BaggageDisplay.css";
 @import "./components/Button.css";
@@ -15,6 +16,7 @@
 @import "./components/Counter.css";
 @import "./components/DuffelNGSView.css";
 @import "./components/DuffelPayments.css";
+@import "./components/FilterControl.css";
 @import "./components/IconButton.css";
 @import "./components/Legend.css";
 @import "./components/Loader.css";
@@ -43,6 +45,7 @@
 @import "./components/StaysRoomRateCard.css";
 @import "./components/Summary.css";
 @import "./components/Tabs.css";
+@import "./components/TimeRangeSelector.css";
 
 .duffel-components {
   --BUTTON-RADIUS: 5px;

@@ -1,0 +1,4 @@
+.airline-selector__option {
+  /*  important is used to take prescedence over .filter-control__option */
+  grid-template-columns: 16px auto 24px !important;
+}

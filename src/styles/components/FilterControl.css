@@ -1,0 +1,72 @@
+.filter-control {
+  position: relative;
+}
+
+.filter-control__target {
+  border: solid 1px black;
+  padding: 4px 12px;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filter-control__backdrop {
+  z-index: 99;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+}
+
+.filter-control__popover {
+  background-color: white;
+  border: solid 1px black;
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  width: 250px;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.filter-control__option {
+  display: grid;
+  padding: 2px 12px;
+  border-radius: 4px;
+  grid-template-columns: auto 24px;
+  column-gap: 8px;
+  justify-items: start;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  height: 30px;
+}
+
+.filter-control__option:hover {
+  opacity: 0.75;
+}
+
+.filter-control__option:active {
+  opacity: 1;
+}
+
+.filter-control__option--selected {
+  background: #f2f2f2;
+}
+
+.filter-control__option:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.filter-control__option > * {
+  align-self: center;
+}

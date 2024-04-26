@@ -1,3 +1,4 @@
+/* VSPACE */
 .v-space {
   display: flex;
   flex-direction: column;
@@ -27,6 +28,7 @@
   row-gap: 24px;
 }
 
+/* HSPACE */
 .h-space {
   display: flex;
   flex-direction: row;
@@ -59,4 +61,18 @@
 
 .hspace--space-between {
   justify-content: space-between;
+}
+
+/* PADDING */
+.padding-8 {
+  padding: 8px;
+}
+
+.padding-12 {
+  padding: 12px;
+}
+
+/* TEXT */
+.font-size-14 {
+  font-size: 14px;
 }
