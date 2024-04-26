@@ -38,7 +38,6 @@
     "dev": "node config/esbuild.dev.config.js",
     "generate-fixture": "esbuild ./scripts/generate-fixture.ts --outfile=dist/scripts/generate-fixture.cjs --format=cjs --platform=node --bundle --tsconfig=scripts.tsconfig.json && node dist/scripts/generate-fixture.cjs",
     "lint": "eslint . --ext .ts,.tsx,.mjs,.js --max-warnings=0",
-    "prettier": "prettier --write --loglevel=warn .",
     "prettier-check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
     "test": "LANG='en_US' TZ=UTC yarn jest",
@@ -54,8 +53,10 @@
     "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "1.54.2",
     "classnames": "2.3.2",
+    "duration-fns": "^3.0.2",
     "fuse.js": "6.6.2",
     "lodash": "4.17.21",
+    "rc-slider": "^10.6.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
