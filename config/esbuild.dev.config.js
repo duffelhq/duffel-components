@@ -10,7 +10,7 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
   ? process.env.COMPONENT_CDN
   : `${process.env.COMPONENT_CDN}/${VERSION}`;
 
-(async function () {
+(async function() {
   const esbuildContext = await esbuild.context({
     ...require("./esbuild.base.config"),
     // The `define` config will replace the values in the code with the ones we specify below.
@@ -20,7 +20,6 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
       "process.env.COMPONENT_CDN": `"${COMPONENT_CDN}"`,
       "process.env.DUFFEL_API_URL": `"${DUFFEL_API_URL}"`,
       "process.env.COMPONENT_VERSION": `"${VERSION}"`,
-      "process.env.TOKEN_PROXY_IFRAME_BASE_URL": `"${process.env.TOKEN_PROXY_IFRAME_BASE_URL}"`,
     },
     plugins: [
       // This plugin copies the offer and seat maps fixtures to the dist folder.

@@ -9,12 +9,10 @@ const VERSION = require("../package.json").version;
 const envVariablesToDefine = {
   "process.env.COMPONENT_VERSION": `"${VERSION}"`,
   "process.env.DUFFEL_API_URL": `"${process.env.DUFFEL_API_URL}"`,
-  "process.env.COMPONENT_CDN": `"${
-    process.env.COMPONENT_CDN.startsWith("http://localhost:")
-      ? process.env.COMPONENT_CDN
-      : `${process.env.COMPONENT_CDN}/${VERSION}`
-  }"`,
-  "process.env.TOKEN_PROXY_IFRAME_BASE_URL": `"${process.env.TOKEN_PROXY_IFRAME_BASE_URL}"`,
+  "process.env.COMPONENT_CDN": `"${process.env.COMPONENT_CDN.startsWith("http://localhost:")
+    ? process.env.COMPONENT_CDN
+    : `${process.env.COMPONENT_CDN}/${VERSION}`
+    }"`,
 };
 
 // Builds for react environment
