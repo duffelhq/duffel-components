@@ -1,10 +1,14 @@
-import * as React from "react";
-import { NGSTable } from "./NGSTable";
-import { getDateString } from "@lib/getDateString";
 import { Icon } from "@components/shared/Icon";
-import classNames from "classnames";
-import { OfferRequest } from "@duffel/api/types";
 import { WithComponentStyles } from "@components/shared/WithComponentStyles";
+import { OfferRequest } from "@duffel/api/types";
+import { getDateString } from "@lib/getDateString";
+import classNames from "classnames";
+import * as React from "react";
+import { FilterControls } from "./FilterControls";
+import { NGSTable } from "./NGSTable";
+import { Filters, filterResults } from "./lib/filter-results";
+import { getInitialFilterValues } from "./lib/get-initial-filter-values";
+import { NonIdealState } from "@components/shared/NonIdealState";
 
 export interface DuffelNGSViewProps {
   offerRequest: OfferRequest;
@@ -18,8 +22,29 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   const [selectedSliceKeys, setSelectedSliceKeys] = React.useState<string[]>(
     [],
   );
+
+  const initialFilterValues = getInitialFilterValues(offerRequest);
+
+  const [airlinesFilter, setAirlinesFilter] = React.useState<
+    Filters["airlines"]
+  >(initialFilterValues.airlines);
+
+  const [timesFilter, setTimesFilter] = React.useState<Filters["times"]>(
+    initialFilterValues.times,
+  );
+
+  const [stopsFilter, setStopsFilter] = React.useState<Filters["stops"]>(
+    initialFilterValues.stops,
+  );
+
   if (offerRequest.offers.length == 0) {
     return null;
+  }
+
+  function clearFilters() {
+    setAirlinesFilter(initialFilterValues.airlines);
+    setTimesFilter(initialFilterValues.times);
+    setStopsFilter(initialFilterValues.stops);
   }
 
   const numSlices = offerRequest.slices.length;
@@ -28,61 +53,97 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
       ? offerRequest.slices[selectedSliceKeys.length]
       : offerRequest.slices[0];
 
+  const filteredOffers = filterResults(
+    offerRequest.offers,
+    selectedSliceKeys.length > 0 ? selectedSliceKeys.length : 0,
+    {
+      airlines: airlinesFilter,
+      times: timesFilter,
+      stops: stopsFilter,
+    },
+  );
+
   return (
     <div className="duffel-ngs-view">
       <WithComponentStyles>
         {currentSlice && (
-          <>
-            <div className="duffel-ngs-view_breadcrumbs">
-              {offerRequest.slices.map((slice, index) => (
-                <>
-                  <button
-                    key={index}
-                    className={classNames(
-                      "duffel-ngs-view_breadcrumb",
-                      index < selectedSliceKeys.length &&
-                        "duffel-ngs-view_breadcrumb--clickable",
-                      index === selectedSliceKeys.length &&
-                        "duffel-ngs-view_breadcrumb--selected",
+          <div className="h-space h-space--4 hspace--space-between">
+            <div>
+              <div className="duffel-ngs-view_breadcrumbs">
+                {offerRequest.slices.map((slice, index) => (
+                  <>
+                    <button
+                      key={index}
+                      className={classNames(
+                        "duffel-ngs-view_breadcrumb",
+                        index < selectedSliceKeys.length &&
+                          "duffel-ngs-view_breadcrumb--clickable",
+                        index === selectedSliceKeys.length &&
+                          "duffel-ngs-view_breadcrumb--selected",
+                      )}
+                      onClick={() => {
+                        if (index < selectedSliceKeys.length) {
+                          setSelectedSliceKeys(
+                            selectedSliceKeys.slice(0, index - 1),
+                          );
+                          clearFilters();
+                        }
+                      }}
+                    >
+                      {slice.origin.iata_code} - {slice.destination.iata_code}
+                    </button>
+                    {index < numSlices - 1 && (
+                      <Icon name="arrow_right" size={12} color="--GREY-500" />
                     )}
-                    onClick={() => {
-                      if (index < selectedSliceKeys.length) {
-                        setSelectedSliceKeys(
-                          selectedSliceKeys.slice(0, index - 1),
-                        );
-                      }
-                    }}
-                  >
-                    {slice.origin.iata_code} - {slice.destination.iata_code}
-                  </button>
-                  {index < numSlices - 1 && (
-                    <Icon name="arrow_right" size={12} color="--GREY-500" />
-                  )}
-                </>
-              ))}
+                  </>
+                ))}
+              </div>
+              <h3 className="duffel-ngs-view_heading">
+                {numSlices === 2 &&
+                  `${selectedSliceKeys.length === 0 ? "Outbound" : "Inbound"} flight to  ${currentSlice.destination.name}`}
+                {numSlices !== 2 &&
+                  `Flight to ${currentSlice.destination.name}`}
+              </h3>
+              <h4 className="duffel-ngs-view_subheading">
+                {getDateString(currentSlice.departure_date, "long")}
+              </h4>
             </div>
-            <h3 className="duffel-ngs-view_heading">
-              {numSlices === 2 &&
-                `${selectedSliceKeys.length === 0 ? "Outbound" : "Inbound"} flight to  ${currentSlice.destination.name}`}
-              {numSlices !== 2 && `Flight to ${currentSlice.destination.name}`}
-            </h3>
-            <h4 className="duffel-ngs-view_subheading">
-              {getDateString(currentSlice.departure_date, "long")}
-            </h4>
-          </>
+            <div>
+              <FilterControls
+                {...{
+                  airlines: initialFilterValues.airlines,
+                  airlinesFilter,
+                  setAirlinesFilter,
+                  timesFilter,
+                  setTimesFilter,
+                  stopsFilter,
+                  setStopsFilter,
+                }}
+              />
+            </div>
+          </div>
         )}
-        <NGSTable
-          offers={offerRequest.offers}
-          sliceIndex={selectedSliceKeys.length}
-          previousSliceKeys={selectedSliceKeys}
-          onSelect={(offerId, sliceKey) => {
-            if (selectedSliceKeys.length == numSlices - 1) {
-              onSelect(offerId);
-            } else {
-              setSelectedSliceKeys([...selectedSliceKeys, sliceKey]);
-            }
-          }}
-        />
+        {filteredOffers.length === 0 && (
+          <NonIdealState>
+            There are no offers matching your filters. <br />
+          </NonIdealState>
+        )}
+
+        {filteredOffers.length > 0 && (
+          <NGSTable
+            offers={filteredOffers}
+            sliceIndex={selectedSliceKeys.length}
+            previousSliceKeys={selectedSliceKeys}
+            onSelect={(offerId, sliceKey) => {
+              if (selectedSliceKeys.length == numSlices - 1) {
+                onSelect(offerId);
+              } else {
+                setSelectedSliceKeys([...selectedSliceKeys, sliceKey]);
+                clearFilters();
+              }
+            }}
+          />
+        )}
       </WithComponentStyles>
     </div>
   );

@@ -8,11 +8,7 @@ import {
   getNGSSliceKey,
   groupOffersForNGSView,
 } from "./lib/group-offers-for-ngs-view";
-import {
-  SortDirection,
-  getCheapestOfferAmount,
-  sortNGSRows,
-} from "./lib/sort-ngs-rows";
+
 import { NGSSliceFareCard } from "./NGSSliceFareCard";
 import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { SliceSummary } from "./SliceSummary";
@@ -22,6 +18,12 @@ import {
   getCheapestOffer,
   getFareBrandNameForOffer,
 } from "./lib/deduplicate-mapped-offers-by-fare-brand";
+import {
+  SortDirection,
+  getCheapestOfferAmount,
+  sortNGSRowsByShelfPrice,
+} from "./lib/sort-ngs-rows-by-shelf-price";
+import { sortNGSRowsByDuration } from "./lib/sort-ngs-rows-by-duration";
 
 export interface NGSTableProps {
   offers: OfferRequest["offers"];
@@ -45,6 +47,8 @@ export const NGSTable: React.FC<NGSTableProps> = ({
     null,
   );
   const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
+  const [sortDuration, setSortDuration] = React.useState<DurationSort>(null);
+
   const [sortDirection, setSortDirection] =
     React.useState<SortDirection>("asc");
   const [expandedOffer, setExpandedOffer] =
@@ -62,9 +66,14 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   }, [previousSliceKeys]);
 
   const rows = groupOffersForNGSView(offers, sliceIndex, previousSliceKeys);
-  const sortedRows = sortShelf
-    ? sortNGSRows(rows, sortShelf, sortDirection)
-    : rows;
+  let sortedRows = rows;
+  if (sortDuration != null) {
+    sortedRows = sortNGSRowsByDuration(rows, sortDuration);
+  }
+
+  if (sortShelf != null) {
+    sortNGSRowsByShelfPrice(rows, sortShelf, sortDirection);
+  }
 
   if (offers.length == 0) {
     return null;
@@ -84,11 +93,44 @@ export const NGSTable: React.FC<NGSTableProps> = ({
       <table className="ngs-table_table">
         <thead>
           <tr className="ngs-table_table-header">
-            <th className="ngs-table_th ngs-table_th--sticky"></th>
+            <th
+              className="ngs-table_th ngs-table_th--sticky"
+              onClick={() => {
+                setSortShelf(null);
+
+                if (sortDuration === null) {
+                  setSortDuration("asc");
+                } else if (sortDuration === "asc") {
+                  setSortDuration("desc");
+                } else {
+                  setSortDuration("asc");
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  "ngs-table_column-header",
+                  sortDuration != null && "ngs-table_column-header--selected",
+                )}
+              >
+                <span>Duration sort</span>
+                {sortDuration != null && (
+                  <Icon
+                    name={
+                      sortDuration === "asc" ? "arrow_downward" : "arrow_upward"
+                    }
+                    size={12}
+                    color="--GREY-900"
+                    className="ngs-table_sort-icon"
+                  />
+                )}
+              </div>
+            </th>
             {NGS_SHELVES.map((shelf) => (
               <th
                 key={shelf}
                 onClick={() => {
+                  setSortDuration(null);
                   if (shelf === sortShelf) {
                     setSortDirection(sortDirection === "asc" ? "desc" : "asc");
                   } else if (selectedColumn === shelf) {
