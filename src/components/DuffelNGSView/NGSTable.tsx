@@ -23,7 +23,10 @@ import {
   getCheapestOfferAmount,
   sortNGSRowsByShelfPrice,
 } from "./lib/sort-ngs-rows-by-shelf-price";
-import { sortNGSRowsByDuration } from "./lib/sort-ngs-rows-by-duration";
+import {
+  DurationSort,
+  sortNGSRowsByDuration,
+} from "./lib/sort-ngs-rows-by-duration";
 
 export interface NGSTableProps {
   offers: OfferRequest["offers"];
