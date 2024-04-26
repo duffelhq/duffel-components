@@ -32,7 +32,11 @@ export interface NGSTableProps {
   offers: OfferRequest["offers"];
   sliceIndex: number;
   previousSliceKeys: string[]; // For filtering the current set of offers
-  onSelect: (offerId: string, sliceKey: string) => void;
+  onSelect: (
+    offerId: string,
+    sliceKey: string,
+    offer: OfferRequest["offers"][number],
+  ) => void;
 }
 
 type OfferPosition = {
@@ -274,6 +278,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                                     offer.owner.iata_code,
                                     true,
                                   ),
+                                  offer,
                                 )
                               }
                             />

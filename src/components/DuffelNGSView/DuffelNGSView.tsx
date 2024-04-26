@@ -22,6 +22,9 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
   const [selectedSliceKeys, setSelectedSliceKeys] = React.useState<string[]>(
     [],
   );
+  const [selectedOwner, setSelectedOwner] = React.useState<string | undefined>(
+    undefined,
+  );
 
   const initialFilterValues = getInitialFilterValues(offerRequest);
 
@@ -83,9 +86,15 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                       )}
                       onClick={() => {
                         if (index < selectedSliceKeys.length) {
-                          setSelectedSliceKeys(
-                            selectedSliceKeys.slice(0, index - 1),
+                          const newSliceKeys = selectedSliceKeys.slice(
+                            0,
+                            index - 1,
                           );
+                          setSelectedSliceKeys(newSliceKeys);
+                          if (newSliceKeys.length === 0) {
+                            setSelectedOwner(undefined);
+                          }
+
                           clearFilters();
                         }
                       }}
@@ -111,6 +120,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
             <div>
               <FilterControls
                 {...{
+                  selectedOwner,
                   airlines: initialFilterValues.airlines,
                   airlinesFilter,
                   setAirlinesFilter,
@@ -134,10 +144,12 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
             offers={filteredOffers}
             sliceIndex={selectedSliceKeys.length}
             previousSliceKeys={selectedSliceKeys}
-            onSelect={(offerId, sliceKey) => {
+            onSelect={(offerId, sliceKey, offer) => {
+              window.scrollTo(0, 0);
               if (selectedSliceKeys.length == numSlices - 1) {
                 onSelect(offerId);
               } else {
+                setSelectedOwner(offer.owner ? offer.owner.name : undefined);
                 setSelectedSliceKeys([...selectedSliceKeys, sliceKey]);
                 clearFilters();
               }

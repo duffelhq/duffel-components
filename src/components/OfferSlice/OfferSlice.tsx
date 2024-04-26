@@ -1,4 +1,8 @@
 import { Icon, IconName } from "@components/shared/Icon";
+import {
+  getSegmentCarriersTitle,
+  SliceCarriersTitle,
+} from "@components/shared/SliceCarriersTitle";
 import { OfferSlice as OfferSliceType } from "@duffel/api/types";
 import { convertDurationToString } from "@lib/convertDurationToString";
 import { getDateString } from "@lib/getDateString";
@@ -47,7 +51,7 @@ export const OfferSlice: React.FC<OfferSliceProps> = ({ slice }) => {
             <OfferSliceRow compact>
               {[
                 convertDurationToString(segment.duration!),
-                segment.marketing_carrier.name,
+                getSegmentCarriersTitle(segment),
                 `${segment.marketing_carrier.iata_code}${segment.marketing_carrier_flight_number}`,
                 segment.aircraft?.name,
                 segment.passengers[0].cabin_class_marketing_name ||

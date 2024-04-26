@@ -29,6 +29,8 @@ export interface AirlineSelectorProps {
   options: Filters["airlines"];
   selected: Filters["airlines"];
   onChange: (airlines: Filters["airlines"]) => void;
+  disabled?: boolean;
+  targetLabel?: string;
 }
 
 function removeFromSelected(
@@ -52,9 +54,14 @@ export const AirlineSelector: React.FC<AirlineSelectorProps> = ({
   options,
   selected,
   onChange,
+  disabled,
+  targetLabel,
 }) => {
   return (
-    <FilterControl target={getSelectLabel(selected, options)}>
+    <FilterControl
+      disabled={disabled}
+      target={targetLabel || getSelectLabel(selected, options)}
+    >
       {(onClose) =>
         options.map((option, index) => {
           const isSelected = isOptionSelected(option, selected);

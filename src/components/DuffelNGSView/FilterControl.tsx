@@ -5,11 +5,13 @@ import React from "react";
 interface FilterControlProps {
   target: React.ReactNode;
   children: (closePopover: () => void) => React.ReactNode;
+  disabled?: boolean;
 }
 
 export const FilterControl: React.FC<FilterControlProps> = ({
   target,
   children,
+  disabled,
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
 
@@ -22,7 +24,11 @@ export const FilterControl: React.FC<FilterControlProps> = ({
 
   return (
     <div className="filter-control">
-      <button onClick={togglePopover} className="filter-control__target">
+      <button
+        onClick={togglePopover}
+        className="filter-control__target"
+        disabled={disabled}
+      >
         {target}
       </button>
       {isPopoverOpen && (

@@ -71,8 +71,8 @@
 }
 
 .ngs-table_table-data--selected {
-  color: var(--GREY-900);
-  font-weight: 600;
+  color: black;
+  font-weight: 500;
 }
 
 .ngs-table_table-data--details {

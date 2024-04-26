@@ -132,8 +132,19 @@ const defaultProps: DuffelNGSViewProps = {
   onSelect: console.log,
 };
 
+// Container just to show the boundary of the component inside the dashboard
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div
+    style={{ width: "1000px", height: "100vh", border: `dashed 1px lightgrey` }}
+  >
+    {children}
+  </div>
+);
+
 export const Default: StoryFn<DuffelNGSViewProps> = () => (
-  <DuffelNGSView {...defaultProps} />
+  <Container>
+    <DuffelNGSView {...defaultProps} />
+  </Container>
 );
 
 // Example from https://www.notion.so/duffel/NGS-Technical-Scoping-26df8e8fb8db40e19bd661b748810622?pvs=4#b4db506e7de24815afe3ad4ca13bed89
@@ -143,9 +154,13 @@ const deduplicatedProps: DuffelNGSViewProps = {
 };
 
 export const Deduplicated: StoryFn<DuffelNGSViewProps> = () => (
-  <DuffelNGSView {...deduplicatedProps} />
+  <Container>
+    <DuffelNGSView {...deduplicatedProps} />
+  </Container>
 );
 
 export const Large: StoryFn<DuffelNGSViewProps> = () => (
-  <DuffelNGSView offerRequest={largeOfferRequest} onSelect={console.log} />
+  <Container>
+    <DuffelNGSView offerRequest={largeOfferRequest} onSelect={console.log} />
+  </Container>
 );
