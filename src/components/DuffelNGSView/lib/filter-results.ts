@@ -19,8 +19,8 @@ export function filterResults(
     const currentOfferSlice = offer.slices[currentSliceIndex];
     return [
       isMatchOnAirlines(offer, filters.airlines) &&
-      isMatchOnStops(currentOfferSlice, filters.stops) &&
-      isMatchOnTimes(currentOfferSlice, filters.times),
+        isMatchOnStops(currentOfferSlice, filters.stops) &&
+        isMatchOnTimes(currentOfferSlice, filters.times),
     ].every((isTrue) => isTrue);
   });
 }
@@ -38,12 +38,12 @@ function isMatchOnStops(
   stops: Filters["stops"],
 ) {
   const sliceStops =
-    currentOfferSlice.segments.length - 1 +
+    currentOfferSlice.segments.length -
+    1 +
     currentOfferSlice.segments.reduce(
       (stopCount, segment) => stopCount + (segment.stops?.length || 0),
       0,
     );
-
 
   switch (stops) {
     case "direct-only":

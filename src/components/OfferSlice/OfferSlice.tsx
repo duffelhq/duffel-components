@@ -1,8 +1,5 @@
 import { Icon, IconName } from "@components/shared/Icon";
-import {
-  getSegmentCarriersTitle,
-  SliceCarriersTitle,
-} from "@components/shared/SliceCarriersTitle";
+import { getSegmentCarriersTitle } from "@components/shared/SliceCarriersTitle";
 import { OfferSlice as OfferSliceType } from "@duffel/api/types";
 import { convertDurationToString } from "@lib/convertDurationToString";
 import { getDateString } from "@lib/getDateString";

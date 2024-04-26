@@ -1,8 +1,5 @@
-import {
-  AirlineSelector,
-  AirlineSelectorProps,
-} from "@components/DuffelNGSView/AirlineSelector";
-import type { Meta, StoryObj } from "@storybook/react";
+import { AirlineSelector } from "@components/DuffelNGSView/AirlineSelector";
+import type { Meta } from "@storybook/react";
 import React from "react";
 
 export default {

@@ -10,7 +10,7 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
   ? process.env.COMPONENT_CDN
   : `${process.env.COMPONENT_CDN}/${VERSION}`;
 
-(async function() {
+(async function () {
   const esbuildContext = await esbuild.context({
     ...require("./esbuild.base.config"),
     // The `define` config will replace the values in the code with the ones we specify below.
