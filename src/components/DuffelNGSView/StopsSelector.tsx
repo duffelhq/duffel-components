@@ -34,7 +34,7 @@ export const StopsSelector: React.FC<StopsSelectorProps> = ({
   onChange,
 }) => {
   return (
-    <FilterControl target={getLabel(selected)}>
+    <FilterControl target={getLabel(selected)} targetWidth="178px">
       {(onClose) =>
         OPTIONS.map((option, index) => (
           <FilterControlOption

@@ -49,7 +49,9 @@ export const getFareBrandNameForOffer = (
       [],
     );
 
-  return offer.slices[0].fare_brand_name || cabinClasses.join("/");
+  return (
+    offer.slices[sliceIndex || 0].fare_brand_name || cabinClasses.join("/")
+  );
 };
 
 export const getCheapestOffer = (offers: OfferRequest["offers"]) =>

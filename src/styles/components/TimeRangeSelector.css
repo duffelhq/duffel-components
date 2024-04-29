@@ -1,3 +1,5 @@
+@import "rc-slider/assets/index.css";
+
 .rc-slider-handle {
   border-color: black !important;
   opacity: 1 !important;

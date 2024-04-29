@@ -20,6 +20,7 @@ export function useFilters(
   const [stopsFilter, setStopsFilter] = useState<Filters["stops"]>(
     initialFilterValues.stops,
   );
+
   function clearFilters() {
     setAirlinesFilter(initialFilterValues.airlines);
     setTimesFilter(initialFilterValues.times);

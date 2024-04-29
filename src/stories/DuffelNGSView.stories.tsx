@@ -164,3 +164,20 @@ export const Large: StoryFn<DuffelNGSViewProps> = () => (
     <DuffelNGSView offerRequest={largeOfferRequest} onSelect={console.log} />
   </Container>
 );
+
+// The compiled story got too big with these examples and was causing CI to fail.
+// If you want to work with it, just uncomment the code below and run the storybook locally.
+
+// const cabinSelectionBugFix = require("../fixtures/offer-requests/orq_0000AhRu3sGYT8z1tTSdqN.json");
+// export const CabinSelectionBugfix: StoryFn<DuffelNGSViewProps> = () => (
+//   <Container>
+//     <DuffelNGSView offerRequest={cabinSelectionBugFix} onSelect={console.log} />
+//   </Container>
+// );
+
+// const mixedCabin = require("../fixtures/offer-requests/orq_0000AhRzwLeef80fcOTmHA.json");
+// export const MixedCabin: StoryFn<DuffelNGSViewProps> = () => (
+//   <Container>
+//     <DuffelNGSView offerRequest={mixedCabin} onSelect={console.log} />
+//   </Container>
+// );

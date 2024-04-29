@@ -13,15 +13,29 @@
   font-size: 14px;
   display: flex;
   align-items: center;
+  justify-content: start;
   padding-right: 4px;
   transition: border-color 0.3s linear;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+  position: relative;
+  padding-right: 28px;
+  white-space: nowrap;
+}
+
+.filter-control__target svg {
+  position: absolute;
+  right: 2px;
 }
 
 .filter-control__target:hover {
   border-color: var(--GREY-400);
+}
+
+.filter-control__target:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .filter-control__backdrop {
@@ -36,7 +50,7 @@
 
 .filter-control__popover {
   background-color: white;
-  border: solid 1px black;
+  border: solid 1px var(--GREY-200);
   position: absolute;
   right: 0;
   margin-top: 10px;
@@ -62,10 +76,11 @@
   cursor: pointer;
   background-color: transparent;
   height: 30px;
+  transition: border-color 0.3s linear;
 }
 
 .filter-control__option:hover {
-  opacity: 0.75;
+  background-color: var(--GREY-100);
 }
 
 .filter-control__option:active {
@@ -73,7 +88,7 @@
 }
 
 .filter-control__option--selected {
-  background: #f2f2f2;
+  background: var(--GREY-100);
 }
 
 .filter-control__option:not(:last-child) {

@@ -1,5 +1,4 @@
 import Slider from "rc-slider";
-import "rc-slider/assets/index.css";
 import React from "react";
 import { FilterControl } from "./FilterControl";
 import { Filters } from "./lib/filter-results";
@@ -92,7 +91,7 @@ export const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
   onChange,
 }) => {
   return (
-    <FilterControl target={getTargetLabel(selected)}>
+    <FilterControl target={getTargetLabel(selected)} targetWidth="220px">
       {() => (
         <div className="padding-8 v-space v-space--24">
           <div className="v-space  ">

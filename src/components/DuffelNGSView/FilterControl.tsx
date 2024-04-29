@@ -7,6 +7,7 @@ interface FilterControlProps {
   children: (closePopover: () => void) => React.ReactNode;
   disabled?: boolean;
   popoverWidth?: string;
+  targetWidth: string;
 }
 
 export const FilterControl: React.FC<FilterControlProps> = ({
@@ -14,6 +15,7 @@ export const FilterControl: React.FC<FilterControlProps> = ({
   children,
   disabled,
   popoverWidth,
+  targetWidth,
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
 
@@ -22,11 +24,12 @@ export const FilterControl: React.FC<FilterControlProps> = ({
   return (
     <div className="filter-control">
       <button
+        style={{ minWidth: targetWidth }}
         onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         className="filter-control__target"
         disabled={disabled}
       >
-        {target}
+        <span>{target}</span>
         <Icon name="arrow_drop_down" size={24} />
       </button>
       {isPopoverOpen && (
