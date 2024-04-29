@@ -8,7 +8,7 @@ export const getCheapestOfferAmount = (
   offers: OfferRequest["offers"] | null,
 ) => (offers ? Math.min(...offers.map((offer) => +offer.total_amount)) : null);
 
-export const sortNGSRows = (
+export const sortNGSRowsByShelfPrice = (
   rows: NGSOfferRow[],
   sortShelf: NGSShelf,
   sortDirection: SortDirection,

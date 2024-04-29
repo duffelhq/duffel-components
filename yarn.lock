@@ -2813,6 +2813,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.10.1, @babel/runtime@npm:^7.18.3":
+  version: 7.24.4
+  resolution: "@babel/runtime@npm:7.24.4"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 785aff96a3aa8ff97f90958e1e8a7b1d47f793b204b47c6455eaadc3f694f48c97cd5c0a921fe3596d818e71f18106610a164fb0f1c71fd68c622a58269d537c
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
   version: 7.23.2
   resolution: "@babel/runtime@npm:7.23.2"
@@ -2978,6 +2987,7 @@ __metadata:
     classnames: "npm:2.3.2"
     concurrently: "npm:8.0.0"
     dotenv: "npm:16.0.3"
+    duration-fns: "npm:^3.0.2"
     esbuild: "npm:0.17.19"
     esbuild-copy-static-files: "npm:0.1.0"
     eslint: "npm:8.52.0"
@@ -2997,6 +3007,7 @@ __metadata:
     prompts: "npm:2.4.2"
     prop-types: "npm:15.8.1"
     puppeteer: "npm:22.4.1"
+    rc-slider: "npm:^10.6.2"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     storybook: "npm:7.0.2"
@@ -7369,6 +7380,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classnames@npm:^2.2.5":
+  version: 2.5.1
+  resolution: "classnames@npm:2.5.1"
+  checksum: afff4f77e62cea2d79c39962980bf316bacb0d7c49e13a21adaadb9221e1c6b9d3cdb829d8bb1b23c406f4e740507f37e1dcf506f7e3b7113d17c5bab787aa69
+  languageName: node
+  linkType: hard
+
 "clean-css@npm:^5.2.2":
   version: 5.3.2
   resolution: "clean-css@npm:5.3.2"
@@ -8280,6 +8298,13 @@ __metadata:
     readable-stream: "npm:^2.0.0"
     stream-shift: "npm:^1.0.0"
   checksum: 59d1440c1b4e3a4db35ae96933392703ce83518db1828d06b9b6322920d6cbbf0b7159e88be120385fe459e77f1eb0c7622f26e9ec1f47c9ff05c2b35747dbd3
+  languageName: node
+  linkType: hard
+
+"duration-fns@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "duration-fns@npm:3.0.2"
+  checksum: 9488be20171815b7614b28bd6e3babc0ee169d2ec100d9816dd8fd61db04d32c9f09a3efc9ee4ffb116899db160679a248546b9c121403ea9f08e136f2b026de
   languageName: node
   linkType: hard
 
@@ -13314,6 +13339,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-slider@npm:^10.6.2":
+  version: 10.6.2
+  resolution: "rc-slider@npm:10.6.2"
+  dependencies:
+    "@babel/runtime": "npm:^7.10.1"
+    classnames: "npm:^2.2.5"
+    rc-util: "npm:^5.36.0"
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: f2d156ffa88596419957f3955a2be86a98705140546f24e53180a17baa20f948187db55529759451adcfbcc52dc67c72bd26b4d3afd54529be8f092e81fa8f65
+  languageName: node
+  linkType: hard
+
+"rc-util@npm:^5.36.0":
+  version: 5.39.1
+  resolution: "rc-util@npm:5.39.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.18.3"
+    react-is: "npm:^18.2.0"
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 95fac4642664a49dc334ebafbdea9ec73e12cefadca2247a001d3f54d18ab91bb9381d0035dc55dbfcc67dbbb5de26c420a20c03d650da6065645c54d73b6c83
+  languageName: node
+  linkType: hard
+
 "react-colorful@npm:^5.1.2":
   version: 5.6.1
   resolution: "react-colorful@npm:5.6.1"
@@ -13413,6 +13465,13 @@ __metadata:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: 6eb5e4b28028c23e2bfcf73371e72cd4162e4ac7ab445ddae2afe24e347a37d6dc22fae6e1748632cd43c6d4f9b8f86dcf26bf9275e1874f436d129952528ae0
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^18.2.0":
+  version: 18.3.0
+  resolution: "react-is@npm:18.3.0"
+  checksum: 88fed0b155686de74699d8815115be449b15b17ec78e0d6df994af5b9d02d0661fd5688a9ef43fd0a140b8db1e39786b611803addf413477209820e2d7ac793e
   languageName: node
   linkType: hard
 

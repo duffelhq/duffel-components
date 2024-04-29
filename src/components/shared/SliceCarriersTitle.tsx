@@ -1,4 +1,4 @@
-import { OfferSlice } from "@duffel/api/types";
+import { OfferSlice, OfferSliceSegment } from "@duffel/api/types";
 import * as React from "react";
 import { AirlineLogo } from "./AirlineLogo";
 import { HSpace } from "./HSpace";
@@ -56,3 +56,17 @@ export const SliceCarriersTitle: React.FC<SliceCarriersTitleProps> = ({
     </HSpace>
   );
 };
+
+export function getSegmentCarriersTitle(segment: OfferSliceSegment) {
+  const marketingCarrier = segment.marketing_carrier;
+  const operatingCarrier = segment.operating_carrier;
+
+  const isOperatedByMarketingCarrier =
+    marketingCarrier.name === operatingCarrier.name;
+
+  return `${marketingCarrier.name}${
+    !isOperatedByMarketingCarrier
+      ? ""
+      : ` operated by ${operatingCarrier.name} `
+  }`;
+}

@@ -14,7 +14,6 @@ const envVariablesToDefine = {
       ? process.env.COMPONENT_CDN
       : `${process.env.COMPONENT_CDN}/${VERSION}`
   }"`,
-  "process.env.TOKEN_PROXY_IFRAME_BASE_URL": `"${process.env.TOKEN_PROXY_IFRAME_BASE_URL}"`,
 };
 
 // Builds for react environment

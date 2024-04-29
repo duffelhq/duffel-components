@@ -1,33 +1,38 @@
-import * as React from "react";
-import { NGSShelf, NGS_SHELF_INFO, NGS_SHELVES } from "./lib";
 import { Icon } from "@components/shared/Icon";
+import { SliceCarriersTitle } from "@components/shared/SliceCarriersTitle";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
-import { SliceCarriersTitle } from "@components/shared/SliceCarriersTitle";
+import * as React from "react";
+import { NGSShelf, NGS_SHELF_INFO, NGS_SHELVES } from "./lib";
 import {
+  NGSOfferRow,
   getNGSSliceKey,
   groupOffersForNGSView,
 } from "./lib/group-offers-for-ngs-view";
-import {
-  SortDirection,
-  getCheapestOfferAmount,
-  sortNGSRows,
-} from "./lib/sort-ngs-rows";
-import { NGSSliceFareCard } from "./NGSSliceFareCard";
-import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
-import { SliceSummary } from "./SliceSummary";
+
 import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
 import { OfferRequest, OfferSlice } from "@duffel/api/types";
+import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
+import { NGSSliceFareCard } from "./NGSSliceFareCard";
+import { SliceSummary } from "./SliceSummary";
 import {
   getCheapestOffer,
   getFareBrandNameForOffer,
 } from "./lib/deduplicate-mapped-offers-by-fare-brand";
+import { getCheapestOfferAmount } from "./lib/sort-ngs-rows-by-shelf-price";
 
 export interface NGSTableProps {
   offers: OfferRequest["offers"];
   sliceIndex: number;
   previousSliceKeys: string[]; // For filtering the current set of offers
-  onSelect: (offerId: string, sliceKey: string) => void;
+  onSelect: (
+    offerId: string,
+    sliceKey: string,
+    offer: OfferRequest["offers"][number],
+  ) => void;
+  sortingFunction: (rows: NGSOfferRow[]) => NGSOfferRow[];
+  selectedColumn: NGSShelf | null;
+  setSelectedColumn: (shelf: NGSShelf | null) => void;
 }
 
 type OfferPosition = {
@@ -40,13 +45,10 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   sliceIndex,
   onSelect,
   previousSliceKeys,
+  sortingFunction,
+  selectedColumn,
+  setSelectedColumn,
 }) => {
-  const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
-    null,
-  );
-  const [sortShelf, setSortShelf] = React.useState<NGSShelf | null>(null);
-  const [sortDirection, setSortDirection] =
-    React.useState<SortDirection>("asc");
   const [expandedOffer, setExpandedOffer] =
     React.useState<OfferPosition | null>(null);
   const [isOfferSliceModalOpen, setIsOfferSliceModalOpen] =
@@ -56,15 +58,12 @@ export const NGSTable: React.FC<NGSTableProps> = ({
 
   React.useEffect(() => {
     setSelectedColumn(null);
-    setSortShelf(null);
     setExpandedOffer(null);
     setIsOfferSliceModalOpen(false);
   }, [previousSliceKeys]);
 
   const rows = groupOffersForNGSView(offers, sliceIndex, previousSliceKeys);
-  const sortedRows = sortShelf
-    ? sortNGSRows(rows, sortShelf, sortDirection)
-    : rows;
+  const sortedRows = sortingFunction(rows);
 
   if (offers.length == 0) {
     return null;
@@ -89,11 +88,6 @@ export const NGSTable: React.FC<NGSTableProps> = ({
               <th
                 key={shelf}
                 onClick={() => {
-                  if (shelf === sortShelf) {
-                    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-                  } else if (selectedColumn === shelf) {
-                    setSortShelf(shelf);
-                  }
                   setSelectedColumn(shelf);
                   setExpandedOffer(null);
                 }}
@@ -115,27 +109,14 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                     className="ngs-table_shelf-icon"
                   />
                   {NGS_SHELF_INFO[shelf].short_title}
-                  {sortShelf === shelf ? (
-                    <Icon
-                      name={
-                        sortDirection === "asc"
-                          ? "arrow_downward"
-                          : "arrow_upward"
-                      }
-                      size={12}
-                      color={
-                        selectedColumn === shelf ? "--GREY-900" : "--GREY-500"
-                      }
-                      className="ngs-table_sort-icon"
-                    />
-                  ) : selectedColumn === shelf ? (
+                  {selectedColumn === shelf && (
                     <Icon
                       name="unfold_more"
                       size={12}
                       color="--GREY-900"
                       className="ngs-table_sort-icon"
                     />
-                  ) : null}
+                  )}
                   <NGSShelfInfoCard
                     ngs_shelf={shelf}
                     className={classNames(
@@ -229,6 +210,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                                     offer.owner.iata_code,
                                     true,
                                   ),
+                                  offer,
                                 )
                               }
                             />

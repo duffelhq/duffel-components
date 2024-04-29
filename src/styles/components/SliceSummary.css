@@ -1,6 +1,6 @@
 .slice-summary {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr 20px auto;
   column-gap: 16px;
   align-items: center;
   width: 100%;
@@ -54,7 +54,8 @@
 .slice-summary__flight-line-container {
   display: grid;
   margin-block: 6px;
-  column-gap: 8px;
+  column-gap: 4px;
+  align-items: center;
 }
 
 .slice-summary__flight-line {
@@ -64,17 +65,15 @@
 .slice-summary__flight-line-color {
   height: 1px;
   background: var(--GREY-200, #ebebf0);
-  width: calc(100% - 24px);
+  /* width: calc(100% - 24px); */
 }
 
 .slice-summary__flight-line-color--full-width {
   width: 100%;
 }
 
-.slice-summary__flight-line svg {
-  position: absolute;
-  top: -10px;
-  right: 0;
+.slice-summary__plane {
+  margin-left: -8px;
   fill: var(--GREY-400);
 }
 
@@ -83,5 +82,5 @@
   height: 6px;
   border-radius: 50%;
   background-color: var(--GREY-900, #161618);
-  margin-top: -3px;
+  margin-left: 7px;
 }
