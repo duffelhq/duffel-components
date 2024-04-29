@@ -1,6 +1,6 @@
 {
   "name": "@duffel/components",
-  "version": "3.7.4",
+  "version": "3.7.5",
   "description": "Component library to build your travel product with Duffel.",
   "keywords": [
     "Duffel",
@@ -38,6 +38,7 @@
     "dev": "node config/esbuild.dev.config.js",
     "generate-fixture": "esbuild ./scripts/generate-fixture.ts --outfile=dist/scripts/generate-fixture.cjs --format=cjs --platform=node --bundle --tsconfig=scripts.tsconfig.json && node dist/scripts/generate-fixture.cjs",
     "lint": "eslint . --ext .ts,.tsx,.mjs,.js --max-warnings=0",
+    "prettier": "prettier --write .",
     "prettier-check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
     "test": "LANG='en_US' TZ=UTC yarn jest",

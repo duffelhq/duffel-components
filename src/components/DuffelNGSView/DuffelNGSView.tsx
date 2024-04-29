@@ -1,4 +1,5 @@
 import { Icon } from "@components/shared/Icon";
+import { NonIdealState } from "@components/shared/NonIdealState";
 import { WithComponentStyles } from "@components/shared/WithComponentStyles";
 import { OfferRequest } from "@duffel/api/types";
 import { getDateString } from "@lib/getDateString";
@@ -6,9 +7,61 @@ import classNames from "classnames";
 import * as React from "react";
 import { FilterControls } from "./FilterControls";
 import { NGSTable } from "./NGSTable";
-import { Filters, filterResults } from "./lib/filter-results";
-import { getInitialFilterValues } from "./lib/get-initial-filter-values";
-import { NonIdealState } from "@components/shared/NonIdealState";
+import { NGSOfferRow } from "./lib/group-offers-for-ngs-view";
+import { sortNGSRowsByDuration } from "./lib/sort-ngs-rows-by-duration";
+import {
+  SortDirection,
+  sortNGSRowsByShelfPrice,
+} from "./lib/sort-ngs-rows-by-shelf-price";
+import { useFilters } from "./lib/useFilters";
+import { SortOption, SortingControl } from "./SortingControl";
+import { NGSShelf } from "./lib";
+
+function getSortShelfAndDirection(
+  sortOption: SortOption,
+): [NGSShelf, "asc" | "desc"] {
+  const [shelf, direction] = sortOption.split("-");
+  return [parseInt(shelf), direction as SortDirection];
+}
+
+function getDurationSortDirection(sortOption: SortOption) {
+  return sortOption.split("-")[1] as SortDirection;
+}
+
+export function useSort() {
+  const [sortOption, setSortOption] =
+    React.useState<SortOption>("duration-asc");
+
+  function sortingFunction(rows: NGSOfferRow[]) {
+    if (sortOption.startsWith("duration")) {
+      const direction = getDurationSortDirection(sortOption);
+      return sortNGSRowsByDuration(rows, direction);
+    } else {
+      const [shelf, direction] = getSortShelfAndDirection(sortOption);
+      return sortNGSRowsByShelfPrice(rows, shelf, direction);
+    }
+  }
+
+  return {
+    sortOption,
+    setSortOption,
+    sortingFunction,
+  };
+}
+
+/*
+
+setSortDuration(null);
+if (shelf === sortShelf) {
+  setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+} else if (selectedColumn === shelf) {
+  setSortShelf(shelf);
+}
+
+setSortShelf(null);
+
+
+*/
 
 export interface DuffelNGSViewProps {
   offerRequest: OfferRequest;
@@ -26,29 +79,23 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
     undefined,
   );
 
-  const initialFilterValues = getInitialFilterValues(offerRequest);
-
-  const [airlinesFilter, setAirlinesFilter] = React.useState<
-    Filters["airlines"]
-  >(initialFilterValues.airlines);
-
-  const [timesFilter, setTimesFilter] = React.useState<Filters["times"]>(
-    initialFilterValues.times,
+  const [selectedColumn, setSelectedColumn] = React.useState<NGSShelf | null>(
+    null,
   );
 
-  const [stopsFilter, setStopsFilter] = React.useState<Filters["stops"]>(
-    initialFilterValues.stops,
-  );
+  const {
+    airlinesFilterOptions,
+    airlinesFilter,
+    timesFilter,
+    stopsFilter,
+    setAirlinesFilter,
+    setTimesFilter,
+    setStopsFilter,
+    clearFilters,
+    filteredOffers,
+  } = useFilters(offerRequest, selectedSliceKeys);
 
-  if (offerRequest.offers.length == 0) {
-    return null;
-  }
-
-  function clearFilters() {
-    setAirlinesFilter(initialFilterValues.airlines);
-    setTimesFilter(initialFilterValues.times);
-    setStopsFilter(initialFilterValues.stops);
-  }
+  const { sortOption, setSortOption, sortingFunction } = useSort();
 
   const numSlices = offerRequest.slices.length;
   const currentSlice =
@@ -56,15 +103,9 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
       ? offerRequest.slices[selectedSliceKeys.length]
       : offerRequest.slices[0];
 
-  const filteredOffers = filterResults(
-    offerRequest.offers,
-    selectedSliceKeys.length > 0 ? selectedSliceKeys.length : 0,
-    {
-      airlines: airlinesFilter,
-      times: timesFilter,
-      stops: stopsFilter,
-    },
-  );
+  if (offerRequest.offers.length == 0) {
+    return null;
+  }
 
   return (
     <div className="duffel-ngs-view">
@@ -117,17 +158,27 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                 {getDateString(currentSlice.departure_date, "long")}
               </h4>
             </div>
-            <div>
+            <div className="h-space h-space--8">
               <FilterControls
                 {...{
                   selectedOwner,
-                  airlines: initialFilterValues.airlines,
+                  airlines: airlinesFilterOptions,
                   airlinesFilter,
                   setAirlinesFilter,
                   timesFilter,
                   setTimesFilter,
                   stopsFilter,
                   setStopsFilter,
+                }}
+              />
+              <SortingControl
+                selected={sortOption}
+                onChange={(sortingOption) => {
+                  setSortOption(sortingOption);
+                  if (!sortingOption.startsWith("duration")) {
+                    const shelf = parseInt(sortingOption.split("-")[0]);
+                    setSelectedColumn(shelf);
+                  }
                 }}
               />
             </div>
@@ -141,6 +192,8 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
 
         {filteredOffers.length > 0 && (
           <NGSTable
+            selectedColumn={selectedColumn}
+            setSelectedColumn={setSelectedColumn}
             offers={filteredOffers}
             sliceIndex={selectedSliceKeys.length}
             previousSliceKeys={selectedSliceKeys}
@@ -154,6 +207,7 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                 clearFilters();
               }
             }}
+            sortingFunction={sortingFunction}
           />
         )}
       </WithComponentStyles>

@@ -3,12 +3,25 @@
 }
 
 .filter-control__target {
-  border: solid 1px black;
+  color: var(--GREY-800);
+  fill: var(--GREY-800);
+  border: solid 1px var(--GREY-200);
   padding: 4px 12px;
   background-color: transparent;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding-right: 4px;
+  transition: border-color 0.3s linear;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.filter-control__target:hover {
+  border-color: var(--GREY-400);
 }
 
 .filter-control__backdrop {

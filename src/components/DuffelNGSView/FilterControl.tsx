@@ -6,12 +6,14 @@ interface FilterControlProps {
   target: React.ReactNode;
   children: (closePopover: () => void) => React.ReactNode;
   disabled?: boolean;
+  popoverWidth?: string;
 }
 
 export const FilterControl: React.FC<FilterControlProps> = ({
   target,
   children,
   disabled,
+  popoverWidth,
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
 
@@ -30,6 +32,7 @@ export const FilterControl: React.FC<FilterControlProps> = ({
         disabled={disabled}
       >
         {target}
+        <Icon name="arrow_drop_down" size={24} />
       </button>
       {isPopoverOpen && (
         <>
@@ -39,7 +42,10 @@ export const FilterControl: React.FC<FilterControlProps> = ({
            * */}
           {/* eslint-disable-next-line */}
           <div className="filter-control__backdrop" onClick={closePopover} />
-          <div className="filter-control__popover">
+          <div
+            className="filter-control__popover"
+            style={popoverWidth ? { width: popoverWidth } : {}}
+          >
             {children(closePopover)}
           </div>
         </>

@@ -6,7 +6,7 @@ export type DurationSort = DurationSortDirection | null;
 
 export const sortNGSRowsByDuration = (
   rows: NGSOfferRow[],
-  sortDuration: DurationSortDirection,
+  sortDirection: DurationSortDirection,
 ): NGSOfferRow[] =>
   rows.sort((aRow, bRow) => {
     if (aRow.slice.duration === null || bRow.slice.duration === null) return 0;
@@ -17,7 +17,7 @@ export const sortNGSRowsByDuration = (
     const aDurationInMinutes = toMinutes(aParsedDuration);
     const bDurationInMinutes = toMinutes(bParsedDuration);
 
-    if (sortDuration === "asc") {
+    if (sortDirection === "asc") {
       return aDurationInMinutes - bDurationInMinutes;
     } else {
       return bDurationInMinutes - aDurationInMinutes;
