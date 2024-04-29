@@ -19,7 +19,8 @@ function getSelectLabel(
   options: Filters["airlines"],
 ) {
   if (selected.length === options.length) return "All airlines";
-  if (selected.length >= 2 || selected.length <= 5)
+  if (selected.length === 1) return selected[0].name;
+  if (selected.length >= 2 && selected.length <= 5)
     return `Airlines: ${selected.map(({ iata_code }) => iata_code).join(", ")}`;
 
   return `${selected.length} airlines`;

@@ -17,17 +17,12 @@ export const FilterControl: React.FC<FilterControlProps> = ({
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
 
-  function togglePopover() {
-    setIsPopoverOpen(!isPopoverOpen);
-  }
-  function closePopover() {
-    setIsPopoverOpen(false);
-  }
+  const closePopover = () => setIsPopoverOpen(false);
 
   return (
     <div className="filter-control">
       <button
-        onClick={togglePopover}
+        onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         className="filter-control__target"
         disabled={disabled}
       >
