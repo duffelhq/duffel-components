@@ -20,7 +20,7 @@ function getSelectLabel(
 ) {
   if (selected.length === options.length) return "All airlines";
   if (selected.length === 1) return selected[0].name;
-  if (selected.length >= 2 && selected.length <= 5)
+  if (selected.length === 2)
     return `Airlines: ${selected.map(({ iata_code }) => iata_code).join(", ")}`;
 
   return `${selected.length} airlines`;
@@ -60,40 +60,59 @@ export const AirlineSelector: React.FC<AirlineSelectorProps> = ({
 }) => {
   return (
     <FilterControl
+      targetWidth="148px"
       disabled={disabled}
       target={targetLabel || getSelectLabel(selected, options)}
     >
-      {(onClose) =>
-        options.map((option, index) => {
-          const isSelected = isOptionSelected(option, selected);
-          return (
-            <Option
-              key={option.iata_code}
-              {...option}
-              isSelected={isSelected}
-              onClick={() => {
-                const newState = isSelected
-                  ? removeFromSelected(option, selected)
-                  : addToSelected(option, selected);
+      {(onClose) => (
+        <>
+          <div className="h-space h-space--8 margin-b-12">
+            <button
+              className="filter-control__target hspace--justify-center padding-inline-8 width-100"
+              disabled={selected.length === options.length}
+              onClick={() => onChange(options)}
+            >
+              Select all
+            </button>
+            <button
+              className="filter-control__target hspace--justify-center padding-inline-8 width-100"
+              disabled={selected.length === 0}
+              onClick={() => onChange([])}
+            >
+              Unselect all
+            </button>
+          </div>
+          {options.map((option, index) => {
+            const isSelected = isOptionSelected(option, selected);
+            return (
+              <Option
+                key={option.iata_code}
+                {...option}
+                isSelected={isSelected}
+                onClick={() => {
+                  const newState = isSelected
+                    ? removeFromSelected(option, selected)
+                    : addToSelected(option, selected);
 
-                onChange(newState);
-              }}
-              onDoubleClick={() => {
-                onChange([option]);
-              }}
-              onKeyDown={(e) => {
-                console.log(e.key);
-                if (
-                  e.key === "Escape" ||
-                  (e.key === "Tab" && index === options.length - 1)
-                ) {
-                  onClose();
-                }
-              }}
-            />
-          );
-        })
-      }
+                  onChange(newState);
+                }}
+                onDoubleClick={() => {
+                  onChange([option]);
+                }}
+                onKeyDown={(e) => {
+                  console.log(e.key);
+                  if (
+                    e.key === "Escape" ||
+                    (e.key === "Tab" && index === options.length - 1)
+                  ) {
+                    onClose();
+                  }
+                }}
+              />
+            );
+          })}
+        </>
+      )}
     </FilterControl>
   );
 };

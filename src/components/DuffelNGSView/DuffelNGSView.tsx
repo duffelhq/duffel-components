@@ -103,8 +103,8 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
       ? offerRequest.slices[selectedSliceKeys.length]
       : offerRequest.slices[0];
 
-  if (offerRequest.offers.length == 0) {
-    return null;
+  if (offerRequest.offers.length === 0) {
+    return <NonIdealState>There are no results</NonIdealState>;
   }
 
   return (
@@ -158,7 +158,12 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                 {getDateString(currentSlice.departure_date, "long")}
               </h4>
             </div>
-            <div className="h-space h-space--8">
+          </div>
+        )}
+
+        {offerRequest.offers.length > 0 && (
+          <>
+            <div className="h-space h-space--8 hspace--justify-end margin-b-12">
               <FilterControls
                 {...{
                   selectedOwner,
@@ -182,33 +187,25 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                 }}
               />
             </div>
-          </div>
-        )}
-        {filteredOffers.length === 0 && (
-          <NonIdealState>
-            There are no offers matching your filters. <br />
-          </NonIdealState>
-        )}
-
-        {filteredOffers.length > 0 && (
-          <NGSTable
-            selectedColumn={selectedColumn}
-            setSelectedColumn={setSelectedColumn}
-            offers={filteredOffers}
-            sliceIndex={selectedSliceKeys.length}
-            previousSliceKeys={selectedSliceKeys}
-            onSelect={(offerId, sliceKey, offer) => {
-              window.scrollTo(0, 0);
-              if (selectedSliceKeys.length == numSlices - 1) {
-                onSelect(offerId);
-              } else {
-                setSelectedOwner(offer.owner ? offer.owner.name : undefined);
-                setSelectedSliceKeys([...selectedSliceKeys, sliceKey]);
-                clearFilters();
-              }
-            }}
-            sortingFunction={sortingFunction}
-          />
+            <NGSTable
+              selectedColumn={selectedColumn}
+              setSelectedColumn={setSelectedColumn}
+              offers={filteredOffers}
+              sliceIndex={selectedSliceKeys.length}
+              previousSliceKeys={selectedSliceKeys}
+              onSelect={(offerId, sliceKey, offer) => {
+                window.scrollTo(0, 0);
+                if (selectedSliceKeys.length == numSlices - 1) {
+                  onSelect(offerId);
+                } else {
+                  setSelectedOwner(offer.owner ? offer.owner.name : undefined);
+                  setSelectedSliceKeys([...selectedSliceKeys, sliceKey]);
+                  clearFilters();
+                }
+              }}
+              sortingFunction={sortingFunction}
+            />
+          </>
         )}
       </WithComponentStyles>
     </div>

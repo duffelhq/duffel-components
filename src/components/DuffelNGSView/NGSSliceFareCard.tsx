@@ -1,12 +1,13 @@
+import { Button } from "@components/shared/Button";
+import { Icon } from "@components/shared/Icon";
+import { Offer } from "@duffel/api/types";
+import { moneyStringFormatter } from "@lib/moneyStringFormatter";
+import classNames from "classnames";
 import * as React from "react";
 import { NGS_SHELF_INFO } from "./lib";
-import { Offer } from "@duffel/api/types";
-import { Icon } from "@components/shared/Icon";
-import { moneyStringFormatter } from "@lib/moneyStringFormatter";
-import { getMaxBaggagesForOfferSlice } from "./lib/get-max-baggages-for-offer-slice";
-import { Button } from "@components/shared/Button";
-import classNames from "classnames";
 import { getFareBrandNameForOffer } from "./lib/deduplicate-mapped-offers-by-fare-brand";
+import { doesSliceHaveMixedCabins } from "./lib/does-slice-have-mixed-cabins";
+import { getMaxBaggagesForOfferSlice } from "./lib/get-max-baggages-for-offer-slice";
 
 export interface NGSSliceFareCardProps {
   offer: Omit<Offer, "available_services">;
@@ -60,6 +61,12 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
           <div>
             <span>{shelfInfo.short_title}</span>
             <h4 className="ngs-slice-fare-card_title">{brandName}</h4>
+            {doesSliceHaveMixedCabins(slice) && (
+              <div className="ngs-slice-fare-card_mixed-cabins margin-t-8">
+                <Icon name="info_outline" size={12} />
+                Multiple cabins
+              </div>
+            )}
           </div>
           <Icon name={shelfInfo.icon} color="--GREY-900" />
         </div>

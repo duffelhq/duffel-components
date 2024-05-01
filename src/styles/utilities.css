@@ -63,6 +63,14 @@
   justify-content: space-between;
 }
 
+.hspace--justify-end {
+  justify-content: end;
+}
+
+.hspace--justify-center {
+  justify-content: center !important;
+}
+
 /* PADDING */
 .padding-8 {
   padding: 8px;
@@ -72,7 +80,25 @@
   padding: 12px;
 }
 
+.padding-inline-8 {
+  padding-inline: 8px !important;
+}
+
+/* MARGIN */
+.margin-t-8 {
+  margin-top: 8px;
+}
+
+.margin-b-12 {
+  margin-bottom: 12px;
+}
+
 /* TEXT */
 .font-size-14 {
   font-size: 14px;
+}
+
+/* WIDTH */
+.width-100 {
+  width: 100%;
 }

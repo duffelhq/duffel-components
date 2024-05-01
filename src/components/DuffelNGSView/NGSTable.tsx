@@ -11,6 +11,7 @@ import {
 } from "./lib/group-offers-for-ngs-view";
 
 import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
+import { NonIdealState } from "@components/shared/NonIdealState";
 import { OfferRequest, OfferSlice } from "@duffel/api/types";
 import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { NGSSliceFareCard } from "./NGSSliceFareCard";
@@ -19,6 +20,7 @@ import {
   getCheapestOffer,
   getFareBrandNameForOffer,
 } from "./lib/deduplicate-mapped-offers-by-fare-brand";
+import { doOffersHaveMixedCabin } from "./lib/does-slice-have-mixed-cabins";
 import { getCheapestOfferAmount } from "./lib/sort-ngs-rows-by-shelf-price";
 
 export interface NGSTableProps {
@@ -54,7 +56,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   const [isOfferSliceModalOpen, setIsOfferSliceModalOpen] =
     React.useState<boolean>(false);
   const [offerSliceModalSlice, setOfferSliceModalSlice] =
-    React.useState<OfferSlice>(offers[0].slices[sliceIndex]);
+    React.useState<OfferSlice>(offers[0]?.slices[sliceIndex]);
 
   React.useEffect(() => {
     setSelectedColumn(null);
@@ -65,8 +67,10 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   const rows = groupOffersForNGSView(offers, sliceIndex, previousSliceKeys);
   const sortedRows = sortingFunction(rows);
 
-  if (offers.length == 0) {
-    return null;
+  if (offers.length === 0) {
+    return (
+      <NonIdealState>There are no offers matching your filters.</NonIdealState>
+    );
   }
 
   let tripType = "";
@@ -75,8 +79,9 @@ export const NGSTable: React.FC<NGSTableProps> = ({
     offers[0].slices.length == 2 &&
     offers[0].slices[0].origin.iata_code ===
       offers[0].slices[1].destination.iata_code
-  )
+  ) {
     tripType = "Roundtrip";
+  }
 
   return (
     <div className="ngs-table">
@@ -174,6 +179,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                         <p className="ngs-table_table-data--details">
                           {getFareBrandNameForOffer(
                             getCheapestOffer(row[shelf]!),
+                            sliceIndex,
                           )}
                         </p>
                         <p>
@@ -184,6 +190,15 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                         <p className="ngs-table_table-data--details">
                           {tripType}
                         </p>
+                        {doOffersHaveMixedCabin(
+                          [getCheapestOffer(row[shelf]!)],
+                          sliceIndex,
+                        ) && (
+                          <div className="ngs-slice-fare-card_mixed-cabins">
+                            <Icon name="info_outline" size={12} />
+                            Multiple cabins
+                          </div>
+                        )}
                       </div>
                     ) : (
                       "-"

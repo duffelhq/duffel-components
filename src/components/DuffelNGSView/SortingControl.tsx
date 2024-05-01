@@ -2,23 +2,23 @@ import React from "react";
 import { FilterControl, FilterControlOption } from "./FilterControl";
 
 const OPTIONS = {
-  "duration-asc": "Duration (shortest to longest)",
-  "duration-desc": "Duration (longest to shortest)",
+  "duration-asc": "Duration Shortest to Longest",
+  "duration-desc": "Duration Longest to Shortest",
 
-  "1-asc": "Price on Basic shelf (low to high)",
-  "1-desc": "Price on Basic shelf (high to low)",
+  "1-asc": "Price (Basic) Low to High",
+  "1-desc": "Price (Basic) High to Low",
 
-  "2-asc": "Price on Standard shelf (low to high)",
-  "2-desc": "Price on Standard shelf (high to low)",
+  "2-asc": "Price (Standard) Low to High",
+  "2-desc": "Price (Standard) High to Low",
 
-  "3-asc": "Price on Plus shelf (low to high)",
-  "3-desc": "Price on Plus shelf (high to low)",
+  "3-asc": "Price (Plus) Low to High",
+  "3-desc": "Price (Plus) High to Low",
 
-  "4-asc": "Price on Premium shelf (low to high)",
-  "4-desc": "Price on Premium shelf (high to low)",
+  "4-asc": "Price (Premium) Low to High",
+  "4-desc": "Price (Premium) High to Low",
 
-  "5-asc": "Price on Luxury shelf (low to high)",
-  "5-desc": "Price on Luxury shelf (high to low)",
+  "5-asc": "Price (Luxury) Low to High",
+  "5-desc": "Price (Luxury) High to Low",
 } as const;
 
 export type SortOption = keyof typeof OPTIONS;
@@ -41,7 +41,8 @@ export const SortingControl: React.FC<StopsSelectorProps> = ({
   return (
     <FilterControl
       target={`Sort by: ${getLabel(selected)}`}
-      popoverWidth={"330px"}
+      popoverWidth={"300px"}
+      targetWidth="285px"
     >
       {(onClose) =>
         OPTION_KEYS.map((option, index) => (

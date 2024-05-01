@@ -6,4 +6,4 @@ storybook-static/*
 .pnp*
 .next
 
-src/fixtures/offer-requests/orq_0000AgDHjHoX1SDBo07hdQ.json
+src/fixtures/offer-requests/*.json
