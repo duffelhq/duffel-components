@@ -75,7 +75,7 @@
     "@storybook/blocks": "7.0.2",
     "@storybook/react": "7.0.2",
     "@storybook/react-webpack5": "7.0.2",
-    "@storybook/testing-library": "0.1.0",
+    "@storybook/testing-library": "0.2.2",
     "@testing-library/react": "14.0.0",
     "@types/jest": "29.5.12",
     "@types/lodash": "4.14.202",
