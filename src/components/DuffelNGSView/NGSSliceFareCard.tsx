@@ -65,6 +65,16 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
               <div className="ngs-slice-fare-card_mixed-cabins margin-t-8">
                 <Icon name="info_outline" size={12} />
                 Multiple cabins
+                <div className="ngs-slice-fare-card_mixed-cabins-popover">
+                  {slice.segments.map((segment, index) => (
+                    <p key={`slice_${index}`}>
+                      {segment.origin.iata_code} →{" "}
+                      {segment.destination.iata_code}
+                      <span className="margin-x-12">|</span>
+                      {segment.passengers[0].cabin_class_marketing_name}
+                    </p>
+                  ))}
+                </div>
               </div>
             )}
           </div>
