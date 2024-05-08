@@ -93,6 +93,10 @@
   margin-bottom: 12px;
 }
 
+.margin-x-12 {
+  margin-inline: 12px;
+}
+
 /* TEXT */
 .font-size-14 {
   font-size: 14px;
