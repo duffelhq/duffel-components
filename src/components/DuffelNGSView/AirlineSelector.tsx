@@ -61,6 +61,7 @@ export const AirlineSelector: React.FC<AirlineSelectorProps> = ({
   return (
     <FilterControl
       targetWidth="148px"
+      popoverMaxHeigh="235px"
       disabled={disabled}
       target={targetLabel || getSelectLabel(selected, options)}
     >
