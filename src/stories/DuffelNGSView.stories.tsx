@@ -181,3 +181,10 @@ export const Large: StoryFn<DuffelNGSViewProps> = () => (
 //     <DuffelNGSView offerRequest={mixedCabin} onSelect={console.log} />
 //   </Container>
 // );
+
+// const lotsOfAirlines = require("../fixtures/offer-requests/orq_0000AhksM2mMsM6i96isLs.json");
+// export const LotsOfAirlines: StoryFn<DuffelNGSViewProps> = () => (
+//   <Container>
+//     <DuffelNGSView offerRequest={lotsOfAirlines} onSelect={console.log} />
+//   </Container>
+// );
