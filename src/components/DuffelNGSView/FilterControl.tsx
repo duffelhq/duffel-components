@@ -7,6 +7,7 @@ interface FilterControlProps {
   children: (closePopover: () => void) => React.ReactNode;
   disabled?: boolean;
   popoverWidth?: string;
+  popoverMaxHeigh?: string;
   targetWidth: string;
 }
 
@@ -15,6 +16,7 @@ export const FilterControl: React.FC<FilterControlProps> = ({
   children,
   disabled,
   popoverWidth,
+  popoverMaxHeigh,
   targetWidth,
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
@@ -42,7 +44,10 @@ export const FilterControl: React.FC<FilterControlProps> = ({
           <div className="filter-control__backdrop" onClick={closePopover} />
           <div
             className="filter-control__popover"
-            style={popoverWidth ? { width: popoverWidth } : {}}
+            style={{
+              ...(popoverWidth && { width: popoverWidth }),
+              ...(popoverMaxHeigh && { maxHeight: popoverMaxHeigh }),
+            }}
           >
             {children(closePopover)}
           </div>
