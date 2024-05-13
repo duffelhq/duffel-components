@@ -16,6 +16,7 @@ import {
 import { useFilters } from "./lib/useFilters";
 import { SortOption, SortingControl } from "./SortingControl";
 import { NGSShelf } from "./lib";
+import { sortNGSRowsByRecommended } from "./lib/sort-ngs-rows-by-recommended";
 
 function getSortShelfAndDirection(
   sortOption: SortOption,
@@ -29,11 +30,12 @@ function getDurationSortDirection(sortOption: SortOption) {
 }
 
 export function useSort() {
-  const [sortOption, setSortOption] =
-    React.useState<SortOption>("duration-asc");
+  const [sortOption, setSortOption] = React.useState<SortOption>("recommended");
 
   function sortingFunction(rows: NGSOfferRow[]) {
-    if (sortOption.startsWith("duration")) {
+    if (sortOption === "recommended") {
+      return sortNGSRowsByRecommended(rows);
+    } else if (sortOption.startsWith("duration")) {
       const direction = getDurationSortDirection(sortOption);
       return sortNGSRowsByDuration(rows, direction);
     } else {
@@ -180,7 +182,10 @@ export const DuffelNGSView: React.FC<DuffelNGSViewProps> = ({
                 selected={sortOption}
                 onChange={(sortingOption) => {
                   setSortOption(sortingOption);
-                  if (!sortingOption.startsWith("duration")) {
+                  if (
+                    !sortingOption.startsWith("duration") &&
+                    sortingOption !== "recommended"
+                  ) {
                     const shelf = parseInt(sortingOption.split("-")[0]);
                     setSelectedColumn(shelf);
                   }

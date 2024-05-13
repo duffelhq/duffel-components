@@ -19,6 +19,8 @@ const OPTIONS = {
 
   "5-asc": "Price (Luxury) Low to High",
   "5-desc": "Price (Luxury) High to Low",
+
+  recommended: "Recommended",
 } as const;
 
 export type SortOption = keyof typeof OPTIONS;
