@@ -35,7 +35,7 @@ export const NGS_SHELF_INFO: Record<OfferSlice["ngs_shelf"], ShelfInfo> = {
     short_title: "Premium",
     full_title: "Premium",
     description:
-      "Premium seating with additional legroom and recline. Seats shall be typically situated in the business class cabin or higher.",
+      "Premium seating with additional legroom and recline. Seats shall be typically situated in the premium economy cabin or higher.",
     icon: "airline_seat_recline_extra",
   },
   5: {
