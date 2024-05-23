@@ -10,13 +10,13 @@
     "baggage",
     "travel"
   ],
-  "homepage": "https://github.com/duffelhq/duffel-checkout#readme",
+  "homepage": "https://github.com/duffelhq/duffel-components#readme",
   "bugs": {
-    "url": "https://github.com/duffelhq/duffel-checkout/issues"
+    "url": "https://github.com/duffelhq/duffel-components/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duffelhq/duffel-checkout.git"
+    "url": "git+https://github.com/duffelhq/duffel-components.git"
   },
   "license": "MIT",
   "maintainers": [
