@@ -9,6 +9,10 @@ interface CardActionError {
   message: string;
 }
 
+export interface SecurityPolicyViolationData {
+  violated_directive: string;
+}
+
 export interface CreateCardForTemporaryUseData extends CommonCardData {
   saved: false;
   /** The card will no longer be available for use after this time. */
@@ -148,4 +152,9 @@ export interface DuffelCardFormProps {
    * `useDuffelCardFormActions` hook.
    */
   onSaveCardFailure?: (error: SaveCardError) => void;
+
+  /**
+   * This function will be called if a security policy violation is detected.
+   */
+  onSecurityPolicyViolation?: (data: SecurityPolicyViolationData) => void;
 }

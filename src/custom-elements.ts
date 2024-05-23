@@ -12,6 +12,7 @@ export {
   onCreateCardForTemporaryUseSuccess,
   onSaveCardFailure,
   onSaveCardSuccess,
+  onSecurityPolicyViolation,
   renderDuffelCardFormCustomElement,
   saveCard,
 } from "./components/DuffelCardForm/DuffelCardFormCustomElement";
