@@ -34,6 +34,7 @@ declare global {
     onSaveCardFailure: typeof onSaveCardFailure;
     onCreateCardForTemporaryUseSuccess: typeof onCreateCardForTemporaryUseSuccess;
     onCreateCardForTemporaryUseFailure: typeof onCreateCardForTemporaryUseFailure;
+    onSecurityPolicyViolation: typeof onSecurityPolicyViolation;
   }
 }
 
@@ -132,6 +133,14 @@ class DuffelCardFormCustomElement extends HTMLElement {
             }),
           )
         }
+        onSecurityPolicyViolation={(data) =>
+          this.dispatchEvent(
+            new CustomEvent("onSecurityPolicyViolation", {
+              detail: { data },
+              composed: true,
+            }),
+          )
+        }
       />,
     );
   }
@@ -190,6 +199,7 @@ type DuffelCardFormPropActions = Pick<
   | "onSaveCardFailure"
   | "onCreateCardForTemporaryUseSuccess"
   | "onCreateCardForTemporaryUseFailure"
+  | "onSecurityPolicyViolation"
 >;
 
 function registerCallbackFactory<T extends keyof DuffelCardFormPropActions>(
@@ -238,6 +248,11 @@ export const onCreateCardForTemporaryUseFailure = registerCallbackFactory(
   "error",
 );
 
+export const onSecurityPolicyViolation = registerCallbackFactory(
+  "onSecurityPolicyViolation",
+  "data",
+);
+
 window.renderDuffelCardFormCustomElement = renderDuffelCardFormCustomElement;
 window.saveCard = saveCard;
 window.createCardForTemporaryUse = createCardForTemporaryUse;
@@ -247,3 +262,4 @@ window.onSaveCardSuccess = onSaveCardSuccess;
 window.onSaveCardFailure = onSaveCardFailure;
 window.onCreateCardForTemporaryUseSuccess = onCreateCardForTemporaryUseSuccess;
 window.onCreateCardForTemporaryUseFailure = onCreateCardForTemporaryUseFailure;
+window.onSecurityPolicyViolation = onSecurityPolicyViolation;

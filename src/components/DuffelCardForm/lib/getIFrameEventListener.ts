@@ -11,6 +11,7 @@ type Inputs = {
   | "onCreateCardForTemporaryUseFailure"
   | "onSaveCardSuccess"
   | "onSaveCardFailure"
+  | "onSecurityPolicyViolation"
 >;
 
 export function getIFrameEventListener(
@@ -24,6 +25,7 @@ export function getIFrameEventListener(
     onCreateCardForTemporaryUseFailure,
     onSaveCardSuccess,
     onSaveCardFailure,
+    onSecurityPolicyViolation,
   }: Inputs,
 ) {
   return function iFrameEventListener(event: MessageEvent) {
@@ -92,6 +94,17 @@ export function getIFrameEventListener(
         } else {
           console.warn("`onSaveCardFailure` not implemented");
         }
+        return;
+
+      case "security-policy-violation":
+        if (onSecurityPolicyViolation) {
+          onSecurityPolicyViolation(event.data.data);
+        } else {
+          console.warn("`onSecurityPolicyViolation` not implemented");
+        }
+        return;
+
+      case "load":
         return;
 
       default:

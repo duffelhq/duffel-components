@@ -24,6 +24,7 @@ export const DuffelCardForm = React.forwardRef<
       onCreateCardForTemporaryUseFailure,
       onSaveCardSuccess,
       onSaveCardFailure,
+      onSecurityPolicyViolation,
     },
     ref,
   ) => {
@@ -81,6 +82,7 @@ export const DuffelCardForm = React.forwardRef<
         onCreateCardForTemporaryUseFailure,
         onSaveCardSuccess,
         onSaveCardFailure,
+        onSecurityPolicyViolation,
       });
 
       window.addEventListener("message", iFrameEventListener);
