@@ -5,6 +5,7 @@ import {
 } from "@duffel/api/types";
 import { NGSOfferRow } from "./group-offers-for-ngs-view";
 import { NGS_SHELVES } from ".";
+import { startCase } from "lodash";
 
 // Deduplicate fare brands (only show the cheapest offer within fare brand)
 export const deduplicateMappedOffersByFareBrand = (
@@ -49,9 +50,9 @@ export const getFareBrandNameForOffer = (
       [],
     );
 
-  return (
-    offer.slices[sliceIndex || 0].fare_brand_name || cabinClasses.join("/")
-  );
+  const fareBrandName =
+    offer.slices[sliceIndex || 0].fare_brand_name || cabinClasses.join("/");
+  return startCase(fareBrandName);
 };
 
 export const getCheapestOffer = (offers: OfferRequest["offers"]) =>
