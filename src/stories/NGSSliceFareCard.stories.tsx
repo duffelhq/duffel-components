@@ -78,5 +78,23 @@ export const FullList: React.FC = () => (
       sliceIndex={1}
       onSelect={console.log}
     />
+    <NGSSliceFareCard
+      offer={{
+        ...offer,
+        total_amount: 500,
+        slices: [
+          {
+            ...offer.slices[0],
+            fare_brand_name: "premium_economy",
+          },
+          {
+            ...offer.slices[1],
+            fare_brand_name: "premium_economy",
+          },
+        ],
+      }}
+      sliceIndex={1}
+      onSelect={console.log}
+    />
   </div>
 );
