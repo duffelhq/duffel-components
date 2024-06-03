@@ -67,7 +67,7 @@
     "@babel/preset-env": "7.24.5",
     "@babel/preset-react": "7.24.1",
     "@babel/preset-typescript": "7.24.1",
-    "@sentry/cli": "2.31.1",
+    "@sentry/cli": "2.32.1",
     "@sentry/esbuild-plugin": "0.7.2",
     "@storybook/addon-essentials": "7.0.2",
     "@storybook/addon-interactions": "7.0.2",
