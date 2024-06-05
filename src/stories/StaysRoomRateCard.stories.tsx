@@ -47,6 +47,32 @@ export const RateWithMinimalInformation = {
   },
 };
 
+export const PayLaterRate = {
+  render: Template,
+  args: {
+    roomRates: [
+      {
+        rate: {
+          ...accommodation.rooms[0].rates[0],
+          available_payment_methods: ["card"],
+          payment_type: "guarantee",
+          source: "bookingcom",
+          id: "rat_0000AiYKQhfXjogdfBkiA4",
+          cancellation_timeline: [
+            {
+              refund_amount: "799.00",
+              currency: "GBP",
+              before: "2025-08-01T00:00:00Z",
+            },
+          ],
+        },
+        numberOfNights: 3,
+        searchNumberOfRooms: 2,
+      },
+    ],
+  },
+};
+
 export const RateWithCompleteInformation = {
   render: Template,
 
@@ -67,6 +93,7 @@ export const RatesCrossComparison = {
   args: {
     roomRates: [
       ...RateWithMinimalInformation.args.roomRates,
+      ...PayLaterRate.args.roomRates,
       ...RateWithCompleteInformation.args.roomRates,
     ],
   },

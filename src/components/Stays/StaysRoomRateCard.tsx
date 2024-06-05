@@ -8,6 +8,7 @@ import {
 } from "./lib/types";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { getDateString } from "@lib/getDateString";
+import { getRateLabel } from "./lib/getRateLabel";
 import { HSpace } from "@components/shared/HSpace";
 import { Icon, IconName } from "@components/shared/Icon";
 import { VSpace } from "@components/shared/VSpace";
@@ -109,11 +110,7 @@ export const StaysRoomRateCard: React.FC<StaysRoomRateCardProps> = ({
                 <StayResultRoomRateItem
                   key={paymentMethod}
                   icon={paymentMethod === "card" ? "credit_card" : "wallet"}
-                  label={
-                    paymentMethod === "card"
-                      ? "Card payment at accommodation"
-                      : "Pay now with Duffel Balance"
-                  }
+                  label={getRateLabel(paymentMethod, rate.payment_type)}
                 />
               ))}
 
