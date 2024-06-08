@@ -65,8 +65,6 @@ export function getSegmentCarriersTitle(segment: OfferSliceSegment) {
     marketingCarrier.name === operatingCarrier.name;
 
   return `${marketingCarrier.name}${
-    !isOperatedByMarketingCarrier
-      ? ""
-      : ` operated by ${operatingCarrier.name} `
+    isOperatedByMarketingCarrier ? "" : ` operated by ${operatingCarrier.name} `
   }`;
 }
