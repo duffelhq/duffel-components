@@ -4,6 +4,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 150%; /* 21px */
+  text-align: left;
 }
 
 .slice-carriers-title__operating-carrier {

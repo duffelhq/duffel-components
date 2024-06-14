@@ -52,6 +52,17 @@ export const SliceCarriersTitle: React.FC<SliceCarriersTitleProps> = ({
             {operatingCarriersLabel})
           </span>
         )}
+        <span className="slice-carriers-title__operating-carrier">
+          {" "}
+          ·{" "}
+          {slice.segments
+            .map(
+              (segment) =>
+                segment.marketing_carrier.iata_code +
+                segment.marketing_carrier_flight_number,
+            )
+            .join(", ")}
+        </span>
       </div>
     </HSpace>
   );

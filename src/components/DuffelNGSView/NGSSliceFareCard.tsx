@@ -139,38 +139,44 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
             />
             Checked bag
           </div>
-          <div className="ngs-slice-fare-card_item">
-            <Icon
-              name={
-                slice.conditions.advance_seat_selection
-                  ? "check_small"
-                  : "close"
-              }
-              color="--GREY-600"
-              size={20}
-            />
-            Seat selection
-          </div>
-          <div className="ngs-slice-fare-card_item">
-            <Icon
-              name={
-                slice.conditions.priority_boarding ? "check_small" : "close"
-              }
-              color="--GREY-600"
-              size={20}
-            />
-            Priority boarding
-          </div>
-          <div className="ngs-slice-fare-card_item">
-            <Icon
-              name={
-                slice.conditions.priority_check_in ? "check_small" : "close"
-              }
-              color="--GREY-600"
-              size={20}
-            />
-            Priority check-in
-          </div>
+          {slice.conditions.advance_seat_selection !== null && (
+            <div className="ngs-slice-fare-card_item">
+              <Icon
+                name={
+                  slice.conditions.advance_seat_selection
+                    ? "check_small"
+                    : "close"
+                }
+                color="--GREY-600"
+                size={20}
+              />
+              Seat selection
+            </div>
+          )}
+          {slice.conditions.priority_boarding !== null && (
+            <div className="ngs-slice-fare-card_item">
+              <Icon
+                name={
+                  slice.conditions.priority_boarding ? "check_small" : "close"
+                }
+                color="--GREY-600"
+                size={20}
+              />
+              Priority boarding
+            </div>
+          )}
+          {slice.conditions.priority_check_in !== null && (
+            <div className="ngs-slice-fare-card_item">
+              <Icon
+                name={
+                  slice.conditions.priority_check_in ? "check_small" : "close"
+                }
+                color="--GREY-600"
+                size={20}
+              />
+              Priority check-in
+            </div>
+          )}
         </div>
       </div>
       <div className="ngs-slice-fare-card_footer">

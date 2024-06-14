@@ -37,6 +37,7 @@
   align-items: flex-start;
   margin-bottom: 16px;
   flex-grow: 1;
+  max-height: 52px;
 }
 
 .ngs-slice-fare-card_header > svg {
