@@ -191,7 +191,7 @@
                   "conditions": {
                     "priority_boarding": false,
                     "priority_check_in": false,
-                    "advanced_seat_selection": false
+                    "advance_seat_selection": false
                   }
                 }
               ],
@@ -324,7 +324,7 @@
             },
             "priority_boarding": false,
             "priority_check_in": false,
-            "advanced_seat_selection": false
+            "advance_seat_selection": false
           },
           "ngs_shelf": 1
         },
@@ -369,7 +369,7 @@
                   "conditions": {
                     "priority_boarding": false,
                     "priority_check_in": false,
-                    "advanced_seat_selection": false
+                    "advance_seat_selection": false
                   }
                 }
               ],
@@ -502,7 +502,7 @@
             },
             "priority_boarding": true,
             "priority_check_in": true,
-            "advanced_seat_selection": true
+            "advance_seat_selection": true
           },
           "ngs_shelf": 1
         }
@@ -614,7 +614,7 @@
                   "conditions": {
                     "priority_boarding": true,
                     "priority_check_in": false,
-                    "advanced_seat_selection": true
+                    "advance_seat_selection": true
                   }
                 }
               ],
@@ -747,7 +747,7 @@
             },
             "priority_boarding": true,
             "priority_check_in": false,
-            "advanced_seat_selection": true
+            "advance_seat_selection": true
           },
           "ngs_shelf": 2
         },
@@ -792,7 +792,7 @@
                   "conditions": {
                     "priority_boarding": true,
                     "priority_check_in": false,
-                    "advanced_seat_selection": true
+                    "advance_seat_selection": true
                   }
                 }
               ],
@@ -925,7 +925,7 @@
             },
             "priority_boarding": true,
             "priority_check_in": false,
-            "advanced_seat_selection": true
+            "advance_seat_selection": true
           },
           "ngs_shelf": 2
         }
@@ -1036,7 +1036,7 @@
                   "conditions": {
                     "priority_boarding": true,
                     "priority_check_in": true,
-                    "advanced_seat_selection": true
+                    "advance_seat_selection": true
                   }
                 }
               ],
@@ -1169,7 +1169,7 @@
             },
             "priority_boarding": true,
             "priority_check_in": true,
-            "advanced_seat_selection": true
+            "advance_seat_selection": true
           },
           "ngs_shelf": 5
         },
@@ -1214,7 +1214,7 @@
                   "conditions": {
                     "priority_boarding": true,
                     "priority_check_in": false,
-                    "advanced_seat_selection": true
+                    "advance_seat_selection": true
                   }
                 }
               ],
@@ -1347,7 +1347,7 @@
             },
             "priority_boarding": true,
             "priority_check_in": false,
-            "advanced_seat_selection": true
+            "advance_seat_selection": true
           },
           "ngs_shelf": 5
         }

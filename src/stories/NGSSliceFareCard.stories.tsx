@@ -85,10 +85,22 @@ export const FullList: React.FC = () => (
         slices: [
           {
             ...offer.slices[0],
+            conditions: {
+              change_before_departure: null,
+              priority_boarding: null,
+              priority_check_in: null,
+              advance_seat_selection: null,
+            },
             fare_brand_name: "premium_economy",
           },
           {
             ...offer.slices[1],
+            conditions: {
+              change_before_departure: null,
+              priority_boarding: null,
+              priority_check_in: null,
+              advance_seat_selection: null,
+            },
             fare_brand_name: "premium_economy",
           },
         ],
