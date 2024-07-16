@@ -3109,14 +3109,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@duffel/api@npm:2.9.2":
-  version: 2.9.2
-  resolution: "@duffel/api@npm:2.9.2"
+"@duffel/api@npm:2.14.0":
+  version: 2.14.0
+  resolution: "@duffel/api@npm:2.14.0"
   dependencies:
     "@types/node": "npm:^18.0.0"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
-  checksum: f458772e66b106f13fed1be0603dd9b75cdd0065fbb65ce11bccf73492e450bf7bea850a47c21f23ed77d8926cb5c42018857d94aae47ebb0280442b93cb696e
+  checksum: 7e3a6b8a70c8710ff028fe2f7f0a1071065eda9672aa437a77de2738d3b59623ec149ce5ac16aca80375ef40a76802ed43ff1c185b85e35675ce2a4ca501a1d8
   languageName: node
   linkType: hard
 
@@ -3129,7 +3129,7 @@ __metadata:
     "@babel/preset-env": "npm:7.24.6"
     "@babel/preset-react": "npm:7.24.6"
     "@babel/preset-typescript": "npm:7.24.6"
-    "@duffel/api": "npm:2.9.2"
+    "@duffel/api": "npm:2.14.0"
     "@sentry/browser": "npm:7.77.0"
     "@sentry/cli": "npm:2.32.1"
     "@sentry/esbuild-plugin": "npm:0.7.2"
@@ -5671,12 +5671,12 @@ __metadata:
   linkType: hard
 
 "@types/node-fetch@npm:^2.6.2":
-  version: 2.6.9
-  resolution: "@types/node-fetch@npm:2.6.9"
+  version: 2.6.11
+  resolution: "@types/node-fetch@npm:2.6.11"
   dependencies:
     "@types/node": "npm:*"
     form-data: "npm:^4.0.0"
-  checksum: b15b6d518ea4dd4a21cf328e9df0a88b2e5b76f3455ddfeb9063a3b97087c50b15ab195a869dadbbeb09d08dcc915557fb6a4f72b4fe79ee42e215fce3d9b0db
+  checksum: 5283d4e0bcc37a5b6d8e629aee880a4ffcfb33e089f4b903b2981b19c623972d1e64af7c3f9540ab990f0f5c89b9b5dda19c5bcb37a8e177079e93683bfd2f49
   languageName: node
   linkType: hard
 
@@ -5706,11 +5706,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^18.0.0":
-  version: 18.19.3
-  resolution: "@types/node@npm:18.19.3"
+  version: 18.19.39
+  resolution: "@types/node@npm:18.19.39"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 3ed943d06e9dff70a3da793f794f1192cd93b0ababdb9f07425a05680f17cfce649cbc46734265f6fbe52fd9f277496d3a4da26c013f1193a0345f2420ea6cd0
+  checksum: a9eb33bc093beba6bd5d4e839de7d1d1f496cd7e741c2f6c7161318dba0f37227bb25d8306907194992488d6c59a7363a419d72298549483d33402227a2d435b
   languageName: node
   linkType: hard
 
