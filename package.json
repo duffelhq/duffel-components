@@ -45,7 +45,7 @@
     "e2e": "bash e2e/start.sh"
   },
   "resolutions": {
-    "@babel/traverse": "7.24.6",
+    "@babel/traverse": "7.25.4",
     "semver": "7.5.4"
   },
   "dependencies": {
@@ -63,10 +63,10 @@
   },
   "devDependencies": {
     "@aashutoshrathi/word-wrap": "1.2.6",
-    "@babel/core": "7.24.6",
-    "@babel/preset-env": "7.24.6",
-    "@babel/preset-react": "7.24.6",
-    "@babel/preset-typescript": "7.24.6",
+    "@babel/core": "7.25.2",
+    "@babel/preset-env": "7.25.4",
+    "@babel/preset-react": "7.24.7",
+    "@babel/preset-typescript": "7.24.7",
     "@sentry/cli": "2.32.1",
     "@sentry/esbuild-plugin": "0.7.2",
     "@storybook/addon-essentials": "7.0.2",
