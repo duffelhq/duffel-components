@@ -75,8 +75,8 @@ export interface DuffelCardFormProps {
   styles?: DuffelCardFormStyles;
 
   /**
-   * This value is intended for Duffel engineers to load the card form iframe 
-   * from different environments of our [token proxy service](https://github.com/duffelhq/token-proxy).  
+   * This value is intended for Duffel engineers to load the card form iframe
+   * from different environments of our [token proxy service](https://github.com/duffelhq/token-proxy).
    *
    * @default: `production`
    */
