@@ -42,7 +42,9 @@
     "prettier-check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
     "test": "LANG='en_US' TZ=UTC yarn jest",
-    "e2e": "bash e2e/start.sh"
+    "e2e": "bash e2e/start.sh",
+    "run-3ds-example": "node examples/card-with-3ds/server.mjs",
+    "create-local-ssl-certificate": "bash ./scripts/create-local-ssl-certificate.sh"
   },
   "resolutions": {
     "@babel/traverse": "7.25.4",
@@ -87,7 +89,7 @@
     "@typescript-eslint/parser": "6.9.1",
     "babel-jest": "29.7.0",
     "concurrently": "8.2.2",
-    "dotenv": "16.0.3",
+    "dotenv": "^16.4.5",
     "esbuild": "0.17.19",
     "esbuild-copy-static-files": "0.1.0",
     "eslint": "8.52.0",
