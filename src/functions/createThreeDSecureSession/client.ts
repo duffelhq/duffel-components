@@ -32,48 +32,47 @@ interface create3DSSessionPayload {
   cardholder_present: boolean;
 }
 
-export async function create3DSSessionInDuffelAPI(
-  clientKey: string,
-  data: create3DSSessionPayload,
-): Promise<ThreeDSecureSession> {
-  const response = await fetch(
-    `${process.env.DUFFEL_API_URL}/three_d_secure_sessions`,
-    {
+export const createClient = (duffelUrl: string, clientKey: string) => {
+  const create3DSSessionInDuffelAPI = async (
+    data: create3DSSessionPayload
+  ): Promise<ThreeDSecureSession> => {
+    const response = await fetch(`${duffelUrl}/three_d_secure_sessions`, {
       method: "POST",
       headers: getAPIHeaders(clientKey),
       body: JSON.stringify({ data }),
-    },
-  );
+    });
 
-  const responseData = await response.json();
-  if (response.status !== 201) {
-    throw responseData;
-  }
-
-  return responseData["data"];
-}
-
-export async function refresh3DSSessionInDuffelAPI(
-  clientKey: string,
-  sessionID: string,
-  isFirstAttempt = true,
-): Promise<ThreeDSecureSession> {
-  const response = await fetch(
-    `${process.env.DUFFEL_API_URL}/three_d_secure_sessions/${sessionID}/actions/refresh`,
-    {
-      method: "POST",
-      headers: getAPIHeaders(clientKey),
-    },
-  );
-
-  const responseData = await response.json();
-  if (response.status !== 200) {
-    if (!isFirstAttempt) {
+    const responseData = await response.json();
+    if (response.status !== 201) {
       throw responseData;
-    } else {
-      return refresh3DSSessionInDuffelAPI(clientKey, sessionID, false);
     }
-  }
 
-  return responseData["data"];
-}
+    return responseData["data"];
+  };
+
+  const refresh3DSSessionInDuffelAPI = async (
+    sessionID: string,
+    isFirstAttempt = true
+  ): Promise<ThreeDSecureSession> => {
+    const response = await fetch(
+      `${duffelUrl}/three_d_secure_sessions/${sessionID}/actions/refresh`,
+      {
+        method: "POST",
+        headers: getAPIHeaders(clientKey),
+      }
+    );
+
+    const responseData = await response.json();
+    if (response.status !== 200) {
+      if (!isFirstAttempt) {
+        throw responseData;
+      } else {
+        return refresh3DSSessionInDuffelAPI(sessionID, false);
+      }
+    }
+
+    return responseData["data"];
+  };
+
+  return { create3DSSessionInDuffelAPI, refresh3DSSessionInDuffelAPI };
+};

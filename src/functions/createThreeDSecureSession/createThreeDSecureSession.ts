@@ -1,21 +1,20 @@
-import {
-  ThreeDSecureSession,
-  create3DSSessionInDuffelAPI,
-  refresh3DSSessionInDuffelAPI,
-} from "./client";
+import { ThreeDSecureSession, createClient } from "./client";
 import { initEvervault } from "./initEvervault";
 import { loadEvervaultScript } from "./loadEvervaultScript";
 
 type CreateThreeDSecureSessionFn = (
   clientKey: string,
-  tokenisedCardId: string,
+  cardId: string,
   resourceId: string,
   services: Array<{ id: string; quantity: number }>,
   cardholderPresent: boolean,
-  overrideEvervaultCredentials?: {
-    teamID: string;
-    appID: string;
-  },
+  environmentConfiguration?: {
+    duffelUrl: string;
+    evervaultCredentials: {
+      teamID: string;
+      appID: string;
+    };
+  }
 ) => Promise<ThreeDSecureSession>;
 
 declare global {
@@ -26,21 +25,32 @@ declare global {
 
 const GENERIC_ERROR_MESSAGE = "Failed to create 3DS session";
 
+const DEFAULT_ENVIRONMENT_CONFIGURATION = {
+  duffelUrl: "https://api.duffel.com",
+  evervaultCredentials: {
+    teamID: "team_a22f3ea22207",
+    appID: "app_976f15bbdddd",
+  },
+};
+
 export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
   clientKey,
-  tokenisedCardId,
+  cardId,
   resourceId,
   services,
   cardholderPresent,
-  overrideEvervaultCredentials,
+  environmentConfiguration = DEFAULT_ENVIRONMENT_CONFIGURATION
 ) => {
   return new Promise((resolve, reject) => {
-    create3DSSessionInDuffelAPI(clientKey, {
-      card_id: tokenisedCardId,
-      resource_id: resourceId,
-      services: services,
-      cardholder_present: cardholderPresent,
-    })
+    const client = createClient(environmentConfiguration.duffelUrl, clientKey);
+
+    client
+      .create3DSSessionInDuffelAPI({
+        card_id: cardId,
+        resource_id: resourceId,
+        services: services,
+        cardholder_present: cardholderPresent,
+      })
       .then((threeDSSession) => {
         if (!threeDSSession) {
           reject(new Error(GENERIC_ERROR_MESSAGE));
@@ -59,17 +69,20 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
 
         const threeDSecure = initEvervault(
           threeDSSession.external_id,
-          overrideEvervaultCredentials,
+          environmentConfiguration.evervaultCredentials.teamID,
+          environmentConfiguration.evervaultCredentials.appID
         );
 
         threeDSecure.on("failure", () => {
-          refresh3DSSessionInDuffelAPI(clientKey, threeDSSession.id)
+          client
+            .refresh3DSSessionInDuffelAPI(threeDSSession.id)
             .then(reject)
             .catch(reject);
         });
 
         threeDSecure.on("error", () => {
-          refresh3DSSessionInDuffelAPI(clientKey, threeDSSession.id)
+          client
+            .refresh3DSSessionInDuffelAPI(threeDSSession.id)
             .then(() => {
               reject(new Error(GENERIC_ERROR_MESSAGE));
             })
@@ -79,7 +92,8 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
         });
 
         threeDSecure.on("success", () => {
-          refresh3DSSessionInDuffelAPI(clientKey, threeDSSession.id)
+          client
+            .refresh3DSSessionInDuffelAPI(threeDSSession.id)
             .then(resolve)
             .catch((error) => {
               reject(error);
