@@ -250,4 +250,4 @@ https
   )
   .listen(PORT);
 
-console.log(`\nServing example on http://localhost:${PORT}`);
+console.log(`\nServing example on https://localhost:${PORT}`);
