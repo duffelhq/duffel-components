@@ -2,19 +2,21 @@ import { ThreeDSecureSession, createClient } from "./client";
 import { initEvervault } from "./initEvervault";
 import { loadEvervaultScript } from "./loadEvervaultScript";
 
+const DEFAULT_ENVIRONMENT_CONFIGURATION = {
+  duffelUrl: "https://api.duffel.com",
+  evervaultCredentials: {
+    teamID: "team_a22f3ea22207",
+    appID: "app_976f15bbdddd",
+  },
+};
+
 type CreateThreeDSecureSessionFn = (
   clientKey: string,
   cardId: string,
   resourceId: string,
   services: Array<{ id: string; quantity: number }>,
   cardholderPresent: boolean,
-  environmentConfiguration?: {
-    duffelUrl: string;
-    evervaultCredentials: {
-      teamID: string;
-      appID: string;
-    };
-  },
+  environmentConfiguration?: Partial<typeof DEFAULT_ENVIRONMENT_CONFIGURATION>,
 ) => Promise<ThreeDSecureSession>;
 
 declare global {
@@ -25,24 +27,20 @@ declare global {
 
 const GENERIC_ERROR_MESSAGE = "Failed to create 3DS session";
 
-const DEFAULT_ENVIRONMENT_CONFIGURATION = {
-  duffelUrl: "https://api.duffel.com",
-  evervaultCredentials: {
-    teamID: "team_a22f3ea22207",
-    appID: "app_976f15bbdddd",
-  },
-};
-
 export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
   clientKey,
   cardId,
   resourceId,
   services,
   cardholderPresent,
-  environmentConfiguration = DEFAULT_ENVIRONMENT_CONFIGURATION,
+  environmentConfiguration = {},
 ) => {
+  const env: typeof DEFAULT_ENVIRONMENT_CONFIGURATION = {
+    ...DEFAULT_ENVIRONMENT_CONFIGURATION,
+    ...environmentConfiguration,
+  };
   return new Promise((resolve, reject) => {
-    const client = createClient(environmentConfiguration.duffelUrl, clientKey);
+    const client = createClient(env.duffelUrl, clientKey);
 
     client
       .create3DSSessionInDuffelAPI({
@@ -69,8 +67,8 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
 
         const threeDSecure = initEvervault(
           threeDSSession.external_id,
-          environmentConfiguration.evervaultCredentials.teamID,
-          environmentConfiguration.evervaultCredentials.appID,
+          env.evervaultCredentials.teamID,
+          env.evervaultCredentials.appID,
         );
 
         threeDSecure.on("failure", () => {
