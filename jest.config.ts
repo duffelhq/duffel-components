@@ -11,6 +11,4 @@ const config: Config = {
   },
 };
 
-process.env.DUFFEL_API_URL = "https://api.duffel.com";
-
 export default config;

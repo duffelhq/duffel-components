@@ -14,7 +14,7 @@ type CreateThreeDSecureSessionFn = (
       teamID: string;
       appID: string;
     };
-  }
+  },
 ) => Promise<ThreeDSecureSession>;
 
 declare global {
@@ -39,7 +39,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
   resourceId,
   services,
   cardholderPresent,
-  environmentConfiguration = DEFAULT_ENVIRONMENT_CONFIGURATION
+  environmentConfiguration = DEFAULT_ENVIRONMENT_CONFIGURATION,
 ) => {
   return new Promise((resolve, reject) => {
     const client = createClient(environmentConfiguration.duffelUrl, clientKey);
@@ -70,7 +70,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
         const threeDSecure = initEvervault(
           threeDSSession.external_id,
           environmentConfiguration.evervaultCredentials.teamID,
-          environmentConfiguration.evervaultCredentials.appID
+          environmentConfiguration.evervaultCredentials.appID,
         );
 
         threeDSecure.on("failure", () => {

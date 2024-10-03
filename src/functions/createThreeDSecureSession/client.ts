@@ -34,7 +34,7 @@ interface create3DSSessionPayload {
 
 export const createClient = (duffelUrl: string, clientKey: string) => {
   const create3DSSessionInDuffelAPI = async (
-    data: create3DSSessionPayload
+    data: create3DSSessionPayload,
   ): Promise<ThreeDSecureSession> => {
     const response = await fetch(`${duffelUrl}/three_d_secure_sessions`, {
       method: "POST",
@@ -52,14 +52,14 @@ export const createClient = (duffelUrl: string, clientKey: string) => {
 
   const refresh3DSSessionInDuffelAPI = async (
     sessionID: string,
-    isFirstAttempt = true
+    isFirstAttempt = true,
   ): Promise<ThreeDSecureSession> => {
     const response = await fetch(
       `${duffelUrl}/three_d_secure_sessions/${sessionID}/actions/refresh`,
       {
         method: "POST",
         headers: getAPIHeaders(clientKey),
-      }
+      },
     );
 
     const responseData = await response.json();
