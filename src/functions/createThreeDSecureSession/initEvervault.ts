@@ -5,12 +5,12 @@ const DEFAULT_EVERVAULT_CREDENTIALS = {
 
 export function initEvervault(
   sessionID: string,
-  overrideEvervaultCredentials = DEFAULT_EVERVAULT_CREDENTIALS
+  overrideEvervaultCredentials = DEFAULT_EVERVAULT_CREDENTIALS,
 ) {
   // @ts-expect-error - We don't have Evervault defined as it comes from a CDN and types are not available.
   const evervault = new Evervault(
     overrideEvervaultCredentials.teamID,
-    overrideEvervaultCredentials.appID
+    overrideEvervaultCredentials.appID,
   );
   const threeDSecure = evervault.ui.threeDSecure(sessionID);
   threeDSecure.mount();

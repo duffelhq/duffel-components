@@ -15,7 +15,7 @@ type CreateThreeDSecureSessionFn = (
   overrideEvervaultCredentials?: {
     teamID: string;
     appID: string;
-  }
+  },
 ) => Promise<ThreeDSecureSession>;
 
 declare global {
@@ -32,7 +32,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
   resourceId,
   services,
   cardholderPresent,
-  overrideEvervaultCredentials
+  overrideEvervaultCredentials,
 ) => {
   return new Promise((resolve, reject) => {
     create3DSSessionInDuffelAPI(clientKey, {
@@ -59,7 +59,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
 
         const threeDSecure = initEvervault(
           threeDSSession.external_id,
-          overrideEvervaultCredentials
+          overrideEvervaultCredentials,
         );
 
         threeDSecure.on("failure", () => {
@@ -90,7 +90,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
   });
 };
 
-// We want to load the Evervault script 
+// We want to load the Evervault script
 // onto the page as soon as this file is loaded.
 loadEvervaultScript();
 

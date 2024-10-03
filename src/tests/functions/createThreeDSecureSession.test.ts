@@ -7,7 +7,7 @@ jest.mock(
     return {
       loadEvervaultScript: jest.fn(),
     };
-  }
+  },
 );
 
 const mockOn = jest.fn();
@@ -67,7 +67,7 @@ const mockFetch = jest.fn((url, { body: bodyString }) => {
     const { data: body } = JSON.parse(bodyString);
     if (!(body.resource_id in RESOURCE_ID_TO_STATUS_MAP)) {
       throw new Error(
-        "Invalid resource_id, it must be one of the keys in RESOURCE_ID_TO_STATUS_MAP"
+        "Invalid resource_id, it must be one of the keys in RESOURCE_ID_TO_STATUS_MAP",
       );
     }
     if (body.resource_id === "off_apierror") {
@@ -105,7 +105,7 @@ const mockFetch = jest.fn((url, { body: bodyString }) => {
     const sessionId = url.match(/three_d_secure_sessions\/(.*)\/actions/)[1];
     if (!(sessionId in SESSION_ID_TO_STATUS_MAP)) {
       throw new Error(
-        "Invalid session_id, it must be one of the keys in SESSION_ID_TO_STATUS_MAP"
+        "Invalid session_id, it must be one of the keys in SESSION_ID_TO_STATUS_MAP",
       );
     }
 
@@ -159,7 +159,7 @@ describe("createThreeDSecureSession", () => {
       tokenisedCardId,
       "off_readyforpayment",
       services,
-      cardholderPresent
+      cardholderPresent,
     );
 
     expect(result.status).toEqual("ready_for_payment");
@@ -168,7 +168,7 @@ describe("createThreeDSecureSession", () => {
   it("successfully returns 3DS session with challenge", async () => {
     setTimeout(() => {
       const callback = mockOn.mock.calls.find(
-        (call) => call[0] === "success"
+        (call) => call[0] === "success",
       )[1];
       callback();
     });
@@ -178,7 +178,7 @@ describe("createThreeDSecureSession", () => {
       tokenisedCardId,
       "off_challengerequired",
       services,
-      cardholderPresent
+      cardholderPresent,
     );
 
     expect(result.status).toEqual("ready_for_payment");
@@ -187,7 +187,7 @@ describe("createThreeDSecureSession", () => {
   it("returns failed 3DS session when user failed the 3DS challenge", async () => {
     setTimeout(() => {
       const callback = mockOn.mock.calls.find(
-        (call) => call[0] === "failure"
+        (call) => call[0] === "failure",
       )[1];
       callback();
     });
@@ -198,7 +198,7 @@ describe("createThreeDSecureSession", () => {
         tokenisedCardId,
         "off_failed",
         services,
-        cardholderPresent
+        cardholderPresent,
       );
     } catch (failed) {
       expect(failed).toEqual({
@@ -224,7 +224,7 @@ describe("createThreeDSecureSession", () => {
         tokenisedCardId,
         "off_failed",
         services,
-        cardholderPresent
+        cardholderPresent,
       );
     } catch (failed) {
       expect(failed).toEqual(new Error("Failed to create 3DS session"));
@@ -238,7 +238,7 @@ describe("createThreeDSecureSession", () => {
         tokenisedCardId,
         "off_apierror",
         services,
-        cardholderPresent
+        cardholderPresent,
       );
     } catch (failed) {
       expect(failed).toEqual({
@@ -253,7 +253,7 @@ describe("createThreeDSecureSession", () => {
   it("returns API error when refreshing the 3DS session fails", async () => {
     setTimeout(() => {
       const callback = mockOn.mock.calls.find(
-        (call) => call[0] === "success"
+        (call) => call[0] === "success",
       )[1];
       callback();
     });
@@ -264,7 +264,7 @@ describe("createThreeDSecureSession", () => {
         tokenisedCardId,
         "off_apierrorforrefresh",
         services,
-        cardholderPresent
+        cardholderPresent,
       );
     } catch (failed) {
       expect(failed).toEqual({

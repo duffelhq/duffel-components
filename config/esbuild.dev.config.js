@@ -39,7 +39,7 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
     servedir: "cdn-dist",
     port: 3200,
     keyfile: ".local-ssl/components.key",
-    certfile: ".local-ssl/components.cert", 
+    certfile: ".local-ssl/components.cert",
   });
   await esbuildContext.watch();
 

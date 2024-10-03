@@ -15,8 +15,8 @@ module.exports = {
     },
     {
       out: "createThreeDSecureSession",
-      in: "src/functions/createThreeDSecureSession/createThreeDSecureSession.ts"
-    }
+      in: "src/functions/createThreeDSecureSession/createThreeDSecureSession.ts",
+    },
     // Created a new custom element wrapper for a components
     // and want to make it available on the CDN? Add it here.
   ],
