@@ -14,7 +14,7 @@ export interface ThreeDSecureSession {
 }
 
 const getAPIHeaders = (clientKey: string) => ({
-  "Duffel-Version": "v1",
+  "Duffel-Version": "v2",
   "Content-Type": "application/json",
   Authorization: `Bearer ${clientKey}`,
   "User-Agent": `Duffel/ancillaries-component@${process.env.COMPONENT_VERSION}`,
