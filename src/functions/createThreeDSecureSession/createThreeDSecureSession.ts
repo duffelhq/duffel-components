@@ -16,7 +16,7 @@ type CreateThreeDSecureSessionFn = (
   resourceId: string,
   services: Array<{ id: string; quantity: number }>,
   cardholderPresent: boolean,
-  environmentConfiguration?: Partial<typeof DEFAULT_ENVIRONMENT_CONFIGURATION>,
+  environmentConfiguration?: Partial<typeof DEFAULT_ENVIRONMENT_CONFIGURATION>
 ) => Promise<ThreeDSecureSession>;
 
 declare global {
@@ -27,18 +27,23 @@ declare global {
 
 const GENERIC_ERROR_MESSAGE = "Failed to create 3DS session";
 
-export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
+export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
   clientKey,
   cardId,
   resourceId,
   services,
   cardholderPresent,
-  environmentConfiguration = {},
+  environmentConfiguration = {}
 ) => {
   const env: typeof DEFAULT_ENVIRONMENT_CONFIGURATION = {
     ...DEFAULT_ENVIRONMENT_CONFIGURATION,
     ...environmentConfiguration,
   };
+
+  // We want to load the Evervault script
+  // onto the page as soon as this file is loaded.
+  await loadEvervaultScript();
+
   return new Promise((resolve, reject) => {
     const client = createClient(env.duffelUrl, clientKey);
 
@@ -68,7 +73,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
         const threeDSecure = initEvervault(
           threeDSSession.external_id,
           env.evervaultCredentials.teamID,
-          env.evervaultCredentials.appID,
+          env.evervaultCredentials.appID
         );
 
         threeDSecure.on("failure", () => {
@@ -101,10 +106,6 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = (
       .catch(reject);
   });
 };
-
-// We want to load the Evervault script
-// onto the page as soon as this file is loaded.
-loadEvervaultScript();
 
 window.createThreeDSecureSession = createThreeDSecureSession;
 export default { createThreeDSecureSession };
