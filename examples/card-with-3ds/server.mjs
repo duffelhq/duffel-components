@@ -16,19 +16,19 @@ dotenv.config({ path: resolve(__dirname, "../../.env.local") });
 // ====== Check environment variables ======
 if (process.env.DUFFEL_API_URL === undefined) {
   throw new Error(
-    "process.env.DUFFEL_API_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n"
+    "process.env.DUFFEL_API_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n",
   );
 }
 
 if (process.env.TOKEN_PROXY_URL === undefined) {
   throw new Error(
-    "process.env.TOKEN_PROXY_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n"
+    "process.env.TOKEN_PROXY_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n",
   );
 }
 
 if (process.env.DUFFEL_API_TOKEN === undefined) {
   throw new Error(
-    "process.env.DUFFEL_API_TOKEN is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n"
+    "process.env.DUFFEL_API_TOKEN is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n",
   );
 }
 
@@ -58,7 +58,7 @@ async function createComponentClientKey() {
     {
       method: "POST",
       headers: API_HEADERS,
-    }
+    },
   );
 
   const { data } = await response.json();
@@ -118,7 +118,7 @@ async function getOffer(origin, destination, source) {
           requested_sources: [source],
         },
       }),
-    }
+    },
   );
 
   const { data: offerRequest } = await response.json();
@@ -130,7 +130,7 @@ async function createOrder(
   offerID,
   offerAmount,
   threeDSSessionID,
-  passengerID
+  passengerID,
 ) {
   const response = await fetch(process.env.DUFFEL_API_URL + "/air/orders", {
     method: "POST",
@@ -221,12 +221,12 @@ const SERVER_ROUTES = {
           offerID,
           offerAmount,
           threeDSSessionID,
-          passengerID
+          passengerID,
         );
 
         console.info("Order created:", order);
         response.writeHead(201);
-        response.end({ orderID: order.id});
+        response.end({ orderID: order.id });
       });
     } else {
       response.writeHead(404);
@@ -240,7 +240,7 @@ https
     {
       key: readFileSync(resolve(__dirname, "../../.local-ssl/components.key")),
       cert: readFileSync(
-        resolve(__dirname, "../../.local-ssl/components.cert")
+        resolve(__dirname, "../../.local-ssl/components.cert"),
       ),
     },
     function (request, response) {
@@ -250,7 +250,7 @@ https
 
       console.warn("Attempted to load unknown route:", request.url);
       response.writeHead(404).end();
-    }
+    },
   )
   .listen(PORT);
 

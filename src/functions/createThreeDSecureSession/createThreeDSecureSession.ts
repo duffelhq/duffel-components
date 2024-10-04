@@ -16,7 +16,7 @@ type CreateThreeDSecureSessionFn = (
   resourceId: string,
   services: Array<{ id: string; quantity: number }>,
   cardholderPresent: boolean,
-  environmentConfiguration?: Partial<typeof DEFAULT_ENVIRONMENT_CONFIGURATION>
+  environmentConfiguration?: Partial<typeof DEFAULT_ENVIRONMENT_CONFIGURATION>,
 ) => Promise<ThreeDSecureSession>;
 
 declare global {
@@ -33,7 +33,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
   resourceId,
   services,
   cardholderPresent,
-  environmentConfiguration = {}
+  environmentConfiguration = {},
 ) => {
   const env: typeof DEFAULT_ENVIRONMENT_CONFIGURATION = {
     ...DEFAULT_ENVIRONMENT_CONFIGURATION,
@@ -73,7 +73,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
         const threeDSecure = initEvervault(
           threeDSSession.external_id,
           env.evervaultCredentials.teamID,
-          env.evervaultCredentials.appID
+          env.evervaultCredentials.appID,
         );
 
         threeDSecure.on("failure", () => {
