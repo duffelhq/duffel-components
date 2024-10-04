@@ -50,7 +50,7 @@ if [[ "$@" != *"--dry-run"* ]]; then
 
     # Publish to npm
     cd react-dist
-    # npm publish --tag canary
+    npm publish
 else
     echo ""
     echo "Dry run."
