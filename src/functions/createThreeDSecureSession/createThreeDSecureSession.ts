@@ -107,5 +107,4 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
   });
 };
 
-window.createThreeDSecureSession = createThreeDSecureSession;
 export default { createThreeDSecureSession };
