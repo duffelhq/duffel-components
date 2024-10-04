@@ -6,9 +6,8 @@ dotenv.config({ path: ".env.local" });
 const DUFFEL_API_URL = process.env.DUFFEL_API_URL;
 const VERSION = require("../package.json").version;
 
-const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
-  ? process.env.COMPONENT_CDN
-  : `${process.env.COMPONENT_CDN}/${VERSION}`;
+const PORT = 3200;
+const COMPONENT_CDN = `https://localhost:${PORT}`;
 
 (async function () {
   const esbuildContext = await esbuild.context({
@@ -37,7 +36,7 @@ const COMPONENT_CDN = process.env.COMPONENT_CDN.startsWith("http://localhost:")
   let { host, port } = await esbuildContext.serve({
     host: "localhost",
     servedir: "cdn-dist",
-    port: 3200,
+    port: PORT,
     keyfile: ".local-ssl/components.key",
     certfile: ".local-ssl/components.cert",
   });
