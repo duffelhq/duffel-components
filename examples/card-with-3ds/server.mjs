@@ -6,23 +6,29 @@ import dotenv from "dotenv";
 import { readFileSync } from "fs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// ====== Constants ======
+const EXAMPLES = {
+  duffel_airways: ["STN", "GDN", "duffel_airways"],
+  british_airways: ["LHR", "ABZ", "british_airways"],
+};
+
 dotenv.config({ path: resolve(__dirname, "../../.env.local") });
 // ====== Check environment variables ======
 if (process.env.DUFFEL_API_URL === undefined) {
   throw new Error(
-    "process.env.DUFFEL_API_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n",
+    "process.env.DUFFEL_API_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n"
   );
 }
 
 if (process.env.TOKEN_PROXY_URL === undefined) {
   throw new Error(
-    "process.env.TOKEN_PROXY_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n",
+    "process.env.TOKEN_PROXY_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n"
   );
 }
 
 if (process.env.DUFFEL_API_TOKEN === undefined) {
   throw new Error(
-    "process.env.DUFFEL_API_TOKEN is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n",
+    "process.env.DUFFEL_API_TOKEN is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n"
   );
 }
 
@@ -52,7 +58,7 @@ async function createComponentClientKey() {
     {
       method: "POST",
       headers: API_HEADERS,
-    },
+    }
   );
 
   const { data } = await response.json();
@@ -112,7 +118,7 @@ async function getOffer(origin, destination, source) {
           requested_sources: [source],
         },
       }),
-    },
+    }
   );
 
   const { data: offerRequest } = await response.json();
@@ -124,7 +130,7 @@ async function createOrder(
   offerID,
   offerAmount,
   threeDSSessionID,
-  passengerID,
+  passengerID
 ) {
   const response = await fetch(process.env.DUFFEL_API_URL + "/air/orders", {
     method: "POST",
@@ -158,9 +164,8 @@ async function createOrder(
     }),
   });
 
-  const stuff = await response.json();
-  console.log(stuff);
-  return stuff;
+  const { data } = await response.json();
+  return data;
 }
 
 // ====== Get template file ======
@@ -186,7 +191,7 @@ function endpoint(workFunction) {
 
 const SERVER_ROUTES = {
   "/": endpoint(async function (_, response) {
-    const offer = await getOffer("LHR", "ABZ", "british_airways");
+    const offer = await getOffer(...EXAMPLES.duffel_airways);
     const componentClientKey = await createComponentClientKey();
     const cardID = await createCard(componentClientKey);
 
@@ -216,13 +221,12 @@ const SERVER_ROUTES = {
           offerID,
           offerAmount,
           threeDSSessionID,
-          passengerID,
+          passengerID
         );
 
-        console.info("Order created", JSON.stringify(order));
-
+        console.info("Order created:", order);
         response.writeHead(201);
-        response.end(JSON.stringify(order));
+        response.end({ orderID: order.id});
       });
     } else {
       response.writeHead(404);
@@ -236,7 +240,7 @@ https
     {
       key: readFileSync(resolve(__dirname, "../../.local-ssl/components.key")),
       cert: readFileSync(
-        resolve(__dirname, "../../.local-ssl/components.cert"),
+        resolve(__dirname, "../../.local-ssl/components.cert")
       ),
     },
     function (request, response) {
@@ -244,9 +248,9 @@ https
         return SERVER_ROUTES[request.url](request, response);
       }
 
-      response.writeHead(404);
-      response.end(https.STATUS_CODES[404]);
-    },
+      console.warn("Attempted to load unknown route:", request.url);
+      response.writeHead(404).end();
+    }
   )
   .listen(PORT);
 
