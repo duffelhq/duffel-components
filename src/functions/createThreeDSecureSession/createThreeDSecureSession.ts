@@ -6,7 +6,7 @@ const DEFAULT_ENVIRONMENT_CONFIGURATION = {
   duffelUrl: "https://api.duffel.com",
   evervaultCredentials: {
     teamID: "team_a22f3ea22207",
-    appID: "app_976f15bbdddd",
+    appID: "app_d1d607aedf2d",
   },
 };
 
