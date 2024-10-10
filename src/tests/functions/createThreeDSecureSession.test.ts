@@ -30,15 +30,15 @@ const cardholderPresent = true;
 const MOCK_RESPONSE: Partial<ThreeDSecureSession> = {
   live_mode: false,
   cardholder_present: cardholderPresent,
-  external_id: "evervault_external_id",
+  client_id: "evervault_external_id",
 };
 
 const RESOURCE_ID_TO_STATUS_MAP = {
   off_readyforpayment: "ready_for_payment",
-  off_challengerequired: "challenge_required",
-  off_failed: "challenge_required",
+  off_challengerequired: "client_action_required",
+  off_failed: "client_action_required",
   off_apierror: "failed",
-  off_apierrorforrefresh: "challenge_required",
+  off_apierrorforrefresh: "client_action_required",
 };
 
 const RESOURCE_ID_TO_SESSION_ID_MAP = {
@@ -203,7 +203,7 @@ describe("createThreeDSecureSession", () => {
     } catch (failed) {
       expect(failed).toEqual({
         cardholder_present: true,
-        external_id: "evervault_external_id",
+        client_id: "evervault_external_id",
         id: "tds_fail",
         live_mode: false,
         resource_id: "off_tds_fail",
