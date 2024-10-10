@@ -65,13 +65,13 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
           return;
         }
 
-        if (threeDSSession.external_id === null) {
+        if (threeDSSession.client_id === null) {
           reject(new Error(GENERIC_ERROR_MESSAGE));
           return;
         }
 
         const threeDSecure = initEvervault(
-          threeDSSession.external_id,
+          threeDSSession.client_id,
           env.evervaultCredentials.teamID,
           env.evervaultCredentials.appID,
         );

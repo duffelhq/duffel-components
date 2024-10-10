@@ -1,5 +1,5 @@
 type ThreeDSSessionStatus =
-  | "challenge_required"
+  | "client_action_required"
   | "ready_for_payment"
   | "expired"
   | "failed";
@@ -10,7 +10,7 @@ export interface ThreeDSecureSession {
   resource_id: string;
   cardholder_present: boolean;
   status: ThreeDSSessionStatus;
-  external_id: string | null;
+  client_id: string | null;
 }
 
 const getAPIHeaders = (clientKey: string) => ({
