@@ -1,6 +1,6 @@
 {
   "name": "@duffel/components",
-  "version": "3.7.18",
+  "version": "3.7.22",
   "description": "Component library to build your travel product with Duffel.",
   "keywords": [
     "Duffel",
@@ -42,7 +42,9 @@
     "prettier-check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
     "test": "LANG='en_US' TZ=UTC yarn jest",
-    "e2e": "bash e2e/start.sh"
+    "e2e": "bash e2e/start.sh",
+    "run-3ds-example": "node examples/card-with-3ds/server.mjs",
+    "create-local-ssl-certificate": "bash ./scripts/create-local-ssl-certificate.sh"
   },
   "resolutions": {
     "@babel/traverse": "7.25.4",
@@ -54,10 +56,10 @@
     "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "1.54.2",
     "classnames": "2.3.2",
-    "duration-fns": "^3.0.2",
+    "duration-fns": "3.0.2",
     "fuse.js": "6.6.2",
     "lodash": "4.17.21",
-    "rc-slider": "^10.6.2",
+    "rc-slider": "10.6.2",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
@@ -87,7 +89,7 @@
     "@typescript-eslint/parser": "6.9.1",
     "babel-jest": "29.7.0",
     "concurrently": "8.2.2",
-    "dotenv": "16.0.3",
+    "dotenv": "16.4.5",
     "esbuild": "0.17.19",
     "esbuild-copy-static-files": "0.1.0",
     "eslint": "8.52.0",
