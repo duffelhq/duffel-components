@@ -6,7 +6,7 @@ const DEFAULT_ENVIRONMENT_CONFIGURATION = {
   duffelUrl: "https://api.duffel.com",
   evervaultCredentials: {
     teamID: "team_a22f3ea22207",
-    appID: "app_976f15bbdddd",
+    appID: "app_d1d607aedf2d",
   },
 };
 
@@ -65,13 +65,13 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
           return;
         }
 
-        if (threeDSSession.external_id === null) {
+        if (threeDSSession.client_id === null) {
           reject(new Error(GENERIC_ERROR_MESSAGE));
           return;
         }
 
         const threeDSecure = initEvervault(
-          threeDSSession.external_id,
+          threeDSSession.client_id,
           env.evervaultCredentials.teamID,
           env.evervaultCredentials.appID,
         );
