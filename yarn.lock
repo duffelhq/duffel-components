@@ -3114,14 +3114,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@duffel/api@npm:2.14.0":
-  version: 2.14.0
-  resolution: "@duffel/api@npm:2.14.0"
+"@duffel/api@npm:2.14.4":
+  version: 2.14.4
+  resolution: "@duffel/api@npm:2.14.4"
   dependencies:
     "@types/node": "npm:^18.0.0"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
-  checksum: 7e3a6b8a70c8710ff028fe2f7f0a1071065eda9672aa437a77de2738d3b59623ec149ce5ac16aca80375ef40a76802ed43ff1c185b85e35675ce2a4ca501a1d8
+  checksum: 59c50e9fed848ca0e244be3b9f55e80d4d28cccc7adce6923a1d44dab08bba4c68e7d90fd759e3ed53f43b0ab7938ebbe02ffe4fb1c77c8158e64ae0fb61585c
   languageName: node
   linkType: hard
 
@@ -3134,7 +3134,7 @@ __metadata:
     "@babel/preset-env": "npm:7.25.4"
     "@babel/preset-react": "npm:7.24.7"
     "@babel/preset-typescript": "npm:7.24.7"
-    "@duffel/api": "npm:2.14.0"
+    "@duffel/api": "npm:2.14.4"
     "@sentry/browser": "npm:7.119.1"
     "@sentry/cli": "npm:2.33.1"
     "@sentry/esbuild-plugin": "npm:0.7.2"

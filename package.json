@@ -51,7 +51,7 @@
     "semver": "7.5.4"
   },
   "dependencies": {
-    "@duffel/api": "2.14.0",
+    "@duffel/api": "2.14.4",
     "@sentry/browser": "7.119.1",
     "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "1.54.2",
