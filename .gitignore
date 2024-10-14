@@ -20,3 +20,6 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# A place for local certificate files
+.local-ssl
