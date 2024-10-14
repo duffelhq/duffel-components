@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Card Form integration example</title>
+  </head>
+  <body style="height: 100vh">
+    <h1>3DS example</h1>
+
+    <p>
+      In this example we tokenize the card in the backend so we can focus on the
+      3DS flow.
+      <br />
+      You can look at <code>examples/card-with-3ds/server.mjs</code> to see what
+      requests we make to prepare the page.
+      <br />
+      Find the values used below:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Component client key</strong>
+        <pre>__COMPONENT_CLIENT_KEY__</pre>
+      </li>
+      <li>
+        <strong>Card ID</strong>:
+        <pre>__CARD_ID__</pre>
+      </li>
+      <li>
+        <strong>Offer ID</strong>:
+        <pre>__OFFER_ID__</pre>
+      </li>
+    </ul>
+
+    <button onclick="pay()">Pay now</button>
+  </body>
+
+  <!-- 2. Load the script -->
+  <script
+    type="text/javascript"
+    src="https://localhost:3200/createThreeDSecureSession.js"
+  ></script>
+
+  <!-- 3. Enable open function once window is loaded -->
+  <script type="text/javascript">
+    window.pay = async () => {
+      const threeDSSession = createThreeDSecureSession(
+        "__COMPONENT_CLIENT_KEY__",
+        "__CARD_ID__",
+        "__OFFER_ID__",
+        [],
+        true,
+        { duffelUrl: "https://localhost:4000" },
+      )
+        .then(async (threeDSSession) => {
+          console.info("3DS session returned", threeDSSession);
+
+          if (threeDSSession.status === "ready_for_payment") {
+            const orderCreateResponse = await fetch("/create-order", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                offerID: "__OFFER_ID__",
+                offerAmount: "__OFFER_AMOUNT__",
+                passengerID: "__PASSENGER_ID__",
+                threeDSSessionID: threeDSSession.id,
+              }),
+            });
+
+            alert("Order created, check server logs for full order object");
+          } else {
+            console.log("3DS session status is not ready_for_payment", {
+              threeDSSession,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error creating 3DS session", error);
+        });
+    };
+  </script>
+</html>

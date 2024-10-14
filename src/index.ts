@@ -15,3 +15,6 @@ export * from "./types";
 export * from "./components/DuffelCardForm/DuffelCardForm";
 export * from "./components/DuffelCardForm/lib/types";
 export * from "./components/DuffelCardForm/lib/useDuffelCardFormActions";
+
+/* --- Functions --- */
+export { createThreeDSecureSession } from "./functions/createThreeDSecureSession/createThreeDSecureSession";
