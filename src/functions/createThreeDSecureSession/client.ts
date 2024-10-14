@@ -63,7 +63,7 @@ export const createClient = (duffelUrl: string, clientKey: string) => {
     );
 
     const responseData = await response.json();
-    if (response.status !== 200) {
+    if (response.status >= 500) {
       if (!isFirstAttempt) {
         throw responseData;
       } else {
