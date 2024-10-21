@@ -56,6 +56,8 @@ export const StaysSummary: React.FC<
             {accommodation.location.address.region ??
               accommodation.location.address.city_name ??
               accommodation.location.address.country_code}
+            {accommodation.location.address.postal_code &&
+              `, ${accommodation.location.address.postal_code}`}
           </p>
         </VSpace>
       </HSpace>
