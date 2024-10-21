@@ -6,7 +6,7 @@
     "build": "esbuild src/index.tsx --bundle --outfile=dist/index.js"
   },
   "dependencies": {
-    "@duffel/components": "3.1.5",
+    "@duffel/components": "3.7.23",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
