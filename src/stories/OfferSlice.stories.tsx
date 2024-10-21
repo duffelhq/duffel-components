@@ -1,7 +1,6 @@
 import { OfferSlice } from "@components/OfferSlice/OfferSlice";
 import { Airport, City, Offer, OfferSliceSegmentStop } from "@duffel/api/types";
 import type { Meta } from "@storybook/react";
-import React from "react";
 
 // Use a require because the fixture is not a module.
 /* eslint-disable @typescript-eslint/no-var-requires */
