@@ -10,6 +10,13 @@ const DEFAULT_ENVIRONMENT_CONFIGURATION = {
   },
 };
 
+/**
+ * @param clientKey - The client key used to authenticate with the Duffel API.
+ * @param cardId - The card ID used for the 3DS session.
+ * @param resourceId - The resource (offer, order, order change) ID that the 3DS session is for.
+ * @param services - Include all services that are being added, empty if no services are being added. This is required when services are also being purchased to ensure an accurate total amount to be authorised. If no services, it should be an empty array.
+ * @param cardholderPresent - Whether the cardholder was present when the 3DS session was created. If you are collecting card details offline, for example an agent interface for entering card details received from the traveller over the phone, then you must specify the cardholder as not present
+ */
 type CreateThreeDSecureSessionFn = (
   clientKey: string,
   cardId: string,
