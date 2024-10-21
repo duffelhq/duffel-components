@@ -109,7 +109,7 @@
     "prettier-plugin-organize-imports": "3.2.4",
     "prompts": "2.4.2",
     "prop-types": "15.8.1",
-    "puppeteer": "22.15.0",
+    "puppeteer": "23.6.0",
     "storybook": "8.3.5",
     "ts-node": "10.9.2",
     "tsconfig-paths-webpack-plugin": "4.0.1",
