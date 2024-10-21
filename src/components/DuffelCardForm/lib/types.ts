@@ -1,7 +1,31 @@
 interface CommonCardData {
+  /**
+   * Duffel's unique identifier for the resource
+   */
   id: string;
+
+  /**
+   * Whether the card was created in live mode. This field will be set to true
+   * if the card was created in live mode, or false if it was created in test mode.
+   */
+  live_mode: boolean;
+
+  /**
+   * Last 4 digits of the card number.
+   */
   last_4_digits: string;
-  live_mode: false;
+
+  /**
+   * Card brand name.
+   */
+  brand:
+    | "visa"
+    | "mastercard"
+    | "uatp"
+    | "american_express"
+    | "diners_club"
+    | "jcb"
+    | "discover";
 }
 
 interface CardActionError {
@@ -15,12 +39,19 @@ export interface SecurityPolicyViolationData {
 
 export interface CreateCardForTemporaryUseData extends CommonCardData {
   saved: false;
-  /** The card will no longer be available for use after this time. */
+
+  /**
+   * The ISO 8601 datetime at which the card will be automatically deleted.
+   */
   unavailable_at: string;
 }
 
 export interface SaveCardData extends CommonCardData {
   saved: true;
+
+  /**
+   * The ISO 8601 datetime at which the card will be automatically deleted.
+   */
   unavailable_at: null;
 }
 
@@ -86,10 +117,11 @@ export interface DuffelCardFormProps {
    * The card intent defines what the form is meant to look like.
    * It can be one of:
    *
-   * - `to-create-card-for-temporary-use`: The full form will be shown. You may also use this intent for the use case of using and saving the card.
-   * - `to-use-saved-card`: When using this intent also provide the saved card ID. Only a cvv field will be rendered.
-   * - `to-save-card`: The form will be shown without the cvv field. This only allows you to save a card for future use,
-   *    but not create an id for immediate, temporary use. For the use case of saving during checkout or save + use, use the `to-create-card-for-temporary-use` intent.
+   * - `to-create-card-for-temporary-use`: The full form will be shown. You may also use this intent for the use case of saving and using the card.
+   * - `to-use-saved-card`: Only a CVC field will be shown. When using this intent a saved card ID is required.
+   * - `to-save-card`: The form will be shown without the CVC field. This only allows you to save a card for future use,
+   *    but not create an ID for immediate, temporary use. For the use case of saving and using during checkout, use the `to-create-card-for-temporary-use` intent.
+  
    */
   intent: DuffelCardFormIntent;
 
