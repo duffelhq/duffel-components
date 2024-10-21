@@ -1,6 +1,5 @@
 import { AirlineLogo } from "@components/shared/AirlineLogo";
 import { Meta } from "@storybook/react";
-import React from "react";
 
 const AIRLINES = [
   ["American Airlines", "AA"],

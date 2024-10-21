@@ -1,5 +1,4 @@
 import type { Meta, StoryFn, StoryObj } from "@storybook/react";
-import React from "react";
 import { Button, ButtonProps } from "../components/shared/Button";
 
 export default {

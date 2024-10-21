@@ -1,6 +1,5 @@
 import type { Meta } from "@storybook/react";
 import { NGSSliceFareCard } from "../components/DuffelNGSView/NGSSliceFareCard";
-import React from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const offerRequest = require("../fixtures/offer-requests/orq_0000Ab7taNqbK8y5YqW6Zk.json");
