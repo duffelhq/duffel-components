@@ -29,7 +29,6 @@ const cardholderPresent = true;
 
 const MOCK_RESPONSE: Partial<ThreeDSecureSession> = {
   live_mode: false,
-  cardholder_present: cardholderPresent,
   client_id: "evervault_external_id",
 };
 
@@ -202,7 +201,6 @@ describe("createThreeDSecureSession", () => {
       );
     } catch (failed) {
       expect(failed).toEqual({
-        cardholder_present: true,
         client_id: "evervault_external_id",
         id: "tds_fail",
         live_mode: false,
