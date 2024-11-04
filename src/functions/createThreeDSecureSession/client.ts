@@ -21,11 +21,6 @@ export interface ThreeDSecureSession {
   resource_id: string;
 
   /**
-   * Whether the cardholder was present when the 3DS session was created.
-   */
-  cardholder_present: boolean;
-
-  /**
    * The status of the 3DS session.
    *  - `client_action_required` - The 3DS session requires the UI Component to be initailised. This is the initial state when the payment is eligible for SCA and requires a 3DS challenge.
    *  - `ready_for_payment` - The 3DS session is ready to be used on a payment object as part of a order creation/payment request. This is the initial state if the card or the supplier does not support 3DS.
