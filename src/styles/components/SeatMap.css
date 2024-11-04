@@ -1,6 +1,7 @@
 .seat-map {
   background-color: rgba(var(--WHITE), 1);
   padding: var(--SPACING-SM-3);
+  padding-bottom: 80px; /* To account for the fixed footer */
   display: flex;
   flex-direction: column;
   align-items: center;
