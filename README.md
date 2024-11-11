@@ -134,7 +134,7 @@ If you are not in a node environment and can't rely on npm to install the packag
 ### Are there integration guides?
 
 - [Integrating the ancillaries component into your booking flow](https://duffel.com/docs/guides/ancillaries-component).
-- [Collecting payments with Duffel Payments](https://duffel.com/docs/guides/collecting-customer-card-payments)
+- [Integrating the customer card form into your checkout page](https://duffel.com/docs/guides/paying-with-customer-cards).
 
 More guides are coming soon.
 
