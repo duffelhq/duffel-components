@@ -70,7 +70,7 @@
     "@babel/preset-react": "7.25.7",
     "@babel/preset-typescript": "7.25.7",
     "@chromatic-com/storybook": "1.9.0",
-    "@sentry/cli": "2.37.0",
+    "@sentry/cli": "2.39.1",
     "@sentry/esbuild-plugin": "0.7.2",
     "@storybook/addon-essentials": "8.3.5",
     "@storybook/addon-interactions": "8.3.5",
