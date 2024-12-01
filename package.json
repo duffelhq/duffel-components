@@ -47,7 +47,7 @@
     "create-local-ssl-certificate": "bash ./scripts/create-local-ssl-certificate.sh"
   },
   "resolutions": {
-    "@babel/traverse": "7.25.7",
+    "@babel/traverse": "7.25.9",
     "semver": "7.5.4"
   },
   "dependencies": {
@@ -65,10 +65,10 @@
   },
   "devDependencies": {
     "@aashutoshrathi/word-wrap": "1.2.6",
-    "@babel/core": "7.25.8",
-    "@babel/preset-env": "7.25.8",
-    "@babel/preset-react": "7.25.7",
-    "@babel/preset-typescript": "7.25.7",
+    "@babel/core": "7.26.0",
+    "@babel/preset-env": "7.26.0",
+    "@babel/preset-react": "7.25.9",
+    "@babel/preset-typescript": "7.26.0",
     "@chromatic-com/storybook": "1.9.0",
     "@sentry/cli": "2.37.0",
     "@sentry/esbuild-plugin": "0.7.2",
