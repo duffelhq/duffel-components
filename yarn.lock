@@ -1883,7 +1883,7 @@ __metadata:
     "@testing-library/react": "npm:14.3.1"
     "@types/jest": "npm:29.5.14"
     "@types/lodash": "npm:4.17.13"
-    "@types/node": "npm:18.19.67"
+    "@types/node": "npm:18.19.69"
     "@types/prompts": "npm:2.4.9"
     "@types/react": "npm:18.2.33"
     "@types/react-dom": "npm:18.2.14"
@@ -4115,12 +4115,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.19.67":
-  version: 18.19.67
-  resolution: "@types/node@npm:18.19.67"
+"@types/node@npm:18.19.69":
+  version: 18.19.69
+  resolution: "@types/node@npm:18.19.69"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/72b06802ac291c2e710bcf527b040f5490e1f85f26fdedad417e13ce3ed3aeb67e1bf3eef0ba5f581986bf361dcdc5f2d1229a9e284bf3dbd85db5c595e67bc6
+  checksum: 10c0/f10ae0d07bde6b80c02702ecd470c0f710cc2fde48d8cea4140cb7d7715c0b944ca5d9b730e4b56ba9d96f1eb459739da71c54e88586fc6b911600ea1e70af4e
   languageName: node
   linkType: hard
 
