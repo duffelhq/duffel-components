@@ -52,6 +52,7 @@ interface create3DSSessionPayload {
   resource_id: string;
   services?: Array<Service>;
   cardholder_present: boolean;
+  exception: string;
 }
 
 export const createClient = (duffelUrl: string, clientKey: string) => {
