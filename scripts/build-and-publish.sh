@@ -40,7 +40,7 @@ echo 'export * from "@duffel/api/types"' >>./react-dist/types/index.d.ts
 cp package.json ./react-dist/package.json
 cp README.md ./react-dist/README.md
 
-# Moves readme file so when we publish from the r4eact-dist folder our npm page will have all the info people need
+# Moves readme file so when we publish from the react-dist folder our npm page will have all the info people need
 cp README.md ./react-dist/README.md
 
 # Only upload to CDN and publish to npm if it's not a dry run

@@ -10,6 +10,14 @@ const DEFAULT_ENVIRONMENT_CONFIGURATION = {
   },
 };
 
+const TEST_ENVIRONMENT_CONFIGURATION = {
+  duffelUrl: "https://api.duffel.com",
+  evervaultCredentials: {
+    teamID: "team_a22f3ea22207",
+    appID: "app_152d304a3d98",
+  },
+};
+
 /**
  * @param clientKey - The client key used to authenticate with the Duffel API.
  * @param cardId - The card ID used for the 3DS session.
@@ -45,7 +53,7 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
   exception = "",
   environmentConfiguration = {},
 ) => {
-  const env: typeof DEFAULT_ENVIRONMENT_CONFIGURATION = {
+  let env: typeof DEFAULT_ENVIRONMENT_CONFIGURATION = {
     ...DEFAULT_ENVIRONMENT_CONFIGURATION,
     ...environmentConfiguration,
   };
@@ -69,6 +77,13 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
         if (!threeDSSession) {
           reject(new Error(GENERIC_ERROR_MESSAGE));
           return;
+        }
+
+        if (threeDSSession.live_mode === false) {
+          env = {
+            ...TEST_ENVIRONMENT_CONFIGURATION,
+            ...environmentConfiguration,
+          };
         }
 
         if (threeDSSession.status === "ready_for_payment") {
