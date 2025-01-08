@@ -56,15 +56,28 @@ export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
 
   return new Promise((resolve, reject) => {
     const client = createClient(env.duffelUrl, clientKey);
+    let payload;
 
-    client
-      .create3DSSessionInDuffelAPI({
+    if (exception) {
+      // Ignore cardholder present param if exception is set
+      payload = {
+        card_id: cardId,
+        resource_id: resourceId,
+        services: services,
+        exception: exception,
+      }
+    } else {
+      payload = {
         card_id: cardId,
         resource_id: resourceId,
         services: services,
         cardholder_present: cardholderPresent,
         exception: exception,
-      })
+      }
+    }
+
+    client
+      .create3DSSessionInDuffelAPI(payload)
       .then((threeDSSession) => {
         if (!threeDSSession) {
           reject(new Error(GENERIC_ERROR_MESSAGE));
