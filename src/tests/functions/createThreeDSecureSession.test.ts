@@ -164,6 +164,19 @@ describe("createThreeDSecureSession", () => {
     expect(result.status).toEqual("ready_for_payment");
   });
 
+  it("successfully returns 3DS session without challenge when passing exception", async () => {
+    const result = await createThreeDSecureSession(
+      clientKey,
+      tokenisedCardId,
+      "off_readyforpayment",
+      services,
+      cardholderPresent,
+      "secure_corporate_payment",
+    );
+
+    expect(result.status).toEqual("ready_for_payment");
+  });
+
   it("successfully returns 3DS session with challenge", async () => {
     setTimeout(() => {
       const callback = mockOn.mock.calls.find(
