@@ -51,7 +51,7 @@ interface create3DSSessionPayload {
   card_id: string;
   resource_id: string;
   services?: Array<Service>;
-  cardholder_present: boolean;
+  cardholder_present: boolean | null;
   exception: string;
 }
 
