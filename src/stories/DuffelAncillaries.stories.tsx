@@ -260,3 +260,73 @@ export const BaggageBehaviourAustrian: StoryFn<
     </pre>
   </>
 );
+
+export const WithPreselectedServices: DuffelAncillariesStory = {
+  args: {
+    defaultBaggageSelectedServices: [
+      {
+        id: "ase_0000AUde3M2LtBE9WNJZYW",
+        quantity: 1,
+        serviceInformation: {
+          segmentIds: ["seg_0000AUde3KwTztSRK1cznF"],
+          passengerIds: ["pas_0000AUde3KY1SptM6ABSfT"],
+          passengerName: "Dorothy Green",
+          total_amount: "20.00",
+          total_currency: "GBP",
+          type: "checked",
+          maximum_weight_kg: 23,
+          maximum_length_cm: null,
+          maximum_height_cm: null,
+          maximum_depth_cm: null,
+        },
+      },
+      {
+        id: "ase_0000AUde3M2LtBE9WNJZYZ",
+        quantity: 1,
+        serviceInformation: {
+          segmentIds: ["seg_0000AUde3KwTztSRK1cznF"],
+          passengerIds: ["pas_0000AUde3KY1SptM6ABSfU"],
+          passengerName: "Mae Jemison",
+          total_amount: "20.00",
+          total_currency: "GBP",
+          type: "checked",
+          maximum_weight_kg: 23,
+          maximum_length_cm: null,
+          maximum_height_cm: null,
+          maximum_depth_cm: null,
+        },
+      },
+    ],
+    defaultSeatSelectedServices: [
+      {
+        quantity: 1,
+        id: "ase_0000AUde3N542xVhxDesRo",
+        serviceInformation: {
+          type: "seat",
+          segmentId: "seg_0000AUde3Kw81DArIvSiF0",
+          passengerId: "pas_0000AUde3KY1SptM6ABSfT",
+          passengerName: "Dorothy Green",
+          designator: "28F",
+          disclosures: [],
+          total_amount: "20.0",
+          total_currency: "GBP",
+        },
+      },
+      {
+        quantity: 1,
+        id: "ase_0000AUde3N67z0MS0W9j78",
+        serviceInformation: {
+          type: "seat",
+          segmentId: "seg_0000AUde3KwTztSRK1cznF",
+          passengerId: "pas_0000AUde3KY1SptM6ABSfU",
+          passengerName: "Mae Jemison",
+          designator: "35H",
+          disclosures: [],
+          total_amount: "20.0",
+          total_currency: "GBP",
+        },
+      },
+    ],
+    ...defaultProps,
+  },
+};

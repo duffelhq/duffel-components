@@ -24,6 +24,9 @@ export interface DuffelAncillariesCommonProps {
   markup?: DuffelAncillariesMarkup;
   priceFormatters?: DuffelAncillariesPriceFormatters;
   debug?: boolean;
+
+  defaultBaggageSelectedServices?: WithBaggageServiceInformation<CreateOrderService>[];
+  defaultSeatSelectedServices?: WithSeatServiceInformation<CreateOrderService>[];
 }
 
 export interface DuffelAncillariesPropsWithOfferIdForFixture
