@@ -25,7 +25,13 @@ export interface DuffelAncillariesCommonProps {
   priceFormatters?: DuffelAncillariesPriceFormatters;
   debug?: boolean;
 
+  /**
+   * If you pass default selected baggage services, they will be used to initiate the state when the component mounts. Any further updates will be ignored.
+   */
   defaultBaggageSelectedServices?: WithBaggageServiceInformation<CreateOrderService>[];
+  /**
+   * If you pass default selected seat services, they will be used to initiate the state when the component mounts. Any further updates will be ignored.
+   */
   defaultSeatSelectedServices?: WithSeatServiceInformation<CreateOrderService>[];
 }
 
