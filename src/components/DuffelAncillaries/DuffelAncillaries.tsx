@@ -101,10 +101,10 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
 
   const [baggageSelectedServices, setBaggageSelectedServices] = React.useState<
     WithBaggageServiceInformation<CreateOrderService>[]
-  >([]);
+  >(props.defaultBaggageSelectedServices || []);
   const [seatSelectedServices, setSeatSelectedServices] = React.useState<
     WithSeatServiceInformation<CreateOrderService>[]
-  >([]);
+  >(props.defaultSeatSelectedServices || []);
   const [cfarSelectedServices, setCfarSelectedServices] = React.useState<
     WithServiceInformation<CreateOrderService>[]
   >([]);
