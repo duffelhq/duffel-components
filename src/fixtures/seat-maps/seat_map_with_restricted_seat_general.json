@@ -1,0 +1,1900 @@
+{
+  "cabins": [
+    {
+      "aisles": 1,
+      "cabin_class": "economy",
+      "deck": 0,
+      "rows": [
+        {
+          "id": "row_0000Ar2vnxskNO2swVUyaO",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxpCaZD4lVq93o",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "30.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "4A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFA",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzia",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "30.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "4B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFB",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzib",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "30.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "4C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFC",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxt6M4KSxbfG8e"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "4D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFE",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFF",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "4F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFG",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFD"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpFH",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "5A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFJ",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "5B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFK",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzic",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "5C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFL",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFI"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "5D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFN",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "5E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFO",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "5F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFP",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFM"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpFQ",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "6A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFS",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFT",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "6C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFU",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFR"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "6D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFW",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "6E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFX",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "6F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFY",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFV"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpFZ",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "7A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFb",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFc",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "7C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFd",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFa"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFf",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFg",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzid",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "7F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFh",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFe"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpFi",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "8A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFk",
+                  "name": "PREFERRED SEAT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "8B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFl",
+                  "name": "PREFERRED SEAT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "8C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFm",
+                  "name": "PREFERRED SEAT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFj"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFo",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "8E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFp",
+                  "name": "PREFERRED SEAT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "8F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFq",
+                  "name": "PREFERRED SEAT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFn"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpFr",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "9A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFt",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFu",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "9C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFv",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFs"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "9D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFx",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "9E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFy",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "9F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpFz",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpFw"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpG0",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "10A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpG2",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "10B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpG3",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "10C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpG4",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpG1"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzie",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "10D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpG6",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzif",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "10E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpG7",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzig",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "10F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpG8",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpG5"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpG9",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "11A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGB",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "11B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGC",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "11C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGD",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpGA"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGF",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "11E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGG",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "11F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGH",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpGE"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpGI",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "12A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGK",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "12B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGL",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "12C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGM",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpGJ"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "12D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGO",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "12E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGP",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "12F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGQ",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpGN"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpGR",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGT",
+                  "name": null,
+                  "type": "exit_row"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpGS"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGV",
+                  "name": null,
+                  "type": "exit_row"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpGU"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxtoJQtcznzpGW",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxtoJQtcznzpGY",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nQ",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "13C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nR",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxtoJQtcznzpGX"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nT",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nU",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nV",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6nS"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6nW",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nY",
+                  "name": null,
+                  "type": "exit_row"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6nX"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6na",
+                  "name": null,
+                  "type": "exit_row"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6nZ"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6nb",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nd",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "14B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6ne",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "14C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nf",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6nc"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nh",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6ni",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "14F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nj",
+                  "name": "EXTRA LEGROOM",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6ng"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6nk",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "15A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nm",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "15B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nn",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "15C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6no",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6nl"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "15D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nq",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nr",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "15F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6ns",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6np"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6nt",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "16A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nv",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "16B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nw",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "16C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nx",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6nu"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "16D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6nz",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "16E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6o0",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "16F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6o1",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6ny"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6o2",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "17A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6o4",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "17B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6o5",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "17C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6o6",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6o3"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "17D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6o8",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "17E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6o9",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "17F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oA",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6o7"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6oB",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "18A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oD",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "18B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oE",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "18C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oF",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oC"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "18D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oH",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "18E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oI",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "18F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oJ",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oG"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6oK",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "19A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oM",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oN",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "19C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oO",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oL"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "19D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oQ",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "19E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oR",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "19F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oS",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oP"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6oT",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "20A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oV",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "20B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oW",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "20C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oX",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oU"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "20D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oZ",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "20E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oa",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "20F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6ob",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oY"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6oc",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "21A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oe",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "21B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6of",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "21C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6og",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6od"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "21D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oi",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "21E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oj",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "21F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6ok",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oh"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6ol",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "22A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6on",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oo",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "22C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6op",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6om"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "22D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6or",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "22E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6os",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "22F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6ot",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oq"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6ou",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "23A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6ow",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "23B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6ox",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "23C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6oy",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6ov"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6p0",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "23E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6p1",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "23F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6p2",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6oz"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6p3",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "24A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6p5",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "24B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6p6",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "24C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6p7",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6p4"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "24D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6p9",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pA",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pB",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6p8"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6pC",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pE",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "25B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pF",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "25C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pG",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6pD"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "25D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pI",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pJ",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pK",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6pH"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6pL",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "26A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pN",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "26B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pO",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "26C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pP",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6pM"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "26D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pR",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "26E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pS",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pT",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6pQ"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6pU",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzih",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "27A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pW",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzii",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "27B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pX",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzij",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "27C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pY",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6pV"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [
+                    {
+                      "id": "ase_0000Ar2vnxqGWc3oooKzik",
+                      "passenger_id": "pax_id_1",
+                      "total_amount": "0.00",
+                      "total_currency": "GBP"
+                    }
+                  ],
+                  "designator": "27D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pa",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pb",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuAI7BD0uA6pc",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6pZ"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuAI7BD0uA6pd",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "28A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLg",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLh",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "28C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLi",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuAI7BD0uA6pe"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "28D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLk",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "28E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLl",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "28F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLm",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuWGnSn20KOLj"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuWGnSn20KOLn",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "29A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLp",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "29B",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLq",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "29C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLr",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuWGnSn20KOLo"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "29D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLt",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "29E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLu",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "29F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLv",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuWGnSn20KOLs"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuWGnSn20KOLw",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "30A",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLy",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuWGnSn20KOLz",
+                  "name": null,
+                  "type": "restricted_seat_general"
+                },
+                {
+                  "available_services": [],
+                  "designator": "30C",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOM0",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuWGnSn20KOLx"
+            },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": "30D",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOM2",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "30E",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOM3",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                },
+                {
+                  "available_services": [],
+                  "designator": "30F",
+                  "disclosures": [],
+                  "id": "ele_0000Ar2vnxuWGnSn20KOM4",
+                  "name": "SEAT ASSIGNMENT",
+                  "type": "seat"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuWGnSn20KOM1"
+            }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuWGnSn20KOM5",
+          "sections": [
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuWGnSn20KOM7",
+                  "name": null,
+                  "type": "lavatory"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuWGnSn20KOM6"
+            },
+            { "elements": [], "id": "sec_0000Ar2vnxuWGnSn20KOM8" }
+          ]
+        },
+        {
+          "id": "row_0000Ar2vnxuWGnSn20KOM9",
+          "sections": [
+            { "elements": [], "id": "sec_0000Ar2vnxuWGnSn20KOMA" },
+            {
+              "elements": [
+                {
+                  "available_services": [],
+                  "designator": null,
+                  "disclosures": null,
+                  "id": "ele_0000Ar2vnxuWGnSn20KOMC",
+                  "name": null,
+                  "type": "lavatory"
+                }
+              ],
+              "id": "sec_0000Ar2vnxuWGnSn20KOMB"
+            }
+          ]
+        }
+      ],
+      "wings": null
+    }
+  ],
+  "id": "sea_0000Ar2vnxrgRLC8tD07vc",
+  "segment_id": "seg_0000Ar2vnrSIGpJv0j4lWK",
+  "slice_id": "sli_0000Ar2vnrU4AEjp6DuBHc"
+}

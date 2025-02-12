@@ -36,7 +36,10 @@ export const SeatElement: React.FC<SeatElementProps> = ({
   const seatServiceFromElement = element.available_services.find(
     (service) => service.passenger_id === currentPassengerId,
   );
-  if (!seatServiceFromElement) return <SeatUnavailable seat={element} />;
+  const isRestrictedSeat = element.type === "restricted_seat_general";
+
+  if (!seatServiceFromElement || isRestrictedSeat)
+    return <SeatUnavailable seat={element} />;
 
   const selectedServiceFromMap = Object.values(selectedServicesMap).find(
     (service) =>
