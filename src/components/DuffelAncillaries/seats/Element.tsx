@@ -2,6 +2,7 @@ import {
   CreateOrderService,
   SeatMapCabinRowSectionElement,
 } from "@duffel/api/types";
+import { isAmenityElement } from "@lib/isAmenityElement";
 import { isSeatElement } from "@lib/isSeatElement";
 import * as React from "react";
 import { WithSeatServiceInformation } from "src/types";
@@ -52,9 +53,9 @@ export const Element: React.FC<ElementProps> = ({
         <EmptyElement key={elementIndex} />
       ) : element.type === "exit_row" ? (
         <ExitElement key={elementIndex} isRight={sectionIndex > 0} />
-      ) : (
+      ) : isAmenityElement(element) ? (
         <Amenity key={elementIndex} type={element.type} />
-      )}
+      ) : null}
     </>
   );
 };

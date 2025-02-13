@@ -1,8 +1,4 @@
-import {
-  OfferSlice,
-  OfferSliceSegmentStop,
-  OrderSlice,
-} from "@duffel/api/types";
+import { OfferSlice, OfferSliceSegment, OrderSlice } from "@duffel/api/types";
 import {
   SliceDetails,
   SliceItem,
@@ -55,7 +51,7 @@ export const getSliceDetails = (
     // We have to do this in a type-unsafe way for now because this union of offer and order segment
     // is not collapsible due to the lack of a discriminant field
     if ("stops" in currentSegment && currentSegment.stops) {
-      const stops: OfferSliceSegmentStop[] = currentSegment.stops;
+      const stops: OfferSliceSegment["stops"] = currentSegment.stops;
       if (stops.length === 0) {
         sliceDetailsStack.push({
           type: "travel",
@@ -85,7 +81,7 @@ export const getSliceDetails = (
 
 const splitTravelDetailsWithStops = (
   travelDetails: TravelDetails<"offer">,
-  stops: OfferSliceSegmentStop[],
+  stops: OfferSliceSegment["stops"],
   segmentId: string,
 ): SliceItem[] => {
   const items: SliceItem[] = [];

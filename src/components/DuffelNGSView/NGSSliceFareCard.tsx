@@ -31,7 +31,7 @@ export const NGSSliceFareCard: React.FC<NGSSliceFareCardProps> = ({
   }
 
   const slice = offer.slices[sliceIndex];
-  const shelfInfo = NGS_SHELF_INFO[slice.ngs_shelf];
+  const shelfInfo = NGS_SHELF_INFO[slice.ngs_shelf!];
 
   const brandName = getFareBrandNameForOffer(offer, sliceIndex);
 

@@ -1,5 +1,5 @@
 import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
-import { Airport, City, Offer, OfferSliceSegmentStop } from "@duffel/api/types";
+import { Airport, City, Offer, OfferSliceSegment } from "@duffel/api/types";
 import type { Meta } from "@storybook/react";
 
 // Use a require because the fixture is not a module.
@@ -19,6 +19,7 @@ const MOCK_CITY: City = {
   name: "Paris",
 };
 const MOCK_AIRPORT: Airport = {
+  type: "airport",
   city: MOCK_CITY,
   city_name: "Paris",
   iata_code: "CDG",
@@ -32,7 +33,7 @@ const MOCK_AIRPORT: Airport = {
   time_zone: "Europe/Paris",
 };
 
-const MOCK_STOP: OfferSliceSegmentStop = {
+const MOCK_STOP: OfferSliceSegment["stops"][number] = {
   id: "stp_paris_cdg",
   departing_at: "2023-04-22T05:00:00",
   arriving_at: "2023-04-22T03:00:00",
