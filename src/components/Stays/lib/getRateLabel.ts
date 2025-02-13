@@ -1,7 +1,7 @@
 import { StaysRate } from "@duffel/api/types";
 
 export const getRateLabel = (
-  paymentMethod: StaysRate["payment_method"],
+  paymentMethod: StaysRate["available_payment_methods"][number],
   paymentType: StaysRate["payment_type"],
 ): string | undefined => {
   if (paymentMethod === "card" && paymentType === "pay_now")

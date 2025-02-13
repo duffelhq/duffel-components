@@ -9,7 +9,10 @@ type ShelfInfo = {
   icon: IconName;
 };
 
-export const NGS_SHELF_INFO: Record<OfferSlice["ngs_shelf"], ShelfInfo> = {
+export const NGS_SHELF_INFO: Record<
+  NonNullable<OfferSlice["ngs_shelf"]>,
+  ShelfInfo
+> = {
   1: {
     short_title: "Basic",
     full_title: "Basic Economy",

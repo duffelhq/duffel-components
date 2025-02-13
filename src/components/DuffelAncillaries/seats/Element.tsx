@@ -53,7 +53,7 @@ export const Element: React.FC<ElementProps> = ({
         <EmptyElement key={elementIndex} />
       ) : element.type === "exit_row" ? (
         <ExitElement key={elementIndex} isRight={sectionIndex > 0} />
-      ) : isAmenityElement(element.type) ? (
+      ) : isAmenityElement(element) ? (
         <Amenity key={elementIndex} type={element.type} />
       ) : null}
     </>

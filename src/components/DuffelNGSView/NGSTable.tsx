@@ -207,6 +207,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
                 ))}
               </tr>
               {expandedOffer?.row === index &&
+                expandedOffer.shelf &&
                 sortedRows[index][expandedOffer.shelf] && (
                   <tr>
                     <td colSpan={6} className="ngs-table_expanded">

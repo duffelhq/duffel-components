@@ -3,7 +3,7 @@ import { NGSShelf } from ".";
 import { deduplicateMappedOffersByFareBrand } from "./deduplicate-mapped-offers-by-fare-brand";
 
 export type NGSOfferRow = Record<"slice", OfferSlice> &
-  Record<NGSShelf, OfferRequest["offers"] | null>;
+  Record<NonNullable<NGSShelf>, OfferRequest["offers"] | null>;
 
 export const getNGSSliceKey = (
   slice: OfferSlice,
@@ -62,6 +62,13 @@ export const groupOffersForNGSView = (
 
     const slice = offer.slices[sliceIndex];
     const sliceKey = getNGSSliceKey(slice, offer.owner.iata_code);
+
+    if (slice.ngs_shelf === null) {
+      throw new Error(
+        "Attempted to call `groupOffersForNGSView` with an invalid ngs_shelf",
+      );
+    }
+
     if (offersMap[sliceKey]) {
       if (offersMap[sliceKey][slice.ngs_shelf]) {
         offersMap[sliceKey][slice.ngs_shelf]?.push(offer);
