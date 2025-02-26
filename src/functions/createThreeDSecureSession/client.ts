@@ -39,7 +39,7 @@ const getAPIHeaders = (clientKey: string) => ({
   "Duffel-Version": "v2",
   "Content-Type": "application/json",
   Authorization: `Bearer ${clientKey}`,
-  "User-Agent": `Duffel/ancillaries-component@${process.env.COMPONENT_VERSION}`,
+  "User-Agent": `Duffel/three-d-secure-function@${process.env.COMPONENT_VERSION}`,
 });
 
 interface Service {
