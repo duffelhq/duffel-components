@@ -1882,7 +1882,7 @@ __metadata:
     "@stripe/stripe-js": "npm:1.54.2"
     "@testing-library/react": "npm:14.3.1"
     "@types/jest": "npm:29.5.14"
-    "@types/lodash": "npm:4.17.13"
+    "@types/lodash": "npm:4.17.16"
     "@types/node": "npm:18.19.69"
     "@types/prompts": "npm:2.4.9"
     "@types/react": "npm:18.2.33"
@@ -4082,10 +4082,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.17.13":
-  version: 4.17.13
-  resolution: "@types/lodash@npm:4.17.13"
-  checksum: 10c0/c3d0b7efe7933ac0369b99f2f7bff9240d960680fdb74b41ed4bd1b3ca60cca1e31fe4046d9abbde778f941a41bc2a75eb629abf8659fa6c27b66efbbb0802a9
+"@types/lodash@npm:4.17.16":
+  version: 4.17.16
+  resolution: "@types/lodash@npm:4.17.16"
+  checksum: 10c0/cf017901b8ab1d7aabc86d5189d9288f4f99f19a75caf020c0e2c77b8d4cead4db0d0b842d009b029339f92399f49f34377dd7c2721053388f251778b4c23534
   languageName: node
   linkType: hard
 
