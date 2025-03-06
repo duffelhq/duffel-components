@@ -33,7 +33,7 @@ const COMPONENT_CDN = `https://localhost:${PORT}`;
     ],
   });
 
-  let { host, port } = await esbuildContext.serve({
+  let { port } = await esbuildContext.serve({
     host: "localhost",
     servedir: "cdn-dist",
     port: PORT,
