@@ -1,4 +1,4 @@
-.passenger-segment__title {
+.duffel-components .passenger-segment__title {
   color: var(--GREY-900);
   font-style: normal;
   font-size: var(--FONT-SIZES-C1);
@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.passenger-segment__chevron {
+.duffel-components .passenger-segment__chevron {
   /* We use important here because this margin can get overwritten by the icon one */
   margin: 0 var(--SPACING-SM-1) !important;
   color: var(--GREY-400);

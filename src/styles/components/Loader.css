@@ -20,7 +20,7 @@
   }
 }
 
-.textual-loading-indicator::after {
+.duffel-components .textual-loading-indicator::after {
   display: inline-block;
   text-align: start;
   animation: loading-dots 1s infinite 1s;

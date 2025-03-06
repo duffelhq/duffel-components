@@ -1,108 +1,108 @@
 /* VSPACE */
-.v-space {
+.duffel-components .v-space {
   display: flex;
   flex-direction: column;
 }
 
-.v-space--0 {
+.duffel-components .v-space--0 {
   row-gap: 0;
 }
 
-.v-space--4 {
+.duffel-components .v-space--4 {
   row-gap: 4px;
 }
 
-.v-space--8 {
+.duffel-components .v-space--8 {
   row-gap: 8px;
 }
 
-.v-space--12 {
+.duffel-components .v-space--12 {
   row-gap: 12px;
 }
 
-.v-space--16 {
+.duffel-components .v-space--16 {
   row-gap: 16px;
 }
 
-.v-space--24 {
+.duffel-components .v-space--24 {
   row-gap: 24px;
 }
 
 /* HSPACE */
-.h-space {
+.duffel-components .h-space {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.h-space--0 {
+.duffel-components .h-space--0 {
   column-gap: 0;
 }
 
-.h-space--4 {
+.duffel-components .h-space--4 {
   column-gap: 4px;
 }
 
-.h-space--8 {
+.duffel-components .h-space--8 {
   column-gap: 8px;
 }
 
-.h-space--12 {
+.duffel-components .h-space--12 {
   column-gap: 12px;
 }
 
-.h-space--16 {
+.duffel-components .h-space--16 {
   column-gap: 16px;
 }
 
-.hspace--align-center {
+.duffel-components .hspace--align-center {
   align-items: center;
 }
 
-.hspace--space-between {
+.duffel-components .hspace--space-between {
   justify-content: space-between;
 }
 
-.hspace--justify-end {
+.duffel-components .hspace--justify-end {
   justify-content: end;
 }
 
-.hspace--justify-center {
+.duffel-components .hspace--justify-center {
   justify-content: center !important;
 }
 
 /* PADDING */
-.padding-8 {
+.duffel-components .padding-8 {
   padding: 8px;
 }
 
-.padding-12 {
+.duffel-components .padding-12 {
   padding: 12px;
 }
 
-.padding-inline-8 {
+.duffel-components .padding-inline-8 {
   padding-inline: 8px !important;
 }
 
 /* MARGIN */
-.margin-t-8 {
+.duffel-components .margin-t-8 {
   margin-top: 8px;
 }
 
-.margin-b-12 {
+.duffel-components .margin-b-12 {
   margin-bottom: 12px;
 }
 
-.margin-x-12 {
+.duffel-components .margin-x-12 {
   margin-inline: 12px;
 }
 
 /* TEXT */
-.font-size-14 {
+.duffel-components .font-size-14 {
   font-size: 14px;
 }
 
 /* WIDTH */
-.width-100 {
+.duffel-components .width-100 {
   width: 100%;
 }

@@ -1,4 +1,4 @@
-.seat-map {
+.duffel-components .seat-map {
   background-color: rgba(var(--WHITE), 1);
   padding: var(--SPACING-SM-3);
   padding-bottom: 80px; /* To account for the fixed footer */
@@ -10,12 +10,12 @@
   margin-inline: auto;
 }
 
-.seat-map__legend-container {
+.duffel-components .seat-map__legend-container {
   margin-bottom: var(--SPACING-MD-3);
   width: fit-content;
 }
 
-.seat-map__map-container {
+.duffel-components .seat-map__map-container {
   display: grid;
   grid-template-columns: repeat(var(--CABIN-AISLES), auto var(--SPACING-LG-1)) auto;
   grid-column-gap: var(--SPACING-XS-2);

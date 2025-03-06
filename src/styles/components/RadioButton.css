@@ -1,12 +1,12 @@
-.radio__input {
+.duffel-components .radio__input {
   display: none;
 }
 
-.radio__container {
+.duffel-components .radio__container {
   cursor: pointer;
 }
 
-.radio {
+.duffel-components .radio {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -22,10 +22,10 @@
   transition: all 0.3s var(--TRANSITIONs-CUBIC-BEZIER);
 }
 
-.radio:hover {
+.duffel-components .radio:hover {
   border-color: var(--GREY-600);
 }
 
-.radio.radio--is-checked {
+.duffel-components .radio.radio--is-checked {
   border-color: var(--GREY-900);
 }

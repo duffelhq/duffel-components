@@ -1,4 +1,4 @@
-.p1--semibold {
+.duffel-components .p1--semibold {
   font-family: var(--FONT-FAMILY);
   font-size: 16px;
   font-weight: 600;
@@ -6,7 +6,7 @@
   letter-spacing: 0em;
 }
 
-.p1--regular {
+.duffel-components .p1--regular {
   font-family: var(--FONT-FAMILY);
   font-size: 16px;
   font-weight: 400;
@@ -14,7 +14,7 @@
   letter-spacing: 0em;
 }
 
-.p2--regular {
+.duffel-components .p2--regular {
   font-family: var(--FONT-FAMILY);
   font-size: 14px;
   font-weight: 400;
@@ -22,7 +22,7 @@
   letter-spacing: 0em;
 }
 
-.p2--semibold {
+.duffel-components .p2--semibold {
   font-family: var(--FONT-FAMILY);
   font-size: 14px;
   font-weight: 600;
@@ -30,7 +30,7 @@
   letter-spacing: 0em;
 }
 
-.p3--regular {
+.duffel-components .p3--regular {
   font-family: var(--FONT-FAMILY);
   font-size: 12px;
   font-weight: 400;
@@ -38,7 +38,7 @@
   letter-spacing: 0em;
 }
 
-.h3--semibold {
+.duffel-components .h3--semibold {
   font-family: var(--FONT-FAMILY);
   font-size: 20px;
   font-weight: 600;
