@@ -1,15 +1,15 @@
-.ancillary-card:disabled {
+.duffel-components .ancillary-card:disabled {
   /* important needed to take precedence over default button styles */
   color: inherit !important;
   cursor: not-allowed !important;
   background-color: var(--GREY-100) !important;
 }
 
-.ancillary-card--loading:disabled {
+.duffel-components .ancillary-card--loading:disabled {
   cursor: progress;
 }
 
-.ancillary-card__expand-icon {
+.duffel-components .ancillary-card__expand-icon {
   color: var(--GREY-400);
   transition:
     color 0.3s var(--TRANSITION-CUBIC-BEZIER),
@@ -17,7 +17,7 @@
   transform: scale(1);
 }
 
-.ancillary-card__children {
+.duffel-components .ancillary-card__children {
   text-align: start;
   font-weight: 400;
   font-size: 16px;
@@ -28,24 +28,29 @@
   align-items: center;
 }
 
-.ancillary-card:not(:disabled):not(.ancillary-card--loading):focus {
+.duffel-components
+  .ancillary-card:not(:disabled):not(.ancillary-card--loading):focus {
   outline: none;
 }
 
-.ancillary-card:not(:disabled):not(.ancillary-card--loading):hover,
-.ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible {
+.duffel-components
+  .ancillary-card:not(:disabled):not(.ancillary-card--loading):hover,
+.duffel-components
+  .ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible {
   /* important is needed here to override the inline border style from Card.tsx */
   border-color: var(--SECONDARY, rgb(var(--ACCENT))) !important;
 }
 
-.ancillary-card:not(:disabled):not(.ancillary-card--loading):hover
+.duffel-components
+  .ancillary-card:not(:disabled):not(.ancillary-card--loading):hover
   .ancillary-card__expand-icon,
-.ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible
+.duffel-components
+  .ancillary-card:not(:disabled):not(.ancillary-card--loading):focus-visible
   .ancillary-card__expand-icon {
   color: var(--SECONDARY, rgb(var(--ACCENT)));
 }
 
-.ancillary-card__selected-icon {
+.duffel-components .ancillary-card__selected-icon {
   background-color: var(--SECONDARY, rgb(var(--ACCENT)));
   border-radius: 20px;
   color: rgb(var(--WHITE));

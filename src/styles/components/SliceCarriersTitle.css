@@ -1,4 +1,4 @@
-.slice-carriers-title {
+.duffel-components .slice-carriers-title {
   color: var(--GREY-900, #09090a);
   font-size: 14px;
   font-style: normal;
@@ -7,7 +7,7 @@
   text-align: left;
 }
 
-.slice-carriers-title__operating-carrier {
+.duffel-components .slice-carriers-title__operating-carrier {
   color: var(--GREY-600, #71717a);
   font-size: 10px;
   font-style: normal;

@@ -1,11 +1,11 @@
-.ngs-shelf-info-card_container {
+.duffel-components .ngs-shelf-info-card_container {
   padding: 16px;
   border-radius: 4px;
   background-color: white;
   box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
-.ngs-shelf-info-card_title {
+.duffel-components .ngs-shelf-info-card_title {
   font-size: 14px;
   color: var(--GREY-900);
   font-weight: 600;
@@ -13,7 +13,7 @@
   margin-top: 12px;
 }
 
-.ngs-shelf-info-card_text {
+.duffel-components .ngs-shelf-info-card_text {
   font-size: 12px;
   color: var(--GREY-600);
   font-weight: 400;

@@ -1,4 +1,4 @@
-.ngs-slice-fare-card_container {
+.duffel-components .ngs-slice-fare-card_container {
   appearance: none;
   margin: 0;
   padding: 0;
@@ -20,18 +20,18 @@
   flex-direction: column;
 }
 
-.ngs-slice-fare-card_container > div {
+.duffel-components .ngs-slice-fare-card_container > div {
   padding: 16px;
   width: calc(100% - 32px);
 }
 
-.ngs-slice-fare-card_container > div:first-child {
+.duffel-components .ngs-slice-fare-card_container > div:first-child {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.ngs-slice-fare-card_header {
+.duffel-components .ngs-slice-fare-card_header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -45,27 +45,27 @@
   min-width: 24px;
 }
 
-.ngs-slice-fare-card_title {
+.duffel-components .ngs-slice-fare-card_title {
   font-size: 14px;
   margin-top: 2px;
   color: var(--GREY-900);
   font-weight: 600;
 }
 
-.ngs-slice-fare-card_item {
+.duffel-components .ngs-slice-fare-card_item {
   display: flex;
   align-items: center;
 }
 
-.ngs-slice-fare-card_item + .ngs-slice-fare-card_item {
+.duffel-components .ngs-slice-fare-card_item + .ngs-slice-fare-card_item {
   margin-top: 8px;
 }
 
-.ngs-slice-fare-card_item > svg {
+.duffel-components .ngs-slice-fare-card_item > svg {
   margin-right: 4px;
 }
 
-.ngs-slice-fare-card_footer {
+.duffel-components .ngs-slice-fare-card_footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,41 +74,41 @@
   min-height: 32px;
 }
 
-.ngs-slice-fare-card_price {
+.duffel-components .ngs-slice-fare-card_price {
   color: var(--GREY-900);
   font-size: 16px;
   font-weight: 600;
   padding-right: 8px;
 }
 
-.ngs-slice-fare-card_radio {
+.duffel-components .ngs-slice-fare-card_radio {
   display: inline;
 }
 
-.ngs-slice-fare-card_button {
+.duffel-components .ngs-slice-fare-card_button {
   display: none;
 }
 
 /* tablet or greater  */
 @media (min-width: 768px) {
-  .ngs-slice-fare-card_container {
+  .duffel-components .ngs-slice-fare-card_container {
     width: 260px;
   }
 
-  .ngs-slice-fare-card_radio {
+  .duffel-components .ngs-slice-fare-card_radio {
     display: none;
   }
 
-  .ngs-slice-fare-card_button {
+  .duffel-components .ngs-slice-fare-card_button {
     display: inline;
   }
 
-  .ngs-slice-fare-card_title {
+  .duffel-components .ngs-slice-fare-card_title {
     color: var(--GREY-900);
     font-size: 16px;
   }
 
-  .ngs-slice-fare-card_price {
+  .duffel-components .ngs-slice-fare-card_price {
     color: var(--GREY-900);
     font-size: 20px;
   }

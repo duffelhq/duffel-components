@@ -1,4 +1,4 @@
-.map-element--exit {
+.duffel-components .map-element--exit {
   color: var(--GREY-400);
   width: 100%;
   height: var(--SPACING-LG-3);
@@ -7,23 +7,23 @@
   align-items: center;
 }
 
-.map-element--exit--right {
+.duffel-components .map-element--exit--right {
   justify-content: flex-end;
 }
 
-.map-element--empty {
+.duffel-components .map-element--empty {
   min-width: var(--SPACING-LG-2);
   height: var(--SPACING-LG-2);
 }
 
 @media only screen and (min-width: 768px) {
-  .map-element--empty {
+  .duffel-components .map-element--empty {
     min-width: var(--SPACING-LG-3);
     height: var(--SPACING-LG-3);
   }
 }
 
-.map-section {
+.duffel-components .map-section {
   display: flex;
   justify-content: center;
   padding: var(--SPACING-XS-1) 0;
@@ -31,30 +31,30 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .map-section {
+  .duffel-components .map-section {
     padding: var(--SPACING-XS-2) 0;
   }
 }
 
-.map-section--left {
+.duffel-components .map-section--left {
   border-left: 2px solid var(--GREY-200);
   padding-left: var(--SPACING-SM-3);
 }
 
-.map-section--left.map-section--wing {
+.duffel-components .map-section--left.map-section--wing {
   box-shadow: -19px 0px 0px 0px var(--GREY-200);
 }
 
-.map-section--right {
+.duffel-components .map-section--right {
   border-right: 2px solid var(--GREY-200);
   padding-right: var(--SPACING-SM-3);
 }
 
-.map-section--right.map-section--wing {
+.duffel-components .map-section--right.map-section--wing {
   box-shadow: 19px 0px 0px 0px var(--GREY-200);
 }
 
-.map-section__aisle {
+.duffel-components .map-section__aisle {
   display: flex;
   justify-content: center;
   color: var(--GREY-600);
@@ -63,7 +63,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .map-section__aisle {
+  .duffel-components .map-section__aisle {
     font-size: var(--FONT-SIZES-C2);
     line-height: var(--SPACING-MD-3);
   }

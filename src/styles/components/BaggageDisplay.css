@@ -1,24 +1,24 @@
-.baggage-display {
+.duffel-components .baggage-display {
   display: flex;
   align-items: center;
 }
 
-.baggage-display__content {
+.duffel-components .baggage-display__content {
   margin-left: var(--SPACING-SM-1);
 }
 
-.baggage-display__label {
+.duffel-components .baggage-display__label {
   color: var(--grey-900);
   font-size: var(--FONT-SIZES-C2);
 }
 
-.baggage-display__price {
+.duffel-components .baggage-display__price {
   font-size: var(--FONT-SIZES-C2);
   color: var(--GREY-600);
   margin-left: var(--SPACING-XS-2);
 }
 
-.baggage-display__specs {
+.duffel-components .baggage-display__specs {
   margin-top: var(--SPACING-XS-2);
   font-size: var(--FONT-SIZES-C3);
   color: var(--GREY-600);

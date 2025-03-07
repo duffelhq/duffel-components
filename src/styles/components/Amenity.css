@@ -1,4 +1,4 @@
-.map-element--amenity {
+.duffel-components .map-element--amenity {
   width: 100%;
   height: var(--SPACING-LG-1);
   color: var(--GREY-600);
@@ -9,14 +9,14 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .map-element--amenity {
+  .duffel-components .map-element--amenity {
     width: 100%;
     height: var(--SPACING-LG-3);
     font-size: var(--FONT-SIZES-C2);
   }
 }
 
-.map-element--wrapped {
+.duffel-components .map-element--wrapped {
   background-color: var(--GREY-100);
   border-radius: 8px;
   border: 2px solid var(--GREY-200);
