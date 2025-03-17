@@ -1,21 +1,21 @@
-.offer-slice-modal-title {
+.duffel-components .offer-slice-modal-title {
   color: var(--GREY-900, #161618);
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
 }
 
-.offer-slice-modal-divider {
+.duffel-components .offer-slice-modal-divider {
   height: 1px;
   background: var(--GREY-200, #e2e2e8);
   border: none;
   margin: 0;
 }
 
-.offer-slice-modal-padding {
+.duffel-components .offer-slice-modal-padding {
   padding: 20px 24px;
 }
 
-.offer-slice-modal-footer {
+.duffel-components .offer-slice-modal-footer {
   padding: 8px;
 }

@@ -1,8 +1,8 @@
-.filter-control {
+.duffel-components .filter-control {
   position: relative;
 }
 
-.filter-control__target {
+.duffel-components .filter-control__target {
   color: var(--GREY-800);
   fill: var(--GREY-800);
   border: solid 1px var(--GREY-200);
@@ -24,21 +24,21 @@
   white-space: nowrap;
 }
 
-.filter-control__target svg {
+.duffel-components .filter-control__target svg {
   position: absolute;
   right: 2px;
 }
 
-.filter-control__target:hover {
+.duffel-components .filter-control__target:hover {
   border-color: var(--GREY-400);
 }
 
-.filter-control__target:disabled {
+.duffel-components .filter-control__target:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.filter-control__backdrop {
+.duffel-components .filter-control__backdrop {
   z-index: 99;
   opacity: 0;
   top: 0;
@@ -48,7 +48,7 @@
   position: fixed;
 }
 
-.filter-control__popover {
+.duffel-components .filter-control__popover {
   background-color: white;
   border: solid 1px var(--GREY-200);
   position: absolute;
@@ -65,7 +65,7 @@
   user-select: none; /* Standard syntax */
 }
 
-.filter-control__option {
+.duffel-components .filter-control__option {
   display: grid;
   padding: 2px 12px;
   border-radius: 4px;
@@ -80,22 +80,22 @@
   transition: border-color 0.3s linear;
 }
 
-.filter-control__option:hover {
+.duffel-components .filter-control__option:hover {
   background-color: var(--GREY-100);
 }
 
-.filter-control__option:active {
+.duffel-components .filter-control__option:active {
   opacity: 1;
 }
 
-.filter-control__option--selected {
+.duffel-components .filter-control__option--selected {
   background: var(--GREY-100);
 }
 
-.filter-control__option:not(:last-child) {
+.duffel-components .filter-control__option:not(:last-child) {
   margin-bottom: 4px;
 }
 
-.filter-control__option > * {
+.duffel-components .filter-control__option > * {
   align-self: center;
 }

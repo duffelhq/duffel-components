@@ -1,9 +1,9 @@
-.counter {
+.duffel-components .counter {
   display: flex;
   align-items: center;
 }
 
-.counter__count-label {
+.duffel-components .counter__count-label {
   font-size: var(--FONT-SIZES-C2);
   text-align: center;
   align-self: center;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .counter__count-label {
+  .duffel-components .counter__count-label {
     width: var(--SPACING-LG-1);
   }
 }

@@ -1,4 +1,4 @@
-.modal {
+.duffel-components .modal {
   top: 0;
   left: 0;
   position: fixed;
@@ -13,7 +13,7 @@
   transition: all 0.3s var(--TRANSITION-CUBIC-BEZIER);
 }
 
-.modal--content {
+.duffel-components .modal--content {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   position: fixed;
@@ -25,14 +25,14 @@
   transition: opacity 0.3s var(--TRANSITION-CUBIC-BEZIER);
 }
 
-.modal--open,
-.modal--open .modal--content {
+.duffel-components .modal--open,
+.duffel-components .modal--open .modal--content {
   /* important needed to override inline style */
   opacity: 1 !important;
   pointer-events: all;
 }
 
-.modal-body {
+.duffel-components .modal-body {
   max-height: 250px;
   padding: 0px 24px 24px;
   overflow: scroll;
@@ -41,40 +41,40 @@
   -ms-overflow-style: none; /* IE and Edge */
 }
 
-.modal-body::-webkit-scrollbar {
+.duffel-components .modal-body::-webkit-scrollbar {
   display: none; /* Hide the scroll bar for Chrome, Safari, and Opera */
 }
 
-.modal-body--tall {
+.duffel-components .modal-body--tall {
   max-height: 560px;
 }
 
-.modal-body--no-padding {
+.duffel-components .modal-body--no-padding {
   padding: 0;
 }
 
 /* 667px is the height of https://www.ios-resolution.com/iphone-se-3rd-gen/ */
 @media (min-height: 667px) {
-  .modal-body {
+  .duffel-components .modal-body {
     max-height: 350px;
   }
 }
 
 /* 812px is the height of https://www.ios-resolution.com/iphone-13-mini/ */
 @media (min-height: 812px) {
-  .modal-body {
+  .duffel-components .modal-body {
     max-height: 500px;
   }
 }
 
 /* 900px is the size of https://blisk.io/devices/details/macbook-air */
 @media (min-height: 900px) {
-  .modal-body {
+  .duffel-components .modal-body {
     max-height: 65vh;
   }
 }
 
-.modal--close-button {
+.duffel-components .modal--close-button {
   position: absolute;
   top: 16px;
   right: 12px;
@@ -82,14 +82,14 @@
 
 /* tablet or greater  */
 @media (min-width: 768px) {
-  .modal {
+  .duffel-components .modal {
     padding: 24px 12px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .modal--content {
+  .duffel-components .modal--content {
     position: relative;
     border-radius: 12px;
     max-width: 640px;

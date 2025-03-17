@@ -1,4 +1,4 @@
-.map-element__seat {
+.duffel-components .map-element__seat {
   appearance: none;
   outline: none;
   cursor: default;
@@ -20,14 +20,14 @@
   position: relative;
 }
 
-.map-element--available {
+.duffel-components .map-element--available {
   border: 2px solid
     var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
   color: var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-300)));
 }
 
-.map-element--fee-payable {
+.duffel-components .map-element--fee-payable {
   position: absolute;
   bottom: -2px;
   right: -2px;
@@ -35,23 +35,24 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .map-element--actionable:hover {
+  .duffel-components .map-element--actionable:hover {
     cursor: pointer;
   }
 
-  .map-element--actionable:not(.map-element--selected):hover {
+  .duffel-components
+    .map-element--actionable:not(.map-element--selected):hover {
     background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-200));
     color: var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
     transition: var(--TRANSITIONS-CUBIC-BEZIER);
   }
 
-  .map-element--fee-payable {
+  .duffel-components .map-element--fee-payable {
     color: var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
     transition: var(--TRANSITIONS-CUBIC-BEZIER);
   }
 }
 
-.map-element--selected {
+.duffel-components .map-element--selected {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
   border: 2px solid
     var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));

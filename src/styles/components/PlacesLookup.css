@@ -1,4 +1,4 @@
-.places-lookup-input {
+.duffel-components .places-lookup-input {
   width: calc(100% - 34px);
   padding: 12px 16px;
   border-radius: 4px;
@@ -6,7 +6,7 @@
   font-size: 16px;
 }
 
-.places-lookup-popover {
+.duffel-components .places-lookup-popover {
   background-color: white;
   box-shadow: 0 1px 4px rgb(59 64 86 / 100%);
   border-radius: 4px;
@@ -16,7 +16,7 @@
   flex-direction: column;
 }
 
-.places-lookup-popover__item {
+.duffel-components .places-lookup-popover__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,13 +28,13 @@
   border-radius: 4px;
 }
 
-.places-lookup-popover-item--highlighted,
-.places-lookup-popover__item:hover,
-.places-lookup-popover__item:focus {
+.duffel-components .places-lookup-popover-item--highlighted,
+.duffel-components .places-lookup-popover__item:hover,
+.duffel-components .places-lookup-popover__item:focus {
   background-color: lightgrey;
 }
 
-.places-lookup-popover__icon-and-name-container {
+.duffel-components .places-lookup-popover__icon-and-name-container {
   column-gap: 2px;
   display: flex;
   align-items: flex-start;

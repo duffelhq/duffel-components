@@ -1,4 +1,4 @@
-.slice-summary {
+.duffel-components .slice-summary {
   display: grid;
   grid-template-columns: auto 1fr 20px auto;
   column-gap: 16px;
@@ -6,17 +6,17 @@
   width: 100%;
 }
 
-.slice-summary__time-and-place {
+.duffel-components .slice-summary__time-and-place {
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
-.slice-summary__time-and-place--align-end {
+.duffel-components .slice-summary__time-and-place--align-end {
   align-items: end;
 }
 
-.slice-summary__time {
+.duffel-components .slice-summary__time {
   color: var(--GREY-900, #161618);
   font-size: 14px;
   font-style: normal;
@@ -24,7 +24,7 @@
   line-height: 150%; /* 21px */
 }
 
-.slice-summary__place {
+.duffel-components .slice-summary__place {
   color: var(--GREY-500, #69696b);
   font-size: 10px;
   font-style: normal;
@@ -32,7 +32,7 @@
   line-height: 150%; /* 15px */
 }
 
-.slice-summary__duration {
+.duffel-components .slice-summary__duration {
   color: var(--GREY-500, #86868e);
   font-size: 12px;
   font-style: normal;
@@ -41,7 +41,7 @@
   text-align: center;
 }
 
-.slice-summary__stops {
+.duffel-components .slice-summary__stops {
   color: var(--GREY-900, #161618);
   font-size: 10px;
   font-style: normal;
@@ -51,33 +51,33 @@
   text-align: center;
 }
 
-.slice-summary__flight-line-container {
+.duffel-components .slice-summary__flight-line-container {
   display: grid;
   margin-block: 6px;
   column-gap: 4px;
   align-items: center;
 }
 
-.slice-summary__flight-line {
+.duffel-components .slice-summary__flight-line {
   position: relative;
 }
 
-.slice-summary__flight-line-color {
+.duffel-components .slice-summary__flight-line-color {
   height: 1px;
   background: var(--GREY-200, #ebebf0);
   /* width: calc(100% - 24px); */
 }
 
-.slice-summary__flight-line-color--full-width {
+.duffel-components .slice-summary__flight-line-color--full-width {
   width: 100%;
 }
 
-.slice-summary__plane {
+.duffel-components .slice-summary__plane {
   margin-left: -8px;
   fill: var(--GREY-400);
 }
 
-.slice-summary__flight-line-dot {
+.duffel-components .slice-summary__flight-line-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
