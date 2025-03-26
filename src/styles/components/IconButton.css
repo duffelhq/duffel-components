@@ -1,8 +1,8 @@
-.icon-button {
+.duffel-components .icon-button {
   color: red;
 }
 
-.icon-button {
+.duffel-components .icon-button {
   --button-color: white;
 
   box-sizing: border-box;
@@ -26,39 +26,39 @@
     opacity 0.3s var(--TRANSITION-CUBIC-BEZIER);
 }
 
-.icon-button svg {
+.duffel-components .icon-button svg {
   /* Using important to take precedence over inline styles on icon */
   display: inline !important;
   height: 20px;
   vertical-align: bottom;
 }
 
-.icon-button:disabled {
+.duffel-components .icon-button:disabled {
   cursor: not-allowed;
   opacity: 0.4;
 }
 
-.icon-button--primary:not(:disabled):hover {
+.duffel-components .icon-button--primary:not(:disabled):hover {
   color: var(--GREY-500);
   background-color: var(--GREY-100);
 }
 
-.icon-button--primary:not(:disabled):active {
+.duffel-components .icon-button--primary:not(:disabled):active {
   color: var(--GREY-700);
   background-color: var(--GREY-200);
 }
 
-.icon-button--outlined {
+.duffel-components .icon-button--outlined {
   border: 1px solid #ccccd4;
   color: var(--GREY-900);
   background-color: rgb(var(--WHITE));
 }
 
-.icon-button--outlined:not(:disabled):hover {
+.duffel-components .icon-button--outlined:not(:disabled):hover {
   border: 1px solid #ababb4;
   background-color: #fbfbfd;
 }
 
-.icon-button--outlined:not(:disabled):active {
+.duffel-components .icon-button--outlined:not(:disabled):active {
   background-color: var(--GREY-100);
 }

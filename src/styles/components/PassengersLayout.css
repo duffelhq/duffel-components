@@ -1,4 +1,4 @@
-.layout {
+.duffel-components .layout {
   --LAYOUT-BOX-SHADOW: 0px 0px 0px 1px rgba(var(--BLACK), 0.05),
     0px 4px 24px rgba(var(--BLACK), 0.08);
   display: flex;
@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.layout__container {
+.duffel-components .layout__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,12 +19,12 @@
   overflow: auto;
 }
 
-.layout__aside {
+.duffel-components .layout__aside {
   display: none;
   padding-top: var(--SPACING-LG-1);
 }
 
-.layout__main-content {
+.duffel-components .layout__main-content {
   width: 100%;
   height: 100%;
   display: flex;
@@ -32,7 +32,7 @@
   flex-direction: column;
 }
 
-.layout__mobile-info {
+.duffel-components .layout__mobile-info {
   align-self: center;
   position: absolute;
   bottom: 187px;
@@ -45,7 +45,7 @@
   box-shadow: var(--LAYOUT-BOX-SHADOW);
 }
 
-.layout__confirmation {
+.duffel-components .layout__confirmation {
   padding: var(--SPACING-MD-3);
   box-shadow: var(--LAYOUT-BOX-SHADOW);
   position: sticky;
@@ -54,11 +54,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .layout {
+  .duffel-components .layout {
     overflow: hidden;
   }
 
-  .layout__container {
+  .duffel-components .layout__container {
     height: auto;
     padding: 0;
     flex-direction: row;
@@ -66,12 +66,12 @@
     max-height: calc(100vh - 115px);
   }
 
-  .layout__confirmation {
+  .duffel-components .layout__confirmation {
     padding: var(--SPACING-LG-1);
     box-shadow: none;
   }
 
-  .layout__aside {
+  .duffel-components .layout__aside {
     overflow: auto;
     border-right: 1px solid var(--GREY-200);
     display: flex;
@@ -82,7 +82,7 @@
     min-width: 415px;
   }
 
-  .layout__main-content {
+  .duffel-components .layout__main-content {
     height: auto;
     align-items: center;
     overflow: auto;

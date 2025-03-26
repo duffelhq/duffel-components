@@ -1,4 +1,4 @@
-.seat-map__legend {
+.duffel-components .seat-map__legend {
   width: calc(100% + var(--SPACING-MD-3));
   min-height: fit-content;
   margin: calc(var(--SPACING-SM-1) * -1) calc(var(--SPACING-SM-2) * -1);
@@ -11,7 +11,7 @@
   font-weight: 400;
 }
 
-.seat-map__legend-item {
+.duffel-components .seat-map__legend-item {
   display: flex;
   align-items: center;
   text-transform: capitalize;
@@ -19,11 +19,11 @@
   color: var(--GREY-700);
 }
 
-.seat-map__legend-item--symbol .ff-icon {
+.duffel-components .seat-map__legend-item--symbol .ff-icon {
   margin-right: var(--SPACING-XS-3);
 }
 
-.seat-map__legend-seat {
+.duffel-components .seat-map__legend-seat {
   width: var(--SPACING-MD-1);
   height: var(--SPACING-MD-1);
   border-radius: 5px;
@@ -36,26 +36,26 @@
   margin-right: var(--SPACING-SM-1);
 }
 
-.seat-map__legend-seat--fee-payable {
+.duffel-components .seat-map__legend-seat--fee-payable {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
   border: 2px solid
     var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
 }
 
-.seat-map__legend-seat--fee-payable-indicator {
+.duffel-components .seat-map__legend-seat--fee-payable-indicator {
   position: relative;
   top: var(--SPACING-XS-2);
   left: var(--SPACING-XS-2);
   color: var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-300)));
 }
 
-.seat-map__legend-seat--included {
+.duffel-components .seat-map__legend-seat--included {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-100));
   border: 2px solid
     var(--TERTIARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-200)));
 }
 
-.seat-map__legend-seat--selected {
+.duffel-components .seat-map__legend-seat--selected {
   background-color: rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000));
   border: 2px solid
     var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));

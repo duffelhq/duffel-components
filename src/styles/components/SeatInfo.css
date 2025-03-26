@@ -1,4 +1,4 @@
-.seat-info {
+.duffel-components .seat-info {
   --INFO-CARD-MARGIN: 20px;
   background-color: rgb(var(--WHITE));
   padding: 24px;
@@ -20,7 +20,7 @@
 
 /* tablet or greater  */
 @media (min-width: 768px) {
-  .seat-info {
+  .duffel-components .seat-info {
     left: 0;
     right: 0;
     margin-left: auto;
@@ -31,7 +31,7 @@
   }
 }
 
-.seat-info__details {
+.duffel-components .seat-info__details {
   font-size: var(--FONT-SIZES-C1);
   color: var(--GREY-900);
   font-weight: normal;
@@ -40,12 +40,12 @@
   justify-content: space-between;
 }
 
-.seat-info__details > span {
+.duffel-components .seat-info__details > .duffel-components span {
   flex-grow: 1;
   margin: 0 var(--SPACING-SM-1);
 }
 
-.seat-info__disclosure {
+.duffel-components .seat-info__disclosure {
   font-size: var(--FONT-SIZES-C3);
   color: var(--GREY-600);
   line-height: 150%;
@@ -54,7 +54,10 @@
   margin-top: var(--SPACING-SM-1);
 }
 
-.seat-info__details + .seat-info__disclosure {
+.duffel-components
+  .seat-info__details
+  + .duffel-components
+  .seat-info__disclosure {
   padding-top: var(--SPACING-SM-3);
   border-top: 1px solid var(--GREY-200);
   margin-top: var(--SPACING-SM-3);

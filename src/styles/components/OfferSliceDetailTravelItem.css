@@ -1,12 +1,12 @@
-.itinerary-container {
+.duffel-components .itinerary-container {
   display: flex;
 }
 
-.itinerary-top {
+.duffel-components .itinerary-top {
   position: relative;
 }
 
-.itinerary-top:before {
+.duffel-components .itinerary-top:before {
   content: "";
   position: absolute;
   left: 22px;
@@ -26,20 +26,20 @@
   background: var(--GREY-400);
 }
 
-.itinerary-top--added:before {
+.duffel-components .itinerary-top--added:before {
   background: var(--GREEN-300);
 }
 
-.itinerary-top--removed:before {
+.duffel-components .itinerary-top--removed:before {
   background: var(--RED-200);
 }
 
-.itinerary-node-container {
+.duffel-components .itinerary-node-container {
   display: flex;
   flex-direction: row;
 }
 
-.itinerary-graph-container {
+.duffel-components .itinerary-graph-container {
   display: flex;
   color: var(--grey-400);
   justify-content: center;
@@ -47,27 +47,27 @@
   width: 48px;
 }
 
-.itinerary-duration {
+.duffel-components .itinerary-duration {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-left: 64px;
 }
 
-.itinerary-node-text {
+.duffel-components .itinerary-node-text {
   display: flex;
   font-size: 16px;
   line-height: 150%;
   flex-direction: row;
 }
 
-.itinerary-node-text > span:first-child {
+.duffel-components .itinerary-node-text > span:first-child {
   font-weight: bold;
   margin-right: 16px;
   white-space: nowrap;
 }
 
-.travel-item-detail {
+.duffel-components .travel-item-detail {
   display: flex;
   margin-left: 64px;
   margin-top: 16px;
@@ -76,11 +76,11 @@
   color: var(--GREY-700);
 }
 
-.travel-item-detail > div {
+.duffel-components .travel-item-detail > div {
   margin-right: 16px;
 }
 
-.circle {
+.duffel-components .circle {
   box-sizing: content-box;
   position: relative;
   top: 4px;
@@ -93,22 +93,22 @@
   border: 1px solid var(--GREY-400);
 }
 
-.circle--added {
+.duffel-components .circle--added {
   border: 1px solid var(--GREEN-600);
 }
 
-.circle--removed {
+.duffel-components .circle--removed {
   border: 1px solid var(--RED-200);
 }
 
-.highlight {
+.duffel-components .highlight {
   position: relative;
   border-radius: 4px;
   color: var(--GREY-900);
   z-index: 1;
 }
 
-.highlight::before {
+.duffel-components .highlight::before {
   position: absolute;
   content: "";
   top: -2px;
@@ -121,14 +121,14 @@
   border-radius: 4px;
 }
 
-.highlight--green::before {
+.duffel-components .highlight--green::before {
   background-color: var(--GREEN-200);
 }
 
-.highlight--pink::before {
+.duffel-components .highlight--pink::before {
   background-color: var(--RED-200);
 }
 
-.highlight--yellow::before {
+.duffel-components .highlight--yellow::before {
   background-color: var(--YELLOW-200);
 }

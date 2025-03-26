@@ -1,19 +1,19 @@
 @import "rc-slider/assets/index.css";
 
-.rc-slider-handle {
+.duffel-components .rc-slider-handle {
   border-color: black !important;
   opacity: 1 !important;
 }
 
-.rc-slider-handle:focus,
-.rc-slider-handle-dragging {
+.duffel-components .rc-slider-handle:focus,
+.duffel-components .rc-slider-handle-dragging {
   box-shadow: 0 0 0 3px lightgrey !important;
 }
 
-.rc-slider-track {
+.duffel-components .rc-slider-track {
   background-color: black !important;
 }
 
-.rc-slider-dot-active {
+.duffel-components .rc-slider-dot-active {
   border-color: black !important;
 }

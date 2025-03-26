@@ -1,4 +1,4 @@
-.seat-map__tab-select {
+.duffel-components .seat-map__tab-select {
   width: 100%;
   max-width: 400px;
   display: flex;
@@ -10,7 +10,7 @@
   background-color: var(--GREY-200);
 }
 
-.seat-map__tab-select-option {
+.duffel-components .seat-map__tab-select-option {
   appearance: none;
   outline: none;
   margin: 0;
@@ -25,9 +25,9 @@
   border-radius: 3px;
 }
 
-.seat-map__tab-select-option:hover,
-.seat-map__tab-select-option:focus,
-.seat-map__tab-select-option:active {
+.duffel-components .seat-map__tab-select-option:hover,
+.duffel-components .seat-map__tab-select-option:focus,
+.duffel-components .seat-map__tab-select-option:active {
   color: var(--SECONDARY, rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000)));
   background-color: var(
     --TERTIARY,
@@ -36,7 +36,7 @@
   transition: var(--TRANSITIONS-CUBIC-BEZIER);
 }
 
-.seat-map__tab-select-option--selected {
+.duffel-components .seat-map__tab-select-option--selected {
   color: var(--GREY-900);
   background-color: rgba(var(--WHITE), 1);
   box-shadow:
@@ -44,10 +44,10 @@
     0px 2px 12px rgba(var(--BLACK), 0.08);
 }
 
-.seat-map__tab-select-option:first-child {
+.duffel-components .seat-map__tab-select-option:first-child {
   margin-right: 1px;
 }
 
-.seat-map__tab-select-option:last-child {
+.duffel-components .seat-map__tab-select-option:last-child {
   margin-left: 1px;
 }

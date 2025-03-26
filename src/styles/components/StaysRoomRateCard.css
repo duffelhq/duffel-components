@@ -1,4 +1,4 @@
-.stays-room-rate-card__container {
+.duffel-components .stays-room-rate-card__container {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -11,41 +11,41 @@
   cursor: pointer;
 }
 
-.stays-room-rate-card__container:hover {
+.duffel-components .stays-room-rate-card__container:hover {
   border-color: var(--GREY-300);
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.stays-room-rate-card__container--selected,
-.stays-room-rate-card__container--selected:hover {
+.duffel-components .stays-room-rate-card__container--selected,
+.duffel-components .stays-room-rate-card__container--selected:hover {
   border-color: var(--PURPLE-600);
 }
 
-.stays-room-rate-card__container--disabled,
-.stays-room-rate-card__container--disabled:hover {
+.duffel-components .stays-room-rate-card__container--disabled,
+.duffel-components .stays-room-rate-card__container--disabled:hover {
   background-color: var(--GREY-100);
   border-color: var(--GREY-100);
   box-shadow: none;
   cursor: auto;
 }
 
-.stays-room-rate-card__content {
+.duffel-components .stays-room-rate-card__content {
   padding: 20px;
   height: 100px;
 }
 
-.stays-room-rate-card__footer {
+.duffel-components .stays-room-rate-card__footer {
   display: flex;
   flex-direction: column;
   padding: 20px;
   border-radius: 0 0 8px 8px;
 }
 
-.stays-room-rate-card__icon:hover {
+.duffel-components .stays-room-rate-card__icon:hover {
   fill: var(--GREY-900);
 }
 
-.stays-room-rate-card__text--large {
+.duffel-components .stays-room-rate-card__text--large {
   color: var(--GREY-900);
   font-size: 16px;
   font-weight: 500;
@@ -53,20 +53,20 @@
   padding-top: 8px;
 }
 
-.stays-room-rate-card__text--medium {
+.duffel-components .stays-room-rate-card__text--medium {
   color: var(--GREY-900);
   font-size: 14px;
   font-weight: 500;
   text-align: left;
 }
 
-.stays-room-rate-card__text--small {
+.duffel-components .stays-room-rate-card__text--small {
   color: var(--GREY-600);
   font-size: 12px;
   text-align: left;
 }
 
-.stays-room-rate-card__item-label {
+.duffel-components .stays-room-rate-card__item-label {
   color: var(--GREY-700);
   font-size: 12px;
   text-align: left;

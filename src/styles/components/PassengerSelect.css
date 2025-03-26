@@ -1,11 +1,11 @@
-.passenger-selection {
+.duffel-components .passenger-selection {
   display: flex;
   flex-direction: column;
   font-family: var(--FONT-FAMILY);
   flex-grow: 1;
 }
 
-.passenger-selection__title {
+.duffel-components .passenger-selection__title {
   margin: 0;
   padding: 0 0 var(--SPACING-MD-3);
   font-size: var(--FONT-SIZES-H2);
@@ -13,7 +13,7 @@
   min-width: 360px;
 }
 
-.passenger-selection__segments {
+.duffel-components .passenger-selection__segments {
   list-style: none;
   overflow-y: auto;
   font-size: var(--FONT-SIZES-C1);
@@ -21,7 +21,7 @@
   margin: calc(var(--SPACING-XS-2) * -1);
 }
 
-.passenger-selection-passenger {
+.duffel-components .passenger-selection-passenger {
   appearance: none;
   border: none;
   background: none;
@@ -36,49 +36,49 @@
   width: 100%;
 }
 
-.passenger-selection-passenger:first-child {
+.duffel-components .passenger-selection-passenger:first-child {
   margin-top: 0;
 }
 
-.passenger-selection-passenger:hover,
-.passenger-selection-passenger:focus,
-.passenger-selection-passenger:active {
+.duffel-components .passenger-selection-passenger:hover,
+.duffel-components .passenger-selection-passenger:focus,
+.duffel-components .passenger-selection-passenger:active {
   background-color: var(
     --SECONDARY,
     rgba(var(--ACCENT), var(--ACCENT-LIGHT-100))
   );
 }
 
-.passenger-selection-passenger__identifier,
-.passenger-selection-passenger__action {
+.duffel-components .passenger-selection-passenger__identifier,
+.duffel-components .passenger-selection-passenger__action {
   line-height: 1;
 }
 
-.passenger-selection-passenger__identifier {
+.duffel-components .passenger-selection-passenger__identifier {
   flex-grow: 1;
   margin-right: var(--SPACING-LG-1);
   text-align: left;
   color: var(--GREY-900);
 }
 
-.passenger-selection-passenger__action {
+.duffel-components .passenger-selection-passenger__action {
   color: var(--GREY-600);
   margin-right: var(--SPACING-XS-2);
 }
 
-.passenger-selection-passenger__seat-designator {
+.duffel-components .passenger-selection-passenger__seat-designator {
   color: var(--GREY-900);
   font-weight: 600;
   margin-right: var(--SPACING-SM-3);
 }
 
-.passenger-selection-passenger__seat-price {
+.duffel-components .passenger-selection-passenger__seat-price {
   text-align: right;
   display: inline-block;
   width: 70px;
 }
 
-.passenger-selection-passenger--selected {
+.duffel-components .passenger-selection-passenger--selected {
   box-shadow: 4px 0px 0px 0px rgba(var(--ACCENT), var(--ACCENT-LIGHT-1000))
     inset;
   background-color: var(
@@ -87,13 +87,13 @@
   );
 }
 
-.passenger-selection-segment {
+.duffel-components .passenger-selection-segment {
   margin: var(--SPACING-LG-1) 0 0;
   padding: 0 0 var(--SPACING-LG-1);
   border-bottom: 1px solid var(--GREY-200);
   font-family: var(--FONT-FAMILY);
 }
 
-.passenger-selection-segment:first-child {
+.duffel-components .passenger-selection-segment:first-child {
   margin-top: 0;
 }

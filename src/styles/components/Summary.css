@@ -1,4 +1,4 @@
-.summary__segment {
+.duffel-components .summary__segment {
   border-bottom: 1px solid var(--GREY-200);
   display: flex;
   align-items: center;
@@ -7,12 +7,12 @@
   padding-bottom: var(--SPACING-SM-3);
 }
 
-.summary > .passenger-segment__title {
+.duffel-components .summary > .passenger-segment__title {
   padding: 0;
   margin: 0;
 }
 
-.summary-passenger {
+.duffel-components .summary-passenger {
   color: var(--GREY-900);
   font-size: var(--FONT-SIZES-C1);
   font-weight: normal;
@@ -20,51 +20,51 @@
   padding: 0;
 }
 
-.summary__description-cost {
+.duffel-components .summary__description-cost {
   display: flex;
   justify-content: space-between;
   font-size: var(--FONT-SIZES-C1);
   margin-bottom: var(--SPACING-SM-3);
 }
 
-.summary:not(.summary--mobile) {
+.duffel-components .summary:not(.summary--mobile) {
   padding-top: 0;
   display: none;
 }
 
-.summary__actions {
+.duffel-components .summary__actions {
   display: flex;
 }
 
-.summary__actions--previous {
+.duffel-components .summary__actions--previous {
   transform: rotate(180deg);
 }
 
-.summary__actions > button:last-of-type {
+.duffel-components .summary__actions > button:last-of-type {
   flex: 1 auto;
   justify-content: center;
   margin-left: var(--SPACING-SM-3);
 }
 
 @media screen and (min-width: 768px) {
-  .summary:not(.summary--mobile) {
+  .duffel-components .summary:not(.summary--mobile) {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .summary--mobile {
+  .duffel-components .summary--mobile {
     display: none;
   }
 
-  .summary__description-title {
+  .duffel-components .summary__description-title {
     color: var(--GREY-900);
     font-size: var(--FONT-SIZES-H5);
     line-height: 26px;
     margin-bottom: var(--SPACING-XS-2);
   }
 
-  .summary__confirmation-btn:last-child {
+  .duffel-components .summary__confirmation-btn:last-child {
     margin-left: var(--SPACING-SM-1);
   }
 }

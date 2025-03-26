@@ -33,7 +33,7 @@ const COMPONENT_CDN = `https://localhost:${PORT}`;
     ],
   });
 
-  let { host, port } = await esbuildContext.serve({
+  let { port } = await esbuildContext.serve({
     host: "localhost",
     servedir: "cdn-dist",
     port: PORT,
@@ -43,5 +43,5 @@ const COMPONENT_CDN = `https://localhost:${PORT}`;
   await esbuildContext.watch();
 
   // eslint-disable-next-line
-  console.log(`\n🐄 Serving component on https://${host}:${port}`);
+  console.log(`\n🐄 Serving component on https://localhost:${port}`);
 })();
