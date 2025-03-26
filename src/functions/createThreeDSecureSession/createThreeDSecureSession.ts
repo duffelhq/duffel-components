@@ -36,12 +36,6 @@ type CreateThreeDSecureSessionFn = (
   environmentConfiguration?: Partial<typeof DEFAULT_ENVIRONMENT_CONFIGURATION>,
 ) => Promise<ThreeDSecureSession>;
 
-declare global {
-  interface Window {
-    createThreeDSecureSession: CreateThreeDSecureSessionFn;
-  }
-}
-
 const GENERIC_ERROR_MESSAGE = "Failed to create 3DS session";
 
 export const createThreeDSecureSession: CreateThreeDSecureSessionFn = async (
