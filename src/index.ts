@@ -18,3 +18,5 @@ export * from "./components/DuffelCardForm/lib/useDuffelCardFormActions";
 
 /* --- Functions --- */
 export { createThreeDSecureSession } from "./functions/createThreeDSecureSession/createThreeDSecureSession";
+export { hasService } from "./functions/hasService";
+export { hasAvailableSeatService } from "./lib/hasAvailableSeatService";
