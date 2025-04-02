@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@duffel/components": "3.7.23",
-    "next": "14.2.25",
+    "next": "14.2.26",
     "react": "^18",
     "react-dom": "^18"
   },
