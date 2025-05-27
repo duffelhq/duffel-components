@@ -17,7 +17,7 @@ if (DUFFEL_API_URL.includes("localhost"))
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const duffelHeaders = {
-  "Duffel-Version": "v1",
+  "Duffel-Version": "v2",
   "Accept-Encoding": "gzip",
   Accept: "application/json",
   "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export const makeMockDateInTheFuture = (daysAhead: number) => {
 const createOfferRequest = async (
   sliceInput: [string, string][],
   adults: number,
-  requestedSources?: string[],
+  requestedSources?: string[]
 ) => {
   const data = {
     slices: sliceInput.map(([origin, destination], index) => ({
@@ -53,7 +53,7 @@ const createOfferRequest = async (
       method: "POST",
       headers: duffelHeaders,
       body: JSON.stringify({ data }),
-    },
+    }
   );
 
   return await response.json();
@@ -63,7 +63,7 @@ const getOffer = async (offerId: string): Promise<{ data: Offer }> => {
   const response = await fetch(
     process.env.DUFFEL_API_URL +
       `/air/offers/${offerId}/?return_available_services=true`,
-    { headers: duffelHeaders },
+    { headers: duffelHeaders }
   );
 
   return await response.json();
@@ -72,7 +72,7 @@ const getOffer = async (offerId: string): Promise<{ data: Offer }> => {
 const getSeatMaps = async (offerId: string) => {
   const response = await fetch(
     process.env.DUFFEL_API_URL + `/air/seat_maps?offer_id=${offerId}`,
-    { headers: duffelHeaders },
+    { headers: duffelHeaders }
   );
 
   return await response.json();
@@ -133,26 +133,26 @@ const main = async () => {
     const { data: offerRequest } = await createOfferRequest(
       sliceInput,
       adultCount,
-      requestedSources ? requestedSources.split(",") : undefined,
+      requestedSources ? requestedSources.split(",") : undefined
     );
     if (VERBOSE) {
       const airlines = new Set(
-        offerRequest.offers.map((offer: Offer) => offer.owner.iata_code),
+        offerRequest.offers.map((offer: Offer) => offer.owner.iata_code)
       );
       log(
         `Received ${withPlural(
           offerRequest.offers.length,
           "offer",
-          "offers",
+          "offers"
         )} back ` +
           `from ${withPlural(
             airlines.size,
             "airline",
-            "airlines",
-          )}(${Array.from(airlines.values()).join(",")})`,
+            "airlines"
+          )}(${Array.from(airlines.values()).join(",")})`
       );
       log(
-        `Search completed, offer request ID: ${offerRequest.id}.\nUsing first offer to get services: ${offerRequest.offers[0].id}\n`,
+        `Search completed, offer request ID: ${offerRequest.id}.\nUsing first offer to get services: ${offerRequest.offers[0].id}\n`
       );
     }
 
@@ -165,7 +165,7 @@ const main = async () => {
       `It includes an offer with ${withPlural(
         adultCount,
         "passenger",
-        "passengers",
+        "passengers"
       )} and ` +
       `${withPlural(sliceCount, "slice", "slices")}: ${sliceInput.join(" ⇢ ")}`;
 
@@ -175,7 +175,7 @@ const main = async () => {
 
     fs.writeFileSync(
       `src/fixtures/offers/${firstOffer.id}.json`,
-      JSON.stringify({ _description, ...firstOffer, expires_at }, null, 2),
+      JSON.stringify({ _description, ...firstOffer, expires_at }, null, 2)
     );
 
     // get seat maps
@@ -184,7 +184,7 @@ const main = async () => {
     // save to src/fixtures/seat-maps
     fs.writeFileSync(
       `src/fixtures/seat-maps/${firstOffer.id}.json`,
-      JSON.stringify(seatMaps, null, 2),
+      JSON.stringify(seatMaps, null, 2)
     );
 
     log(`\n🐄 Fixtures saved for ${firstOffer.id}`);
