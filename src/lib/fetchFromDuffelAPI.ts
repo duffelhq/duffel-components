@@ -14,7 +14,7 @@ export async function fetchFromDuffelAPI(
   withClientKey: string,
   path: string,
   method = "GET",
-  body?: string,
+  body?: string
 ) {
   logGroup("Making request to the Duffel API", { path, method });
   const fullUrl = `${DUFFEL_API_URL}/ancillaries-component/${path}`;

@@ -7,13 +7,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 if (process.env.DUFFEL_API_URL === undefined) {
   throw new Error(
-    "process.env.DUFFEL_API_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n",
+    "process.env.DUFFEL_API_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n"
   );
 }
 
 if (process.env.DUFFEL_API_TOKEN === undefined) {
   throw new Error(
-    "process.env.DUFFEL_API_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n",
+    "process.env.DUFFEL_API_URL is required to run this example but one is not present in the environment.\n Make sure to include one in you `.env.local`\n"
   );
 }
 
@@ -35,7 +35,7 @@ async function getComponentClientKey() {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.DUFFEL_API_TOKEN}`,
       },
-    },
+    }
   );
 
   const { data } = await response.json();
@@ -56,7 +56,7 @@ const SERVER_ROUTES = {
 
       response.writeHead(200);
       response.end(
-        template.replace("__COMPONENT_CLIENT_KEY__", componentClientKey),
+        template.replace("__COMPONENT_CLIENT_KEY__", componentClientKey)
       );
     } catch (error) {
       console.error(error);

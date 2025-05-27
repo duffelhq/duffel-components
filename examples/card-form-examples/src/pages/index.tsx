@@ -18,7 +18,7 @@ export const getServerSideProps = async () => {
         "duffel-version": "v2",
         Authorization: `Bearer ${process.env.DUFFEL_API_KEY}`,
       },
-    },
+    }
   );
 
   const responseBody = await response.json();
