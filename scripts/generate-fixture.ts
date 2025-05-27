@@ -17,7 +17,7 @@ if (DUFFEL_API_URL.includes("localhost"))
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const duffelHeaders = {
-  "Duffel-Version": "v1",
+  "Duffel-Version": "v2",
   "Accept-Encoding": "gzip",
   Accept: "application/json",
   "Content-Type": "application/json",

@@ -29,7 +29,7 @@ async function getComponentClientKey() {
     {
       method: "POST",
       headers: {
-        "Duffel-Version": "v1",
+        "Duffel-Version": "v2",
         "Accept-Encoding": "gzip",
         Accept: "application/json",
         "Content-Type": "application/json",

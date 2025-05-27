@@ -24,7 +24,7 @@ const makeMockDateInTheFuture = (daysAhead) => {
 };
 
 const duffelHeaders = {
-  "Duffel-Version": "v1",
+  "Duffel-Version": "v2",
   "Accept-Encoding": "gzip",
   Accept: "application/json",
   "Content-Type": "application/json",

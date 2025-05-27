@@ -24,7 +24,7 @@ export async function fetchFromDuffelAPI(
       method,
       body,
       headers: {
-        "Duffel-Version": "v1",
+        "Duffel-Version": "v2",
         Authorization: `Bearer ${withClientKey}`,
         "User-Agent": `Duffel/ancillaries-component@${COMPONENT_VERSION}`,
       },
