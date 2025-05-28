@@ -4,14 +4,18 @@ import {
 } from "@duffel/api/types";
 
 export const getSymbols = (
-  cabins: SeatMapCabin[],
+  cabins: SeatMapCabin[]
 ): Set<SeatMapCabinRowSectionElementAmenity> => {
   const results: Set<SeatMapCabinRowSectionElementAmenity> = new Set();
   for (const cabin of cabins) {
     for (const row of cabin.rows) {
       for (const section of row.sections) {
         for (const element of section.elements) {
-          if (element.type !== "seat" && element.type !== "empty") {
+          if (
+            element.type !== "seat" &&
+            element.type !== "empty" &&
+            element.type !== "restricted_seat_general"
+          ) {
             results.add(element.type);
           }
         }
