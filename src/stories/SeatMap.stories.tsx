@@ -4,6 +4,8 @@ import type { Meta } from "@storybook/react";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const SEAT_MAP_FIXTURE: SeatMapType = require("../fixtures/seat-maps/seat_map_with_restricted_seat_general.json");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const SEAT_MAP_FIXTURE_QANTAS: SeatMapType = require("../fixtures/seat-maps/seat_map_qantas.json");
 
 export default {
   title: "SeatMap",
@@ -20,6 +22,17 @@ export default {
 export const Default: React.FC = () => (
   <SeatMap
     seatMap={SEAT_MAP_FIXTURE}
+    selectedServicesMap={{}}
+    onSeatToggled={console.log}
+    currentPassengerId={"pax_id_1"}
+    currentPassengerName={"艾未未"}
+    currentSegmentId={"seg_0000Ar2vnrSIGpJv0j4lWK"}
+  />
+);
+
+export const Qantas: React.FC = () => (
+  <SeatMap
+    seatMap={SEAT_MAP_FIXTURE_QANTAS}
     selectedServicesMap={{}}
     onSeatToggled={console.log}
     currentPassengerId={"pax_id_1"}
