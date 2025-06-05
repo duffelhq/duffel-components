@@ -45,7 +45,7 @@ export const Legend: React.FC<LegendProps> = ({ symbols }) => (
       <span className="seat-map__legend-seat" aria-label="Unavailable seat">
         <Icon name="close" size={14} />
       </span>
-      Unavailable
+      Unavailable/Restricted
     </span>
     {[...symbols].map((symbol) => (
       <span

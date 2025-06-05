@@ -11,7 +11,11 @@ export const getSymbols = (
     for (const row of cabin.rows) {
       for (const section of row.sections) {
         for (const element of section.elements) {
-          if (element.type !== "seat" && element.type !== "empty") {
+          if (
+            element.type !== "seat" &&
+            element.type !== "empty" &&
+            element.type !== "restricted_seat_general"
+          ) {
             results.add(element.type);
           }
         }
