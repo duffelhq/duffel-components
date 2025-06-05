@@ -46,7 +46,7 @@ export const Legend: React.FC<LegendProps> = ({ symbols }) => (
         <Icon name="close" size={14} />
       </span>
       Unavailable/Restricted
-    </span> 
+    </span>
     {[...symbols].map((symbol) => (
       <span
         key={symbol}
