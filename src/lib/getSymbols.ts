@@ -4,7 +4,7 @@ import {
 } from "@duffel/api/types";
 
 export const getSymbols = (
-  cabins: SeatMapCabin[]
+  cabins: SeatMapCabin[],
 ): Set<SeatMapCabinRowSectionElementAmenity> => {
   const results: Set<SeatMapCabinRowSectionElementAmenity> = new Set();
   for (const cabin of cabins) {
