@@ -98,3 +98,29 @@ export const RatesCrossComparison = {
     ],
   },
 };
+
+export const DepositRate = {
+  render: Template,
+  args: {
+    roomRates: [
+      {
+        rate: {
+          ...accommodation.rooms[0].rates[0],
+          available_payment_methods: ["card"],
+          payment_type: "deposit",
+          source: "bookingcom",
+          id: "rat_0000AiYKQhfXjogdfBkiA4",
+          cancellation_timeline: [
+            {
+              refund_amount: "799.00",
+              currency: "GBP",
+              before: "2025-08-01T00:00:00Z",
+            },
+          ],
+        },
+        numberOfNights: 3,
+        searchNumberOfRooms: 2,
+      },
+    ],
+  },
+};
