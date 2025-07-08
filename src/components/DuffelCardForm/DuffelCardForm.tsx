@@ -7,6 +7,8 @@ import { postMessageWithStyles } from "./lib/postMessageWithStyles";
 import { DuffelCardFormProps } from "./lib/types";
 import { DuffelCardFormActions } from "./lib/useDuffelCardFormActions";
 
+const defaultIframeHeight = "838px";
+
 export const DuffelCardForm = React.forwardRef<
   DuffelCardFormActions,
   DuffelCardFormProps
@@ -26,22 +28,22 @@ export const DuffelCardForm = React.forwardRef<
       onSaveCardFailure,
       onSecurityPolicyViolation,
     },
-    ref,
+    ref
   ) => {
     // Validates required props
     if (!clientKey) {
       throw new Error(
-        "Attempted to render `DuffelCardForm` without a clientKey.",
+        "Attempted to render `DuffelCardForm` without a clientKey."
       );
     }
     if (!intent) {
       throw new Error(
-        "Attempted to render `DuffelCardForm` without an `intent`. Make sure your provide one of the following: `create-card-for-temporary-use`, `save-card`, `use-saved-card`.",
+        "Attempted to render `DuffelCardForm` without an `intent`. Make sure your provide one of the following: `create-card-for-temporary-use`, `save-card`, `use-saved-card`."
       );
     }
     if (intent == "to-use-saved-card" && !savedCardData) {
       throw new Error(
-        "Attempted to render `DuffelCardForm`to use a saved card but the `cardId` prop is missing. Make sure you provide the id of the saved card you'd like to use.",
+        "Attempted to render `DuffelCardForm`to use a saved card but the `cardId` prop is missing. Make sure you provide the id of the saved card you'd like to use."
       );
     }
 
@@ -55,11 +57,14 @@ export const DuffelCardForm = React.forwardRef<
             postMessageToCreateCardForTemporaryUse(iFrameReference, iFrameURL),
         };
       },
-      [],
+      []
     );
 
     // Component state
-    const [iFrameHeight, setIFrameHeight] = React.useState("0px");
+    // 838px is the height of the iframe content without any styles applied.
+    // Setting it to this height, prevents a big jump in height once the iframe is loaded.
+    const [iFrameHeight, setIFrameHeight] = React.useState(defaultIframeHeight);
+    const [isLoading, setIsLoading] = React.useState(true);
     const iFrameReference = React.useRef<HTMLIFrameElement>(null);
 
     // Sets the iframe src
@@ -67,15 +72,19 @@ export const DuffelCardForm = React.forwardRef<
       tokenProxyEnvironment,
       intent,
       clientKey,
-      savedCardData,
+      savedCardData
     );
 
     // Register event listeners to the window to listen to messages from the iframe.
     React.useEffect(() => {
       const iFrameEventListener = getIFrameEventListener(iFrameURL, {
-        postMessageWithStyles: () =>
-          postMessageWithStyles(iFrameReference, iFrameURL, styles),
-        setIFrameHeight,
+        postMessageWithStyles: () => {
+          postMessageWithStyles(iFrameReference, iFrameURL, styles);
+        },
+        setIFrameHeight: (height: string) => {
+          setIFrameHeight(height);
+          setIsLoading(false);
+        },
         onValidateSuccess,
         onValidateFailure,
         onCreateCardForTemporaryUseSuccess,
@@ -90,16 +99,47 @@ export const DuffelCardForm = React.forwardRef<
     }, []);
 
     return (
-      <iframe
-        ref={iFrameReference}
-        title="Card Payment Form"
-        src={iFrameURL.href}
-        style={{
-          width: "100%",
-          border: "none",
-          height: iFrameHeight,
-        }}
-      />
+      <>
+        {isLoading && (
+          <div
+            style={{
+              height: defaultIframeHeight,
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                justifyContent: "center",
+                fontFamily: "inherit",
+                marginTop: "80px",
+                gap: "8px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <img
+                height="20px"
+                src="https://assets.duffel.com/img/spinner.gif"
+                alt="spinner"
+              />
+              <span>Preparing payment...</span>
+            </div>
+          </div>
+        )}
+        <iframe
+          ref={iFrameReference}
+          title="Card Payment Form"
+          src={iFrameURL.href}
+          style={{
+            width: "100%",
+            border: "none",
+            height: iFrameHeight,
+            visibility: isLoading ? "hidden" : "visible",
+            position: isLoading ? "absolute" : "static",
+            pointerEvents: isLoading ? "none" : "auto",
+          }}
+        />
+      </>
     );
-  },
+  }
 );
