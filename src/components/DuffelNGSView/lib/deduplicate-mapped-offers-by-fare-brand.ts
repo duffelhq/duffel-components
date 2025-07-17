@@ -9,6 +9,7 @@ import { NGS_SHELVES } from ".";
 // Deduplicate fare brands (only show the cheapest offer within fare brand)
 export const deduplicateMappedOffersByFareBrand = (
   offersMap: Record<string, NGSOfferRow>,
+  sliceIndex?: number,
 ) => {
   Object.entries(offersMap).map(([sliceKey, row]) => {
     const deduplicatedRow: NGSOfferRow = {
@@ -21,7 +22,7 @@ export const deduplicateMappedOffersByFareBrand = (
     };
     NGS_SHELVES.map((shelf) => {
       if (row[shelf]) {
-        deduplicatedRow[shelf] = groupByFareBrandName(row[shelf]!)
+        deduplicatedRow[shelf] = groupByFareBrandName(row[shelf]!, sliceIndex)
           .map((offers) => getCheapestOffer(offers))
           .flat();
       }
@@ -63,14 +64,17 @@ export const getCheapestOffer = (offers: OfferRequest["offers"]) =>
       Math.min(...offers.map((offer) => +offer.total_amount)),
   )!;
 
-export const groupByFareBrandName = (offers: OfferRequest["offers"]) => {
+export const groupByFareBrandName = (
+  offers: OfferRequest["offers"],
+  sliceIndex?: number,
+) => {
   const groupedResult: { [key: string]: OfferRequest["offers"] } =
     offers.reduce(
       (
         previous: { [key: string]: OfferRequest["offers"] },
         current: Omit<Offer, "available_services">,
       ) => {
-        const key = getFareBrandNameForOffer(current);
+        const key = getFareBrandNameForOffer(current, sliceIndex);
         if (!previous[key]) {
           previous[key] = [];
         }

@@ -88,5 +88,7 @@ export const groupOffersForNGSView = (
     }
   });
 
-  return Object.values(deduplicateMappedOffersByFareBrand(offersMap));
+  return Object.values(
+    deduplicateMappedOffersByFareBrand(offersMap, sliceIndex),
+  );
 };
