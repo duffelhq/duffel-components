@@ -8,6 +8,7 @@ import { offerRequestWithDuplicates } from "src/fixtures/offer-requests/orq_dupl
 /* eslint-disable @typescript-eslint/no-var-requires */
 const offerRequest = require("../fixtures/offer-requests/orq_0000Ab7taNqbK8y5YqW6Zk.json");
 const largeOfferRequest = require("../fixtures/offer-requests/orq_0000AgDHjHoX1SDBo07hdQ.json");
+const spiritOfferRequest = require("../fixtures/offer-requests/spirit.json");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 const offer = offerRequest.offers[0];
@@ -162,6 +163,15 @@ export const Deduplicated: StoryFn<DuffelNGSViewProps> = () => (
 export const Large: StoryFn<DuffelNGSViewProps> = () => (
   <Container>
     <DuffelNGSView offerRequest={largeOfferRequest} onSelect={console.log} />
+  </Container>
+);
+
+export const Spirit: StoryFn<DuffelNGSViewProps> = () => (
+  <Container>
+    <DuffelNGSView
+      offerRequest={spiritOfferRequest["data"]}
+      onSelect={console.log}
+    />
   </Container>
 );
 
