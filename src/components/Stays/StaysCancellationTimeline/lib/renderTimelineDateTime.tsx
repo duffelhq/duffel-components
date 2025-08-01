@@ -11,7 +11,7 @@ export const renderTimelineDateTime = (
    * the date is assumed to be in a timezone local to the timeline event (e.g
    * flight departure).
    */
-  dateTimeZone?: string
+  dateTimeZone?: string,
 ) => {
   const dateHasTimezoneDesignator = isTimezoneDate(date);
 
@@ -37,7 +37,7 @@ export const renderTimelineDateTime = (
         >
           {getDateString(
             date,
-            dateHasTimezoneDesignator ? "timeOnlyWithTimezone" : "timeOnly"
+            dateHasTimezoneDesignator ? "timeOnlyWithTimezone" : "timeOnly",
           )}
           {!dateHasTimezoneDesignator &&
             (dateTimeZone

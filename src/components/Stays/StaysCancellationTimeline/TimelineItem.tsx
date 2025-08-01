@@ -31,7 +31,7 @@ export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
       aboveDot,
       date,
     },
-    ref
+    ref,
   ) => {
     return (
       <VSpace
@@ -53,7 +53,7 @@ export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
         <HSpace space={0}>
           <div
             className="timeline-item-line"
-            style={{ backgroundColor: `var(--${lineColorLeft})` }}
+            style={{ backgroundColor: `var(${lineColorLeft})` }}
           />
           {aboveDot && (
             <div className="timeline-item-above-dot">{aboveDot}</div>
@@ -61,7 +61,7 @@ export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           {dot && (
             <div
               className="timeline-item-dot"
-              style={dotColor ? { backgroundColor: `var(--${dotColor})` } : {}}
+              style={dotColor ? { backgroundColor: `var(${dotColor})` } : {}}
             />
           )}
           {label && (
@@ -80,7 +80,7 @@ export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           <div
             className="timeline-item-line"
             style={{
-              backgroundColor: `var(--${lineColorRight})`,
+              backgroundColor: `var(${lineColorRight})`,
               left: dot ? "calc(50% + 8px)" : "50%",
               width: dot ? "calc(50% - 8px)" : "50%",
             }}
@@ -88,5 +88,5 @@ export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
         </HSpace>
       </VSpace>
     );
-  }
+  },
 );

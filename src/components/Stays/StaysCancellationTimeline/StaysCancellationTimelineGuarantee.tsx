@@ -21,7 +21,11 @@ const FullRefundPolicy: React.FC<{
   before: string;
 }> = ({ before }) => {
   return (
-    <Policy iconName="check" iconColor="--GREEN-700" label="Free cancellation">
+    <Policy
+      iconName="check_large"
+      iconColor="--GREEN-700"
+      label="Free cancellation"
+    >
       You may cancel for free before{" "}
       {getDateString(before, "mediumWithTimeAndTimezone")}. No payment will be
       required.
@@ -34,7 +38,7 @@ const PartialRefundPolicy: React.FC<{
   totalAmount: string;
 }> = ({ cancellationTimeline, totalAmount }) => (
   <Policy
-    iconName="check"
+    iconName="check_large"
     iconColor="--YELLOW-700"
     label="Reduced penalty if cancelled"
   >
@@ -42,7 +46,7 @@ const PartialRefundPolicy: React.FC<{
     {getDateString(cancellationTimeline.before, "mediumWithTimeAndTimezone")}, a
     cancellation fee of{" "}
     {moneyStringFormatter(cancellationTimeline.currency)(
-      +totalAmount - +cancellationTimeline.refund_amount
+      +totalAmount - +cancellationTimeline.refund_amount,
     )}{" "}
     will apply.
   </Policy>
@@ -172,7 +176,7 @@ export const StaysCancellationTimelineGuarantee: React.FC<
                     aboveDot={renderTimelineDateTime(
                       index === 0
                         ? bookingDate
-                        : cancellationTimeline[index - 1].before
+                        : cancellationTimeline[index - 1].before,
                     )}
                   />
                   {/* This is the main section of the line. Won't have a dot*/}
@@ -188,7 +192,7 @@ export const StaysCancellationTimelineGuarantee: React.FC<
                     dot={false}
                     size={timelineSize}
                     description={moneyStringFormatter(timelineItem.currency)(
-                      +timelineItem.refund_amount
+                      +timelineItem.refund_amount,
                     )}
                   />
 
@@ -231,7 +235,7 @@ export const StaysCancellationTimelineGuarantee: React.FC<
                         size="small"
                         aboveDot={renderTimelineDateTime(
                           checkInDateTime,
-                          Boolean(checkInAfterTime)
+                          Boolean(checkInAfterTime),
                         )}
                       />
                     </>

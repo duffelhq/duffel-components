@@ -22,7 +22,11 @@ const FullRefundPolicy: React.FC<{
   refundAmount: string;
   currency: string;
 }> = ({ before, refundAmount, currency }) => (
-  <Policy iconName="check" iconColor="--GREEN-700" label="Fully refundable">
+  <Policy
+    iconName="check_large"
+    iconColor="--GREEN-700"
+    label="Fully refundable"
+  >
     You may cancel for free before{" "}
     {getDateString(before, "mediumWithTimeAndTimezone")}. You will be receive a
     full refund of {moneyStringFormatter(currency)(+refundAmount)}.
@@ -35,7 +39,7 @@ const PartialRefundPolicy: React.FC<{
 }> = ({ cancellationTimeline, totalAmount }) => {
   return (
     <Policy
-      iconName="check"
+      iconName="check_large"
       iconColor="--YELLOW-700"
       label="Refundable for a fee"
     >
@@ -43,11 +47,11 @@ const PartialRefundPolicy: React.FC<{
       {getDateString(cancellationTimeline.before, "mediumWithTimeAndTimezone")},
       you will be receive a partial refund of{" "}
       {moneyStringFormatter(cancellationTimeline.currency)(
-        +cancellationTimeline.refund_amount
+        +cancellationTimeline.refund_amount,
       )}
       . A cancellation fee of{" "}
       {moneyStringFormatter(cancellationTimeline.currency)(
-        +totalAmount - +cancellationTimeline.refund_amount
+        +totalAmount - +cancellationTimeline.refund_amount,
       )}{" "}
       will be retained.
     </Policy>
@@ -167,7 +171,7 @@ export const StaysCancellationTimelinePayNow: React.FC<
                     aboveDot={renderTimelineDateTime(
                       index === 0
                         ? bookingDate
-                        : cancellationTimeline[index - 1].before
+                        : cancellationTimeline[index - 1].before,
                     )}
                   />
                   {/* This is the main section of the line. Won't have a dot*/}
@@ -183,7 +187,7 @@ export const StaysCancellationTimelinePayNow: React.FC<
                     dot={false}
                     size={timelineSize}
                     description={moneyStringFormatter(timelineItem.currency)(
-                      +timelineItem.refund_amount
+                      +timelineItem.refund_amount,
                     )}
                   />
 
@@ -222,7 +226,7 @@ export const StaysCancellationTimelinePayNow: React.FC<
                         size="small"
                         aboveDot={renderTimelineDateTime(
                           checkInDateTime,
-                          Boolean(checkInAfterTime)
+                          Boolean(checkInAfterTime),
                         )}
                       />
                     </>

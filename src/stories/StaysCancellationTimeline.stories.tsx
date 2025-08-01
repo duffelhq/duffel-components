@@ -6,7 +6,7 @@ import {
 } from "../components/Stays/StaysCancellationTimeline/StaysCancellationTimeline";
 
 export default {
-  title: "Components/StaysCancellationTimeline",
+  title: "StaysCancellationTimeline",
   component: StaysCancellationTimeline,
 } as Meta;
 
