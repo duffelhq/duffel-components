@@ -7,8 +7,6 @@ import { postMessageWithStyles } from "./lib/postMessageWithStyles";
 import { DuffelCardFormProps } from "./lib/types";
 import { DuffelCardFormActions } from "./lib/useDuffelCardFormActions";
 
-const defaultIframeHeight = "838px";
-
 export const DuffelCardForm = React.forwardRef<
   DuffelCardFormActions,
   DuffelCardFormProps
@@ -60,6 +58,9 @@ export const DuffelCardForm = React.forwardRef<
       [],
     );
 
+    const intentsToUseSavedCard = intent === "to-use-saved-card";
+    const defaultIframeHeight = intentsToUseSavedCard ? "68px" : "838px";
+
     // Component state
     // 838px is the height of the iframe content without any styles applied.
     // Setting it to this height, prevents a big jump in height once the iframe is loaded.
@@ -81,8 +82,8 @@ export const DuffelCardForm = React.forwardRef<
         postMessageWithStyles: () => {
           postMessageWithStyles(iFrameReference, iFrameURL, styles);
         },
-        setIFrameHeight: (height: string) => {
-          setIFrameHeight(height);
+        setIFrameHeight: (height: number) => {
+          setIFrameHeight(`${height}px`);
           setIsLoading(false);
         },
         onValidateSuccess,
@@ -103,27 +104,22 @@ export const DuffelCardForm = React.forwardRef<
         {isLoading && (
           <div
             style={{
-              height: defaultIframeHeight,
+              height: iFrameHeight,
               width: "100%",
+              fontFamily: "inherit",
+              padding: "1rem",
+              gap: "8px",
+              display: "flex",
+              justifyContent: intentsToUseSavedCard ? "flex-start" : "center",
+              alignItems: "center",
             }}
           >
-            <div
-              style={{
-                justifyContent: "center",
-                fontFamily: "inherit",
-                marginTop: "80px",
-                gap: "8px",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <img
-                height="20px"
-                src="https://assets.duffel.com/img/spinner.gif"
-                alt="spinner"
-              />
-              <span>Preparing payment...</span>
-            </div>
+            <img
+              height="20px"
+              src="https://assets.duffel.com/img/spinner.gif"
+              alt="spinner"
+            />
+            <span>Preparing payment...</span>
           </div>
         )}
         <iframe
