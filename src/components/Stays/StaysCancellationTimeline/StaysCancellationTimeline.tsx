@@ -20,26 +20,17 @@ export const StaysCancellationTimeline: React.FC<
 > = ({ paymentType, ...props }) => {
   return (
     <WithComponentStyles>
-      <div
-        className="duffel-components"
-        style={{
-          padding: "24px",
-          borderRadius: "8px",
-          border: "1px solid var(--GREY-200)",
-        }}
-      >
-        <VSpace space={24} data-selector="fs-show">
-          {(paymentType === "pay_now" || !paymentType) && (
-            <StaysCancellationTimelinePayNow {...props} />
-          )}
-          {paymentType === "deposit" && (
-            <StaysCancellationTimelineDeposit {...props} />
-          )}
-          {paymentType === "guarantee" && (
-            <StaysCancellationTimelineGuarantee {...props} />
-          )}
-        </VSpace>
-      </div>
+      <VSpace space={24} className="duffel-components" data-selector="fs-show">
+        {(paymentType === "pay_now" || !paymentType) && (
+          <StaysCancellationTimelinePayNow {...props} />
+        )}
+        {paymentType === "deposit" && (
+          <StaysCancellationTimelineDeposit {...props} />
+        )}
+        {paymentType === "guarantee" && (
+          <StaysCancellationTimelineGuarantee {...props} />
+        )}
+      </VSpace>
     </WithComponentStyles>
   );
 };
