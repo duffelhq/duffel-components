@@ -9,7 +9,7 @@ import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
 import { WithBaggageServiceInformation } from "src/types";
-import { Card } from "../Card";
+import { Card } from "../../shared/Card";
 import { BaggageSelectionModal } from "./BaggageSelectionModal";
 
 export interface BaggageSelectionCardProps {

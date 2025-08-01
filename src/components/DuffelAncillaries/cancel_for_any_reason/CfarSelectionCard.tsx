@@ -9,7 +9,7 @@ import { isCancelForAnyReasonService } from "@lib/isCancelForAnyReasonService";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
 import { WithServiceInformation } from "src/types";
-import { Card } from "../Card";
+import { Card } from "../../shared/Card";
 import { CfarSelectionModal } from "./CfarSelectionModal";
 
 export interface CfarSelectionCardProps {

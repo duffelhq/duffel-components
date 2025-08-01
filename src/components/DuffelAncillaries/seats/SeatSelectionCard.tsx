@@ -14,7 +14,7 @@ import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
 import { WithSeatServiceInformation } from "src/types";
-import { Card } from "../Card";
+import { Card } from "../../shared/Card";
 import { SeatSelectionModal } from "./SeatSelectionModal";
 
 export interface SeatSelectionCardProps {
