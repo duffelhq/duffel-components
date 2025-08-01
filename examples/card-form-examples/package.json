@@ -5,10 +5,10 @@
     "dev": "next dev"
   },
   "dependencies": {
-    "@duffel/components": "3.7.23",
+    "@duffel/components": "3.11.0-canary.3",
     "next": "15.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@types/node": "20.11.5",
