@@ -14,33 +14,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@duffel/api@npm:2.14.4":
-  version: 2.14.4
-  resolution: "@duffel/api@npm:2.14.4"
+"@duffel/api@npm:4.13.0":
+  version: 4.13.0
+  resolution: "@duffel/api@npm:4.13.0"
   dependencies:
     "@types/node": "npm:^18.0.0"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
-  checksum: 59c50e9fed848ca0e244be3b9f55e80d4d28cccc7adce6923a1d44dab08bba4c68e7d90fd759e3ed53f43b0ab7938ebbe02ffe4fb1c77c8158e64ae0fb61585c
+  checksum: 7f2e1c67bab51aa4cad3b89a5aece9fafddad5cfebc06a9a0b0111ac733187e52c6425b03f0c52c86cff8efecca1d021f998da500057f973fb8a918d5e37872e
   languageName: node
   linkType: hard
 
-"@duffel/components@npm:3.7.23":
-  version: 3.7.23
-  resolution: "@duffel/components@npm:3.7.23"
+"@duffel/components@npm:3.11.0":
+  version: 3.11.0
+  resolution: "@duffel/components@npm:3.11.0"
   dependencies:
-    "@duffel/api": "npm:2.14.4"
+    "@duffel/api": "npm:4.13.0"
     "@sentry/browser": "npm:7.119.2"
     "@stripe/react-stripe-js": "npm:2.1.0"
     "@stripe/stripe-js": "npm:1.54.2"
     classnames: "npm:2.3.2"
+    date-fns: "npm:^4.1.0"
+    date-fns-tz: "npm:^3.2.0"
     duration-fns: "npm:3.0.2"
     fuse.js: "npm:6.6.2"
     lodash: "npm:4.17.21"
     rc-slider: "npm:10.6.2"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
-  checksum: 1f4dca0e3f0bf1b5c9b5a5693e36967df929d6559e54e922513d4c05a5ddb55ecaa5125ebf837da69b5c462d81347bdf6063db3ee28a3d44c8cd61aaa1a95718
+  checksum: e26ffc230c216c52abfca569572b13c0705567c0cda5d9610a2d05ca266a31af2ff505af3e8d63fd93d772eeec6795280cb960f83753aba0a6f918731755d937
   languageName: node
   linkType: hard
 
@@ -526,14 +528,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "card-form-examples@workspace:."
   dependencies:
-    "@duffel/components": "npm:3.7.23"
+    "@duffel/components": "npm:3.11.0"
     "@types/node": "npm:20.11.5"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
     next: "npm:15.2.4"
     prettier: "npm:3.2.4"
-    react: "npm:18.2.0"
-    react-dom: "npm:18.2.0"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
     typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft
@@ -608,6 +610,22 @@ __metadata:
   version: 3.1.3
   resolution: "csstype@npm:3.1.3"
   checksum: 80c089d6f7e0c5b2bd83cf0539ab41474198579584fa10d86d0cafe0642202343cbc119e076a0b1aece191989477081415d66c9fefbf3c957fc2fc4b7009f248
+  languageName: node
+  linkType: hard
+
+"date-fns-tz@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "date-fns-tz@npm:3.2.0"
+  peerDependencies:
+    date-fns: ^3.0.0 || ^4.0.0
+  checksum: 3f43300a4335d59f3515dc5196c66b4b56ef2af129eb82e4445ce0983e8ef31a5d038bc0406d669946bbbcf52ed953527527aa28b4a810995d6631a54655abcc
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "date-fns@npm:4.1.0"
+  checksum: b79ff32830e6b7faa009590af6ae0fb8c3fd9ffad46d930548fbb5acf473773b4712ae887e156ba91a7b3dc30591ce0f517d69fd83bd9c38650fdc03b4e0bac8
   languageName: node
   linkType: hard
 
@@ -1001,18 +1019,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react-dom@npm:18.2.0"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-    scheduler: "npm:^0.23.0"
-  peerDependencies:
-    react: ^18.2.0
-  checksum: 66dfc5f93e13d0674e78ef41f92ed21dfb80f9c4ac4ac25a4b51046d41d4d2186abc915b897f69d3d0ebbffe6184e7c5876f2af26bfa956f179225d921be713a
-  languageName: node
-  linkType: hard
-
 "react-dom@npm:18.3.1":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
@@ -1039,15 +1045,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react@npm:18.2.0"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-  checksum: b562d9b569b0cb315e44b48099f7712283d93df36b19a39a67c254c6686479d3980b7f013dc931f4a5a3ae7645eae6386b4aa5eea933baa54ecd0f9acb0902b8
-  languageName: node
-  linkType: hard
-
 "react@npm:18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
@@ -1061,15 +1058,6 @@ __metadata:
   version: 0.14.1
   resolution: "regenerator-runtime@npm:0.14.1"
   checksum: 1b16eb2c4bceb1665c89de70dcb64126a22bc8eb958feef3cd68fe11ac6d2a4899b5cd1b80b0774c7c03591dc57d16631a7f69d2daa2ec98100e2f29f7ec4cc4
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.23.0":
-  version: 0.23.0
-  resolution: "scheduler@npm:0.23.0"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-  checksum: b777f7ca0115e6d93e126ac490dbd82642d14983b3079f58f35519d992fa46260be7d6e6cede433a92db70306310c6f5f06e144f0e40c484199e09c1f7be53dd
   languageName: node
   linkType: hard
 

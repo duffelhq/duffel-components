@@ -6,7 +6,7 @@
     "build": "esbuild src/index.ts --bundle --outfile=dist/index.js"
   },
   "dependencies": {
-    "@duffel/components": "3.7.23",
+    "@duffel/components": "3.11.0",
     "@types/node": "20.2.5",
     "typescript": "5.0.4"
   },

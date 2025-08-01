@@ -3,14 +3,22 @@ if [[ "$@" == *"--help"* ]]; then
     echo "Builds and publishes the package to npm and CDN."
     echo ""
     echo "Usage:"
-    echo "  build-and-publish.sh [--dry-run] [--help]"
+    echo "  build-and-publish.sh [--dry-run] [--canary] [--help]"
     echo ""
     echo "Options:"
     echo "  ‣  --help       Show this help message"
     echo "  ‣  --dry-run    Build and test, but do not publish"
+    echo "  ‣  --canary     Publish as a canary release with timestamp"
     echo ""
 
     exit 0
+fi
+
+# Check if this is a canary release
+IS_CANARY=false
+if [[ "$@" == *"--canary"* ]]; then
+    IS_CANARY=true
+    echo "Publishing canary release..."
 fi
 
 # Cleanup the old builds:
@@ -50,10 +58,18 @@ if [[ "$@" != *"--dry-run"* ]]; then
 
     # Publish to npm
     cd react-dist
-    npm publish
+    if [ "$IS_CANARY" = true ]; then
+        npm publish --tag canary
+    else
+        npm publish
+    fi
 else
     echo ""
     echo "Dry run."
-    echo "@duffel/components not published."
+    if [ "$IS_CANARY" = true ]; then
+        echo "@duffel/components canary version would be published."
+    else
+        echo "@duffel/components not published."
+    fi
     echo ""
 fi

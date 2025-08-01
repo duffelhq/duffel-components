@@ -1,7 +1,7 @@
 import { DuffelCardFormProps } from "./types";
 
 type Inputs = {
-  setIFrameHeight: (height: string) => void;
+  setIFrameHeight: (height: number) => void;
   postMessageWithStyles: () => void;
 } & Pick<
   DuffelCardFormProps,
