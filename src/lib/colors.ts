@@ -20,10 +20,13 @@ export const colors = {
   "--GREEN-100": "#ecfdf5",
   "--GREEN-200": "#10b981",
   "--GREEN-300": "#064e3b",
+  "--GREEN-700": "#388275",
   "--GREEN-800": "#206c5e",
   "--YELLOW-600": "#ffb524",
+  "--YELLOW-700": "#DF9912",
   "--BLUE-100": "#EFF6FF",
   "--BLUE-300": "#1E3A8A",
+  "--PINK-700": "#DB2F46",
 };
 
 export type Color = keyof typeof colors;

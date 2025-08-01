@@ -9,7 +9,7 @@ import { isCancelForAnyReasonService } from "@lib/isCancelForAnyReasonService";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
 import { WithServiceInformation } from "src/types";
-import { Card } from "../Card";
+import { Card } from "../../shared/Card";
 import { CfarSelectionModal } from "./CfarSelectionModal";
 
 export interface CfarSelectionCardProps {
@@ -17,7 +17,7 @@ export interface CfarSelectionCardProps {
   offer?: Offer;
   selectedServices: WithServiceInformation<CreateOrderService>[];
   setSelectedServices: (
-    selectedServices: WithServiceInformation<CreateOrderService>[],
+    selectedServices: WithServiceInformation<CreateOrderService>[]
   ) => void;
 }
 
@@ -44,7 +44,7 @@ export const CfarSelectionCard: React.FC<CfarSelectionCardProps> = ({
     : "0";
 
   const cfarService = offer?.available_services.find(
-    isCancelForAnyReasonService,
+    isCancelForAnyReasonService
   );
 
   const copy =

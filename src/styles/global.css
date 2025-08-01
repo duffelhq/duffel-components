@@ -43,8 +43,10 @@
 @import "./components/StaysAmenities.css";
 @import "./components/StaysSummary.css";
 @import "./components/StaysRoomRateCard.css";
+@import "./components/StaysCancellationTimeline.css";
 @import "./components/Summary.css";
 @import "./components/Tabs.css";
+@import "./components/TimelineItem.css";
 @import "./components/TimeRangeSelector.css";
 
 .duffel-components {

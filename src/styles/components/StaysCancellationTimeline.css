@@ -1,0 +1,6 @@
+.stays-cancellation-timeline-divider {
+  border-top: 1px solid var(--grey-200);
+  width: calc(100% + var(--space-48));
+  margin-left: calc(-1 * var(--space-24));
+  margin-right: calc(-1 * var(--space-24));
+}
