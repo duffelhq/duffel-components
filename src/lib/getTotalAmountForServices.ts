@@ -28,10 +28,16 @@ export const getTotalAmountForServicesWithPriceMap = (
     (total, { quantity, id }) => {
       let newTotal = total;
 
-      if (id in servicePriceMap) {
+      // For seat services, prioritize seat maps (which may have markup applied)
+      // over the offer's available_services (which contain original prices)
+      const seatMapAmount = seatMaps ? getTotalAmountFromSeatMaps(id, seatMaps) : 0;
+      
+      if (seatMapAmount > 0) {
+        // Service found in seat maps, use the amount from there (includes markup)
+        newTotal += quantity * seatMapAmount;
+      } else if (id in servicePriceMap) {
+        // Service not in seat maps, use price from offer's available_services
         newTotal += quantity * +servicePriceMap[id].total_amount;
-      } else if (seatMaps) {
-        newTotal += quantity * getTotalAmountFromSeatMaps(id, seatMaps);
       } else {
         captureErrorInSentry(
           new Error(
