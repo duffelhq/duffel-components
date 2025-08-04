@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@duffel/components": "3.7.23",
+    "@duffel/components": "3.11.0",
     "next": "15.2.4",
     "react": "^18",
     "react-dom": "^18"
