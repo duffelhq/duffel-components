@@ -37,18 +37,32 @@ export interface DuffelAncillariesCommonProps {
 
 export interface DuffelAncillariesPropsWithOfferIdForFixture
   extends DuffelAncillariesCommonProps {
+  /**
+   * @deprecated The offer_id is deprecated. Instead fetch the offer and seat maps and pass them to the component as props.
+   */
   offer_id: `fixture_${string}`;
 }
 
 export interface DuffelAncillariesPropsWithClientKeyAndOfferId
   extends DuffelAncillariesCommonProps {
+  /**
+   * @deprecated The offer_id is deprecated. Instead fetch the offer and seat maps and pass them to the component as props.
+   */
   offer_id: string;
+
+  /**
+   * @deprecated The client key is deprecated. Instead fetch the offer and seat maps and pass them to the component as props.
+   */
   client_key: string;
 }
 
 export interface DuffelAncillariesPropWithOfferAndClientKey
   extends DuffelAncillariesCommonProps {
   offer: Offer;
+
+  /**
+   * @deprecated The client key is deprecated. Instead fetch the offer and seat maps and pass them to the component as props.
+   */
   client_key: string;
 }
 
@@ -72,19 +86,19 @@ export interface DuffelAncillariesMarkup {
 export type DuffelAncillariesPriceFormatterForBags = (
   amount: number,
   currency: string,
-  service: OfferAvailableServiceBaggage,
+  service: OfferAvailableServiceBaggage
 ) => { amount: number; currency?: string };
 
 export type DuffelAncillariesPriceFormatterForSeats = (
   amount: number,
   currency: string,
-  service: SeatMapCabinRowSectionAvailableService,
+  service: SeatMapCabinRowSectionAvailableService
 ) => { amount: number; currency?: string };
 
 export type DuffelAncillariesPriceFormatterForCancelForAnyReason = (
   amount: number,
   currency: string,
-  service: OfferAvailableServiceCFAR,
+  service: OfferAvailableServiceCFAR
 ) => { amount: number; currency?: string };
 
 export interface DuffelAncillariesPriceFormatters {
@@ -101,7 +115,7 @@ export interface CustomStyles {
 
 export type OnPayloadReady = (
   data: CreateOrder,
-  metadata: OnPayloadReadyMetadata,
+  metadata: OnPayloadReadyMetadata
 ) => void;
 
 export interface OnPayloadReadyMetadata {
