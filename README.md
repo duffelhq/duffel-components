@@ -128,7 +128,7 @@ If you are not in a node environment and can't rely on npm to install the packag
      document.querySelector("duffel-ancillaries");
 
    duffelAncillariesElement.addEventListener("onPayloadReady", (event) =>
-     console.log("onPayloadReady\n", event.detail)
+     console.log("onPayloadReady\n", event.detail),
    );
    ```
 
