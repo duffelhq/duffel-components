@@ -26,7 +26,8 @@ There are 3 different ways to integrate the components into your website. This w
 
    ```jsx
    <DuffelAncillaries
-     offer_id="fixture_off_1"
+     offer={offerFromYourBackend} // The offer object from your backend
+     seat_maps={seatMapsFromYourBackend}
      services={["bags", "seats"]}
      passengers={[...]}
      onPayloadReady={console.log}
@@ -64,7 +65,8 @@ If you are not using React but still in a node environment, you can:
 
    ```javascript
    renderDuffelAncillariesCustomElement({
-     offer_id: "fixture_off_1",
+     offer: offerFromYourBackend,
+     seat_maps: seatMapsFromYourBackend,
      services: ["bags", "seats"],
      passengers: [...],
    });
@@ -112,7 +114,8 @@ If you are not in a node environment and can't rely on npm to install the packag
    const duffelAncillariesElement = document.querySelector("duffel-ancillaries");
 
    duffelAncillariesElement.render({
-     offer_id: "fixture_off_1",
+     offer: offerFromYourBackend,
+     seat_maps: seatMapsFromYourBackend,
      services: ["bags", "seats"],
      passengers: [...],
    });

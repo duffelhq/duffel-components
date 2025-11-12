@@ -53,9 +53,22 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         "https://duffel.com/docs/guides/ancillaries-component",
     );
   }
+
   if (props.services.length === 0) {
     throw new Error(
       `You must provide at least one service in the "services" prop. Valid services: ["bags", "seats", "cancel_for_any_reason"]`,
+    );
+  }
+
+  if ("client_key" in props) {
+    console.warn(
+      "The client_key prop is deprecated. Instead fetch the offer and seat maps and pass them to the component as props. This will be removed in the next major release.",
+    );
+  }
+
+  if ("offer_id" in props) {
+    console.warn(
+      "The offer_id prop is deprecated. Instead fetch the offer and seat maps and pass them to the component as props. This will be removed in the next major release.",
     );
   }
 

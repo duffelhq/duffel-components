@@ -37,18 +37,32 @@ export interface DuffelAncillariesCommonProps {
 
 export interface DuffelAncillariesPropsWithOfferIdForFixture
   extends DuffelAncillariesCommonProps {
+  /**
+   * @deprecated The offer_id is deprecated. Instead fetch the offer and seat maps and pass them to the component as props.
+   */
   offer_id: `fixture_${string}`;
 }
 
 export interface DuffelAncillariesPropsWithClientKeyAndOfferId
   extends DuffelAncillariesCommonProps {
+  /**
+   * @deprecated The `offer_id` is deprecated. Instead fetch the offer and seat maps and pass them to the component as props.
+   */
   offer_id: string;
+
+  /**
+   * @deprecated The `client_key` is deprecated. Instead fetch the offer and seat maps and pass them to the component as props.
+   */
   client_key: string;
 }
 
 export interface DuffelAncillariesPropWithOfferAndClientKey
   extends DuffelAncillariesCommonProps {
   offer: Offer;
+
+  /**
+   * @deprecated The `client_key` is deprecated. Instead fetch the offer and seat maps and pass them to the component as props.
+   */
   client_key: string;
 }
 
