@@ -1,7 +1,15 @@
 import { IconName } from "@components/shared/Icon";
-import { StaysRoomRate } from "@duffel/api/types";
+import {
+  StaysRoomRate,
+  StaysSource,
+  StaysLoyaltyProgrammeReference,
+} from "@duffel/api/types";
 
-export const LOYALTY_PROGRAMS_NAME_MAP = {
+type LoyaltyProgrammeReferenceToText = {
+  [PropertyKey in StaysLoyaltyProgrammeReference]: string;
+};
+
+export const LOYALTY_PROGRAMS_NAME_MAP: LoyaltyProgrammeReferenceToText = {
   wyndham_rewards: "Wyndham Rewards",
   choice_privileges: "Choice Privileges",
   marriott_bonvoy: "Marriott Bonvoy",
@@ -20,11 +28,16 @@ export const LOYALTY_PROGRAMS_NAME_MAP = {
   duffel_hotel_group_rewards: "Duffel Hotel Group Rewards",
 };
 
-export const SOURCE_NAME_MAP = {
+type SourceToText = {
+  [PropertyKey in StaysSource]: string;
+};
+
+export const SOURCE_NAME_MAP: SourceToText = {
   bookingcom: "Booking.com",
   expedia: "Expedia",
   priceline: "Priceline",
   travelport: "Travelport",
+  sabre: "Sabre",
   duffel_hotel_group: "Duffel Hotel Group",
 };
 
