@@ -33,6 +33,7 @@ export const renderTimelineDateTime = (
             color: "var(--GREY-600)",
             fontSize: "12px",
             lineHeight: "20px",
+            textTransform: "uppercase",
           }}
         >
           {getDateString(
