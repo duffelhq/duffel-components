@@ -71,10 +71,18 @@ export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
                   {date}
                 </p>
               )}
-              <p style={{ textAlign: "center", fontWeight: "medium" }}>
+              <p
+                style={{
+                  textAlign: "center",
+                  fontWeight: "medium",
+                  fontSize: "12px",
+                }}
+              >
                 {label}
               </p>
-              <p style={{ textAlign: "center" }}>{description}</p>
+              <p style={{ textAlign: "center", fontSize: "12px" }}>
+                {description}
+              </p>
             </VSpace>
           )}
           <div

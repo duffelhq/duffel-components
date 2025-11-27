@@ -156,7 +156,7 @@ export const StaysCancellationTimelinePayNow: React.FC<
               }
 
               const timelineSize =
-                cancellationTimeline.length === 1 ? "extra-large" : "large";
+                cancellationTimeline.length === 1 ? "extra-large" : "medium";
 
               return (
                 <>
