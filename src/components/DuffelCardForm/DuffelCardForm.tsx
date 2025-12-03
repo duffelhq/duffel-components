@@ -7,6 +7,12 @@ import { postMessageWithStyles } from "./lib/postMessageWithStyles";
 import { DuffelCardFormProps } from "./lib/types";
 import { DuffelCardFormActions } from "./lib/useDuffelCardFormActions";
 
+const DEFAULT_IFRAME_HEIGHTS = {
+  "to-create-card-for-temporary-use": "838px",
+  "to-use-saved-card": "68px",
+  "to-save-card": "742px",
+};
+
 export const DuffelCardForm = React.forwardRef<
   DuffelCardFormActions,
   DuffelCardFormProps
@@ -59,7 +65,7 @@ export const DuffelCardForm = React.forwardRef<
     );
 
     const intentsToUseSavedCard = intent === "to-use-saved-card";
-    const defaultIframeHeight = intentsToUseSavedCard ? "68px" : "838px";
+    const defaultIframeHeight = DEFAULT_IFRAME_HEIGHTS[intent];
 
     // Component state
     // 838px is the height of the iframe content without any styles applied.
