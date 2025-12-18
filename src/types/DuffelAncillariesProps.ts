@@ -37,9 +37,8 @@ export interface DuffelAncillariesCommonProps {
   defaultSeatSelectedServices?: WithSeatServiceInformation<CreateOrderService>[];
 
   /**
-   * If you pass localisation strings, they will be used to localise the component.
-   * For example, if you pass `{ baggageMaximumDimensions: (heightInCentimeters, lengthInCentimeters, depthInCentimeters) => `${heightInCentimeters} x ${lengthInCentimeters} x ${depthInCentimeters} in` }`,
-   * the component will localise the baggage dimensions from centimeters to inches.
+   * You can use this prop to change some of the strings used in the component so it
+   * can be localised to the user's language.
    */
   localisationStrings?: DuffelAncillariesLocalisationStrings;
 }
@@ -117,12 +116,31 @@ export interface DuffelAncillariesPriceFormatters {
 }
 
 export interface DuffelAncillariesLocalisationStrings {
+  /**
+   *  Use this to localise the maximum baggage dimensions.
+   *
+   *  For example, if you want to localise the baggage dimensions from centimeters to inches, you may use:
+   *
+   * ```js
+   * (heightInCentimeters, lengthInCentimeters, depthInCentimeters) =>
+   *   `${heightInCentimeters * CM_TO_INCHES} x ${lengthInCentimeters * CM_TO_INCHES} x ${depthInCentimeters * CM_TO_INCHES} in`
+   * ```
+   */
   baggageMaximumDimensions?: (
     heightInCentimeters: number,
     lengthInCentimeters: number,
     depthInCentimeters: number,
   ) => string;
 
+  /**
+   *  Use this to localise the maximum baggage weight.
+   *
+   *  For example, if you want to localise the baggage weight from kilograms to pounds, you may use:
+   *
+   * ```js
+   * (weightInKilograms: number) => `${weightInKilograms * KG_TO_POUNDS} lbs`
+   * ```
+   */
   baggageMaximumWeight?: (weightInKilograms: number) => string;
 }
 
