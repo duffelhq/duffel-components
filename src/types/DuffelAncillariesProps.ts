@@ -23,16 +23,25 @@ export interface DuffelAncillariesCommonProps {
   services: Ancillaries[];
   markup?: DuffelAncillariesMarkup;
   priceFormatters?: DuffelAncillariesPriceFormatters;
+
   debug?: boolean;
 
   /**
    * If you pass default selected baggage services, they will be used to initiate the state when the component mounts. Any further updates will be ignored.
    */
   defaultBaggageSelectedServices?: WithBaggageServiceInformation<CreateOrderService>[];
+
   /**
    * If you pass default selected seat services, they will be used to initiate the state when the component mounts. Any further updates will be ignored.
    */
   defaultSeatSelectedServices?: WithSeatServiceInformation<CreateOrderService>[];
+
+  /**
+   * If you pass localisation strings, they will be used to localise the component.
+   * For example, if you pass `{ baggageMaximumDimensions: (heightInCentimeters, lengthInCentimeters, depthInCentimeters) => `${heightInCentimeters} x ${lengthInCentimeters} x ${depthInCentimeters} in` }`,
+   * the component will localise the baggage dimensions from centimeters to inches.
+   */
+  localisationStrings?: DuffelAncillariesLocalisationStrings;
 }
 
 export interface DuffelAncillariesPropsWithOfferIdForFixture
@@ -105,6 +114,16 @@ export interface DuffelAncillariesPriceFormatters {
   bags?: DuffelAncillariesPriceFormatterForBags;
   seats?: DuffelAncillariesPriceFormatterForSeats;
   cancel_for_any_reason?: DuffelAncillariesPriceFormatterForCancelForAnyReason;
+}
+
+export interface DuffelAncillariesLocalisationStrings {
+  baggageMaximumDimensions?: (
+    heightInCentimeters: number,
+    lengthInCentimeters: number,
+    depthInCentimeters: number,
+  ) => string;
+
+  baggageMaximumWeight?: (weightInKilograms: number) => string;
 }
 
 export interface CustomStyles {

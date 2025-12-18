@@ -6,12 +6,16 @@ import { getSegmentList } from "@lib/getSegmentList";
 import { getServicePriceMapById } from "@lib/getServicePriceMapById";
 import { hasService } from "@lib/hasService";
 import React, { useState } from "react";
-import { WithBaggageServiceInformation } from "src/types";
+import {
+  DuffelAncillariesCommonProps,
+  WithBaggageServiceInformation,
+} from "src/types";
 import { BaggageSelectionModalBody } from "./BaggageSelectionModalBody";
 import { BaggageSelectionModalFooter } from "./BaggageSelectionModalFooter";
 import { BaggageSelectionModalHeader } from "./BaggageSelectionModalHeader";
 
-export interface BaggageSelectionModalProps {
+export interface BaggageSelectionModalProps
+  extends Pick<DuffelAncillariesCommonProps, "localisationStrings"> {
   isOpen: boolean;
   offer?: Offer;
   passengers: CreateOrder["passengers"];
@@ -27,6 +31,7 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
   passengers,
   onClose,
   selectedServices,
+  localisationStrings,
 }) => {
   const [currentSegmentIndex, setCurrentSegmentIndex] = useState(0);
 
@@ -55,6 +60,7 @@ export const BaggageSelectionModal: React.FC<BaggageSelectionModalProps> = ({
         setCurrentSegmentIndex={(index) => setCurrentSegmentIndex(index)}
       />
       <BaggageSelectionModalBody
+        localisationStrings={localisationStrings}
         offer={offer}
         selectedServices={selectedServicesState}
         passengersById={passengerMapById}

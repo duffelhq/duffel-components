@@ -9,10 +9,14 @@ import {
   OfferAvailableServiceBaggage,
   OfferSliceSegment,
 } from "@duffel/api/types";
-import { WithBaggageServiceInformation } from "src/types";
+import {
+  DuffelAncillariesCommonProps,
+  WithBaggageServiceInformation,
+} from "src/types";
 import { BaggageSelectionModalBodyPassenger } from "./BaggageSelectionModalBodyPassenger";
 
-export interface BaggageSelectionModalBodyProps {
+export interface BaggageSelectionModalBodyProps
+  extends Pick<DuffelAncillariesCommonProps, "localisationStrings"> {
   offer: Offer;
   segment: OfferSliceSegment;
   passengersById: Record<CreateOrderPassenger["id"], CreateOrderPassenger>;
@@ -30,10 +34,12 @@ export const BaggageSelectionModalBody: React.FC<
   passengersById,
   selectedServices,
   setSelectedServices,
+  localisationStrings,
 }) => (
   <ModalBody>
     {segment.passengers.map(({ passenger_id, baggages }, index) => (
       <BaggageSelectionModalBodyPassenger
+        localisationStrings={localisationStrings}
         key={passenger_id}
         segmentId={segment.id}
         passengerId={passenger_id}

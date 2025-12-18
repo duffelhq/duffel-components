@@ -6,7 +6,10 @@ import { getBaggageServiceDescription } from "@lib/getBaggageServiceDescription"
 import { hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected } from "@lib/hasBaggageServiceOfSameMetadataTypeAlreadyBeenSelected";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import React from "react";
-import { WithBaggageServiceInformation } from "src/types";
+import {
+  DuffelAncillariesLocalisationStrings,
+  WithBaggageServiceInformation,
+} from "src/types";
 import { Counter } from "../Counter";
 
 interface BaggageSelectionControllerProps {
@@ -16,6 +19,7 @@ interface BaggageSelectionControllerProps {
   selectedServices: WithBaggageServiceInformation<CreateOrderService>[];
   quantity: number;
   onQuantityChanged: (quantity: number) => void;
+  localisationStrings?: DuffelAncillariesLocalisationStrings;
 }
 
 export const BaggageSelectionController: React.FC<
@@ -26,6 +30,7 @@ export const BaggageSelectionController: React.FC<
   quantity,
   onQuantityChanged,
   selectedServices,
+  localisationStrings,
 }) => {
   const serviceName =
     availableService.metadata.type === "carry_on" ? "Cabin bag" : "Checked bag";
@@ -35,6 +40,7 @@ export const BaggageSelectionController: React.FC<
   );
   const serviceDescription = getBaggageServiceDescription(
     availableService.metadata,
+    localisationStrings,
   );
 
   const shouldDisableController =

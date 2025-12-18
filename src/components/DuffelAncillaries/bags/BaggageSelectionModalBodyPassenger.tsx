@@ -4,11 +4,15 @@ import {
   OfferSliceSegmentPassengerBaggage,
 } from "@duffel/api/types";
 import React from "react";
-import { WithBaggageServiceInformation } from "src/types";
+import {
+  DuffelAncillariesCommonProps,
+  WithBaggageServiceInformation,
+} from "src/types";
 import { BaggageSelectionController } from "./BaggageSelectionController";
 import { IncludedBaggageBanner } from "./IncludedBaggageBanner";
 
-export interface BaggageSelectionModalBodyPassengerProps {
+export interface BaggageSelectionModalBodyPassengerProps
+  extends Pick<DuffelAncillariesCommonProps, "localisationStrings"> {
   segmentId: string;
   passengerId: string;
   passengerName: string;
@@ -30,6 +34,7 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
   passengerServicesForSegment,
   selectedServices,
   setSelectedServices,
+  localisationStrings,
 }) => {
   const hasIncludedBaggage = includedBaggage.reduce(
     (sum, bag) => sum + bag.quantity,
@@ -48,6 +53,7 @@ export const BaggageSelectionModalBodyPassenger: React.FC<
       <div style={{ display: "flex", rowGap: "8px", flexDirection: "column" }}>
         {passengerServicesForSegment.map((availableService) => (
           <BaggageSelectionController
+            localisationStrings={localisationStrings}
             key={availableService.id}
             passengerId={passengerId}
             segmentId={segmentId}
