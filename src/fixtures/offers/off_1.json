@@ -459,9 +459,9 @@
       "metadata": {
         "type": "checked",
         "maximum_weight_kg": 23,
-        "maximum_length_cm": null,
-        "maximum_height_cm": null,
-        "maximum_depth_cm": null
+        "maximum_length_cm": 90,
+        "maximum_height_cm": 43,
+        "maximum_depth_cm": 75
       },
       "maximum_quantity": 1,
       "id": "ase_0000AUde3M2LtBE9WNJZYZ"

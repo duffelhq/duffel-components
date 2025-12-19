@@ -330,3 +330,15 @@ export const WithPreselectedServices: DuffelAncillariesStory = {
     ...defaultProps,
   },
 };
+
+export const WithlocalisationStrings: DuffelAncillariesStory = {
+  args: {
+    ...defaultProps,
+    localisationStrings: {
+      baggageMaximumDimensions: (centimeters) =>
+        Math.floor(centimeters * 0.393701).toFixed(0),
+      baggageMaximumWeight: (kilograms) =>
+        Math.floor(kilograms * 2.20462).toFixed(0),
+    },
+  },
+};

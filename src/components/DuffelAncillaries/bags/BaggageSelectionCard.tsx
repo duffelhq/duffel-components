@@ -8,11 +8,15 @@ import { hasService } from "@lib/hasService";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import { withPlural } from "@lib/withPlural";
 import React from "react";
-import { WithBaggageServiceInformation } from "src/types";
+import {
+  DuffelAncillariesCommonProps,
+  WithBaggageServiceInformation,
+} from "src/types";
 import { Card } from "../../shared/Card";
 import { BaggageSelectionModal } from "./BaggageSelectionModal";
 
-export interface BaggageSelectionCardProps {
+export interface BaggageSelectionCardProps
+  extends Pick<DuffelAncillariesCommonProps, "localisationStrings"> {
   isLoading: boolean;
   offer?: Offer;
   passengers: CreateOrder["passengers"];
@@ -28,6 +32,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
   passengers,
   selectedServices,
   setSelectedServices,
+  localisationStrings,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -94,6 +99,7 @@ export const BaggageSelectionCard: React.FC<BaggageSelectionCardProps> = ({
           setIsOpen(false);
         }}
         selectedServices={selectedServices}
+        localisationStrings={localisationStrings}
       />
     </>
   );

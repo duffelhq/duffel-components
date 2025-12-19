@@ -23,16 +23,24 @@ export interface DuffelAncillariesCommonProps {
   services: Ancillaries[];
   markup?: DuffelAncillariesMarkup;
   priceFormatters?: DuffelAncillariesPriceFormatters;
+
   debug?: boolean;
 
   /**
    * If you pass default selected baggage services, they will be used to initiate the state when the component mounts. Any further updates will be ignored.
    */
   defaultBaggageSelectedServices?: WithBaggageServiceInformation<CreateOrderService>[];
+
   /**
    * If you pass default selected seat services, they will be used to initiate the state when the component mounts. Any further updates will be ignored.
    */
   defaultSeatSelectedServices?: WithSeatServiceInformation<CreateOrderService>[];
+
+  /**
+   * You can use this prop to change some of the strings used in the component so it
+   * can be localised to the user's language.
+   */
+  localisationStrings?: DuffelAncillariesLocalisationStrings;
 }
 
 export interface DuffelAncillariesPropsWithOfferIdForFixture
@@ -105,6 +113,35 @@ export interface DuffelAncillariesPriceFormatters {
   bags?: DuffelAncillariesPriceFormatterForBags;
   seats?: DuffelAncillariesPriceFormatterForSeats;
   cancel_for_any_reason?: DuffelAncillariesPriceFormatterForCancelForAnyReason;
+}
+
+export interface DuffelAncillariesLocalisationStrings {
+  /**
+   *  Use this to localise the maximum baggage dimensions.
+   *
+   *  For example, if you want to localise the baggage dimensions from centimeters to inches, you may use:
+   *
+   * ```js
+   * (heightInCentimeters, lengthInCentimeters, depthInCentimeters) =>
+   *   `${heightInCentimeters * CM_TO_INCHES} x ${lengthInCentimeters * CM_TO_INCHES} x ${depthInCentimeters * CM_TO_INCHES} in`
+   * ```
+   */
+  baggageMaximumDimensions?: (
+    heightInCentimeters: number,
+    lengthInCentimeters: number,
+    depthInCentimeters: number,
+  ) => string;
+
+  /**
+   *  Use this to localise the maximum baggage weight.
+   *
+   *  For example, if you want to localise the baggage weight from kilograms to pounds, you may use:
+   *
+   * ```js
+   * (weightInKilograms: number) => `${weightInKilograms * KG_TO_POUNDS} lbs`
+   * ```
+   */
+  baggageMaximumWeight?: (weightInKilograms: number) => string;
 }
 
 export interface CustomStyles {
