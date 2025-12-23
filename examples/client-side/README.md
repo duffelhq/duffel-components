@@ -18,13 +18,13 @@ DUFFEL_API_TOKEN=test_duffel_dev_rw # development (for Duffel engineers only)
 
 # The url for the component CDN.
 # This is used to load both the styles an
-# COMPONENT_CDN=https://assets.duffel.com/components/ancillaries/VERSION # production
-COMPONENT_CDN=http://localhost:8000 # development
+# COMPONENT_CDN=https://assets.duffel.com/components # production
+COMPONENT_CDN=https://localhost:3200 # development
 ```
 
 ## Run the example
 
 This is a basic example that doesn't rely on the Duffel API, from the root of the repository run `yarn run-example:client-side`. This command will:
 
-1. Serve the Duffel component bundle and watch for changes to rebuild on port `8000`. This can also be done with `yarn dev`
+1. Serve the Duffel component bundle and watch for changes to rebuild on port `3200`. This can also be done with `yarn dev`
 2. Host a basic `index.html` with `http-server`. The example page will be ready on port `6262`. This can be done with `yarn run-client-side-server`
