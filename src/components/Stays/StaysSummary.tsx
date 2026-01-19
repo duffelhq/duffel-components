@@ -76,18 +76,12 @@ export const StaysSummary: React.FC<
             accommodation.rooms[0].rates[0].board_type && (
               <HSpace space={12} alignCenter>
                 <Icon
-                  name={boardTypeIcon(
-                    accommodation.rooms[0].rates[0].board_type,
-                  )}
+                  name={boardTypeIcon(rate.board_type)}
                   size={20}
                   color="--GREY-700"
                 />
 
-                <p>
-                  {getBoardTypeLabel(
-                    accommodation.rooms[0].rates[0].board_type,
-                  )}
-                </p>
+                <p>{getBoardTypeLabel(rate.board_type)}</p>
               </HSpace>
             )}
         </VSpace>
