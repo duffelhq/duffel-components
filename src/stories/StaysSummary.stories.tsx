@@ -65,5 +65,6 @@ export const BookingSummaryUseCase = {
     checkInDate: new Date("2023-04-28"),
     checkOutDate: new Date("2023-05-04"),
     numRooms: 1,
+    isBookingSummary: true,
   },
 };

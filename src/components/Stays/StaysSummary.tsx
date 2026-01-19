@@ -17,6 +17,7 @@ export interface StaysSummaryProps {
   supportedLoyaltyProgramme?: StaysBooking["supported_loyalty_programme"];
   loyaltyProgrammeAccountNumber?: string | null;
   accommodationSpecialRequests?: string | null;
+  isBookingSummary?: boolean;
 }
 
 export const StaysSummary: React.FC<
@@ -29,6 +30,7 @@ export const StaysSummary: React.FC<
   supportedLoyaltyProgramme,
   loyaltyProgrammeAccountNumber,
   accommodationSpecialRequests,
+  isBookingSummary = false,
   children,
 }) => {
   const rate = accommodation?.rooms[0]?.rates[0];
@@ -129,13 +131,13 @@ export const StaysSummary: React.FC<
             <p>{accommodationSpecialRequests}</p>
           </VSpace>
         )}
-        {rate && rate.code && (
+        {isBookingSummary && rate && rate.code && (
           <VSpace space={8}>
             <p className="stays-summary-text--small">Rate code</p>
             <p>{rate.code}</p>
           </VSpace>
         )}
-        {rate && rate.description && (
+        {isBookingSummary && rate && rate.description && (
           <VSpace space={8}>
             <p className="stays-summary-text--small">Rate description</p>
             <p>{rate.description}</p>
