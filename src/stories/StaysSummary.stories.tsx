@@ -44,3 +44,26 @@ export const WithNoPhoto = {
     numRooms: 1,
   },
 };
+
+const bookedRoom = accommodation.rooms[0];
+const bookedRate = {
+  ...bookedRoom.rates[0],
+  code: "AAA",
+  description:
+    "American Auto Association members only. Please bring your membership card.",
+};
+const bookedAccommodation = {
+  ...accommodation,
+  rooms: [{ ...bookedRoom, rates: [bookedRate] }],
+};
+
+export const BookingSummaryUseCase = {
+  render: Template,
+
+  args: {
+    accommodation: bookedAccommodation,
+    checkInDate: new Date("2023-04-28"),
+    checkOutDate: new Date("2023-05-04"),
+    numRooms: 1,
+  },
+};
