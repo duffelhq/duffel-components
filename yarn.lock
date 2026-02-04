@@ -1949,14 +1949,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@duffel/api@npm:4.21.2":
-  version: 4.21.2
-  resolution: "@duffel/api@npm:4.21.2"
+"@duffel/api@npm:4.21.5":
+  version: 4.21.5
+  resolution: "@duffel/api@npm:4.21.5"
   dependencies:
     "@types/node": "npm:^18.0.0"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
-  checksum: 10c0/1b7fdd4394deeac27080e6bbf059851ab6466fc3d4d485a10a67d7beaae09526f939703a96e74b8f6db8be52411a2d5dea81c13e1fa770fefb367e4255e1ce90
+  checksum: 10c0/3d8857997e89209a4c6e3e9efc938d71da79838d2cf96ba23c2ed9d6ad454dd4accb92e58f8940fe1c6b9b3299e8ce737e58b090af6d8fd90c7f0761f02e6837
   languageName: node
   linkType: hard
 
@@ -1970,7 +1970,7 @@ __metadata:
     "@babel/preset-react": "npm:7.26.3"
     "@babel/preset-typescript": "npm:7.27.0"
     "@chromatic-com/storybook": "npm:1.9.0"
-    "@duffel/api": "npm:4.21.2"
+    "@duffel/api": "npm:4.21.5"
     "@sentry/browser": "npm:7.119.2"
     "@sentry/cli": "npm:2.39.1"
     "@sentry/esbuild-plugin": "npm:0.7.2"
