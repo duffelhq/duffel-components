@@ -113,7 +113,7 @@
     "prompts": "2.4.2",
     "prop-types": "15.8.1",
     "puppeteer": "22.15.0",
-    "storybook": "8.3.5",
+    "storybook": "8.6.15",
     "ts-node": "10.9.2",
     "tsconfig-paths-webpack-plugin": "4.0.1",
     "typescript": "5.2.2"
