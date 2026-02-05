@@ -19,7 +19,7 @@ DUFFEL_API_TOKEN=test_duffel_dev_rw # development (for Duffel engineers only)
 # The url for the component CDN.
 # This is used to load both the styles an
 # COMPONENT_CDN=https://assets.duffel.com/components # production
-COMPONENT_CDN=http://localhost:8000 # development
+COMPONENT_CDN=https://localhost:3200 # development
 ```
 
 ## Run the example
@@ -30,5 +30,5 @@ Please add the following to `.env.local`:
 
 This is a 'real life' example, where it uses a real offer ID and client key retrieved from the Duffel API. To run this, use `yarn run-example:full-stack`. This command will:
 
-1. Serve the Duffel component bundle and watch for changes to rebuild on port `8000`. This can also be done with `yarn dev`
+1. Serve the Duffel component bundle and watch for changes to rebuild on port `3200`. This can also be done with `yarn dev`
 2. Run the full stack server using node. The example page will be ready on port `6262`. This can be done with `yarn run-full-stack-server`
