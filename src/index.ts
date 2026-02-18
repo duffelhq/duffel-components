@@ -10,6 +10,7 @@ export * from "./components/Stays/StaysSummary";
 export * from "./components/Stays/StaysAmenities";
 export * from "./components/Stays/StaysRoomRateCard";
 export * from "./components/DuffelNGSView/DuffelNGSView";
+export * from "./components/MapboxPlacesLookup/MapboxPlacesLookup";
 export * from "./types";
 
 /* --- DuffelCardForm --- */
