@@ -8,6 +8,12 @@ on:
 permissions:
   contents: read
 
+# These binaries are only needed for publishing and e2e flows, not the CI
+# checks migrated from CircleCI.
+env:
+  PUPPETEER_SKIP_DOWNLOAD: "true"
+  SENTRYCLI_SKIP_DOWNLOAD: "1"
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
