@@ -89,7 +89,7 @@ export const StaysSummary: React.FC<
           <div>
             <p className="stays-summary-text--small">Check in</p>
             <p className="stays-summary-text--large">
-              {getDateString(checkInDate, "longNoYear").replace(",", "")}
+              {getDateString(checkInDate, "long").replace(",", "")}
             </p>
             {accommodation.check_in_information && (
               <p className="stays-summary-text--small">
@@ -101,7 +101,7 @@ export const StaysSummary: React.FC<
           <div>
             <p className="stays-summary-text--small">Check out</p>
             <p className="stays-summary-text--large">
-              {getDateString(checkOutDate, "longNoYear").replace(",", "")}
+              {getDateString(checkOutDate, "long").replace(",", "")}
             </p>
             {accommodation.check_in_information && (
               <p className="stays-summary-text--small">
