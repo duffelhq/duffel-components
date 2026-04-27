@@ -133,7 +133,9 @@ export const StaysSummary: React.FC<
         )}
         {isBookingSummary && rate && rate.description && (
           <VSpace space={8}>
-            <p className="stays-summary-text--small">Rate description</p>
+            <p className="stays-summary-text--small">
+              {rate.name ?? "Rate description"}
+            </p>
             <p>{rate.description}</p>
           </VSpace>
         )}
