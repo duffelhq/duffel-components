@@ -68,3 +68,24 @@ export const BookingSummaryUseCase = {
     isBookingSummary: true,
   },
 };
+
+const namedBookedRate = {
+  ...bookedRate,
+  name: "AAA Member Rate",
+};
+const namedBookedAccommodation = {
+  ...accommodation,
+  rooms: [{ ...bookedRoom, rates: [namedBookedRate] }],
+};
+
+export const BookingSummaryWithRateName = {
+  render: Template,
+
+  args: {
+    accommodation: namedBookedAccommodation,
+    checkInDate: new Date("2023-04-28"),
+    checkOutDate: new Date("2023-05-04"),
+    numRooms: 1,
+    isBookingSummary: true,
+  },
+};

@@ -112,7 +112,10 @@
           "payment_method": "balance",
           "available_payment_methods": ["balance"],
           "quantity_available": 1,
-          "supported_loyalty_programme": null
+          "supported_loyalty_programme": null,
+          "code": null,
+          "description": null,
+          "name": null
         },
         {
           "total_currency": "GBP",
@@ -149,7 +152,10 @@
           "payment_method": "card",
           "available_payment_methods": ["balance", "card"],
           "quantity_available": 1,
-          "supported_loyalty_programme": "duffel_hotel_group_rewards"
+          "supported_loyalty_programme": "duffel_hotel_group_rewards",
+          "code": null,
+          "description": null,
+          "name": null
         }
       ],
       "photos": [
