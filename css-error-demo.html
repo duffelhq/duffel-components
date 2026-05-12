@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test: CSS Error Handling Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body { 
+        font-family: sans-serif; 
+        padding: 20px; 
+        background: #f5f5f5; 
+      }
+      .demo-box {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .console-log {
+        background: #1e1e1e;
+        color: #ffa500;
+        padding: 15px;
+        border-radius: 4px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        margin: 10px 0;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>🧪 CSS Error Handling Demo</h1>
+    
+    <div class="demo-box">
+      <h2>Before the Fix</h2>
+      <p>Previously, when <code>COMPONENT_CDN</code> was misconfigured to point to <code>localhost:8000</code> 
+         (when no server was running), users would see:</p>
+      <div class="console-log">❌ localhost:8000/global.css:1 Failed to load resource: net::ERR_CONNECTION_REFUSED</div>
+      <p>This would cause the site to crash or components to break silently.</p>
+    </div>
+
+    <div class="demo-box">
+      <h2>After the Fix</h2>
+      <p>Now, when CSS fails to load, users get helpful guidance. Open your browser's console to see the improved error handling:</p>
+      <div class="console-log">⚠️ [Duffel Components] Failed to load CSS file from: http://localhost:8000/global.css
+
+This usually happens when:
+- COMPONENT_CDN is misconfigured
+- The CDN server is not running (for local development)
+- Network connectivity issues
+
+For production, use: COMPONENT_CDN=https://assets.duffel.com/components
+For local development, make sure to run 'yarn dev' and use: COMPONENT_CDN=https://localhost:3200
+
+Note: If you're seeing localhost:8000, this is likely a misconfiguration.
+The development server runs on port 3200, not 8000.</div>
+    </div>
+
+    <div class="demo-box">
+      <h2>Component Test</h2>
+      <p>The component below will attempt to load CSS from <code>localhost:8000</code> and show the error handling:</p>
+      
+      <!-- This will trigger the CSS loading error -->
+      <duffel-ancillaries></duffel-ancillaries>
+    </div>
+
+    <!-- Load the component with misconfigured CDN -->
+    <script src="cdn-dist/duffel-ancillaries.js"></script>
+    
+    <script>
+      console.log("🚀 Loading Duffel Ancillaries component with misconfigured CDN...");
+      
+      const duffelAncillariesElement = document.querySelector("duffel-ancillaries");
+
+      // Render with a fixture offer for testing
+      duffelAncillariesElement.render({
+        offer_id: "fixture_offer_1",
+        client_key: "test_key", 
+        passengers: [],
+        services: ["seats", "bags"],
+        debug: true,
+      });
+
+      console.log("✅ Component rendered successfully despite CSS loading failure!");
+    </script>
+  </body>
+</html>
