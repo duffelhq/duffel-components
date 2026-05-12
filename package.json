@@ -117,7 +117,7 @@
     "puppeteer": "22.15.0",
     "react": "19.2.5",
     "react-dom": "19.2.5",
-    "storybook": "8.3.5",
+    "storybook": "8.6.17",
     "ts-node": "10.9.2",
     "tsconfig-paths-webpack-plugin": "4.0.1",
     "typescript": "5.2.2"
