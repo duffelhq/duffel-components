@@ -20,5 +20,8 @@
     "@types/react-dom": "18",
     "next-transpile-modules": "10.0.1",
     "typescript": "5.0.4"
+  },
+  "resolutions": {
+    "postcss": "^8.5.10"
   }
 }

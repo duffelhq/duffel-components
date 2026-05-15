@@ -147,6 +147,6 @@ describe("createPriceFormatters", () => {
           seats: () => ({ amount: 100 }),
         },
       );
-    }).toThrowError();
+    }).toThrow();
   });
 });
