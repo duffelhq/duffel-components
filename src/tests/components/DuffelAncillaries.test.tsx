@@ -72,7 +72,7 @@ describe("DuffelAncillaries", () => {
 
     // The component is always called at least once
     // when the state is set with an offer.
-    expect(onPayloadReady).toBeCalledTimes(2);
+    expect(onPayloadReady).toHaveBeenCalledTimes(2);
   });
 
   test("should select seat services", () => {
@@ -106,7 +106,7 @@ describe("DuffelAncillaries", () => {
 
     // The component is always called at least once
     // when the state is set with an offer.
-    expect(onPayloadReady).toBeCalledTimes(2);
+    expect(onPayloadReady).toHaveBeenCalledTimes(2);
   });
 
   test("should select CFAR service", () => {
@@ -129,7 +129,7 @@ describe("DuffelAncillaries", () => {
 
     // The component is always called at least once
     // when the state is set with an offer.
-    expect(onPayloadReady).toBeCalledTimes(2);
+    expect(onPayloadReady).toHaveBeenCalledTimes(2);
   });
 
   test("should work with markup", () => {
@@ -223,7 +223,7 @@ describe("DuffelAncillaries", () => {
 
     // The component is always called at least once
     // when the state is set with an offer.
-    expect(onPayloadReady).toBeCalledTimes(4);
+    expect(onPayloadReady).toHaveBeenCalledTimes(4);
   });
 
   test("should work with priceFormatters", () => {
@@ -336,6 +336,6 @@ describe("DuffelAncillaries", () => {
 
     // The component is always called at least once
     // when the state is set with an offer.
-    expect(onPayloadReady).toBeCalledTimes(4);
+    expect(onPayloadReady).toHaveBeenCalledTimes(4);
   });
 });

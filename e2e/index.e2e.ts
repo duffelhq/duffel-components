@@ -1,11 +1,11 @@
-import puppeteer, { Browser, PuppeteerLaunchOptions } from "puppeteer";
+import puppeteer, { Browser, LaunchOptions } from "puppeteer";
 import { testDuffelAncillariesComponentIntegration } from "./lib/testDuffelAncillariesComponentIntegration";
 
-const puppeteerLaunchOptions: PuppeteerLaunchOptions = {
+const puppeteerLaunchOptions: LaunchOptions = {
   headless: "shell",
   // Set this value to true if you are running
   // the e2e tests against https://localhost:4000
-  ignoreHTTPSErrors: true,
+  acceptInsecureCerts: true,
 };
 
 export default (async function main() {
