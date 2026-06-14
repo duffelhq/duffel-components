@@ -99,7 +99,7 @@
     "babel-jest": "30.4.1",
     "concurrently": "8.2.2",
     "dotenv": "16.4.5",
-    "esbuild": "0.25.12",
+    "esbuild": "0.28.1",
     "esbuild-copy-static-files": "0.1.0",
     "eslint": "8.52.0",
     "eslint-config-prettier": "9.0.0",
