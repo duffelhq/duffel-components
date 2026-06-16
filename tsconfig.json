@@ -23,6 +23,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
     "paths": {
       "@components/*": ["./src/components/*"],
       "@lib/*": ["./src/lib/*"]
@@ -42,6 +43,7 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
+    "example/**/*.ts",
     "scripts/**/*.ts",
     "scripts/**/*.d.ts",
     "scripts/**/*.tsx"
@@ -50,7 +52,6 @@
     "**/**.css.js",
     "./cdn-dist/**/*",
     "./react-dist/**/*",
-    "./src/examples/**/*",
     "./src/fixtures/**/*.json"
   ]
 }

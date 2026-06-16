@@ -74,5 +74,4 @@ yarn react-build # Build will output to ./react-dist
 
 You can see this build referenced on:
 
-- `src/examples/react-app`
-- `src/examples/just-typescript`
+- `example`
