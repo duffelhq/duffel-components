@@ -5,6 +5,7 @@ import {
 } from "@components/Stays/StaysRoomRateCard";
 import { useState } from "react";
 import { StaysAccommodation } from "@duffel/api/types";
+import { SOURCE_NAME_MAP } from "@components/Stays/lib/types";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const accommodation: StaysAccommodation = require("../fixtures/accommodation/acc_0000AWr2VsUNIF1Vl91xg0.json");
@@ -122,5 +123,23 @@ export const DepositRate = {
         searchNumberOfRooms: 2,
       },
     ],
+  },
+};
+
+const ratesFromAllKnownSources = [
+  ...Object.keys(SOURCE_NAME_MAP).map((source) => ({
+    rate: {
+      ...accommodation.rooms[0].rates[0],
+      source,
+    },
+    numberOfNights: 3,
+    searchNumberOfRooms: 2,
+  })),
+];
+
+export const RatesFromAllKnownSources = {
+  render: Template,
+  args: {
+    roomRates: ratesFromAllKnownSources,
   },
 };
