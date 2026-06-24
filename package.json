@@ -53,7 +53,7 @@
     "uuid": "11.1.1"
   },
   "dependencies": {
-    "@duffel/api": "4.27.0",
+    "@duffel/api": "4.27.1",
     "@sentry/browser": "7.119.2",
     "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "1.54.2",
