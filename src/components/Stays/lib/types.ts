@@ -38,6 +38,7 @@ export const SOURCE_NAME_MAP: SourceToText = {
   priceline: "Priceline",
   travelport: "Travelport",
   sabre: "Sabre",
+  duffel: "Duffel",
   duffel_hotel_group: "Duffel Hotel Group",
 };
 
