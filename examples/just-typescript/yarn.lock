@@ -383,6 +383,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^19":
+  version: 19.2.3
+  resolution: "@types/react-dom@npm:19.2.3"
+  peerDependencies:
+    "@types/react": ^19.2.0
+  checksum: 10c0/b486ebe0f4e2fb35e2e108df1d8fc0927ca5d6002d5771e8a739de11239fe62d0e207c50886185253c99eb9dedfeeb956ea7429e5ba17f6693c7acb4c02f8cd1
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^19":
+  version: 19.2.17
+  resolution: "@types/react@npm:19.2.17"
+  dependencies:
+    csstype: "npm:^3.2.2"
+  checksum: 10c0/bc2c4af96b3e480604424de70d5ebda90c5f4b485df471858c0bc2d7d70364b606ec3c4d8579f94f01aa0c6c0591f56bcf14cba5689f5eea4b74250ccdc3a232
+  languageName: node
+  linkType: hard
+
 "asynckit@npm:^0.4.0":
   version: 0.4.0
   resolution: "asynckit@npm:0.4.0"
@@ -420,6 +438,13 @@ __metadata:
   dependencies:
     delayed-stream: "npm:~1.0.0"
   checksum: 10c0/0dbb829577e1b1e839fa82b40c07ffaf7de8a09b935cadd355a73652ae70a88b4320db322f6634a4ad93424292fa80973ac6480986247f1734a1137debf271d5
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.2.2":
+  version: 3.2.3
+  resolution: "csstype@npm:3.2.3"
+  checksum: 10c0/cd29c51e70fa822f1cecd8641a1445bed7063697469d35633b516e60fe8c1bde04b08f6c5b6022136bb669b64c63d4173af54864510fbb4ee23281801841a3ce
   languageName: node
   linkType: hard
 
@@ -704,7 +729,11 @@ __metadata:
   dependencies:
     "@duffel/components": "npm:3.17.0"
     "@types/node": "npm:20.2.5"
+    "@types/react": "npm:^19"
+    "@types/react-dom": "npm:^19"
     esbuild: "npm:0.28.1"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
     typescript: "npm:5.0.4"
   languageName: unknown
   linkType: soft
@@ -734,7 +763,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -827,6 +856,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom@npm:18.3.1":
+  version: 18.3.1
+  resolution: "react-dom@npm:18.3.1"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    scheduler: "npm:^0.23.2"
+  peerDependencies:
+    react: ^18.3.1
+  checksum: 10c0/a752496c1941f958f2e8ac56239172296fcddce1365ce45222d04a1947e0cc5547df3e8447f855a81d6d39f008d7c32eab43db3712077f09e3f67c4874973e85
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -841,10 +882,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react@npm:18.3.1":
+  version: 18.3.1
+  resolution: "react@npm:18.3.1"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 10c0/283e8c5efcf37802c9d1ce767f302dd569dd97a70d9bb8c7be79a789b9902451e0d16334b05d73299b20f048cbc3c7d288bbbde10b701fa194e2089c237dbea3
+  languageName: node
+  linkType: hard
+
 "regenerator-runtime@npm:^0.14.0":
   version: 0.14.1
   resolution: "regenerator-runtime@npm:0.14.1"
   checksum: 10c0/1b16eb2c4bceb1665c89de70dcb64126a22bc8eb958feef3cd68fe11ac6d2a4899b5cd1b80b0774c7c03591dc57d16631a7f69d2daa2ec98100e2f29f7ec4cc4
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.23.2":
+  version: 0.23.2
+  resolution: "scheduler@npm:0.23.2"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 10c0/26383305e249651d4c58e6705d5f8425f153211aef95f15161c151f7b8de885f24751b377e4a0b3dd42cce09aad3f87a61dab7636859c0d89b7daf1a1e2a5c78
   languageName: node
   linkType: hard
 
