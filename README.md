@@ -141,7 +141,37 @@ If you are not in a node environment and can't rely on npm to install the packag
 
 More guides are coming soon.
 
-The `examples` folder is a great way to get started quickly and see fully functioning examples for every component.
+### Is there a runnable example?
+
+Yes. The `example` folder contains the repository's single runnable example. It
+loads `duffel-ancillaries.js` from the CDN, fetches a live offer and seat maps
+through a local server, and renders the `<duffel-ancillaries>` custom element.
+
+Configure the environment in `.env.local` with:
+
+```sh
+DUFFEL_API_TOKEN=...
+```
+
+The example defaults to production Duffel API and token proxy URLs. Override
+those URLs in `.env.local` only when you need development or staging. Run it
+with:
+
+```sh
+yarn run-example
+```
+
+### Where are the other component examples?
+
+Storybook is the complete reference for available components, important visual
+states, and integration types. Run it with:
+
+```sh
+yarn storybook
+```
+
+The runnable example intentionally stays small and focused on the CDN
+custom-element integration.
 
 ### What components are available through npm?
 
@@ -149,4 +179,4 @@ The list of React components can be found in `src/index.ts`. If you are using cu
 
 ### What components are available through the CDN?
 
-Please check `entryPoints` in `config/esbuild.base.config.js`. It lists all the components we'll build and upload to the CDN.
+Please check `entryPoints` in `config/esbuild.base.config.js`. It lists all the components and browser functions we'll build and upload to the CDN.

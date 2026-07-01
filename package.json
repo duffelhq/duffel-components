@@ -43,7 +43,7 @@
     "storybook": "storybook dev -p 6006",
     "test": "LANG='en_US' TZ=UTC yarn jest",
     "e2e": "bash e2e/start.sh",
-    "run-3ds-example": "node examples/card-with-3ds/server.mjs",
+    "run-example": "node --import @oxc-node/core/register example/index.ts",
     "create-local-ssl-certificate": "bash ./scripts/create-local-ssl-certificate.sh"
   },
   "resolutions": {
@@ -77,6 +77,7 @@
     "@babel/preset-react": "7.28.5",
     "@babel/preset-typescript": "7.28.5",
     "@chromatic-com/storybook": "1.9.0",
+    "@oxc-node/core": "^0.1.0",
     "@sentry/cli": "2.58.5",
     "@sentry/esbuild-plugin": "0.7.2",
     "@storybook/addon-essentials": "8.6.17",
@@ -126,6 +127,6 @@
   },
   "packageManager": "yarn@4.5.3",
   "engines": {
-    "node": ">=18.*"
+    "node": ">=20.19.0"
   }
 }
