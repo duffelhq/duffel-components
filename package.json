@@ -78,7 +78,7 @@
     "@babel/preset-typescript": "7.28.5",
     "@chromatic-com/storybook": "1.9.0",
     "@oxc-node/core": "^0.1.0",
-    "@sentry/cli": "2.58.5",
+    "@sentry/cli": "2.58.6",
     "@sentry/esbuild-plugin": "0.7.2",
     "@storybook/addon-essentials": "8.6.17",
     "@storybook/addon-interactions": "8.6.17",
