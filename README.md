@@ -162,6 +162,20 @@ sources into your existing directives.
 | `img-src`   | `'self' https://assets.duffel.com` |
 | `style-src` | `'self' 'unsafe-inline'`           |
 
+#### Evervault sandbox
+
+When testing 3DS flows with Evervault's sandbox, also merge these sources into
+your existing directives.
+
+| Directive     | Sources                                                                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `img-src`     | `https://sandbox-acs.evervault.com`                                                                                                      |
+| `script-src`  | `https://sandbox-acs.evervault.com https://js.evervault.com https://ui-components.evervault.com https://assets.duffel.com`               |
+| `style-src`   | `https://sandbox-acs.evervault.com https://ui-components.evervault.com https://assets.duffel.com`                                        |
+| `font-src`    | `https://sandbox-acs.evervault.com`                                                                                                      |
+| `frame-src`   | `https://sandbox-acs.evervault.com https://ui-components.evervault.com https://3ds-trampoline.evervault.app`                             |
+| `connect-src` | `https://sandbox-acs.evervault.com https://api.evervault.com https://keys.evervault.com https://api.duffel.com https://api.duffel.cards` |
+
 ### Is there a runnable example?
 
 Yes. The `example` folder contains the repository's single runnable example. It
