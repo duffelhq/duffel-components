@@ -148,33 +148,33 @@ sources into your existing directives.
 
 #### `createThreeDSecureSession`
 
-| Directive     | Sources                                                                              |
-| ------------- | ------------------------------------------------------------------------------------ |
-| `script-src`  | `'self' https://js.evervault.com`                                                    |
-| `connect-src` | `'self' https://api.duffel.com https://keys.evervault.com https://api.evervault.com` |
-| `frame-src`   | `https://ui-components.evervault.com`                                                |
+| Directive     | Sources                                                                              | Purpose                                                 |
+| ------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| `script-src`  | `'self' https://js.evervault.com`                                                    | Loads Evervault's browser SDK for the 3DS challenge.    |
+| `connect-src` | `'self' https://api.duffel.com https://keys.evervault.com https://api.evervault.com` | Allows Duffel 3DS API calls and Evervault SDK requests. |
+| `frame-src`   | `https://ui-components.evervault.com`                                                | Embeds Evervault's 3DS challenge UI.                    |
 
 #### `DuffelCardForm`
 
-| Directive   | Sources                            |
-| ----------- | ---------------------------------- |
-| `frame-src` | `https://api.duffel.cards`         |
-| `img-src`   | `'self' https://assets.duffel.com` |
-| `style-src` | `'self' 'unsafe-inline'`           |
+| Directive   | Sources                            | Purpose                                               |
+| ----------- | ---------------------------------- | ----------------------------------------------------- |
+| `frame-src` | `https://api.duffel.cards`         | Embeds the Duffel card form.                          |
+| `img-src`   | `'self' https://assets.duffel.com` | Loads the card form's hosted loading spinner.         |
+| `style-src` | `'self' 'unsafe-inline'`           | Allows the component's React inline style attributes. |
 
 #### Evervault sandbox
 
 When testing 3DS flows with Evervault's sandbox, also merge these sources into
 your existing directives.
 
-| Directive     | Sources                                                                                                                                  |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `img-src`     | `https://sandbox-acs.evervault.com`                                                                                                      |
-| `script-src`  | `https://sandbox-acs.evervault.com https://js.evervault.com https://ui-components.evervault.com https://assets.duffel.com`               |
-| `style-src`   | `https://sandbox-acs.evervault.com https://ui-components.evervault.com https://assets.duffel.com`                                        |
-| `font-src`    | `https://sandbox-acs.evervault.com`                                                                                                      |
-| `frame-src`   | `https://sandbox-acs.evervault.com https://ui-components.evervault.com https://3ds-trampoline.evervault.app`                             |
-| `connect-src` | `https://sandbox-acs.evervault.com https://api.evervault.com https://keys.evervault.com https://api.duffel.com https://api.duffel.cards` |
+| Directive     | Sources                                                                                                                                  | Purpose                                                |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `img-src`     | `https://sandbox-acs.evervault.com`                                                                                                      | Loads sandbox ACS challenge images.                    |
+| `script-src`  | `https://sandbox-acs.evervault.com https://js.evervault.com https://ui-components.evervault.com https://assets.duffel.com`               | Runs scripts required by sandbox 3DS flows.            |
+| `style-src`   | `https://sandbox-acs.evervault.com https://ui-components.evervault.com https://assets.duffel.com`                                        | Loads styles required by sandbox 3DS flows.            |
+| `font-src`    | `https://sandbox-acs.evervault.com`                                                                                                      | Loads sandbox ACS challenge fonts.                     |
+| `frame-src`   | `https://sandbox-acs.evervault.com https://ui-components.evervault.com https://3ds-trampoline.evervault.app`                             | Embeds sandbox ACS and Evervault 3DS challenge frames. |
+| `connect-src` | `https://sandbox-acs.evervault.com https://api.evervault.com https://keys.evervault.com https://api.duffel.com https://api.duffel.cards` | Allows sandbox 3DS and API requests.                   |
 
 ### Is there a runnable example?
 
