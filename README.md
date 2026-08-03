@@ -141,6 +141,27 @@ If you are not in a node environment and can't rely on npm to install the packag
 
 More guides are coming soon.
 
+### Which Content Security Policy directives are required?
+
+If your application uses a Content Security Policy (CSP), merge the following
+sources into your existing directives.
+
+#### `createThreeDSecureSession`
+
+| Directive     | Sources                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| `script-src`  | `'self' https://js.evervault.com`                                                           |
+| `connect-src` | `'self' https://api.duffel.com https://keys.evervault.com https://api.evervault.com`        |
+| `frame-src`   | `https://ui-components.evervault.com`                                                       |
+
+#### `DuffelCardForm`
+
+| Directive   | Sources                                        |
+| ----------- | ---------------------------------------------- |
+| `frame-src` | `https://api.duffel.cards`                     |
+| `img-src`   | `'self' https://assets.duffel.com`             |
+| `style-src` | `'self' 'unsafe-inline'`                       |
+
 ### Is there a runnable example?
 
 Yes. The `example` folder contains the repository's single runnable example. It
