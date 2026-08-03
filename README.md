@@ -148,19 +148,19 @@ sources into your existing directives.
 
 #### `createThreeDSecureSession`
 
-| Directive     | Sources                                                                                     |
-| ------------- | ------------------------------------------------------------------------------------------- |
-| `script-src`  | `'self' https://js.evervault.com`                                                           |
-| `connect-src` | `'self' https://api.duffel.com https://keys.evervault.com https://api.evervault.com`        |
-| `frame-src`   | `https://ui-components.evervault.com`                                                       |
+| Directive     | Sources                                                                              |
+| ------------- | ------------------------------------------------------------------------------------ |
+| `script-src`  | `'self' https://js.evervault.com`                                                    |
+| `connect-src` | `'self' https://api.duffel.com https://keys.evervault.com https://api.evervault.com` |
+| `frame-src`   | `https://ui-components.evervault.com`                                                |
 
 #### `DuffelCardForm`
 
-| Directive   | Sources                                        |
-| ----------- | ---------------------------------------------- |
-| `frame-src` | `https://api.duffel.cards`                     |
-| `img-src`   | `'self' https://assets.duffel.com`             |
-| `style-src` | `'self' 'unsafe-inline'`                       |
+| Directive   | Sources                            |
+| ----------- | ---------------------------------- |
+| `frame-src` | `https://api.duffel.cards`         |
+| `img-src`   | `'self' https://assets.duffel.com` |
+| `style-src` | `'self' 'unsafe-inline'`           |
 
 ### Is there a runnable example?
 
