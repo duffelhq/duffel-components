@@ -146,6 +146,11 @@ More guides are coming soon.
 If your application uses a Content Security Policy (CSP), merge the following
 sources into your existing directives.
 
+In production, applications that load any Duffel Components bundle using the
+CDN `<script>` tag documented above must also include
+`https://assets.duffel.com` in `script-src`. This requirement is independent of
+the Evervault sandbox requirements below.
+
 #### `createThreeDSecureSession`
 
 | Directive     | Sources                                                                              | Purpose                                                 |
