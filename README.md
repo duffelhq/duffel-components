@@ -156,11 +156,11 @@ sources into your existing directives.
 
 #### `DuffelCardForm`
 
-| Directive   | Sources                            | Purpose                                               |
-| ----------- | ---------------------------------- | ----------------------------------------------------- |
-| `frame-src` | `https://api.duffel.cards`         | Embeds the Duffel card form.                          |
-| `img-src`   | `'self' https://assets.duffel.com` | Loads the card form's hosted loading spinner.         |
-| `style-src` | `'self' 'unsafe-inline'`           | Allows the component's React inline style attributes. |
+| Directive        | Sources                            | Purpose                                               |
+| ---------------- | ---------------------------------- | ----------------------------------------------------- |
+| `frame-src`      | `https://api.duffel.cards`         | Embeds the Duffel card form.                          |
+| `img-src`        | `'self' https://assets.duffel.com` | Loads the card form's hosted loading spinner.         |
+| `style-src-attr` | `'unsafe-inline'`                  | Allows the component's React inline style attributes. |
 
 #### Evervault sandbox
 
