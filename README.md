@@ -141,6 +141,46 @@ If you are not in a node environment and can't rely on npm to install the packag
 
 More guides are coming soon.
 
+### Which Content Security Policy directives are required?
+
+If your application uses a Content Security Policy (CSP), merge the following
+sources into your existing directives.
+
+In production, applications that load any Duffel Components bundle using the
+CDN `<script>` tag documented above must also include
+`https://assets.duffel.com` in `script-src`. This requirement is independent of
+the Evervault sandbox requirements below.
+
+#### `createThreeDSecureSession`
+
+| Directive     | Sources                                                                              | Purpose                                                 |
+| ------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| `script-src`  | `'self' https://js.evervault.com`                                                    | Loads Evervault's browser SDK for the 3DS challenge.    |
+| `connect-src` | `'self' https://api.duffel.com https://keys.evervault.com https://api.evervault.com` | Allows Duffel 3DS API calls and Evervault SDK requests. |
+| `frame-src`   | `https://ui-components.evervault.com`                                                | Embeds Evervault's 3DS challenge UI.                    |
+
+#### `DuffelCardForm`
+
+| Directive        | Sources                            | Purpose                                               |
+| ---------------- | ---------------------------------- | ----------------------------------------------------- |
+| `frame-src`      | `https://api.duffel.cards`         | Embeds the Duffel card form.                          |
+| `img-src`        | `'self' https://assets.duffel.com` | Loads the card form's hosted loading spinner.         |
+| `style-src-attr` | `'unsafe-inline'`                  | Allows the component's React inline style attributes. |
+
+#### Evervault sandbox
+
+When testing 3DS flows with Evervault's sandbox, also merge these sources into
+your existing directives.
+
+| Directive     | Sources                                                                                                                                  | Purpose                                                |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `img-src`     | `https://sandbox-acs.evervault.com`                                                                                                      | Loads sandbox ACS challenge images.                    |
+| `script-src`  | `https://sandbox-acs.evervault.com https://js.evervault.com https://ui-components.evervault.com https://assets.duffel.com`               | Runs scripts required by sandbox 3DS flows.            |
+| `style-src`   | `https://sandbox-acs.evervault.com https://ui-components.evervault.com https://assets.duffel.com`                                        | Loads styles required by sandbox 3DS flows.            |
+| `font-src`    | `https://sandbox-acs.evervault.com`                                                                                                      | Loads sandbox ACS challenge fonts.                     |
+| `frame-src`   | `https://sandbox-acs.evervault.com https://ui-components.evervault.com https://3ds-trampoline.evervault.app`                             | Embeds sandbox ACS and Evervault 3DS challenge frames. |
+| `connect-src` | `https://sandbox-acs.evervault.com https://api.evervault.com https://keys.evervault.com https://api.duffel.com https://api.duffel.cards` | Allows sandbox 3DS and API requests.                   |
+
 ### Is there a runnable example?
 
 Yes. The `example` folder contains the repository's single runnable example. It
