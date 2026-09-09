@@ -91,7 +91,7 @@
     "@storybook/types": "8.6.17",
     "@testing-library/react": "14.3.1",
     "@types/jest": "30.0.0",
-    "@types/lodash": "4.17.24",
+    "@types/lodash": "4.17.25",
     "@types/node": "18.19.130",
     "@types/prompts": "2.4.9",
     "@types/react": "18.2.33",
