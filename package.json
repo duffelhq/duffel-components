@@ -117,7 +117,7 @@
     "prettier-plugin-organize-imports": "3.2.4",
     "prompts": "2.4.2",
     "prop-types": "15.8.1",
-    "puppeteer": "24.43.1",
+    "puppeteer": "25.10.0",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "storybook": "8.6.18",
