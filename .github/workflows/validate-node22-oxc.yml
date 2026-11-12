@@ -1,0 +1,67 @@
+name: Validate Node 22 OXC
+
+on:
+  push:
+    branches: [validation/tsp-2372-node22-oxc]
+
+permissions:
+  contents: read
+
+env:
+  PUPPETEER_SKIP_DOWNLOAD: "true"
+  SENTRYCLI_SKIP_DOWNLOAD: "1"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-oxc:
+    name: Execute TypeScript with OXC on Linux
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out validation commit
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - name: Verify runtime
+        run: node -e 'require("node:assert/strict").equal(process.version, "v22.23.5")'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Execute repository TypeScript through OXC
+        run: |
+          yarn node --no-experimental-strip-types --import @oxc-node/core/register --input-type=module <<'JS'
+          import assert from "node:assert/strict";
+          import { getDuffelHeaders } from "./example/lib/getDuffelHeaders.ts";
+
+          assert.equal(process.version, "v22.23.5");
+          assert.equal(process.platform, "linux");
+          assert.deepEqual(getDuffelHeaders("local-fixture-token"), {
+            "Duffel-Version": "v2",
+            "Accept-Encoding": "gzip",
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: "Bearer local-fixture-token",
+          });
+          console.log(JSON.stringify({
+            node: process.version,
+            platform: process.platform,
+            architecture: process.arch,
+            source: "example/lib/getDuffelHeaders.ts",
+            result: "OXC transformed and executed repository TypeScript",
+          }));
+          JS
