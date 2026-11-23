@@ -1,8 +1,10 @@
-import { OfferRequest } from "@duffel/api/booking/OfferRequests/OfferRequestsTypes";
+import { DuffelNGSViewOfferRequest } from "./types";
 import { Filters } from "./filter-results";
 import { getAirlines } from "./getAirlines";
 
-export function getInitialFilterValues(offerRequest: OfferRequest): Filters {
+export function getInitialFilterValues(
+  offerRequest: DuffelNGSViewOfferRequest,
+): Filters {
   return {
     airlines: getAirlines(offerRequest),
     stops: "any",

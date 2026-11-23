@@ -1,12 +1,11 @@
-import { OfferRequest } from "@duffel/api/types";
+import { DuffelNGSViewOffer } from "./types";
 import { NGSShelf } from ".";
 import { NGSOfferRow } from "./group-offers-for-ngs-view";
 
 export type SortDirection = "asc" | "desc";
 
-export const getCheapestOfferAmount = (
-  offers: OfferRequest["offers"] | null,
-) => (offers ? Math.min(...offers.map((offer) => +offer.total_amount)) : null);
+export const getCheapestOfferAmount = (offers: DuffelNGSViewOffer[] | null) =>
+  offers ? Math.min(...offers.map((offer) => +offer.total_amount)) : null;
 
 export const sortNGSRowsByShelfPrice = (
   rows: NGSOfferRow[],

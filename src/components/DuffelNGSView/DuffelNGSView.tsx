@@ -1,7 +1,7 @@
 import { Icon } from "@components/shared/Icon";
 import { NonIdealState } from "@components/shared/NonIdealState";
 import { WithComponentStyles } from "@components/shared/WithComponentStyles";
-import { OfferRequest } from "@duffel/api/types";
+import { DuffelNGSViewOfferRequest } from "./lib/types";
 import { getDateString } from "@lib/getDateString";
 import classNames from "classnames";
 import * as React from "react";
@@ -66,7 +66,7 @@ setSortShelf(null);
 */
 
 export interface DuffelNGSViewProps {
-  offerRequest: OfferRequest;
+  offerRequest: DuffelNGSViewOfferRequest;
   onSelect: (offerId: string) => void;
 }
 

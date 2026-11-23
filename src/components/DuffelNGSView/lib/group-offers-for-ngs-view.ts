@@ -1,12 +1,12 @@
-import { OfferRequest, OfferSlice } from "@duffel/api/types";
+import { DuffelNGSViewOffer, DuffelNGSViewOfferSlice } from "./types";
 import { NGSShelf } from ".";
 import { deduplicateMappedOffersByFareBrand } from "./deduplicate-mapped-offers-by-fare-brand";
 
-export type NGSOfferRow = Record<"slice", OfferSlice> &
-  Record<NonNullable<NGSShelf>, OfferRequest["offers"] | null>;
+export type NGSOfferRow = Record<"slice", DuffelNGSViewOfferSlice> &
+  Record<NonNullable<NGSShelf>, DuffelNGSViewOffer[] | null>;
 
 export const getNGSSliceKey = (
-  slice: OfferSlice,
+  slice: DuffelNGSViewOfferSlice,
   ownerId: string | null,
   includeFareBrand?: boolean,
 ): string => {
@@ -17,7 +17,7 @@ export const getNGSSliceKey = (
 };
 
 const filterOffersThatMatchCurrentSlice = (
-  offers: OfferRequest["offers"],
+  offers: DuffelNGSViewOffer[],
   previousSliceKeys: string[],
 ) => {
   const filteredOffers = previousSliceKeys.length > 0 ? [] : offers;
@@ -42,7 +42,7 @@ const filterOffersThatMatchCurrentSlice = (
 };
 
 export const groupOffersForNGSView = (
-  offers: OfferRequest["offers"],
+  offers: DuffelNGSViewOffer[],
   sliceIndex: number,
   previousSliceKeys: string[],
 ): NGSOfferRow[] => {

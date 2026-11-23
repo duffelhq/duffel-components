@@ -1,7 +1,9 @@
-import { OfferRequest } from "@duffel/api/types";
+import { DuffelNGSViewOfferRequest } from "./types";
 import { Filters } from "./filter-results";
 
-export function getAirlines(offerRequest: OfferRequest): Filters["airlines"] {
+export function getAirlines(
+  offerRequest: DuffelNGSViewOfferRequest,
+): Filters["airlines"] {
   const airlines: Filters["airlines"] = [];
   const insertedAirlines = new Set<string>();
 

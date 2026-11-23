@@ -1,4 +1,4 @@
-import { OfferSlice } from "@duffel/api/types";
+import { DuffelNGSViewOfferSlice } from "./types";
 import { NGSTableProps } from "../NGSTable";
 
 export interface Filters {
@@ -34,7 +34,7 @@ function isMatchOnAirlines(
 }
 
 function isMatchOnStops(
-  currentOfferSlice: OfferSlice,
+  currentOfferSlice: DuffelNGSViewOfferSlice,
   stops: Filters["stops"],
 ) {
   const sliceStops =
@@ -58,7 +58,7 @@ function isMatchOnStops(
 }
 
 function isMatchOnTimes(
-  currentOfferSlice: OfferSlice,
+  currentOfferSlice: DuffelNGSViewOfferSlice,
   times: Filters["times"],
 ) {
   const firstSegment = currentOfferSlice.segments[0];

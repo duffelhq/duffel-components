@@ -1,6 +1,6 @@
 import { Button } from "@components/shared/Button";
 import { Icon } from "@components/shared/Icon";
-import { Offer } from "@duffel/api/types";
+import { DuffelNGSViewOffer } from "./lib/types";
 import { moneyStringFormatter } from "@lib/moneyStringFormatter";
 import classNames from "classnames";
 import * as React from "react";
@@ -10,7 +10,7 @@ import { doesSliceHaveMixedCabins } from "./lib/does-slice-have-mixed-cabins";
 import { getMaxBaggagesForOfferSlice } from "./lib/get-max-baggages-for-offer-slice";
 
 export interface NGSSliceFareCardProps {
-  offer: Omit<Offer, "available_services">;
+  offer: DuffelNGSViewOffer;
   sliceIndex: number;
 
   onSelect?: () => void;

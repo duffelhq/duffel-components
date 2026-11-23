@@ -1,6 +1,6 @@
-import { OfferRequest, OfferSlice } from "@duffel/api/types";
+import { DuffelNGSViewOffer, DuffelNGSViewOfferSlice } from "./types";
 
-export function doesSliceHaveMixedCabins(slice: OfferSlice) {
+export function doesSliceHaveMixedCabins(slice: DuffelNGSViewOfferSlice) {
   const cabinMarketingNames = new Set<string>();
   for (const segment of slice.segments) {
     cabinMarketingNames.add(segment.passengers[0].cabin_class_marketing_name);
@@ -10,7 +10,7 @@ export function doesSliceHaveMixedCabins(slice: OfferSlice) {
 }
 
 export function doOffersHaveMixedCabin(
-  offer: OfferRequest["offers"] | null,
+  offer: DuffelNGSViewOffer[] | null,
   sliceIndex: number = 0,
 ) {
   if (offer === null) {
