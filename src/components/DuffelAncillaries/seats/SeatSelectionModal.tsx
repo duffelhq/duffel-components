@@ -55,7 +55,6 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
   const segmentAndPassengerPermutations = getPassengerBySegmentList(segments);
   const {
     passenger: { passenger_id: currentPassengerId },
-    passengerIndex: currentPassengerIndex,
     segment: { id: currentSegmentId },
   } = segmentAndPassengerPermutations[currentPermutationIndex];
 
@@ -65,6 +64,10 @@ export const SeatSelectionModal: React.FC<SeatSelectionModalProps> = ({
     (seatMap) => seatMap.segment_id === currentSegmentId,
   )!;
 
+  // Number passengers in offer order, as segments may list them differently.
+  const currentPassengerIndex = offer.passengers.findIndex(
+    ({ id }) => id === currentPassengerId,
+  );
   const currentPassengerName = getPassengerName(
     currentPassenger,
     offer.passengers[currentPassengerIndex],

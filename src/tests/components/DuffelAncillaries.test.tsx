@@ -109,6 +109,44 @@ describe("DuffelAncillaries", () => {
     expect(onPayloadReady).toHaveBeenCalledTimes(2);
   });
 
+  test("should label seat passengers in offer order, then by names given after load", () => {
+    const [firstSlice, ...otherSlices] = MOCK_OFFER.slices;
+    const [firstSegment, ...otherSegments] = firstSlice.segments;
+    const offer: Offer = {
+      ...MOCK_OFFER,
+      slices: [
+        {
+          ...firstSlice,
+          segments: [
+            {
+              ...firstSegment,
+              passengers: [...firstSegment.passengers].reverse(),
+            },
+            ...otherSegments,
+          ],
+        },
+        ...otherSlices,
+      ],
+    };
+    const passengers = mockPassengers.map(({ id, born_on }) => ({
+      id,
+      born_on,
+    })) as typeof mockPassengers;
+
+    const props = { ...defaultProps, offer, onPayloadReady: jest.fn() };
+    const { getByText, getByTitle, rerender } = render(
+      <DuffelAncillaries {...props} passengers={passengers} />,
+    );
+
+    fireEvent.click(getByTitle("Select seats"));
+
+    expect(getByText("Passenger 2", { selector: "p.h3--semibold" }));
+
+    rerender(<DuffelAncillaries {...props} passengers={mockPassengers} />);
+
+    expect(getByText("Mae Jemison", { selector: "p.h3--semibold" }));
+  });
+
   test("should select CFAR service", () => {
     let onPayloadReadyCallCount = 0;
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
