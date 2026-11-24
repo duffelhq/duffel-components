@@ -91,13 +91,19 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
       isPropsWithClientKeyAndOfferId ||
       isPropsWithOfferAndClientKey);
 
-  const [passengers, setPassengers] = React.useState<CreateOrder["passengers"]>(
-    props.passengers,
-  );
-
   const [offer, setOffer] = React.useState<Offer | undefined>(
     (props as any).offer,
   );
+
+  // There's no way the component users will know the passenger IDs for the fixture offer
+  // so we'll need to add them here
+  const passengers: CreateOrder["passengers"] =
+    isPropsWithOfferIdForFixture && offer
+      ? props.passengers.map((passenger, index) => ({
+          ...passenger,
+          id: offer.passengers[index].id,
+        }))
+      : props.passengers;
 
   const [isOfferLoading, setIsOfferLoading] = React.useState(
     isPropsWithClientKeyAndOfferId,
@@ -177,21 +183,10 @@ export const DuffelAncillaries: React.FC<DuffelAncillariesProps> = (props) => {
         (offer) => {
           updateOffer(offer);
 
-          if (offer.passengers.length !== passengers.length) {
+          if (offer.passengers.length !== props.passengers.length) {
             throw new Error(
               `The number of passengers given to \`duffel-ancillaries\` (${props.passengers.length}) doesn't match ` +
                 `the number of passengers on the given offer (${offer.passengers.length}).`,
-            );
-          }
-
-          if (isPropsWithOfferIdForFixture) {
-            // There's no way the component users will know the passenger IDs for the fixture offer
-            // so we'll need to add them here
-            setPassengers(
-              props.passengers.map((passenger, index) => ({
-                ...passenger,
-                id: offer.passengers[index].id,
-              })),
             );
           }
         },

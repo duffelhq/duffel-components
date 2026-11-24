@@ -109,7 +109,7 @@ describe("DuffelAncillaries", () => {
     expect(onPayloadReady).toHaveBeenCalledTimes(2);
   });
 
-  test("should number unnamed passengers in offer order when a segment lists them differently", () => {
+  test("should label seat passengers in offer order, then by names given after load", () => {
     const [firstSlice, ...otherSlices] = MOCK_OFFER.slices;
     const [firstSegment, ...otherSegments] = firstSlice.segments;
     const offer: Offer = {
@@ -133,19 +133,18 @@ describe("DuffelAncillaries", () => {
       born_on,
     })) as typeof mockPassengers;
 
-    const { getByText, getByTitle } = render(
-      <DuffelAncillaries
-        {...defaultProps}
-        offer={offer}
-        passengers={passengers}
-        onPayloadReady={jest.fn()}
-      />,
+    const props = { ...defaultProps, offer, onPayloadReady: jest.fn() };
+    const { getByText, getByTitle, rerender } = render(
+      <DuffelAncillaries {...props} passengers={passengers} />,
     );
 
     fireEvent.click(getByTitle("Select seats"));
 
-    // eslint-disable-next-line no-console
     expect(getByText("Passenger 2", { selector: "p.h3--semibold" }));
+
+    rerender(<DuffelAncillaries {...props} passengers={mockPassengers} />);
+
+    expect(getByText("Mae Jemison", { selector: "p.h3--semibold" }));
   });
 
   test("should select CFAR service", () => {
