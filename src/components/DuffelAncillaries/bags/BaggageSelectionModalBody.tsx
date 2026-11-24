@@ -37,29 +37,35 @@ export const BaggageSelectionModalBody: React.FC<
   localisationStrings,
 }) => (
   <ModalBody>
-    {segment.passengers.map(({ passenger_id, baggages }, index) => (
-      <BaggageSelectionModalBodyPassenger
-        localisationStrings={localisationStrings}
-        key={passenger_id}
-        segmentId={segment.id}
-        passengerId={passenger_id}
-        passengerName={getPassengerName(
-          passengersById[passenger_id],
-          offer.passengers.find(({ id }) => id === passenger_id),
-          index + 1,
-        )}
-        includedBaggage={baggages}
-        passengerServicesForSegment={
-          offer.available_services.filter(
-            ({ type, passenger_ids, segment_ids }) =>
-              type === "baggage" &&
-              passenger_ids.includes(passenger_id) &&
-              segment_ids.includes(segment.id),
-          ) as OfferAvailableServiceBaggage[]
-        }
-        selectedServices={selectedServices}
-        setSelectedServices={setSelectedServices}
-      />
-    ))}
+    {segment.passengers.map(({ passenger_id, baggages }) => {
+      const passengerIndex = offer.passengers.findIndex(
+        ({ id }) => id === passenger_id,
+      );
+
+      return (
+        <BaggageSelectionModalBodyPassenger
+          localisationStrings={localisationStrings}
+          key={passenger_id}
+          segmentId={segment.id}
+          passengerId={passenger_id}
+          passengerName={getPassengerName(
+            passengersById[passenger_id],
+            offer.passengers[passengerIndex],
+            passengerIndex + 1,
+          )}
+          includedBaggage={baggages}
+          passengerServicesForSegment={
+            offer.available_services.filter(
+              ({ type, passenger_ids, segment_ids }) =>
+                type === "baggage" &&
+                passenger_ids.includes(passenger_id) &&
+                segment_ids.includes(segment.id),
+            ) as OfferAvailableServiceBaggage[]
+          }
+          selectedServices={selectedServices}
+          setSelectedServices={setSelectedServices}
+        />
+      );
+    })}
   </ModalBody>
 );

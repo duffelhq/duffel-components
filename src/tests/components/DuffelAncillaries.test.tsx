@@ -109,6 +109,45 @@ describe("DuffelAncillaries", () => {
     expect(onPayloadReady).toHaveBeenCalledTimes(2);
   });
 
+  test("should number unnamed passengers in offer order when a segment lists them differently", () => {
+    const [firstSlice, ...otherSlices] = MOCK_OFFER.slices;
+    const [firstSegment, ...otherSegments] = firstSlice.segments;
+    const offer: Offer = {
+      ...MOCK_OFFER,
+      slices: [
+        {
+          ...firstSlice,
+          segments: [
+            {
+              ...firstSegment,
+              passengers: [...firstSegment.passengers].reverse(),
+            },
+            ...otherSegments,
+          ],
+        },
+        ...otherSlices,
+      ],
+    };
+    const passengers = mockPassengers.map(({ id, born_on }) => ({
+      id,
+      born_on,
+    })) as typeof mockPassengers;
+
+    const { getByText, getByTitle } = render(
+      <DuffelAncillaries
+        {...defaultProps}
+        offer={offer}
+        passengers={passengers}
+        onPayloadReady={jest.fn()}
+      />,
+    );
+
+    fireEvent.click(getByTitle("Select seats"));
+
+    // eslint-disable-next-line no-console
+    expect(getByText("Passenger 2", { selector: "p.h3--semibold" }));
+  });
+
   test("should select CFAR service", () => {
     let onPayloadReadyCallCount = 0;
     const onPayloadReady: OnPayloadReady = jest.fn((data, metadata) => {
