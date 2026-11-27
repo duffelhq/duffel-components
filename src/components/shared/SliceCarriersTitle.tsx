@@ -1,10 +1,13 @@
-import { OfferSlice, OfferSliceSegment } from "@duffel/api/types";
+import {
+  DuffelNGSViewOfferSlice,
+  DuffelNGSViewOfferSliceSegment,
+} from "@components/DuffelNGSView/lib/types";
 import * as React from "react";
 import { AirlineLogo } from "./AirlineLogo";
 import { HSpace } from "./HSpace";
 
 export interface SliceCarriersTitleProps {
-  slice: OfferSlice;
+  slice: DuffelNGSViewOfferSlice;
 }
 
 export const SliceCarriersTitle: React.FC<SliceCarriersTitleProps> = ({
@@ -68,7 +71,9 @@ export const SliceCarriersTitle: React.FC<SliceCarriersTitleProps> = ({
   );
 };
 
-export function getSegmentCarriersTitle(segment: OfferSliceSegment) {
+export function getSegmentCarriersTitle(
+  segment: DuffelNGSViewOfferSliceSegment,
+) {
   const marketingCarrier = segment.marketing_carrier;
   const operatingCarrier = segment.operating_carrier;
 

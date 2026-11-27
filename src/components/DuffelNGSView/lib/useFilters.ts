@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Filters, filterResults } from "./filter-results";
-import { OfferRequest } from "@duffel/api/types";
+import { DuffelNGSViewOfferRequest } from "./types";
 import { getInitialFilterValues } from "./get-initial-filter-values";
 
 export function useFilters(
-  offerRequest: OfferRequest,
+  offerRequest: DuffelNGSViewOfferRequest,
   selectedSliceKeys: string[],
 ) {
   const initialFilterValues = getInitialFilterValues(offerRequest);

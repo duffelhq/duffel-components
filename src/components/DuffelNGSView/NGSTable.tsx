@@ -12,7 +12,7 @@ import {
 
 import { OfferSliceModal } from "@components/OfferSliceModal/OfferSliceModal";
 import { NonIdealState } from "@components/shared/NonIdealState";
-import { OfferRequest, OfferSlice } from "@duffel/api/types";
+import { DuffelNGSViewOffer, DuffelNGSViewOfferSlice } from "./lib/types";
 import { NGSShelfInfoCard } from "./NGSShelfInfoCard";
 import { NGSSliceFareCard } from "./NGSSliceFareCard";
 import { SliceSummary } from "./SliceSummary";
@@ -24,13 +24,13 @@ import { doOffersHaveMixedCabin } from "./lib/does-slice-have-mixed-cabins";
 import { getCheapestOfferAmount } from "./lib/sort-ngs-rows-by-shelf-price";
 
 export interface NGSTableProps {
-  offers: OfferRequest["offers"];
+  offers: DuffelNGSViewOffer[];
   sliceIndex: number;
   previousSliceKeys: string[]; // For filtering the current set of offers
   onSelect: (
     offerId: string,
     sliceKey: string,
-    offer: OfferRequest["offers"][number],
+    offer: DuffelNGSViewOffer,
   ) => void;
   sortingFunction: (rows: NGSOfferRow[]) => NGSOfferRow[];
   selectedColumn: NGSShelf | null;
@@ -56,7 +56,7 @@ export const NGSTable: React.FC<NGSTableProps> = ({
   const [isOfferSliceModalOpen, setIsOfferSliceModalOpen] =
     React.useState<boolean>(false);
   const [offerSliceModalSlice, setOfferSliceModalSlice] =
-    React.useState<OfferSlice>(offers[0]?.slices[sliceIndex]);
+    React.useState<DuffelNGSViewOfferSlice>(offers[0]?.slices[sliceIndex]);
 
   React.useEffect(() => {
     setSelectedColumn(null);

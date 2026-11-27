@@ -1,11 +1,11 @@
-import {
-  OfferAvailableServiceBaggageMetadata,
-  OfferSlice,
-  OfferSliceSegmentPassenger,
-} from "@duffel/api/types";
+import { OfferAvailableServiceBaggageMetadata } from "@duffel/api/types";
+import { DuffelNGSViewOfferSlice } from "./types";
+
+type Baggages =
+  DuffelNGSViewOfferSlice["segments"][number]["passengers"][number]["baggages"];
 
 const getBaggagesQuantity = (
-  baggages: OfferSliceSegmentPassenger["baggages"],
+  baggages: Baggages,
   type: OfferAvailableServiceBaggageMetadata["type"],
 ): number => {
   return baggages
@@ -22,9 +22,9 @@ const getBaggagesQuantity = (
  * be used as the baseline for a slice.
  */
 export const getMaxBaggagesForOfferSlice = (
-  offerSlice: OfferSlice,
+  offerSlice: DuffelNGSViewOfferSlice,
   type: OfferAvailableServiceBaggageMetadata["type"],
-): OfferSliceSegmentPassenger["baggages"] => {
+): Baggages => {
   let maxBaggages = offerSlice.segments[0].passengers[0].baggages.filter(
     (baggage) => baggage.type === type,
   );

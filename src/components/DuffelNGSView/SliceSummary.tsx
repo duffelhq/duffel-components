@@ -1,5 +1,5 @@
 import { Icon } from "@components/shared/Icon";
-import { OfferSlice } from "@duffel/api/types";
+import { DuffelNGSViewOfferSlice } from "./lib/types";
 import { convertDurationToString } from "@lib/convertDurationToString";
 import { getTimeString } from "@lib/getTimeString";
 import { withPlural } from "@lib/withPlural";
@@ -7,7 +7,7 @@ import classNames from "classnames";
 import React from "react";
 
 export interface SliceSummaryProps {
-  slice: OfferSlice;
+  slice: DuffelNGSViewOfferSlice;
 }
 
 export const SliceSummary: React.FC<SliceSummaryProps> = ({ slice }) => {

@@ -1,6 +1,6 @@
 import { Icon, IconName } from "@components/shared/Icon";
 import { getSegmentCarriersTitle } from "@components/shared/SliceCarriersTitle";
-import { OfferSlice as OfferSliceType } from "@duffel/api/types";
+import { DuffelNGSViewOfferSlice } from "@components/DuffelNGSView/lib/types";
 import { convertDurationToString } from "@lib/convertDurationToString";
 import { getDateString } from "@lib/getDateString";
 import { getDurationString } from "@lib/getDurationString";
@@ -10,7 +10,7 @@ import classNames from "classnames";
 import React from "react";
 
 export interface OfferSliceProps {
-  slice: OfferSliceType;
+  slice: DuffelNGSViewOfferSlice;
 }
 
 export const OfferSlice: React.FC<OfferSliceProps> = ({ slice }) => {

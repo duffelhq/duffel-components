@@ -1,8 +1,5 @@
-import {
-  Offer,
-  OfferRequest,
-  OfferSliceSegmentPassenger,
-} from "@duffel/api/types";
+import { OfferSliceSegmentPassenger } from "@duffel/api/types";
+import { DuffelNGSViewOffer } from "./types";
 import { NGSOfferRow } from "./group-offers-for-ngs-view";
 import { NGS_SHELVES } from ".";
 
@@ -33,7 +30,7 @@ export const deduplicateMappedOffersByFareBrand = (
 };
 
 export const getFareBrandNameForOffer = (
-  offer: Omit<Offer, "available_services">,
+  offer: DuffelNGSViewOffer,
   sliceIndex?: number,
 ): string => {
   // Cabin class can vary within a slice across passengers and segments. Here we
@@ -57,7 +54,9 @@ export const getFareBrandNameForOffer = (
     .replace(/\b\w/g, (c) => c.toUpperCase());
 };
 
-export const getCheapestOffer = (offers: OfferRequest["offers"]) =>
+export const getCheapestOffer = (
+  offers: DuffelNGSViewOffer[],
+): DuffelNGSViewOffer =>
   offers.find(
     (offer) =>
       +offer.total_amount ==
@@ -65,24 +64,23 @@ export const getCheapestOffer = (offers: OfferRequest["offers"]) =>
   )!;
 
 export const groupByFareBrandName = (
-  offers: OfferRequest["offers"],
+  offers: DuffelNGSViewOffer[],
   sliceIndex?: number,
-) => {
-  const groupedResult: { [key: string]: OfferRequest["offers"] } =
-    offers.reduce(
-      (
-        previous: { [key: string]: OfferRequest["offers"] },
-        current: Omit<Offer, "available_services">,
-      ) => {
-        const key = getFareBrandNameForOffer(current, sliceIndex);
-        if (!previous[key]) {
-          previous[key] = [];
-        }
+): DuffelNGSViewOffer[][] => {
+  const groupedResult: { [key: string]: DuffelNGSViewOffer[] } = offers.reduce(
+    (
+      previous: { [key: string]: DuffelNGSViewOffer[] },
+      current: DuffelNGSViewOffer,
+    ) => {
+      const key = getFareBrandNameForOffer(current, sliceIndex);
+      if (!previous[key]) {
+        previous[key] = [];
+      }
 
-        previous[key].push(current);
-        return previous;
-      },
-      {},
-    );
+      previous[key].push(current);
+      return previous;
+    },
+    {},
+  );
   return Object.values(groupedResult);
 };
